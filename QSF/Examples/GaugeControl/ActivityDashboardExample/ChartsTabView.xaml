@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:local="clr-namespace:QSF.Examples.GaugeControl.ActivityDashboardExample"
+             x:Class="QSF.Examples.GaugeControl.ActivityDashboardExample.ChartsTabView">
+    <VisualElement.Resources>
+        <ResourceDictionary MergedWith="local:Resources">
+            <ControlTemplate x:Key="moveTabViewHeaderItemControlTemplate">
+                <Grid BackgroundColor="Transparent">
+                    <BoxView IsVisible="{TemplateBinding IsSelected}"
+                             BackgroundColor="{StaticResource moveColor}"
+                             VerticalOptions="End"
+                             HeightRequest="2"
+                             Margin="1, 0, 1, 0" />
+                    <Label Text="{TemplateBinding Text}"
+                           TextColor="{StaticResource chartForeground}"
+                           BackgroundColor="{StaticResource moveColor}"
+                           HorizontalTextAlignment="Center"
+                           Margin="1, 0, 1, 2" />
+                </Grid>
+            </ControlTemplate>
+            <ControlTemplate x:Key="exerciseTabViewHeaderItemControlTemplate">
+                <Grid BackgroundColor="Transparent">
+                    <BoxView IsVisible="{TemplateBinding IsSelected}"
+                             BackgroundColor="{StaticResource exerciseColor}"
+                             VerticalOptions="End"
+                             HeightRequest="2"
+                             Margin="1, 0, 1, 0" />
+                    <Label Text="{TemplateBinding Text}"
+                           TextColor="{StaticResource chartForeground}"
+                           BackgroundColor="{StaticResource exerciseColor}"
+                           HorizontalTextAlignment="Center"
+                           Margin="1, 0, 1, 2" />
+                </Grid>
+            </ControlTemplate>
+            <ControlTemplate x:Key="standTabViewHeaderItemControlTemplate">
+                <Grid BackgroundColor="Transparent">
+                    <BoxView IsVisible="{TemplateBinding IsSelected}"
+                             BackgroundColor="{StaticResource standColor}"
+                             VerticalOptions="End"
+                             HeightRequest="2"
+                             Margin="1, 0, 1, 0" />
+                    <Label Text="{TemplateBinding Text}"
+                           TextColor="{StaticResource chartForeground}"
+                           BackgroundColor="{StaticResource standColor}"
+                           HorizontalTextAlignment="Center"
+                           Margin="1, 0, 1, 2" />
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </VisualElement.Resources>
+
+    <ContentView.Content>
+        <telerikPrimitives:RadTabView>
+            <telerikPrimitives:RadTabView.Items>
+                <telerikPrimitives:TabViewItem>
+                    <telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewHeaderItem Text="MOVE" 
+                                                             ControlTemplate="{StaticResource moveTabViewHeaderItemControlTemplate}" />
+                    </telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewItem.Content>
+                        <Grid BackgroundColor="{StaticResource moveColor}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <telerikChart:RadCartesianChart Margin="-7, 35, 0, 0" BackgroundColor="{StaticResource moveColor}" Grid.RowSpan="2">
+                                <telerikChart:RadCartesianChart.HorizontalAxis>
+                                    <telerikChart:CategoricalAxis LineColor="{StaticResource chartForegroundSemiTransparent}"
+                                                                  LabelTextColor="{StaticResource chartForeground}"
+                                                                  MajorTickThickness="0" />
+                                </telerikChart:RadCartesianChart.HorizontalAxis>
+                                <telerikChart:RadCartesianChart.VerticalAxis>
+                                    <telerikChart:NumericalAxis Minimum="0"
+                                                                Maximum="1"
+                                                                ShowLabels="False"
+                                                                MajorTickThickness="0" />
+                                </telerikChart:RadCartesianChart.VerticalAxis>
+                                <telerikChart:RadCartesianChart.Grid>
+                                    <telerikChart:CartesianChartGrid MajorLinesVisibility="Y"
+                                                                     MajorLineThickness="1"
+                                                                     MajorLineColor="{StaticResource chartForegroundSemiTransparent}" />
+                                </telerikChart:RadCartesianChart.Grid>
+                                <telerikChart:RadCartesianChart.Series>
+                                    <telerikChart:LineSeries CategoryBinding="Day"
+                                                             ValueBinding="ActivityIndex"
+                                                             ItemsSource="{Binding MoveData}"
+                                                             Stroke="{StaticResource chartForeground}" />
+                                </telerikChart:RadCartesianChart.Series>
+                            </telerikChart:RadCartesianChart>
+                            <Label Text="Daily Measurements"
+                                   TextColor="{StaticResource chartForeground}"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalOptions="Start"
+                                   Margin="0, 4, 0, 0"
+                                   FontSize="14"
+                                   Grid.RowSpan="2"
+                                   FontAttributes="Bold" />
+                        </Grid>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem>
+                    <telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewHeaderItem Text="EXERCISE"
+                                                             ControlTemplate="{StaticResource exerciseTabViewHeaderItemControlTemplate}" />
+                    </telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewItem.Content>
+                        <Grid BackgroundColor="{StaticResource exerciseColor}">
+                            <telerikChart:RadCartesianChart Margin="-7, 35, 0, 0"
+                                                            BackgroundColor="{StaticResource exerciseColor}">
+                                <telerikChart:RadCartesianChart.HorizontalAxis>
+                                    <telerikChart:CategoricalAxis LineColor="{StaticResource chartForegroundSemiTransparent}"
+                                                                  LabelTextColor="{StaticResource chartForeground}"
+                                                                  MajorTickThickness="0" />
+                                </telerikChart:RadCartesianChart.HorizontalAxis>
+                                <telerikChart:RadCartesianChart.VerticalAxis>
+                                    <telerikChart:NumericalAxis Minimum="0"
+                                                                Maximum="1"
+                                                                ShowLabels="False"
+                                                                MajorTickThickness="0" />
+                                </telerikChart:RadCartesianChart.VerticalAxis>
+                                <telerikChart:RadCartesianChart.Grid>
+                                    <telerikChart:CartesianChartGrid MajorLinesVisibility="Y"
+                                                                     MajorLineThickness="1"
+                                                                     MajorLineColor="{StaticResource chartForegroundSemiTransparent}" />
+                                </telerikChart:RadCartesianChart.Grid>
+                                <telerikChart:RadCartesianChart.Series>
+                                    <telerikChart:LineSeries CategoryBinding="Day"
+                                                             ValueBinding="ActivityIndex"
+                                                             ItemsSource="{Binding ExerciseData}"
+                                                             Stroke="{StaticResource chartForeground}" />
+                                </telerikChart:RadCartesianChart.Series>
+                            </telerikChart:RadCartesianChart>
+                            <Label Text="Daily Measurements"
+                                   TextColor="{StaticResource chartForeground}"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalOptions="Start"
+                                   Margin="0, 4, 0, 0"
+                                   FontSize="14"
+                                   FontAttributes="Bold" />
+                        </Grid>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem>
+                    <telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewHeaderItem Text="STAND"
+                                                             ControlTemplate="{StaticResource standTabViewHeaderItemControlTemplate}" />
+                    </telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewItem.Content>
+                        <Grid BackgroundColor="{StaticResource standColor}">
+                            <telerikChart:RadCartesianChart Margin="-7, 35, 0, 0"
+                                                            BackgroundColor="{StaticResource standColor}">
+                                <telerikChart:RadCartesianChart.HorizontalAxis>
+                                    <telerikChart:CategoricalAxis LineColor="{StaticResource chartForegroundSemiTransparent}"
+                                                                  LabelTextColor="{StaticResource chartForeground}"
+                                                                  MajorTickThickness="0" />
+                                </telerikChart:RadCartesianChart.HorizontalAxis>
+                                <telerikChart:RadCartesianChart.VerticalAxis>
+                                    <telerikChart:NumericalAxis Minimum="0"
+                                                                Maximum="1"
+                                                                ShowLabels="False"
+                                                                MajorTickThickness="0" />
+                                </telerikChart:RadCartesianChart.VerticalAxis>
+                                <telerikChart:RadCartesianChart.Grid>
+                                    <telerikChart:CartesianChartGrid MajorLinesVisibility="Y"
+                                                                     MajorLineThickness="1"
+                                                                     MajorLineColor="{StaticResource chartForegroundSemiTransparent}" />
+                                </telerikChart:RadCartesianChart.Grid>
+                                <telerikChart:RadCartesianChart.Series>
+                                    <telerikChart:LineSeries CategoryBinding="Day"
+                                                             ValueBinding="ActivityIndex"
+                                                             ItemsSource="{Binding StandData}"
+                                                             Stroke="{StaticResource chartForeground}" />
+                                </telerikChart:RadCartesianChart.Series>
+                            </telerikChart:RadCartesianChart>
+                            <Label Text="Daily Measurements"
+                                   TextColor="{StaticResource chartForeground}"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalOptions="Start"
+                                   Margin="0, 4, 0, 0"
+                                   FontSize="14"
+                                   FontAttributes="Bold" />
+                        </Grid>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+            </telerikPrimitives:RadTabView.Items>
+        </telerikPrimitives:RadTabView>
+    </ContentView.Content>
+</ContentView>

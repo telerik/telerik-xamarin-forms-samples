@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:local="clr-namespace:QSF.Examples.SpreadStreamProcessingControl.GenerateSpreadsheetExample"
+             x:Class="QSF.Examples.SpreadStreamProcessingControl.GenerateSpreadsheetExample.GenerateSpreadsheetView">
+    <ContentView.BindingContext>
+        <local:GenerateSpreadsheetViewModel />
+    </ContentView.BindingContext>
+    <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
+        <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <telerikDataControls:RadListView x:Name="list" ItemsSource="{Binding Courses}" SelectionMode="None">
+                <telerikDataControls:RadListView.ItemStyle>
+                    <listView:ListViewItemStyle BackgroundColor="Transparent" BorderLocation="Bottom" BorderColor="#F0F0F0" BorderWidth="1" />
+                </telerikDataControls:RadListView.ItemStyle>
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <listView:ListViewLinearLayout ItemLength="80" />
+                </telerikDataControls:RadListView.LayoutDefinition>
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <listView:ListViewTemplateCell>
+                            <listView:ListViewTemplateCell.View>
+                                <Grid ColumnSpacing="0" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="16, 0">
+                                        <Label Text="{Binding CourseName}" FontSize="16" TextColor="Black" />
+                                        <Label Text="{Binding University}" FontSize="13" TextColor="Black" FontFamily="{StaticResource Key=RegularFont}" />
+                                    </StackLayout>
+
+                                    <Label Text="{Binding Path=Progress, StringFormat='{0} %'}" FontSize="16" TextColor="Black" Grid.Column="1"
+                                           VerticalOptions="Center" Margin="16, 0" FontFamily="{StaticResource Key=RegularFont}" />
+                                </Grid>
+                            </listView:ListViewTemplateCell.View>
+                        </listView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+            </telerikDataControls:RadListView>
+
+            <Button BackgroundColor="#FBB03B" Text="Generate Spreadsheet" Grid.Row="1" BorderRadius="0" Command="{Binding Path=GenerateSpreadsheetCommand}" HeightRequest="60" />
+        </Grid>
+    </Grid>
+</ContentView>

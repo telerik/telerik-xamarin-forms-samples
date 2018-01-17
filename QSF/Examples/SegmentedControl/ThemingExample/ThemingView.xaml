@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.SegmentedControl.ThemingExample.ThemingView">
+    <telerikInput:RadSegmentedControl x:Name="segmented"
+                                      Margin="20"
+                                      WidthRequest="240"
+                                      HeightRequest="60"
+                                      VerticalOptions="Start"
+                                      SelectedIndex="0"
+                                      views:ThemesBehavior.StyleClass="TelerikTheme">
+        <telerikInput:RadSegmentedControl.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:String>Selected</x:String>
+                <x:String>Normal</x:String>
+                <x:String>Disabled</x:String>
+            </x:Array>
+        </telerikInput:RadSegmentedControl.ItemsSource>
+    </telerikInput:RadSegmentedControl>
+</ContentView>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:controls="clr-namespace:QSF.Controls"
+             xmlns:effects="clr-namespace:QSF.Effects"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Name="page"
+             x:Class="QSF.Views.HomeView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="SlideViewItemTemplate">
+                <Grid BackgroundColor="Transparent">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.TapCommand, Source={x:Reference Name=page}}" CommandParameter="{Binding}" />
+                    </Grid.GestureRecognizers>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}" Aspect="Fill" BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
+                           HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="160" HeightRequest="160" Margin="10" />
+
+                    <Grid Grid.Column="1" Margin="0, 0, 10, 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name}" Style="{StaticResource Key=ControlExampleNameLabelStyle}" />
+                        <Label Text="{Binding Path=ShortDescription}" LineBreakMode="WordWrap"
+                               Style="{StaticResource Key=BodyLabelStyle}" Grid.Row="1" />
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+
+            <Style TargetType="telerikPrimitives:RadSlideView" x:Key="ControlsSlideViewStyle">
+                <Setter Property="ShowButtons" Value="False" />
+                <Setter Property="IsInfiniteScrollingEnabled" Value="True" />
+                <Setter Property="HeightRequest" Value="205" />
+                <Setter Property="Margin" Value="0, 10, 0, 0" />
+                <Setter Property="HorizontalContentOptions" Value="Start" />
+                <Setter Property="VerticalContentOptions" Value="Start" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Key=LightBackgroundColor}" />
+            </Style>
+
+            <Thickness x:Key="Margin">12, 12, 12, 6</Thickness>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <telerikPrimitives:RadSideDrawer IsOpen="{Binding Path=IsSideDrawerOpen, Mode=TwoWay}" DrawerLength="270" DrawerTransitionType="SlideInOnTop">
+            <telerikPrimitives:RadSideDrawer.MainContent>
+                <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <controls:AppBar LeftButtonText="{StaticResource Key=BurgerButtonIcon}"
+                                     Title="{Binding Path=Title}"
+                                     TitleHorizontalOptions="Center"
+                                     LeftButtonCommand="{Binding Path=AppBarLeftButtonCommand}"
+                                     IsMiddleButtonEnabled="False"
+                                     IsMiddleButtonVisible="False"
+                                     RightButtonCommand="{Binding Path=AppBarRightButtonCommand}"
+                                     RightButtonText="{StaticResource Key=SearchButtonIcon}">
+                        <controls:AppBar.TitleIcon>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS, Android">Logo.png</On>
+                                <On Platform="UWP">assets/Logo.png</On>
+                            </OnPlatform>
+                        </controls:AppBar.TitleIcon>
+                    </controls:AppBar>
+
+                    <ScrollView Grid.Row="1">
+                        <StackLayout>
+                            <Label Text="Latest" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
+
+                            <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Latest}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
+                                                            Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}" />
+
+                            <Label Text="Featured" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}" />
+
+                            <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Featured}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
+                                                            Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}" />
+
+                            <Label Text="All controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
+
+                            <telerikDataControls:RadListView ItemsSource="{Binding Path=AllControls}" SelectedItem="{Binding Path=SelectedControl, Mode=TwoWay}"
+                                                             x:Name="examplesList">
+                                <telerikDataControls:RadListView.Effects>
+                                    <effects:ListViewSizeToContentEffect />
+                                    <effects:ListViewRemoveBackgroundEffect />
+                                </telerikDataControls:RadListView.Effects>
+                                <telerikDataControls:RadListView.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="Android" Value="6" />
+                                        <On Platform="iOS" Value="12" />
+                                        <On Platform="UWP" Value="-10, 0" />
+                                    </OnPlatform>
+                                </telerikDataControls:RadListView.Margin>
+                                <telerikDataControls:RadListView.LayoutDefinition>
+                                    <telerikListView:ListViewGridLayout HorizontalItemSpacing="12" VerticalItemSpacing="12">
+                                        <telerikListView:ListViewGridLayout.ItemLength>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS, Android" Value="245" />
+                                                <On Platform="UWP" Value="280" />
+                                            </OnPlatform>
+                                        </telerikListView:ListViewGridLayout.ItemLength>
+                                    </telerikListView:ListViewGridLayout>
+                                </telerikDataControls:RadListView.LayoutDefinition>
+                                <telerikDataControls:RadListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <telerikListView:ListViewTemplateCell>
+                                            <telerikListView:ListViewTemplateCell.View>
+                                                <StackLayout BackgroundColor="{StaticResource Key=LightBackgroundColor}" Padding="10">
+                                                    <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}" HeightRequest="160">
+                                                        <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}" Aspect="AspectFit"
+                                                               WidthRequest="160" HeightRequest="160" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                    </Grid>
+                                                    <Label Text="{Binding Path=Name}" Style="{StaticResource Key=ControlExampleNameLabelStyle}"/>
+
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Label Text="BETA" IsVisible="{Binding Path=IsBeta}" TextColor="{StaticResource Key=AccentColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
+                                                            <Label Text="CTP" IsVisible="{Binding Path=IsCTP}" TextColor="{StaticResource Key=CTPTextColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
+                                                            <Label Text="NEW" IsVisible="{Binding Path=IsNew}" TextColor="{StaticResource Key=AccentColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
+                                                        </StackLayout>
+
+                                                        <Label Text="UPDATED" IsVisible="{Binding Path=IsUpdated}" Grid.Column="1" TextColor="{StaticResource Key=AccentColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
+                                                    </Grid>
+                                                </StackLayout>
+                                            </telerikListView:ListViewTemplateCell.View>
+                                        </telerikListView:ListViewTemplateCell>
+                                    </DataTemplate>
+                                </telerikDataControls:RadListView.ItemTemplate>
+                            </telerikDataControls:RadListView>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </telerikPrimitives:RadSideDrawer.MainContent>
+            <telerikPrimitives:RadSideDrawer.DrawerContent>
+                <ScrollView>
+                    <StackLayout Spacing="10" BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                        <StackLayout BackgroundColor="{StaticResource Key=HeaderBackgroundsColor}" >
+                            <ffimageloading:CachedImage HorizontalOptions="Center" Source="{Binding Path=SideDrawerHeaderIcon, Converter={StaticResource ImageSourceConverter}}" Margin="0, 60, 0, 25" />
+
+                            <Label Text="{Binding Path=SideDrawerHeaderTitle}" Style="{StaticResource Key=HeaderLabelStyle}" TextColor="{StaticResource Key=LightTextColor}" HorizontalOptions="Center" Margin="0, 0, 0, 5" />
+                            <Label Text="{Binding Path=SideDrawerSubHeaderTitle}" Style="{StaticResource Key=SubHeaderLabelStyle}" HorizontalOptions="Center" Margin="0, 0, 0, 50" />
+                        </StackLayout>
+
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="What's New" Command="{Binding Path=NavigateToWhatsNewPageCommand}">
+                                <telerikInput:RadButton.Effects>
+                                    <effects:NoAllCapsButtonEffect />
+                                </telerikInput:RadButton.Effects>
+                            </telerikInput:RadButton>
+
+                            <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
+                        </Grid>
+
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Product Page" Command="{Binding Path=NavigateToProductPageCommand}">
+                                <telerikInput:RadButton.Effects>
+                                    <effects:NoAllCapsButtonEffect />
+                                </telerikInput:RadButton.Effects>
+                            </telerikInput:RadButton>
+
+                            <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
+                        </Grid>
+
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Documentation" Command="{Binding Path=NavigateToDocumentationCommand}">
+                                <telerikInput:RadButton.Effects>
+                                    <effects:NoAllCapsButtonEffect />
+                                </telerikInput:RadButton.Effects>
+                            </telerikInput:RadButton>
+
+                            <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
+                        </Grid>
+
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Source" Command="{Binding Path=NavigateToSourceCommand}">
+                                <telerikInput:RadButton.Effects>
+                                    <effects:NoAllCapsButtonEffect />
+                                </telerikInput:RadButton.Effects>
+                            </telerikInput:RadButton>
+
+                            <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
+                        </Grid>
+
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="About" Command="{Binding Path=NavigateToAboutCommand}">
+                                <telerikInput:RadButton.Effects>
+                                    <effects:NoAllCapsButtonEffect />
+                                </telerikInput:RadButton.Effects>
+                            </telerikInput:RadButton>
+                        </Grid>
+
+                    </StackLayout>
+                </ScrollView>
+            </telerikPrimitives:RadSideDrawer.DrawerContent>
+        </telerikPrimitives:RadSideDrawer>
+        <views:OnBoardingView x:Name="onBoarding" Closing="OnBoardingClosing" />
+    </Grid>
+</ContentPage>

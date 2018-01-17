@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GalleryExampleViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:example="clr-namespace:QSF.Examples.ChartControl.ThemingExample"
+                              xmlns:views="clr-namespace:QSF.Views"
+                              xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              x:Class="QSF.Examples.ChartControl.ThemingExample.ThemingView">
+    <views:GalleryExampleViewBase.Resources>
+        <ResourceDictionary MergedWith="views:GalleryResources">
+            <DataTemplate x:Key="bar">
+                <StackLayout>
+                    <telerikChart:RadCartesianChart views:ThemesBehavior.StyleClass="TelerikTheme" x:Name="chart" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="16, 0">
+                        <telerikChart:RadCartesianChart.Behaviors>
+                            <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
+                        </telerikChart:RadCartesianChart.Behaviors>
+                        <telerikChart:RadCartesianChart.HorizontalAxis>
+                            <telerikChart:CategoricalAxis />
+                        </telerikChart:RadCartesianChart.HorizontalAxis>
+                        <telerikChart:RadCartesianChart.VerticalAxis>
+                            <telerikChart:NumericalAxis />
+                        </telerikChart:RadCartesianChart.VerticalAxis>
+                        <telerikChart:RadCartesianChart.Series>
+                            <telerikChart:BarSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SeriesData}" CombineMode="Cluster" DisplayName="Hybrid"/>
+                            <telerikChart:BarSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SecondSeriesData}" CombineMode="Cluster" DisplayName="Electric"/>
+                            <telerikChart:BarSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding ThirdSeriesData}" CombineMode="Cluster" DisplayName="Petrol"/>
+                        </telerikChart:RadCartesianChart.Series>
+                    </telerikChart:RadCartesianChart>
+                    <telerikChart:RadLegend LegendItemFontColor="Black" LegendProvider="{x:Reference chart}" Orientation="Horizontal" Margin="16, 16, 0, 16" />
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="pieChart">
+                <StackLayout>
+                    <telerikChart:RadPieChart views:ThemesBehavior.StyleClass="TelerikTheme" x:Name="pie" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <telerikChart:RadPieChart.Behaviors>
+                            <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None" />
+                        </telerikChart:RadPieChart.Behaviors>
+                        <telerikChart:RadPieChart.Series>
+                            <telerikChart:PieSeries ValueBinding="Value" ItemsSource="{Binding SeriesData}" RadiusFactor="0.9" DisplayName="Value" LegendTitleBinding="Category" />
+                        </telerikChart:RadPieChart.Series>
+                    </telerikChart:RadPieChart>
+                    <telerikChart:RadLegend LegendItemFontColor="Black" LegendProvider="{x:Reference pie}" Orientation="Horizontal" Margin="16, 16, 0, 16" />
+                </StackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </views:GalleryExampleViewBase.Resources>
+    <views:GalleryExampleViewBase.BindingContext>
+        <example:ThemingViewModel />
+    </views:GalleryExampleViewBase.BindingContext>
+    <views:GalleryExampleViewBase.HeaderContent>
+        <Label Text="Expected Sales per Year"
+               TextColor="Black"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               Margin="0, 36, 0, 36" />
+    </views:GalleryExampleViewBase.HeaderContent>
+</views:GalleryExampleViewBase>

@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GalleryExampleViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+                              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                              xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+                              xmlns:local="clr-namespace:QSF.Examples.GaugeControl.RadialGaugeGalleryExample"
+                              xmlns:views="clr-namespace:QSF.Views"
+                              x:Class="QSF.Examples.GaugeControl.RadialGaugeGalleryExample.RadialGaugeGalleryView">
+    <views:GalleryExampleViewBase.Resources>
+        <ResourceDictionary>
+            <Color x:Key="blue">#21C5FE</Color>
+            <Color x:Key="green">#8ED60A</Color>
+            <Color x:Key="orange">#FD9900</Color>
+            <Color x:Key="red">#FD1800</Color>
+            <Color x:Key="gray">#DDDDDD</Color>
+            <telerikCommon:AnimationSettings x:Key="disabledAnimations" Enabled="False" />
+            <telerikCommon:RadPathGeometry x:Key="customNeedle1">
+                <telerikCommon:RadPathFigure StartPoint="0.54, 0.5">
+                    <telerikCommon:RadArcSegment Center="0.5, 0.5"
+                                                 Size="0.04, 0.04"
+                                                 StartAngle="0"
+                                                 SweepAngle="360" />
+                    <telerikCommon:RadLineSegment Point="1, 0.5" />
+                </telerikCommon:RadPathFigure>
+            </telerikCommon:RadPathGeometry>
+            <telerikCommon:RadPathGeometry x:Key="customShape">
+                <telerikCommon:RadPathFigure StartPoint="0, 0.5">
+                    <telerikCommon:RadLineSegment Point="0.7, 0.5" />
+                    <telerikCommon:RadArcSegment Center="0.85, 0.5"
+                                                 Size="0.3, 0.3"
+                                                 StartAngle="180"
+                                                 SweepAngle="360" />
+                </telerikCommon:RadPathFigure>
+            </telerikCommon:RadPathGeometry>
+            <telerikCommon:RadPathGeometry x:Key="customNeedle3">
+                <telerikCommon:RadPathFigure StartPoint="0.533, 0.51">
+                    <telerikCommon:RadLineSegment Point="1, 0.5" />
+                    <telerikCommon:RadLineSegment Point="0.533, 0.49" />
+                    <telerikCommon:RadArcSegment Center="0.5, 0.5"
+                                                 Size="0.07, 0.07"
+                                                 StartAngle="20"
+                                                 SweepAngle="142" />
+                    <telerikCommon:RadLineSegment Point="0.43, 0.488" />
+                    <telerikCommon:RadLineSegment Point="0.43, 0.512" />
+                    <telerikCommon:RadArcSegment Center="0.5, 0.5"
+                                                 Size="0.07, 0.07"
+                                                 StartAngle="200"
+                                                 SweepAngle="142" />
+                </telerikCommon:RadPathFigure>
+            </telerikCommon:RadPathGeometry>
+            <DataTemplate x:Key="template1">
+                <telerikGauges:RadRadialGauge>
+                    <telerikGauges:RadRadialGauge.Axis>
+                        <telerikGauges:GaugeLinearAxis LabelInterval="2"
+                                                       LabelPosition="Start"
+                                                       Maximum="180"
+                                                       Minimum="0"
+                                                       Step="10"
+                                                       StrokeThickness="0"
+                                                       TickPosition="Start"
+                                                       TickThickness="1" />
+                    </telerikGauges:RadRadialGauge.Axis>
+                    <telerikGauges:RadRadialGauge.Ranges>
+                        <telerikGauges:GaugeRangesDefinition EndThickness="10"
+                                                             Position="End"
+                                                             StartThickness="10"
+                                                             Offset="0">
+                            <telerikGauges:GaugeRange Color="{StaticResource green}"
+                                                      From="0"
+                                                      To="59.5" />
+                            <telerikGauges:GaugeRange Color="{StaticResource orange}"
+                                                      From="60.5"
+                                                      To="119.5" />
+                            <telerikGauges:GaugeRange Color="{StaticResource red}"
+                                                      From="120.5"
+                                                      To="180" />
+                        </telerikGauges:GaugeRangesDefinition>
+                    </telerikGauges:RadRadialGauge.Ranges>
+                    <telerikGauges:RadRadialGauge.Indicators>
+                        <telerikGauges:GaugeNeedleIndicator Fill="{StaticResource red}" Value="130" />
+                    </telerikGauges:RadRadialGauge.Indicators>
+                </telerikGauges:RadRadialGauge>
+            </DataTemplate>
+            <DataTemplate x:Key="template2">
+                <telerikGauges:RadRadialGauge StartAngle="90" SweepAngle="360">
+                    <telerikGauges:RadRadialGauge.Axis>
+                        <telerikGauges:GaugeLinearAxis Maximum="1"
+                                                       Minimum="0"
+                                                       ShowLabels="False"
+                                                       StrokeThickness="0" />
+                    </telerikGauges:RadRadialGauge.Axis>
+                    <telerikGauges:RadRadialGauge.Ranges>
+                        <telerikGauges:GaugeRangesDefinition Offset="0">
+                            <telerikGauges:GaugeRange Color="{StaticResource gray}"
+                                                      From="0"
+                                                      To="1" />
+                        </telerikGauges:GaugeRangesDefinition>
+                    </telerikGauges:RadRadialGauge.Ranges>
+                    <telerikGauges:RadRadialGauge.Indicators>
+                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                         Fill="{StaticResource blue}"
+                                                         StartCap="Oval"
+                                                         Offset="0"
+                                                         Value="0.45" />
+                        <telerikGauges:GaugeRangeBarIndicator Fill="{StaticResource green}"
+                                                              FromCap="ConcaveOval"
+                                                              ToCap="Oval"
+                                                              Offset="0"
+                                                              From="0.45"
+                                                              To="0.6" />
+                        <telerikGauges:GaugeRangeBarIndicator Fill="{StaticResource orange}"
+                                                              FromCap="ConcaveOval"
+                                                              ToCap="Oval"
+                                                              Offset="0"
+                                                              From="0.6"
+                                                              To="0.75" />
+                    </telerikGauges:RadRadialGauge.Indicators>
+                </telerikGauges:RadRadialGauge>
+            </DataTemplate>
+            <DataTemplate x:Key="template3">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <telerikGauges:RadRadialGauge>
+                        <telerikGauges:RadRadialGauge.Axis>
+                            <telerikGauges:GaugeLinearAxis LabelInterval="2"
+                                                           Maximum="180"
+                                                           Minimum="0"
+                                                           Step="10"
+                                                           StrokeThickness="0"
+                                                           TickLength="3"
+                                                           TickThickness="2" />
+                        </telerikGauges:RadRadialGauge.Axis>
+                        <telerikGauges:RadRadialGauge.Ranges>
+                            <telerikGauges:GaugeRangesDefinition>
+                                <telerikGauges:GaugeRange Color="{StaticResource gray}"
+                                                          From="0"
+                                                          To="180" />
+                            </telerikGauges:GaugeRangesDefinition>
+                        </telerikGauges:RadRadialGauge.Ranges>
+                        <telerikGauges:RadRadialGauge.Indicators>
+                            <telerikGauges:GaugeBarIndicator Fill="{StaticResource blue}" Value="120" />
+                        </telerikGauges:RadRadialGauge.Indicators>
+                    </telerikGauges:RadRadialGauge>
+                    <Label FontSize="44"
+                           HorizontalTextAlignment="Center"
+                           Text="120"
+                           TextColor="{StaticResource blue}"
+                           VerticalTextAlignment="Center" />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="template4">
+                <telerikGauges:RadRadialGauge StartAngle="180" SweepAngle="360">
+                    <telerikGauges:RadRadialGauge.Axis>
+                        <telerikGauges:GaugeLinearAxis Maximum="540"
+                                                       Minimum="180"
+                                                       ShowLabels="False"
+                                                       Step="15"
+                                                       StrokeThickness="0"
+                                                       TickThickness="1" />
+                    </telerikGauges:RadRadialGauge.Axis>
+                    <telerikGauges:RadRadialGauge.Ranges>
+                        <telerikGauges:GaugeRangesDefinition>
+                            <telerikGauges:GaugeRange Color="{StaticResource gray}"
+                                                      From="180"
+                                                      To="540" />
+                        </telerikGauges:GaugeRangesDefinition>
+                    </telerikGauges:RadRadialGauge.Ranges>
+                    <telerikGauges:RadRadialGauge.Indicators>
+                        <telerikGauges:GaugeBarIndicator Fill="{StaticResource blue}" Value="300" />
+                        <telerikGauges:GaugeBarIndicator EndThickness="5"
+                                                         Fill="{StaticResource green}"
+                                                         StartThickness="5"
+                                                         Offset="30"
+                                                         Value="330" />
+                        <telerikGauges:GaugeNeedleIndicator Fill="Black"
+                                                            Shape="{StaticResource customNeedle1}"
+                                                            Stroke="Black"
+                                                            StrokeThickness="3"
+                                                            Offset="30"
+                                                            Value="330" />
+                        <telerikGauges:GaugeShapeIndicator Fill="Default"
+                                                           Shape="{StaticResource customShape}"
+                                                           Stroke="{StaticResource green}"
+                                                           StrokeThickness="1"
+                                                           Offset="10"
+                                                           Value="180" />
+                    </telerikGauges:RadRadialGauge.Indicators>
+                </telerikGauges:RadRadialGauge>
+            </DataTemplate>
+            <DataTemplate x:Key="template5">
+                <telerikGauges:RadRadialGauge StartAngle="90" SweepAngle="360">
+                    <telerikGauges:RadRadialGauge.Axis>
+                        <telerikGauges:GaugeLinearAxis Maximum="60"
+                                                       Minimum="0"
+                                                       ShowLabels="False"
+                                                       Step="5"
+                                                       TickPosition="Start" />
+                    </telerikGauges:RadRadialGauge.Axis>
+                    <telerikGauges:RadRadialGauge.Indicators>
+                        <telerikGauges:GaugeNeedleIndicator Fill="{StaticResource blue}" Value="11" />
+                        <telerikGauges:GaugeShapeIndicator Position="Start"
+                                                           Size="30"
+                                                           Offset="10"
+                                                           Value="49" />
+                    </telerikGauges:RadRadialGauge.Indicators>
+                </telerikGauges:RadRadialGauge>
+            </DataTemplate>
+            <DataTemplate x:Key="template6">
+                <telerikGauges:RadRadialGauge>
+                    <telerikGauges:RadRadialGauge.Axis>
+                        <telerikGauges:GaugeLinearAxis LabelInterval="2"
+                                                       LabelPosition="Start"
+                                                       Maximum="180"
+                                                       Minimum="0"
+                                                       Step="10"
+                                                       StrokeThickness="2"
+                                                       TickPosition="Start"
+                                                       TickThickness="1" />
+                    </telerikGauges:RadRadialGauge.Axis>
+                    <telerikGauges:RadRadialGauge.Indicators>
+                        <telerikGauges:GaugeNeedleIndicator Fill="{StaticResource blue}"
+                                                            Shape="{StaticResource customNeedle3}"
+                                                            Value="90" />
+                        <telerikGauges:GaugeNeedleIndicator Fill="{StaticResource red}"
+                                                            Shape="{StaticResource customNeedle3}"
+                                                            Value="130" />
+                    </telerikGauges:RadRadialGauge.Indicators>
+                </telerikGauges:RadRadialGauge>
+            </DataTemplate>
+        </ResourceDictionary>
+    </views:GalleryExampleViewBase.Resources>
+    <views:GalleryExampleViewBase.BindingContext>
+        <local:RadialGaugeGalleryViewModel />
+    </views:GalleryExampleViewBase.BindingContext>
+</views:GalleryExampleViewBase>

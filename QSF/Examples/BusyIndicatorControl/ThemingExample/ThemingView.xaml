@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:views="clr-namespace:QSF.Views"
+                       xmlns:controls="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                       x:Class="QSF.Examples.BusyIndicatorControl.ThemingExample.ThemingView">
+    <Grid Margin="16,0" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <controls:RadBusyIndicator x:Name="indicator"
+                                   AnimationContentHeightRequest="100"
+                                   AnimationContentWidthRequest="100"
+                                   AnimationType="Animation8"
+                                   InputTransparent="True"
+                                   IsBusy="True" 
+                                   views:ThemesBehavior.StyleClass="TelerikTheme"/>
+        <controls:RadBusyIndicator Grid.Column="1"
+                                   AnimationContentHeightRequest="100"
+                                   AnimationContentWidthRequest="100"
+                                   AnimationType="Animation3"
+                                   InputTransparent="True"
+                                   IsBusy="True" 
+                                   views:ThemesBehavior.StyleClass="TelerikTheme"/>
+        <controls:RadBusyIndicator Grid.Row="1"
+                                   AnimationContentHeightRequest="100"
+                                   AnimationContentWidthRequest="100"
+                                   AnimationType="Animation1"
+                                   InputTransparent="True"
+                                   IsBusy="True" 
+                                   views:ThemesBehavior.StyleClass="TelerikTheme"/>
+        <controls:RadBusyIndicator Grid.Row="1"
+                                   Grid.Column="1"
+                                   AnimationContentHeightRequest="100"
+                                   AnimationContentWidthRequest="100"
+                                   AnimationType="Animation4"
+                                   InputTransparent="True"
+                                   IsBusy="True" 
+                                   views:ThemesBehavior.StyleClass="TelerikTheme"/>
+    </Grid>
+</ContentView>

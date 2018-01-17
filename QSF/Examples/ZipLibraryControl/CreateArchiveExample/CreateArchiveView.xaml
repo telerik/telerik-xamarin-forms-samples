@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:exampleConverters="clr-namespace:QSF.Examples.ZipLibraryControl.CreateArchiveExample.Converters"
+             xmlns:local="clr-namespace:QSF.Examples.ZipLibraryControl.CreateArchiveExample"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             x:Class="QSF.Examples.ZipLibraryControl.CreateArchiveExample.CreateArchiveView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <exampleConverters:FileExtensionToIconConverter x:Key="FileExtensionToIconConverter" />
+            <exampleConverters:FileSizeConverter x:Key="FileSizeConverter" />
+            <exampleConverters:SelectionToBackgroundColorConverter x:Key="SelectionToBackgroundColorConverter" />
+            <converters:DebugConverter x:Key="DebugConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.BindingContext>
+        <local:CreateArchiveViewModel />
+    </ContentView.BindingContext>
+    <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
+        <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <telerikDataControls:RadListView x:Name="list" ItemsSource="{Binding Files, Converter={StaticResource Key=DebugConverter}}" SelectionMode="None">
+                <telerikDataControls:RadListView.Behaviors>
+                    <local:ListViewItemTappedBehavior Command="{Binding Path=ItemTapCommand}" />
+                </telerikDataControls:RadListView.Behaviors>
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <listView:ListViewLinearLayout ItemLength="80" />
+                </telerikDataControls:RadListView.LayoutDefinition>
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <listView:ListViewTemplateCell>
+                            <listView:ListViewTemplateCell.View>
+                                <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="{Binding Path=IsSelected, Converter={StaticResource Key=SelectionToBackgroundColorConverter}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding FileExtension, Converter={StaticResource Key=FileExtensionToIconConverter}}" Aspect="AspectFit" Margin="16" VerticalOptions="Center"/>
+
+                                    <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="1">
+                                        <Label Text="{Binding FileName}" FontSize="16" TextColor="Black" />
+                                        <Label Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" FontSize="13" TextColor="Black" FontFamily="{StaticResource Key=RegularFont}" />
+                                    </StackLayout>
+
+                                    <Image IsVisible="{Binding Path=IsSelected}" Aspect="AspectFit" Grid.Column="2"
+                                           VerticalOptions="Center" HorizontalOptions="End" Margin="16" HeightRequest="20">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource">
+                                                <On Platform="iOS, Android">selected_item.png</On>
+                                                <On Platform="UWP">Assets\selected_item.png</On>
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </listView:ListViewTemplateCell.View>
+                        </listView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+            </telerikDataControls:RadListView>
+
+            <Button BackgroundColor="#9CC64A" Text="Create Zip Archive" Grid.Row="1" BorderRadius="0" Command="{Binding Path=CreateArchiveCommand}" HeightRequest="60" />
+        </Grid>
+    </Grid>
+</ContentView>

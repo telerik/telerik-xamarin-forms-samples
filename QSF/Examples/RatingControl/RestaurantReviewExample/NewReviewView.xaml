@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.RatingControl.RestaurantReviewExample.NewReviewView">
+    <Grid BackgroundColor="White">
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="20"
+                           HorizontalOptions="Start"
+                           Text="Food"
+                           TextColor="Black"
+                           VerticalOptions="Center" />
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <telerikControls:RadShapeRating HorizontalOptions="Center"
+                                                        ItemFill="#97979C"
+                                                        ItemStrokeThickness="0"
+                                                        ItemsSpacing="2"
+                                                        SelectedItemFill="#FF9500"
+                                                        SelectedItemStrokeThickness="0"
+                                                        Value="{Binding FoodRating}" />
+                        <Label FontSize="10"
+                               HorizontalOptions="Center"
+                               Text="Tap a Star to Rate"
+                               TextColor="#97979C" />
+                    </StackLayout>
+                </StackLayout>
+                <BoxView HeightRequest="1"
+                         HorizontalOptions="FillAndExpand"
+                         Color="#D6D5D9" />
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+                         HorizontalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand"
+                             Orientation="Horizontal">
+                    <Label FontSize="20"
+                           HorizontalOptions="Start"
+                           Text="Ambience"
+                           TextColor="Black"
+                           VerticalOptions="Center" />
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <telerikControls:RadShapeRating HorizontalOptions="Center"
+                                                        ItemFill="#97979C"
+                                                        ItemStrokeThickness="0"
+                                                        ItemsSpacing="2"
+                                                        SelectedItemFill="#FF9500"
+                                                        SelectedItemStrokeThickness="0"
+                                                        Value="{Binding AmbienceRating}" />
+                        <Label FontSize="10"
+                               HorizontalOptions="Center"
+                               Text="Tap a Star to Rate"
+                               TextColor="#97979C" />
+                    </StackLayout>
+                </StackLayout>
+                <BoxView HeightRequest="1"
+                         HorizontalOptions="FillAndExpand"
+                         Color="#D6D5D9" />
+            </StackLayout>
+            <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="20"
+                           HorizontalOptions="Start"
+                           Text="Service"
+                           TextColor="Black"
+                           VerticalOptions="Center" />
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <telerikControls:RadShapeRating HorizontalOptions="Center"
+                                                        ItemFill="#97979C"
+                                                        ItemStrokeThickness="0"
+                                                        ItemsSpacing="2"
+                                                        SelectedItemFill="#FF9500"
+                                                        SelectedItemStrokeThickness="0"
+                                                        Value="{Binding ServiceRating}" />
+                        <Label FontSize="10"
+                               HorizontalOptions="Center"
+                               Text="Tap a Star to Rate"
+                               TextColor="#97979C" />
+                    </StackLayout>
+                </StackLayout>
+                <BoxView HeightRequest="1"
+                         HorizontalOptions="FillAndExpand"
+                         Color="#D6D5D9" />
+            </StackLayout>
+            <StackLayout Grid.Row="3">
+                <Entry Placeholder="Title"
+                       PlaceholderColor="#97979C"
+                       TextColor="Black"
+                       Text="{Binding Title}" />
+                <BoxView HeightRequest="1"
+                         HorizontalOptions="FillAndExpand"
+                         Color="#D6D5D9" />
+            </StackLayout>
+            <Editor Grid.Row="4"
+                    TextColor="Black"
+                    Text="{Binding Review}" />
+            <Grid Grid.Row="5">
+                <Label BackgroundColor="Transparent"
+                       Text="CANCEL"
+                       TextColor="#C63439">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label BackgroundColor="Transparent"
+                       HorizontalOptions="End"
+                       Text="SEND"
+                       TextColor="#C63439">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.DataFormControl.ReservationsExample.ReservationsView">
+    <Grid Grid.ColumnSpacing="0"
+          Grid.RowSpacing="0">
+        <Grid.BackgroundColor>
+            <OnPlatform x:TypeArguments="Color">
+                <OnPlatform.iOS>White</OnPlatform.iOS>
+                <OnPlatform.Android>White</OnPlatform.Android>
+                <OnPlatform.WinPhone>#2E2422</OnPlatform.WinPhone>
+            </OnPlatform>
+        </Grid.BackgroundColor>
+        <Grid Grid.ColumnSpacing="0"
+              Grid.RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="GridLength">
+                            <On Platform="iOS,UWP">0</On>
+                            <On Platform="Android">28</On>
+                        </OnPlatform>
+                    </RowDefinition.Height>
+                </RowDefinition>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="dateHeaderContainer"
+                  RowSpacing="0"
+                  ColumnSpacing="0">
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">18, 15, 8, 15</On>
+                        <On Platform="Android,UWP">24, 20, 8, 20</On>
+                    </OnPlatform>
+                </Grid.Padding>
+                <Grid.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS,Android">#7D2F30</On>
+                        <On Platform="UWP">#2E2422</On>
+                    </OnPlatform>
+                </Grid.BackgroundColor>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Aspect="AspectFit">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">DataForm_Calendar_Header.png</On>
+                            <On Platform="UWP">Assets\DataForm_Calendar_Header.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                    <Image.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">14</On>
+                            <On Platform="Android,UWP">18</On>
+                        </OnPlatform>
+                    </Image.HeightRequest>
+                    <Image.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">14</On>
+                            <On Platform="Android,UWP">18</On>
+                        </OnPlatform>
+                    </Image.WidthRequest>
+                </Image>
+                <Label x:Name="dateHeader"
+                       FontSize="15"
+                       Grid.Column="1"
+                       VerticalTextAlignment="Center">
+                    <Label.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="iOS">#FFFFFF</On>
+                            <On Platform="Android">#FFD5CA</On>
+                        </OnPlatform>
+                    </Label.TextColor>
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">6, 0, 0, 0</On>
+                            <On Platform="Android">8, 0, 0, 0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Helvetica</On>
+                            <On Platform="Android">sans-serif-medium</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label Grid.Column="2"
+                       FontSize="16"
+                       x:Name="addReservationLabel"
+                       Text="Add"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Center">
+                    <Label.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="iOS">#FFFFFF</On>
+                            <On Platform="Android">#FFD5CA</On>
+                        </OnPlatform>
+                    </Label.TextColor>
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Helvetica-medium</On>
+                            <On Platform="Android">sans-serif-medium</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                    <Label.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS,UWP">True</On>
+                            <On Platform="Android">False</On>
+                        </OnPlatform>
+                    </Label.IsVisible>
+                </Label>
+            </Grid>
+            <Grid BackgroundColor="#2E2422"
+                  Grid.Row="1"
+                  VerticalOptions="Center"
+                  x:Name="reservationsHeaderContainer"
+                  RowSpacing="0"
+                  ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label x:Name="reservationsHeader"
+                       Text="Reservations"
+                       TextColor="#F5F5F5"
+                       FontSize="30">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">18, 21, 0, 0</On>
+                            <On Platform="Android,UWP">24, 28, 0, 0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Helvetica-thin</On>
+                            <On Platform="Android">sans-serif-medium</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label x:Name="TablesHeader"
+                       Grid.Row="1"
+                       Text="22 tables left"
+                       TextColor="#A9A8A8"
+                       FontSize="12">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">18, 0, 0, 33</On>
+                            <On Platform="Android,UWP">24, 12, 0, 44</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Helvetica-light</On>
+                            <On Platform="Android">sans-serif-medium</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </Grid>
+            <Image Grid.Row="1"
+                   Grid.RowSpan="2"
+                   Source="DataForm_Add.png"
+                   VerticalOptions="End"
+                   HorizontalOptions="Start"
+                   Aspect="AspectFit"
+                   AutomationId="addReservationImage"
+                   x:Name="addReservationImage">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS,Android">DataForm_Add.png</On>
+                        <On Platform="UWP">Assets\DataForm_Add.png</On>
+                    </OnPlatform>
+                </Image.Source>
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">18, 0, 0, 0</On>
+                        <On Platform="Android,UWP">24, 0, 0, 0</On>
+                    </OnPlatform>
+                </Image.Margin>
+                <Image.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">42</On>
+                        <On Platform="Android,UWP">56</On>
+                    </OnPlatform>
+                </Image.HeightRequest>
+                <Image.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">42</On>
+                        <On Platform="Android,UWP">56</On>
+                    </OnPlatform>
+                </Image.WidthRequest>
+                <Image.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="iOS,UWP">False</On>
+                        <On Platform="Android">True</On>
+                    </OnPlatform>
+                </Image.IsVisible>
+            </Image>
+            <telerikDataControls:RadListView x:Name="listView"
+                                             Grid.Row="3"
+                                             ItemsSource="{Binding Reservations}"
+                                             ItemTapped="ReservationTap">
+                <telerikDataControls:RadListView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">18, 15, 12, 0</On>
+                        <On Platform="Android,UWP">24, 20, 16, 0</On>
+                    </OnPlatform>
+                </telerikDataControls:RadListView.Margin>
+                <telerikDataControls:RadListView.ItemStyle>
+                    <listView:ListViewItemStyle BackgroundColor="Transparent"
+                                                BorderWidth="0" />
+                </telerikDataControls:RadListView.ItemStyle>
+                <telerikDataControls:RadListView.SelectedItemStyle>
+                    <listView:ListViewItemStyle BackgroundColor="Transparent"
+                                                BorderWidth="0" />
+                </telerikDataControls:RadListView.SelectedItemStyle>
+                <telerikDataControls:RadListView.PressedItemStyle>
+                    <listView:ListViewItemStyle BackgroundColor="Transparent"
+                                                BorderWidth="0" />
+                </telerikDataControls:RadListView.PressedItemStyle>
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <listView:ListViewTemplateCell>
+                            <listView:ListViewTemplateCell.View>
+                                <Grid Grid.ColumnSpacing="0"
+                                      Grid.RowSpacing="0">
+                                    <Grid.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">42</On>
+                                            <On Platform="Android,UWP">56</On>
+                                        </OnPlatform>
+                                    </Grid.HeightRequest>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition>
+                                            <ColumnDefinition.Width>
+                                                <OnPlatform x:TypeArguments="GridLength">
+                                                    <On Platform="iOS">42</On>
+                                                    <On Platform="Android,UWP">56</On>
+                                                </OnPlatform>
+                                            </ColumnDefinition.Width>
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.RowSpan="2"
+                                          HorizontalOptions="Center"
+                                          VerticalOptions="Center">
+                                        <Image HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               Aspect="AspectFit">
+                                            <Image.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">42</On>
+                                                    <On Platform="Android,UWP">56</On>
+                                                </OnPlatform>
+                                            </Image.HeightRequest>
+                                            <Image.WidthRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">42</On>
+                                                    <On Platform="Android,UWP">56</On>
+                                                </OnPlatform>
+                                            </Image.WidthRequest>
+                                            <Image.Source>
+                                                <OnPlatform x:TypeArguments="ImageSource">
+                                                    <On Platform="iOS,Android">DataForm_Circle_Background.png</On>
+                                                    <On Platform="UWP">Assets\DataForm_Circle_Background.png</On>
+                                                </OnPlatform>
+                                            </Image.Source>
+                                        </Image>
+                                        <StackLayout Spacing="0"
+                                                     HorizontalOptions="Center"
+                                                     VerticalOptions="Center">
+                                            <Label FontSize="10"
+                                                   Text="{Binding ReservationTime, StringFormat='{0: HH:mm}'}"
+                                                   AutomationId="ReservationTime"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   LineBreakMode="WordWrap"
+                                                   TextColor="White" />
+                                            <Label FontSize="10"
+                                                   Text="{Binding ReservationTime, StringFormat='{0: tt}'}"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   LineBreakMode="WordWrap"
+                                                   TextColor="White" />
+                                        </StackLayout>
+                                    </Grid>
+                                    <Label FontSize="12"
+                                           Grid.Column="1"
+                                           AutomationId="ReservationHolder"
+                                           Text="{Binding ReservationHolder}"
+                                           TextColor="#2C2220"
+                                           VerticalOptions="End">
+                                        <Label.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness">
+                                                <On Platform="iOS">12, 0, 0, 3</On>
+                                                <On Platform="Android,UWP">16, 0, 0, 4</On>
+                                            </OnPlatform>
+                                        </Label.Margin>
+                                        <Label.TextColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <On Platform="iOS">#2E2422</On>
+                                                <On Platform="Android">#2E2422</On>
+                                                <On Platform="UWP">White</On>
+                                            </OnPlatform>
+                                        </Label.TextColor>
+                                    </Label>
+                                    <StackLayout Grid.Row="1"
+                                                 Grid.Column="1"
+                                                 Orientation="Horizontal"
+                                                 VerticalOptions="Start"
+                                                 Spacing="0">
+                                        <StackLayout.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness">
+                                                <On Platform="iOS">12, 3, 0, 0</On>
+                                                <On Platform="Android,UWP">16, 4, 0, 0</On>
+                                            </OnPlatform>
+                                        </StackLayout.Margin>
+                                        <Label VerticalOptions="Start"
+                                               VerticalTextAlignment="Start"
+                                               FontSize="12"
+                                               FontAttributes="Bold"
+                                               Text="Table #"
+                                               TextColor="#C73339" />
+                                        <Label VerticalOptions="Start"
+                                               VerticalTextAlignment="Start"
+                                               FontSize="12"
+                                               FontAttributes="Bold"
+                                               TextColor="#C73339"
+                                               AutomationId="TableNumber"
+                                               Text="{Binding TableNumber}" />
+                                        <Label VerticalOptions="Start"
+                                               VerticalTextAlignment="Start"
+                                               FontSize="12"
+                                               FontAttributes="Bold"
+                                               TextColor="#C73339"
+                                               Text=" for " />
+                                        <Label VerticalOptions="Start"
+                                               VerticalTextAlignment="Start"
+                                               FontSize="12"
+                                               FontAttributes="Bold"
+                                               TextColor="#C73339"
+                                               AutomationId="GuestNumber"
+                                               Text="{Binding GuestNumber}" />
+                                    </StackLayout>
+                                    <Label FontSize="13"
+                                           Grid.Column="2"
+                                           Grid.RowSpan="2"
+                                           HorizontalOptions="End"
+                                           TextColor="#6A6564"
+                                           AutomationId="HolderPhoneNumber"
+                                           Text="{Binding HolderPhoneNumber}"
+                                           VerticalOptions="Center">
+                                        <Label.TextColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <On Platform="iOS,Android">#2E2422</On>
+                                                <On Platform="UWP">#8C746E</On>
+                                            </OnPlatform>
+                                        </Label.TextColor>
+                                    </Label>
+                                </Grid>
+                            </listView:ListViewTemplateCell.View>
+                        </listView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+            </telerikDataControls:RadListView>
+        </Grid>
+    </Grid>
+</ContentView>

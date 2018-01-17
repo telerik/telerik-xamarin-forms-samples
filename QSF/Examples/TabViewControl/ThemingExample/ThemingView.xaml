@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:local="clr-namespace:QSF.Examples.TabViewControl.ThemingExample"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.TabViewControl.ThemingExample.ThemingView">
+    <ContentPage.BindingContext>
+        <local:ThemingViewModel />
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="#FFF8F8F8">
+        <telerikPrimitives:RadTabView views:ThemesBehavior.StyleClass="TelerikTheme">
+            <telerikPrimitives:RadTabView.Items>
+                <telerikPrimitives:TabViewItem HeaderText="FRANCE" >
+                    <telerikPrimitives:TabViewItem.Content>
+                        <telerikDataControls:RadListView ItemsSource="{Binding FranceShips}"
+                                                         views:ThemesBehavior.StyleClass="TelerikTheme" />
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem HeaderText="ITALY">
+                    <telerikPrimitives:TabViewItem.Content>
+                        <telerikDataControls:RadListView ItemsSource="{Binding ItalyShips}"
+                                                         views:ThemesBehavior.StyleClass="TelerikTheme" />
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem HeaderText="SPAIN">
+                    <telerikPrimitives:TabViewItem.Content>
+                        <telerikDataControls:RadListView ItemsSource="{Binding SpainShips}"
+                                                         views:ThemesBehavior.StyleClass="TelerikTheme" />
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+            </telerikPrimitives:RadTabView.Items>
+        </telerikPrimitives:RadTabView>
+    </Grid>
+</ContentView>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <item name="DataForm_Black_Background" type="color">#2E2422</item>
+  <item name="Custom_Red_Color" type="color">#C73339</item>
+  <color name="splash_background">#FFFFFF</color>
+</resources>

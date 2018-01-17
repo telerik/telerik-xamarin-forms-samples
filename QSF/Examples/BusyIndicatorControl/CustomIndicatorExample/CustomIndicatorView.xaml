@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:common="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:controls="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BusyIndicatorControl.CustomIndicatorExample.CustomIndicatorView">
+    <Grid BackgroundColor="White">
+        <controls:RadBusyIndicator AnimationContentHeightRequest="200"
+                                   AnimationContentWidthRequest="200"
+                                   AnimationType="Custom"
+                                   InputTransparent="True"
+                                   IsBusy="True">
+            <controls:RadBusyIndicator.Animations>
+                <common:RadDoubleAnimation Easing="Linear"
+                                           PropertyPath="Rotation"
+                                           RepeatForever="True"
+                                           Target="{Reference Name=image}"
+                                           From="0"
+                                           To="360" />
+            </controls:RadBusyIndicator.Animations>
+            <controls:RadBusyIndicator.BusyContent>
+                <Image x:Name="image"
+                       AnchorX="0.5"
+                       AnchorY="0.5"
+                       Aspect="AspectFit"
+                       HeightRequest="200"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       WidthRequest="200">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">tyre.png</On>
+                            <On Platform="UWP">assets/tyre.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+            </controls:RadBusyIndicator.BusyContent>
+        </controls:RadBusyIndicator>
+    </Grid>
+</ContentView>

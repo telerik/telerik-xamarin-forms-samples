@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QSF.Examples.GaugeControl.HorizontalGaugeGalleryExample.HorizontalGaugeGalleryItem2"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization">
+
+    <VisualElement.Resources>
+        <ResourceDictionary>
+            <Color x:Key="black">#000000</Color>
+            <Color x:Key="white">#FFFFFF</Color>
+            <Color x:Key="rangeBlue1">#A6E8FF</Color>
+            <Color x:Key="rangeBlue2">#C7F0FF</Color>
+            <Color x:Key="rangeBlue3">#E8F9FF</Color>
+            <Color x:Key="rangeColor1">#1EC3FF</Color>
+            <Color x:Key="rangeColor2">#F8D700</Color>
+            <telerikCommon:AnimationSettings x:Key="disabledAnimations" Enabled="False" />
+            <telerikCommon:RadPathGeometry x:Key="tickGeometry">
+                <telerikCommon:RadPathFigure StartPoint="0, 0.5">
+                    <telerikCommon:RadLineSegment Point="1, 0.5" />
+                </telerikCommon:RadPathFigure>
+            </telerikCommon:RadPathGeometry>
+        </ResourceDictionary>
+    </VisualElement.Resources>
+    <ContentView.Content>
+        <Grid Margin="0, 20, 0, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <telerikGauges:RadHorizontalGauge Grid.Row="0" VerticalOptions="Center">
+                <telerikGauges:RadGaugeBase.Axis>
+                    <telerikGauges:GaugeLinearAxis Minimum="0"
+                                                   Maximum="60"
+                                                   Step="20"
+                                                   StrokeThickness="0"
+                                                   TickThickness="1"
+                                                   TickPosition="Start"
+                                                   LabelPosition="Start" />
+                </telerikGauges:RadGaugeBase.Axis>
+                <telerikGauges:RadGaugeBase.Ranges>
+                    <telerikGauges:GaugeRangesDefinition Position="End"
+                                                         Offset="0"
+                                                         StartThickness="30"
+                                                         EndThickness="30">
+                        <telerikGauges:GaugeRange From="0" To="30" Color="{StaticResource rangeBlue1}" />
+                        <telerikGauges:GaugeRange From="30" To="50" Color="{StaticResource rangeBlue2}" />
+                        <telerikGauges:GaugeRange From="50" To="60" Color="{StaticResource rangeBlue3}" />
+                    </telerikGauges:GaugeRangesDefinition>
+                </telerikGauges:RadGaugeBase.Ranges>
+                <telerikGauges:RadGaugeBase.Indicators>
+                    <telerikGauges:GaugeShapeIndicator Value="30"
+                                                       Shape="{StaticResource tickGeometry}"
+                                                       Stroke="{StaticResource white}"
+                                                       StrokeThickness="2"
+                                                       Position="End"
+                                                       Offset="15"
+                                                       Size="30"
+                                                       AnimationSettings="{StaticResource disabledAnimations}" />
+                    <telerikGauges:GaugeShapeIndicator Value="50"
+                                                       Shape="{StaticResource tickGeometry}"
+                                                       Stroke="{StaticResource white}"
+                                                       StrokeThickness="2"
+                                                       Position="End"
+                                                       Offset="15"
+                                                       Size="30"
+                                                       AnimationSettings="{StaticResource disabledAnimations}" />
+                    <telerikGauges:GaugeBarIndicator Value="45"
+                                                     Fill="{StaticResource black}"
+                                                     Position="End"
+                                                     Offset="10"
+                                                     StartThickness="10"
+                                                     EndThickness="10" />
+                    <telerikGauges:GaugeShapeIndicator Value="55"
+                                                       Shape="{StaticResource tickGeometry}"
+                                                       Stroke="{StaticResource black}"
+                                                       StrokeThickness="4"
+                                                       Position="End"
+                                                       Offset="15"
+                                                       Size="30" />
+                </telerikGauges:RadGaugeBase.Indicators>
+            </telerikGauges:RadHorizontalGauge>
+
+            <telerikGauges:RadHorizontalGauge Grid.Row="1" VerticalOptions="Center">
+                <telerikGauges:RadGaugeBase.Axis>
+                    <telerikGauges:GaugeLinearAxis Minimum="0"
+                                                   Maximum="120"
+                                                   Step="40"
+                                                   TickPosition="Start"
+                                                   LabelPosition="Start" />
+                </telerikGauges:RadGaugeBase.Axis>
+                <telerikGauges:RadGaugeBase.Ranges>
+                    <telerikGauges:GaugeRangesDefinition Position="End"
+                                                         Offset="0"
+                                                         StartThickness="5"
+                                                         EndThickness="30">
+                        <telerikGauges:GaugeGradientRange From="0" To="120" IsOffsetRelative="True">
+                            <telerikGauges:GaugeGradientRange.GradientStops>
+                                <telerikCommon:RadGradientStop Color="{StaticResource rangeColor1}" Offset="0" />
+                                <telerikCommon:RadGradientStop Color="{StaticResource rangeColor2}" Offset="1" />
+                            </telerikGauges:GaugeGradientRange.GradientStops>
+                        </telerikGauges:GaugeGradientRange>
+                    </telerikGauges:GaugeRangesDefinition>
+                </telerikGauges:RadGaugeBase.Ranges>
+                <telerikGauges:RadGaugeBase.Indicators>
+                    <telerikGauges:GaugeShapeIndicator Value="40"
+                                                       Shape="{StaticResource tickGeometry}"
+                                                       Stroke="{StaticResource white}"
+                                                       StrokeThickness="2"
+                                                       Position="End"
+                                                       Offset="15"
+                                                       Size="30"
+                                                       AnimationSettings="{StaticResource disabledAnimations}" />
+                    <telerikGauges:GaugeShapeIndicator Value="80"
+                                                       Shape="{StaticResource tickGeometry}"
+                                                       Stroke="{StaticResource white}"
+                                                       StrokeThickness="2"
+                                                       Position="End"
+                                                       Offset="15"
+                                                       Size="30"
+                                                       AnimationSettings="{StaticResource disabledAnimations}" />
+                    <telerikGauges:GaugeShapeIndicator Value="90"
+                                                       Position="End"
+                                                       Fill="{StaticResource black}" />
+                </telerikGauges:RadGaugeBase.Indicators>
+            </telerikGauges:RadHorizontalGauge>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

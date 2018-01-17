@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GalleryExampleViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+                              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                              xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+                              xmlns:local="clr-namespace:QSF.Examples.GaugeControl.HorizontalGaugeGalleryExample"
+                              xmlns:views="clr-namespace:QSF.Views"
+                              x:Class="QSF.Examples.GaugeControl.HorizontalGaugeGalleryExample.HorizontalGaugeGalleryView">
+    <views:GalleryExampleViewBase.Resources>
+        <ResourceDictionary MergedWith="views:GalleryResources">
+            <DataTemplate x:Key="template7">
+                <local:HorizontalGaugeGalleryItem1 />
+            </DataTemplate>
+            <DataTemplate x:Key="template8">
+                <local:HorizontalGaugeGalleryItem2 />
+            </DataTemplate>
+        </ResourceDictionary>
+    </views:GalleryExampleViewBase.Resources>
+    <views:GalleryExampleViewBase.BindingContext>
+        <local:HorizontalGaugeGalleryViewModel />
+    </views:GalleryExampleViewBase.BindingContext>
+</views:GalleryExampleViewBase>

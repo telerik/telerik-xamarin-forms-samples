@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.ListViewControl.SelectionExample.DetailsView"
+             BackgroundColor="White">
+    <Grid Grid.ColumnSpacing="0"
+          Grid.RowSpacing="0">
+        <Grid Grid.ColumnSpacing="0"
+              Grid.RowSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="GridLength">
+                            <On Platform="iOS">44</On>
+                            <On Platform="Android,UWP">56</On>
+                        </OnPlatform>
+                    </RowDefinition.Height>
+                </RowDefinition>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.ColumnSpacing="0"
+                  Grid.RowSpacing="0"
+                  BackgroundColor="#5D4037"
+                  HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid HeightRequest="48"
+                      WidthRequest="48"
+                      Padding="16,0,0,0">
+                    <telerikInput:RadButton BackgroundColor="#5D4037"
+                                            BorderRadius="0"
+                                            Command="{Binding BackCommand}" />
+                    <Image HorizontalOptions="Start"
+                           VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS,Android">Navigation_Back</On>
+                                <On Platform="UWP">Assets\Navigation_Back.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                <Grid Grid.ColumnSpacing="0"
+                      Grid.RowSpacing="0"
+                      Padding="0,0,16,0"
+                      Grid.Column="1"
+                      HorizontalOptions="End"
+                      VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.ColumnSpacing="0"
+                          Grid.RowSpacing="0">
+                        <telerikInput:RadButton BackgroundColor="#5D4037"
+                                                HorizontalOptions="FillAndExpand"
+                                                VerticalOptions="FillAndExpand"
+                                                BorderRadius="0"
+                                                Command="{Binding FavoriteCommand}" />
+                        <Image HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               InputTransparent="True">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">ListView_Selection_Favorite</On>
+                                    <On Platform="UWP">Assets\ListView_Selection_Favorite.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                    <Grid Grid.ColumnSpacing="0"
+                          Grid.RowSpacing="0"
+                          Grid.Column="1">
+                        <telerikInput:RadButton BackgroundColor="#5D4037"
+                                                HorizontalOptions="FillAndExpand"
+                                                VerticalOptions="FillAndExpand"
+                                                BorderRadius="0"
+                                                Command="{Binding DeleteCommand}" />
+                        <Image HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               InputTransparent="True">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">ListView_Selection_Delete</On>
+                                    <On Platform="UWP">Assets\ListView_Selection_Delete.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackLayout StackLayout.Spacing="14"
+                             BackgroundColor="#E4D8D4">
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">40, 20, 20, 20</On>
+                            <On Platform="Android,UWP">16, 20, 16, 0</On>
+                        </OnPlatform>
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <Image HeightRequest="14"
+                               WidthRequest="14"
+                               IsVisible="{Binding SelectedItem.IsFavorite}">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">ListView_Selection_Favorite1</On>
+                                    <On Platform="UWP">Assets\ListView_Selection_Favorite1.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                        <Label Text="{Binding SelectedItem.Title}"
+                               TextColor="#4D4745"
+                               FontSize="16"
+                               BackgroundColor="#E4D8D4"/>
+                    </StackLayout>
+                    <Label Text="{Binding SelectedItem.Content}"
+                           LineBreakMode="WordWrap"
+                           TextColor="#918986"
+                           FontSize="14"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

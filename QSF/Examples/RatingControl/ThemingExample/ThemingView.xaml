@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikControls="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+             x:Class="QSF.Examples.RatingControl.ThemingExample.ThemingView"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="rowHeightRequest"
+                        x:TypeArguments="x:Double">
+                <On Platform="iOS,Android">20</On>
+                <On Platform="UWP">30</On>
+            </OnPlatform>
+            <OnPlatform  x:Key="fontSize"
+                         x:TypeArguments="x:Double">
+                <On Platform="iOS,Android">10</On>
+                <On Platform="UWP">17</On>
+            </OnPlatform>
+            <OnPlatform x:Key="infoButtonHorizontalOptions"
+                        x:TypeArguments="LayoutOptions">
+                <On Platform="iOS,UWP">End</On>
+                <On Platform="Android">Center</On>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackLayout Spacing="10" 
+                     HorizontalOptions="End"
+                     Margin="16, 16, 20, 16">
+            <Label FontSize="{StaticResource fontSize}"
+                   HorizontalOptions="End"
+                   Text="Tap a Star to Rate"
+                   VerticalOptions="Center"
+                   TextColor="#97979C"
+                   HeightRequest="{StaticResource rowHeightRequest}"/>
+            <Label FontSize="{StaticResource fontSize}"
+                   HorizontalOptions="End"
+                   Text="Tap a Circle to Rate"
+                   VerticalOptions="Center"
+                   HeightRequest="{StaticResource rowHeightRequest}"
+                   TextColor="#97979C" />
+            <Label FontSize="{StaticResource fontSize}"
+                   HorizontalOptions="End"
+                   Text="Tap a Diamond to Rate"
+                   VerticalOptions="Center"
+                   TextColor="#97979C"
+                   HeightRequest="{StaticResource rowHeightRequest}"/>
+            <Label FontSize="{StaticResource fontSize}"
+                   HorizontalOptions="End"
+                   Text="Tap a Heart to Rate"
+                   VerticalOptions="Center"
+                   TextColor="#97979C"
+                   HeightRequest="{StaticResource rowHeightRequest}"/>
+        </StackLayout>
+        <StackLayout Spacing="10"
+                     Grid.Column="1"
+                     Margin="0, 16, 16, 16">
+            <telerikControls:RadShapeRating views:ThemesBehavior.StyleClass="TelerikTheme"
+                                            Value="1"
+                                            HeightRequest="{StaticResource rowHeightRequest}" />
+            <telerikControls:RadShapeRating ItemShape="{x:Static telerikControls:Geometries.Circle}"
+                                            views:ThemesBehavior.StyleClass="TelerikTheme"
+                                            Value="2"
+                                            HeightRequest="{StaticResource rowHeightRequest}" />
+            <telerikControls:RadShapeRating ItemShape="{x:Static telerikControls:Geometries.Diamond}"
+                                            views:ThemesBehavior.StyleClass="TelerikTheme"
+                                            Value="3"
+                                            HeightRequest="{StaticResource rowHeightRequest}" />
+            <telerikControls:RadShapeRating ItemShape="{x:Static telerikControls:Geometries.Heart}"
+                                            views:ThemesBehavior.StyleClass="TelerikTheme"
+                                            Value="4"
+                                            HeightRequest="{StaticResource rowHeightRequest}" />
+        </StackLayout>
+    </Grid>
+</ContentView>

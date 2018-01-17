@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:common="clr-namespace:Telerik.XamarinForms.Common.Data;assembly=Telerik.XamarinForms.Common"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:local="clr-namespace:QSF.Examples.DataGridControl.FirstLookExample"
+             xmlns:views="clr-namespace:QSF.Views"
+             x:Class="QSF.Examples.DataGridControl.FirstLookExample.FirstLookView">
+    <ContentView.BindingContext>
+        <local:FirstLookViewModel />
+    </ContentView.BindingContext>
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <converters:ImageSourceConverter x:Key="ImageSourceConverter"/>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="58"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Shipping orders"
+                   HorizontalOptions="Center"
+                   FontSize="Medium"
+                   Margin="0, 24, 0, 0"/>
+            <telerikDataGrid:RadDataGrid Grid.Row="1" 
+                                         views:ThemesBehavior.StyleClass="TelerikTheme"
+                                         ItemsSource="{Binding OrderDetails}"
+                                         AutoGenerateColumns="False"
+                                         SelectionUnit="Row"
+                                         SelectionMode="Multiple" 
+                                         UserEditMode="Cell">
+                <telerikDataGrid:RadDataGrid.GroupDescriptors>
+                    <common:PropertyGroupDescriptor PropertyName="ShipName"/>
+                </telerikDataGrid:RadDataGrid.GroupDescriptors>
+                <telerikDataGrid:RadDataGrid.Columns>
+                    <telerikDataGrid:DataGridTemplateColumn HeaderText="Ship owner">
+                        <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding EmployeeImage, Converter={StaticResource ImageSourceConverter}}" 
+                                       Aspect="AspectFit"
+                                       Margin="0, 2, 0, 2"
+                                       WidthRequest="50" 
+                                       HeightRequest="50"/>
+                            </DataTemplate>
+                        </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                    </telerikDataGrid:DataGridTemplateColumn>
+                    <telerikDataGrid:DataGridNumericalColumn PropertyName="OrderID" HeaderText="Order ID"/>
+                    <telerikDataGrid:DataGridTextColumn PropertyName="ShipName" HeaderText="Ship name"/>
+                </telerikDataGrid:RadDataGrid.Columns>
+            </telerikDataGrid:RadDataGrid>
+        </Grid>
+    </Grid>
+</ContentView>

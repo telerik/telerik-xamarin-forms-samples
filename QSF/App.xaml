@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:controls="clr-namespace:QSF.Controls"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:chart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:slideView="clr-namespace:Telerik.XamarinForms.Primitives.SlideView;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:effects="clr-namespace:QSF.Effects"
+             x:Class="QSF.App">
+    <Application.Resources>
+
+        <telerikCommon:RadResourceDictionary>
+            <telerikCommon:RadResourceDictionary.MergedDictionaries>
+                <ResourceDictionary MergedWith="telerikInput:TelerikThemeStyles"/>
+                <ResourceDictionary MergedWith="primitives:TelerikThemeStyles"/>
+                <ResourceDictionary MergedWith="chart:TelerikThemeStyles"/>
+                <ResourceDictionary MergedWith="telerikDataControls:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="dataGrid:TelerikThemeStyles"/>
+            </telerikCommon:RadResourceDictionary.MergedDictionaries>
+
+            <Color x:Key="HeaderBackgroundsColor">#4A4E52</Color>
+            <Color x:Key="DarkBackgroundColor">#F5F6F7</Color>
+            <Color x:Key="LightBackgroundColor">White</Color>
+            <Color x:Key="AccentColor">#2548D8</Color>
+            <Color x:Key="TextColor">#4A4E52</Color>
+            <Color x:Key="SubHeaderTextColor">#BFBFBF</Color>
+            <Color x:Key="CTPTextColor">#979797</Color>
+            <Color x:Key="LightTextColor">White</Color>
+            <Color x:Key="GalleryHeaderUnderlineColor">#E0E9FC</Color>
+
+            <x:String x:Key="BackButtonIcon">&#xE80E;</x:String>
+            <x:String x:Key="InfoButtonIcon">&#xE815;</x:String>
+            <x:String x:Key="ContextMenuButtonIcon">&#xE807;</x:String>
+            <x:String x:Key="BurgerButtonIcon">&#xF008;</x:String>
+            <x:String x:Key="SearchButtonIcon">&#xE810;</x:String>
+            <x:String x:Key="HyperlinkButtonIcon">&#xF08E;</x:String>
+            <x:String x:Key="TickIcon">&#xE809;</x:String>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
+                <On Platform="iOS">fontello</On>
+                <On Platform="Android">Fonts/fontello.ttf#fontello</On>
+                <On Platform="UWP">/Assets/Fonts/fontello.ttf#fontello</On>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
+                <On Platform="iOS">SFProText-Regular</On>
+                <On Platform="Android">Fonts/Roboto-Regular.ttf#Roboto</On>
+                <On Platform="UWP">/Assets/Fonts/segoeui.ttf#Segoe UI</On>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="MediumFont">
+                <On Platform="iOS">SFProText-Medium</On>
+                <On Platform="Android">Fonts/Roboto-Medium.ttf#Roboto</On>
+                <On Platform="UWP">/Assets/Fonts/segoeuib.ttf#Segoe UI</On>
+            </OnPlatform>
+
+            <x:Int16 x:Key="SlideViewIndicatorsFontSize">30</x:Int16>
+
+            <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
+            <converters:DebugConverter x:Key="debugConverter" />
+
+            <Style TargetType="Label" x:Key="HeaderLabelStyle">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="Margin" Value="0, 10, 0, 0" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SubHeaderLabelStyle">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+                <Setter Property="TextColor" Value="{StaticResource SubHeaderTextColor}" />
+                <Setter Property="Margin" Value="0, 10, 0, 0" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="BodyLabelStyle">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="ControlExampleNameLabelStyle">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="Margin" Value="0, 10" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="HyperlinkIconLabelStyle">
+                <Setter Property="Text" Value="{StaticResource HyperlinkButtonIcon}" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="Margin" Value="4, 0, 0, 0" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="telerikInput:RadButton" x:Key="SideDrawerButtonStyle">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+
+            <Style TargetType="Grid" ApplyToDerivedTypes="True">
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="RowSpacing" Value="0" />
+            </Style>
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
+            </Style>
+
+            <Style TargetType="primitives:RadSlideView">
+                <Setter Property="SelectedIndicatorText" Value="&#xE80B;" />
+                <Setter Property="IndicatorText" Value="&#xE80B;" />
+                <Setter Property="SelectedIndicatorFontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="IndicatorFontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="IndicatorsSpacing" Value="5" />
+                <Setter Property="IndicatorColor" Value="{StaticResource DarkBackgroundColor}" />
+                <Setter Property="IndicatorFontSize" Value="{StaticResource SlideViewIndicatorsFontSize}" />
+                <Setter Property="SelectedIndicatorColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="SelectedIndicatorFontSize" Value="{StaticResource SlideViewIndicatorsFontSize}" />
+            </Style>
+
+            <ControlTemplate x:Key="ExamplesViewBase">
+                <primitives:RadSideDrawer IsOpen="{TemplateBinding Path=BindingContext.IsSideDrawerOpen, Mode=TwoWay}"
+                                          DrawerLength="120" DrawerTransitionType="SlideInOnTop" DrawerLocation="Bottom">
+                    <primitives:RadSideDrawer.MainContent>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <controls:AppBar Title="{TemplateBinding Path=BindingContext.Title}"
+                                             TitleHorizontalOptions="Start"
+                                             LeftButtonText="{StaticResource Key=BackButtonIcon}"
+                                             MiddleButtonText="{StaticResource Key=InfoButtonIcon}"
+                                             RightButtonText="{StaticResource Key=ContextMenuButtonIcon}"
+                                             LeftButtonCommand="{TemplateBinding Path=BindingContext.AppBarLeftButtonCommand}"
+                                             MiddleButtonCommand="{TemplateBinding Path=BindingContext.AppBarMiddleButtonCommand}"
+                                             RightButtonCommand="{TemplateBinding Path=BindingContext.AppBarRightButtonCommand}"/>
+
+                            <ContentPresenter Grid.Row="1" />
+                        </Grid>
+                    </primitives:RadSideDrawer.MainContent>
+                    <primitives:RadSideDrawer.DrawerContent>
+                        <Grid BackgroundColor="#FFFFFF">
+                            <StackLayout Spacing="10" Padding="10" VerticalOptions="Center">
+                                <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Change Theme" FontSize="13"
+                                                    IsVisible="{TemplateBinding Path=BindingContext.CanChangeTheme}"
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToThemesCommand}" HorizontalOptions="Fill">
+                                    <telerikInput:RadButton.Effects>
+                                        <effects:NoAllCapsButtonEffect />
+                                    </telerikInput:RadButton.Effects>
+                                </telerikInput:RadButton>
+
+                                <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="View Code" IsVisible="{TemplateBinding Path=BindingContext.HasCode}"
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToCodeCommand}" HorizontalOptions="Fill" FontSize="13">
+                                    <telerikInput:RadButton.Effects>
+                                        <effects:NoAllCapsButtonEffect />
+                                    </telerikInput:RadButton.Effects>
+                                </telerikInput:RadButton>
+
+                                <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Documentation" IsVisible="{TemplateBinding Path=BindingContext.HasDocumentation}"
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToDocumentationCommand}" HorizontalOptions="Fill" FontSize="13">
+                                    <telerikInput:RadButton.Effects>
+                                        <effects:NoAllCapsButtonEffect />
+                                    </telerikInput:RadButton.Effects>
+                                </telerikInput:RadButton>
+                            </StackLayout>
+                        </Grid>
+                    </primitives:RadSideDrawer.DrawerContent>
+                </primitives:RadSideDrawer>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="RadSlideViewControlTemplate">
+                <Grid>
+                    <ContentPresenter />
+
+                    <Grid HorizontalOptions="Start" VerticalOptions="Center" IsVisible="{TemplateBinding ShowButtons}">
+                        <Label Text="&#x2039;" FontSize="{TemplateBinding SlideButtonsSize}" FontFamily="Arial" HorizontalOptions="Start" TextColor="{TemplateBinding SlideButtonsColor}" />
+                        <Button Command="{TemplateBinding Path=PreviousItemCommand}" BackgroundColor="Transparent"  InputTransparent="False">
+                            <Button.Opacity>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="1"
+                                            Android="0"
+                                            WinPhone="0"/>
+                            </Button.Opacity>
+                        </Button>
+                    </Grid>
+
+                    <Grid VerticalOptions="Center" HorizontalOptions="End" IsVisible="{TemplateBinding ShowButtons}">
+                        <Label Text="&#x203A;" FontSize="{TemplateBinding SlideButtonsSize}" FontFamily="Arial" HorizontalOptions="End" TextColor="{TemplateBinding SlideButtonsColor}"/>
+                        <Button Command="{TemplateBinding Path=NextItemCommand}" BackgroundColor="Transparent"  InputTransparent="False">
+                            <Button.Opacity>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="1"
+                                            Android="0"
+                                            WinPhone="0"/>
+                            </Button.Opacity>
+                        </Button>
+                    </Grid>
+
+                    <slideView:SlideViewIndicators Owner="{TemplateBinding}" Spacing="{TemplateBinding Path=IndicatorsSpacing}"
+                                                   SelectedIndicatorTemplate="{TemplateBinding SelectedIndicatorTemplate}" IndicatorTemplate="{TemplateBinding IndicatorTemplate}"
+                                                   IsVisible="{TemplateBinding ShowIndicators}" VerticalOptions="End" HorizontalOptions="Center" InputTransparent="True" Margin="0, 0, 0, 10"/>
+                </Grid>
+            </ControlTemplate>
+        </telerikCommon:RadResourceDictionary>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QSF.Examples.DataFormControl.ThemingExample"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.DataFormControl.ThemingExample.ThemingView"
+             BackgroundColor="White">
+    <Grid>
+        <ScrollView Margin="16, 0">
+            <local:ThemingDataForm x:Name="dataForm"
+                                   Source="{Binding}"
+                                   CommitMode="Manual"
+                                   views:ThemesBehavior.StyleClass="TelerikTheme"
+                                   ValidationMode="Manual">
+            </local:ThemingDataForm>
+        </ScrollView>
+    </Grid>
+</ContentView>

@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+             x:Class="QSF.Examples.RatingControl.RestaurantReviewExample.RestaurantReviewView">
+    <Grid BackgroundColor="White">
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="220" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Aspect="AspectFill">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS,Android">Rating_Restaurant.jpg</On>
+                        <On Platform="UWP">Assets\Rating_Restaurant.jpg</On>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+            <Grid Grid.RowSpan="2"
+                  Margin="16"
+                  RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220" />
+                    <RowDefinition Height="130" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Label FontSize="28"
+                           HorizontalOptions="Center"
+                           Text="Trattoria Giorgio"
+                           TextColor="White" />
+                </Grid>
+                <Grid Grid.Row="1" BackgroundColor="Transparent">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapped" />
+                    </Grid.GestureRecognizers>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Margin="0,0,12,0"
+                                 Spacing="2">
+                        <Label FontAttributes="Bold"
+                               FontSize="24"
+                               HorizontalOptions="End"
+                               Text="3.9"
+                               TextColor="Black" />
+                        <StackLayout HorizontalOptions="End"
+                                     Orientation="Horizontal">
+                            <telerikControls:RadShapeRating Margin="0,3,0,0"
+                                                            HeightRequest="10"
+                                                            IsReadOnly="True"
+                                                            ItemFill="White"
+                                                            ItemStroke="#FF9500"
+                                                            ItemStrokeThickness="1"
+                                                            ItemsSpacing="0"
+                                                            SelectedItemFill="#FF9500"
+                                                            SelectedItemStrokeThickness="0"
+                                                            Value="3" />
+                            <Label FontSize="12"
+                                   Text="(362)" />
+                        </StackLayout>
+                        <Label FontSize="12"
+                               HorizontalOptions="End"
+                               Text="Food 3.9"
+                               TextColor="#97979C" />
+                        <Label FontSize="12"
+                               HorizontalOptions="End"
+                               Text="Ambience 3.7"
+                               TextColor="#97979C" />
+                        <Label FontSize="12"
+                               HorizontalOptions="End"
+                               Text="Service 3.8"
+                               TextColor="#97979C" />
+                    </StackLayout>
+                    <BoxView Grid.Column="1"
+                             Margin="0,8,0,16"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Color="#D6D5D9" />
+                    <Grid Grid.Column="2">
+                        <StackLayout>
+                            <StackLayout.Margin>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="iOS">12,30,0,0</On>
+                                    <On Platform="Android,UWP">12,40,0,0</On>
+                                </OnPlatform>
+                            </StackLayout.Margin>
+                            <StackLayout HeightRequest="10"
+                                         Orientation="Horizontal">
+                                <telerikControls:RadShapeRating Margin="0,0,8,0"
+                                                                IsReadOnly="True"
+                                                                ItemFill="#97979C"
+                                                                ItemStrokeThickness="0"
+                                                                ItemsSpacing="0"
+                                                                SelectedItemFill="#EDEDED"
+                                                                SelectedItemStrokeThickness="0" />
+                                <telerikGauges:RadHorizontalGauge HorizontalOptions="FillAndExpand"
+                                                                  VerticalOptions="Center">
+                                    <telerikGauges:RadGaugeBase.Axis>
+                                        <telerikGauges:GaugeLinearAxis Maximum="100"
+                                                                       Minimum="0"
+                                                                       ShowLabels="False"
+                                                                       Step="100"
+                                                                       StrokeThickness="0" />
+                                    </telerikGauges:RadGaugeBase.Axis>
+                                    <telerikGauges:RadGaugeBase.Indicators>
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#EDEDED"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="100" />
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#97979C"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="30" />
+                                    </telerikGauges:RadGaugeBase.Indicators>
+                                </telerikGauges:RadHorizontalGauge>
+                            </StackLayout>
+                            <StackLayout HeightRequest="10"
+                                         Orientation="Horizontal">
+                                <telerikControls:RadShapeRating Margin="0,0,8,0"
+                                                                IsReadOnly="True"
+                                                                ItemFill="#97979C"
+                                                                ItemStrokeThickness="0"
+                                                                ItemsSpacing="0"
+                                                                SelectedItemFill="#EDEDED"
+                                                                SelectedItemStrokeThickness="0"
+                                                                Value="1" />
+                                <telerikGauges:RadHorizontalGauge HorizontalOptions="FillAndExpand"
+                                                                  VerticalOptions="Center">
+                                    <telerikGauges:RadGaugeBase.Axis>
+                                        <telerikGauges:GaugeLinearAxis Maximum="100"
+                                                                       Minimum="0"
+                                                                       ShowLabels="False"
+                                                                       Step="100"
+                                                                       StrokeThickness="0" />
+                                    </telerikGauges:RadGaugeBase.Axis>
+                                    <telerikGauges:RadGaugeBase.Indicators>
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#EDEDED"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="100" />
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#97979C"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="55" />
+                                    </telerikGauges:RadGaugeBase.Indicators>
+                                </telerikGauges:RadHorizontalGauge>
+                            </StackLayout>
+                            <StackLayout HeightRequest="10"
+                                         Orientation="Horizontal">
+                                <telerikControls:RadShapeRating Margin="0,0,8,0"
+                                                                IsReadOnly="True"
+                                                                ItemFill="#97979C"
+                                                                ItemStrokeThickness="0"
+                                                                ItemsSpacing="0"
+                                                                SelectedItemFill="#EDEDED"
+                                                                SelectedItemStrokeThickness="0"
+                                                                Value="2" />
+                                <telerikGauges:RadHorizontalGauge HorizontalOptions="FillAndExpand"
+                                                                  VerticalOptions="Center">
+                                    <telerikGauges:RadGaugeBase.Axis>
+                                        <telerikGauges:GaugeLinearAxis Maximum="100"
+                                                                       Minimum="0"
+                                                                       ShowLabels="False"
+                                                                       Step="100"
+                                                                       StrokeThickness="0" />
+                                    </telerikGauges:RadGaugeBase.Axis>
+                                    <telerikGauges:RadGaugeBase.Indicators>
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#EDEDED"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="100" />
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#97979C"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="45" />
+                                    </telerikGauges:RadGaugeBase.Indicators>
+                                </telerikGauges:RadHorizontalGauge>
+                            </StackLayout>
+                            <StackLayout HeightRequest="10" Orientation="Horizontal">
+                                <telerikControls:RadShapeRating Margin="0,0,8,0"
+                                                                IsReadOnly="True"
+                                                                ItemFill="#97979C"
+                                                                ItemStrokeThickness="0"
+                                                                ItemsSpacing="0"
+                                                                SelectedItemFill="#EDEDED"
+                                                                SelectedItemStrokeThickness="0"
+                                                                Value="3" />
+                                <telerikGauges:RadHorizontalGauge HorizontalOptions="FillAndExpand"
+                                                                  VerticalOptions="Center">
+                                    <telerikGauges:RadGaugeBase.Axis>
+                                        <telerikGauges:GaugeLinearAxis Maximum="100"
+                                                                       Minimum="0"
+                                                                       ShowLabels="False"
+                                                                       Step="100"
+                                                                       StrokeThickness="0" />
+                                    </telerikGauges:RadGaugeBase.Axis>
+                                    <telerikGauges:RadGaugeBase.Indicators>
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#EDEDED"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="100" />
+                                    </telerikGauges:RadGaugeBase.Indicators>
+                                </telerikGauges:RadHorizontalGauge>
+
+                            </StackLayout>
+                            <StackLayout HeightRequest="10"
+                                         Orientation="Horizontal">
+                                <telerikControls:RadShapeRating Margin="0,0,8,0"
+                                                                IsReadOnly="True"
+                                                                ItemFill="#97979C"
+                                                                ItemStrokeThickness="0"
+                                                                ItemsSpacing="0"
+                                                                SelectedItemFill="#EDEDED"
+                                                                SelectedItemStrokeThickness="0"
+                                                                Value="4" />
+                                <telerikGauges:RadHorizontalGauge HorizontalOptions="FillAndExpand"
+                                                                  VerticalOptions="Center">
+                                    <telerikGauges:RadGaugeBase.Axis>
+                                        <telerikGauges:GaugeLinearAxis Maximum="100"
+                                                                       Minimum="0"
+                                                                       ShowLabels="False"
+                                                                       Step="100"
+                                                                       StrokeThickness="0" />
+                                    </telerikGauges:RadGaugeBase.Axis>
+                                    <telerikGauges:RadGaugeBase.Indicators>
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#EDEDED"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="100" />
+                                        <telerikGauges:GaugeBarIndicator EndCap="Oval"
+                                                                         EndThickness="3"
+                                                                         Fill="#97979C"
+                                                                         StartCap="Oval"
+                                                                         StartThickness="3"
+                                                                         Offset="0"
+                                                                         Value="15" />
+                                    </telerikGauges:RadGaugeBase.Indicators>
+                                </telerikGauges:RadHorizontalGauge>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+                <StackLayout Grid.Row="2"
+                             BackgroundColor="Transparent">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapped" />
+                    </StackLayout.GestureRecognizers>
+                    <BoxView HeightRequest="1"
+                             HorizontalOptions="FillAndExpand"
+                             Color="#D6D5D9" />
+                    <Label Margin="0,8,0,8"
+                           Text="Write A Review"
+                           TextColor="#CB212E">
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS,UWP">18</On>
+                                <On Platform="Android">24</On>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
+                    <BoxView HeightRequest="1"
+                             HorizontalOptions="FillAndExpand"
+                             Color="#D6D5D9" />
+                </StackLayout>
+                <Grid Grid.Row="3"
+                      Margin="0,16,0,0">
+                    <StackLayout Spacing="3">
+                        <Label FontSize="20"
+                               Text="1. Always excellent food and service"
+                               TextColor="Black">
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS">14</On>
+                                    <On Platform="Android">20</On>
+                                    <On Platform="UWP">12</On>
+                                </OnPlatform>
+                            </Label.FontSize>
+                        </Label>
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="20">
+                            <StackLayout HorizontalOptions="End"
+                                         Spacing="3"
+                                         WidthRequest="100">
+                                <telerikControls:RadShapeRating Margin="0,8,0,5"
+                                                                HeightRequest="10"
+                                                                HorizontalOptions="End"
+                                                                IsReadOnly="True"
+                                                                ItemStroke="#FF9B0F"
+                                                                ItemStrokeThickness="1"
+                                                                ItemsSpacing="0"
+                                                                Value="3" />
+                                <Label HorizontalOptions="End"
+                                       Text="Food 5">
+                                    <Label.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS,UWP">10</On>
+                                            <On Platform="Android">12</On>
+                                        </OnPlatform>
+                                    </Label.FontSize>
+                                </Label>
+                                <Label HorizontalOptions="End"
+                                       Text="Ambience 4">
+                                    <Label.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS,UWP">10</On>
+                                            <On Platform="Android">12</On>
+                                        </OnPlatform>
+                                    </Label.FontSize>
+                                </Label>
+                                <Label HorizontalOptions="End"
+                                       Text="Service 3">
+                                    <Label.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS,UWP">10</On>
+                                            <On Platform="Android">12</On>
+                                        </OnPlatform>
+                                    </Label.FontSize>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Spacing="5">
+                                <Label FontSize="16"
+                                       Text="by Daniela Kamenova, Feb 18, 2016"
+                                       TextColor="Black" />
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span ForegroundColor="#929292"
+                                                      Text="it was really nice dinner. The service was good and the quality of the pasta is awsome. Good list of ..." />
+                                                <Span ForegroundColor="#CB212E"
+                                                      Text=" more" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                    <Label.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS,UWP">10</On>
+                                            <On Platform="Android">12</On>
+                                        </OnPlatform>
+                                    </Label.FontSize>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentView>

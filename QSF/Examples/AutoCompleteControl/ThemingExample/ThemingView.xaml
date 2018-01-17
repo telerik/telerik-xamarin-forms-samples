@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:example="clr-namespace:QSF.Examples.AutoCompleteControl.ThemingExample"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.AutoCompleteControl.ThemingExample.ThemingView">
+  <ContentView.BindingContext>
+    <example:ThemingViewModel />
+  </ContentView.BindingContext>
+    <Grid Margin="16,16,16,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <telerikInput:RadAutoComplete ItemsSource="{Binding Path=ItemsSource}"
+                                      views:ThemesBehavior.StyleClass="TelerikTheme"
+                                      DisplayMode="Tokens" 
+                                      SuggestMode="Suggest" 
+                                      CompletionMode="Contains" 
+                                      Watermark="Search for ship name"/>
+    </Grid>
+</ContentView>

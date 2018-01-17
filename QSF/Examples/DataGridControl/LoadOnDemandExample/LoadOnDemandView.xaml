@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:common="clr-namespace:Telerik.XamarinForms.Common.Data;assembly=Telerik.XamarinForms.Common"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:local="clr-namespace:QSF.Examples.DataGridControl.LoadOnDemandExample"
+             x:Class="QSF.Examples.DataGridControl.LoadOnDemandExample.LoadOnDemandView">
+    
+    <ContentView.BindingContext>
+        <local:LoadOnDemandViewModel />
+    </ContentView.BindingContext>
+    
+   <telerikDataGrid:RadDataGrid x:Name="dataGrid"
+                                 ItemsSource="{Binding Items}"
+                                 AutoGenerateColumns="false"
+                                 LoadOnDemandMode="Manual"
+                                 UserGroupMode="Disabled"
+                                 GridLinesVisibility="Both">
+
+        <telerikDataGrid:RadDataGrid.LoadOnDemandRowStyle>
+            <telerikDataGrid:DataGridLoadOnDemandRowStyle 
+                TextColor="White" 
+                IndicatorAnimationColor="White" 
+                BackgroundColor="#0B98EE" 
+                IndicatorAnimationType="Animation9" 
+                OverlayOpacity="0.85">
+                
+            </telerikDataGrid:DataGridLoadOnDemandRowStyle>
+        </telerikDataGrid:RadDataGrid.LoadOnDemandRowStyle>
+
+        
+        <telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
+            <telerikDataGrid:DataGridBorderStyle BackgroundColor="White" BorderColor="#C3C3C5" />
+        </telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
+        <telerikDataGrid:RadDataGrid.RowBackgroundStyle>
+            <telerikDataGrid:DataGridBorderStyle BackgroundColor="#F5FAFD" BorderColor="#C3C3C5" />
+        </telerikDataGrid:RadDataGrid.RowBackgroundStyle>
+
+        <telerikDataGrid:RadDataGrid.Columns>
+            <telerikDataGrid:DataGridTextColumn PropertyName="FullName" HeaderText="Sales Person">
+                
+                <telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                    <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                </telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                
+                <telerikDataGrid:DataGridTextColumn.HeaderStyle>
+                    <telerikDataGrid:DataGridColumnHeaderStyle BackgroundColor="#D4392A" 
+                        TextColor="White"
+                        TextMargin="10, 15, 0, 15"
+                        BorderColor="#D4392A"
+                        BorderThickness="1"
+                        OptionsButtonMargin="9, 14, 13, 14"
+                        OptionsButtonTextColor="White"/>
+                </telerikDataGrid:DataGridTextColumn.HeaderStyle>
+            </telerikDataGrid:DataGridTextColumn>
+            <telerikDataGrid:DataGridNumericalColumn PropertyName="Sales" HeaderText="Sales ($)" CellContentFormat="$ {0}">
+
+                <telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                    <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                </telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                
+                <telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
+                    <telerikDataGrid:DataGridColumnHeaderStyle BackgroundColor="#D4392A" 
+                        TextColor="White"
+                        TextMargin="10, 15, 0, 15"
+                        BorderColor="#D4392A"
+                        BorderThickness="1"
+                        OptionsButtonMargin="9, 14, 13, 14"
+                        OptionsButtonTextColor="White"/>
+                </telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
+            </telerikDataGrid:DataGridNumericalColumn>
+        </telerikDataGrid:RadDataGrid.Columns>
+        
+    </telerikDataGrid:RadDataGrid>
+
+</ContentView>

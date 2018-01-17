@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GalleryExampleViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+                              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                              xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+                              xmlns:local="clr-namespace:QSF.Examples.GaugeControl.VerticalGaugeGalleryExample"
+                              xmlns:views="clr-namespace:QSF.Views"
+                              x:Class="QSF.Examples.GaugeControl.VerticalGaugeGalleryExample.VerticalGaugeGalleryView">
+    <views:GalleryExampleViewBase.Resources>
+        <ResourceDictionary MergedWith="views:GalleryResources">
+            <DataTemplate x:Key="template9">
+                <local:VerticalGaugeGalleryItem1 />
+            </DataTemplate>
+            <DataTemplate x:Key="template10">
+                <local:VerticalGaugeGalleryItem2 />
+            </DataTemplate>
+        </ResourceDictionary>
+    </views:GalleryExampleViewBase.Resources>
+    <views:GalleryExampleViewBase.BindingContext>
+        <local:VerticalGaugeGalleryViewModel />
+    </views:GalleryExampleViewBase.BindingContext>
+</views:GalleryExampleViewBase>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.DataFormControl.ReservationsExample.DataFormView">
+    <Grid Grid.ColumnSpacing="0"
+          Grid.RowSpacing="0"
+          BackgroundColor="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!-- header -->
+            <Grid BackgroundColor="#C73339"
+                  RowSpacing="0"
+                  ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                        <ColumnDefinition.Width>
+                            <OnPlatform x:TypeArguments="GridLength">
+                                <On Platform="iOS">14</On>
+                                <On Platform="Android,UWP">20</On>
+                            </OnPlatform>
+                        </ColumnDefinition.Width>
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">15, 15, 8, 15</On>
+                        <On Platform="Android,UWP">16, 16, 8, 16</On>
+                    </OnPlatform>
+                </Grid.Padding>
+                <Label Text="{Binding PageTitle}"
+                       FontSize="15"
+                       TextColor="White"
+                       VerticalOptions="Center">
+                    <Grid.Column>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="iOS">0</On>
+                            <On Platform="Android,UWP">1</On>
+                        </OnPlatform>
+                    </Grid.Column>
+                    <Grid.ColumnSpan>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="iOS">3</On>
+                            <On Platform="Android,UWP">1</On>
+                        </OnPlatform>
+                    </Grid.ColumnSpan>
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">0</On>
+                            <On Platform="Android,UWP">20, 0, 16, 0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.HorizontalTextAlignment>
+                        <OnPlatform x:TypeArguments="TextAlignment">
+                            <On Platform="iOS">Center</On>
+                            <On Platform="Android,UWP">Start</On>
+                        </OnPlatform>
+                    </Label.HorizontalTextAlignment>
+                </Label>
+                <Image x:Name="cancelButton"
+                       Source="DataForm_Cancel.png"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Aspect="AspectFit">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">DataForm_Cancel.png</On>
+                            <On Platform="UWP">Assets\DataForm_Cancel.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                    <Image.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">14</On>
+                            <On Platform="Android,UWP">20</On>
+                        </OnPlatform>
+                    </Image.HeightRequest>
+                    <Image.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">14</On>
+                            <On Platform="Android,UWP">20</On>
+                        </OnPlatform>
+                    </Image.WidthRequest>
+                </Image>
+                <Label x:Name="doneButton"
+                       TextColor="White"
+                       Text="Done"
+                       HorizontalOptions="End"
+                       Grid.Column="2"
+                       FontSize="16"
+                       VerticalOptions="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Helvetica-medium</On>
+                            <On Platform="Android">sans-serif-medium</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </Grid>
+            <!-- form -->
+            <telerikInput:RadDataForm x:Name="dataForm"
+                                      Source="{Binding FormSource}"
+                                      Grid.Row="1"
+                                      CommitMode="Manual"
+                                      ValidationMode="Immediate">
+                <telerikInput:RadDataForm.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">15, 0, 8, 0</On>
+                        <On Platform="Android,UWP">16, 0, 4, 0</On>
+                    </OnPlatform>
+                </telerikInput:RadDataForm.Margin>
+            </telerikInput:RadDataForm>
+            <Label TextColor="#C73339"
+                   HorizontalOptions="Start"
+                   Grid.Row="2"
+                   x:Name="cancelReservationButton">
+                <Label.Text>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS,UWP">Cancel reservation</On>
+                        <On Platform="Android">CANCEL RESERVATION</On>
+                    </OnPlatform>
+                </Label.Text>
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Helvetica-bold</On>
+                        <On Platform="Android">sans-serif-medium</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+                <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">15</On>
+                        <On Platform="Android">12</On>
+                    </OnPlatform>
+                </Label.FontSize>
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">15, 5, 0, 21</On>
+                        <On Platform="Android,UWP">52, 20, 0, 24</On>
+                    </OnPlatform>
+                </Label.Margin>
+            </Label>
+        </Grid>
+    </Grid>
+</ContentPage>

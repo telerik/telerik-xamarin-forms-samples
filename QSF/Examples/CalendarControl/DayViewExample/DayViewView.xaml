@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:example="clr-namespace:QSF.Examples.CalendarControl.DayViewExample"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:views="clr-namespace:QSF.Views"
+             x:Class="QSF.Examples.CalendarControl.DayViewExample.DayViewView"
+             BackgroundColor="#F7F7F7">
+  <ContentView.Resources>
+    <ResourceDictionary>
+      <converters:DateToStringConverter x:Key="titleConverter" />
+      <OnPlatform x:Key="todayColumn"
+                  x:TypeArguments="x:Int32"
+                  iOS="0"
+                  Android="2" />
+    </ResourceDictionary>
+  </ContentView.Resources>
+  <Grid RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <!-- calendar -->
+    <example:DayViewCalendar AppointmentsSource="{Binding Appointments}"
+                             views:ThemesBehavior.StyleClass="TelerikTheme"
+                             NativeControlLoaded="CalendarLoaded"
+                             Grid.Row="1"
+                             x:Name="calendar">
+      <example:DayViewCalendar.AppointmentsStyle>
+        <telerikInput:CalendarAppointmentsStyle DisplayMode="None" />
+      </example:DayViewCalendar.AppointmentsStyle>
+    </example:DayViewCalendar>
+    <!-- toolbar -->
+    <Grid ColumnSpacing="0"
+          BackgroundColor="White">
+      <Grid.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color"
+                    iOS="Transparent"
+                    Android="White" />
+      </Grid.BackgroundColor>
+      <Grid.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="12"
+                    Android="16" />
+      </Grid.Padding>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <!-- today -->
+      <Label x:Name="todayLabel"
+             Text="Today"
+             TextColor="#B7403F"
+             BackgroundColor="Transparent"
+             Grid.Column="{StaticResource todayColumn}">
+        <Label.FontSize>
+          <OnPlatform x:TypeArguments="x:Double"
+                      Android="20"
+                      iOS="16" />
+        </Label.FontSize>
+      </Label>
+      <!-- title -->
+      <Label Text="{Binding SelectedDate, Converter={StaticResource titleConverter}}"
+             BindingContext="{x:Reference Name=calendar}"
+             Grid.Column="1"
+             VerticalOptions="Center"
+             TextColor="Black">
+        <Label.HorizontalOptions>
+          <OnPlatform x:TypeArguments="LayoutOptions"
+                      Android="Start"
+                      iOS="Center" />
+        </Label.HorizontalOptions>
+        <Label.FontSize>
+          <OnPlatform x:TypeArguments="x:Double"
+                      Android="20"
+                      iOS="16" />
+        </Label.FontSize>
+      </Label>
+    </Grid>
+  </Grid>
+</ContentView>

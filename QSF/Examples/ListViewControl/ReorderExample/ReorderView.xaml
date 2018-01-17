@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:QSF.Effects"
+             xmlns:local="clr-namespace:QSF.Examples.ListViewControl.ReorderExample"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.ListViewControl.ReorderExample.ReorderView">
+    <ContentView.BindingContext>
+        <local:ReorderViewModel />
+    </ContentView.BindingContext>
+    <Grid BackgroundColor="White">
+        <Grid Grid.RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="GridLength">
+                            <On Platform="iOS">44</On>
+                            <On Platform="Android,UWP">56</On>
+                        </OnPlatform>
+                    </RowDefinition.Height>
+                </RowDefinition>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid BackgroundColor="#F3C7B9">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="exampleLabel"
+                       Grid.Column="1"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       TextColor="#362F2D">
+                    <Label.Text>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">To Do List</On>
+                            <On Platform="Android,UWP">TO DO LIST</On>
+                        </OnPlatform>
+                    </Label.Text>
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS,UWP">14</On>
+                            <On Platform="Android">16</On>
+                        </OnPlatform>
+                    </Label.FontSize>
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">Helvetica-Bold</On>
+                            <On Platform="Android">sans-serif-medium</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </Grid>
+            <telerikDataControls:RadListView x:Name="list"
+                                             ItemsSource="{Binding Items}"
+                                             Grid.Row="1"
+                                             SwipeOffset="80, 0"
+                                             SwipeThreshold="10"
+                                             IsItemSwipeEnabled="True"
+                                             IsItemsReorderEnabled="True">
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <telerikListView:ListViewLinearLayout Orientation="Vertical"
+                                                          HorizontalItemSpacing="0"/>
+                </telerikDataControls:RadListView.LayoutDefinition>
+                <telerikDataControls:RadListView.ItemStyle>
+                    <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
+                                                       BorderWidth="1"
+                                                       BorderColor="White"
+                                                       BorderLocation="Bottom"/>
+                </telerikDataControls:RadListView.ItemStyle>
+                <telerikDataControls:RadListView.SelectedItemStyle>
+                    <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
+                                                       BorderWidth="1"
+                                                       BorderColor="White"
+                                                       BorderLocation="Bottom"/>
+                </telerikDataControls:RadListView.SelectedItemStyle>
+                <telerikDataControls:RadListView.PressedItemStyle>
+                    <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
+                                                       BorderWidth="1"
+                                                       BorderColor="White"
+                                                       BorderLocation="Bottom"/>
+                </telerikDataControls:RadListView.PressedItemStyle>
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <telerikListView:ListViewTemplateCell>
+                            <telerikListView:ListViewTemplateCell.View>
+                                <Grid Padding="16">
+                                    <Label Text="{Binding Header}"
+                                           TextColor="#362F2D"
+                                           effects:StrikeThroughEffect.IsStrikeThrough="{Binding IsDone}">
+                                        <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="iOS,UWP">14</On>
+                                                <On Platform="Android">16</On>
+                                            </OnPlatform>
+                                        </Label.FontSize>
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS">Helvetica-Medium</On>
+                                                <On Platform="Android">sans-serif-light</On>
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </Grid>
+                            </telerikListView:ListViewTemplateCell.View>
+                        </telerikListView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+                <telerikDataControls:RadListView.ItemSwipeContentTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Button BackgroundColor="#FFA200"
+                                        BorderRadius="0"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Command="{Binding BindingContext.DoneCommand, Source={x:Reference list}}"
+                                        CommandParameter="{Binding}"
+                                        Clicked="OnButtonClicked" />
+                                <Image Aspect="AspectFit"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       InputTransparent="True">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource">
+                                            <On Platform="iOS,Android">ListView_Reorder_Done</On>
+                                            <On Platform="UWP">Assets\ListView_Reorder_Done.png</On>
+                                        </OnPlatform>
+                                    </Image.Source>
+                                </Image>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Button BackgroundColor="#E5503A"
+                                        BorderRadius="0"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Command="{Binding BindingContext.DeleteCommand, Source={x:Reference list}}"
+                                        CommandParameter="{Binding}"
+                                        Clicked="OnButtonClicked" />
+                                <Image Aspect="AspectFit"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       InputTransparent="True">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource">
+                                            <On Platform="iOS,Android">ListView_Reorder_Delete</On>
+                                            <On Platform="UWP">Assets\ListView_Reorder_Delete.png</On>
+                                        </OnPlatform>
+                                    </Image.Source>
+                                </Image>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemSwipeContentTemplate>
+            </telerikDataControls:RadListView>
+        </Grid>
+    </Grid>
+</ContentView>

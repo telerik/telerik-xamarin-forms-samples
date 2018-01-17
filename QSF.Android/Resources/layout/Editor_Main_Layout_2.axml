@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:rowCount="3"
+    android:columnCount="2">
+    <ImageView
+        android:scaleType="centerInside"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/data_form_editor_image"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_row="0"
+        android:layout_column="0" />
+    <FrameLayout
+        android:id="@+id/data_form_header_container"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:layout_height="20dp"
+        android:layout_row="0"
+        android:layout_column="1" />
+    <LinearLayout
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <FrameLayout
+            android:id="@+id/data_form_editor_container"
+            android:layout_width="match_parent"
+            android:layout_height="44dp" />
+        <ImageView
+            android:id="@+id/data_form_validation_icon"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/data_form_validation_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="2"
+        android:layout_column="1" />
+</GridLayout>

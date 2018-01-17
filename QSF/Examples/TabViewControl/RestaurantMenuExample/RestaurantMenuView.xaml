@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QSF.Examples.TabViewControl.RestaurantMenuExample"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.TabViewControl.RestaurantMenuExample.RestaurantMenuView">
+    <ContentView.Resources>
+        <ResourceDictionary MergedWith="local:Resources" />
+    </ContentView.Resources>
+    <ContentView.BindingContext>
+        <local:RestaurantMenuViewModel />
+    </ContentView.BindingContext>
+    <Grid>
+        <telerikPrimitives:RadTabView BackgroundColor="{StaticResource lightGray}"
+                                      HeaderPosition="Bottom">
+            <telerikPrimitives:RadTabView.Items>
+                <telerikPrimitives:TabViewItem BindingContext="{Binding Explore}"
+                                               IsSelected="{Binding IsSelected, Mode=OneWayToSource}">
+                    <telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewHeaderItem Text="{Binding Name}"
+                                                             ControlTemplate="{StaticResource iconControlTemplate}" />
+                    </telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewItem.Content>
+                        <Grid BackgroundColor="White">
+                            <local:RestaurantExploreTabView Margin="0, 15, 0, 0" />
+                            <BoxView HeightRequest="1"
+                                     VerticalOptions="End"
+                                     BackgroundColor="{StaticResource unselectedColor}" />
+                        </Grid>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem BindingContext="{Binding Saved}"
+                                               IsSelected="{Binding IsSelected, Mode=OneWayToSource}">
+                    <telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewHeaderItem Text="{Binding Name}"
+                                                             ControlTemplate="{StaticResource iconControlTemplate}" />
+                    </telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewItem.Content>
+                        <Grid BackgroundColor="White">
+                            <local:RestaurantExploreItemsView BindingContext="{Binding Items}" />
+                            <BoxView HeightRequest="1"
+                                     VerticalOptions="End"
+                                     BackgroundColor="{StaticResource unselectedColor}" />
+                        </Grid>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem BindingContext="{Binding ShoppingList}"
+                                               IsSelected="{Binding IsSelected, Mode=OneWayToSource}">
+                    <telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewHeaderItem Text="{Binding Name}"
+                                                             ControlTemplate="{StaticResource iconControlTemplate}" />
+                    </telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewItem.Content>
+                        <Grid BackgroundColor="White">
+                            <local:RestaurantExploreItemsView BindingContext="{Binding Items}" />
+                            <BoxView HeightRequest="1"
+                                     VerticalOptions="End"
+                                     BackgroundColor="{StaticResource unselectedColor}" />
+                        </Grid>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+            </telerikPrimitives:RadTabView.Items>
+        </telerikPrimitives:RadTabView>
+    </Grid>
+</ContentView>

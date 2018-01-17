@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GalleryExampleViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:example="clr-namespace:QSF.Examples.ChartControl.LineSeriesExample"
+                              xmlns:views="clr-namespace:QSF.Views"
+                              xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+                              x:Class="QSF.Examples.ChartControl.LineSeriesExample.LineSeriesView">
+    <views:GalleryExampleViewBase.Resources>
+        <ResourceDictionary MergedWith="views:GalleryResources">
+            <DataTemplate x:Key="line">
+                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                    <telerikChart:RadCartesianChart.Behaviors>
+                        <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
+                    </telerikChart:RadCartesianChart.Behaviors>
+                    <telerikChart:RadCartesianChart.HorizontalAxis>
+                        <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.HorizontalAxis>
+                    <telerikChart:RadCartesianChart.VerticalAxis>
+                        <telerikChart:NumericalAxis Minimum="0" Maximum="100" LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.VerticalAxis>
+                    <telerikChart:RadCartesianChart.Grid>
+                        <telerikChart:CartesianChartGrid MajorLinesVisibility="Y" MajorLineThickness="1" />
+                    </telerikChart:RadCartesianChart.Grid>
+                    <telerikChart:RadCartesianChart.Series>
+                        <telerikChart:LineSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SeriesData}" />
+                    </telerikChart:RadCartesianChart.Series>
+                </telerikChart:RadCartesianChart>
+            </DataTemplate>
+            <DataTemplate x:Key="spline">
+                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                    <telerikChart:RadCartesianChart.Behaviors>
+                        <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
+                    </telerikChart:RadCartesianChart.Behaviors>
+                    <telerikChart:RadCartesianChart.HorizontalAxis>
+                        <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.HorizontalAxis>
+                    <telerikChart:RadCartesianChart.VerticalAxis>
+                        <telerikChart:NumericalAxis Minimum="0" Maximum="100" LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.VerticalAxis>
+                    <telerikChart:RadCartesianChart.Grid>
+                        <telerikChart:CartesianChartGrid MajorLinesVisibility="Y" MajorLineThickness="1" />
+                    </telerikChart:RadCartesianChart.Grid>
+                    <telerikChart:RadCartesianChart.Series>
+                        <telerikChart:SplineSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SeriesData}" />
+                    </telerikChart:RadCartesianChart.Series>
+                </telerikChart:RadCartesianChart>
+            </DataTemplate>
+            <DataTemplate x:Key="stacked-line">
+                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                    <telerikChart:RadCartesianChart.Behaviors>
+                        <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
+                    </telerikChart:RadCartesianChart.Behaviors>
+                    <telerikChart:RadCartesianChart.HorizontalAxis>
+                        <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.HorizontalAxis>
+                    <telerikChart:RadCartesianChart.VerticalAxis>
+                        <telerikChart:NumericalAxis Minimum="0" Maximum="100" LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.VerticalAxis>
+                    <telerikChart:RadCartesianChart.Grid>
+                        <telerikChart:CartesianChartGrid MajorLinesVisibility="Y" MajorLineThickness="1" />
+                    </telerikChart:RadCartesianChart.Grid>
+                    <telerikChart:RadCartesianChart.Series>
+                        <telerikChart:LineSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SeriesData}" CombineMode="Stack" />
+                        <telerikChart:LineSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SecondSeriesData}" CombineMode="Stack" />
+                    </telerikChart:RadCartesianChart.Series>
+                </telerikChart:RadCartesianChart>
+            </DataTemplate>
+            <DataTemplate x:Key="stacked-spline">
+                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                    <telerikChart:RadCartesianChart.Behaviors>
+                        <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
+                    </telerikChart:RadCartesianChart.Behaviors>
+                    <telerikChart:RadCartesianChart.HorizontalAxis>
+                        <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.HorizontalAxis>
+                    <telerikChart:RadCartesianChart.VerticalAxis>
+                        <telerikChart:NumericalAxis Minimum="0" Maximum="100" LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+                    </telerikChart:RadCartesianChart.VerticalAxis>
+                    <telerikChart:RadCartesianChart.Grid>
+                        <telerikChart:CartesianChartGrid MajorLinesVisibility="Y" MajorLineThickness="1" />
+                    </telerikChart:RadCartesianChart.Grid>
+                    <telerikChart:RadCartesianChart.Series>
+                        <telerikChart:SplineSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SeriesData}" CombineMode="Stack" />
+                        <telerikChart:SplineSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding SecondSeriesData}" CombineMode="Stack" />
+                    </telerikChart:RadCartesianChart.Series>
+                </telerikChart:RadCartesianChart>
+            </DataTemplate>
+        </ResourceDictionary>
+    </views:GalleryExampleViewBase.Resources>
+    <views:GalleryExampleViewBase.BindingContext>
+        <example:LineSeriesViewModel />
+    </views:GalleryExampleViewBase.BindingContext>
+    <views:GalleryExampleViewBase.HeaderContent>
+        <Label Text="Monthly sales revenue, 2016"
+               Style="{StaticResource labelHeaderStyle}"
+               Margin="0, 6, 0, 0" />
+    </views:GalleryExampleViewBase.HeaderContent>
+</views:GalleryExampleViewBase>

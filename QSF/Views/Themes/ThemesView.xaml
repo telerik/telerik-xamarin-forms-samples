@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:QSF.Controls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Views.ThemesView">
+    <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:AppBar Title="Themes"
+                         TitleHorizontalOptions="Start"
+                         LeftButtonText="{StaticResource Key=BackButtonIcon}"
+                         LeftButtonCommand="{Binding Path=AppBarLeftButtonCommand}"
+                         IsMiddleButtonVisible="False"
+                         IsRightButtonVisible="False"/>
+
+        <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Path=Themes}" SelectedItem="{Binding Path=SelectedTheme, Mode=TwoWay}">
+            <telerikDataControls:RadListView.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="10, 0" />
+                    <On Platform="Android" Value="8, 0" />
+                    <On Platform="UWP" Value="0" />
+                </OnPlatform>
+            </telerikDataControls:RadListView.Margin>
+            <telerikDataControls:RadListView.LayoutDefinition>
+                <telerikListView:ListViewGridLayout HorizontalItemSpacing="10" VerticalItemSpacing="10" ItemLength="50" />
+            </telerikDataControls:RadListView.LayoutDefinition>
+            <telerikDataControls:RadListView.ItemStyle>
+                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{StaticResource Key=DarkBackgroundColor}" />
+            </telerikDataControls:RadListView.ItemStyle>
+            <telerikDataControls:RadListView.PressedItemStyle>
+                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{StaticResource Key=DarkBackgroundColor}" />
+            </telerikDataControls:RadListView.PressedItemStyle>
+            <telerikDataControls:RadListView.SelectedItemStyle>
+                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{StaticResource Key=DarkBackgroundColor}" />
+            </telerikDataControls:RadListView.SelectedItemStyle>
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <BoxView Color="{Binding Path=Color1}" WidthRequest="25" HeightRequest="25" VerticalOptions="Center" />
+                                <Label FontFamily="{StaticResource IconsFont}" FontSize="18" TextColor="{StaticResource LightTextColor}"
+                                       Text="{StaticResource TickIcon}" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding Path=IsSelected}" />
+                                
+                                <BoxView Color="{Binding Path=Color2}" WidthRequest="25" HeightRequest="25" VerticalOptions="Center" Grid.Column="1" />
+                                
+                                <BoxView Color="{Binding Path=Color3}" WidthRequest="25" HeightRequest="25" VerticalOptions="Center" Grid.Column="2" />
+                                
+                                <Label Text="{Binding Path=Name}" Margin="6, 0, 0, 0" VerticalOptions="Center" TextColor="{StaticResource TextColor}" Grid.Column="3" />
+                            </Grid>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+        </telerikDataControls:RadListView>
+    </Grid>
+</ContentPage>

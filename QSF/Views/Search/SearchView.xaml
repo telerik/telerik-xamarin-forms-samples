@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:controls="clr-namespace:QSF.Controls"
+             xmlns:effects="clr-namespace:QSF.Effects"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Views.SearchView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:EnumToStringConverter x:Key="enumToStringConverter" />
+            <converters:HightlitedTextConverter x:Key="hightllightedTextConverter" />
+
+            <converters:HightlitedTextConverterParameter x:Key="hightlitedTextConverterParameter" HighlightTextColor="{StaticResource Key=AccentColor}" HighlightBackgroundColor="Transparent"/>
+
+            <DataTemplate x:Key="controlDescriptionDataTemplate">
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}"/>
+                            <Label Grid.Row="1" Margin="0, 0, 0, 12" Style="{StaticResource Key=BodyLabelStyle}"
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                        </Grid>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="controlNameDataTemplate">
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                            <Label Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" Margin="0, 0, 0, 12" FontFamily="{StaticResource Key=MediumFont}"
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                        </Grid>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="exampleDescriptionDataTemplate">
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding Path=ExampleName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}"/>
+                            <Label Grid.Row="1" Margin="0, 0, 0, 12" Style="{StaticResource Key=BodyLabelStyle}"
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                        </Grid>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="exampleNameDataTemplate">
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}"/>
+                            <Label Grid.Row="1" TextColor="{StaticResource TextColor}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" Margin="0, 0, 0, 12" FontFamily="{StaticResource Key=MediumFont}" BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                        </Grid>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell> 
+            </DataTemplate>
+
+            <views:SearchResultListViewItemTemplateSelector x:Key="searchResultListViewItemTemplateSelector"
+                                                            ControlDescriptionDataTemplate="{StaticResource Key=controlDescriptionDataTemplate}"
+                                                            ControlNameDataTemplate="{StaticResource Key=controlNameDataTemplate}"
+                                                            ExampleDescriptionDataTemplate="{StaticResource Key=exampleDescriptionDataTemplate}"
+                                                            ExampleNameDataTemplate="{StaticResource Key=exampleNameDataTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:AppBar TitleHorizontalOptions="Start"
+                         LeftButtonText="{StaticResource Key=BackButtonIcon}"
+                         LeftButtonCommand="{Binding Path=AppBarLeftButtonCommand}"
+                         IsMiddleButtonVisible="False" 
+                         IsRightButtonVisible="False"/>
+
+        <SearchBar Text="{Binding Path=SearchText}" HorizontalOptions="Fill" Margin="50, 0, 18, 0" VerticalOptions="Center">
+            <SearchBar.Effects>
+                <effects:BorderEffect />
+            </SearchBar.Effects>
+        </SearchBar>
+
+        <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Path=SearchResults}" SelectedItem="{Binding Path=SelectedSearchResult, Mode=TwoWay}"
+                                         ItemTemplateSelector="{StaticResource Key=searchResultListViewItemTemplateSelector}">
+            <telerikDataControls:RadListView.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="12" />
+                    <On Platform="UWP, Android" Value="12, 0" />
+                </OnPlatform>
+            </telerikDataControls:RadListView.Margin>
+            <telerikDataControls:RadListView.GroupDescriptors>
+                <telerikListView:PropertyGroupDescriptor PropertyName="ResultTypeText" SortOrder="Ascending"/>
+            </telerikDataControls:RadListView.GroupDescriptors>
+            <telerikDataControls:RadListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}" Style="{StaticResource Key=HeaderLabelStyle}" Margin="0, 12, 0, 12" BackgroundColor="{StaticResource Key=DarkBackgroundColor}" />
+                </DataTemplate>
+            </telerikDataControls:RadListView.GroupHeaderTemplate>
+        </telerikDataControls:RadListView>
+    </Grid>
+</ContentPage>

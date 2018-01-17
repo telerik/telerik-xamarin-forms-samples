@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GalleryExampleViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:example="clr-namespace:QSF.Examples.BusyIndicatorControl.GalleryExample"
+                              xmlns:views="clr-namespace:QSF.Views"
+                              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                              x:Class="QSF.Examples.BusyIndicatorControl.GalleryExample.GalleryView">
+  <views:GalleryExampleViewBase.Resources>
+    <ResourceDictionary>
+      <DataTemplate x:Key="busyIndicator">
+        <telerikPrimitives:RadBusyIndicator AnimationContentHeightRequest="200"
+                                            AnimationContentWidthRequest="200"
+                                            AnimationType="{Binding Path=AnimationType}"
+                                            InputTransparent="True"
+                                            views:ThemesBehavior.StyleClass="TelerikTheme"
+                                            IsBusy="True" />
+      </DataTemplate>
+    </ResourceDictionary>
+  </views:GalleryExampleViewBase.Resources>
+  <views:GalleryExampleViewBase.BindingContext>
+    <example:GalleryViewModel />
+  </views:GalleryExampleViewBase.BindingContext>
+</views:GalleryExampleViewBase>

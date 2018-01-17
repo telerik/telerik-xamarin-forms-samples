@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:QSF.Controls"
+             xmlns:viewModels="clr-namespace:QSF.ViewModels"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="QSF.Views.OnBoardingView">
+    <ContentView.BindingContext>
+        <viewModels:OnBoardingViewModel />
+    </ContentView.BindingContext>
+    <Grid BackgroundColor="{StaticResource Key=LightBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:AppBar Title="{Binding Path=Title}"
+                         TitleIcon="{Binding Path=Icon, Converter={StaticResource Key=ImageSourceConverter}}"
+                         TitleHorizontalOptions="Center"
+                         IsMiddleButtonVisible="False"
+                         IsLeftButtonVisible="False"
+                         IsRightButtonVisible="False" />
+        
+        <Grid Margin="50, 35, 50, 50" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <telerikPrimitives:RadSlideView x:Name="slideView" Grid.Row="2" ItemsSource="{Binding Path=Slides}" ShowButtons="False"
+                                            IsInfiniteScrollingEnabled="True" Margin="0, 0, 0, 20">
+                <telerikPrimitives:RadSlideView.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="OnManualSlide" />
+                </telerikPrimitives:RadSlideView.GestureRecognizers>
+                <telerikPrimitives:RadSlideView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Path=Title}" Margin="0, 0, 0, 30" HorizontalOptions="Center" TextColor="{StaticResource Key=TextColor}"
+                                   HorizontalTextAlignment="Center" FontFamily="{StaticResource Key=MediumFont}" FontSize="20"/>
+
+                            <ffimageloading:CachedImage IsVisible="{Binding Path=HasIcon}" Source="{Binding Path=Icon, Converter={StaticResource Key=ImageSourceConverter}}" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" />
+
+                            <Label Text="{Binding Path=Content}" Margin="0, 30, 0, 25" HorizontalOptions="Center" Style="{StaticResource Key=BodyLabelStyle}"
+                                   HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </telerikPrimitives:RadSlideView.ItemTemplate>
+            </telerikPrimitives:RadSlideView>
+
+            <telerikInput:RadButton Text="Get Started" Grid.Row="3" HeightRequest="50" Margin="20, 0" BorderRadius="25"
+                    BackgroundColor="{StaticResource Key=AccentColor}" TextColor="{StaticResource Key=LightTextColor}" Clicked="OnCloseClicked" />
+        </Grid>
+    </Grid>
+</ContentView>
