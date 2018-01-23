@@ -264,54 +264,71 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_1024x1024-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_167x167-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_20x20-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_20x20-200.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_29x29-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_29x29-200.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_29x29-300.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_40x40-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_40x40-200.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_40x40-300.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_58x58-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_60x60-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_60x60-200.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_60x60-300.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_76x76-100.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_76x76-200.png">
       <Visible>false</Visible>
+      <InProject>false</InProject>
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
