@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" BackgroundColor="{DynamicResource AppBackgroundColor}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="tagit.Views.UploadView">
+    <ContentView.Content>
+       
+        <Grid HorizontalOptions="Fill" Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Padding="10" BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image VerticalOptions="Center" WidthRequest="50" HeightRequest="50" Source="tagit_header.png"/>
+                <Label TextColor="White" Style="{DynamicResource TitleStyle}" Grid.Column="1" VerticalOptions="Center" Text="Telerik Tagit"/>
+            </Grid>
+            
+                <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="40,20">
+                    <Label HorizontalOptions="Start" Style="{DynamicResource TitleStyle}" VerticalOptions="Center" Text="Browse Images &amp; Photos"/>
+                    <Label HorizontalOptions="Start" TextColor="{DynamicResource AppTextColor}" Style="{DynamicResource SubtitleStyle}" Text="Select one or more images to get started with image analysis."/>
+                <Image HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" Source="{Binding UploadImageSource}" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding StartUploadCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            
+
+        </Grid>
+       
+    </ContentView.Content>
+
+</ContentView>

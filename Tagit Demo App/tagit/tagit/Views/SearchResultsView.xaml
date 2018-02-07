@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:controls="clr-namespace:tagit.Controls"
+             xmlns:behaviors="clr-namespace:tagit.Behaviors"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModels="clr-namespace:tagit.ViewModels"
+             x:Class="tagit.Views.SearchResultsView">
+    <ContentView.BindingContext>
+        <viewModels:SearchResultsViewModel/>
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <ResourceDictionary>
+        <DataTemplate x:Key="SuggestionItemTemplate">
+            <Grid>
+                <telerikInput:RadAutoCompleteLabel 
+                    Margin="5" 
+                    FontSize="18"   
+                    HighlightColor="{DynamicResource AppAccentColor}"
+                    TextColor="{DynamicResource AppDarkColor}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                 
+                <StackLayout VerticalOptions="Center" Orientation="Vertical">
+                    <Label HorizontalOptions="Start" Style="{DynamicResource PageDescriptionStyle}" Text="{Binding SearchQueryLabel}" />                         
+                </StackLayout>
+                
+            </Grid>
+
+            <Grid Grid.Row="1" VerticalOptions="Center">
+
+                <telerikInput:RadAutoComplete HorizontalOptions="Fill" x:Name="searchInput" Text="{Binding SearchTextValue, Mode=TwoWay, UpdateSourceEventName=TextChanged}"
+                            ItemsSource="{Binding SearchTags}" VerticalOptions="Center"  BackgroundColor="White"
+                            CompletionMode="Contains" ShowSuggestionView="True" DisplayMode="Plain" BorderColor="Transparent"
+                            SuggestionViewBackgroundColor="{DynamicResource AppLightColor}" 
+                            Watermark="Search for images">
+
+                    <telerikInput:RadAutoComplete.SuggestionItemTemplate>
+                        <OnPlatform x:TypeArguments="DataTemplate" iOS="{StaticResource SuggestionItemTemplate}" Android="{StaticResource SuggestionItemTemplate}"  />
+                    </telerikInput:RadAutoComplete.SuggestionItemTemplate>
+
+                    <telerikDataControls:RadListView.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="SuggestionItemSelected" Command="{Binding SuggestionSelectedCommand}" EventArgsConverter="{StaticResource SuggestionItemSelectedEventArgsConverter}" />
+                    </telerikDataControls:RadListView.Behaviors>
+                </telerikInput:RadAutoComplete>
+            </Grid>
+
+            <telerikDataControls:RadListView SwipeOffset="80, 0" SwipeThreshold="10" IsItemSwipeEnabled="True" IsItemsReorderEnabled="True" Margin="10" SelectionGesture="Tap" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding SearchResults}" >
+                <telerikDataControls:RadListView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding SelectSingleCommand}" EventArgsConverter="{StaticResource SelectionChangedEventArgsConverter}" />
+                </telerikDataControls:RadListView.Behaviors>
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <listView:ListViewTemplateCell>
+                            <listView:ListViewTemplateCell.View>
+                                <Grid Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Margin="-30,0,0,0" HeightRequest="80" VerticalOptions="Center" Grid.Column="1">
+                                        <Frame HasShadow="False" CornerRadius="8" BackgroundColor="{DynamicResource AppAccentColor}"/>
+                                        <Label VerticalOptions="Center" Margin="35,20,20,20" Style="{DynamicResource SubtitleStyle}" TextColor="White" Text="{Binding Caption}"/>
+                                    </Grid>
+                                    <controls:CircleImage DownsampleUseDipUnits="True"
+                                                          VerticalOptions="Center"  DownsampleWidth="80"
+                                                          HeightRequest="80" Aspect="AspectFill" 
+                                                          Source="{Binding Converter={StaticResource FileOrUriImageSourceConverter}}"/>
+                                </Grid>
+                            </listView:ListViewTemplateCell.View>
+                        </listView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+                <telerikDataControls:RadListView.SelectedItemStyle>
+                    <listView:ListViewItemStyle BackgroundColor="#330097DF" BorderWidth="1" BorderColor="White" BorderLocation="Bottom"/>
+                </telerikDataControls:RadListView.SelectedItemStyle>
+                <telerikDataControls:RadListView.PressedItemStyle>
+                    <listView:ListViewItemStyle BackgroundColor="#330097DF" BorderWidth="1" BorderColor="White" BorderLocation="Bottom"/>
+                </telerikDataControls:RadListView.PressedItemStyle>
+                <telerikDataControls:RadListView.ItemSwipeContentTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Margin="0,10,0,0">
+                                <Button BackgroundColor="#D90000" Command="{Binding ToggleFavoriteCommand}" BorderRadius="8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                <Image Source="{Binding IsFavorite, Converter={StaticResource FavoriteIconConverter}}" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemSwipeContentTemplate>
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <listView:ListViewLinearLayout HorizontalItemSpacing="5">
+                        <listView:ListViewLinearLayout.VerticalItemSpacing>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                            iOS="15"                                          
+                                                            Android="15"
+                                                            WinPhone="5"/>
+                        </listView:ListViewLinearLayout.VerticalItemSpacing>
+                    </listView:ListViewLinearLayout>
+                </telerikDataControls:RadListView.LayoutDefinition>
+            </telerikDataControls:RadListView>
+
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

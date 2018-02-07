@@ -1,0 +1,22 @@
+﻿{
+  "dependencies": {
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
+    "Newtonsoft.Json": "10.0.3",
+    "Telerik.UI.for.Xamarin.Trial": "2018.1.117.5",
+    "Xamarin.FFImageLoading": "2.3.4",
+    "Xamarin.FFImageLoading.Forms": "2.3.4",
+    "Xamarin.Forms.Theme.Dark": "1.0.0.43-pre1",
+    "Xamarin.Forms.Theme.Light": "1.0.0.43-pre1"
+  },
+  "frameworks": {
+    "uap10.0.10586": {}
+  },
+  "runtimes": {
+    "win10-arm": {},
+    "win10-arm-aot": {},
+    "win10-x86": {},
+    "win10-x86-aot": {},
+    "win10-x64": {},
+    "win10-x64-aot": {}
+  }
+}

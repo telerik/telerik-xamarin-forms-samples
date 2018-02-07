@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:controls="clr-namespace:tagit.Controls"
+             xmlns:behaviors="clr-namespace:tagit.Behaviors"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="tagit.Views.FavoritesView">    
+    <ContentView.Content>
+
+        <Grid Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="End" VerticalOptions="Center" Source="ic_action_favorite_border.png"/>
+                <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{DynamicResource PageDescriptionStyle}" Text="View and manage your favorites"/>
+            </Grid>
+
+            <Grid Padding="20" Grid.Row="1">
+                <telerikDataControls:RadListView BackgroundColor="Transparent" SelectionGesture="Tap" SelectionMode="Single"
+                                                 SwipeOffset="80, 0"
+                                                 SwipeThreshold="10"
+                                                 IsItemSwipeEnabled="True" Margin="0" ItemsSource="{Binding Favorites, Mode=TwoWay}" >
+                    <telerikDataControls:RadListView.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding SelectSingleCommand}" EventArgsConverter="{StaticResource SelectionChangedEventArgsConverter}" />
+                    </telerikDataControls:RadListView.Behaviors>
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listView:ListViewTemplateCell>
+                                <listView:ListViewTemplateCell.View>
+                                    <Grid Margin="0">                                       
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Margin="-30,0,0,0" HeightRequest="80" VerticalOptions="Center" Grid.Column="1">
+                                            <Frame HasShadow="False" CornerRadius="8" BackgroundColor="{DynamicResource AppAccentColor}"/>
+                                            <Label VerticalOptions="Center" Margin="35,20,20,20" Style="{DynamicResource SubtitleStyle}" TextColor="White" Text="{Binding Caption}"/>
+                                        </Grid>
+                                        <controls:CircleImage Grid.Column="0" DownsampleUseDipUnits="True"
+                                                              VerticalOptions="Center"
+                                                              Aspect="AspectFill" 
+                                                              Source="{Binding Converter={StaticResource FileOrUriImageSourceConverter}}">
+                                            <controls:CircleImage.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double"
+                                                                            iOS="80"                                          
+                                                                            Android="80"
+                                                            WinPhone="80"/>
+                                            </controls:CircleImage.HeightRequest>
+                                            <controls:CircleImage.DownsampleWidth>
+                                                <OnPlatform x:TypeArguments="x:Double"
+                                                                            iOS="40"                                          
+                                                                            Android="80"
+                                                            WinPhone="80"/>
+                                            </controls:CircleImage.DownsampleWidth>
+                                        </controls:CircleImage>
+                                    </Grid>
+                                </listView:ListViewTemplateCell.View>
+                            </listView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                    <telerikDataControls:RadListView.ItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent"/>
+                    </telerikDataControls:RadListView.ItemStyle>
+                    <telerikDataControls:RadListView.SelectedItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="1" BorderColor="White" BorderLocation="Bottom"/>
+                    </telerikDataControls:RadListView.SelectedItemStyle>
+                    <telerikDataControls:RadListView.PressedItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="1" BorderColor="White" BorderLocation="Bottom"/>
+                    </telerikDataControls:RadListView.PressedItemStyle>
+                    <telerikDataControls:RadListView.ItemSwipeContentTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Margin="0,10,0,0">
+                                    <Button BackgroundColor="#D90000" Command="{Binding ToggleFavoriteCommand}" BorderRadius="8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Image Source="ic_action_unfavorite.png" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True" />
+                                </Grid>                               
+                            </Grid>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemSwipeContentTemplate>
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <listView:ListViewLinearLayout HorizontalItemSpacing="5">
+                            <listView:ListViewLinearLayout.VerticalItemSpacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                                            iOS="15"                                          
+                                                            Android="15"
+                                                            WinPhone="5"/>
+                            </listView:ListViewLinearLayout.VerticalItemSpacing>
+                        </listView:ListViewLinearLayout>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+                </telerikDataControls:RadListView>
+            </Grid>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

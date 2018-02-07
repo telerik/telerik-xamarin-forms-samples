@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dark="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Dark"
+             xmlns:light="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light"
+             xmlns:converters="clr-namespace:tagit.Common"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"            
+             x:Class="tagit.App">
+    <Application.Resources>
+
+        <ResourceDictionary MergedWith="light:LightThemeResources" >
+            <Color x:Key="AppBaseColor">#003366</Color>
+            <Color x:Key="AppAccentColor">#0097DF</Color>
+            <Color x:Key="AppSecondaryAccentColor">#96C912</Color>
+            <Color x:Key="AppTertiaryAccentColor">#FFC926</Color>
+            <Color x:Key="AppTextColor">#939393</Color>
+            <Color x:Key="AppLightColor">#FFFFFF</Color>
+            <Color x:Key="AppDarkColor">#969393</Color>
+            
+            <Color x:Key="Tag1Color">#FF96C912</Color>
+            <Color x:Key="Tag1ColorSemiTransparent">#3396C912</Color>
+            <Color x:Key="Tag1ColorLight">#FF96C912</Color>
+            <Color x:Key="Tag2Color">#FFFFC926</Color>
+            <Color x:Key="Tag2ColorSemiTransparent">#33FFC926</Color>
+            <Color x:Key="Tag2ColorLight">#FFFFC926</Color>
+            <Color x:Key="Tag3Color">#FF0097DF</Color>
+            <Color x:Key="Tag3ColorSemiTransparent">#330097DF</Color>
+            <Color x:Key="Tag3ColorLight">#FF0097DF</Color>
+            <Color x:Key="IndicatorTextColor">#FF3C3C3C</Color>
+            <Color x:Key="chartForeground">White</Color>
+            <Color x:Key="chartForegroundSemiTransparent">#88FFFFFF</Color>
+        
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource AppAccentColor}"/>
+                <Setter Property="BarTextColor" Value="{DynamicResource AppLightColor}"/>
+            </Style>
+
+            <Style x:Key="PageDescriptionStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource AppTextColor}"/>
+                <Setter Property="FontSize" Value="26"/>
+            </Style>
+
+            <Style x:Key="SubtitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource AppTextColor}"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style x:Key="MenuLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource AppLightColor}"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <converters:ListToLabelConverter x:Key="ListToLabelConverter"/>
+            <converters:LoadingOpacityConverter x:Key="LoadingOpacityConverter"/>
+            <converters:AnalysisLabelConverter x:Key="AnalysisLabelConverter"/>
+            <converters:IsSelectedBackgroundColorConverter x:Key="IsSelectedBackgroundColorConverter"/>
+            <converters:HomeTabForegroundConverter x:Key="HomeTabForegroundConverter"/>
+            <converters:BooleanToFalseConverter x:Key="BooleanToFalseConverter"/>
+            <converters:UpperCaseConverter x:Key="UpperCaseConverter"/>
+            <converters:FileToImageSourceConverter x:Key="FileToImageSourceConverter"/>
+            <converters:ColorValidationConverter x:Key="ColorValidationConverter"/>
+            <converters:BooleanToFriendlyConverter x:Key="BooleanToFriendlyConverter"/>
+            <converters:ScoreLabelConverter x:Key="ScoreLabelConverter"/>
+            <converters:FaceListToLabelConverter x:Key="FaceListToLabelConverter"/>
+            <converters:HasContentToVisibleConverter x:Key="HasContentToVisibleConverter"/>
+            <converters:GaugeLabelForegroundColorConverter x:Key="GaugeLabelForegroundColorConverter"/>
+            <converters:FavoriteIconConverter x:Key="FavoriteIconConverter"/>
+            <converters:FavoriteLabelConverter x:Key="FavoriteLabelConverter"/>
+            <converters:SelectionChangedEventArgsConverter x:Key="SelectionChangedEventArgsConverter"/>
+            <converters:SuggestionItemSelectedEventArgsConverter x:Key="SuggestionItemSelectedEventArgsConverter"/>
+            <converters:FileOrUriImageSourceConverter x:Key="FileOrUriImageSourceConverter"/>
+            <converters:CanDownloadSampleImagesOpacityConverter x:Key="CanDownloadSampleImagesOpacityConverter"/>
+            
+
+            <telerikCommon:AnimationSettings x:Key="DisabledAnimation" Enabled="False" />
+
+            <ControlTemplate x:Key="HomeTabControlTemplate">
+                <Grid BackgroundColor="Transparent">
+                    <BoxView Margin="0" IsVisible="{TemplateBinding IsSelected}"
+                       BackgroundColor="{StaticResource AppAccentColor}"
+                       VerticalOptions="End"
+                       HeightRequest="3" />
+                            <Label Text="{TemplateBinding Text}"  
+                            TextColor="{TemplateBinding IsSelected, Converter={StaticResource HomeTabForegroundConverter}}"
+                             HorizontalTextAlignment="Center"
+                             Margin="0,8,0,14">
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double" iOS="12" Android="16" />
+                        </Label.FontSize>
+                    </Label>
+                </Grid>
+            </ControlTemplate>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
