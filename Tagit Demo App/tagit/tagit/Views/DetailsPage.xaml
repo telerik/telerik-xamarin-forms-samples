@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title=""
+             xmlns:rating="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"   
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:imageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="tagit.Views.DetailsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding ToggleFavoriteCommand}" CommandParameter="{Binding}" Text="{Binding IsFavorite, Converter={StaticResource FavoriteLabelConverter}}" Icon="{Binding IsFavorite, Converter={StaticResource FavoriteIconConverter}}"/>
+        <!--<ToolbarItem Command="{Binding SaveCommand}" CommandParameter="{Binding}" Text="Save" Icon="ic_action_save.png"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="20">
+                <StackLayout HorizontalOptions="Center">
+                    <rating:RadShapeRating 
+                        ItemShape="{x:Static rating:Geometries.Heart}"  
+                        Value="{Binding Rating, Mode=TwoWay}" />
+                    <Label HorizontalOptions="Start" Style="{DynamicResource SubtitleStyle}" Text="{Binding Caption}"/>
+                    <imageLoading:CachedImage Aspect="AspectFill" WidthRequest="300" DownsampleUseDipUnits="True" HorizontalOptions="Start" DownsampleWidth="300" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}"/>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="FACES"/>
+                    <Label HorizontalOptions="Start" Text="{Binding Faces, Converter={StaticResource FaceListToLabelConverter}}"/>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="TAGS"/>
+                    <Label HorizontalOptions="Start" Text="{Binding Tags, Converter={StaticResource ListToLabelConverter}}"/>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="CATEGORIES"/>
+                    <Label HorizontalOptions="Start" Text="{Binding Categories, Converter={StaticResource ListToLabelConverter}}"/>
+
+                    <Label Margin="0,10,0,0" HorizontalOptions="Start" FontAttributes="Bold" Text="ACCENT COLOR" />
+                    <Grid WidthRequest="50" HeightRequest="50" HorizontalOptions="Start">
+                        <BoxView HorizontalOptions="Fill" VerticalOptions="Fill"  BackgroundColor="{DynamicResource AppTextColor}"/>
+                        <BoxView Margin="1" HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="48" HeightRequest="48" BackgroundColor="{Binding AccentColor}"/>
+                    </Grid>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="PRIMARY BACKGROUND COLOR" />
+                    <Grid WidthRequest="50" HeightRequest="50" HorizontalOptions="Start">
+                        <BoxView HorizontalOptions="Fill" VerticalOptions="Fill"  BackgroundColor="{DynamicResource AppTextColor}"/>
+                        <BoxView Margin="1" HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="48" HeightRequest="48" BackgroundColor="{Binding BackgroundColor, Converter={StaticResource ColorValidationConverter}}"/>
+                    </Grid>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="PRIMARY FOREGROUND COLOR" />
+                    <Grid WidthRequest="50" HeightRequest="50" HorizontalOptions="Start">
+                        <BoxView HorizontalOptions="Fill" VerticalOptions="Fill"  BackgroundColor="{DynamicResource AppTextColor}"/>
+                        <BoxView Margin="1" HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="48" HeightRequest="48" BackgroundColor="{Binding ForegroundColor, Converter={StaticResource ColorValidationConverter}}"/>
+                    </Grid>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="IS RACY?" />
+                    <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                        <Label Text="{Binding IsRacy, Converter={StaticResource BooleanToFriendlyConverter}}" />
+                        <Label Text="{Binding RacyScore, Converter={StaticResource ScoreLabelConverter}}" />
+                    </StackLayout>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold"  Text="IS ADULT?" />
+                    <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                        <Label Text="{Binding IsAdult, Converter={StaticResource BooleanToFriendlyConverter}}" />
+                        <Label Text="{Binding AdultScore, Converter={StaticResource ScoreLabelConverter}}" />
+                    </StackLayout>
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="IS BLACK &amp; WHITE?" />
+                    <Label HorizontalOptions="Start" Text="{Binding IsBlackAndWhite, Converter={StaticResource BooleanToFriendlyConverter}}" />
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="IS CLIPART?" />
+                    <Label HorizontalOptions="Start" Text="{Binding IsClipArt, Converter={StaticResource BooleanToFriendlyConverter}}" />
+
+                    <Label HorizontalOptions="Start" FontAttributes="Bold" Text="IS LINE DRAWING?" />
+                    <Label HorizontalOptions="Start" Text="{Binding IsLineDrawing, Converter={StaticResource BooleanToFriendlyConverter}}" />
+
+                </StackLayout>
+
+                <telerikPrimitives:RadBusyIndicator VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                                        AnimationContentColor="{DynamicResource AppSecondaryAccentColor}"
+                                                        AnimationContentHeightRequest="160"
+                                                        AnimationContentWidthRequest="160"
+                                                        Margin="0,-200,0,0"
+                                                        AnimationType="Animation5"
+                                                        InputTransparent="True"
+                                                        IsBusy="{Binding IsBusy}" />
+
+            </Grid>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"              
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:behaviors="clr-namespace:tagit.Behaviors"
+             xmlns:imageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="Select Images"
+             x:Class="tagit.Views.PickerPage">
+   
+    <ContentPage.Content>
+        <Grid Padding="0" RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>                
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="End" VerticalOptions="Center" Source="ic_action_photo_library.png"/>
+                <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{DynamicResource PageDescriptionStyle}" Text="Select a few images for tagging"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Padding="2" ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>                    
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <telerikDataControls:RadListView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0" SelectionMode="Multiple" SelectionGesture="Tap" ItemsSource="{Binding PickerImages}" >
+                    <telerikDataControls:RadListView.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding SelectSingleCommand}" EventArgsConverter="{StaticResource SelectionChangedEventArgsConverter}" />
+                    </telerikDataControls:RadListView.Behaviors>
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listView:ListViewTemplateCell>
+                                <listView:ListViewTemplateCell.View>
+                                    <Grid VerticalOptions="Fill" HeightRequest="200" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedBackgroundColorConverter}}">
+                                        <imageLoading:CachedImage DownsampleUseDipUnits="True" Margin="2" WidthRequest="100" HeightRequest="200" Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}">
+                                            <imageLoading:CachedImage.DownsampleWidth>
+                                                <OnPlatform x:TypeArguments="x:Double"
+                                                      iOS="100"   
+                                                      WinPhone="400" 
+                                                      Android="100"/>
+                                            </imageLoading:CachedImage.DownsampleWidth>
+                                            <imageLoading:CachedImage.DownsampleHeight>
+                                                <OnPlatform x:TypeArguments="x:Double"
+                                                      iOS="200"        
+                                                      WinPhone="800" 
+                                                      Android="200"/>
+                                            </imageLoading:CachedImage.DownsampleHeight>
+                                        </imageLoading:CachedImage>
+                                    </Grid>
+                                </listView:ListViewTemplateCell.View>
+                            </listView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                    <telerikDataControls:RadListView.ItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent"/>
+                    </telerikDataControls:RadListView.ItemStyle>
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <listView:ListViewGridLayout HorizontalItemSpacing="2" VerticalItemSpacing="2">
+                            <listView:ListViewGridLayout.ItemLength>                                 
+                                    <OnPlatform x:TypeArguments="x:Double" Android="200" WinPhone="200" iOS="140" />                                
+                            </listView:ListViewGridLayout.ItemLength>
+                        </listView:ListViewGridLayout>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+                </telerikDataControls:RadListView>
+
+                <Image IsVisible="{Binding ContainsImages}" HorizontalOptions="End" Grid.Row="1" Margin="10" Source="ic_start_all_dark.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding StartProcessingCommand}"  />
+                    </Image.GestureRecognizers>
+                </Image>
+
+
+                <StackLayout Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding IsBusy}"  Margin="40,60" VerticalOptions="Start" HorizontalOptions="Center">
+                    <Image WidthRequest="150" Aspect="AspectFit" VerticalOptions="Start" Source="optimizing.png" />
+                    <Label Style="{StaticResource TitleStyle}" VerticalOptions="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" Text="Discovering images, please wait..."/>
+                </StackLayout>
+
+                <Label Grid.Row="0" Grid.RowSpan="2" IsVisible="{Binding ContainsImages, Converter={StaticResource BooleanToFalseConverter}}" Style="{StaticResource TitleStyle}" VerticalOptions="Start" HorizontalTextAlignment="Center" Margin="40,120" VerticalTextAlignment="Center" HorizontalOptions="Center" Text="no images available for tagging"/>
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

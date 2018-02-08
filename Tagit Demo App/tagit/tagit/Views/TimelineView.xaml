@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"           
+             xmlns:behaviors="clr-namespace:tagit.Behaviors"
+             xmlns:viewModels="clr-namespace:tagit.ViewModels" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tagit.Views.TimelineView">
+    
+    <ContentView.BindingContext>
+        <viewModels:TimelineViewModel/>
+    </ContentView.BindingContext>
+    
+    <ContentView.Content>
+        <Grid Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="End" VerticalOptions="Center" Source="ic_action_access_time.png"/>
+                <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{DynamicResource PageDescriptionStyle}" Text="View your images by creation date"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Padding="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+
+                <telerikInput:RadCalendar x:Name="calendar"
+                                WidthRequest="300" BackgroundColor="White" 
+                                AppointmentsSource="{Binding Timeline}"
+                                SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
+                                WeekNumbersDisplayMode="Hide"
+                                DayNamesDisplayMode="Show" />
+
+                <telerikDataControls:RadListView SelectionMode="Single" ItemsSource="{Binding SelectedImages}" Grid.Row="1">
+                        <telerikDataControls:RadListView.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding SelectSingleCommand}" EventArgsConverter="{StaticResource SelectionChangedEventArgsConverter}" />
+                        </telerikDataControls:RadListView.Behaviors>
+                        <telerikDataControls:RadListView.LayoutDefinition>
+                        <listView:ListViewLinearLayout>
+                            <listView:ListViewLinearLayout.ItemLength>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                  iOS="48"
+                                  Android="48"
+                                  WinPhone="48" />
+                            </listView:ListViewLinearLayout.ItemLength>
+                            <listView:ListViewLinearLayout.VerticalItemSpacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                  iOS="10"
+                                  Android="10"
+                                  WinPhone="2" />
+                            </listView:ListViewLinearLayout.VerticalItemSpacing>
+                        </listView:ListViewLinearLayout>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+                    <telerikDataControls:RadListView.ItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="0" />
+                    </telerikDataControls:RadListView.ItemStyle>
+                    <telerikDataControls:RadListView.SelectedItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="0" />
+                    </telerikDataControls:RadListView.SelectedItemStyle>
+                    <telerikDataControls:RadListView.PressedItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="0" />
+                    </telerikDataControls:RadListView.PressedItemStyle>
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listView:ListViewTemplateCell>
+                                <listView:ListViewTemplateCell.View>
+                                    <Grid Padding="16,0,16,0" BackgroundColor="Transparent">
+                                        <Grid ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="4" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid BackgroundColor="{Binding AccentColor}" />
+
+                                            <Grid Grid.Column="1"                                               
+                                              Padding="8,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Grid.Column="1" Text="{Binding Caption}"                                                
+                                                 HorizontalOptions="Start"
+                                                 VerticalOptions="Center">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double"
+                                                          iOS="12"
+                                                          Android="14"
+                                                          WinPhone="12" />
+                                                    </Label.FontSize>
+                                                    <Label.FontFamily>
+                                                        <OnPlatform x:TypeArguments="x:String">
+                                                            <OnPlatform.iOS>Helvetica</OnPlatform.iOS>
+                                                            <OnPlatform.Android>sans-serif-medium</OnPlatform.Android>
+                                                        </OnPlatform>
+                                                    </Label.FontFamily>
+                                                </Label>
+
+                                                <StackLayout Grid.Column="2"                                                   
+                                                   Spacing="0"
+                                                   VerticalOptions="Center">
+                                                    <Label Text="{Binding DateLabel}" Opacity="0.7" HorizontalOptions="End">
+                                                        <Label.FontSize>
+                                                            <OnPlatform x:TypeArguments="x:Double"
+                                                            iOS="8"
+                                                            Android="10"
+                                                            WinPhone="12" />
+                                                        </Label.FontSize>
+                                                        <Label.FontFamily>
+                                                            <OnPlatform x:TypeArguments="x:String">
+                                                                <OnPlatform.iOS>Helvetica</OnPlatform.iOS>
+                                                                <OnPlatform.Android>sans-serif-medium</OnPlatform.Android>
+                                                            </OnPlatform>
+                                                        </Label.FontFamily>
+                                                    </Label>
+
+                                                </StackLayout>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </listView:ListViewTemplateCell.View>
+                            </listView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                </telerikDataControls:RadListView>
+
+            </Grid>
+
+        </Grid>
+       
+    </ContentView.Content>
+</ContentView>

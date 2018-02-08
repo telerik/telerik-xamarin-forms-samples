@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:local="clr-namespace:tagit.Views"
+             xmlns:behaviors="clr-namespace:tagit.Behaviors"
+             xmlns:viewModels="clr-namespace:tagit.ViewModels"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="{Binding PageTitle}"
+             x:Class="tagit.Views.HomePage">
+
+    <ContentPage.BindingContext>
+        <viewModels:HomeViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding MenuSelectedCommand}" Text="Menu" Icon="ic_action_menu.png"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid Padding="0">
+
+            <telerikPrimitives:RadSideDrawer DrawerTransitionDuration="0.2" DrawerLocation="Top"  DrawerTransitionType="SlideInOnTop" x:Name="drawer">
+                      
+                <telerikPrimitives:RadSideDrawer.DrawerLength>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="280" WinPhone="300" Android="300"/>
+                </telerikPrimitives:RadSideDrawer.DrawerLength>
+                <telerikPrimitives:RadSideDrawer.DrawerContent>
+
+                    <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="#0097DF">
+
+                        <telerikDataControls:RadListView SelectionMode="Single" BindingContext="{Binding}" ItemsSource="{Binding NavigationItems}" >
+                            <telerikDataControls:RadListView.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding NavigateFromMenuCommand}" EventArgsConverter="{StaticResource SelectionChangedEventArgsConverter}" />
+                            </telerikDataControls:RadListView.Behaviors>
+                            <telerikDataControls:RadListView.LayoutDefinition>
+                                <listView:ListViewLinearLayout>
+                                    <listView:ListViewLinearLayout.ItemLength>
+                                        <OnPlatform x:TypeArguments="x:Double"
+                                          iOS="44"
+                                          WinPhone="48"
+                                          Android="48"/>
+                                    </listView:ListViewLinearLayout.ItemLength>
+                                </listView:ListViewLinearLayout>
+                            </telerikDataControls:RadListView.LayoutDefinition>
+                            <telerikDataControls:RadListView.SelectedItemStyle>
+                                <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="0"/>
+                            </telerikDataControls:RadListView.SelectedItemStyle>
+
+                            <telerikDataControls:RadListView.ItemTemplate>
+                                <DataTemplate>
+                                    <listView:ListViewTemplateCell>
+                                        <listView:ListViewTemplateCell.View>
+                                            <Grid BackgroundColor="{DynamicResource AppAccentColor}" Padding="16,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image VerticalOptions="Center" Source="{Binding Icon}"/>
+                                                <Label Grid.Column="1" Text="{Binding Label}" Style="{DynamicResource MenuLabelStyle}" 
+                                                 HorizontalOptions="Start"
+                                                 VerticalOptions="Center">
+                                                    <Label.FontSize>
+                                                        <OnPlatform x:TypeArguments="x:Double"
+                                                      iOS="16"
+                                                      WinPhone="18"
+                                                      Android="18" />
+                                                    </Label.FontSize>
+                                                </Label>
+                                            </Grid>
+                                        </listView:ListViewTemplateCell.View>
+                                    </listView:ListViewTemplateCell>
+                                </DataTemplate>
+                            </telerikDataControls:RadListView.ItemTemplate>
+
+                        </telerikDataControls:RadListView>
+
+                    </Grid>
+
+                </telerikPrimitives:RadSideDrawer.DrawerContent>
+
+                <telerikPrimitives:RadSideDrawer.MainContent>
+                    <local:UploadView/>
+                </telerikPrimitives:RadSideDrawer.MainContent>
+                    
+            </telerikPrimitives:RadSideDrawer>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

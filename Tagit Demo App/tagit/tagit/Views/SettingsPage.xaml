@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="Settings"
+             x:Class="tagit.Views.SettingsPage">
+ 
+    <ContentView.Content>
+
+        <ScrollView>
+
+            <Grid Padding="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="End" VerticalOptions="Center" Source="ic_action_settings.png"/>
+                    <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{DynamicResource PageDescriptionStyle}" Text="Manage settings and app preferences"/>
+                </Grid>
+
+                <StackLayout Margin="40,40,40,0" Grid.Row="1">
+
+                    <Label VerticalOptions="Center" Margin="0" FontAttributes="Bold" Text="APP THEME" />
+                    <Label VerticalOptions="Center" Text="Change the experience of the app to use a dark or light theme." />
+                    <StackLayout Orientation="Horizontal">
+                        <Label VerticalOptions="Center" FontAttributes="Bold" Text="Use dark theme?" />
+                        <Switch VerticalOptions="Center" IsEnabled="{Binding CanToggleTheme}" IsToggled="{Binding IsDarkThemeEnabled, Mode=TwoWay}" />
+                    </StackLayout>
+
+                    <Label VerticalOptions="Center" Margin="0,20,0,0" FontAttributes="Bold" Text="SAMPLE IMAGES" />
+                    <Label VerticalOptions="Center" Text="Want a few sample images to work with? If you prefer, you can populate your local device with a few to get started." />
+
+                    <Button Opacity="{Binding CanDownloadSampleImages, Converter={StaticResource CanDownloadSampleImagesOpacityConverter}}" IsEnabled="{Binding CanDownloadSampleImages, Converter={StaticResource BooleanToFalseConverter}}" Command="{Binding LoadSampleImagesCommand}" Margin="20,10" TextColor="{DynamicResource AppLightColor}" BackgroundColor="{DynamicResource AppAccentColor}" Text="Load Sample Images"/>
+
+                    <Label VerticalOptions="Center" Margin="0,20,0,0" FontAttributes="Bold" Text="LEARN MORE" />
+                    <Label VerticalOptions="Center" Text="Want to learn more about building beautiful, flexible, cross-platform UIs for mobile apps?" />
+                    <Label TextColor="{DynamicResource AppAccentColor}" Text="Telerik UI for Xamarin">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowDocumentationCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </StackLayout>
+
+                <Grid Grid.Row="2" VerticalOptions="End" BackgroundColor="{StaticResource AppLightColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                    <Image HorizontalOptions="Center" HeightRequest="20" VerticalOptions="Center" Source="progress_brand.png"/>
+                </Grid>
+
+                <telerikPrimitives:RadBusyIndicator Grid.Row="0" Grid.RowSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                                        AnimationContentColor="{DynamicResource AppSecondaryAccentColor}"
+                                                        AnimationContentHeightRequest="160"
+                                                        AnimationContentWidthRequest="160"
+                                                        AnimationType="Animation5"
+                                                        InputTransparent="True"
+                                                        IsBusy="{Binding IsBusy}" />
+
+            </Grid>
+        </ScrollView>
+
+    </ContentView.Content>
+</ContentPage>

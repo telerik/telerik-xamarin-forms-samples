@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls" 
+             xmlns:viewModels="clr-namespace:tagit.ViewModels"  
+             xmlns:imageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="tagit.Views.GalleryView">
+    <ContentView.BindingContext>
+        <viewModels:GalleryViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Content>
+        <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="End" VerticalOptions="Center" Source="ic_action_photo_library.png"/>
+                <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{DynamicResource PageDescriptionStyle}" Text="All currently tagged images"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Padding="2" ColumnSpacing="0" RowSpacing="0">
+
+                <telerikDataControls:RadListView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,0" SelectionMode="None" ItemsSource="{Binding AllImages}" >
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listView:ListViewTemplateCell>
+                                <listView:ListViewTemplateCell.View>
+                                    <Grid HeightRequest="200">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding NavigateToDetailsCommand}"/>
+                                        </Grid.GestureRecognizers>
+                                        <imageLoading:CachedImage DownsampleUseDipUnits="True" Margin="2" HeightRequest="200" 
+                                                                    Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}">
+                                            <imageLoading:CachedImage.DownsampleWidth>
+                                                <OnPlatform x:TypeArguments="x:Double"
+                                                      iOS="100"                                          
+                                                      Android="100"/>
+                                            </imageLoading:CachedImage.DownsampleWidth>
+                                            <imageLoading:CachedImage.DownsampleHeight>
+                                                <OnPlatform x:TypeArguments="x:Double"
+                                                      iOS="200"                                          
+                                                      Android="200"/>
+                                            </imageLoading:CachedImage.DownsampleHeight>
+                                        </imageLoading:CachedImage>
+                                    </Grid>
+                                </listView:ListViewTemplateCell.View>
+                            </listView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <listView:ListViewGridLayout HorizontalItemSpacing="2" VerticalItemSpacing="2">
+                            <listView:ListViewGridLayout.ItemLength>
+                                <OnPlatform x:TypeArguments="x:Double" Android="200" WinPhone="200" iOS="140" />
+                            </listView:ListViewGridLayout.ItemLength>
+                        </listView:ListViewGridLayout>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+                </telerikDataControls:RadListView>
+
+            </Grid>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

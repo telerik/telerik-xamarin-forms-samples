@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:viewModels="clr-namespace:tagit.ViewModels"  
+             x:Class="tagit.Views.GettingStartedPage">
+    <ContentPage.BindingContext>
+        <viewModels:GettingStartedViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" Padding="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Padding="10" BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image VerticalOptions="Center" WidthRequest="50" HeightRequest="50" Source="tagit_header.png"/>
+                <Label TextColor="White" Style="{DynamicResource TitleStyle}" Grid.Column="1" VerticalOptions="Center" Text="Getting Started"/>
+            </Grid>
+            
+            <telerikPrimitives:RadSlideView Margin="0,-80,0,0" Grid.Row="1" SelectedIndicatorColor="{DynamicResource AppAccentColor}"
+                                            IndicatorColor="{DynamicResource AppTextColor}"
+                                            IsAnimated="True" ShowButtons="False"
+                                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                                            BindingContext="{Binding GettingStartedItems}" SlideButtonsColor="{DynamicResource AppAccentColor}"
+                                            IsInfiniteScrollingEnabled="True" ItemsSource="{Binding}">
+                 
+                <telerikPrimitives:RadSlideView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                            <StackLayout WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center">
+                               
+                                <Label HorizontalTextAlignment="Center" Text="{Binding Title}" Style="{DynamicResource TitleStyle}" />
+                                <Image HorizontalOptions="Center" Source="{Binding Image}"/>
+                                <Label Margin="10,0" HorizontalTextAlignment="Center" Text="{Binding Subtitle}" Style="{DynamicResource SubtitleStyle}" />
+                                <Image IsVisible="{Binding IsFinalItem}" HorizontalOptions="End" Margin="0,40,0,0" Source="ic_start_all_dark.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding GetStartedCommand}" NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </telerikPrimitives:RadSlideView.ItemTemplate>
+                
+            </telerikPrimitives:RadSlideView>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
