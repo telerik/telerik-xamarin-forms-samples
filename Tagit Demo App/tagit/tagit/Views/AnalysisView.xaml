@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"              
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"              
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:viewModels="clr-namespace:tagit.ViewModels"  
+             x:Class="tagit.Views.AnalysisView">
+    <ContentView.BindingContext>
+        <viewModels:AnalysisViewModel/>
+    </ContentView.BindingContext>
+    
+    <ContentView.Content>
+        
+            <Grid HorizontalOptions="Fill" Padding="0" >
+                <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="End" VerticalOptions="Center" Source="ic_action_compare.png"/>
+                <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{DynamicResource PageDescriptionStyle}" Text="View image analysis information"/>
+            </Grid>
+
+            <telerikPrimitives:RadTabView Margin="0" Grid.Row="1">
+                <telerikPrimitives:RadTabView.Items>
+
+                    <telerikPrimitives:TabViewItem>
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem ControlTemplate="{StaticResource HomeTabControlTemplate}" Text="CATEGORIES" />
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Margin="0,20,0,0" HorizontalOptions="Center" Orientation="Horizontal">
+                                    <Label HorizontalTextAlignment="Center" Style="{DynamicResource SubtitleStyle}" Text="Top categories based on recent analysis."/>
+                                </StackLayout>
+
+                                <telerikGauges:RadRadialGauge  
+                                    Grid.Row="1" BindingContext="{Binding CurrentCategoryAnalysis}"
+                                    AxisRadiusFactor="0.9"
+                                    StartAngle="90"
+                                    SweepAngle="360">
+                                    <telerikGauges:RadRadialGauge.Axis>
+                                        <telerikGauges:GaugeLinearAxis Minimum="0"
+                                         Maximum="1"
+                                         StrokeThickness="0"
+                                         ShowLabels="False" />
+                                    </telerikGauges:RadRadialGauge.Axis>
+                                    <telerikGauges:RadRadialGauge.Indicators>
+                                        <telerikGauges:GaugeBarIndicator Value="1"
+                                           Fill="{StaticResource Tag1ColorSemiTransparent}"
+                                           AnimationSettings="{StaticResource DisabledAnimation}" />
+                                        <telerikGauges:GaugeBarIndicator Value="{Binding Tag1Value}"
+                                           StartCap="Oval"
+                                           EndCap="Oval"
+                                           IsOffsetRelative="True">
+                                            <telerikGauges:GaugeBarIndicator.GradientStops>
+                                                <telerikCommon:RadGradientStop Offset="0" Color="{StaticResource Tag1Color}" />
+                                                <telerikCommon:RadGradientStop Offset="1" Color="{StaticResource Tag1ColorLight}" />
+                                            </telerikGauges:GaugeBarIndicator.GradientStops>
+                                        </telerikGauges:GaugeBarIndicator>
+                                        <telerikGauges:GaugeTextIndicator Value="0"
+                                            Text="{Binding Tag1Label}"
+                                            TextColor="{Binding Tag1Label, Converter={StaticResource GaugeLabelForegroundColorConverter}}"
+                                            HorizontalTextPlacement="Left"
+                                            VerticalTextPlacement="Center"
+                                            TextMargin="4"
+                                            Position="Start"
+                                            Offset="15" />
+                                        <telerikGauges:GaugeBarIndicator Value="1"
+                                           Fill="{StaticResource Tag2ColorSemiTransparent}"
+                                           AnimationSettings="{StaticResource DisabledAnimation}"
+                                           Offset="30" />
+                                        <telerikGauges:GaugeBarIndicator Value="{Binding Tag2Value}"
+                                           Offset="30"
+                                           StartCap="Oval"
+                                           EndCap="Oval"
+                                           IsOffsetRelative="True">
+                                            <telerikGauges:GaugeBarIndicator.GradientStops>
+                                                <telerikCommon:RadGradientStop Offset="0" Color="{StaticResource Tag2Color}" />
+                                                <telerikCommon:RadGradientStop Offset="1" Color="{StaticResource Tag2ColorLight}" />
+                                            </telerikGauges:GaugeBarIndicator.GradientStops>
+                                        </telerikGauges:GaugeBarIndicator>
+                                        <telerikGauges:GaugeTextIndicator Value="0"
+                                            Text="{Binding Tag2Label}"
+                                            TextColor="{Binding Tag2Label, Converter={StaticResource GaugeLabelForegroundColorConverter}}"
+                                            HorizontalTextPlacement="Left"
+                                            VerticalTextPlacement="Center"
+                                            TextMargin="4"
+                                            Position="Start"
+                                            Offset="40" />
+                                        <telerikGauges:GaugeBarIndicator Value="1"
+                                           Fill="{StaticResource Tag3ColorSemiTransparent}"
+                                           AnimationSettings="{StaticResource DisabledAnimation}"
+                                           Offset="55" />
+                                        <telerikGauges:GaugeBarIndicator Value="{Binding Tag3Value}"
+                                           Offset="55"
+                                           StartCap="Oval"
+                                           EndCap="Oval"
+                                           IsOffsetRelative="True">
+                                            <telerikGauges:GaugeBarIndicator.GradientStops>
+                                                <telerikCommon:RadGradientStop Offset="0" Color="{StaticResource Tag3Color}" />
+                                                <telerikCommon:RadGradientStop Offset="1" Color="{StaticResource Tag3ColorLight}" />
+                                            </telerikGauges:GaugeBarIndicator.GradientStops>
+                                        </telerikGauges:GaugeBarIndicator>
+                                        <telerikGauges:GaugeTextIndicator Value="0"
+                                            Text="{Binding Tag3Label}"
+                                            TextColor="{Binding Tag3Label, Converter={StaticResource GaugeLabelForegroundColorConverter}}"
+                                            HorizontalTextPlacement="Left"
+                                            VerticalTextPlacement="Center"
+                                            TextMargin="4"
+                                            Position="Start"
+                                            Offset="65" />
+                                    </telerikGauges:RadRadialGauge.Indicators>
+                                </telerikGauges:RadRadialGauge>
+
+                            </Grid>
+
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+
+                    <telerikPrimitives:TabViewItem>
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem ControlTemplate="{StaticResource HomeTabControlTemplate}" Text="TAGS" />
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Margin="0,20,0,0" HorizontalOptions="Center" Orientation="Horizontal">
+                                    <Label HorizontalTextAlignment="Center" Style="{DynamicResource SubtitleStyle}" Text="Top tags based on recent analysis."/>
+                                </StackLayout>
+
+                                <telerikChart:RadPieChart BackgroundColor="Transparent" x:Name="pieChart" Grid.Row="1" PaletteName="Light" SelectionPaletteName="LightSelected" HorizontalOptions="Center">
+
+                                    <telerikChart:RadPieChart.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <OnPlatform.iOS>0</OnPlatform.iOS>
+                                            <OnPlatform.Android>0</OnPlatform.Android>
+                                            <OnPlatform.WinPhone>40</OnPlatform.WinPhone>
+                                        </OnPlatform>
+                                    </telerikChart:RadPieChart.Margin>
+                                    <telerikChart:RadPieChart.Behaviors>
+                                        <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
+                                    </telerikChart:RadPieChart.Behaviors>
+                                    <telerikChart:RadPieChart.Series>
+                                        <telerikChart:PieSeries LegendTitleBinding="Label" ItemsSource="{Binding TagBreakdown}" ShowLabels="False">
+                                            <telerikChart:PieSeries.LabelBinding>
+                                                <telerikChart:PropertyNameDataPointBinding PropertyName="Label"/>
+                                            </telerikChart:PieSeries.LabelBinding>
+                                            <telerikChart:PieSeries.ValueBinding>
+                                                <telerikChart:PropertyNameDataPointBinding PropertyName="Value"/>
+                                            </telerikChart:PieSeries.ValueBinding>
+                                        </telerikChart:PieSeries>
+                                    </telerikChart:RadPieChart.Series>
+                                </telerikChart:RadPieChart>
+
+                                <ScrollView Grid.Row="2" >
+                                    <telerikChart:RadLegend Orientation="Vertical" Margin="20,0"  
+                                    LegendItemFontColor="{DynamicResource AppTextColor}"                                    
+                                    LegendProvider="{x:Reference Name=pieChart}"/>
+                                </ScrollView>
+                                
+                               
+                            </Grid>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+
+                </telerikPrimitives:RadTabView.Items>
+            </telerikPrimitives:RadTabView>
+        </Grid>
+      
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:imageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="tagit.Views.ProcessingView">    
+    <ContentView.Content>
+        <Grid Padding="0" RowSpacing="0" ColumnSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="End" VerticalOptions="Center" Source="ic_action_sync.png"/>
+                <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Style="{DynamicResource PageDescriptionStyle}" Text="{Binding HomeTabs.ProcessingTab.Label}"/>
+            </Grid>
+
+            <telerikPrimitives:RadTabView Grid.Row="1" Padding="0,5,0,0" x:Name="processingTabView">
+                <telerikPrimitives:RadTabView.Items>
+                    <telerikPrimitives:TabViewItem BindingContext="{Binding HomeTabs.CompleteTab}" IsSelected="{Binding IsSelected, Mode=OneWayToSource}">
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem ControlTemplate="{StaticResource HomeTabControlTemplate}" Text="{Binding Label}" />
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <Grid Margin="2">
+                                <telerikDataControls:RadListView SelectionMode="None" ItemsSource="{Binding Images}" >
+                                    <telerikDataControls:RadListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <listView:ListViewTemplateCell>
+                                                <listView:ListViewTemplateCell.View>
+                                                    <Grid RowSpacing="0" HeightRequest="280">
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding NavigateToDetailsCommand}"/>
+                                                        </Grid.GestureRecognizers>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition/>
+                                                            <RowDefinition>
+                                                                <RowDefinition.Height>
+                                                                    <OnPlatform x:TypeArguments="GridLength" iOS="60" Android="Auto" WinPhone="Auto" />
+                                                                </RowDefinition.Height>
+                                                            </RowDefinition>
+                                                            <RowDefinition>
+                                                                <RowDefinition.Height>
+                                                                    <OnPlatform x:TypeArguments="GridLength" iOS="60" Android="60" WinPhone="60" />
+                                                                </RowDefinition.Height>
+                                                            </RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <imageLoading:CachedImage Grid.RowSpan="3" DownsampleUseDipUnits="True" WidthRequest="280" HeightRequest="280" Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}" Opacity="{Binding IsProcessing, Converter={StaticResource LoadingOpacityConverter}}">
+                                                            <imageLoading:CachedImage.DownsampleWidth>
+                                                                <OnPlatform x:TypeArguments="x:Double"
+                                                                            iOS="280"                                          
+                                                                            Android="280"/>
+                                                            </imageLoading:CachedImage.DownsampleWidth>
+                                                            <imageLoading:CachedImage.DownsampleHeight>
+                                                                <OnPlatform x:TypeArguments="x:Double"
+                                                                            iOS="280"                                          
+                                                                            Android="280"/>
+                                                            </imageLoading:CachedImage.DownsampleHeight>
+                                                        </imageLoading:CachedImage>
+                                                        <Grid LayoutChanged="OnVisualized" Grid.Row="1" IsVisible="{Binding Caption, Converter={StaticResource HasContentToVisibleConverter}}">
+                                                            <Grid.TranslationY>
+                                                                <OnPlatform x:TypeArguments="x:Double" Android="300" />
+                                                            </Grid.TranslationY>
+                                                            <Grid Margin="6">
+                                                                <Frame HasShadow="False" OutlineColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill" CornerRadius="8" BackgroundColor="#99000000"/>
+                                                                <Label VerticalOptions="Center" HorizontalOptions="Center" Margin="10" Style="{DynamicResource SubtitleStyle}" TextColor="White" Text="{Binding Caption}"/>
+                                                            </Grid>
+                                                        </Grid>
+                                                        <Grid LayoutChanged="OnVisualized" Grid.Row="2" IsVisible="{Binding Caption, Converter={StaticResource HasContentToVisibleConverter}}" BackgroundColor="#0097DF" Padding="10">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid.TranslationY>
+                                                                <OnPlatform x:TypeArguments="x:Double" Android="300" />
+                                                            </Grid.TranslationY>
+                                                            <telerikInput:RadShapeRating InputTransparent="False" HeightRequest="20" Margin="0,8" ItemStroke="White" VerticalOptions="Center" Value="{Binding Rating, Mode=TwoWay}">
+                                                                <telerikInput:RadShapeRating.ItemStrokeThickness>
+                                                                    <OnPlatform x:TypeArguments="x:Double"
+                                                                        iOS="2"
+                                                                        Android="4"
+                                                                        WinPhone="2" />
+                                                                </telerikInput:RadShapeRating.ItemStrokeThickness>
+                                                            </telerikInput:RadShapeRating>
+                                                            <StackLayout Orientation="Horizontal" Grid.Column="1" Margin="5" VerticalOptions="Center" HorizontalOptions="End">
+                                                                <!--<Image InputTransparent="False" HeightRequest="24" WidthRequest="24" Source="ic_action_save.png">
+                                                                    <Image.GestureRecognizers>
+                                                                        <TapGestureRecognizer Command="{Binding SaveCommand}" />
+                                                                    </Image.GestureRecognizers>
+                                                                </Image>-->
+                                                                <Image InputTransparent="False" HeightRequest="24" WidthRequest="24" Source="{Binding IsFavorite, Converter={StaticResource FavoriteIconConverter}}">
+                                                                    <Image.GestureRecognizers>
+                                                                        <TapGestureRecognizer Command="{Binding ToggleFavoriteCommand}" />
+                                                                    </Image.GestureRecognizers>
+                                                                </Image>
+                                                            </StackLayout>
+
+                                                        </Grid>
+                                                    </Grid>
+                                                </listView:ListViewTemplateCell.View>
+                                            </listView:ListViewTemplateCell>
+                                        </DataTemplate>
+                                    </telerikDataControls:RadListView.ItemTemplate>
+                                    <telerikDataControls:RadListView.LayoutDefinition>
+                                        <listView:ListViewLinearLayout HorizontalItemSpacing="2" VerticalItemSpacing="2" />
+                                    </telerikDataControls:RadListView.LayoutDefinition>
+                                </telerikDataControls:RadListView>
+                            </Grid>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                    <telerikPrimitives:TabViewItem  BindingContext="{Binding HomeTabs.ToBeReviewedTab}" IsSelected="{Binding IsSelected, Mode=OneWayToSource}">
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem ControlTemplate="{StaticResource HomeTabControlTemplate}" Text="{Binding Label}" />
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <Grid Margin="2">
+                                <telerikDataControls:RadListView SelectionMode="None" ItemsSource="{Binding Images}" >
+                                    <telerikDataControls:RadListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <listView:ListViewTemplateCell>
+                                                <listView:ListViewTemplateCell.View>
+                                                    <Grid RowSpacing="0">
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding NavigateToDetailsCommand}"/>
+                                                        </Grid.GestureRecognizers>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition/>
+                                                            <RowDefinition>
+                                                                <RowDefinition.Height>
+                                                                    <OnPlatform x:TypeArguments="GridLength" iOS="60" Android="Auto" WinPhone="Auto" />
+                                                                </RowDefinition.Height>
+                                                            </RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <imageLoading:CachedImage DownsampleUseDipUnits="True" Grid.RowSpan="2" Opacity="{Binding IsProcessing, Converter={StaticResource LoadingOpacityConverter}}" WidthRequest="280" Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}">
+                                                            <imageLoading:CachedImage.DownsampleWidth>
+                                                                <OnPlatform x:TypeArguments="x:Double"
+                                                                            iOS="280"                                          
+                                                                            Android="280"/>
+                                                            </imageLoading:CachedImage.DownsampleWidth>
+                                                        </imageLoading:CachedImage>
+                                                        <Grid Grid.Row="1">
+                                                            <Grid Margin="6">
+                                                                <Frame HasShadow="False" OutlineColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill" CornerRadius="8" BackgroundColor="#99000000"/>
+                                                                <Label VerticalOptions="Center" HorizontalOptions="Center" Margin="10" Style="{DynamicResource SubtitleStyle}" TextColor="White" Text="{Binding Caption}"/>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                </listView:ListViewTemplateCell.View>
+                                            </listView:ListViewTemplateCell>
+                                        </DataTemplate>
+                                    </telerikDataControls:RadListView.ItemTemplate>
+                                    <telerikDataControls:RadListView.LayoutDefinition>
+                                        <listView:ListViewLinearLayout HorizontalItemSpacing="2" VerticalItemSpacing="6" />
+                                    </telerikDataControls:RadListView.LayoutDefinition>
+                                </telerikDataControls:RadListView>
+                            </Grid>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                </telerikPrimitives:RadTabView.Items>
+            </telerikPrimitives:RadTabView>
+
+            <telerikPrimitives:RadBusyIndicator Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                                        AnimationContentColor="{DynamicResource AppSecondaryAccentColor}"
+                                                        AnimationContentHeightRequest="160"
+                                                        AnimationContentWidthRequest="160"
+                                                        AnimationType="Animation5"
+                                                        InputTransparent="True"
+                                                        IsBusy="{Binding IsBusy}" />
+
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="tagit.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:tagit.UWP">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AppMainBlueColor">#FF0097DF</Color>
+            <SolidColorBrush x:Key="AppMainBlueBrush" Color="{ThemeResource AppMainBlueColor}"/>
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>
