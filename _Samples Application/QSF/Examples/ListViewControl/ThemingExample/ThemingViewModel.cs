@@ -3,7 +3,7 @@ using QSF.ViewModels;
 
 namespace QSF.Examples.ListViewControl.ThemingExample
 {
-    public class ThemingViewModel : ViewModelBase
+    public class ThemingViewModel : ExampleViewModel
     {
         public ObservableCollection<string> Items { get; private set; }
 

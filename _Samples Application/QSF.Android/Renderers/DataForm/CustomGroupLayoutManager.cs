@@ -11,7 +11,7 @@ namespace QSF.Droid.Renderers.DataForm
     {
         private IDataFormRenderer renderer;
 
-        public CustomGroupLayoutManager(IDataFormRenderer renderer) : base(renderer)
+        public CustomGroupLayoutManager(IDataFormRenderer renderer, Android.Content.Context context) : base(renderer, context)
         {
             this.renderer = renderer;
         }
@@ -21,8 +21,8 @@ namespace QSF.Droid.Renderers.DataForm
             if (groupName != null)
             {
                 var layout = this.renderer.GetGroupLayoutDefinition(groupName);
-                var group = new EditorGroup(Xamarin.Forms.Forms.Context, groupName, Resource.Layout.Custom_Group_Layout);
-                group.LayoutManager = TypeMappings.CreateInstance(layout) as DataFormLayoutManager;
+                var group = new EditorGroup(this.Context, groupName, Resource.Layout.Custom_Group_Layout);
+                group.LayoutManager = TypeMappings.CreateInstance(layout, this.Context) as DataFormLayoutManager;
                 group.RootLayout().Background = new ColorDrawable(Color.White);
 
                 return group;

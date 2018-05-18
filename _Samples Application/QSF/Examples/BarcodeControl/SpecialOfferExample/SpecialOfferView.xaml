@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:barcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             BackgroundColor="{StaticResource DarkBackgroundColor}"
+             x:Class="QSF.Examples.BarcodeControl.SpecialOfferExample.SpecialOfferView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="SpecialOfferPercentColor">#F12448</Color>
+            <Color x:Key="SpecialOfferCouponLimitColor">#B0B0B0</Color>
+
+            <Style TargetType="Label" x:Key="SpecialOfferHeaderLabelStyle">
+                <Setter Property="FontSize" Value="40" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SpecialOfferPercentValueLabelStyle">
+                <Setter Property="FontSize" Value="55" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+                <Setter Property="TextColor" Value="{StaticResource SpecialOfferPercentColor}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SpecialOfferPercentLabelStyle">
+                <Setter Property="FontSize" Value="45" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+                <Setter Property="TextColor" Value="{StaticResource SpecialOfferPercentColor}" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SpecialOfferConditionLabelStyle">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SpecialOfferCouponLimitLabelStyle">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource SpecialOfferCouponLimitColor}" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ScrollView>
+        <ScrollView.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android">0, 0, 0, 20</On>
+                <On Platform="UWP">20</On>
+            </OnPlatform>
+        </ScrollView.Padding>
+        <ScrollView.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android">0</On>
+                <On Platform="UWP">20, 0</On>
+            </OnPlatform>
+        </ScrollView.Margin>
+        <primitives:RadBorder Margin="20" BackgroundColor="{StaticResource LightBackgroundColor}" CornerRadius="6">
+            <Grid Grid.Row="2" Padding="20, 0" BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="SPECIAL OFFER" Style="{StaticResource SpecialOfferHeaderLabelStyle}"
+               HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" Grid.Column="1" Margin="0, 10" />
+
+                <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Margin="20, 10, 0, 10" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="20%" Style="{StaticResource SpecialOfferPercentValueLabelStyle}"  />
+                    <Label Text="OFF" Style="{StaticResource SpecialOfferPercentLabelStyle}" />
+                </StackLayout>
+
+                <Label Text="for any salad until May 21st" Grid.Row="5" Grid.Column="1" Style="{StaticResource SpecialOfferConditionLabelStyle}" Margin="0, 10"/>
+
+                <Image Grid.Row="7" Grid.Column="1" HorizontalOptions="Center" Margin="0, 10">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">BarCode_SpecialOffer_Salad.png</On>
+                            <On Platform="UWP">Assets/BarCode_SpecialOffer_Salad.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+
+                <barcode:RadBarcode Grid.Row="9" Grid.Column="1" HeightRequest="100" WidthRequest="200" Margin="0, 10"
+                                Value="38000106">
+                    <barcode:RadBarcode.Symbology>
+                        <barcode:Codabar SizingMode="Stretch" AutoChecksum="False" ShowText="True" HorizontalTextAlignment="Center" CodeTextSpacing="10"/>
+                    </barcode:RadBarcode.Symbology>
+                </barcode:RadBarcode>
+
+                <Label Text="Only one coupon per customer per visit" Grid.Row="11" Grid.Column="1" Style="{StaticResource Key=SpecialOfferCouponLimitLabelStyle}" Margin="0, 10"/>
+
+            </Grid>
+        </primitives:RadBorder>
+    </ScrollView>
+</ContentView>

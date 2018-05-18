@@ -41,7 +41,7 @@ namespace QSF.Services
 
         public void SetTheme(Theme theme)
         {
-            var resources = (RadResourceDictionary)Application.Current.Resources;
+            var resources = Application.Current.Resources;
             var mergedDictionaries = resources.MergedDictionaries;
 
             if (this.CurrentTheme != null && !string.IsNullOrEmpty(this.CurrentTheme.ResourceTypeName))

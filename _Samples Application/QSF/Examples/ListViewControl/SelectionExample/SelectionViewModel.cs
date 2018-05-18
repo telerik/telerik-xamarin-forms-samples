@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.ListViewControl.SelectionExample
 {
-    public class SelectionViewModel : ViewModelBase
+    public class SelectionViewModel : ExampleViewModel
     {
         private INavigationService navigationService;
         private ViewMode viewMode;

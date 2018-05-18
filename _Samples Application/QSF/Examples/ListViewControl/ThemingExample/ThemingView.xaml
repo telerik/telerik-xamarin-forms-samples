@@ -5,9 +5,6 @@
              xmlns:local="clr-namespace:QSF.Examples.ListViewControl.ThemingExample"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              x:Class="QSF.Examples.ListViewControl.ThemingExample.ThemingView">
-    <ContentView.BindingContext>
-        <local:ThemingViewModel />
-    </ContentView.BindingContext>
     <telerikDataControls:RadListView ItemsSource="{Binding Items}"
                                      views:ThemesBehavior.StyleClass="TelerikTheme" />
 </ContentView>

@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using QSF.Examples.DataGridControl.Common;
+using QSF.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using QSF.Examples.DataGridControl.Common;
 using Telerik.XamarinForms.Common;
-using Xamarin.Forms;
 
 namespace QSF.Examples.DataGridControl.LoadOnDemandExample
 {
-    public class LoadOnDemandViewModel : ContentPage
+    public class LoadOnDemandViewModel : ExampleViewModel
     {
         private const int TakeItemsCount = 10;
         private const int SkipItemsStep = 10;

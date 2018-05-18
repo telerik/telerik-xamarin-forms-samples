@@ -7,7 +7,6 @@
     <Color x:Key="lightGray">#FFF8F8F8</Color>
     <Color x:Key="orange">#FFFF5614</Color>
     <Color x:Key="accent">#FF24BFD3</Color>
-    <converters:ImageSourceConverter x:Key="imageSourceConverter" />
     <local:BooleanValueConverter x:Key="booleanOrangeConverter" 
                                  TrueValue="{StaticResource orange}"
                                  FalseValue="{StaticResource unselectedColor}" />
@@ -52,7 +51,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Image Source="{Binding Icon, Converter={StaticResource imageSourceConverter}}"
+            <Image Source="{Binding Icon, Converter={StaticResource ImageSourceConverter}}"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    WidthRequest="16"

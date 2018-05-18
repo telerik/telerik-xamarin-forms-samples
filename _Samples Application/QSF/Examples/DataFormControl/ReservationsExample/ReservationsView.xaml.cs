@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Telerik.XamarinForms.DataControls.ListView;
 using Xamarin.Forms;
 
@@ -6,12 +7,9 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
 {
     public partial class ReservationsView : ContentView
     {
-        private ReservationsViewModel viewModel = new ReservationsViewModel();
-
         public ReservationsView()
         {
             this.InitializeComponent();
-            this.BindingContext = viewModel;
 
             var addReservation = new TapGestureRecognizer();
             addReservation.Tapped += this.AddReservationClicked;
@@ -37,12 +35,12 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
 
         private void AddReservationClicked(object sender, EventArgs e)
         {
-            this.viewModel.AddReservation();
+            ((ReservationsViewModel)this.BindingContext).AddReservation();
         }
 
         private void ReservationTap(object sender, ItemTapEventArgs e)
         {
-            this.viewModel.EditReservation((Reservation)e.Item);
+            ((ReservationsViewModel)this.BindingContext).EditReservation((Reservation)e.Item);
         }
     }
 }

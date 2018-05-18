@@ -23,5 +23,9 @@ namespace QSF.Services
         Task NavigateToExampleAsync(ExampleInfo exampleInfo);
 
         Type GetExampleViewType(ExampleInfo exampleInfo);
+
+        Type GetViewTypeForViewModel(Type viewModelType);
+
+        Task NavigateToConfigurationAsync<T>(T configurationViewModel) where T : ConfigurationViewModel;
     }
 }

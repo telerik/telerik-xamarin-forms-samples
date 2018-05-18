@@ -34,7 +34,8 @@
                       Padding="16,0,0,0">
                     <telerikInput:RadButton BackgroundColor="#5D4037"
                                             BorderRadius="0"
-                                            Command="{Binding BackCommand}" />
+                                            Command="{Binding BackCommand}" 
+                                            AutomationId="BackButton"/>
                     <Image HorizontalOptions="Start"
                            VerticalOptions="Center">
                         <Image.Source>
@@ -61,7 +62,8 @@
                                                 HorizontalOptions="FillAndExpand"
                                                 VerticalOptions="FillAndExpand"
                                                 BorderRadius="0"
-                                                Command="{Binding FavoriteCommand}" />
+                                                Command="{Binding FavoriteCommand}"
+                                                AutomationId="TopFavoriteButton"/>
                         <Image HorizontalOptions="Center"
                                VerticalOptions="Center"
                                InputTransparent="True">
@@ -80,7 +82,8 @@
                                                 HorizontalOptions="FillAndExpand"
                                                 VerticalOptions="FillAndExpand"
                                                 BorderRadius="0"
-                                                Command="{Binding DeleteCommand}" />
+                                                Command="{Binding DeleteCommand}"
+                                                AutomationId="TopDeleteButton"/>
                         <Image HorizontalOptions="Center"
                                VerticalOptions="Center"
                                InputTransparent="True">

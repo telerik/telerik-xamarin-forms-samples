@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QSF.Examples.TreeViewControl.CustomizationExample"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.TreeViewControl.CustomizationExample.CustomizationView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0"
+               Margin="20,10"
+               FontSize="20"
+               FontAttributes="Bold"
+               Text="Agencies:" />
+        <telerikDataControls:RadTreeView Grid.Row="1"
+                                         ItemsSource="{Binding Agencies.Continents}">
+            <telerikDataControls:RadTreeView.HierarchyAdapter>
+                <local:ItemHierarchyAdapter />
+            </telerikDataControls:RadTreeView.HierarchyAdapter>
+            <telerikDataControls:RadTreeView.ItemTemplateSelector>
+                <local:ItemTemplateSelector>
+                    <local:ItemTemplateSelector.ContinentTemplate>
+                        <DataTemplate>
+                            <Grid Margin="20,0,0,0"
+                                  HeightRequest="40">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                       VerticalOptions="Center"
+                                       FontFamily="{StaticResource IconsFont}"
+                                       Text="{StaticResource TreeCollapsedIcon}">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Text"
+                                                    Value="{StaticResource TreeExpandedIcon}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Label Grid.Column="1"
+                                       VerticalOptions="Center"
+                                       Text="{Binding Item.Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </local:ItemTemplateSelector.ContinentTemplate>
+                    <local:ItemTemplateSelector.CountryTemplate>
+                        <DataTemplate>
+                            <Grid Margin="40,0,0,0"
+                                  HeightRequest="40">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       FontFamily="{StaticResource IconsFont}"
+                                       Text="{StaticResource TreeCollapsedIcon}">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                                     Binding="{Binding IsExpanded}"
+                                                     Value="True">
+                                            <Setter Property="Text"
+                                                    Value="{StaticResource TreeExpandedIcon}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Image Grid.Column="1"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       Source="{Binding Item.Icon, Converter={StaticResource ImageSourceConverter}}" />
+                                <Label Grid.Column="2"
+                                       VerticalOptions="Center"
+                                       Text="{Binding Item.Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </local:ItemTemplateSelector.CountryTemplate>
+                    <local:ItemTemplateSelector.CityTemplate>
+                        <DataTemplate>
+                            <Grid Margin="110,0,0,0"
+                                  HeightRequest="40">
+                                <Label VerticalOptions="Center"
+                                       Text="{Binding Item.Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </local:ItemTemplateSelector.CityTemplate>
+                </local:ItemTemplateSelector>
+            </telerikDataControls:RadTreeView.ItemTemplateSelector>
+        </telerikDataControls:RadTreeView>
+    </Grid>
+</ContentView>

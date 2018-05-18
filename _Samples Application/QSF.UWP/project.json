@@ -1,11 +1,14 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
-    "SkiaSharp.Views.Forms": "1.59.2",
-    "Telerik.UI.for.Xamarin": "2018.1.117.5",
+    "Telerik.UI.for.Xamarin.Trial": "2018.2.516.2",
+    "Microsoft.AppCenter.Analytics": "1.6.0",
+    "Microsoft.AppCenter.Crashes": "1.6.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.2",
+    "Newtonsoft.Json": "11.0.2",
+    "SkiaSharp.Views.Forms": "1.59.1",
     "Xam.Plugins.Settings": "3.1.1",
-    "Xamarin.FFImageLoading.Forms": "2.3.4",
-    "Xamarin.Forms": "2.4.0.38779"
+    "Xamarin.FFImageLoading.Forms": "2.3.6",
+    "Xamarin.Forms": "2.5.1.444934"
   },
   "frameworks": {
     "uap10.0.10240": {}

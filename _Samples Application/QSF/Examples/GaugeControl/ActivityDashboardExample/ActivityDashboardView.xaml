@@ -10,10 +10,6 @@
         <ResourceDictionary MergedWith="local:Resources" />
     </VisualElement.Resources>
 
-    <BindableObject.BindingContext>
-        <local:ActivityDashboardViewModel />
-    </BindableObject.BindingContext>
-
     <Grid>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>

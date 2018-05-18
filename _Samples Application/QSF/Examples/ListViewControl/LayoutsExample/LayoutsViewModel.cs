@@ -1,10 +1,9 @@
-﻿using System.Collections.ObjectModel;
-using QSF.ViewModels;
-using QSF.ViewModels.Recipes;
+﻿using QSF.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace QSF.Examples.ListViewControl.LayoutsExample
 {
-    public class LayoutsViewModel : ViewModelBase
+    public class LayoutsViewModel : ExampleViewModel
     {
         private LayoutOption selectedLayout;
 

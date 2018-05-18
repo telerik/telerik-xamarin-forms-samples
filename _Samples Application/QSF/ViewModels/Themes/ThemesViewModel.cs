@@ -3,7 +3,6 @@ using QSF.Services.Configuration;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Forms;
-using System;
 
 namespace QSF.ViewModels
 {
@@ -58,6 +57,8 @@ namespace QSF.ViewModels
             }
 
             this.UpdateSelectedTheme();
+
+            AnalyticsHelper.TraceThemeChanged(this.SelectedTheme.Name);
 
             await this.NavigateBack();
         }

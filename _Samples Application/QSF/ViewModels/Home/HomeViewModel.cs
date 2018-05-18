@@ -1,11 +1,11 @@
 ﻿using QSF.Services;
 using QSF.Services.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System;
 
 namespace QSF.ViewModels
 {
@@ -122,24 +122,28 @@ namespace QSF.ViewModels
 
         private void NavigateToSource(object obj)
         {
+            AnalyticsHelper.TraceNavigateToCode();
             var configurationService = DependencyService.Get<IConfigurationService>();
             Device.OpenUri(new Uri(configurationService.GetSourceURL()));
         }
 
         private void NavigateToDocumentation(object obj)
         {
+            AnalyticsHelper.TraceNavigateToDocumentation();
             var configurationService = DependencyService.Get<IConfigurationService>();
             Device.OpenUri(new Uri(configurationService.GetDocumentationURL()));
         }
 
         private void NavigateToProductPage(object obj)
         {
+            AnalyticsHelper.TraceNavigateToProductPage();
             var configurationService = DependencyService.Get<IConfigurationService>();
             Device.OpenUri(new Uri(configurationService.GetProductPageURL()));
         }
 
         private void NavigateToWhatsNewPage(object obj)
         {
+            AnalyticsHelper.TraceNavigateToWhatsNewPage();
             var configurationService = DependencyService.Get<IConfigurationService>();
             Device.OpenUri(new Uri(configurationService.GetWhatsNewPageURL()));
         }

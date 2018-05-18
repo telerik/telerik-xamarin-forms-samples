@@ -6,12 +6,8 @@
              xmlns:converters="clr-namespace:QSF.Converters"
              xmlns:local="clr-namespace:QSF.Examples.DataGridControl.CustomizationExample"
              x:Class="QSF.Examples.DataGridControl.CustomizationExample.CustomizationView">
-    <ContentView.BindingContext>
-        <local:CustomizationViewModel />
-    </ContentView.BindingContext>
     <ContentView.Resources>
         <ResourceDictionary>
-            <converters:ImageSourceConverter x:Key="ImageSourceConverter"/>
             <local:GridStyleSelector x:Key="StyleSelector">
                 <local:GridStyleSelector.OuterGroupStyle>
                     <telerikDataGrid:DataGridGroupHeaderStyle
@@ -34,6 +30,25 @@
                         BackgroundColor="#CACACF" />
                 </local:GridStyleSelector.InnerGroupStyle>
             </local:GridStyleSelector>
+            <telerikDataGrid:DataGridColumnHeaderStyle x:Key="CustomDataGridColumnHeaderStyle"
+                                                       BackgroundColor="#D4392A" 
+                                                       OptionsButtonFontSize="15"
+                                                       TextColor="White"
+                                                       TextFontAttributes="Bold"
+                                                       TextMargin="7, 25, 7, 25"
+                                                       IndicatorColor="White"
+                                                       IndicatorFontSize="25"
+                                                       OptionsButtonMargin="9, 14, 13, 14"
+                                                       OptionsButtonTextColor="White">
+                <telerikDataGrid:DataGridColumnHeaderStyle.IndicatorMargin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="10, 5, 0, 0" />
+                            <On Platform="UWP, Android" Value="10, 10, 0, 0" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </telerikDataGrid:DataGridColumnHeaderStyle.IndicatorMargin>
+            </telerikDataGrid:DataGridColumnHeaderStyle>
         </ResourceDictionary>
     </ContentView.Resources>
 
@@ -85,58 +100,19 @@
                     </DataTemplate>
                 </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
             </telerikDataGrid:DataGridTemplateColumn>
-            <telerikDataGrid:DataGridNumericalColumn PropertyName="Sales" HeaderText="Sales ($)" CellContentFormat="$ {0}">
+            <telerikDataGrid:DataGridNumericalColumn PropertyName="Sales" HeaderText="Sales ($)" CellContentFormat="$ {0}"
+                                                     HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}">
                 <telerikDataGrid:DataGridTextColumn.CellContentStyle>
                     <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="#4A4949" />
                 </telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                <telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
-                    <telerikDataGrid:DataGridColumnHeaderStyle BackgroundColor="#D4392A" 
-                        OptionsButtonFontSize="15"
-                        TextColor="White"
-                        TextFontAttributes="Bold"
-                        TextMargin="7, 25, 7, 25"
-                        IndicatorColor="White"
-                        IndicatorFontSize="25"
-                        OptionsButtonMargin="9, 14, 13, 14"
-                        OptionsButtonTextColor="White">
-                        <telerikDataGrid:DataGridColumnHeaderStyle.IndicatorMargin>
-                            <OnPlatform x:TypeArguments="Thickness">
-                                <OnPlatform.Platforms>
-                                    <On Platform="iOS" Value="10, 5, 0, 0" />
-                                    <On Platform="UWP, Android" Value="10, 10, 0, 0" />
-                                </OnPlatform.Platforms>
-                            </OnPlatform>
-                        </telerikDataGrid:DataGridColumnHeaderStyle.IndicatorMargin>
-                    </telerikDataGrid:DataGridColumnHeaderStyle>
-                </telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
             </telerikDataGrid:DataGridNumericalColumn>
-            <telerikDataGrid:DataGridTextColumn PropertyName="City" HeaderText="City">
+            <telerikDataGrid:DataGridTextColumn PropertyName="City" HeaderText="City" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}">
                 <telerikDataGrid:DataGridTextColumn.CellContentStyle>
                     <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="#4A4949" />
                 </telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                <telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
-                    <telerikDataGrid:DataGridColumnHeaderStyle BackgroundColor="#D4392A" 
-                        OptionsButtonFontSize="15"
-                        TextColor="White"
-                        TextFontAttributes="Bold"
-                        TextMargin="7, 25, 7, 25"
-                        IndicatorColor="White"
-                        IndicatorFontSize="25"
-                        OptionsButtonMargin="9, 14, 13, 14"
-                        OptionsButtonTextColor="White">
-                        <telerikDataGrid:DataGridColumnHeaderStyle.IndicatorMargin>
-                            <OnPlatform x:TypeArguments="Thickness">
-                                <OnPlatform.Platforms>
-                                    <On Platform="iOS" Value="10, 5, 0, 0" />
-                                    <On Platform="UWP, Android" Value="10, 10, 0, 0" />
-                                </OnPlatform.Platforms>
-                            </OnPlatform>
-                        </telerikDataGrid:DataGridColumnHeaderStyle.IndicatorMargin>
-                    </telerikDataGrid:DataGridColumnHeaderStyle>
-                </telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
             </telerikDataGrid:DataGridTextColumn>
-            <telerikDataGrid:DataGridTextColumn PropertyName="CountryName" IsVisible="False"/>
-            <telerikDataGrid:DataGridTextColumn PropertyName="Region" IsVisible="False"/>
+            <telerikDataGrid:DataGridTextColumn PropertyName="CountryName" IsVisible="False" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
+            <telerikDataGrid:DataGridTextColumn PropertyName="Region" IsVisible="False" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>
         </telerikDataGrid:RadDataGrid.Columns>
     </telerikDataGrid:RadDataGrid>
 

@@ -7,10 +7,6 @@
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.AutoCompleteControl.TokensExample.TokensView">
-
-  <ContentView.BindingContext>
-    <example:TokensViewModel />
-  </ContentView.BindingContext>
     <Grid BackgroundColor="White">
         <Grid Margin="16, 0, 16, 0" RowSpacing="0">
             <Grid.RowDefinitions>

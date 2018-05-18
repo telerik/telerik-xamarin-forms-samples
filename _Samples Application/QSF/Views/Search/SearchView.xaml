@@ -12,6 +12,7 @@
         <ResourceDictionary>
             <converters:EnumToStringConverter x:Key="enumToStringConverter" />
             <converters:HightlitedTextConverter x:Key="hightllightedTextConverter" />
+            <converters:InvertedBooleanConverter x:Key="invertedBooleanConverter" />
 
             <converters:HightlitedTextConverterParameter x:Key="hightlitedTextConverterParameter" HighlightTextColor="{StaticResource Key=AccentColor}" HighlightBackgroundColor="Transparent"/>
 
@@ -24,9 +25,9 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}"/>
+                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}" AutomationId="ControlDesriptionNameLabel"/>
                             <Label Grid.Row="1" Margin="0, 0, 0, 12" Style="{StaticResource Key=BodyLabelStyle}"
-                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" AutomationId="ControlDesriptionLabel"/>
                         </Grid>
                     </telerikListView:ListViewTemplateCell.View>
                 </telerikListView:ListViewTemplateCell>
@@ -37,7 +38,7 @@
                     <telerikListView:ListViewTemplateCell.View>
                         <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
                             <Label Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" Margin="0, 0, 0, 12" FontFamily="{StaticResource Key=MediumFont}"
-                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" AutomationId="ControlNameLabel" />
                         </Grid>
                     </telerikListView:ListViewTemplateCell.View>
                 </telerikListView:ListViewTemplateCell>
@@ -52,9 +53,9 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Path=ExampleName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}"/>
+                            <Label Text="{Binding Path=ExampleName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}" AutomationId="ExampleDescriptionNameLabel"/>
                             <Label Grid.Row="1" Margin="0, 0, 0, 12" Style="{StaticResource Key=BodyLabelStyle}"
-                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" AutomationId="ExampleDesriptionLabel"/>
                         </Grid>
                     </telerikListView:ListViewTemplateCell.View>
                 </telerikListView:ListViewTemplateCell>
@@ -69,12 +70,12 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}"/>
+                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}" AutomationId="ExampleNameControlNameLabel"/>
                             <Label Grid.Row="1" TextColor="{StaticResource TextColor}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" Margin="0, 0, 0, 12" FontFamily="{StaticResource Key=MediumFont}" BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
-                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" />
+                                   FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" AutomationId="ExampleNmaeLabel" />
                         </Grid>
                     </telerikListView:ListViewTemplateCell.View>
-                </telerikListView:ListViewTemplateCell> 
+                </telerikListView:ListViewTemplateCell>
             </DataTemplate>
 
             <views:SearchResultListViewItemTemplateSelector x:Key="searchResultListViewItemTemplateSelector"
@@ -97,14 +98,16 @@
                          IsMiddleButtonVisible="False" 
                          IsRightButtonVisible="False"/>
 
-        <SearchBar Text="{Binding Path=SearchText}" HorizontalOptions="Fill" Margin="50, 0, 18, 0" VerticalOptions="Center">
+        <SearchBar Text="{Binding Path=SearchText}" HorizontalOptions="Fill" Margin="50, 0, 18, 0" VerticalOptions="Center"
+                   AutomationId="SearchBar">
             <SearchBar.Effects>
                 <effects:BorderEffect />
             </SearchBar.Effects>
         </SearchBar>
 
         <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Path=SearchResults}" SelectedItem="{Binding Path=SelectedSearchResult, Mode=TwoWay}"
-                                         ItemTemplateSelector="{StaticResource Key=searchResultListViewItemTemplateSelector}">
+                                         ItemTemplateSelector="{StaticResource Key=searchResultListViewItemTemplateSelector}" IsVisible="{Binding Path=HasResults}"
+                                         AutomationId="ResultsListView">
             <telerikDataControls:RadListView.Margin>
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform="iOS" Value="12" />
@@ -120,5 +123,14 @@
                 </DataTemplate>
             </telerikDataControls:RadListView.GroupHeaderTemplate>
         </telerikDataControls:RadListView>
+
+        <Grid Grid.Row="1" IsVisible="{Binding Path=HasResults, Converter={StaticResource Key=invertedBooleanConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Label Text="No results found" Style="{StaticResource Key=HeaderLabelStyle}" VerticalOptions="Center" HorizontalOptions="Center" />
+        </Grid>
     </Grid>
 </ContentPage>

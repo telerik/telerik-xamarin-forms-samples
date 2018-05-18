@@ -159,7 +159,7 @@ namespace QSF.Examples.CalendarControl.AppointmentsExample
                     var date = SelectedDate.Value;
                     var result = string.Format("{0}, {1} {2}", date.DayOfWeek, CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(date.Month), date.Day);
 
-                    if (Device.OS == TargetPlatform.Android)
+                    if (Device.RuntimePlatform == Device.Android)
                     {
                         result = result.ToUpper();
                     }

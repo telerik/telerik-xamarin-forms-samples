@@ -6,9 +6,6 @@
              xmlns:local="clr-namespace:QSF.Examples.DataGridControl.ThemingExample"
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.DataGridControl.ThemingExample.ThemingView">
-    <ContentView.BindingContext>
-        <local:ThemingViewModel />
-    </ContentView.BindingContext>
     <Grid>
         <Grid.BackgroundColor>
             <OnPlatform x:TypeArguments="Color">

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:barcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BarcodeControl.BoardingPassExample.BoardingPassView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BoardingPassAccentColor">#3A6BC7</Color>
+
+            <Style TargetType="Label" x:Key="PassBoxHeaderLabelStyle">
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            </Style>
+
+            <Style BasedOn="{StaticResource HeaderLabelStyle}" TargetType="Label" x:Key="DestinationsHeaderLabelStyle">
+                <Setter Property="TextColor" Value="{StaticResource BoardingPassAccentColor}" />
+                <Setter Property="FontSize" Value="36" />
+            </Style>
+
+            <Style BasedOn="{StaticResource BodyLabelStyle}" TargetType="Label" x:Key="DestinationsBodyLabelStyle">
+                <Setter Property="Margin" Value="0, -10, 0, 0" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="DestinationsHeaderContainerStyle">
+                <Setter Property="Margin" Value="0, 20, 0, 20" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="PassBoxPropertyNameLabelStyle" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource BoardingPassAccentColor}" />
+                <Setter Property="Margin" Value="0, 30, 0, 0" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="PassBoxPropertyValueLabelStyle" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ScrollView>
+        <Grid Padding="20" BackgroundColor="{StaticResource DarkBackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <primitives:RadBorder BackgroundColor="{StaticResource BoardingPassAccentColor}" HeightRequest="80" CornerRadius="6, 6, 0, 0" />
+            <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0" VerticalOptions="Center">
+                <Label Text="SOF" Style="{StaticResource PassBoxHeaderLabelStyle}"  />
+                <Label Text="{StaticResource ArrowIcon}"  FontFamily="{StaticResource IconsFont}" TextColor="{StaticResource LightTextColor}" FontSize="22" Margin="0, 5, 0, 0" />
+                <Label Text="LIS" Style="{StaticResource PassBoxHeaderLabelStyle}" />
+            </StackLayout>
+
+            <primitives:RadBorder BackgroundColor="{StaticResource LightBackgroundColor}" Grid.Row="1" CornerRadius="0, 0, 6, 6" />
+            <Grid Grid.Row="1" Padding="20, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout HorizontalOptions="End" Style="{StaticResource DestinationsHeaderContainerStyle}">
+                    <Label Text="SOF" HorizontalOptions="Center" Style="{StaticResource DestinationsHeaderLabelStyle}" />
+                    <Label Text="Sofia," HorizontalOptions="Center" Style="{StaticResource DestinationsBodyLabelStyle}"/>
+                    <Label Text="Bulgaria" HorizontalOptions="Center" Style="{StaticResource DestinationsBodyLabelStyle}"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1" Spacing="10">
+                    <Label Text="{StaticResource AirplaneIcon}" FontFamily="{StaticResource IconsFont}" FontSize="40" HorizontalOptions="Center"/>
+                    <Label Text="3 hrs 35 min" HorizontalOptions="Center" Style="{StaticResource DestinationsBodyLabelStyle}"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Start" Grid.Column="2" Style="{StaticResource DestinationsHeaderContainerStyle}">
+                    <Label Text="LIS" HorizontalOptions="Center" Style="{StaticResource DestinationsHeaderLabelStyle}" />
+                    <Label Text="Lisbon," HorizontalOptions="Center" Style="{StaticResource DestinationsBodyLabelStyle}"/>
+                    <Label Text="Portugal" HorizontalOptions="Center" Style="{StaticResource DestinationsBodyLabelStyle}"/>
+                </StackLayout>
+
+                <BoxView BackgroundColor="{StaticResource DarkBackgroundColor}" Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="2" Margin="0, 10" />
+
+                <Label Text="Passenger" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="2" Grid.ColumnSpan="2" />
+                <Label Text="Mrs. Lara Howard" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <Label Text="Seat" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="2" Grid.Column="2" />
+                <Label Text="12C" Grid.Row="3" Grid.Column="2" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <Label Text="Flight" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="4" />
+                <Label Text="S7 129" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <Label Text="Departure" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="4" Grid.Column="1" />
+                <Label Text="06 June 2018" Grid.Row="5" Grid.Column="1" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <Label Text="Hour" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="4" Grid.Column="2" />
+                <Label Text="6.30 pm" Grid.Row="5" Grid.Column="2" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <BoxView BackgroundColor="{StaticResource DarkBackgroundColor}" Grid.Row="6" Grid.ColumnSpan="3" HeightRequest="2" Margin="0, 30, 0, 0" />
+
+                <Label Text="Terminal" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="7" />
+                <Label Text="12" Grid.Row="8" Grid.ColumnSpan="2" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <Label Text="Gate" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="7" Grid.Column="1" />
+                <Label Text="36" Grid.Row="8" Grid.Column="1" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <Label Text="Boarding" Style="{StaticResource PassBoxPropertyNameLabelStyle}" Grid.Row="7" Grid.Column="2" />
+                <Label Text="4.30 pm" Grid.Row="8" Grid.Column="2" Style="{StaticResource PassBoxPropertyValueLabelStyle}" />
+
+                <barcode:RadBarcode Grid.Row="9" Grid.ColumnSpan="3" WidthRequest="260" HeightRequest="260" HorizontalOptions="Center" VerticalOptions="Center"
+                                    Margin="0, 20, 0, 0"
+                                    Value="Mrs Lara Howard SOF LIS S7 129 12C 06 June 2018 6:30 pm 12 36">
+                    <barcode:RadBarcode.Symbology>
+                        <barcode:QRCode SizingMode="Stretch"/>
+                    </barcode:RadBarcode.Symbology>
+                </barcode:RadBarcode>
+
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+</ContentView>

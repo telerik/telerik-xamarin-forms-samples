@@ -3,7 +3,7 @@ using QSF.ViewModels;
 
 namespace QSF.Examples.TabViewControl.RestaurantMenuExample
 {
-    public class RestaurantMenuViewModel : ViewModelBase
+    public class RestaurantMenuViewModel : ExampleViewModel
     {
         public RestaurantExploreSectionViewModel Explore { get; private set; }
         public RestaurantFlatSectionViewModel Saved { get; private set; }

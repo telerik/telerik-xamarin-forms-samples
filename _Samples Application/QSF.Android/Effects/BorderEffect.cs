@@ -16,8 +16,8 @@ namespace QSF.Droid.Effects
             {
                 var border = new GradientDrawable();
                 var darkBackgroundColor = ((Color)App.Current.Resources["DarkBackgroundColor"]).ToAndroid();
-                border.SetStroke((int)Xamarin.Forms.Forms.Context.ToPixels(5), Color.Transparent.ToAndroid());
-                border.SetCornerRadius(Xamarin.Forms.Forms.Context.ToPixels((float)5));
+                border.SetStroke((int)this.Control.Context.ToPixels(5), Color.Transparent.ToAndroid());
+                border.SetCornerRadius(this.Control.Context.ToPixels((float)5));
                 border.SetColor(darkBackgroundColor);
                 this.Control.Background = border;
 

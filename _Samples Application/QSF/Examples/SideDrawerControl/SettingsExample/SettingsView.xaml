@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:QSF.Examples.SideDrawerControl.SettingsExample"
@@ -7,284 +7,279 @@
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.SideDrawerControl.SettingsExample.SettingsView">
-    <ContentView.BindingContext>
-        <local:SettingsViewModel />
-    </ContentView.BindingContext>
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition >
+                <RowDefinition.Height>
+                    <OnPlatform x:TypeArguments="GridLength">
+                        <On Platform="iOS">44</On>
+                        <On Platform="Android,UWP">56</On>
+                    </OnPlatform>
+                </RowDefinition.Height>
+            </RowDefinition>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid Grid.ColumnSpacing="0"
-              Grid.RowSpacing="0" >
-            <Grid.RowDefinitions>
-                <RowDefinition >
-                    <RowDefinition.Height>
-                        <OnPlatform x:TypeArguments="GridLength">
-                            <On Platform="iOS">44</On>
-                            <On Platform="Android,UWP">56</On>
-                        </OnPlatform>
-                    </RowDefinition.Height>
-                </RowDefinition>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+              Grid.RowSpacing="0"
+              BackgroundColor="#FF6E40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <Grid Grid.ColumnSpacing="0"
-                  Grid.RowSpacing="0"
-                  BackgroundColor="#FF6E40">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="72"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.ColumnSpacing="0"
-                      Grid.RowSpacing="0">
-                    <Grid.Padding>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="iOS">16, 0, 8, 0</On>
-                            <On Platform="Android,UWP">16, 0, 16, 0</On>
-                        </OnPlatform>
-                    </Grid.Padding>
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnMenuTapped" />
-                    </Grid.GestureRecognizers>
-                    <Image HorizontalOptions="Start"
-                           VerticalOptions="Center">
-                        <Image.Source>
-                            <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="iOS,Android">SideDrawer_Menu</On>
-                                <On Platform="UWP">Assets\SideDrawer_Menu.png</On>
-                            </OnPlatform>
-                        </Image.Source>
-                    </Image>
-                </Grid>
-                <Label Grid.Column="1"
-                       Text="Settings"
-                       TextColor="#FFE3DA"
+                  Grid.RowSpacing="0">
+                <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">16, 0, 8, 0</On>
+                        <On Platform="Android,UWP">16, 0, 16, 0</On>
+                    </OnPlatform>
+                </Grid.Padding>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMenuTapped" />
+                </Grid.GestureRecognizers>
+                <Image HorizontalOptions="Start"
                        VerticalOptions="Center"
-                       HorizontalOptions="Start">
-                    <Label.FontSize>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="iOS">18</On>
-                            <On Platform="Android,UWP">20</On>
+                       AutomationId="OpenMenu">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">SideDrawer_Menu</On>
+                            <On Platform="UWP">Assets\SideDrawer_Menu.png</On>
                         </OnPlatform>
-                    </Label.FontSize>
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS">Helvetica-medium</On>
-                            <On Platform="Android">sans-serif-medium</On>
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
+                    </Image.Source>
+                </Image>
             </Grid>
-            <telerikPrimitives:RadSideDrawer x:Name="drawer"
-                                             Grid.Row="1"
-                                             DrawerLength="300"
-                                             DrawerLocation="{Binding SelectedLocation}"
-                                             DrawerTransitionType="{Binding SelectedTransition}">
-                <telerikPrimitives:RadSideDrawer.MainContent>
-                    <ScrollView>
-                        <Grid Grid.ColumnSpacing="0"
-                              Grid.RowSpacing="0"
-                              BackgroundColor="#2D3A7A">
-                            <Grid Padding="16, 16, 16, 0">
-                                <StackLayout  Spacing="20" BackgroundColor="Transparent">
-                                    <Label Text="Transitions" TextColor="#FF6E40">
-                                        <Label.FontSize>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">14</On>
-                                                <On Platform="Android,UWP">16</On>
-                                            </OnPlatform>
-                                        </Label.FontSize>
-                                    </Label>
-                                    <telerikDataControls:RadListView BackgroundColor="Transparent"
-                                                                     ItemsSource="{Binding Transitions}"
-                                                                     SelectedItem="{Binding SelectedTransition, Mode=TwoWay}">
-                                        <telerikDataControls:RadListView.HeightRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">250</On>
-                                                <On Platform="Android,UWP">290</On>
-                                            </OnPlatform>
-                                        </telerikDataControls:RadListView.HeightRequest>
-                                        <telerikDataControls:RadListView.ItemStyle>
-                                            <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
-                                                                               BorderWidth="0"/>
-                                        </telerikDataControls:RadListView.ItemStyle>
-                                        <telerikDataControls:RadListView.LayoutDefinition>
-                                            <telerikListView:ListViewLinearLayout>
-                                                <telerikListView:ListViewLinearLayout.ItemLength>
-                                                    <OnPlatform x:TypeArguments="x:Double">
-                                                        <On Platform="iOS">44</On>
-                                                        <On Platform="Android,UWP">48</On>
-                                                    </OnPlatform>
-                                                </telerikListView:ListViewLinearLayout.ItemLength>
-                                            </telerikListView:ListViewLinearLayout>
-                                        </telerikDataControls:RadListView.LayoutDefinition>
-                                        <telerikDataControls:RadListView.ItemTemplate>
-                                            <DataTemplate>
-                                                <telerikListView:ListViewTemplateCell>
-                                                    <telerikListView:ListViewTemplateCell.View>
-                                                        <Grid>
-                                                            <Label Text="{Binding}"
-                                                                   HorizontalOptions="Start"
-                                                                   VerticalOptions="Center"
-                                                                   TextColor="White">
-                                                                <Label.FontSize>
-                                                                    <OnPlatform x:TypeArguments="x:Double">
-                                                                        <On Platform="iOS">18</On>
-                                                                        <On Platform="Android,UWP">20</On>
-                                                                    </OnPlatform>
-                                                                </Label.FontSize>
-                                                            </Label>
-                                                        </Grid>
-                                                    </telerikListView:ListViewTemplateCell.View>
-                                                </telerikListView:ListViewTemplateCell>
-                                            </DataTemplate>
-                                        </telerikDataControls:RadListView.ItemTemplate>
-                                    </telerikDataControls:RadListView>
-                                    <Label Text="Position"
-                                           TextColor="#FF6E40">
-                                        <Label.FontSize>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">14</On>
-                                                <On Platform="Android,UWP">16</On>
-                                            </OnPlatform>
-                                        </Label.FontSize>
-                                    </Label>
-                                    <Grid ColumnSpacing="10"
-                                          RowSpacing="10">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="50"/>
-                                            <RowDefinition Height="50"/>
-                                            <RowDefinition Height="50"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
-                                        <Button Text="Top"
-                                                TextColor="White"
-                                                BackgroundColor="#5A595B"
-                                                Grid.ColumnSpan="2"
-                                                Command="{Binding TopCommand}">
-                                            <Button.Triggers>
-                                                <DataTrigger TargetType="{x:Type Button}"
-                                                             Binding="{Binding SelectedLocation}"
-                                                             Value="Top">
-                                                    <Setter Property="BackgroundColor"
-                                                            Value="#FF6E40" />
-                                                </DataTrigger>
-                                            </Button.Triggers>
-                                        </Button>
-                                        <Button Text="Left"
-                                                TextColor="White"
-                                                BackgroundColor="#5A595B"
-                                                Grid.Row="1"
-                                                Command="{Binding LeftCommand}">
-                                            <Button.Triggers>
-                                                <DataTrigger TargetType="{x:Type Button}"
-                                                             Binding="{Binding SelectedLocation}"
-                                                             Value="Left">
-                                                    <Setter Property="BackgroundColor"
-                                                            Value="#FF6E40" />
-                                                </DataTrigger>
-                                            </Button.Triggers>
-                                        </Button>
-                                        <Button Text="Right"
-                                                TextColor="White"
-                                                BackgroundColor="#5A595B"
-                                                Grid.Row="1"
-                                                Grid.Column="1"
-                                                Command="{Binding RightCommand}">
-                                            <Button.Triggers>
-                                                <DataTrigger TargetType="{x:Type Button}"
-                                                             Binding="{Binding SelectedLocation}"
-                                                             Value="Right">
-                                                    <Setter Property="BackgroundColor"
-                                                            Value="#FF6E40" />
-                                                </DataTrigger>
-                                            </Button.Triggers>
-                                        </Button>
-                                        <Button Text="Bottom"
-                                                TextColor="White"
-                                                BackgroundColor="#5A595B"
-                                                Grid.Row="2"
-                                                Grid.ColumnSpan="2"
-                                                Command="{Binding BottomCommand}">
-                                            <Button.Triggers>
-                                                <DataTrigger TargetType="{x:Type Button}"
-                                                             Binding="{Binding SelectedLocation}"
-                                                             Value="Bottom">
-                                                    <Setter Property="BackgroundColor"
-                                                            Value="#FF6E40" />
-                                                </DataTrigger>
-                                            </Button.Triggers>
-                                        </Button>
-                                    </Grid>
-                                </StackLayout>
-                            </Grid>
-                        </Grid>
-                    </ScrollView>
-                </telerikPrimitives:RadSideDrawer.MainContent>
-                <telerikPrimitives:RadSideDrawer.DrawerContent>
+            <Label Grid.Column="1"
+                   Text="Settings"
+                   TextColor="#FFE3DA"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start">
+                <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS">18</On>
+                        <On Platform="Android,UWP">20</On>
+                    </OnPlatform>
+                </Label.FontSize>
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">Helvetica-medium</On>
+                        <On Platform="Android">sans-serif-medium</On>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </Grid>
+        <telerikPrimitives:RadSideDrawer x:Name="drawer"
+                                         Grid.Row="1"
+                                         DrawerLength="300"
+                                         DrawerLocation="{Binding SelectedLocation}"
+                                         DrawerTransitionType="{Binding SelectedTransition}">
+            <telerikPrimitives:RadSideDrawer.MainContent>
+                <ScrollView>
                     <Grid Grid.ColumnSpacing="0"
                           Grid.RowSpacing="0"
-                          BackgroundColor="#4452B8"
-                          Padding="16,32,16,32">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Label HorizontalOptions="StartAndExpand"
-                               VerticalOptions="Center"
-                               FontSize="35"
-                               TextColor="#FF6E40"
-                               Text="{Binding SelectedTransition}" />
-                        <telerikDataControls:RadListView Grid.Row="1"
-                                                         HorizontalOptions="Start"
-                                                         ItemsSource="{Binding Items}">
-                            <telerikDataControls:RadListView.ItemStyle>
-                                <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
-                                                                   BorderWidth="0"/>
-                            </telerikDataControls:RadListView.ItemStyle>
-                            <telerikDataControls:RadListView.SelectedItemStyle>
-                                <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
-                                                                   BorderWidth="0"/>
-                            </telerikDataControls:RadListView.SelectedItemStyle>
-                            <telerikDataControls:RadListView.PressedItemStyle>
-                                <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
-                                                                   BorderWidth="0"/>
-                            </telerikDataControls:RadListView.PressedItemStyle>
-                            <telerikDataControls:RadListView.LayoutDefinition>
-                                <telerikListView:ListViewLinearLayout>
-                                    <telerikListView:ListViewLinearLayout.ItemLength>
+                          BackgroundColor="#2D3A7A">
+                        <Grid Padding="16, 16, 16, 0">
+                            <StackLayout  Spacing="20" BackgroundColor="Transparent">
+                                <Label Text="Transitions" TextColor="#FF6E40">
+                                    <Label.FontSize>
                                         <OnPlatform x:TypeArguments="x:Double">
-                                            <On Platform="iOS">44</On>
-                                            <On Platform="Android,UWP">48</On>
+                                            <On Platform="iOS">14</On>
+                                            <On Platform="Android,UWP">16</On>
                                         </OnPlatform>
-                                    </telerikListView:ListViewLinearLayout.ItemLength>
-                                </telerikListView:ListViewLinearLayout>
-                            </telerikDataControls:RadListView.LayoutDefinition>
-                            <telerikDataControls:RadListView.ItemTemplate>
-                                <DataTemplate>
-                                    <telerikListView:ListViewTemplateCell>
-                                        <telerikListView:ListViewTemplateCell.View>
-                                            <Grid>
-                                                <Label Text="{Binding}"
-                                                       HorizontalOptions="Start"
-                                                       VerticalOptions="Center"
-                                                       TextColor="White">
-                                                    <Label.FontSize>
-                                                        <OnPlatform x:TypeArguments="x:Double">
-                                                            <On Platform="iOS">18</On>
-                                                            <On Platform="Android,UWP">20</On>
-                                                        </OnPlatform>
-                                                    </Label.FontSize>
-                                                </Label>
-                                            </Grid>
-                                        </telerikListView:ListViewTemplateCell.View>
-                                    </telerikListView:ListViewTemplateCell>
-                                </DataTemplate>
-                            </telerikDataControls:RadListView.ItemTemplate>
-                        </telerikDataControls:RadListView>
+                                    </Label.FontSize>
+                                </Label>
+                                <telerikDataControls:RadListView BackgroundColor="Transparent"
+                                                                 ItemsSource="{Binding Transitions}"
+                                                                 SelectedItem="{Binding SelectedTransition, Mode=TwoWay}">
+                                    <telerikDataControls:RadListView.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">250</On>
+                                            <On Platform="Android,UWP">290</On>
+                                        </OnPlatform>
+                                    </telerikDataControls:RadListView.HeightRequest>
+                                    <telerikDataControls:RadListView.ItemStyle>
+                                        <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                                           BorderWidth="0"/>
+                                    </telerikDataControls:RadListView.ItemStyle>
+                                    <telerikDataControls:RadListView.LayoutDefinition>
+                                        <telerikListView:ListViewLinearLayout>
+                                            <telerikListView:ListViewLinearLayout.ItemLength>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="iOS">44</On>
+                                                    <On Platform="Android,UWP">48</On>
+                                                </OnPlatform>
+                                            </telerikListView:ListViewLinearLayout.ItemLength>
+                                        </telerikListView:ListViewLinearLayout>
+                                    </telerikDataControls:RadListView.LayoutDefinition>
+                                    <telerikDataControls:RadListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <telerikListView:ListViewTemplateCell>
+                                                <telerikListView:ListViewTemplateCell.View>
+                                                    <Grid>
+                                                        <Label Text="{Binding}"
+                                                               HorizontalOptions="Start"
+                                                               VerticalOptions="Center"
+                                                               TextColor="White">
+                                                            <Label.FontSize>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="iOS">18</On>
+                                                                    <On Platform="Android,UWP">20</On>
+                                                                </OnPlatform>
+                                                            </Label.FontSize>
+                                                        </Label>
+                                                    </Grid>
+                                                </telerikListView:ListViewTemplateCell.View>
+                                            </telerikListView:ListViewTemplateCell>
+                                        </DataTemplate>
+                                    </telerikDataControls:RadListView.ItemTemplate>
+                                </telerikDataControls:RadListView>
+                                <Label Text="Position"
+                                       TextColor="#FF6E40">
+                                    <Label.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">14</On>
+                                            <On Platform="Android,UWP">16</On>
+                                        </OnPlatform>
+                                    </Label.FontSize>
+                                </Label>
+                                <Grid ColumnSpacing="10"
+                                      RowSpacing="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Text="Top"
+                                            TextColor="White"
+                                            BackgroundColor="#5A595B"
+                                            Grid.ColumnSpan="2"
+                                            Command="{Binding TopCommand}">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="{x:Type Button}"
+                                                         Binding="{Binding SelectedLocation}"
+                                                         Value="Top">
+                                                <Setter Property="BackgroundColor"
+                                                        Value="#FF6E40" />
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                    <Button Text="Left"
+                                            TextColor="White"
+                                            BackgroundColor="#5A595B"
+                                            Grid.Row="1"
+                                            Command="{Binding LeftCommand}">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="{x:Type Button}"
+                                                         Binding="{Binding SelectedLocation}"
+                                                         Value="Left">
+                                                <Setter Property="BackgroundColor"
+                                                        Value="#FF6E40" />
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                    <Button Text="Right"
+                                            TextColor="White"
+                                            BackgroundColor="#5A595B"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Command="{Binding RightCommand}">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="{x:Type Button}"
+                                                         Binding="{Binding SelectedLocation}"
+                                                         Value="Right">
+                                                <Setter Property="BackgroundColor"
+                                                        Value="#FF6E40" />
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                    <Button Text="Bottom"
+                                            TextColor="White"
+                                            BackgroundColor="#5A595B"
+                                            Grid.Row="2"
+                                            Grid.ColumnSpan="2"
+                                            Command="{Binding BottomCommand}">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="{x:Type Button}"
+                                                         Binding="{Binding SelectedLocation}"
+                                                         Value="Bottom">
+                                                <Setter Property="BackgroundColor"
+                                                        Value="#FF6E40" />
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </Grid>
+                            </StackLayout>
+                        </Grid>
                     </Grid>
-                </telerikPrimitives:RadSideDrawer.DrawerContent>
-            </telerikPrimitives:RadSideDrawer>
-        </Grid>
+                </ScrollView>
+            </telerikPrimitives:RadSideDrawer.MainContent>
+            <telerikPrimitives:RadSideDrawer.DrawerContent>
+                <Grid Grid.ColumnSpacing="0"
+                      Grid.RowSpacing="0"
+                      BackgroundColor="#4452B8"
+                      Padding="16,32,16,32">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label HorizontalOptions="StartAndExpand"
+                           VerticalOptions="Center"
+                           FontSize="35"
+                           TextColor="#FF6E40"
+                           Text="{Binding SelectedTransition}" />
+                    <telerikDataControls:RadListView Grid.Row="1"
+                                                     HorizontalOptions="Start"
+                                                     ItemsSource="{Binding Items}">
+                        <telerikDataControls:RadListView.ItemStyle>
+                            <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                               BorderWidth="0"/>
+                        </telerikDataControls:RadListView.ItemStyle>
+                        <telerikDataControls:RadListView.SelectedItemStyle>
+                            <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                               BorderWidth="0"/>
+                        </telerikDataControls:RadListView.SelectedItemStyle>
+                        <telerikDataControls:RadListView.PressedItemStyle>
+                            <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                               BorderWidth="0"/>
+                        </telerikDataControls:RadListView.PressedItemStyle>
+                        <telerikDataControls:RadListView.LayoutDefinition>
+                            <telerikListView:ListViewLinearLayout>
+                                <telerikListView:ListViewLinearLayout.ItemLength>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="iOS">44</On>
+                                        <On Platform="Android,UWP">48</On>
+                                    </OnPlatform>
+                                </telerikListView:ListViewLinearLayout.ItemLength>
+                            </telerikListView:ListViewLinearLayout>
+                        </telerikDataControls:RadListView.LayoutDefinition>
+                        <telerikDataControls:RadListView.ItemTemplate>
+                            <DataTemplate>
+                                <telerikListView:ListViewTemplateCell>
+                                    <telerikListView:ListViewTemplateCell.View>
+                                        <Grid>
+                                            <Label Text="{Binding}"
+                                                   HorizontalOptions="Start"
+                                                   VerticalOptions="Center"
+                                                   TextColor="White">
+                                                <Label.FontSize>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">18</On>
+                                                        <On Platform="Android,UWP">20</On>
+                                                    </OnPlatform>
+                                                </Label.FontSize>
+                                            </Label>
+                                        </Grid>
+                                    </telerikListView:ListViewTemplateCell.View>
+                                </telerikListView:ListViewTemplateCell>
+                            </DataTemplate>
+                        </telerikDataControls:RadListView.ItemTemplate>
+                    </telerikDataControls:RadListView>
+                </Grid>
+            </telerikPrimitives:RadSideDrawer.DrawerContent>
+        </telerikPrimitives:RadSideDrawer>
     </Grid>
 </ContentView>

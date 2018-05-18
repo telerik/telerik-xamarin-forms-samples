@@ -2,18 +2,17 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:QSF.Converters"
-             xmlns:example="clr-namespace:QSF.Examples.CalendarControl.DayViewExample"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.CalendarControl.DayViewExample.DayViewView"
              BackgroundColor="#F7F7F7">
   <ContentView.Resources>
     <ResourceDictionary>
-      <converters:DateToStringConverter x:Key="titleConverter" />
-      <OnPlatform x:Key="todayColumn"
-                  x:TypeArguments="x:Int32"
-                  iOS="0"
-                  Android="2" />
+        <converters:DateToStringConverter x:Key="titleConverter" />
+        <OnPlatform x:TypeArguments="x:Int32" x:Key="todayColumn">
+            <On Platform="Android">2</On>
+            <On Platform="iOS, UWP">0</On>
+        </OnPlatform>
     </ResourceDictionary>
   </ContentView.Resources>
   <Grid RowSpacing="0">
@@ -22,28 +21,30 @@
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <!-- calendar -->
-    <example:DayViewCalendar AppointmentsSource="{Binding Appointments}"
+    <telerikInput:RadCalendar AppointmentsSource="{Binding Appointments}"
                              views:ThemesBehavior.StyleClass="TelerikTheme"
                              NativeControlLoaded="CalendarLoaded"
                              Grid.Row="1"
                              x:Name="calendar">
-      <example:DayViewCalendar.AppointmentsStyle>
+      <telerikInput:RadCalendar.AppointmentsStyle>
         <telerikInput:CalendarAppointmentsStyle DisplayMode="None" />
-      </example:DayViewCalendar.AppointmentsStyle>
-    </example:DayViewCalendar>
+      </telerikInput:RadCalendar.AppointmentsStyle>
+    </telerikInput:RadCalendar>
     <!-- toolbar -->
     <Grid ColumnSpacing="0"
           BackgroundColor="White">
-      <Grid.BackgroundColor>
-        <OnPlatform x:TypeArguments="Color"
-                    iOS="Transparent"
-                    Android="White" />
-      </Grid.BackgroundColor>
-      <Grid.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-                    iOS="12"
-                    Android="16" />
-      </Grid.Padding>
+        <Grid.BackgroundColor>
+            <OnPlatform x:TypeArguments="Color">
+                <On Platform="Android">White</On>
+                <On Platform="iOS, UWP">Transparent</On>
+            </OnPlatform>
+        </Grid.BackgroundColor>
+        <Grid.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android">16</On>
+                <On Platform="iOS, UWP">12</On>
+            </OnPlatform>
+        </Grid.Padding>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto" />
         <ColumnDefinition Width="*" />
@@ -55,11 +56,12 @@
              TextColor="#B7403F"
              BackgroundColor="Transparent"
              Grid.Column="{StaticResource todayColumn}">
-        <Label.FontSize>
-          <OnPlatform x:TypeArguments="x:Double"
-                      Android="20"
-                      iOS="16" />
-        </Label.FontSize>
+          <Label.FontSize>
+              <OnPlatform x:TypeArguments="x:Double">
+                  <On Platform="Android">0</On>
+                  <On Platform="iOS, UWP">16</On>
+              </OnPlatform>
+          </Label.FontSize>
       </Label>
       <!-- title -->
       <Label Text="{Binding SelectedDate, Converter={StaticResource titleConverter}}"
@@ -67,16 +69,18 @@
              Grid.Column="1"
              VerticalOptions="Center"
              TextColor="Black">
-        <Label.HorizontalOptions>
-          <OnPlatform x:TypeArguments="LayoutOptions"
-                      Android="Start"
-                      iOS="Center" />
-        </Label.HorizontalOptions>
-        <Label.FontSize>
-          <OnPlatform x:TypeArguments="x:Double"
-                      Android="20"
-                      iOS="16" />
-        </Label.FontSize>
+          <Label.HorizontalOptions>
+              <OnPlatform x:TypeArguments="LayoutOptions">
+                  <On Platform="Android">Start</On>
+                  <On Platform="iOS, UWP">Center</On>
+              </OnPlatform>
+          </Label.HorizontalOptions>
+          <Label.FontSize>
+              <OnPlatform x:TypeArguments="x:Double">
+                  <On Platform="Android">20</On>
+                  <On Platform="iOS, UWP">16</On>
+              </OnPlatform>
+          </Label.FontSize>
       </Label>
     </Grid>
   </Grid>

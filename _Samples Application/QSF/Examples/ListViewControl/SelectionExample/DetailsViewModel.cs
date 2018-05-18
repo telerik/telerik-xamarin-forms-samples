@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.ListViewControl.SelectionExample
 {
-    public class DetailsViewModel : ViewModelBase
+    public class DetailsViewModel : ExampleViewModel
     {
         private INavigationService navigationService;
         private SelectionViewModel viewModel;
@@ -30,11 +30,11 @@ namespace QSF.Examples.ListViewControl.SelectionExample
             this.DeleteCommand = new Command(this.OnDelete);
         }
 
-        internal override Task InitializeAsync(object parameter)
+        protected override Task InitializeAsyncOverride(object parameter)
         {
             this.viewModel = (SelectionViewModel)parameter;
 
-            return base.InitializeAsync(parameter);
+            return Task.FromResult(true);
         }
 
         private void OnBack()

@@ -24,9 +24,11 @@
                          IsRightButtonVisible="False"/>
 
         <StackLayout Grid.Row="1" Spacing="10" Padding="12, 0" BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
-            <Label Text="{Binding Path=Header}" Style="{StaticResource Key=HeaderLabelStyle}" />
+            <Label Text="{Binding Path=Header}" Style="{StaticResource Key=HeaderLabelStyle}"
+                   AutomationId="HeaderLabel"/>
 
-            <Label Text="{Binding Path=Content}" Style="{StaticResource Key=BodyLabelStyle}" />
+            <Label Text="{Binding Path=Content}" Style="{StaticResource Key=BodyLabelStyle}" 
+                   AutomationId="ContentLabel"/>
         </StackLayout>
     </Grid>
 </ContentPage>

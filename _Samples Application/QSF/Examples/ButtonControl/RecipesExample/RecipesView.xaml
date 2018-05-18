@@ -8,17 +8,26 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="TitleTextStyle" TargetType="{x:Type Label}">
-                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontSize" Value="14" />
                 <Setter Property="TextColor" Value="DarkGray" />
             </Style>
             <Style x:Key="InfoTextStyle" TargetType="{x:Type Label}">
-                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontSize" Value="12" />
                 <Setter Property="TextColor" Value="#DA6729" />
             </Style>
             <Style x:Key="BaseButtonStyle" TargetType="{x:Type telerikInput:RadButton}">
-                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="FontSize" Value="10" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="HeightRequest" Value="32" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="28" />
+                                <On Platform="UWP, Android" Value="32" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style x:Key="FlatButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type telerikInput:RadButton}">
                 <Setter Property="TextColor" Value="Black" />
@@ -29,17 +38,23 @@
             </Style>
             <Style x:Key="RoundButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type telerikInput:RadButton}">
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="BorderRadius" Value="16" />
+                <Setter Property="BorderRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="14" />
+                                <On Platform="UWP, Android" Value="16" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    <ContentView.BindingContext>
-        <local:RecipesViewModel />
-    </ContentView.BindingContext>
     <StackLayout Padding="20" Spacing="10" BackgroundColor="White">
         <Label Style="{StaticResource TitleTextStyle}" Text="Choose a category that represents what you want to see:" />
         <layouts:WrapLayout>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Cakes"
+            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Cakes"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Cakes">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -50,7 +65,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Fruits"
+            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Fruits"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Fruits">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -61,7 +76,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" Text="Cocktails"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Cocktails"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Cocktails">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -72,7 +87,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Bread"
+            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Bread"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Bread">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -83,7 +98,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" Text="Brownies"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Brownies"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Brownies">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -94,7 +109,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Pizza"
+            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Pizza"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Pizza">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -105,7 +120,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="120" Style="{StaticResource RoundButtonStyle}" Text="Sandwiches"
+            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" Text="Sandwiches"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Sandwiches">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -127,7 +142,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" Text="Desserts"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Desserts"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Desserts">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -138,7 +153,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" Text="Pancakes"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Pancakes"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Pancakes">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -149,7 +164,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.BackgroundImage>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Soups"
+            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Soups"
                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Soups">
                 <telerikInput:RadButton.BackgroundImage>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -212,7 +227,7 @@
         <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Popularity, StringFormat='Selected recipes: {0}'}" />
         <Label Style="{StaticResource TitleTextStyle}" Text="Select recipes by ingredient:" />
         <layouts:WrapLayout>
-            <telerikInput:RadButton WidthRequest="120" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#C02C22" Text="Chicken"
+            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#C02C22" Text="Chicken"
                                     Command="{Binding SelectByIngredientCommand}" CommandParameter="Chicken">
                 <telerikInput:RadButton.Image>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -223,7 +238,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.Image>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#3D609B" Text="Fish"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#3D609B" Text="Fish"
                                     Command="{Binding SelectByIngredientCommand}" CommandParameter="Fish">
                 <telerikInput:RadButton.Image>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -234,7 +249,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.Image>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#DA6729" Text="Pasta"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#DA6729" Text="Pasta"
                                     Command="{Binding SelectByIngredientCommand}" CommandParameter="Pasta">
                 <telerikInput:RadButton.Image>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -245,7 +260,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.Image>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#D73B43" Text="Pork"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#D73B43" Text="Pork"
                                     Command="{Binding SelectByIngredientCommand}" CommandParameter="Pork">
                 <telerikInput:RadButton.Image>
                     <OnPlatform x:TypeArguments="FileImageSource">
@@ -256,7 +271,7 @@
                     </OnPlatform>
                 </telerikInput:RadButton.Image>
             </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#849C31" Text="Beef"
+            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#849C31" Text="Beef"
                                     Command="{Binding SelectByIngredientCommand}" CommandParameter="Beef">
                 <telerikInput:RadButton.Image>
                     <OnPlatform x:TypeArguments="FileImageSource">

@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.SegmentedControl.FirstLookExample
 {
-    public class FirstLookViewModel : ViewModelBase
+    public class FirstLookViewModel : ExampleViewModel
     {
         private readonly IList<MenuItem> menuItems;
         private int selectedIndex;

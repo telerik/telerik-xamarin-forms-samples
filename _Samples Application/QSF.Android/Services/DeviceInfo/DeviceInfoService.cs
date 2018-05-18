@@ -19,7 +19,8 @@ namespace QSF.Droid.Services.DeviceInfo
         {
             get
             {
-                return Forms.Context.Resources.DisplayMetrics;
+                var context = Android.App.Application.Context;
+                return context.Resources.DisplayMetrics;
             }
         }
 

@@ -4,16 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Telerik.Documents.SpreadsheetStreaming;
 using Xamarin.Forms;
 
 namespace QSF.Examples.SpreadStreamProcessingControl.GenerateSpreadsheetExample
 {
-    public class GenerateSpreadsheetViewModel : ViewModelBase
+    public class GenerateSpreadsheetViewModel : ExampleViewModel
     {
         private const string DocumentTitle = "MY COURSES";
         private const string TitleColumnHeader = "TITLE";

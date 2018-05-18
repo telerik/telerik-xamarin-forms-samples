@@ -1,9 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using QSF.Examples.DataGridControl.Common;
+﻿using QSF.Examples.DataGridControl.Common;
+using QSF.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace QSF.Examples.DataGridControl.CustomizationExample
 {
-    public class CustomizationViewModel
+    public class CustomizationViewModel : ExampleViewModel
     {
         private ObservableCollection<SalesPerson> salesPeople;
 

@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.SideDrawerControl.SettingsExample
 {
-    public class SettingsViewModel : ViewModelBase
+    public class SettingsViewModel : ExampleViewModel
     {
         private SideDrawerLocation selectedLocation;
         private SideDrawerTransitionType selectedTransition;

@@ -122,7 +122,8 @@
             <Label TextColor="#C73339"
                    HorizontalOptions="Start"
                    Grid.Row="2"
-                   x:Name="cancelReservationButton">
+                   x:Name="cancelReservationButton"
+                   AutomationId="cancelReservationButton">
                 <Label.Text>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS,UWP">Cancel reservation</On>

@@ -8,9 +8,8 @@
           Grid.RowSpacing="0">
         <Grid.BackgroundColor>
             <OnPlatform x:TypeArguments="Color">
-                <OnPlatform.iOS>White</OnPlatform.iOS>
-                <OnPlatform.Android>White</OnPlatform.Android>
-                <OnPlatform.WinPhone>#2E2422</OnPlatform.WinPhone>
+                <On Platform="iOS, Android">White</On>
+                <On Platform="UWP">#2E2422</On>
             </OnPlatform>
         </Grid.BackgroundColor>
         <Grid Grid.ColumnSpacing="0"
@@ -96,7 +95,8 @@
                        x:Name="addReservationLabel"
                        Text="Add"
                        HorizontalTextAlignment="End"
-                       VerticalTextAlignment="Center">
+                       VerticalTextAlignment="Center"
+                       AutomationId="addReservation">
                     <Label.TextColor>
                         <OnPlatform x:TypeArguments="Color">
                             <On Platform="iOS">#FFFFFF</On>
@@ -169,7 +169,7 @@
                    VerticalOptions="End"
                    HorizontalOptions="Start"
                    Aspect="AspectFit"
-                   AutomationId="addReservationImage"
+                   AutomationId="addReservation"
                    x:Name="addReservationImage">
                 <Image.Source>
                     <OnPlatform x:TypeArguments="ImageSource">

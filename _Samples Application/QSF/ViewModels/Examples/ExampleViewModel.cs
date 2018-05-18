@@ -30,14 +30,19 @@ namespace QSF.ViewModels
         {
             this.ExampleInfo = (ExampleInfo)parameter;
 
-            this.Title = this.Example.DescriptionHeader;
-            this.CanChangeTheme = this.example.IsThemable;
+            if (this.ExampleInfo != null)
+            {
+                this.Title = this.Example.DisplayName;
+                this.CanChangeTheme = this.Example.IsThemable;
+            }
 
             return Task.FromResult(false);
         }
 
         protected override Task NavigateToCodeOverride()
         {
+            AnalyticsHelper.TraceNavigateToCode(this.ExampleInfo.ControlName, this.ExampleInfo.ExampleName);
+
             Device.OpenUri(new Uri(this.Example.CodeURL));
 
             return Task.FromResult(false);

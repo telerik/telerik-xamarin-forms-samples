@@ -16,7 +16,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.VerticalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9">
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" Minimum="0">
             </telerikChart:NumericalAxis>
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.Grid>
@@ -36,7 +36,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.VerticalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" Minimum="0" />
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.Grid>
             <telerikChart:CartesianChartGrid MajorLinesVisibility="Y" MajorLineThickness="1" />
@@ -56,7 +56,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.VerticalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" Minimum="0" />
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.Grid>
             <telerikChart:CartesianChartGrid MajorLinesVisibility="Y" MajorLineThickness="1" />
@@ -76,7 +76,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.VerticalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" Minimum="0" />
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.Grid>
             <telerikChart:CartesianChartGrid MajorLinesVisibility="Y" MajorLineThickness="1" />
@@ -96,7 +96,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.HorizontalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" Minimum="0" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.Grid>
             <telerikChart:CartesianChartGrid MajorLinesVisibility="X" MajorLineThickness="1" />
@@ -115,7 +115,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.HorizontalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" Minimum="0" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.Grid>
             <telerikChart:CartesianChartGrid MajorLinesVisibility="X" MajorLineThickness="1" />
@@ -135,7 +135,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.HorizontalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" />
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" Minimum="0" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.Grid>
             <telerikChart:CartesianChartGrid MajorLinesVisibility="X" MajorLineThickness="1" />
@@ -155,7 +155,7 @@
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="BetweenTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.VerticalAxis>
           <telerikChart:RadCartesianChart.HorizontalAxis>
-            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" LabelFitMode="MultiLine" />
+            <telerikChart:NumericalAxis LineColor="#A9A9A9" MajorTickBackgroundColor="#A9A9A9" LabelFitMode="MultiLine" Minimum="0" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
           <telerikChart:RadCartesianChart.Grid>
             <telerikChart:CartesianChartGrid MajorLinesVisibility="X" MajorLineThickness="1" />
@@ -168,9 +168,6 @@
       </DataTemplate>
     </ResourceDictionary>
   </views:GalleryExampleViewBase.Resources>
-  <views:GalleryExampleViewBase.BindingContext>
-    <example:BarSeriesViewModel />
-  </views:GalleryExampleViewBase.BindingContext>
   <views:GalleryExampleViewBase.HeaderContent>
     <Label Text="Monthly sales revenue, 2016"
            Style="{StaticResource labelHeaderStyle}"

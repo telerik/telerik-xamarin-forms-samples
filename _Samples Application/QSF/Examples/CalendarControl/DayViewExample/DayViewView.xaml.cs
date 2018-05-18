@@ -11,22 +11,19 @@ namespace QSF.Examples.CalendarControl.DayViewExample
             this.InitializeComponent();
 
             var today = new TapGestureRecognizer();
-            today.Tapped += DisplayToday;
+            today.Tapped += this.DisplayToday;
             this.todayLabel.GestureRecognizers.Add(today);
         }
 
         private void CalendarLoaded(object sender, EventArgs e)
         {
-            (sender as RadCalendar).TrySetViewMode(CalendarViewMode.Day, false);
+            RadCalendar calendar = sender as RadCalendar;
+            calendar.TrySetViewMode(CalendarViewMode.Day, false);
         }
 
         private void DisplayToday(object sender, EventArgs e)
         {
             calendar.DisplayDate = DateTime.Today;
         }
-    }
-
-    public class DayViewCalendar : RadCalendar
-    {
     }
 }

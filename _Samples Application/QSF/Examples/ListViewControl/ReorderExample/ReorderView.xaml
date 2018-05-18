@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:QSF.Effects"
@@ -6,9 +6,6 @@
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              x:Class="QSF.Examples.ListViewControl.ReorderExample.ReorderView">
-    <ContentView.BindingContext>
-        <local:ReorderViewModel />
-    </ContentView.BindingContext>
     <Grid BackgroundColor="White">
         <Grid Grid.RowSpacing="0">
             <Grid.RowDefinitions>
@@ -31,7 +28,8 @@
                        Grid.Column="1"
                        HorizontalOptions="Start"
                        VerticalOptions="Center"
-                       TextColor="#362F2D">
+                       TextColor="#362F2D"
+                       AutomationId="exampleLabel">
                     <Label.Text>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS">To Do List</On>
@@ -122,7 +120,8 @@
                                         VerticalOptions="FillAndExpand"
                                         Command="{Binding BindingContext.DoneCommand, Source={x:Reference list}}"
                                         CommandParameter="{Binding}"
-                                        Clicked="OnButtonClicked" />
+                                        Clicked="OnButtonClicked" 
+                                        AutomationId="DoneButton"/>
                                 <Image Aspect="AspectFit"
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"
@@ -142,7 +141,8 @@
                                         VerticalOptions="FillAndExpand"
                                         Command="{Binding BindingContext.DeleteCommand, Source={x:Reference list}}"
                                         CommandParameter="{Binding}"
-                                        Clicked="OnButtonClicked" />
+                                        Clicked="OnButtonClicked"
+                                        AutomationId="DeleteButton"/>
                                 <Image Aspect="AspectFit"
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"

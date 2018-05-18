@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikConversationalUI="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:local="clr-namespace:QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample"
+              xmlns:views="clr-namespace:QSF.Views"
+             x:Class="QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample.HealthCareAssistanceView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="telerikConversationalUI:ChatListView">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="#F0F0F0" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <local:CustomChatItemTemplateSelector x:Key="CustomChatItemTemplateSelector">
+                <local:CustomChatItemTemplateSelector.SummaryTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalOptions="Center" WidthRequest="300">
+                            <telerikPrimitives:RadBorder BackgroundColor="White"
+                                                         BorderThickness="2"
+                                                         CornerRadius="10"
+                                                         Margin="45, 0, 45, 0">
+                                <telerikConversationalUI:ImageCardView Title="{Binding Data.Title}"
+                                                                       Subtitle="{Binding Data.Subtitle}"
+                                                                       Description="{Binding Data.Description}"
+                                                                       Image="{Binding Data.ImageUri}"/>
+                            </telerikPrimitives:RadBorder>
+                        </Grid>
+                    </DataTemplate>
+                </local:CustomChatItemTemplateSelector.SummaryTemplate>
+                <local:CustomChatItemTemplateSelector.WaitingForBotTemplate>
+                    <DataTemplate>
+                        <telerikPrimitives:RadBusyIndicator views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                            AnimationType="Animation5"
+                                                            IsBusy="True" WidthRequest="50" HeightRequest="50" />
+                    </DataTemplate>
+                </local:CustomChatItemTemplateSelector.WaitingForBotTemplate>
+            </local:CustomChatItemTemplateSelector>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal">
+            <Image Margin="10"
+                   WidthRequest="48"
+                   HeightRequest="48">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="UWP">Assets/HealthCareBot.png</On>
+                        <On Platform="iOS,Android">HealthCareBot.png</On>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+            <Label Text="Telerik HealthCare Assistance"
+                   FontSize="18"
+                   VerticalTextAlignment="Center"/>
+        </StackLayout>
+        <telerikConversationalUI:RadChat x:Name="chat" Grid.Row="1"
+                                         PropertyChanged="OnChatPropertyChanged"
+                                         ItemTemplateSelector="{StaticResource CustomChatItemTemplateSelector}"
+                                         views:ThemesBehavior.StyleClass="TelerikTheme">
+            <telerikConversationalUI:RadChat.Picker>
+                <telerikConversationalUI:RadChatPicker x:Name="picker"
+                                                       IsOkButtonVisible="False"
+                                                       IsCancelButtonVisible="False"
+                                                       HeaderBackgroundColor="#FFE0E2E5"
+                                                       IsVisible="False"
+                                                       BackgroundColor="White">
+                    <telerikConversationalUI:RadChatPicker.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="telerikConversationalUI:ItemPickerView"/>
+                            <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
+                                <Label Text="{Binding Title}"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="15"
+                                       Margin="15, 10, 0, 10"/>
+                            </DataTemplate>
+                        </ResourceDictionary>
+                    </telerikConversationalUI:RadChatPicker.Resources>
+                </telerikConversationalUI:RadChatPicker>
+            </telerikConversationalUI:RadChat.Picker>
+            <telerikConversationalUI:RadChat.Resources>
+                <ResourceDictionary>
+                    <Color x:Key="ChatChoiceItemsColor">Accent</Color>
+                    <Style TargetType="telerikConversationalUI:RadChatPicker">
+                        <Setter Property="FooterBackgroundColor" Value="Transparent"/>
+                        <Setter Property="HeaderBackgroundColor" Value="Transparent"/>
+                    </Style>
+                    <Style x:Key="ItemLabelStyle" TargetType="Label">
+                        <Setter Property="TextColor" Value="{DynamicResource ChatChoiceItemsColor}"/>
+                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="10, 8, 10, 8"/>
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                    <Style x:Key="ItemBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                        <Setter Property="Margin" Value="0, 0, 10, 7"/>
+                        <Setter Property="CornerRadius" Value="15"/>
+                        <Setter Property="BorderColor" Value="{DynamicResource ChatChoiceItemsColor}"/>
+                    </Style>
+                    <Style TargetType="telerikConversationalUI:ItemPickerView">
+                        <Setter Property="Margin" Value="45, 5, 0, 7"/>
+                        <Setter Property="Orientation" Value="Horizontal"/>
+                        <Setter Property="ItemStyle" Value="{StaticResource ItemBorderStyle}"/>
+                        <Setter Property="SelectedItemStyle" Value="{StaticResource ItemBorderStyle}"/>
+                    </Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Aspect" Value="Fill"/>
+                        <Setter Property="WidthRequest" Value="250"/>
+                        <Setter Property="HeightRequest" Value="125"/>
+                    </Style>
+                    <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
+                        <Label Text="{Binding Title}" Style="{StaticResource ItemLabelStyle}"/>
+                    </DataTemplate>
+                </ResourceDictionary>
+            </telerikConversationalUI:RadChat.Resources>
+        </telerikConversationalUI:RadChat>
+        <telerikConversationalUI:RadChatPicker x:Name="chatPicker" 
+                                               views:ThemesBehavior.StyleClass="TelerikTheme"
+                                               VerticalOptions="End"
+                                               BackgroundColor="White"
+                                               IsVisible="False"
+                                               Grid.Row="1"
+                                               IsCancelButtonVisible="False"
+                                               OkClicked="OnChatPickerOkClicked">
+            <telerikConversationalUI:RadChatPicker.Resources>
+                <ResourceDictionary>
+                    <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
+                        <Image Source="{Binding Image}"
+                               HeightRequest="35"
+                               Margin="0, 5, 0, 5"
+                               HorizontalOptions="Center"
+                               Aspect="AspectFit"/>
+                    </DataTemplate>
+                </ResourceDictionary>
+            </telerikConversationalUI:RadChatPicker.Resources>
+        </telerikConversationalUI:RadChatPicker>
+        <telerikPrimitives:RadBusyIndicator x:Name="busyIndicator"
+                                            Grid.RowSpan="2"
+                                            views:ThemesBehavior.StyleClass="TelerikTheme"
+                                            BackgroundColor="White"
+                                            AnimationContentHeightRequest="50"
+                                            AnimationContentWidthRequest="50">
+            <telerikPrimitives:RadBusyIndicator.BusyContent>
+                <Label Text="Connecting to Azure" FontAttributes="Italic" HorizontalOptions="Center" Margin="0, 2, 0, 0"/>
+            </telerikPrimitives:RadBusyIndicator.BusyContent>
+        </telerikPrimitives:RadBusyIndicator>
+    </Grid>
+</ContentView>

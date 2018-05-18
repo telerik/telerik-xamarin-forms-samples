@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QSF.Examples.TreeViewControl.FirstLookExample"
+             xmlns:converters="clr-namespace:QSF.Examples.TreeViewControl.Converters"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikTreeViewCommands="clr-namespace:Telerik.XamarinForms.DataControls.TreeView.Commands;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.TreeViewControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:LevelToMarginConverter x:Key="LevelToMarginConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Padding="20,0"
+              ColumnSpacing="10"
+              BackgroundColor="#F2F2F2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0"
+                   VerticalOptions="Center"
+                   Source="{Binding Account.Icon, Converter={StaticResource ImageSourceConverter}}" />
+            <StackLayout Grid.Column="1"
+                         Spacing="5"
+                         VerticalOptions="Center">
+                <Label FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#494949"
+                       Text="{Binding Account.Name}" />
+                <Label FontSize="14"
+                       TextColor="#AAAAAA"
+                       Text="{Binding Account.Address}" />
+            </StackLayout>
+        </Grid>
+        <BoxView Grid.Row="0"
+                 HeightRequest="2"
+                 VerticalOptions="End"
+                 BackgroundColor="#D9D9D9" />
+        <telerikDataControls:RadTreeView x:Name="treeView"
+                                         Grid.Row="1"
+                                         ItemsSource="{Binding Account.Folders}">
+            <telerikDataControls:RadTreeView.HierarchyAdapter>
+                <local:HierarchyAdapter />
+            </telerikDataControls:RadTreeView.HierarchyAdapter>
+            <telerikDataControls:RadTreeView.Commands>
+                <telerikTreeViewCommands:TreeViewUserCommand Id="ItemTap"
+                                                             Command="{Binding NavigateCommand}" />
+                <telerikTreeViewCommands:TreeViewUserCommand Id="ItemHold"
+                                                             Command="{Binding ActivateCommand}" />
+            </telerikDataControls:RadTreeView.Commands>
+            <telerikDataControls:RadTreeView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="40"
+                          Margin="{Binding Level, Converter={StaticResource LevelToMarginConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="16"
+                               FontFamily="{StaticResource IconsFont}"
+                               TextColor="#B2B2B2"
+                               Text="{Binding Item.Icon}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding IsExpanded}"
+                                             Value="True">
+                                    <Setter Property="Text"
+                                            Value="{StaticResource OpenFolderIcon}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Label Grid.Column="1"
+                               VerticalOptions="Center"
+                               FontSize="14"
+                               TextColor="Black"
+                               Text="{Binding Item.Name}" />
+                        <telerikInput:RadButton Grid.Column="2"
+                                                BorderWidth="0"
+                                                BorderRadius="0"
+                                                BorderColor="Transparent"
+                                                BackgroundColor="Red"
+                                                FontSize="16"
+                                                FontFamily="{StaticResource IconsFont}"
+                                                TextColor="White"
+                                                Text="{StaticResource DeleteIcon}"
+                                                IsVisible="{Binding Item.IsActive}"
+                                                Command="{Binding BindingContext.RemoveCommand, Source={x:Reference treeView}}"
+                                                CommandParameter="{Binding Item}" />
+                    </Grid>
+                </DataTemplate>
+            </telerikDataControls:RadTreeView.ItemTemplate>
+        </telerikDataControls:RadTreeView>
+    </Grid>
+</ContentView>

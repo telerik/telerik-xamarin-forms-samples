@@ -89,5 +89,13 @@ namespace QSF.ViewModels
                 }
             }
         }
+
+        internal virtual void OnAppearing()
+        {
+        }
+
+        internal virtual void OnDisappearing()
+        {
+        }
     }
 }

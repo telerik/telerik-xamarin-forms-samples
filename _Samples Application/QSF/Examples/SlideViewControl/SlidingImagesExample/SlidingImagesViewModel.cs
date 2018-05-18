@@ -3,7 +3,7 @@ using QSF.ViewModels;
 
 namespace QSF.Examples.SlideViewControl.SlidingImagesExample
 {
-    public class SlidingImagesViewModel : ViewModelBase
+    public class SlidingImagesViewModel : ExampleViewModel
     {
         public ObservableCollection<string> Images { get; private set; }
 

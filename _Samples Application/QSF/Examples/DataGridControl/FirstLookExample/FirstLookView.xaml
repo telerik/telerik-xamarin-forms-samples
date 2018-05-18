@@ -7,15 +7,7 @@
              xmlns:local="clr-namespace:QSF.Examples.DataGridControl.FirstLookExample"
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.DataGridControl.FirstLookExample.FirstLookView">
-    <ContentView.BindingContext>
-        <local:FirstLookViewModel />
-    </ContentView.BindingContext>
     <Grid>
-        <Grid.Resources>
-            <ResourceDictionary>
-                <converters:ImageSourceConverter x:Key="ImageSourceConverter"/>
-            </ResourceDictionary>
-        </Grid.Resources>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="58"/>

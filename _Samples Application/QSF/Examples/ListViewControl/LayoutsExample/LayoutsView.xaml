@@ -2,18 +2,10 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:QSF.Examples.ListViewControl.LayoutsExample"
-             xmlns:converters="clr-namespace:QSF.Converters"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="QSF.Examples.ListViewControl.LayoutsExample.LayoutsView">
-    <ContentView.Resources>
-        <ResourceDictionary>
-            <converters:ImageSourceConverter x:Key="ImageSourceConverter"/>
-        </ResourceDictionary>
-    </ContentView.Resources>
-    <ContentView.BindingContext>
-        <local:LayoutsViewModel />
-    </ContentView.BindingContext>
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0"
           BackgroundColor="White">
@@ -48,7 +40,8 @@
                 <Grid Grid.Column="2"
                       HorizontalOptions="End">
                     <telerikDataControls:RadListView ItemsSource="{Binding LayoutOptions}"
-                                                     SelectedItem="{Binding SelectedLayout, Mode=TwoWay}">
+                                                     SelectedItem="{Binding SelectedLayout, Mode=TwoWay}"
+                                                     AutomationId="ChangeLayoutListView">
                         <telerikDataControls:RadListView.WidthRequest>
                             <OnPlatform x:TypeArguments="x:Double">
                                 <On Platform="iOS,Android">104</On>
@@ -98,7 +91,7 @@
                                                     <On Platform="UWP">12, 18, 12, 0</On>
                                                 </OnPlatform>
                                             </Grid.Padding>
-                                            <Image Source="{Binding Image, Converter={StaticResource ImageSourceConverter}" />
+                                            <ffimageloading:CachedImage Source="{Binding Image, Converter={StaticResource ImageSourceConverter}" />
                                         </Grid>
                                     </telerikListView:ListViewTemplateCell.View>
                                 </telerikListView:ListViewTemplateCell>
@@ -142,7 +135,7 @@
                             <telerikListView:ListViewTemplateCell.View>
                                 <Grid Grid.ColumnSpacing="0"
                                       Grid.RowSpacing="0">
-                                    <Image Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}"
+                                    <ffimageloading:CachedImage Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}"
                                            Aspect="AspectFill" />
                                     <Grid Grid.ColumnSpacing="0"
                                           Grid.RowSpacing="0"
@@ -172,10 +165,32 @@
                 </telerikDataControls:RadListView.ItemTemplate>
                 <telerikDataControls:RadListView.GroupHeaderTemplate>
                     <DataTemplate>
-                        <Grid Grid.ColumnSpacing="0"
-                              Grid.RowSpacing="0">
-                            <Label Text="{Binding}"
+                        <Grid Grid.ColumnSpacing="4"
+                              Grid.RowSpacing="0"
+                              Padding="16,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="16" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Text="{StaticResource ExpandedIcon}"
                                    HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontFamily="{StaticResource IconsFont}"
+                                   FontSize="14"
+                                   TextColor="#5D4037"
+                                   IsVisible="{Binding IsExpanded}" />
+                            <Label Grid.Column="0"
+                                   Text="{StaticResource CollapsedIcon}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontFamily="{StaticResource IconsFont}"
+                                   FontSize="14"
+                                   TextColor="#5D4037"
+                                   IsVisible="{Binding IsExpanded, Converter={StaticResource InvertedBooleanConverter}}" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding}"
+                                   HorizontalOptions="Start"
                                    VerticalOptions="Center"
                                    FontAttributes="Bold"
                                    FontSize="14"

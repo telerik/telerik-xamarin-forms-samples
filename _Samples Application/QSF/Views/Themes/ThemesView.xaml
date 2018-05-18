@@ -19,7 +19,8 @@
                          IsMiddleButtonVisible="False"
                          IsRightButtonVisible="False"/>
 
-        <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Path=Themes}" SelectedItem="{Binding Path=SelectedTheme, Mode=TwoWay}">
+        <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Path=Themes}" SelectedItem="{Binding Path=SelectedTheme, Mode=TwoWay}"
+                                         AutomationId="ThemesListView">
             <telerikDataControls:RadListView.Margin>
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform="iOS" Value="10, 0" />

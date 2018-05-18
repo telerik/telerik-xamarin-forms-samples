@@ -2,7 +2,7 @@
 
 namespace QSF.Examples.TabViewControl.RestaurantMenuExample
 {
-    public class RestaurantSectionViewModel : ViewModelBase
+    public class RestaurantSectionViewModel : ExampleViewModel
     {
         private bool isSelected;
         private string name;

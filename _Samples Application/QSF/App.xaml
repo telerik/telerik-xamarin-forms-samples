@@ -10,26 +10,30 @@
              xmlns:slideView="clr-namespace:Telerik.XamarinForms.Primitives.SlideView;assembly=Telerik.XamarinForms.Primitives"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:telerikConversationalUI="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
              xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
              xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:effects="clr-namespace:QSF.Effects"
              x:Class="QSF.App">
     <Application.Resources>
 
-        <telerikCommon:RadResourceDictionary>
-            <telerikCommon:RadResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary MergedWith="telerikInput:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="primitives:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="chart:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="telerikDataControls:TelerikThemeStyles" />
                 <ResourceDictionary MergedWith="dataGrid:TelerikThemeStyles"/>
-            </telerikCommon:RadResourceDictionary.MergedDictionaries>
+                <ResourceDictionary MergedWith="telerikConversationalUI:TelerikThemeStyles"/>
+            </ResourceDictionary.MergedDictionaries>
 
             <Color x:Key="HeaderBackgroundsColor">#4A4E52</Color>
             <Color x:Key="DarkBackgroundColor">#F5F6F7</Color>
+            <Color x:Key="ErrorBackgroundColor">#FEF8F8</Color>
             <Color x:Key="LightBackgroundColor">White</Color>
             <Color x:Key="AccentColor">#2548D8</Color>
             <Color x:Key="TextColor">#4A4E52</Color>
+            <Color x:Key="ErrorColor">#DC3D4D</Color>
             <Color x:Key="SubHeaderTextColor">#BFBFBF</Color>
             <Color x:Key="CTPTextColor">#979797</Color>
             <Color x:Key="LightTextColor">White</Color>
@@ -42,6 +46,25 @@
             <x:String x:Key="SearchButtonIcon">&#xE810;</x:String>
             <x:String x:Key="HyperlinkButtonIcon">&#xF08E;</x:String>
             <x:String x:Key="TickIcon">&#xE809;</x:String>
+            <x:String x:Key="AirplaneIcon">&#xE81C;</x:String>
+            <x:String x:Key="ArrowIcon">&#xE820;</x:String>
+            <x:String x:Key="ExpandedIcon">&#xF107;</x:String>
+            <x:String x:Key="CollapsedIcon">&#xF105;</x:String>
+            <x:String x:Key="TreeExpandedIcon">&#xE80D;</x:String>
+            <x:String x:Key="TreeCollapsedIcon">&#xE806;</x:String>
+            <x:String x:Key="GearIcon">&#xE80F;</x:String>
+            <x:String x:Key="EmptyGearIcon">&#xE822;</x:String>
+            <x:String x:Key="CrossIcon">&#xE80A;</x:String>
+            <x:String x:Key="ChainIcon">&#xE825;</x:String>
+            <x:String x:Key="TIcon">&#xE823;</x:String>
+            <x:String x:Key="MailIcon">&#xE821;</x:String>
+            <x:String x:Key="PinIcon">&#xE824;</x:String>
+            <x:String x:Key="DeleteIcon">&#xE827;</x:String>
+            <x:String x:Key="OpenFolderIcon">&#xE829;</x:String>
+            <x:String x:Key="ClosedFolderIcon">&#xE82A;</x:String>
+            <x:String x:Key="RulerIcon">&#xE81F;</x:String>
+            <x:String x:Key="AUmlautIcon">&#xE81E;</x:String>
+            <x:String x:Key="ExclamationMarkIcon">&#xE82F;</x:String>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">fontello</On>
@@ -63,8 +86,20 @@
 
             <x:Int16 x:Key="SlideViewIndicatorsFontSize">30</x:Int16>
 
+            <converters:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
             <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
             <converters:DebugConverter x:Key="debugConverter" />
+            <converters:ConditionalValueConverter x:Key="ConditionalValueConveter" />
+            <converters:ConditionalValueConverterParameter x:Key="ConfigurationAndInfoIconsParameter"
+                                                           FalseValue="{StaticResource Key=InfoButtonIcon}"
+                                                           TrueValue="{StaticResource Key=GearIcon}" />
+
+            <Style TargetType="Label" x:Key="IconLabelStyle">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="Margin" Value="0, 12, 0, 0" />
+            </Style>
 
             <Style TargetType="Label" x:Key="HeaderLabelStyle">
                 <Setter Property="FontSize" Value="18" />
@@ -131,7 +166,10 @@
 
             <ControlTemplate x:Key="ExamplesViewBase">
                 <primitives:RadSideDrawer IsOpen="{TemplateBinding Path=BindingContext.IsSideDrawerOpen, Mode=TwoWay}"
-                                          DrawerLength="120" DrawerTransitionType="SlideInOnTop" DrawerLocation="Bottom">
+                                          DrawerLength="{TemplateBinding Path=DrawerLength}" DrawerTransitionType="SlideInOnTop" DrawerLocation="Bottom">
+                    <primitives:RadSideDrawer.Effects>
+                        <effects:SideDrawerTouchTargetEffect/>
+                    </primitives:RadSideDrawer.Effects>
                     <primitives:RadSideDrawer.MainContent>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -142,7 +180,7 @@
                             <controls:AppBar Title="{TemplateBinding Path=BindingContext.Title}"
                                              TitleHorizontalOptions="Start"
                                              LeftButtonText="{StaticResource Key=BackButtonIcon}"
-                                             MiddleButtonText="{StaticResource Key=InfoButtonIcon}"
+                                             MiddleButtonText="{TemplateBinding Path=BindingContext.HasConfiguration, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource ConfigurationAndInfoIconsParameter}}"
                                              RightButtonText="{StaticResource Key=ContextMenuButtonIcon}"
                                              LeftButtonCommand="{TemplateBinding Path=BindingContext.AppBarLeftButtonCommand}"
                                              MiddleButtonCommand="{TemplateBinding Path=BindingContext.AppBarMiddleButtonCommand}"
@@ -154,6 +192,14 @@
                     <primitives:RadSideDrawer.DrawerContent>
                         <Grid BackgroundColor="#FFFFFF">
                             <StackLayout Spacing="10" Padding="10" VerticalOptions="Center">
+                                <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Example information" FontSize="13"
+                                                    IsVisible="{TemplateBinding Path=BindingContext.HasConfiguration}"
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToInfoCommand}" HorizontalOptions="Fill">
+                                    <telerikInput:RadButton.Effects>
+                                        <effects:NoAllCapsButtonEffect />
+                                    </telerikInput:RadButton.Effects>
+                                </telerikInput:RadButton>
+                                
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Change Theme" FontSize="13"
                                                     IsVisible="{TemplateBinding Path=BindingContext.CanChangeTheme}"
                                                     Command="{TemplateBinding Path=BindingContext.NavigateToThemesCommand}" HorizontalOptions="Fill">
@@ -181,32 +227,44 @@
                 </primitives:RadSideDrawer>
             </ControlTemplate>
 
+            <ControlTemplate x:Key="ConfigurationView">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <controls:AppBar Title="{TemplateBinding Path=BindingContext.Title}"
+                                     TitleHorizontalOptions="Start"
+                                     LeftButtonText="{StaticResource Key=BackButtonIcon}"
+                                     RightButtonText="{StaticResource Key=CrossIcon}"
+                                     LeftButtonCommand="{TemplateBinding Path=BindingContext.AppBarLeftButtonCommand}"
+                                     RightButtonCommand="{TemplateBinding Path=BindingContext.AppBarRightButtonCommand}"/>
+
+                    <ContentPresenter Grid.Row="1" />
+                </Grid>
+            </ControlTemplate>
+
             <ControlTemplate x:Key="RadSlideViewControlTemplate">
                 <Grid>
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonOpacity">
+                                <On Platform="iOS">1</On>
+                                <On Platform="Android, UWP">0</On>
+                            </OnPlatform>
+                        </ResourceDictionary>
+                    </Grid.Resources>
                     <ContentPresenter />
 
                     <Grid HorizontalOptions="Start" VerticalOptions="Center" IsVisible="{TemplateBinding ShowButtons}">
                         <Label Text="&#x2039;" FontSize="{TemplateBinding SlideButtonsSize}" FontFamily="Arial" HorizontalOptions="Start" TextColor="{TemplateBinding SlideButtonsColor}" />
-                        <Button Command="{TemplateBinding Path=PreviousItemCommand}" BackgroundColor="Transparent"  InputTransparent="False">
-                            <Button.Opacity>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                            iOS="1"
-                                            Android="0"
-                                            WinPhone="0"/>
-                            </Button.Opacity>
-                        </Button>
+                        <Button Command="{TemplateBinding Path=PreviousItemCommand}" BackgroundColor="Transparent"  InputTransparent="False" Opacity="{StaticResource Key=ButtonOpacity}" />
                     </Grid>
 
                     <Grid VerticalOptions="Center" HorizontalOptions="End" IsVisible="{TemplateBinding ShowButtons}">
                         <Label Text="&#x203A;" FontSize="{TemplateBinding SlideButtonsSize}" FontFamily="Arial" HorizontalOptions="End" TextColor="{TemplateBinding SlideButtonsColor}"/>
-                        <Button Command="{TemplateBinding Path=NextItemCommand}" BackgroundColor="Transparent"  InputTransparent="False">
-                            <Button.Opacity>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                            iOS="1"
-                                            Android="0"
-                                            WinPhone="0"/>
-                            </Button.Opacity>
-                        </Button>
+                        <Button Command="{TemplateBinding Path=NextItemCommand}" BackgroundColor="Transparent"  InputTransparent="False" Opacity="{StaticResource Key=ButtonOpacity}" />
                     </Grid>
 
                     <slideView:SlideViewIndicators Owner="{TemplateBinding}" Spacing="{TemplateBinding Path=IndicatorsSpacing}"
@@ -214,7 +272,7 @@
                                                    IsVisible="{TemplateBinding ShowIndicators}" VerticalOptions="End" HorizontalOptions="Center" InputTransparent="True" Margin="0, 0, 0, 10"/>
                 </Grid>
             </ControlTemplate>
-        </telerikCommon:RadResourceDictionary>
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>

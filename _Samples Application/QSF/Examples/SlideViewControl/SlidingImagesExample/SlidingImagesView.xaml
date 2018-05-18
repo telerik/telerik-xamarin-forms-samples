@@ -6,14 +6,6 @@
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.SlideViewControl.SlidingImagesExample.SlidingImagesView">
-    <ContentView.Resources>
-        <ResourceDictionary>
-            <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
-        </ResourceDictionary>
-    </ContentView.Resources>
-    <ContentView.BindingContext>
-        <local:SlidingImagesViewModel />
-    </ContentView.BindingContext>
     <Grid BackgroundColor="White"
           Grid.ColumnSpacing="0"
           Grid.RowSpacing="0">

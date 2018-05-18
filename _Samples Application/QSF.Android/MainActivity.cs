@@ -2,7 +2,10 @@
 using Android.Content.PM;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
+using Java.Interop;
 using QSF.Droid.Permissions;
+using QSF.Services.BackdoorService;
+using Xamarin.Forms;
 
 namespace QSF.Droid
 {
@@ -11,6 +14,9 @@ namespace QSF.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.SetVmPolicy(builder.Build());
+
             base.OnCreate(bundle);
 
             PermissionsHelper.Activity = this;
@@ -27,6 +33,20 @@ namespace QSF.Droid
         {
             PermissionsHelper.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        [Export("NavigateToExample")]
+        public void NavigateToExample(string examplePath)
+        {
+            IBackdoorService backdoorService = DependencyService.Get<IBackdoorService>();
+            backdoorService.NavigateToExample(examplePath);
+        }
+
+        [Export("NavigateToHome")]
+        public void NavigateToHome()
+        {
+            IBackdoorService backdoorService = DependencyService.Get<IBackdoorService>();
+            backdoorService.NavigateToHome();
         }
     }
 }

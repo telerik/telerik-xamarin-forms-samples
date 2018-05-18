@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BusyIndicatorControl.CustomBusyContentExample.CustomBusyContentView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="BusyIndicatorContentLabelStyle" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="Margin" Value="0, 0, 0, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <controls:RadBusyIndicator AnimationContentHeightRequest="150"
+                               AnimationContentWidthRequest="150"
+                               AnimationType="Animation3"
+                               AnimationContentColor="#92CC40"
+                               InputTransparent="True"
+                               IsBusy="True">
+        <controls:RadBusyIndicator.BusyContent>
+            <Label Text="Loading..." Style="{StaticResource Key=BusyIndicatorContentLabelStyle}" />
+        </controls:RadBusyIndicator.BusyContent>
+        <controls:RadBusyIndicator.BusyContentTemplate>
+            <ControlTemplate>
+
+                <Grid>
+                    <ContentPresenter Content="{TemplateBinding Path=AnimationContent}" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                    <ContentPresenter Content="{TemplateBinding Path=BusyContent}" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Grid>
+
+            </ControlTemplate>
+        </controls:RadBusyIndicator.BusyContentTemplate>
+    </controls:RadBusyIndicator>
+</ContentView>

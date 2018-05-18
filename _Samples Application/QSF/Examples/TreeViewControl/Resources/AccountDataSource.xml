@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Account Name="Kieran Wood" Icon="TreeView_FirstLook_User.png" Address="kwood@progress.com">
+    <Folders>
+        <Folder Name="Inbox" Icon="&#xE821;">
+            <Folders>
+                <Folder Name="Xamarin" Icon="&#xE82C;">
+                    <Emails>
+                        <Email Sender="Stefan Stefanov"
+                               Subject="TreeView Customisation Example"
+                               Message="Display hierarchical data e.g. folders structure. The top level folders and files will be shown. Selecting a folder, its content should be displayed in an new screen." />
+                        <Email Sender="Rossitza Mileva"
+                               Subject="Xamarin BarCode Config Examples"
+                               Message="Please find attached the proposals for the configuration screens for QR Code/PDF Export /Gallery for 1D Barcode." />
+                        <Email Sender="Liliya Karakoleva"
+                               Subject="Convеrsational UI scenarios and design"
+                               Message="We have Travel, Healthcare and Insurance demos. All material like texts, image, avatars, etc. are added or will be updated here:…" />
+                        <Email Sender="Otto Trevino"
+                               Subject="ERP App"
+                               Message="The app should include: PDF viewer, BarCode, SpreadSheet" />
+                        <Email Sender="Shannon Riley"
+                               Subject="Telerik RadChat Documentation"
+                               Message="Telerik RadChat for Xamarin allows developers to easily implement conversational UI in their applications by utilizing AI powered framework" />
+                        <Email Sender="Shannon Riley"
+                               Subject="RadBarcode for Xamarin"
+                               Message="Hi team, we are starting building barcodes in a machine-readable format via the RadBarcode control by providing numeric or character data." />
+                    </Emails>
+                </Folder>
+                <Folder Name="UWP" Icon="&#xE82C;">
+                    <Emails>
+                        <Email Sender="Evan Atkinson"
+                               Subject="NumericBox Documentation"
+                               Message="RadNumericBox is a TextBox control that provides functionality for selecting numeric values within a predefined range. The control exposes a convenient API to customize its behavior to best fit customer’s business requirements." />
+                    </Emails>
+                </Folder>
+                <Folder Name="WinForms" Icon="&#xE82C;">
+                </Folder>
+                <Folder Name="NativeScript" Icon="&#xE82C;">
+                    <Emails>
+                        <Email Sender="John Doe"
+                               Subject="Nativescript New Theme Release"
+                               Message="Beautiful, accessible, platform-native UI - no webviews. Define once and NativeScript adapts to run everywhere." />
+                        <Email Sender="Otto Trevino"
+                               Subject="ERP App"
+                               Message="The app should include: PDF viewer, BarCode, SpreadSheet" />
+                    </Emails>
+                </Folder>
+            </Folders>
+        </Folder>
+        <Folder Name="Sent" Icon="&#xE82D;">
+        </Folder>
+        <Folder Name="Drafts" Icon="&#xE828;">
+        </Folder>
+        <Folder Name="Archive" Icon="&#xE826;">
+        </Folder>
+        <Folder Name="Deleted" Icon="&#xE827;">
+        </Folder>
+        <Folder Name="Spam" Icon="&#xE82E;">
+        </Folder>
+        <Folder Name="Groups" Icon="&#xE82A;">
+            <Folders>
+                <Folder Name="DevTools" Icon="&#xE82B;">
+                    <Emails>
+                        <Email Sender="Wombat Training Platform"
+                               Subject="Cyber Security Assignment Completed"
+                               Message="Congratulations, you have completed the cyber security assignment, GDPR corporate training 2018, given to." />
+                        <Email Sender="IT HelpDesk"
+                               Subject="Progress-All-Employees"
+                               Message="Dear Team, we will be conducting maintenance Saturday May 12th from 10:30 AM– 2:30 PM EST. This is required to replace a faulty network unit and to upgrade our intrusion prevention appliances in the Bedford office." />
+                        <Email Sender="Evan Atkinson"
+                               Subject="NumericBox Documentation"
+                               Message="RadNumericBox is a TextBox control that provides functionality for selecting numeric values within a predefined range. The control exposes a convenient API to customize its behavior to best fit customer’s business requirements." />
+                        <Email Sender="John Doe"
+                               Subject="Nativescript New Theme Release"
+                               Message="Beautiful, accessible, platform-native UI - no webviews. Define once and NativeScript adapts to run everywhere." />
+                        <Email Sender="Shannon Riley"
+                               Subject="RadBarcode for Xamarin"
+                               Message="Hi team, we are starting building barcodes in a machine-readable format via the RadBarcode control by providing numeric or character data." />
+                    </Emails>
+                </Folder>
+                <Folder Name="UX" Icon="&#xE82B;">
+                    <Emails>
+                        <Email Sender="Stefan Stefanov"
+                               Subject="TreeView Customisation Example"
+                               Message="Display hierarchical data e.g. folders structure. The top level folders and files will be shown. Selecting a folder, its content should be displayed in an new screen." />
+                        <Email Sender="Rossitza Mileva"
+                               Subject="Xamarin BarCode Config Examples"
+                               Message="Please find attached the proposals for the configuration screens for QR Code/PDF Export /Gallery for 1D Barcode." />
+                        <Email Sender="Liliya Karakoleva"
+                               Subject="Convеrsational UI scenarios and design"
+                               Message="We have Travel, Healthcare and Insurance demos. All material like texts, image, avatars, etc. are added or will be updated here:…" />
+                        <Email Sender="Otto Trevino"
+                               Subject="ERP App"
+                               Message="The app should include: PDF viewer, BarCode, SpreadSheet" />
+                    </Emails>
+                </Folder>
+            </Folders>
+        </Folder>
+    </Folders>
+</Account>

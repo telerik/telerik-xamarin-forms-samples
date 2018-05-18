@@ -6,17 +6,12 @@
              xmlns:converters="clr-namespace:QSF.Converters"
              xmlns:local="clr-namespace:QSF.Examples.DataGridControl.LoadOnDemandExample"
              x:Class="QSF.Examples.DataGridControl.LoadOnDemandExample.LoadOnDemandView">
-    
-    <ContentView.BindingContext>
-        <local:LoadOnDemandViewModel />
-    </ContentView.BindingContext>
-    
-   <telerikDataGrid:RadDataGrid x:Name="dataGrid"
+    <telerikDataGrid:RadDataGrid x:Name="dataGrid"
                                  ItemsSource="{Binding Items}"
                                  AutoGenerateColumns="false"
                                  LoadOnDemandMode="Manual"
                                  UserGroupMode="Disabled"
-                                 GridLinesVisibility="Both">
+                                 GridLinesVisibility="Horizontal">
 
         <telerikDataGrid:RadDataGrid.LoadOnDemandRowStyle>
             <telerikDataGrid:DataGridLoadOnDemandRowStyle 

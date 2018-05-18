@@ -11,8 +11,8 @@ namespace QSF.ViewModels
             this.ShortDescription = control.ShortDescription;
             this.FullDescription = control.FullDescription;
             this.DocumentationURL = control.DocumentationURL;
-            this.IsLatest = control.IsLatest;
-            this.IsFeatured = control.IsFeatured;
+            this.IsLatest = control.Latest > 0;
+            this.IsFeatured = control.Featured > 0;
             this.IsNew = control.IsNew;
             this.IsCTP = control.IsCTP;
             this.IsBeta = control.IsBeta;
