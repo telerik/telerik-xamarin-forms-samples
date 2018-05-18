@@ -8,14 +8,6 @@
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.SideDrawerControl.RecipesExample.RecipesView">
-    <ContentView.Resources>
-        <ResourceDictionary>
-            <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
-        </ResourceDictionary>
-    </ContentView.Resources>
-    <ContentView.BindingContext>
-        <local:RecipesViewModel />
-    </ContentView.BindingContext>
     <Grid BackgroundColor="White"
           Grid.ColumnSpacing="0"
           Grid.RowSpacing="0">
@@ -57,7 +49,8 @@
                                 <TapGestureRecognizer Tapped="OnMenuTapped" />
                             </Grid.GestureRecognizers>
                             <Image HorizontalOptions="Start"
-                                   VerticalOptions="Center">
+                                   VerticalOptions="Center"
+                                   AutomationId="OpenMenu">
                                 <Image.Source>
                                     <OnPlatform x:TypeArguments="ImageSource">
                                         <On Platform="iOS,Android">SideDrawer_Menu</On>

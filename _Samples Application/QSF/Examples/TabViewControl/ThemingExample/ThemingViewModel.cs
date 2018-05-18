@@ -3,7 +3,7 @@ using QSF.ViewModels;
 
 namespace QSF.Examples.TabViewControl.ThemingExample
 {
-    public class ThemingViewModel : ViewModelBase
+    public class ThemingViewModel : ExampleViewModel
     {
         public ObservableCollection<string> FranceShips { get; private set; }
         public ObservableCollection<string> ItalyShips { get; private set; }

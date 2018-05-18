@@ -17,8 +17,11 @@
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>QSF.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>DA487C03CE2495619B838D3A957779EF1E167415</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>QSF.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>43542E2F676EA2C47F32DBBE0E1A3BD8328A6B38</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -79,7 +82,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS;Release</DefineConstants>
     <Optimize>true</Optimize>
     <NoWarn>;2008</NoWarn>
     <DebugType>pdbonly</DebugType>
@@ -132,15 +135,45 @@
     <Content Include="Assets\autocomplete_tokens_titicaca_lake_attraction.jpg" />
     <Content Include="Assets\autocomplete_tokens_tsarevets_sound_and_light_veliko_tarnovo.jpg" />
     <Content Include="Assets\autocomplete_tokens_universal_studios_orlando_harry_potter_theme_park.jpg" />
-    <Content Include="Assets\BadgeLogo.scale-100.png" />
-    <Content Include="Assets\BadgeLogo.scale-125.png" />
-    <Content Include="Assets\BadgeLogo.scale-150.png" />
-    <Content Include="Assets\BadgeLogo.scale-200.png" />
-    <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\BarCode_1D.scale-100.png" />
+    <Content Include="Assets\BarCode_1D.scale-125.png" />
+    <Content Include="Assets\BarCode_1D.scale-150.png" />
+    <Content Include="Assets\BarCode_1D.scale-200.png" />
+    <Content Include="Assets\BarCode_1D.scale-400.png" />
+    <Content Include="Assets\BarCode_BoardingPass.scale-100.png" />
+    <Content Include="Assets\BarCode_BoardingPass.scale-125.png" />
+    <Content Include="Assets\BarCode_BoardingPass.scale-150.png" />
+    <Content Include="Assets\BarCode_BoardingPass.scale-200.png" />
+    <Content Include="Assets\BarCode_BoardingPass.scale-400.png" />
+    <Content Include="Assets\BarCode_PDF417.scale-100.png" />
+    <Content Include="Assets\BarCode_PDF417.scale-125.png" />
+    <Content Include="Assets\BarCode_PDF417.scale-150.png" />
+    <Content Include="Assets\BarCode_PDF417.scale-200.png" />
+    <Content Include="Assets\BarCode_PDF417.scale-400.png" />
+    <Content Include="Assets\BarCode_QRCode.scale-100.png" />
+    <Content Include="Assets\BarCode_QRCode.scale-125.png" />
+    <Content Include="Assets\BarCode_QRCode.scale-150.png" />
+    <Content Include="Assets\BarCode_QRCode.scale-200.png" />
+    <Content Include="Assets\BarCode_QRCode.scale-400.png" />
+    <Content Include="Assets\BarCode_SpecialOffer.scale-100.png" />
+    <Content Include="Assets\BarCode_SpecialOffer.scale-125.png" />
+    <Content Include="Assets\BarCode_SpecialOffer.scale-150.png" />
+    <Content Include="Assets\BarCode_SpecialOffer.scale-200.png" />
+    <Content Include="Assets\BarCode_SpecialOffer.scale-400.png" />
+    <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-100.png" />
+    <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-125.png" />
+    <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-150.png" />
+    <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-200.png" />
+    <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-400.png" />
     <Content Include="Assets\Breakfast0.png" />
     <Content Include="Assets\Breakfast1.png" />
     <Content Include="Assets\Breakfast2.png" />
     <Content Include="Assets\Breakfast3.png" />
+    <Content Include="Assets\BusyIndicator_CustomBusyContent.scale-100.png" />
+    <Content Include="Assets\BusyIndicator_CustomBusyContent.scale-125.png" />
+    <Content Include="Assets\BusyIndicator_CustomBusyContent.scale-150.png" />
+    <Content Include="Assets\BusyIndicator_CustomBusyContent.scale-200.png" />
+    <Content Include="Assets\BusyIndicator_CustomBusyContent.scale-400.png" />
     <Content Include="Assets\BusyIndicator_Custom_Indicator.scale-100.png" />
     <Content Include="Assets\BusyIndicator_Custom_Indicator.scale-125.png" />
     <Content Include="Assets\BusyIndicator_Custom_Indicator.scale-150.png" />
@@ -156,6 +189,16 @@
     <Content Include="Assets\BusyIndicator_Theming.scale-150.png" />
     <Content Include="Assets\BusyIndicator_Theming.scale-200.png" />
     <Content Include="Assets\BusyIndicator_Theming.scale-400.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Active.scale-100.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Active.scale-125.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Active.scale-150.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Active.scale-200.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Active.scale-400.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Inactive.scale-100.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Inactive.scale-125.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Inactive.scale-150.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Inactive.scale-200.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery10_Header_Inactive.scale-400.png" />
     <Content Include="Assets\BusyIndicator_Theming_Gallery1_Header_Active.scale-100.png" />
     <Content Include="Assets\BusyIndicator_Theming_Gallery1_Header_Active.scale-125.png" />
     <Content Include="Assets\BusyIndicator_Theming_Gallery1_Header_Active.scale-150.png" />
@@ -236,6 +279,16 @@
     <Content Include="Assets\BusyIndicator_Theming_Gallery8_Header_Inactive.scale-150.png" />
     <Content Include="Assets\BusyIndicator_Theming_Gallery8_Header_Inactive.scale-200.png" />
     <Content Include="Assets\BusyIndicator_Theming_Gallery8_Header_Inactive.scale-400.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Active.scale-100.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Active.scale-125.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Active.scale-150.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Active.scale-200.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Active.scale-400.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Inactive.scale-100.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Inactive.scale-125.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Inactive.scale-150.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Inactive.scale-200.png" />
+    <Content Include="Assets\BusyIndicator_Theming_Gallery9_Header_Inactive.scale-400.png" />
     <Content Include="Assets\Button.scale-100.png" />
     <Content Include="Assets\Button.scale-125.png" />
     <Content Include="Assets\Button.scale-150.png" />
@@ -767,6 +820,24 @@
     <Content Include="Assets\Chart_Theming_Scattered5_Header_Active.scale-150.png" />
     <Content Include="Assets\Chart_Theming_Scattered5_Header_Active.scale-200.png" />
     <Content Include="Assets\Chart_Theming_Scattered5_Header_Active.scale-400.png" />
+    <Content Include="Assets\ChatBot_HealthCare.scale-100.png" />
+    <Content Include="Assets\ChatBot_HealthCare.scale-125.png" />
+    <Content Include="Assets\ChatBot_HealthCare.scale-150.png" />
+    <Content Include="Assets\ChatBot_HealthCare.scale-200.png" />
+    <Content Include="Assets\ChatBot_HealthCare.scale-300.png" />
+    <Content Include="Assets\ChatBot_HealthCare.scale-400.png" />
+    <Content Include="Assets\ChatBot_Insurance.scale-125.png" />
+    <Content Include="Assets\ChatBot_Insurance.scale-400.png" />
+    <Content Include="Assets\ChatBot_Insurance.scale-150.png" />
+    <Content Include="Assets\ChatBot_Insurance.scale-200.png" />
+    <Content Include="Assets\ChatBot_Insurance.scale-300.png" />
+    <Content Include="Assets\ChatBot_Insurance.scale-100.png" />
+    <Content Include="Assets\ChatBot_Vacation.scale-100.png" />
+    <Content Include="Assets\ChatBot_Vacation.scale-125.png" />
+    <Content Include="Assets\ChatBot_Vacation.scale-150.png" />
+    <Content Include="Assets\ChatBot_Vacation.scale-200.png" />
+    <Content Include="Assets\ChatBot_Vacation.scale-300.png" />
+    <Content Include="Assets\ChatBot_Vacation.scale-400.png" />
     <Content Include="Assets\Cocktails0.png" />
     <Content Include="Assets\Cocktails1.png" />
     <Content Include="Assets\Cocktails2.png" />
@@ -964,6 +1035,8 @@
     <Content Include="Assets\Gauge_VerticalGauge2_Inactive.scale-150.png" />
     <Content Include="Assets\Gauge_VerticalGauge2_Inactive.scale-200.png" />
     <Content Include="Assets\Gauge_VerticalGauge2_Inactive.scale-400.png" />
+    <Content Include="Assets\HealthCareBot.png" />
+    <Content Include="Assets\InsuranceBot.png" />
     <Content Include="Assets\KeyFeature_1.scale-100.png" />
     <Content Include="Assets\KeyFeature_1.scale-125.png" />
     <Content Include="Assets\KeyFeature_1.scale-150.png" />
@@ -1019,6 +1092,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Effects\ButtonBorderEffect.cs" />
+    <Compile Include="Effects\SideDrawerTouchTargetEffect.cs" />
     <Compile Include="Effects\StrikeThroughEffect.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -1031,6 +1105,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="QSF.UWP_StoreKey.pfx" />
     <None Include="QSF.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -1042,11 +1117,11 @@
     <Content Include="Assets\Gauge_Gallery_Horizontal.png" />
     <Content Include="Assets\Gauge_Gallery_Radial.png" />
     <Content Include="Assets\Gauge_Gallery_Vertical.png" />
-    <Content Include="Assets\Gauge_Theming.scale-100.png" />
-    <Content Include="Assets\Gauge_Theming.scale-125.png" />
-    <Content Include="Assets\Gauge_Theming.scale-150.png" />
-    <Content Include="Assets\Gauge_Theming.scale-200.png" />
-    <Content Include="Assets\Gauge_Theming.scale-400.png" />
+    <Content Include="Assets\Gauge_Customization.scale-100.png" />
+    <Content Include="Assets\Gauge_Customization.scale-125.png" />
+    <Content Include="Assets\Gauge_Customization.scale-150.png" />
+    <Content Include="Assets\Gauge_Customization.scale-200.png" />
+    <Content Include="Assets\Gauge_Customization.scale-400.png" />
     <Content Include="Assets\ListView_GridLayout.png" />
     <Content Include="Assets\ListView_LinearLayout.png" />
     <Content Include="Assets\ListView_Layouts.scale-100.png" />
@@ -1255,12 +1330,94 @@
     <Content Include="Assets\TabView_Theming.scale-150.png" />
     <Content Include="Assets\TabView_Theming.scale-200.png" />
     <Content Include="Assets\TabView_Theming.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Argentina.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Argentina.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Argentina.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Argentina.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Argentina.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Belgium.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Belgium.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Belgium.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Belgium.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Belgium.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Brazil.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Brazil.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Brazil.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Brazil.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Brazil.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Canada.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Canada.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Canada.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Canada.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Canada.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_China.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_China.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_China.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_China.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_China.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_France.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_France.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_France.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_France.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_France.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Germany.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Germany.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Germany.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Germany.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Germany.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_India.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_India.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_India.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_India.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_India.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Italy.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Italy.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Italy.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Italy.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Italy.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Mexico.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Mexico.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Mexico.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Mexico.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Mexico.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Netherlands.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Netherlands.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Netherlands.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Netherlands.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Netherlands.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Spain.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Spain.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Spain.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Spain.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_Spain.scale-400.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_USA.scale-100.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_USA.scale-125.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_USA.scale-150.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_USA.scale-200.png" />
+    <Content Include="Assets\TreeView_Customization_Flag_USA.scale-400.png" />
+    <Content Include="Assets\TreeView_FirstLook.scale-100.png" />
+    <Content Include="Assets\TreeView_FirstLook.scale-125.png" />
+    <Content Include="Assets\TreeView_FirstLook.scale-150.png" />
+    <Content Include="Assets\TreeView_FirstLook.scale-200.png" />
+    <Content Include="Assets\TreeView_FirstLook.scale-400.png" />
+    <Content Include="Assets\TreeView_FirstLook_User.scale-100.png" />
+    <Content Include="Assets\TreeView_FirstLook_User.scale-125.png" />
+    <Content Include="Assets\TreeView_FirstLook_User.scale-150.png" />
+    <Content Include="Assets\TreeView_FirstLook_User.scale-200.png" />
+    <Content Include="Assets\TreeView_FirstLook_User.scale-400.png" />
     <Content Include="Assets\tyre.png" />
+    <Content Include="Assets\VacationBot.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\xlsx_file.scale-100.png" />
     <Content Include="Assets\xlsx_file.scale-200.png" />
     <Content Include="Assets\xlsx_file.scale-400.png" />
@@ -1287,6 +1444,8 @@
       <Project>{04dec7a5-4e0c-4c08-9e29-09dc33e0b9a1}</Project>
       <Name>QSF</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.ListViewControl.ReorderExample
 {
-    public class ReorderViewModel : ViewModelBase
+    public class ReorderViewModel : ExampleViewModel
     {
         public Command<ListItem> DeleteCommand { get; private set; }
         public Command<ListItem> DoneCommand { get; private set; }

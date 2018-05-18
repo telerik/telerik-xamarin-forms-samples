@@ -43,9 +43,6 @@
             </DataTemplate>
         </ResourceDictionary>
     </views:GalleryExampleViewBase.Resources>
-    <views:GalleryExampleViewBase.BindingContext>
-        <example:ThemingViewModel />
-    </views:GalleryExampleViewBase.BindingContext>
     <views:GalleryExampleViewBase.HeaderContent>
         <Label Text="Expected Sales per Year"
                TextColor="Black"

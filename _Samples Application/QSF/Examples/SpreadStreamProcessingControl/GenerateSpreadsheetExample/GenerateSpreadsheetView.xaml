@@ -5,9 +5,6 @@
              xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:local="clr-namespace:QSF.Examples.SpreadStreamProcessingControl.GenerateSpreadsheetExample"
              x:Class="QSF.Examples.SpreadStreamProcessingControl.GenerateSpreadsheetExample.GenerateSpreadsheetView">
-    <ContentView.BindingContext>
-        <local:GenerateSpreadsheetViewModel />
-    </ContentView.BindingContext>
     <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
         <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0">
             <Grid.RowDefinitions>
@@ -46,7 +43,7 @@
                 </telerikDataControls:RadListView.ItemTemplate>
             </telerikDataControls:RadListView>
 
-            <Button BackgroundColor="#FBB03B" Text="Generate Spreadsheet" Grid.Row="1" BorderRadius="0" Command="{Binding Path=GenerateSpreadsheetCommand}" HeightRequest="60" />
+            <Button BackgroundColor="#FBB03B" Text="Generate Spreadsheet" Grid.Row="1" BorderRadius="0" Command="{Binding Path=GenerateSpreadsheetCommand}" HeightRequest="60" AutomationId="GenerateSpreadsheetButton"/>
         </Grid>
     </Grid>
 </ContentView>

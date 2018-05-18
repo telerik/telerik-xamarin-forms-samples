@@ -66,9 +66,6 @@
             </DataTemplate>
         </ResourceDictionary>
     </views:GalleryExampleViewBase.Resources>
-    <views:GalleryExampleViewBase.BindingContext>
-        <example:PieSeriesViewModel />
-    </views:GalleryExampleViewBase.BindingContext>
     <views:GalleryExampleViewBase.HeaderContent>
         <Label Text="Monthly sales revenue, 2016"
                Style="{StaticResource labelHeaderStyle}"

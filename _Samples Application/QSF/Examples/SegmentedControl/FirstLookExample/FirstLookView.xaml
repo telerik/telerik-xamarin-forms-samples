@@ -7,9 +7,6 @@
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.SegmentedControl.FirstLookExample.FirstLookView">
-    <ContentView.BindingContext>
-        <local:FirstLookViewModel />
-    </ContentView.BindingContext>
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -24,7 +21,8 @@
                                                       SelectedSegmentBackgroundColor="#0A90D0"
                                                       ItemsSource="{Binding LargeImages}"
                                                       SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
-                                                      views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                                                      views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                      AutomationId="MenuSegmentedControl"/>
                     <telerikDataControls:RadListView Margin="0,16,0,0"
                                                      SelectionMode="None"
                                                      ItemsSource="{Binding MenuItems}"
@@ -78,7 +76,8 @@
                                                           SelectedSegmentBackgroundColor="#0A90D0"
                                                           ItemsSource="{Binding SmallImages}"
                                                           SelectedIndex="0" 
-                                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                                                          views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                          AutomationId="ImagesSegmentedControl"/>
                     </StackLayout>
                 </Frame>
                 <StackLayout Grid.Row="3"
@@ -94,7 +93,8 @@
                                                       SelectedSegmentBackgroundColor="#0A90D0"
                                                       ItemsSource="{Binding Categories}"
                                                       SelectedIndex="0" 
-                                                      views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                                                      views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                      AutomationId="TextSegmentedControl"/>
                 </StackLayout>
                 <StackLayout Grid.Row="4"
                                 Margin="52,16">
@@ -113,7 +113,8 @@
                                                       DisabledSegmentTextColor="#D6CB90"
                                                       ItemsSource="{Binding Categories}"
                                                       SelectedIndex="0"
-                                                      views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                                                      views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                      AutomationId="DisabledSegmentedControl"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

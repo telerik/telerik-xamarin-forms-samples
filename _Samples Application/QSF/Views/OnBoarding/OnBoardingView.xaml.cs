@@ -45,10 +45,5 @@ namespace QSF.Views
         {
             this.Closing?.Invoke(this, EventArgs.Empty);
         }
-
-        private void OnManualSlide(object sender, PanUpdatedEventArgs e)
-        {
-            this.isAutoSliding = false;
-        }
     }
 }

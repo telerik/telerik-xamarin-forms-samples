@@ -8,7 +8,7 @@ namespace QSF.ViewModels
         {
             this.GroupName = example.IsScenario ? "Scenarios" : "Features";
             this.Image = example.Image;
-            this.Name = example.Name.InsertSpacesInPascalCase();
+            this.Name = example.DisplayName;
             this.Description = example.Description;
             this.Example = example;
         }

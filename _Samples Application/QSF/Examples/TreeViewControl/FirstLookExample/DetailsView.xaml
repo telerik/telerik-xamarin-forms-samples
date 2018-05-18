@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.TreeViewControl.FirstLookExample.DetailsView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Padding="10,0"
+              BackgroundColor="#F2F2F2">
+            <telerikInput:RadButton WidthRequest="40"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    BorderWidth="0"
+                                    BorderRadius="0"
+                                    BorderColor="Transparent"
+                                    BackgroundColor="Transparent"
+                                    FontSize="20"
+                                    FontFamily="{StaticResource IconsFont}"
+                                    TextColor="#B2B2B2"
+                                    Text="{StaticResource BackButtonIcon}"
+                                    Command="{Binding BackCommand}" />
+            <Label HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#494949"
+                   Text="{Binding Folder.Name}" />
+        </Grid>
+        <BoxView Grid.Row="0"
+                 HeightRequest="2"
+                 VerticalOptions="End"
+                 BackgroundColor="#D9D9D9" />
+        <telerikDataControls:RadListView Grid.Row="1"
+                                         SelectionMode="None"
+                                         BackgroundColor="White"
+                                         ItemsSource="{Binding Folder.Emails}">
+            <telerikDataControls:RadListView.LayoutDefinition>
+                <telerikListView:ListViewLinearLayout ItemLength="100" />
+            </telerikDataControls:RadListView.LayoutDefinition>
+            <telerikDataControls:RadListView.ItemStyle>
+                <telerikListView:ListViewItemStyle BorderWidth="2"
+                                                   BorderColor="#D9D9D9"
+                                                   BorderLocation="Bottom" />
+            </telerikDataControls:RadListView.ItemStyle>
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <Grid Padding="20,10"
+                                  RowSpacing="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       Text="{Binding Sender}" />
+                                <Label Grid.Row="0"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Start"
+                                       FontSize="12"
+                                       TextColor="#727272"
+                                       Text="{Binding Received, StringFormat='{}{0:g}'}" />
+                                <Label Grid.Row="1"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Text="{Binding Subject}" />
+                                <Label Grid.Row="2"
+                                       FontSize="14"
+                                       TextColor="#727272"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding Message}" />
+                            </Grid>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+        </telerikDataControls:RadListView>
+    </Grid>
+</ContentPage>

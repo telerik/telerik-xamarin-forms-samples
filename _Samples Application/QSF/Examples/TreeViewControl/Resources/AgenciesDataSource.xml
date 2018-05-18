@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Agencies>
+    <Continents>
+        <Continent Name="Europe">
+            <Countries>
+                <Country Name="Italy" Icon="TreeView_Customization_Flag_Italy.png">
+                    <Cities>
+                        <City Name="Rome" />
+                        <City Name="Napoli" />
+                    </Cities>
+                </Country>
+                <Country Name="Spain" Icon="TreeView_Customization_Flag_Spain.png">
+                    <Cities>
+                        <City Name="Barcelona" />
+                        <City Name="Madrid" />
+                        <City Name="Valencia" />
+                    </Cities>
+                </Country>
+                <Country Name="France" Icon="TreeView_Customization_Flag_France.png">
+                    <Cities>
+                        <City Name="Paris" />
+                        <City Name="Lyon" />
+                    </Cities>
+                </Country>
+                <Country Name="Germany" Icon="TreeView_Customization_Flag_Germany.png">
+                    <Cities>
+                        <City Name="Berlin" />
+                        <City Name="Frankfurt" />
+                        <City Name="Dortmund" />
+                    </Cities>
+                </Country>
+                <Country Name="The Netherlands" Icon="TreeView_Customization_Flag_Netherlands.png">
+                    <Cities>
+                        <City Name="Amsterdam" />
+                        <City Name="Rotterdam" />
+                    </Cities>
+                </Country>
+                <Country Name="Belgium" Icon="TreeView_Customization_Flag_Belgium.png">
+                    <Cities>
+                        <City Name="Brussel" />
+                        <City Name="Antwerpen" />
+                    </Cities>
+                </Country>
+            </Countries>
+        </Continent>
+        <Continent Name="Asia">
+            <Countries>
+                <Country Name="India" Icon="TreeView_Customization_Flag_India.png">
+                    <Cities>
+                        <City Name="Mumbai" />
+                        <City Name="Nagpur" />
+                    </Cities>
+                </Country>
+                <Country Name="China" Icon="TreeView_Customization_Flag_China.png">
+                    <Cities>
+                        <City Name="Beijing" />
+                    </Cities>
+                </Country>
+            </Countries>
+        </Continent>
+        <Continent Name="South America">
+            <Countries>
+                <Country Name="Brazil" Icon="TreeView_Customization_Flag_Brazil.png">
+                    <Cities>
+                        <City Name="Rio de Janeiro" />
+                        <City Name="Duque de Caxias" />
+                    </Cities>
+                </Country>
+                <Country Name="Argentina" Icon="TreeView_Customization_Flag_Argentina.png">
+                    <Cities>
+                        <City Name="Buenos Aires" />
+                    </Cities>
+                </Country>
+            </Countries>
+        </Continent>
+        <Continent Name="North America">
+            <Countries>
+                <Country Name="USA" Icon="TreeView_Customization_Flag_USA.png">
+                    <Cities>
+                        <City Name="Miami" />
+                        <City Name="New York" />
+                        <City Name="Los Angeles" />
+                    </Cities>
+                </Country>
+                <Country Name="Canada" Icon="TreeView_Customization_Flag_Canada.png">
+                    <Cities>
+                        <City Name="Toronto" />
+                    </Cities>
+                </Country>
+                <Country Name="Mexico" Icon="TreeView_Customization_Flag_Mexico.png">
+                    <Cities>
+                        <City Name="Ciudad de México" />
+                    </Cities>
+                </Country>
+            </Countries>
+        </Continent>
+    </Continents>
+</Agencies>

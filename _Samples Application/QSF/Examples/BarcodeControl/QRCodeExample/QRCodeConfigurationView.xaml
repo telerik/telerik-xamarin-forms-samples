@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BarcodeControl.QRCodeExample.QRCodeConfigurationView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="TabViewHeaderItemTemplate">
+                <Grid BackgroundColor="Transparent" HeightRequest="50">
+                    <BoxView IsVisible="{TemplateBinding IsSelected}"
+                             BackgroundColor="White"
+                             VerticalOptions="End"
+                             HeightRequest="2"/>
+                    <Label Text="{TemplateBinding Text}"
+                           FontSize="20"
+                           FontFamily="{StaticResource IconsFont}"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"/>
+                </Grid>
+            </ControlTemplate>
+
+            <Style TargetType="Label" x:Key="LabelStyle" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="Margin" Value="0, 10, 0, 0" />
+            </Style>
+
+            <ContentView x:Key="LinkTabContent">
+                <ScrollView Padding="20">
+                    <StackLayout>
+                        <Label Text="URL:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=URL}"/>
+
+                        <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+
+                        <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+
+                        <Label Text="Encoding:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=EncodingSource}" SelectedItem="{Binding Path=SelectedEncoding}" />
+                    </StackLayout>
+                </ScrollView>
+            </ContentView>
+
+            <ContentView x:Key="TextTabContent">
+                <ScrollView Padding="20">
+                    <StackLayout>
+                        <Label Text="Text:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=Text}"/>
+
+                        <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+
+                        <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+
+                        <Label Text="Fnc1 Mode:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=Fnc1ModeSource}" SelectedItem="{Binding Path=SelectedFnc1Mode}" />
+                        <Entry Text="{Binding Path=ApplicationIndicator}" IsEnabled="{Binding Path=IsApplicationIndicatorEnabled}" Placeholder="Application indicator"/>
+
+                        <Label Text="Encoding:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=EncodingSource}" SelectedItem="{Binding Path=SelectedEncoding}" />
+
+                        <Label Text="Eci Number:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=EciNumberSource}" SelectedItem="{Binding Path=SelectedEciNumber}" />
+                    </StackLayout>
+                </ScrollView>
+            </ContentView>
+
+            <ContentView x:Key="ContactTabContent">
+                <ScrollView Padding="20">
+                    <StackLayout>
+                        <Label Text="First Name:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=ContactName}"/>
+
+                        <Label Text="Last Name:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=ContactFamily}"/>
+
+                        <Label Text="Phone number:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=ContactPhone}"/>
+
+                        <Label Text="Email:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=ContactEmail}"/>
+
+                        <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+
+                        <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+                    </StackLayout>
+                </ScrollView>
+            </ContentView>
+
+            <ContentView x:Key="LocationTabContent">
+                <ScrollView Padding="20">
+                    <StackLayout>
+                        <Label Text="Latitude degrees:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=LocationLat}"/>
+
+                        <Label Text="Longitude degrees:" Style="{StaticResource LabelStyle}" />
+                        <Entry Text="{Binding Path=LocationLong}"/>
+
+                        <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+
+                        <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
+                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+                    </StackLayout>
+                </ScrollView>
+            </ContentView>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <telerikPrimitives:RadTabView x:Name="tabView">
+        <telerikPrimitives:RadTabView.Items>
+            <telerikPrimitives:TabViewItem Content="{StaticResource LinkTabContent}">
+                <telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewHeaderItem Text="{StaticResource ChainIcon}" ControlTemplate="{StaticResource TabViewHeaderItemTemplate}" />
+                </telerikPrimitives:TabViewItem.Header>
+            </telerikPrimitives:TabViewItem>
+
+            <telerikPrimitives:TabViewItem Content="{StaticResource TextTabContent}">
+                <telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewHeaderItem Text="{StaticResource TIcon}" ControlTemplate="{StaticResource TabViewHeaderItemTemplate}" />
+                </telerikPrimitives:TabViewItem.Header>
+            </telerikPrimitives:TabViewItem>
+            
+            <telerikPrimitives:TabViewItem Content="{StaticResource ContactTabContent}">
+                <telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewHeaderItem Text="{StaticResource MailIcon}" ControlTemplate="{StaticResource TabViewHeaderItemTemplate}" />
+                </telerikPrimitives:TabViewItem.Header>
+            </telerikPrimitives:TabViewItem>
+
+            <telerikPrimitives:TabViewItem Content="{StaticResource LocationTabContent}">
+                <telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewHeaderItem Text="{StaticResource PinIcon}" ControlTemplate="{StaticResource TabViewHeaderItemTemplate}" />
+                </telerikPrimitives:TabViewItem.Header>
+            </telerikPrimitives:TabViewItem>
+
+        </telerikPrimitives:RadTabView.Items>
+    </telerikPrimitives:RadTabView>
+
+</ContentView>

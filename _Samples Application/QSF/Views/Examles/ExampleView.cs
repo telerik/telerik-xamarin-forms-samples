@@ -26,6 +26,13 @@ namespace QSF.Views
         {
             base.OnAppearing();
 
+            var viewModel = this.BindingContext as PageViewModelBase;
+
+            if (viewModel != null)
+            {
+                viewModel.OnAppearing();
+            }
+
             var themesService = DependencyService.Get<IThemesService>();
             var themeName = themesService.CurrentTheme.Name;
 
@@ -37,12 +44,26 @@ namespace QSF.Views
             this.currentThemeName = themeName;
         }
 
+        protected override void OnDisappearing()
+        {
+            var viewModel = this.BindingContext as PageViewModelBase;
+
+            if (viewModel != null)
+            {
+                viewModel.OnDisappearing();
+            }
+
+            base.OnDisappearing();
+        }
+
         private void UpdateContent()
         {
             if (this.BindingContext != null)
             {
                 var viewModel = (ExampleViewModel)this.BindingContext;
-                this.Content = this.GetViewFromExampleInfo(viewModel.ExampleInfo);
+                var content = this.GetViewFromExampleInfo(viewModel.ExampleInfo);
+
+                this.Content = content;
             }
         }
 

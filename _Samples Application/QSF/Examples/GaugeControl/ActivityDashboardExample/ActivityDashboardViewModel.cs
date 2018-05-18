@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using QSF.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace QSF.Examples.GaugeControl.ActivityDashboardExample
 {
-    public class ActivityDashboardViewModel
+    public class ActivityDashboardViewModel : ExampleViewModel
     {
         public ActivityDashboardViewModel()
         {

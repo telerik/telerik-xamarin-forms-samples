@@ -5,7 +5,7 @@ using QSF.ViewModels;
 
 namespace QSF.Examples.SideDrawerControl.RecipesExample
 {
-    public class RecipesViewModel : ViewModelBase
+    public class RecipesViewModel : ExampleViewModel
     {
         private readonly IList<Recipe> recipes;
         private string selectedCategory;

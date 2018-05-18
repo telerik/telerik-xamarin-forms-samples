@@ -2,29 +2,12 @@
 
 namespace QSF.Examples.RatingControl.RestaurantReviewExample
 {
-    public class NewReviewViewModel : ViewModelBase
+    public class NewReviewViewModel : ExampleViewModel
     {
-        private string title;
         private string review;
         private double foodRating;
         private double ambienceRating;
         private double serviceRating;
-
-        public string Title
-        {
-            get
-            {
-                return this.title;
-            }
-            set
-            {
-                if (this.title != value)
-                {
-                    this.title = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
 
         public string Review
         {

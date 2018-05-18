@@ -13,9 +13,6 @@ namespace QSF.Examples.DataFormControl.ThemingExample
         {
             this.InitializeComponent();
 
-            var viewModel = new ThemingViewModel();
-            this.BindingContext = viewModel;
-
             this.RegisterEditors();
             dataForm.PropertyDataSourceProvider = new DF020PropertyDataSourceProvider();
             dataForm.GroupLayoutDefinition = new DataFormGroupGridLayoutDefinition();

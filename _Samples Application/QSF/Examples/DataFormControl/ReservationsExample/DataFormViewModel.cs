@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.DataFormControl.ReservationsExample
 {
-    public class DataFormViewModel : ViewModelBase
+    public class DataFormViewModel : ExampleViewModel
     {
         private readonly INavigationService navigationService;
         private ReservationsViewModel viewModel;
@@ -18,7 +18,7 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
             this.navigationService = DependencyService.Get<INavigationService>();
         }
 
-        internal override Task InitializeAsync(object parameter)
+        protected override Task InitializeAsyncOverride(object parameter)
         {
             this.viewModel = (ReservationsViewModel)parameter;
             this.FormSource = this.viewModel.Reservation;
@@ -32,7 +32,7 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
                 this.PageTitle = "Edit Reservation";
             }
 
-            return base.InitializeAsync(parameter);
+            return Task.FromResult(true);
         }
 
         public void CommitReservation()

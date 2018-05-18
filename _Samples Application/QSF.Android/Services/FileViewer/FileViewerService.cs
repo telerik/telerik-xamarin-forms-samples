@@ -75,7 +75,12 @@ namespace QSF.Droid.Services.FileViewer
                     Intent intent = new Intent(Intent.ActionView);
                     intent.SetDataAndType(path, mimeType);
 
-                    Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
+                    var context = Android.App.Application.Context;
+
+                    var choserActivity = Intent.CreateChooser(intent, "Choose App");
+                    choserActivity.SetFlags(ActivityFlags.NewTask);
+
+                    context.StartActivity(choserActivity);
                 }
 
                 return true;

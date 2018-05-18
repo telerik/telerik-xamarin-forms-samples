@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Telerik.XamarinForms.DataControls.ListView;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels
@@ -13,6 +14,7 @@ namespace QSF.ViewModels
         private Control control;
         private ObservableCollection<ExampleInfoViewModel> examples;
         private ExampleInfoViewModel selectedExample;
+        private bool canCollapseGroups;
 
         public ObservableCollection<ExampleInfoViewModel> Examples
         {
@@ -47,6 +49,22 @@ namespace QSF.ViewModels
             }
         }
 
+        public bool CanCollapseGroups
+        {
+            get
+            {
+                return this.canCollapseGroups;
+            }
+            private set
+            {
+                if (this.canCollapseGroups != value)
+                {
+                    this.canCollapseGroups = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         public override bool HasCode
         {
             get
@@ -63,6 +81,21 @@ namespace QSF.ViewModels
             }
         }
 
+        public Command<GroupHeaderContext> GroupHeaderTapCommand { get; private set; }
+
+        public ControlExamplesViewModel()
+        {
+            this.GroupHeaderTapCommand = new Command<GroupHeaderContext>(this.OnGroupHeaderTap);
+        }
+
+        private void OnGroupHeaderTap(GroupHeaderContext context)
+        {
+            if (this.CanCollapseGroups)
+            {
+                context.IsExpanded = !context.IsExpanded;
+            }
+        }
+
         protected override Task InitializeAsyncOverride(object parameter)
         {
             string controlName = (string)parameter;
@@ -74,6 +107,7 @@ namespace QSF.ViewModels
             this.CanChangeTheme = this.control.IsThemable;
 
             this.Examples = new ObservableCollection<ExampleInfoViewModel>(this.control.Examples.Select(p => new ExampleInfoViewModel(p)));
+            this.CanCollapseGroups = this.Examples.Select(example => example.GroupName).Distinct().Count() > 1;
 
             return Task.FromResult<bool>(false);
         }
@@ -110,6 +144,7 @@ namespace QSF.ViewModels
 
         protected override Task NavigateToDocumentationOverride()
         {
+            AnalyticsHelper.TraceNavigateToDocumentation(this.control.Name);
             Device.OpenUri(new Uri(this.control.DocumentationURL));
 
             return Task.FromResult(false);

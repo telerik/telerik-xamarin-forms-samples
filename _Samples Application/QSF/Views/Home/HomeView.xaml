@@ -82,20 +82,21 @@
                             <Label Text="Latest" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
 
                             <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Latest}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
-                                                            Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}" />
+                                                            Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}"
+                                                            AutomationId="LatestSlideView" />
 
                             <Label Text="Featured" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}" />
 
                             <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Featured}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
-                                                            Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}" />
+                                                            Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}"
+                                                            AutomationId="FeaturedSlideView"/>
 
                             <Label Text="All controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
 
                             <telerikDataControls:RadListView ItemsSource="{Binding Path=AllControls}" SelectedItem="{Binding Path=SelectedControl, Mode=TwoWay}"
-                                                             x:Name="examplesList">
+                                                             x:Name="examplesList" AutomationId="ControlsListView">
                                 <telerikDataControls:RadListView.Effects>
                                     <effects:ListViewSizeToContentEffect />
-                                    <effects:ListViewRemoveBackgroundEffect />
                                 </telerikDataControls:RadListView.Effects>
                                 <telerikDataControls:RadListView.Margin>
                                     <OnPlatform x:TypeArguments="Thickness">

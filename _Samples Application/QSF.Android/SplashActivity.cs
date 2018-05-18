@@ -11,6 +11,8 @@ namespace QSF.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AnalyticsHelper.Initialize(Xamarin.Forms.Device.Android);
+
             base.OnCreate(savedInstanceState);
 
             var intent = new Intent(this, typeof(MainActivity));

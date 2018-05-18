@@ -18,7 +18,7 @@
                                 <RowDefinition />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <Image Source="{Binding Image, Converter={StaticResource imageSourceConverter}}"
+                            <Image Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}"
                                    Aspect="AspectFill" />
                             <Label Grid.Row="1"
                                    Text="{Binding Name}"
@@ -41,7 +41,7 @@
                                 <RowDefinition />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <Image Source="{Binding Image, Converter={StaticResource imageSourceConverter}}"
+                            <Image Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}"
                                    Aspect="AspectFill" />
                             <Image Source="{Binding IsSaved, Converter={StaticResource booleanHeartConverter}}"
                                    WidthRequest="16"

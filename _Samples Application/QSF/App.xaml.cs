@@ -1,7 +1,8 @@
 ﻿using QSF.Services;
+using QSF.Services.Serialization;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using QSF.Services.Serialization;
+using QSF.Services.BackdoorService;
 
 namespace QSF
 {
@@ -28,6 +29,7 @@ namespace QSF
             DependencyService.Register<IThemesService, ThemesService>();
             DependencyService.Register<ISearchService, SearchService>();
             DependencyService.Register<ISerializationService, SerializationService>();
+            DependencyService.Register<IBackdoorService, BackdoorService>();
         }
 
         private Task InitNavigation()
@@ -38,7 +40,7 @@ namespace QSF
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            AnalyticsHelper.TraceDeviceInfo();
         }
 
         protected override void OnSleep()

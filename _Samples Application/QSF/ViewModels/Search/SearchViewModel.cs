@@ -12,6 +12,7 @@ namespace QSF.ViewModels
         private ObservableCollection<ControlNameSearchResultViewModel> searchResults;
         private Dictionary<Services.SearchResultType, Func<SearchResult, ControlNameSearchResultViewModel>> searchResultTypeToViewModelConverter;
         private ControlNameSearchResultViewModel selectedSearchResult;
+        private bool hasResults;
 
         public SearchViewModel()
         {
@@ -76,6 +77,22 @@ namespace QSF.ViewModels
             }
         }
 
+        public bool HasResults
+        {
+            get
+            {
+                return this.hasResults;
+            }
+            private set
+            {
+                if (this.hasResults != value)
+                {
+                    this.hasResults = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         private void OnSearchTextChanged()
         {
             var controlsService = DependencyService.Get<IControlsService>();
@@ -102,6 +119,8 @@ namespace QSF.ViewModels
                 }
             }
 
+            this.HasResults = results.Count > 0;
+
             this.SearchResults = new ObservableCollection<ControlNameSearchResultViewModel>(results);
         }
 
@@ -116,10 +135,14 @@ namespace QSF.ViewModels
             if (resultType == SearchResultType.Example || resultType == SearchResultType.ExampleDescription)
             {
                 ExampleNameSearchResultViewModel selected = (ExampleNameSearchResultViewModel)this.SelectedSearchResult;
+
+                AnalyticsHelper.TraceSelectSearchResult(this.SearchText, selected);
+
                 await this.NavigationService.NavigateToExampleAsync(new ExampleInfo(selected.ControlName, selected.ExampleName));
             }
             else
             {
+                AnalyticsHelper.TraceSelectSearchResult(this.searchText, this.SelectedSearchResult);
                 await this.NavigationService.NavigateToAsync<ControlExamplesViewModel>(this.SelectedSearchResult.ControlName);
             }
 
@@ -143,8 +166,8 @@ namespace QSF.ViewModels
 
         private ExampleNameSearchResultViewModel ExampleSearchResultToViewMovel(SearchResult result)
         {
-            var highlightedText = new HighlightedTextInfo(result.ExampleName, result.FirstCharIndex, result.LastCharIndex);
-            return new ExampleNameSearchResultViewModel(SearchResultType.Example, result.ControlName, result.ExampleName, highlightedText);
+            var highlightedText = new HighlightedTextInfo(result.ExampleDisplayName, result.FirstCharIndex, result.LastCharIndex);
+            return new ExampleNameSearchResultViewModel(SearchResultType.Example, result.ControlName, result.ExampleDisplayName, highlightedText);
         }
 
         private ExampleDescriptionSearchResultViewModel ExampleDescriptionSearchResultToViewModel(SearchResult result)
@@ -153,7 +176,7 @@ namespace QSF.ViewModels
             var example = controlsService.GetControlExample(result.ControlName, result.ExampleName);
 
             var highlightedText = new HighlightedTextInfo(example.Description, result.FirstCharIndex, result.LastCharIndex);
-            return new ExampleDescriptionSearchResultViewModel(SearchResultType.ExampleDescription, result.ControlName, example.Name, example.Description, highlightedText);
+            return new ExampleDescriptionSearchResultViewModel(SearchResultType.ExampleDescription, result.ControlName, example.DisplayName, example.Description, highlightedText);
         }
     }
 }

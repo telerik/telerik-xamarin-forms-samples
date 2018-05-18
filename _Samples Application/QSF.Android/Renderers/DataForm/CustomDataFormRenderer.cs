@@ -15,9 +15,12 @@ namespace QSF.Droid.Renderers
 {
     public class CustomDataFormRenderer : DataFormRenderer
     {
+        public CustomDataFormRenderer(Android.Content.Context context) : base(context)
+        { }
+
         protected override DataFormLayoutManager GetLayoutManager()
         {
-            return new CustomGroupLayoutManager(this);
+            return new CustomGroupLayoutManager(this,this.Context);
         }
 
         protected override EntityPropertyEditor GetCustomEditorForProperty(RadDataForm form, Com.Telerik.Widget.Dataform.Engine.IEntityProperty nativeProperty, Telerik.XamarinForms.Input.DataForm.IEntityProperty property)
@@ -68,8 +71,8 @@ namespace QSF.Droid.Renderers
                                      nativeProperty);
 
                     var label = ((numberEditor.EditorView as RadNumberPicker).LabelView() as TextView);
-                    numberEditor.EditorView.RootView.LayoutParameters.Height = (int)Xamarin.Forms.Forms.Context.ToPixels(44);
-                    numberEditor.EditorView.LayoutParameters.Height = (int)Xamarin.Forms.Forms.Context.ToPixels(44);
+                    numberEditor.EditorView.RootView.LayoutParameters.Height = (int)this.Context.ToPixels(44);
+                    numberEditor.EditorView.LayoutParameters.Height = (int)this.Context.ToPixels(44);
                     label.SetTextColor(Android.Graphics.Color.Black);
                     return numberEditor;
 
@@ -98,28 +101,11 @@ namespace QSF.Droid.Renderers
                                      nativeProperty);
 
                     var editorView = timeEditor.EditorView as EditText;
-                    (editorView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)Xamarin.Forms.Forms.Context.ToPixels(12);
+                    (editorView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)this.Context.ToPixels(12);
 
-                    (timeEditor.HeaderView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)Xamarin.Forms.Forms.Context.ToPixels(12);
+                    (timeEditor.HeaderView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)this.Context.ToPixels(12);
 
                     return timeEditor;
-
-                case nameof(Reservation.OrderOrigin):
-                    var orderEditor = new DataFormSpinnerEditor(form,
-                                      Resource.Layout.Editor_Main_Layout_2,
-                                      form.EditorsHeaderLayout,
-                                      Resource.Id.data_form_text_viewer_header,
-                                      Resource.Layout.data_form_spinner_editor,
-                                      Resource.Id.data_form_spinner_editor,
-                                      form.EditorsValidationLayout,
-                                      nativeProperty, null);
-
-                    var leftMargin = (int)Xamarin.Forms.Forms.Context.ToPixels(32);
-
-                    (orderEditor.EditorView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = leftMargin;
-                    (orderEditor.HeaderView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = leftMargin;
-
-                    return orderEditor;
 
                 case nameof(Reservation.TableSection):
                     nativeProperty.ImageResource = Resource.Drawable.DataForm_Table_Number;
@@ -134,7 +120,7 @@ namespace QSF.Droid.Renderers
                                      nativeProperty, null);
 
                     var sectionEditorView = sectionEditor.EditorView as Spinner;
-                    (sectionEditorView.LayoutParameters as FrameLayout.LayoutParams).RightMargin = (int)Xamarin.Forms.Forms.Context.ToPixels(12);
+                    (sectionEditorView.LayoutParameters as FrameLayout.LayoutParams).RightMargin = (int)this.Context.ToPixels(12);
                     return sectionEditor;
 
                 case nameof(Reservation.TableNumber):
@@ -147,8 +133,8 @@ namespace QSF.Droid.Renderers
                                             form.EditorsValidationLayout,
                                             nativeProperty, null);
 
-                    (tableNumberEditor.EditorView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)Xamarin.Forms.Forms.Context.ToPixels(12);
-                    (tableNumberEditor.HeaderView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)Xamarin.Forms.Forms.Context.ToPixels(12);
+                    (tableNumberEditor.EditorView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)this.Context.ToPixels(12);
+                    (tableNumberEditor.HeaderView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = (int)this.Context.ToPixels(12);
 
                     return tableNumberEditor;
 

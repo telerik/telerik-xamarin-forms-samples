@@ -30,29 +30,53 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;Release</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Analytics\AnalyticsHelper.cs" />
+    <Compile Include="Analytics\AnalyticsKeys.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\AppBar.xaml.cs">
       <DependentUpon>AppBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\Conditional\ConditionalValueConverter.cs" />
+    <Compile Include="Converters\Conditional\ConditionalValueConverterParameter.cs" />
     <Compile Include="Converters\DateToStringConverter.cs" />
     <Compile Include="Converters\EnumToStringConverter.cs" />
     <Compile Include="Converters\HightlightedText\HightlitedTextConverter.cs" />
     <Compile Include="Converters\HightlightedText\HightlitedTextConverterParameter.cs" />
     <Compile Include="Converters\ImageSourceConverter.cs" />
     <Compile Include="Converters\InvertedBooleanConverter.cs" />
+    <Compile Include="DateTimeKind.cs" />
     <Compile Include="Effects\BorderEffect.cs" />
     <Compile Include="Effects\ButtonBorderEffect.cs" />
     <Compile Include="Effects\ListViewSizeToContentEffect.cs" />
     <Compile Include="Effects\NoAllCapsButtonEffect.cs" />
+    <Compile Include="Effects\SideDrawerTouchTargetEffect.cs" />
     <Compile Include="Effects\StrikeThroughEffect.cs" />
-	<Compile Include="Effects\ListViewRemoveBackgroundEffect.cs" />
+    <Compile Include="Examples\BarcodeControl\Barcode1DGalleryExample\Barcode1DGalleryView.xaml.cs">
+      <DependentUpon>Barcode1DGalleryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\BarcodeControl\PDF417Example\PDF417ConfigurationView.xaml.cs">
+      <DependentUpon>PDF417ConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\BarcodeControl\PDF417Example\PDF417ConfigurationViewModel.cs" />
+    <Compile Include="Examples\BarcodeControl\PDF417Example\PDF417View.xaml.cs">
+      <DependentUpon>PDF417View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\BarcodeControl\PDF417Example\PDF417ViewModel.cs" />
+    <Compile Include="Examples\BarcodeControl\QRCodeExample\ConfigurationType.cs" />
+    <Compile Include="Examples\BarcodeControl\QRCodeExample\QRCodeConfigurationView.xaml.cs">
+      <DependentUpon>QRCodeConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\BarcodeControl\QRCodeExample\QRCodeConfigurationViewModel.cs" />
+    <Compile Include="Examples\BarcodeControl\QRCodeExample\QRCodeView.xaml.cs">
+      <DependentUpon>QRCodeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Examples\AutoCompleteControl\ThemingExample\ThemingView.xaml.cs">
       <DependentUpon>ThemingView.xaml</DependentUpon>
     </Compile>
@@ -63,6 +87,16 @@
       <DependentUpon>TokensView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\AutoCompleteControl\TokensExample\TokensViewModel.cs" />
+    <Compile Include="Examples\BarcodeControl\BoardingPassExample\BoardingPassView.xaml.cs">
+      <DependentUpon>BoardingPassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\BarcodeControl\QRCodeExample\QRCodeViewModel.cs" />
+    <Compile Include="Examples\BarcodeControl\SpecialOfferExample\SpecialOfferView.xaml.cs">
+      <DependentUpon>SpecialOfferView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\BusyIndicatorControl\CustomBusyContentExample\CustomBusyContentView.xaml.cs">
+      <DependentUpon>CustomBusyContentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Examples\BusyIndicatorControl\CustomIndicatorExample\CustomIndicatorView.xaml.cs">
       <DependentUpon>CustomIndicatorView.xaml</DependentUpon>
     </Compile>
@@ -87,9 +121,12 @@
     <Compile Include="Examples\CalendarControl\DayViewExample\DayViewView.xaml.cs">
       <DependentUpon>DayViewView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Examples\CalendarControl\DayViewExample\DayViewViewModel.cs" />
+    <Compile Include="Examples\CalendarControl\ThemingExample\EventData.cs" />
     <Compile Include="Examples\CalendarControl\ThemingExample\ThemingView.xaml.cs">
       <DependentUpon>ThemingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Examples\CalendarControl\ThemingExample\ThemingViewModel.cs" />
     <Compile Include="Examples\ChartControl\AreaSeriesExample\AreaSeriesView.xaml.cs">
       <DependentUpon>AreaSeriesView.xaml</DependentUpon>
     </Compile>
@@ -116,6 +153,54 @@
       <DependentUpon>ThemingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\ChartControl\ThemingExample\ThemingViewModel.cs" />
+    <Compile Include="Examples\ConversationalUIControl\HealthCareAssistanceExample\CustomChatItemTemplateSelector.cs" />
+    <Compile Include="Examples\ConversationalUIControl\HealthCareAssistanceExample\HealthCareAssistanceView.xaml.cs">
+      <DependentUpon>HealthCareAssistanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ConversationalUIControl\HealthCareAssistanceExample\Summary.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\CustomChatItemTemplateSelector.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\DialogFlowBotService.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\InsuranceAssistanceView.xaml.cs">
+      <DependentUpon>InsuranceAssistanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\Fulfillment.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\InsuranceInfo.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\InsuranceService.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\SuggestedAction.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\Request.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\Response.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\Result.cs" />
+    <Compile Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\Models\Status.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\AzureChatBotService.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\Converters\AdaptiveElementToObjectConverter.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\Converters\ChatItemConverter.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\CustomChatItemTemplateSelector.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\Models\FlightChatContext.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\Models\FlightInfo.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Converters\JsonAdaptiveElementToObjectConverter.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\Activity.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\ActivityRoot.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\AdaptiveCard.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\AdaptiveColumnSet.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\AdaptiveContainer.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\AdaptiveElement.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\AdaptiveImage.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\AdaptiveTextBlock.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\Models\AirlineCompany.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\Attachment.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\CardAction.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\CardImage.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\Conversation.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\ConversationAccount.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\HeroCard.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\Sender.cs" />
+    <Compile Include="Examples\ConversationalUIControl\Common\Models\SuggestedActions.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\Models\Summary.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\Models\TravelCardAction.cs" />
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\TravelAssistanceView.xaml.cs">
+      <DependentUpon>TravelAssistanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\ConversationalUIControl\TravelAssistanceExample\TravelBotViewModel.cs" />
     <Compile Include="Examples\DataFormControl\ReservationsExample\DataFormView.xaml.cs">
       <DependentUpon>DataFormView.xaml</DependentUpon>
     </Compile>
@@ -124,19 +209,17 @@
       <DependentUpon>ReservationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\DataFormControl\ReservationsExample\ReservationsViewModel.cs" />
-    <Compile Include="Examples\DataFormControl\ReservationsExample\OrderOrigin.cs" />
-    <Compile Include="Examples\DataFormControl\ReservationsExample\OrderOriginToStringConverter.cs" />
     <Compile Include="Examples\DataFormControl\ReservationsExample\Reservation.cs" />
     <Compile Include="Examples\DataFormControl\ReservationsExample\Section.cs" />
     <Compile Include="Examples\DataFormControl\ReservationsExample\SectionToStringConverter.cs" />
     <Compile Include="Examples\DataFormControl\ReservationsExample\UserPropertyDataSourceProvider.cs" />
     <Compile Include="Examples\DataFormControl\ThemingExample\EnumValue.cs" />
+    <Compile Include="Examples\DataFormControl\ThemingExample\ThemingExampleViewModel.cs" />
     <Compile Include="Examples\DataFormControl\ThemingExample\ThemingView.xaml.cs">
       <DependentUpon>ThemingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\DataFormControl\ThemingExample\ThemingDataForm.cs" />
     <Compile Include="Examples\DataFormControl\ThemingExample\ValuesEnumToStringConverter.cs" />
-    <Compile Include="Examples\DataFormControl\ThemingExample\ThemingViewModel.cs" />
     <Compile Include="Examples\DataGridControl\FirstLookExample\FirstLookView.xaml.cs">
       <DependentUpon>FirstLookView.xaml</DependentUpon>
     </Compile>
@@ -171,8 +254,8 @@
       <DependentUpon>RadialGaugeGalleryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\GaugeControl\RadialGaugeGalleryExample\RadialGaugeGalleryViewModel.cs" />
-    <Compile Include="Examples\GaugeControl\ThemingExample\ThemingView.xaml.cs">
-      <DependentUpon>ThemingView.xaml</DependentUpon>
+    <Compile Include="Examples\GaugeControl\CustomizationExample\CustomizationView.xaml.cs">
+      <DependentUpon>CustomizationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\GaugeControl\VerticalGaugeGalleryExample\VerticalGaugeGalleryView.xaml.cs">
       <DependentUpon>VerticalGaugeGalleryView.xaml</DependentUpon>
@@ -215,6 +298,9 @@
     <Compile Include="Examples\MaskedInputControl\ThemingExample\ThemingView.xaml.cs">
       <DependentUpon>ThemingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Examples\NumericInputControl\FirstLookExample\Gender.cs" />
+    <Compile Include="Examples\NumericInputControl\FirstLookExample\GenderConverter.cs" />
+    <Compile Include="Examples\NumericInputControl\FirstLookExample\FirstLookViewModel.cs" />
     <Compile Include="Examples\PathControl\FiguresExample\FiguresView.xaml.cs">
       <DependentUpon>FiguresView.xaml</DependentUpon>
     </Compile>
@@ -275,6 +361,33 @@
       <DependentUpon>ThemingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\TabViewControl\ThemingExample\ThemingViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\Common\DataProvider.cs" />
+    <Compile Include="Examples\TreeViewControl\Common\ResourcePaths.cs" />
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\AgenciesViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\CityViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\ContinentViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\CountryViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\CustomizationView.xaml.cs">
+      <DependentUpon>CustomizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\CustomizationViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\ItemHierarchyAdapter.cs" />
+    <Compile Include="Examples\TreeViewControl\CustomizationExample\ItemTemplateSelector.cs" />
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\AccountViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\DetailsView.xaml.cs">
+      <DependentUpon>DetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\DetailsViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\EmailViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\FirstLookView.xaml.cs">
+      <DependentUpon>FirstLookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\FirstLookViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\FolderViewModel.cs" />
+    <Compile Include="Examples\TreeViewControl\Converters\LevelToMarginConverter.cs" />
+    <Compile Include="Examples\TreeViewControl\FirstLookExample\HierarchyAdapter.cs" />
+    <Compile Include="Services\BackdoorService\BackdoorService.cs" />
+    <Compile Include="Services\BackdoorService\IBackdoorService.cs" />
     <Compile Include="ViewModels\BindableBase.cs" />
     <Compile Include="Examples\SpreadStreamProcessingControl\GenerateSpreadsheetExample\CourseViewModel.cs" />
     <Compile Include="Examples\SpreadStreamProcessingControl\GenerateSpreadsheetExample\GenerateSpreadsheetView.xaml.cs">
@@ -320,6 +433,7 @@
     <Compile Include="ViewModels\ControlExamples\ControlExamplesViewModel.cs" />
     <Compile Include="ViewModels\ControlExamples\ExampleInfoViewModel.cs" />
     <Compile Include="ViewModels\ExampleInfo.cs" />
+    <Compile Include="ViewModels\Examples\ConfigurationViewModel.cs" />
     <Compile Include="ViewModels\Examples\ExamplesViewModelBase.cs" />
     <Compile Include="ViewModels\Examples\ExampleViewModel.cs" />
     <Compile Include="ViewModels\Examples\GalleryExampleViewModelBase.cs" />
@@ -332,7 +446,7 @@
     <Compile Include="ViewModels\OnBoarding\OnBoardingViewModel.cs" />
     <Compile Include="ViewModels\OnBoarding\SlideViewModel.cs" />
     <Compile Include="ViewModels\PageViewModelBase.cs" />
-    <Compile Include="ViewModels\Recipes\Recipe.cs" />
+    <Compile Include="Examples\ListViewControl\LayoutsExample\Recipe.cs" />
     <Compile Include="ViewModels\Search\ControlDescriptionSearchResultViewModel.cs" />
     <Compile Include="ViewModels\Search\ExampleDescriptionSearchResultViewModel.cs" />
     <Compile Include="ViewModels\Search\ExampleNameSearchResultViewModel.cs" />
@@ -346,6 +460,7 @@
     <Compile Include="Views\ControlExamples\ControlExamplesView.xaml.cs">
       <DependentUpon>ControlExamplesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Examles\ConfigurationView.cs" />
     <Compile Include="Views\Examles\ExamplesViewBase.cs" />
     <Compile Include="Views\Examles\ExampleView.cs" />
     <Compile Include="Views\Examles\GalleryExampleViewBase.xaml.cs">
@@ -440,13 +555,25 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.4\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.dll</HintPath>
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.6\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.3.4\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Forms.dll</HintPath>
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.3.6\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Forms.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.4\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.6\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.1.6.0\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.1.6.0\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.1.6.0\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Crashes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
@@ -455,49 +582,58 @@
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\SkiaSharp.1.59.2\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
+      <HintPath>..\packages\SkiaSharp.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp.Views.Forms, Version=1.59.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SkiaSharp.Views.Forms.1.59.2\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Views.Forms.dll</HintPath>
+      <HintPath>..\packages\SkiaSharp.Views.Forms.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Views.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Documents.SpreadsheetStreaming, Version=2017.3.1317.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Chart, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Chart.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Barcode">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Common, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Common.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataControls, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataControls.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataGrid, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataVisualization, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Input, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Input.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Primitives, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Primitives.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.SkiaSharp, Version=2018.1.117.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Zip, Version=2017.3.1317.240, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.2018.1.117.5\lib\portable-net45+win8+wpa81+wp8\Telerik.Zip.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Zip">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\portable-net45+win8+wpa81+wp8\Telerik.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp, Version=1.0.2.59611, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebSocketSharp.1.0.3-rc11\lib\websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.91020\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.91020\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.91020\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.2.5.1.444934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -700,7 +836,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Examples\GaugeControl\ThemingExample\ThemingView.xaml">
+    <EmbeddedResource Include="Examples\GaugeControl\CustomizationExample\CustomizationView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -861,17 +997,100 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Examples\NumericInputControl\" />
-    <Folder Include="Examples\NumericInputControl\FirstLookExample\" />
+    <EmbeddedResource Include="Examples\BusyIndicatorControl\CustomBusyContentExample\CustomBusyContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\ConversationalUIControl\TravelAssistanceExample\TravelAssistanceView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\ConversationalUIControl\InsuranceAssistanceExample\InsuranceAssistanceView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\BarcodeControl\BoardingPassExample\BoardingPassView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\BarcodeControl\SpecialOfferExample\SpecialOfferView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\TreeViewControl\Resources\AccountDataSource.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\ConversationalUIControl\HealthCareAssistanceExample\HealthCareAssistanceView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\BarcodeControl\QRCodeExample\QRCodeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\BarcodeControl\QRCodeExample\QRCodeConfigurationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\BarcodeControl\PDF417Example\PDF417ConfigurationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\BarcodeControl\PDF417Example\PDF417View.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\BarcodeControl\Barcode1DGalleryExample\Barcode1DGalleryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\TreeViewControl\Resources\AgenciesDataSource.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\TreeViewControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\TreeViewControl\FirstLookExample\DetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examples\TreeViewControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.2.4.0.91020\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.91020\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.5.1.444934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.444934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.4.0.91020\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.4.0.91020\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.5.1.444934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.5.1.444934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets'))" />
   </Target>
 </Project>

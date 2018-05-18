@@ -9,6 +9,8 @@
 
         public string Name { get; set; }
 
+        public string DisplayName { get; set; }
+
         public string Image { get; set; }
 
         public string DescriptionHeader { get; set; }

@@ -6,9 +6,6 @@
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              x:Class="QSF.Examples.TabViewControl.ThemingExample.ThemingView">
-    <ContentPage.BindingContext>
-        <local:ThemingViewModel />
-    </ContentPage.BindingContext>
     <Grid BackgroundColor="#FFF8F8F8">
         <telerikPrimitives:RadTabView views:ThemesBehavior.StyleClass="TelerikTheme">
             <telerikPrimitives:RadTabView.Items>

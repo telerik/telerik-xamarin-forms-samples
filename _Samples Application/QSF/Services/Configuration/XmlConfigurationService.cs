@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-using QSF.Services.Configuration;
+﻿using QSF.Services.Configuration;
 using QSF.Services.Serialization;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace QSF.Services
@@ -27,6 +26,7 @@ namespace QSF.Services
 
             this.FilterPlatformSpecificExamples();
             this.UpdateIsThemableInheritance();
+            this.UpdateDisplayName();
 
             return Task.FromResult(false);
         }
@@ -70,6 +70,20 @@ namespace QSF.Services
                 foreach (var example in examplesToRemove)
                 {
                     control.Examples.Remove(example);
+                }
+            }
+        }
+
+        private void UpdateDisplayName()
+        {
+            foreach (var control in this.configuration.Controls)
+            {
+                foreach (var example in control.Examples)
+                {
+                    if (string.IsNullOrEmpty(example.DisplayName))
+                    {
+                        example.DisplayName = example.Name.InsertSpacesInPascalCase();
+                    }
                 }
             }
         }

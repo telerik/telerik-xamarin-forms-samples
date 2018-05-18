@@ -7,9 +7,14 @@
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              x:Class="QSF.Examples.DataFormControl.ThemingExample.ThemingView"
              BackgroundColor="White">
+    <ContentView.BindingContext>
+        <local:ThemingExampleViewModel />
+    </ContentView.BindingContext>
+    
     <Grid>
-        <ScrollView Margin="16, 0">
+        <ScrollView>
             <local:ThemingDataForm x:Name="dataForm"
+                                   Margin="16, 0"
                                    Source="{Binding}"
                                    CommitMode="Manual"
                                    views:ThemesBehavior.StyleClass="TelerikTheme"

@@ -4,7 +4,7 @@ using QSF.Examples.DataGridControl.Common;
 
 namespace QSF.Examples.DataGridControl.FirstLookExample
 {
-    public class FirstLookViewModel : ViewModelBase
+    public class FirstLookViewModel : ExampleViewModel
     {
         public ObservableCollection<Order> OrderDetails { get; private set; }
 

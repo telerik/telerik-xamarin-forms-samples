@@ -8,9 +8,6 @@
     <ContentView.Resources>
         <ResourceDictionary MergedWith="local:Resources" />
     </ContentView.Resources>
-    <ContentView.BindingContext>
-        <local:RestaurantMenuViewModel />
-    </ContentView.BindingContext>
     <Grid>
         <telerikPrimitives:RadTabView BackgroundColor="{StaticResource lightGray}"
                                       HeaderPosition="Bottom">

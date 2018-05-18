@@ -10,7 +10,7 @@ namespace QSF.Services
         public IEnumerable<Control> GetAllControls()
         {
             IConfigurationService configurationService = DependencyService.Get<IConfigurationService>();
-            var controls = configurationService.GetControlsConfiguration();
+            var controls = configurationService.GetControlsConfiguration().OrderBy(p => p.Name);
 
             return controls;
         }
@@ -19,14 +19,14 @@ namespace QSF.Services
         {
             var controls = this.GetAllControls();
 
-            return controls.Where(p => p.IsLatest);
+            return controls.Where(p => p.Latest > 0).OrderBy(p => p.Latest);
         }
 
         public IEnumerable<Control> GetFeatured()
         {
             var controls = this.GetAllControls();
 
-            return controls.Where(p => p.IsFeatured);
+            return controls.Where(p => p.Featured > 0).OrderBy(p => p.Featured);
         }
 
         public Control GetControlByName(string controlName)

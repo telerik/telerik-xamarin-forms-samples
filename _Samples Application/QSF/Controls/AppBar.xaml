@@ -46,6 +46,7 @@
                                      IsVisible="{TemplateBinding Path=IsLeftButtonVisible}"
                                      IsEnabled="{TemplateBinding Path=IsLeftButtonEnabled}"
                                      Style="{StaticResource Key=AppBarButtonStyle}"
+                                     AutomationId="AppBarLeftButton"
                                      HorizontalOptions="Start">
                         <input:RadButton.Effects>
                             <effects:ButtonBorderEffect />
@@ -69,6 +70,7 @@
                                      IsVisible="{TemplateBinding Path=IsMiddleButtonVisible}"
                                      IsEnabled="{TemplateBinding Path=IsMiddleButtonEnabled}"
                                      Style="{StaticResource Key=AppBarButtonStyle}"
+                                     AutomationId="AppBarMiddleButton"
                                      HorizontalOptions="End"
                                      Grid.Column="2">
                         <input:RadButton.Effects>
@@ -81,6 +83,7 @@
                                      IsVisible="{TemplateBinding Path=IsRightButtonVisible}"
                                      IsEnabled="{TemplateBinding Path=IsRightButtonEnabled}"
                                      Style="{StaticResource Key=AppBarButtonStyle}"
+                                     AutomationId="AppBarRightButton"
                                      HorizontalOptions="End"
                                      Grid.Column="3"
                                      Margin="0, 0, 10, 0">

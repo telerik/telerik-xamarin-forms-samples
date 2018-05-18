@@ -20,7 +20,8 @@
                                          x:Name="listView"
                                          SelectionChanged="RadListView_SelectionChanged"
                                          HeightRequest="50"
-                                         BackgroundColor="{StaticResource Key=AccentColor}">
+                                         BackgroundColor="{StaticResource Key=AccentColor}"
+                                         AutomationId="GalleryListView">
             <telerikDataControls:RadListView.LayoutDefinition>
                 <listView:ListViewLinearLayout Orientation="Horizontal" ItemLength="60" />
             </telerikDataControls:RadListView.LayoutDefinition>

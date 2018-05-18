@@ -229,7 +229,4 @@
             </DataTemplate>
         </ResourceDictionary>
     </views:GalleryExampleViewBase.Resources>
-    <views:GalleryExampleViewBase.BindingContext>
-        <local:RadialGaugeGalleryViewModel />
-    </views:GalleryExampleViewBase.BindingContext>
 </views:GalleryExampleViewBase>

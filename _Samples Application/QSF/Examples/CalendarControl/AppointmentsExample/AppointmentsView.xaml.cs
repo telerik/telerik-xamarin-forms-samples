@@ -15,15 +15,48 @@ namespace QSF.Examples.CalendarControl.AppointmentsExample
 
         private CalendarCellStyle SetStyleForCell(CalendarCell cell)
         {
+            double dayNameFontSize = 0;
+            double weekNumberFontSize = 0;
+            double defaultFontSize = 0;
+            Thickness defaultThickness = new Thickness(1);
+
+            switch (Device.RuntimePlatform)
+            {
+                case Device.UWP:
+                    {
+                        dayNameFontSize = 16;
+                        weekNumberFontSize = 13;
+                        defaultFontSize = 0;
+                        defaultThickness = new Thickness(0);
+                    }
+                    break;
+                case Device.Android:
+                    {
+                        dayNameFontSize = 16;
+                        weekNumberFontSize = 24;
+                        defaultFontSize = 16;
+                        defaultThickness = new Thickness(1);
+                    }
+                    break;
+                case Device.iOS:
+                    {
+                        dayNameFontSize = 10;
+                        weekNumberFontSize = 13;
+                        defaultFontSize = 15;
+                        defaultThickness = new Thickness(0, 0, 0, 1);
+                    }
+                    break;
+            }
+
             if (cell.Type == CalendarCellType.DayName)
             {
                 return new CalendarCellStyle
                 {
                     BackgroundColor = Color.FromHex("EEEEEE"),
                     BorderColor = Color.Transparent,
-                    FontSize = Device.OnPlatform<double>(10, 16, 16),
-                    FontWeight = Telerik.XamarinForms.Common.FontWeight.Bold,
-                    ForegroundColor = Color.FromHex("999999")
+                    FontSize = dayNameFontSize,
+                    FontAttributes = FontAttributes.Bold,
+                    TextColor = Color.FromHex("999999")
                 };
             }
 
@@ -33,8 +66,8 @@ namespace QSF.Examples.CalendarControl.AppointmentsExample
                 {
                     BackgroundColor = Color.FromHex("E5E5E5"),
                     BorderColor = Color.Transparent,
-                    FontSize = Device.OnPlatform<double>(13, 24, 13),
-                    ForegroundColor = Color.FromHex("A9A9A9")
+                    FontSize = weekNumberFontSize,
+                    TextColor = Color.FromHex("A9A9A9")
                 };
             }
 
@@ -42,10 +75,10 @@ namespace QSF.Examples.CalendarControl.AppointmentsExample
             {
                 BackgroundColor = Color.FromHex("EEEEEE"),
                 BorderColor = Color.FromHex("CCCCCC"),
-                BorderThickness = Device.OnPlatform<Thickness>(new Thickness(0, 0, 0, 1), 1, 0),
-                FontSize = Device.OnPlatform<double>(15, 16, 0),
+                BorderThickness = defaultThickness,
+                FontSize = defaultFontSize,
 
-                ForegroundColor = Color.FromHex("333333")
+                TextColor = Color.FromHex("333333")
             };
 
             var dayCell = cell as CalendarDayCell;
@@ -54,32 +87,32 @@ namespace QSF.Examples.CalendarControl.AppointmentsExample
             {
                 if (dayCell.Date.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    defaultStyle.ForegroundColor = Color.FromHex("D42A28");
+                    defaultStyle.TextColor = Color.FromHex("D42A28");
                 }
 
                 if (dayCell.IsFromCurrentMonth)
                 {
                     if (dayCell.IsToday)
                     {
-                        defaultStyle.FontWeight = Telerik.XamarinForms.Common.FontWeight.Bold;
+                        defaultStyle.FontAttributes = FontAttributes.Bold;
                     }
                 }
                 else
                 {
                     if (dayCell.IsToday)
                     {
-                        defaultStyle.ForegroundColor = Color.FromRgb(115, 174, 239);
+                        defaultStyle.TextColor = Color.FromRgb(115, 174, 239);
                     }
                     else
                     {
-                        defaultStyle.ForegroundColor = Color.FromHex("999999");
+                        defaultStyle.TextColor = Color.FromHex("999999");
                         defaultStyle.BackgroundColor = Color.FromHex("E5E5E5");
                     }
                 }
 
                 if (dayCell.IsSelected)
                 {
-                    defaultStyle.ForegroundColor = Color.White;
+                    defaultStyle.TextColor = Color.White;
                 }
 
                 return defaultStyle;

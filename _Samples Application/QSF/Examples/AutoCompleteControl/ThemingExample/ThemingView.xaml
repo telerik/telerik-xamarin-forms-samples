@@ -5,9 +5,6 @@
              xmlns:example="clr-namespace:QSF.Examples.AutoCompleteControl.ThemingExample"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.AutoCompleteControl.ThemingExample.ThemingView">
-  <ContentView.BindingContext>
-    <example:ThemingViewModel />
-  </ContentView.BindingContext>
     <Grid Margin="16,16,16,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

@@ -15,9 +15,6 @@
             <converters:DebugConverter x:Key="DebugConverter" />
         </ResourceDictionary>
     </ContentView.Resources>
-    <ContentView.BindingContext>
-        <local:CreateArchiveViewModel />
-    </ContentView.BindingContext>
     <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
         <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0">
             <Grid.RowDefinitions>

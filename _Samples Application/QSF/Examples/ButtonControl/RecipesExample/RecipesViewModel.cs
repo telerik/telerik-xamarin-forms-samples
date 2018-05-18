@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.ButtonControl.RecipesExample
 {
-    public class RecipesViewModel : ViewModelBase
+    public class RecipesViewModel : ExampleViewModel
     {
         private string category;
         private string popularity;

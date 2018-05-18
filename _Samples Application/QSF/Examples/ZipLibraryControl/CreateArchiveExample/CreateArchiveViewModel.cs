@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace QSF.Examples.ZipLibraryControl.CreateArchiveExample
 {
-    public class CreateArchiveViewModel : ViewModelBase
+    public class CreateArchiveViewModel : ExampleViewModel
     {
         private ObservableCollection<FileViewModel> files;
         private ICommand itemTapCommand;

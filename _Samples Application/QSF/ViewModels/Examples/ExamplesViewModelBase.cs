@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -11,16 +12,21 @@ namespace QSF.ViewModels
         private ICommand navigateToDocumentationCommand;
         private ICommand navigateToCodeCommand;
         private bool canChangeTheme;
+        private ICommand navigateToInfoCommand;
 
         internal sealed override Task InitializeAsync(object parameter)
         {
+            var navigateToInfoCommand = new Command(async () => await this.NavigateToInfo());
+            var navigateToConfigurationCommand = new Command(async () => await this.NavigateToConfiguration());
+
             this.AppBarLeftButtonCommand = new Command(async () => await this.NavigateBack());
-            this.AppBarMiddleButtonCommand = new Command(async () => await this.NavigateToInfo());
+            this.AppBarMiddleButtonCommand = this.HasConfiguration ? navigateToConfigurationCommand : navigateToInfoCommand;
             this.AppBarRightButtonCommand = new Command(this.ToggleIsSideDrawerOpen);
 
             this.NavigateToThemesCommand = new Command(async () => await this.NavigateToThemes());
             this.NavigateToDocumentationCommand = new Command(async () => await this.NavigateToDocumentation());
             this.NavigateToCodeCommand = new Command(async () => await this.NavigateToCode());
+            this.NavigateToInfoCommand = navigateToInfoCommand;
 
             return this.InitializeAsyncOverride(parameter);
         }
@@ -89,6 +95,22 @@ namespace QSF.ViewModels
             }
         }
 
+        public ICommand NavigateToInfoCommand
+        {
+            get
+            {
+                return this.navigateToInfoCommand;
+            }
+            private set
+            {
+                if (this.navigateToInfoCommand != value)
+                {
+                    this.navigateToInfoCommand = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         public virtual bool HasCode
         {
             get
@@ -98,6 +120,14 @@ namespace QSF.ViewModels
         }
 
         public virtual bool HasDocumentation
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public virtual bool HasConfiguration
         {
             get
             {
@@ -135,6 +165,11 @@ namespace QSF.ViewModels
 
         protected abstract Task NavigateToCodeOverride();
 
+        protected virtual Task NavigateToConfigurationOverride()
+        {
+            return Task.FromResult(false);
+        }
+
         private Task NavigateToDocumentation()
         {
             this.IsSideDrawerOpen = false;
@@ -145,6 +180,12 @@ namespace QSF.ViewModels
         {
             this.IsSideDrawerOpen = false;
             return this.NavigateToInfoOverride();
+        }
+
+        private Task NavigateToConfiguration()
+        {
+            this.IsSideDrawerOpen = false;
+            return this.NavigateToConfigurationOverride();
         }
 
         private Task NavigateToCode()

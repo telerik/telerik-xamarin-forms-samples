@@ -9,6 +9,8 @@ namespace QSF.Services
 {
     public class NavigationService : INavigationService
     {
+        private bool hasNavigationInProgress;
+
         public Task InitializeAsync()
         {
             return NavigateToAsync<HomeViewModel>();
@@ -31,7 +33,7 @@ namespace QSF.Services
         public Task NavigateToAsync<TViewModel>()
             where TViewModel : ViewModelBase
         {
-            return InternalNavigateToAsync(typeof(TViewModel), null);
+            return this.NavigateToAsync<TViewModel>(null);
         }
 
         public Task NavigateToAsync<TViewModel>(object parameter)
@@ -42,25 +44,52 @@ namespace QSF.Services
 
         public Task NavigateToExampleAsync(ExampleInfo exampleInfo)
         {
+            AnalyticsHelper.TraceNavigateToExample(exampleInfo);
+
             var viewModelType = typeof(ExampleViewModel);
 
-            return InternalNavigateToAsync(viewModelType, exampleInfo);
+            var page = this.CreatePage(viewModelType);
+
+            var exampleViewModelType = this.GetExampleViewModelType(exampleInfo);
+            if (exampleViewModelType != null)
+            {
+                viewModelType = exampleViewModelType;
+            }
+
+            return InternalNavigateToAsync(page, viewModelType, null, exampleInfo);
+        }
+
+        public Task NavigateToConfigurationAsync<T>(T configurationViewModel)
+            where T : ConfigurationViewModel
+        {
+            var viewModelType = typeof(ConfigurationViewModel);
+
+            var page = this.CreatePage(viewModelType);
+
+            return InternalNavigateToAsync(page, viewModelType, configurationViewModel, null);
         }
 
         public Type GetExampleViewType(ExampleInfo exampleInfo)
         {
-            var type = this.GetType();
-            var assemblyName = type.GetTypeInfo().Assembly.GetName();
-            var viewTypeName = string.Format("{0}.Examples.{1}Control.{2}Example.{3}View", assemblyName.Name, exampleInfo.ControlName, exampleInfo.ExampleName, exampleInfo.ExampleName);
-            var fullViewTypeName = string.Format(CultureInfo.InvariantCulture, "{0}, {1}", viewTypeName, assemblyName.FullName);
-            var viewType = Type.GetType(fullViewTypeName);
+            AssemblyName assemblyName = this.GetAssemblyName();
+            var typeName = string.Format("{0}.Examples.{1}Control.{2}Example.{3}View", assemblyName.Name, exampleInfo.ControlName, exampleInfo.ExampleName, exampleInfo.ExampleName);
+            Type type = GetTypeFromTypeName(assemblyName, typeName);
 
-            if (viewType == null)
+            if (type == null)
             {
-                throw new ArgumentException(string.Format("Missing view {0}", viewTypeName));
+                throw new ArgumentException(string.Format("Missing view {0}", typeName));
             }
 
-            return viewType;
+            return type;
+        }
+
+        public Type GetExampleViewModelType(ExampleInfo exampleInfo)
+        {
+            var assemblyName = this.GetAssemblyName();
+            var typeName = string.Format("{0}.Examples.{1}Control.{2}Example.{3}ViewModel", assemblyName.Name, exampleInfo.ControlName, exampleInfo.ExampleName, exampleInfo.ExampleName);
+            var type = GetTypeFromTypeName(assemblyName, typeName);
+
+            return type;
         }
 
         public async Task NavigateBackAsync()
@@ -101,7 +130,7 @@ namespace QSF.Services
             return Task.FromResult(true);
         }
 
-        private Type GetViewTypeForViewModel(Type viewModelType)
+        public Type GetViewTypeForViewModel(Type viewModelType)
         {
             var viewName = viewModelType.FullName.Replace("Model", string.Empty);
             var viewModelAssemblyName = viewModelType.GetTypeInfo().Assembly.FullName;
@@ -111,26 +140,55 @@ namespace QSF.Services
             return viewType;
         }
 
-        private async Task InternalNavigateToAsync(Type viewModelType, object parameter)
+        private Task InternalNavigateToAsync(Type viewModelType, object parameter)
         {
-            Page page = CreatePage(viewModelType);
-
-            if (page.BindingContext == null)
+            try
             {
-                var viewModel = (ViewModelBase)Activator.CreateInstance(viewModelType);
-                await viewModel.InitializeAsync(parameter);
+                Page page = CreatePage(viewModelType);
 
-                page.BindingContext = viewModel;
+                return this.InternalNavigateToAsync(page, viewModelType, null, parameter);
+            }
+            catch
+            {
+                return Task.FromResult(false);
+            }
+        }
+
+        private async Task InternalNavigateToAsync(Page page, Type viewModelType, ViewModelBase viewModel, object parameter)
+        {
+            if (this.hasNavigationInProgress)
+            {
+                return;
             }
 
-            var navigationPage = Application.Current.MainPage as NavigationPage;
-            if (navigationPage != null)
+            this.hasNavigationInProgress = true;
+
+            try
             {
-                await navigationPage.PushAsync(page);
+                if (page.BindingContext == null)
+                {
+                    if (viewModel == null)
+                    {
+                        viewModel = (ViewModelBase)Activator.CreateInstance(viewModelType);
+                    }
+                    await viewModel.InitializeAsync(parameter);
+
+                    page.BindingContext = viewModel;
+                }
+
+                var navigationPage = Application.Current.MainPage as NavigationPage;
+                if (navigationPage != null)
+                {
+                    await navigationPage.PushAsync(page);
+                }
+                else
+                {
+                    Application.Current.MainPage = new NavigationPage(page);
+                }
             }
-            else
+            finally
             {
-                Application.Current.MainPage = new NavigationPage(page);
+                this.hasNavigationInProgress = false;
             }
         }
 
@@ -143,6 +201,20 @@ namespace QSF.Services
             }
 
             return Activator.CreateInstance(pageType) as Page;
+        }
+
+        private static Type GetTypeFromTypeName(AssemblyName assemblyName, string typeName)
+        {
+            var fullTypeName = string.Format(CultureInfo.InvariantCulture, "{0}, {1}", typeName, assemblyName.FullName);
+            var type = Type.GetType(fullTypeName);
+            return type;
+        }
+
+        private AssemblyName GetAssemblyName()
+        {
+            var type = this.GetType();
+            var assemblyName = type.GetTypeInfo().Assembly.GetName();
+            return assemblyName;
         }
     }
 }
