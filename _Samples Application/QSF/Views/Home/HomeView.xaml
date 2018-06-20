@@ -72,7 +72,7 @@
                         <controls:AppBar.TitleIcon>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS, Android">Logo.png</On>
-                                <On Platform="UWP">assets/Logo.png</On>
+                                <On Platform="UWP">Assets/Logo.png</On>
                             </OnPlatform>
                         </controls:AppBar.TitleIcon>
                     </controls:AppBar>

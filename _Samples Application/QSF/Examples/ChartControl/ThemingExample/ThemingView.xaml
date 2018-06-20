@@ -10,9 +10,9 @@
             <DataTemplate x:Key="bar">
                 <StackLayout>
                     <telerikChart:RadCartesianChart views:ThemesBehavior.StyleClass="TelerikTheme" x:Name="chart" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="16, 0">
-                        <telerikChart:RadCartesianChart.Behaviors>
+                        <telerikChart:RadCartesianChart.ChartBehaviors>
                             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
-                        </telerikChart:RadCartesianChart.Behaviors>
+                        </telerikChart:RadCartesianChart.ChartBehaviors>
                         <telerikChart:RadCartesianChart.HorizontalAxis>
                             <telerikChart:CategoricalAxis />
                         </telerikChart:RadCartesianChart.HorizontalAxis>
@@ -31,9 +31,9 @@
             <DataTemplate x:Key="pieChart">
                 <StackLayout>
                     <telerikChart:RadPieChart views:ThemesBehavior.StyleClass="TelerikTheme" x:Name="pie" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                        <telerikChart:RadPieChart.Behaviors>
+                        <telerikChart:RadPieChart.ChartBehaviors>
                             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None" />
-                        </telerikChart:RadPieChart.Behaviors>
+                        </telerikChart:RadPieChart.ChartBehaviors>
                         <telerikChart:RadPieChart.Series>
                             <telerikChart:PieSeries ValueBinding="Value" ItemsSource="{Binding SeriesData}" RadiusFactor="0.9" DisplayName="Value" LegendTitleBinding="Category" />
                         </telerikChart:RadPieChart.Series>

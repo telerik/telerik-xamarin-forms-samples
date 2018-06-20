@@ -88,7 +88,6 @@
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchExtraArgs>--xml=Linker.config</MtouchExtraArgs>
     <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;Release</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
@@ -136,9 +135,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
-    <LinkDescription Include="Linker.config">
-      <SubType>Designer</SubType>
-    </LinkDescription>
     <None Include="packages.config" />
     <BundleResource Include="Resources\Fonts\SF-Pro-Text-Medium.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -202,6 +198,34 @@
     <BundleResource Include="Resources\DataGrid_SalesPerson_8%401,5x.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_8%402x.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_8%403x.png" />
+    <BundleResource Include="Resources\Border_Person_1.png" />
+    <BundleResource Include="Resources\Border_Person_1%401,5x.png" />
+    <BundleResource Include="Resources\Border_Person_1%402x.png" />
+    <BundleResource Include="Resources\Border_Person_1%403x.png" />
+    <BundleResource Include="Resources\Border_Person_2.png" />
+    <BundleResource Include="Resources\Border_Person_2%401,5x.png" />
+    <BundleResource Include="Resources\Border_Person_2%402x.png" />
+    <BundleResource Include="Resources\Border_Person_2%403x.png" />
+    <BundleResource Include="Resources\Border_Person_3.png" />
+    <BundleResource Include="Resources\Border_Person_3%401,5x.png" />
+    <BundleResource Include="Resources\Border_Person_3%402x.png" />
+    <BundleResource Include="Resources\Border_Person_3%403x.png" />
+    <BundleResource Include="Resources\Border_Person_4.png" />
+    <BundleResource Include="Resources\Border_Person_4%401,5x.png" />
+    <BundleResource Include="Resources\Border_Person_4%402x.png" />
+    <BundleResource Include="Resources\Border_Person_4%403x.png" />
+    <BundleResource Include="Resources\Border_User.png" />
+    <BundleResource Include="Resources\Border_User%401,5x.png" />
+    <BundleResource Include="Resources\Border_User%402x.png" />
+    <BundleResource Include="Resources\Border_User%403x.png" />
+    <BundleResource Include="Resources\Border_FirstLook.png" />
+    <BundleResource Include="Resources\Border_FirstLook%401,5x.png" />
+    <BundleResource Include="Resources\Border_FirstLook%402x.png" />
+    <BundleResource Include="Resources\Border_FirstLook%403x.png" />
+    <BundleResource Include="Resources\CheckBox_FirstLook.png" />
+    <BundleResource Include="Resources\CheckBox_FirstLook%401,5x.png" />
+    <BundleResource Include="Resources\CheckBox_FirstLook%402x.png" />
+    <BundleResource Include="Resources\CheckBox_FirstLook%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Calabash">
@@ -260,37 +284,37 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Telerik.Xamarin.iOS">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.Xamarin.iOS.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.Xamarin.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.Barcode.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Chart">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.Chart.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Common">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.Common.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataControls">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.DataControls.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataGrid">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.DataGrid.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataVisualization">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Input">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.Input.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Primitives">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.516.2\lib\xamarinios10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.2.620.2\lib\xamarinios10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="WebP.Touch, Version=1.0.6628.22311, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebP.Touch.1.0.8\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>
@@ -3673,6 +3697,30 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TelerikSendMessage%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration_Avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration_Avatar%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration_Avatar%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration_Avatar%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Border_Configuration%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -9,9 +9,9 @@
     <ResourceDictionary MergedWith="views:GalleryResources">
       <DataTemplate x:Key="lineArea">
         <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
-          <telerikChart:RadCartesianChart.Behaviors>
+          <telerikChart:RadCartesianChart.ChartBehaviors>
             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
-          </telerikChart:RadCartesianChart.Behaviors>
+          </telerikChart:RadCartesianChart.ChartBehaviors>
           <telerikChart:RadCartesianChart.HorizontalAxis>
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
@@ -28,9 +28,9 @@
       </DataTemplate>
       <DataTemplate x:Key="splineArea">
         <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
-          <telerikChart:RadCartesianChart.Behaviors>
+          <telerikChart:RadCartesianChart.ChartBehaviors>
             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
-          </telerikChart:RadCartesianChart.Behaviors>
+          </telerikChart:RadCartesianChart.ChartBehaviors>
           <telerikChart:RadCartesianChart.HorizontalAxis>
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
@@ -47,9 +47,9 @@
       </DataTemplate>
       <DataTemplate x:Key="stacked-lineArea">
         <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
-          <telerikChart:RadCartesianChart.Behaviors>
+          <telerikChart:RadCartesianChart.ChartBehaviors>
             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
-          </telerikChart:RadCartesianChart.Behaviors>
+          </telerikChart:RadCartesianChart.ChartBehaviors>
           <telerikChart:RadCartesianChart.HorizontalAxis>
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>
@@ -67,9 +67,9 @@
       </DataTemplate>
       <DataTemplate x:Key="stacked-splineArea">
         <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
-          <telerikChart:RadCartesianChart.Behaviors>
+          <telerikChart:RadCartesianChart.ChartBehaviors>
             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
-          </telerikChart:RadCartesianChart.Behaviors>
+          </telerikChart:RadCartesianChart.ChartBehaviors>
           <telerikChart:RadCartesianChart.HorizontalAxis>
             <telerikChart:CategoricalAxis LineColor="#A9A9A9" MajorTickThickness="2" PlotMode="OnTicks" LabelFitMode="MultiLine" ShowLabels="True" MajorTickBackgroundColor="#A9A9A9" />
           </telerikChart:RadCartesianChart.HorizontalAxis>

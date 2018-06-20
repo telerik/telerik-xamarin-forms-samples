@@ -2,12 +2,15 @@
 {
     public class ExampleNameSearchResultViewModel : ControlNameSearchResultViewModel
     {
-        public ExampleNameSearchResultViewModel(SearchResultType resultType, string controlName, string exampleName, HighlightedTextInfo highlightedTextInfo)
+        public ExampleNameSearchResultViewModel(SearchResultType resultType, string controlName, string exampleName, string exampleDisplayName, HighlightedTextInfo highlightedTextInfo)
             : base(resultType, controlName, highlightedTextInfo)
         {
             this.ExampleName = exampleName;
+            this.ExampleDisplayName = exampleDisplayName;
         }
 
-        public string ExampleName { get; }
+        internal string ExampleName { get; }
+
+        public string ExampleDisplayName { get; }
     }
 }

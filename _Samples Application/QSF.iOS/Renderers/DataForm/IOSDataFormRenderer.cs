@@ -45,6 +45,9 @@ namespace QSF.iOS.Renderers.DataForm
                 case nameof(Reservation.TableNumber):
                     return typeof(TKDataFormPickerViewEditor);
 
+                case nameof(Reservation.OrderOrigin):
+                    return typeof(TKDataFormSegmentedEditor);
+
                 default:
                     return base.GetCustomEditorType(propertyName, propertyType);
             }
@@ -124,6 +127,13 @@ namespace QSF.iOS.Renderers.DataForm
                     valueLabel.TextColor = UIColor.Black;
                     valueLabel.TextAlignment = UITextAlignment.Right;
                     valueLabel.TextInsets = new UIEdgeInsets(0, 0, 0, 15);
+                    break;
+
+                case nameof(Reservation.OrderOrigin):
+                    var segmentedEditor = editor as TKDataFormSegmentedEditor;
+                    segmentedEditor.SegmentedControl.TintColor = UIColor.FromRGB(199, 51, 57);
+                    editor.Style.EditorOffset = new UIOffset(0, 0);
+                    editor.Style.SeparatorColor = new TKFill();
                     break;
             }
         }

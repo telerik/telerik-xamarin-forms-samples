@@ -55,6 +55,10 @@
                                                              Command="{Binding NavigateCommand}" />
                 <telerikTreeViewCommands:TreeViewUserCommand Id="ItemHold"
                                                              Command="{Binding ActivateCommand}" />
+                <telerikTreeViewCommands:TreeViewUserCommand Id="ItemExpand"
+                                                             Command="{Binding ExpandCommand}" />
+                <telerikTreeViewCommands:TreeViewUserCommand Id="ItemCollapse"
+                                                             Command="{Binding CollapseCommand}" />
             </telerikDataControls:RadTreeView.Commands>
             <telerikDataControls:RadTreeView.ItemTemplate>
                 <DataTemplate>
@@ -71,16 +75,7 @@
                                FontSize="16"
                                FontFamily="{StaticResource IconsFont}"
                                TextColor="#B2B2B2"
-                               Text="{Binding Item.Icon}">
-                            <Label.Triggers>
-                                <DataTrigger TargetType="Label"
-                                             Binding="{Binding IsExpanded}"
-                                             Value="True">
-                                    <Setter Property="Text"
-                                            Value="{StaticResource OpenFolderIcon}" />
-                                </DataTrigger>
-                            </Label.Triggers>
-                        </Label>
+                               Text="{Binding Item.Icon}" />
                         <Label Grid.Column="1"
                                VerticalOptions="Center"
                                FontSize="14"

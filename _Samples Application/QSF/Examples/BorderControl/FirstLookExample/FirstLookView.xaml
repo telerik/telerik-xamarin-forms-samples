@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:local="clr-namespace:QSF.Examples.EntryControl.FirstLookExample"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.BorderControl.FirstLookExample.FirstLookView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EditButtonBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BackgroundColor" Value="#9f392b" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+
+            <Style x:Key="EditButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="25, 10, 25, 10" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="ApprovalSentLabelStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0, 10, 0, 0" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="#f1b3aa" />
+                <Setter Property="IsVisible" Value="false" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="AvatarBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="CornerRadius" Value="104" />
+                <Setter Property="WidthRequest" Value="104" />
+                <Setter Property="HeightRequest" Value="104" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="BorderThickness" Value="8" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="UserNameLabelStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0, 0, 0, 0" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="#dde3ed" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="UserJobTitleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="#dc8372" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="UserStatisticsCountLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="UserStatisticsTitleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="#737b96" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 0, 0, 0" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="UserStatisticsIndicatorBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="WidthRequest" Value="10" />
+                <Setter Property="HeightRequest" Value="10" />
+            </Style>
+
+            <Style x:Key="UserStatisticsContainerStyle" TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 20, 0, 20" />
+                <Setter Property="Spacing">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="0" />
+                                <On Platform="UWP, Android" Value="-4" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="UserStatisticsSeparatorStyle" TargetType="BoxView">
+                <Setter Property="Margin" Value="0, 15, 0, 15" />
+                <Setter Property="BackgroundColor" Value="#e6edf4" />
+            </Style>
+
+            <Style x:Key="CommentAvatarImageStyle" TargetType="Image">
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+            </Style>
+
+            <Style x:Key="CommentAvatarImageBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Margin" Value="0, 0, 6, 0" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="CornerRadius" Value="40" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="BorderThickness" Value="3" />
+            </Style>
+
+            <Style x:Key="CommentTextBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="Margin" Value="45, 0, 16, 0" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="CornerRadius" Value="0, 16, 16, 16" />
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <Style x:Key="CommentTextLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+             <Style x:Key="CommentUserNameLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="0, 0, 0, 5" />
+                <Setter Property="TextColor" Value="#cd513b" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" BackgroundColor="#cd4e37">
+                <Grid Margin="0, 15, 15, 0">
+                    <Label x:Name="awatingApprovalLabel" Text="Awaiting approval." Style="{StaticResource ApprovalSentLabelStyle}" />
+                    
+                    <telerikPrimitives:RadBorder Style="{StaticResource EditButtonBorderStyle}">
+                        <Label x:Name="connectButon" Text="Connect" Style="{StaticResource EditButtonStyle}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ConnectButtonTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </telerikPrimitives:RadBorder>
+                </Grid>
+                
+                <StackLayout Margin="0, 5, 0, 20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <telerikPrimitives:RadBorder Style="{StaticResource AvatarBorderStyle}">
+                        <Image Source="{Binding Avatar, Converter={StaticResource ImageSourceConverter}}" />
+                    </telerikPrimitives:RadBorder>
+                    
+                    <Label Text="Dayana Tsvetkova" Style="{StaticResource UserNameLabelStyle}" />
+                    <Label Text="Developer" Style="{StaticResource UserJobTitleLabelStyle}" />
+                </StackLayout>
+            </StackLayout>
+
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackLayout Grid.Column="0" Style="{StaticResource UserStatisticsContainerStyle}">
+                        <telerikPrimitives:RadBorder Style="{StaticResource UserStatisticsIndicatorBorderStyle}" BorderColor="#7a994d" />
+                        <Label Text="20" Style="{StaticResource UserStatisticsCountLabelStyle}" />
+                        <Label Text="Profile Views" Style="{StaticResource UserStatisticsTitleLabelStyle}" />
+                    </StackLayout>
+
+                    <BoxView Grid.Column="1" Style="{StaticResource UserStatisticsSeparatorStyle}" />
+                    
+                     <StackLayout Grid.Column="2" Style="{StaticResource UserStatisticsContainerStyle}">
+                        <telerikPrimitives:RadBorder Style="{StaticResource UserStatisticsIndicatorBorderStyle}" BorderColor="#a1513f" />
+                        <Label Text="6" Style="{StaticResource UserStatisticsCountLabelStyle}" />
+                        <Label Text="Article Clicks" Style="{StaticResource UserStatisticsTitleLabelStyle}" />
+                     </StackLayout>
+
+                    <BoxView Grid.Column="3" Style="{StaticResource UserStatisticsSeparatorStyle}" />
+
+                     <StackLayout Grid.Column="4" Style="{StaticResource UserStatisticsContainerStyle}">
+                        <telerikPrimitives:RadBorder Style="{StaticResource UserStatisticsIndicatorBorderStyle}" BorderColor="#eecc89" />
+                        <Label Text="12" Style="{StaticResource UserStatisticsCountLabelStyle}" />
+                        <Label Text="Appearances" Style="{StaticResource UserStatisticsTitleLabelStyle}" />
+                    </StackLayout>
+                </Grid>
+            </Grid>
+
+            <StackLayout Grid.Row="2" BackgroundColor="#e9e6e4">
+               <Grid BackgroundColor="#e9e6e4" Padding="10">
+                   <Grid.RowDefinitions>
+                       <RowDefinition Height="Auto" />
+                       <RowDefinition Height="*" />
+                   </Grid.RowDefinitions>
+                   <Label Text="Melanie Powers, MBA" Style="{StaticResource CommentUserNameLabelStyle}" />
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentAvatarImageBorderStyle}">
+                       <Image Source="{Binding Person1Avatar, Converter={StaticResource ImageSourceConverter}}" Style="{StaticResource CommentAvatarImageStyle}" />
+                   </telerikPrimitives:RadBorder>
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentTextBorderStyle}">
+                       <Label Text="Dayana is a very creative and fun-loving person with plenty of insights into web development accumulated throughout her long career in the field.We worked on several projects together and I enjoyed her client-focus and pro-activeness as well as her good humour."
+                              Style="{StaticResource CommentTextLabelStyle}" />
+                   </telerikPrimitives:RadBorder>
+               </Grid>
+
+                <Grid BackgroundColor="#e9e6e4" Padding="10">
+                   <Grid.RowDefinitions>
+                       <RowDefinition Height="Auto" />
+                       <RowDefinition Height="*" />
+                   </Grid.RowDefinitions>
+                   <Label Text="Jay Elliott" Style="{StaticResource CommentUserNameLabelStyle}" />
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentAvatarImageBorderStyle}">
+                       <Image Source="{Binding Person2Avatar, Converter={StaticResource ImageSourceConverter}}" Style="{StaticResource CommentAvatarImageStyle}" />
+                   </telerikPrimitives:RadBorder>
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentTextBorderStyle}">
+                       <Label Text="Dayana is a great and reliable developer! She is very responsive to her tasks, delivers in scope, and provides timely execution. She is professional, a team player and a pleasure to work with!"
+                              Style="{StaticResource CommentTextLabelStyle}" />
+                   </telerikPrimitives:RadBorder>
+               </Grid>
+
+                <Grid BackgroundColor="#e9e6e4" Padding="10">
+                   <Grid.RowDefinitions>
+                       <RowDefinition Height="Auto" />
+                       <RowDefinition Height="*" />
+                   </Grid.RowDefinitions>
+                   <Label Text="Taylor Shaw" Style="{StaticResource CommentUserNameLabelStyle}" />
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentAvatarImageBorderStyle}">
+                       <Image Source="{Binding Person3Avatar, Converter={StaticResource ImageSourceConverter}}" Style="{StaticResource CommentAvatarImageStyle}" />
+                   </telerikPrimitives:RadBorder>
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentTextBorderStyle}">
+                       <Label Text="I think Dayana's big secret is that she really gives it all at work. She looks for a meaning and happiness through her work and if you really engage her she can do wonders all by herself."
+                              Style="{StaticResource CommentTextLabelStyle}" />
+                   </telerikPrimitives:RadBorder>
+               </Grid>
+
+                <Grid BackgroundColor="#e9e6e4" Padding="10">
+                   <Grid.RowDefinitions>
+                       <RowDefinition Height="Auto" />
+                       <RowDefinition Height="*" />
+                   </Grid.RowDefinitions>
+                   <Label Text="Megan Reid" Style="{StaticResource CommentUserNameLabelStyle}" />
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentAvatarImageBorderStyle}">
+                       <Image Source="{Binding Person4Avatar, Converter={StaticResource ImageSourceConverter}}" Style="{StaticResource CommentAvatarImageStyle}" />
+                   </telerikPrimitives:RadBorder>
+                   <telerikPrimitives:RadBorder Grid.Row="1" Style="{StaticResource CommentTextBorderStyle}">
+                       <Label Text="Besides her professional knowledge I can say Dayana is a great person to work with. The Project Managers were always trying to get Dayana in their project-teams. And the developers were always asking for her."
+                              Style="{StaticResource CommentTextLabelStyle}" />
+                   </telerikPrimitives:RadBorder>
+               </Grid>
+           </StackLayout>
+            
+        </Grid>
+    </ScrollView>
+    
+    
+</ContentView>
+
+

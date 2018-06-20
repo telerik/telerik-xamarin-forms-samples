@@ -19,6 +19,7 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary MergedWith="telerikCommon:BlueResources"/>
                 <ResourceDictionary MergedWith="telerikInput:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="primitives:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="chart:TelerikThemeStyles"/>
@@ -48,6 +49,7 @@
             <x:String x:Key="TickIcon">&#xE809;</x:String>
             <x:String x:Key="AirplaneIcon">&#xE81C;</x:String>
             <x:String x:Key="ArrowIcon">&#xE820;</x:String>
+            <x:String x:Key="LockerIcon">&#xE830;</x:String>
             <x:String x:Key="ExpandedIcon">&#xF107;</x:String>
             <x:String x:Key="CollapsedIcon">&#xF105;</x:String>
             <x:String x:Key="TreeExpandedIcon">&#xE80D;</x:String>
