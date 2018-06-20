@@ -58,7 +58,12 @@ namespace QSF.UWP
                 var assembliesToInclude = new List<Assembly>()
                 {
                     typeof(CachedImage).GetTypeInfo().Assembly,
-                    typeof(CachedImageRenderer).GetTypeInfo().Assembly
+                    typeof(CachedImageRenderer).GetTypeInfo().Assembly,
+                    typeof(Image).GetTypeInfo().Assembly,
+                    typeof(Telerik.XamarinForms.Input.RadButton).GetTypeInfo().Assembly,
+                    typeof(Telerik.XamarinForms.InputRenderer.UWP.ButtonRenderer).GetTypeInfo().Assembly,
+                    typeof(Telerik.XamarinForms.Primitives.RadBorder).GetTypeInfo().Assembly,
+                    typeof(Telerik.XamarinForms.PrimitivesRenderer.UWP.BorderRenderer).GetTypeInfo().Assembly,
                 };
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 

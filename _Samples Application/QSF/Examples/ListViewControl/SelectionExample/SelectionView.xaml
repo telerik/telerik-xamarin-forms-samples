@@ -256,12 +256,9 @@
                     <telerikListView:DelegateFilterDescriptor Filter="{Binding ItemFilter}" />
                 </telerikDataControls:RadListView.FilterDescriptors>
                 <telerikDataControls:RadListView.GroupDescriptors>
-                    <telerikListView:PropertyGroupDescriptor PropertyName="Date" />
+                    <telerikListView:PropertyGroupDescriptor PropertyName="Date"
+                                                             SortOrder="Ascending" />
                 </telerikDataControls:RadListView.GroupDescriptors>
-                <telerikDataControls:RadListView.SortDescriptors>
-                    <telerikListView:PropertySortDescriptor PropertyName="Date"
-                                                            SortOrder="Ascending" />
-                </telerikDataControls:RadListView.SortDescriptors>
                 <telerikDataControls:RadListView.ItemStyle>
                     <telerikListView:ListViewItemStyle BackgroundColor="#E4D8D4"
                                                        BorderWidth="1"
@@ -362,7 +359,7 @@
                                    VerticalOptions="Center"
                                    IsVisible="{Binding IsExpanded, Converter={StaticResource InvertedBooleanConverter}}" />
                             <Label Grid.Column="1"
-                                   Text="{Binding}"
+                                   Text="{Binding Key}"
                                    FontAttributes="Bold"
                                    FontSize="14"
                                    TextColor="#A4928D"

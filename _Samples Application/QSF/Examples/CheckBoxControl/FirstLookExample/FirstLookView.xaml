@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.CheckBoxControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="90"/>
+                </Grid.RowDefinitions>
+                <StackLayout BackgroundColor="#1957B2" Spacing="10" Orientation="Horizontal">
+                    <telerikPrimitives:RadBorder BackgroundColor="#113A77" Margin="20,0" HeightRequest="50" WidthRequest="50" VerticalOptions="Center" CornerRadius="25" views:ThemesBehavior.StyleClass="TelerikTheme">
+                        <Label Text="{StaticResource LockerIcon}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#cbd2f4" FontFamily="{StaticResource IconsFont}"/>
+                    </telerikPrimitives:RadBorder>
+                    <Label Text="Privacy Settings/demo/" FontSize="Large" FontAttributes="Bold" Grid.Column="1" TextColor="#cbd2f4" VerticalOptions="Center"/>
+                </StackLayout>
+                <Grid Grid.Row="1" Margin="20,35,20,20" ColumnSpacing="20" RowSpacing="35">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="E-mail me when:" FontAttributes="Bold" FontSize="Medium" Grid.RowSpan="2"/>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Spacing="10" Grid.Column="1">
+                        <telerikPrimitives:RadCheckBox VerticalOptions="Center" views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                        <Label Text="Someone follows me" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Grid.Row="1" Grid.Column="1">
+                        <telerikPrimitives:RadCheckBox VerticalOptions="Start" Margin="0,7,0,5" views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                        <Label Text="Someone sends me a message" FontSize="Small"/>
+                    </StackLayout>
+
+                    <Label Text="Privacy:" FontAttributes="Bold" FontSize="Medium" Grid.Row="2" Grid.RowSpan="2"/>
+                    <StackLayout Orientation="Horizontal" Spacing="10" Grid.Row="2" Grid.Column="1">
+                        <telerikPrimitives:RadCheckBox VerticalOptions="Center" views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                        <Label Text="Make my profile private" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="10" Grid.Row="3" Grid.Column="1">
+                        <telerikPrimitives:RadCheckBox VerticalOptions="Start" Margin="0,7,0,0" views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                        <Label Text="Only show your posts to people who follows me" FontSize="Small"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <BoxView HeightRequest="2" Color="#E5E5E5" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                    <telerikInput:RadButton BackgroundColor="#1957B2" Text="Save Settings" TextColor="#cbd2f4" FontSize="Small" Margin="0,0,20,0" VerticalOptions="Center" WidthRequest="200" HeightRequest="40" HorizontalOptions="End"  FontFamily="{StaticResource RegularFont}" views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

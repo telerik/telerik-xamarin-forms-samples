@@ -189,7 +189,7 @@
                                    TextColor="#5D4037"
                                    IsVisible="{Binding IsExpanded, Converter={StaticResource InvertedBooleanConverter}}" />
                             <Label Grid.Column="1"
-                                   Text="{Binding}"
+                                   Text="{Binding Key}"
                                    HorizontalOptions="Start"
                                    VerticalOptions="Center"
                                    FontAttributes="Bold"

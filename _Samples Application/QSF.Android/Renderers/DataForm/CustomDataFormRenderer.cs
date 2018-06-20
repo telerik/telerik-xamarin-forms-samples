@@ -107,6 +107,23 @@ namespace QSF.Droid.Renderers
 
                     return timeEditor;
 
+                case nameof(Reservation.OrderOrigin):
+                    var orderEditor = new DataFormSpinnerEditor(form,
+                                      Resource.Layout.Editor_Main_Layout_2,
+                                      form.EditorsHeaderLayout,
+                                      Resource.Id.data_form_text_viewer_header,
+                                      Resource.Layout.data_form_spinner_editor,
+                                      Resource.Id.data_form_spinner_editor,
+                                      form.EditorsValidationLayout,
+                                      nativeProperty, null);
+
+                    var leftMargin = (int)this.Context.ToPixels(32);
+
+                    (orderEditor.EditorView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = leftMargin;
+                    (orderEditor.HeaderView.LayoutParameters as FrameLayout.LayoutParams).LeftMargin = leftMargin;
+
+                    return orderEditor;
+
                 case nameof(Reservation.TableSection):
                     nativeProperty.ImageResource = Resource.Drawable.DataForm_Table_Number;
 

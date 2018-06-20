@@ -9,6 +9,9 @@ namespace QSF.Examples.TreeViewControl.FirstLookExample
 {
     public class FirstLookViewModel : ExampleViewModel
     {
+        private const string OpenFolderIcon = "\uE829";
+        private const string ClosedFolderIcon = "\uE82A";
+
         private AccountViewModel account;
         private FolderViewModel folder;
 
@@ -46,6 +49,8 @@ namespace QSF.Examples.TreeViewControl.FirstLookExample
 
         public Command<TreeViewItemCommandContext> NavigateCommand { get; private set; }
         public Command<TreeViewItemCommandContext> ActivateCommand { get; private set; }
+        public Command<TreeViewItemCommandContext> ExpandCommand { get; private set; }
+        public Command<TreeViewItemCommandContext> CollapseCommand { get; private set; }
         public Command<FolderViewModel> RemoveCommand { get; private set; }
 
         public FirstLookViewModel()
@@ -53,6 +58,8 @@ namespace QSF.Examples.TreeViewControl.FirstLookExample
             this.Account = DataProvider.GetData<AccountViewModel>(ResourcePaths.AccountPath);
             this.NavigateCommand = new Command<TreeViewItemCommandContext>(this.OnNavigateCommand);
             this.ActivateCommand = new Command<TreeViewItemCommandContext>(this.OnActivateCommand);
+            this.ExpandCommand = new Command<TreeViewItemCommandContext>(this.OnExpandCommand);
+            this.CollapseCommand = new Command<TreeViewItemCommandContext>(this.OnCollapseCommand);
             this.RemoveCommand = new Command<FolderViewModel>(this.OnRemoveCommand);
         }
 
@@ -86,6 +93,20 @@ namespace QSF.Examples.TreeViewControl.FirstLookExample
             {
                 this.Folder = null;
             }
+        }
+
+        private void OnExpandCommand(TreeViewItemCommandContext context)
+        {
+            var folder = (FolderViewModel)context.Item;
+
+            folder.Icon = OpenFolderIcon;
+        }
+
+        private void OnCollapseCommand(TreeViewItemCommandContext context)
+        {
+            var folder = (FolderViewModel)context.Item;
+
+            folder.Icon = ClosedFolderIcon;
         }
 
         private void OnRemoveCommand(FolderViewModel folder)

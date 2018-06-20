@@ -167,7 +167,7 @@ namespace QSF.ViewModels
         private ExampleNameSearchResultViewModel ExampleSearchResultToViewMovel(SearchResult result)
         {
             var highlightedText = new HighlightedTextInfo(result.ExampleDisplayName, result.FirstCharIndex, result.LastCharIndex);
-            return new ExampleNameSearchResultViewModel(SearchResultType.Example, result.ControlName, result.ExampleDisplayName, highlightedText);
+            return new ExampleNameSearchResultViewModel(SearchResultType.Example, result.ControlName, result.ExampleName, result.ExampleDisplayName, highlightedText);
         }
 
         private ExampleDescriptionSearchResultViewModel ExampleDescriptionSearchResultToViewModel(SearchResult result)
@@ -176,7 +176,7 @@ namespace QSF.ViewModels
             var example = controlsService.GetControlExample(result.ControlName, result.ExampleName);
 
             var highlightedText = new HighlightedTextInfo(example.Description, result.FirstCharIndex, result.LastCharIndex);
-            return new ExampleDescriptionSearchResultViewModel(SearchResultType.ExampleDescription, result.ControlName, example.DisplayName, example.Description, highlightedText);
+            return new ExampleDescriptionSearchResultViewModel(SearchResultType.ExampleDescription, result.ControlName, result.ExampleName, example.DisplayName, example.Description, highlightedText);
         }
     }
 }

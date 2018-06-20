@@ -13,6 +13,7 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
         private double guestNumber;
         private int tableNumber;
         private Section tableSection;
+        private OrderOrigin orderOrigin;
 
         [DisplayOptions(Position = 0, ColumnSpan = 2, PlaceholderText = "name", Group = "RESERVATION DETAILS")]
         [NonEmptyValidatorAttribute("Name is required!")]
@@ -137,6 +138,25 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
                 if (this.tableNumber != value)
                 {
                     this.tableNumber = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        [DataSourceKey("OrderOrigin")]
+        [DisplayOptions(Header = "Origin", Position = 5, ColumnSpan = 2, PlaceholderText = "reservation origin", Group = "TABLE DETAILS")]
+        [Converter(typeof(OrderOriginToStringConverter))]
+        public OrderOrigin OrderOrigin
+        {
+            get
+            {
+                return this.orderOrigin;
+            }
+            set
+            {
+                if (this.orderOrigin != value)
+                {
+                    this.orderOrigin = value;
                     this.OnPropertyChanged();
                 }
             }

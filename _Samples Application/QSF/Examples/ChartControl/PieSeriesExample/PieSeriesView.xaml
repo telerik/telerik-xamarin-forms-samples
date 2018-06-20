@@ -24,9 +24,9 @@
                     </telerikChart:RadLegend>
                     
                     <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
-                        <telerikChart:RadPieChart.Behaviors>
+                        <telerikChart:RadPieChart.ChartBehaviors>
                             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
-                        </telerikChart:RadPieChart.Behaviors>
+                        </telerikChart:RadPieChart.ChartBehaviors>
                         <telerikChart:RadPieChart.Series>
                             <telerikChart:PieSeries ValueBinding="Value" ItemsSource="{Binding SeriesData}" RadiusFactor="0.9" LegendTitleBinding="Category" />
                         </telerikChart:RadPieChart.Series>
@@ -55,9 +55,9 @@
                     </telerikChart:RadLegend>
 
                     <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
-                        <telerikChart:RadPieChart.Behaviors>
+                        <telerikChart:RadPieChart.ChartBehaviors>
                             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
-                        </telerikChart:RadPieChart.Behaviors>
+                        </telerikChart:RadPieChart.ChartBehaviors>
                         <telerikChart:RadPieChart.Series>
                             <telerikChart:PieSeries ValueBinding="Value" ItemsSource="{Binding SeriesData}" RadiusFactor="0.9" LegendTitleBinding="Category" />
                         </telerikChart:RadPieChart.Series>

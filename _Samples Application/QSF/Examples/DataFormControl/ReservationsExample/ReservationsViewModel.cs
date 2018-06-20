@@ -29,6 +29,7 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
                     GuestNumber = 2,
                     TableNumber = 5,
                     TableSection = 0,
+                    OrderOrigin = OrderOrigin.Online
                 },
                 new Reservation()
                 {
@@ -39,6 +40,7 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
                     GuestNumber = 5,
                     TableNumber = 2,
                     TableSection = 0,
+                    OrderOrigin = OrderOrigin.Online
                 },
                 new Reservation()
                 {
@@ -49,6 +51,7 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
                     GuestNumber = 4,
                     TableNumber = 4,
                     TableSection = 0,
+                    OrderOrigin = OrderOrigin.Phone
                 },
                 new Reservation()
                 {
@@ -59,6 +62,7 @@ namespace QSF.Examples.DataFormControl.ReservationsExample
                     GuestNumber = 3,
                     TableNumber = 3,
                     TableSection = 0,
+                    OrderOrigin = OrderOrigin.Inperson
                 },
             };
         }

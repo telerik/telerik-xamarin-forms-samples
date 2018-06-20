@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Account Name="Kieran Wood" Icon="TreeView_FirstLook_User.png" Address="kwood@progress.com">
     <Folders>
-        <Folder Name="Inbox" Icon="&#xE821;">
+        <Folder Name="Inbox" Icon="&#xE829;">
             <Folders>
                 <Folder Name="Xamarin" Icon="&#xE82C;">
                     <Emails>
@@ -56,7 +56,7 @@
         </Folder>
         <Folder Name="Spam" Icon="&#xE82E;">
         </Folder>
-        <Folder Name="Groups" Icon="&#xE82A;">
+        <Folder Name="Groups" Icon="&#xE829;">
             <Folders>
                 <Folder Name="DevTools" Icon="&#xE82B;">
                     <Emails>

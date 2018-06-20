@@ -82,12 +82,13 @@
       <ShortDescription>RadBarcode is a UI component used for creating and showing 1D and 2D barcodes.</ShortDescription>
       <FullDescription>Telerik RadBarcode for Xamarin is a control used for creating and showing barcodes. You can generate and visualize barcodes in a machine-readable format via the RadBarcode control by providing numeric or character data.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/barcode/barcode-overview</DocumentationURL>
-      <Latest>2</Latest>
+      <Latest>4</Latest>
       <Featured>0</Featured>
       <IsNew>true</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
+      <IsThemable>false</IsThemable>
       <Examples>
         <Example>
           <Name>BoardingPass</Name>
@@ -131,7 +132,39 @@
           <Description>This example demonstrates all the linear (1D) barcodes the RadBarcode could generate including the most popular ones such as EAN13, EAN8, UPC-A, UPC-E and Code39.
           </Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BarcodeControl/1DBarcodeGallery</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BarcodeControl/Barcode1DGalleryExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+        <Control>
+      <Name>Border</Name>
+      <Image>Border_FirstLook.png</Image>
+      <DescriptionHeader>Border</DescriptionHeader>
+      <ShortDescription>With Telerik RadBorder for Xamarin you will have full control over the look &amp; feel of the border that wraps around your Xamarin views.</ShortDescription>
+      <FullDescription>With Telerik RadBorder for Xamarin you will have full control over the look &amp; feel of the border that wraps around your Xamarin views. You could surround any view such as Label, Image, so on and specify different border thickness and corner radius on each side.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/border/border-overview</DocumentationURL>
+      <Latest>3</Latest>
+      <Featured>0</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>Border_FirstLook.png</Image>
+          <DescriptionHeader>FirstLook</DescriptionHeader>
+          <Description>This example shows how you could wrap RadBorder around different Views, such as Label and Image. In the case of the Image you could benefit from RadBorder's clipping functionality and have circular images and in the case of the Label you have different corner radius on the four angles.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BorderControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>Border_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>RadBorder provides a few useful properties for configuring its color, thickness and corner radius. This example lets you play with these properties and see the result right away.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BorderControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -311,6 +344,30 @@
           <Description>The pie chart visualizes its data in the shape of a pie. Each data item is visually represented by a pie slice. The ratio between the space consumed by each slice and the space consumed by the whole chart is the same as the ratio between the value of the data point that it represents and the total value of all data points in the series.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/PieSeriesExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>CheckBox</Name>
+      <Image>CheckBox_FirstLook.png</Image>
+      <DescriptionHeader>Check Box</DescriptionHeader>
+      <ShortDescription>RadCheckBox for Xamarin is a checkbox control which enables users to make a choice between two mutually exclusive options.</ShortDescription>
+      <FullDescription>Telerik RadCheckBox for Xamarin is a checkbox control which enables users to make a choice between two mutually exclusive options. In addition, RadCheckBox provides indeterminate state which indicates the control is neither checked nor unchecked. RadCheckBox exposes various Color properties you could use to customize its visual appearance, so that it matches the look &amp; feel of your app.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/checkbox/checkbox-overview</DocumentationURL>
+      <Latest>2</Latest>
+      <Featured>0</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>CheckBox_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>This example demonstrates how you could use a series of RadCheckBox controls, so that the end user may select several of the provided choices.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CheckBoxControl/FirstLookExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -581,7 +638,7 @@
       <ShortDescription>RadTreeView facilitates display, management, and navigation of hierarchical data structures and allows you to achieve complex behavior in combination with nicely blending into the interface of your application </ShortDescription>
       <FullDescription>RadTreeView facilitates display, management, and navigation of hierarchical data structures. The product offers many advanced features like commands mechanism, data binding, checkbox support. RadTreeView allows you to achieve complex behavior and nicely blends into the interface of your application.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/treeview/treeview-overview</DocumentationURL>
-      <Latest>3</Latest>
+      <Latest>5</Latest>
       <Featured>0</Featured>
       <IsNew>true</IsNew>
       <IsCTP>false</IsCTP>

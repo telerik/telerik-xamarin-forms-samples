@@ -22,6 +22,23 @@ namespace QSF.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            // If these are not used the ToString for DateTime throws an exception in some cultures
+            // For more information: https://forums.xamarin.com/discussion/42899/datetime-tostring-throws-argumentoutofrangeexception-in-thai-locale
+            var c1 = new System.Globalization.ChineseLunisolarCalendar();
+            var c2 = new System.Globalization.GregorianCalendar();
+            var c3 = new System.Globalization.HebrewCalendar();
+            var c4 = new System.Globalization.HijriCalendar();
+            var c5 = new System.Globalization.JapaneseCalendar();
+            var c6 = new System.Globalization.JapaneseLunisolarCalendar();
+            var c7 = new System.Globalization.JulianCalendar();
+            var c8 = new System.Globalization.KoreanCalendar();
+            var c9 = new System.Globalization.KoreanLunisolarCalendar();
+            var c10 = new System.Globalization.PersianCalendar();
+            var c11 = new System.Globalization.TaiwanCalendar();
+            var c12 = new System.Globalization.TaiwanLunisolarCalendar();
+            var c13 = new System.Globalization.ThaiBuddhistCalendar();
+            var c14 = new System.Globalization.UmAlQuraCalendar();
+
             AnalyticsHelper.Initialize(Xamarin.Forms.Device.iOS);
 
             global::Xamarin.Forms.Forms.Init();

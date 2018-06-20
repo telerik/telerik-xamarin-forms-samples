@@ -91,7 +91,7 @@
                     </Grid>
                     <Label Grid.Column="1"
                            Margin="0"
-                           Text="{Binding}"
+                           Text="{Binding Key}"
                            Style="{StaticResource HeaderLabelStyle}"
                            BackgroundColor="{StaticResource DarkBackgroundColor}">
                         <Label.Margin>

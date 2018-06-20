@@ -2,8 +2,8 @@
 {
     public class ExampleDescriptionSearchResultViewModel : ExampleNameSearchResultViewModel
     {
-        public ExampleDescriptionSearchResultViewModel(SearchResultType resultType, string controlName, string exampleName, string description, HighlightedTextInfo highlightedTextInfo)
-            : base(resultType, controlName, exampleName, highlightedTextInfo)
+        public ExampleDescriptionSearchResultViewModel(SearchResultType resultType, string controlName, string exampleName, string exampleDisplayName, string description, HighlightedTextInfo highlightedTextInfo)
+            : base(resultType, controlName, exampleName, exampleDisplayName, highlightedTextInfo)
         {
             this.Description = description;
         }
