@@ -25,7 +25,7 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}" AutomationId="ControlDesriptionNameLabel"/>
+                            <Label Text="{Binding Path=ControlDisplayName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}" AutomationId="ControlDesriptionNameLabel"/>
                             <Label Grid.Row="1" Margin="0, 0, 0, 12" Style="{StaticResource Key=BodyLabelStyle}"
                                    FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" AutomationId="ControlDesriptionLabel"/>
                         </Grid>
@@ -70,7 +70,7 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Path=ControlName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}" AutomationId="ExampleNameControlNameLabel"/>
+                            <Label Text="{Binding Path=ControlDisplayName}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" FontFamily="{StaticResource Key=MediumFont}" AutomationId="ExampleNameControlNameLabel"/>
                             <Label Grid.Row="1" TextColor="{StaticResource TextColor}" Style="{StaticResource Key=BodyLabelStyle}" FontSize="15" Margin="0, 0, 0, 12" FontFamily="{StaticResource Key=MediumFont}" BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
                                    FormattedText="{Binding Path=HighlightedTextInfo, Converter={StaticResource Key=hightllightedTextConverter}, ConverterParameter={StaticResource Key=hightlitedTextConverterParameter}}" AutomationId="ExampleNmaeLabel" />
                         </Grid>

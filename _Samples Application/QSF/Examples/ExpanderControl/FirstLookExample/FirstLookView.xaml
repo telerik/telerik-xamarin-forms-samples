@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:views="clr-namespace:QSF.Views"
+             x:Class="QSF.Examples.ExpanderControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PinkColor">#F85880</Color>
+            <Color x:Key="DarkOrangeColor">#F07D34</Color>
+            <Color x:Key="OrangeColor">#F7A546</Color>
+            <Color x:Key="BlueColor">#0AA7C5</Color>
+            
+            <Style x:Key="CardTypeStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="Margin" Value="0, 0, 0, 10" />
+            </Style>
+
+            <Style x:Key="ExpanderHeaderLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <Style x:Key="TransactionHeaderLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+
+            </Style>
+
+            <Style x:Key="TransactionInfoLabelStyle" TargetType="Label" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="TextColor" Value="#B0AFB1" />
+            </Style>
+
+            <Style x:Key="TransactionCostLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ExampleIconLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="40" />
+                <Setter Property="Margin" Value="-15, 0, 0, 0" />
+            </Style>
+
+            <Style x:Key="RoundBorderStyle" TargetType="primitives:RadBorder">
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="CornerRadius" Value="35" />
+                <Setter Property="Margin" Value="0, 0, 17, 0" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="SeparatorBorderStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="2" />
+                <Setter Property="BackgroundColor" Value="#E7E7EA" />
+                <Setter Property="Margin" Value="0, 10" />
+            </Style>
+
+            <Style TargetType="primitives:ExpanderHeader">
+                <Setter Property="IndicatorFontSize" Value="22" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ScrollView>
+        <StackLayout Padding="40,17">
+            <Label Text="VISA" Style="{StaticResource CardTypeStyle}" />
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS, Android" Value="Expander_FirstLook_Img1.png" />
+                        <On Platform="UWP" Value="Assets/Expander_FirstLook_Img1.png" />
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <primitives:RadExpander views:ThemesBehavior.StyleClass="TelerikTheme">
+                <primitives:RadExpander.Header>
+                    <primitives:ExpanderHeader HeightRequest="44">
+                        <Label Text="Transactions" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                    </primitives:ExpanderHeader>
+                </primitives:RadExpander.Header>
+                <primitives:RadExpander.Content>
+                    <StackLayout Margin="20">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource PinkColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource CarIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+
+                            <Label Text="Uber" Style="{StaticResource TransactionHeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 06, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="-$23" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource DarkOrangeColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource ShoppingBagIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+
+                            <Label Text="Shopping" Style="{StaticResource TransactionHeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 06, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="-$12" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource OrangeColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource CoffeCupIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+
+                            <Label Text="Dinner" Style="{StaticResource TransactionHeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 05, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="-$120" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+
+                    </StackLayout>
+                </primitives:RadExpander.Content>
+            </primitives:RadExpander>
+
+            <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+
+            <Label Text="MasterCard" Style="{StaticResource CardTypeStyle}" />
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS, Android" Value="Expander_FirstLook_Img2.png" />
+                        <On Platform="UWP" Value="Assets/Expander_FirstLook_Img2.png" />
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <primitives:RadExpander IsExpanded="True" views:ThemesBehavior.StyleClass="TelerikTheme">
+                <primitives:RadExpander.Header>
+                    <primitives:ExpanderHeader HeightRequest="44">
+                        <Label Text="Transactions" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                    </primitives:ExpanderHeader>
+                </primitives:RadExpander.Header>
+                <primitives:RadExpander.Content>
+                    <StackLayout Margin="20">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource PinkColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource CarIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+
+                            <Label Text="Taxi" Style="{StaticResource TransactionHeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 06, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="-$18" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource BlueColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource GetMoneyIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+
+                            <Label Text="Salary" Style="{StaticResource TransactionHeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 06, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="+$5900" Style="{StaticResource TransactionCostLabelStyle}" TextColor="{StaticResource BlueColor}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource OrangeColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource CoffeCupIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+
+                            <Label Text="Lunch" Style="{StaticResource TransactionHeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 05, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+
+                            <Label Text="-$23" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+
+                    </StackLayout>
+                </primitives:RadExpander.Content>
+            </primitives:RadExpander>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

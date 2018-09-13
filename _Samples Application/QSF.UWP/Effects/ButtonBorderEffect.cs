@@ -17,7 +17,7 @@ namespace QSF.UWP.Effects
                 var style = (Windows.UI.Xaml.Style)App.Current.Resources["ButtonStyle"];
                 formsButton.Style = style;
             }
-            catch (Exception ex)
+            catch
             {
             }
         }

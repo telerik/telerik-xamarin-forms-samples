@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikCalendar="clr-namespace:Telerik.XamarinForms.Input.Calendar.Commands;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:checkBoxComamnds="clr-namespace:Telerik.XamarinForms.Primitives.CheckBox.Commands;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.CalendarControl.MultiDayViewPeopleExample.MultiDayViewPeopleView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="44" />
+        </Grid.RowDefinitions>
+        <telerikInput:RadCalendar x:Name="calendar"
+                                  views:ThemesBehavior.StyleClass="TelerikTheme"
+                                  Grid.Row="0"
+                                  BackgroundColor="White"
+                                  AppointmentsSource="{Binding Appointments}"
+                                  NativeControlLoaded="OnCalendarLoaded">
+            <telerikInput:RadCalendar.Commands>
+                <telerikCalendar:CalendarUserCommand Id="AppointmentTap"
+                                                     Command="{Binding AppointmentTappedCommand}" />
+            </telerikInput:RadCalendar.Commands>
+            <telerikInput:RadCalendar.MultiDayViewSettings>
+                <telerikInput:MultiDayViewSettings DayStartTime="{Binding DayStartTime}"
+                                                   DayEndTime="{Binding DayEndTime}" />
+            </telerikInput:RadCalendar.MultiDayViewSettings>
+        </telerikInput:RadCalendar>
+        <telerikPrimitives:RadBorder Grid.Row="1"
+                                     BorderThickness="0,1,0,0"
+                                     BorderColor="#CCCCCC" />
+        <telerikDataControls:NonVirtualizedItemsControl Grid.Row="1"
+                                                        SelectionMode="None"
+                                                        Orientation="Horizontal"
+                                                        ItemsSource="{Binding People}">
+            <telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="16,0"
+                          ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        
+                        <telerikPrimitives:RadCheckBox Grid.Column="0"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                               CheckedColor="{Binding Color}">
+                            <telerikPrimitives:RadCheckBox.Commands>
+                                <checkBoxComamnds:CheckBoxUserCommand Id="IsCheckedChanged" 
+                                                                      Command="{Binding BindingContext.PersonCheckedCommand, Source={x:Reference calendar}}" />
+                            </telerikPrimitives:RadCheckBox.Commands>
+                        </telerikPrimitives:RadCheckBox>
+                        <Label Grid.Column="1"
+                               FontSize="14"
+                               VerticalOptions="Center"
+                               Text="{Binding Name}"
+                               TextColor="{Binding Color}" />
+                    </Grid>
+                </DataTemplate>
+            </telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+        </telerikDataControls:NonVirtualizedItemsControl>
+    </Grid>
+</ContentView>

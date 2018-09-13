@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.AutoCompleteViewControl.FirstLookExample.FirstLookView"
+             xmlns:local="clr-namespace:QSF.Examples.AutoCompleteViewControl.FirstLookExample">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:NameToAbbreviationConverter x:Key="NameToAbbreviationConverter"/>
+            <DataTemplate x:Key="ContactSuggestionItemTemplate">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <telerikPrimitives:RadBorder Margin="15, 5, 5, 5"
+                                                     HorizontalOptions="Start" 
+                                                     CornerRadius="17.5" 
+                                                     BackgroundColor="{Binding Color}" 
+                                                     HeightRequest="35">
+                            <telerikPrimitives:RadBorder.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double" Default="35">
+                                    <On Platform="UWP" Value="45"/>
+                                </OnPlatform>
+                            </telerikPrimitives:RadBorder.WidthRequest>
+                            <telerikPrimitives:RadBorder.Margin>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="iOS" Value="15, 5, 5, 5"/>
+                                    <On Platform="Android" Value="5"/>
+                                </OnPlatform>
+                            </telerikPrimitives:RadBorder.Margin>
+                            <Label Text="{Binding Name, Converter={StaticResource NameToAbbreviationConverter}}" 
+                                   TextColor="#FFFFFF"
+                                   FontAttributes="Bold"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </telerikPrimitives:RadBorder>
+                        <StackLayout Orientation="Vertical" Margin="0, 10, 0, 10" Spacing="0">
+                            <Label Text="{Binding Name}"
+                                   TextColor="Black" 
+                                   FontSize="12"/>
+                            <Label Text="{Binding Email}"
+                                   TextColor="Black" 
+                                   FontSize="10"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="ContactShowMoreTemplate">
+                <Label Text="{Binding Path=., StringFormat='+{0}'}" VerticalTextAlignment="Center"/>
+            </DataTemplate>
+            <Style TargetType="telerikInput:RadButton" x:Key="CommonButtonStyle">
+                <Setter Property="TextColor" Value="Accent"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderWidth" Value="0"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="BorderThickness">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS" Value="-1"/>
+                            <On Platform="Android, UWP" Value="0"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="#F0F0F0" Orientation="Horizontal">
+            <telerikInput:RadButton x:Name="cancelMail" 
+                                    Text="Cancel"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalContentAlignment="Center"
+                                    Clicked="OnCancelMailClicked"
+                                    Style="{StaticResource CommonButtonStyle}">
+                <telerikInput:RadButton.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" Default="16, 0, 0, 0">
+                        <On Platform="UWP" Value="16, 18, 0, 17"/>
+                        <On Platform="Android" Value="0"/>
+                    </OnPlatform>
+                </telerikInput:RadButton.Margin>
+            </telerikInput:RadButton>
+            <telerikInput:RadButton x:Name="sendMail" 
+                                    HorizontalContentAlignment="End" 
+                                    Text="&#xe82d;"
+                                    FontFamily="{StaticResource IconsFont}" 
+                                    Clicked="OnSendMailClicked"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalOptions="EndAndExpand"
+                                    Style="{StaticResource CommonButtonStyle}">
+                <telerikInput:RadButton.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" Default="0, 0, 16, 0">
+                        <On Platform="UWP" Value="0, 18, 16, 17"/>
+                        <On Platform="Android" Value="0, 0, 5, 0"/>
+                    </OnPlatform>
+                </telerikInput:RadButton.Margin>
+            </telerikInput:RadButton>
+        </StackLayout>
+            
+        <StackLayout Margin="16, 25, 16, 0" Grid.Row="1">
+            <telerikInput:RadAutoCompleteView x:Name="toContact"
+                                              DisplayMode="Tokens"
+                                              VerticalOptions="Center"
+                                              ItemsSource="{Binding Source}" 
+                                              TextSearchPath="Name"
+                                              MinimumHeightRequest="40"
+                                              Watermark="To: "
+                                              FontSize="15"
+                                              SuggestionViewHeight="100"
+                                              SuggestionItemTemplate="{StaticResource ContactSuggestionItemTemplate}"
+                                              ShowMoreTemplate="{StaticResource ContactShowMoreTemplate}"
+                                              SuggestionViewBackgroundColor="#FFFFFF"/>
+            
+            <telerikInput:RadAutoCompleteView x:Name="ccBccContact"
+                                              Margin="0, 5, 0, 0"
+                                              DisplayMode="Tokens"
+                                              FontSize="15"
+                                              Watermark="Cc/Bcc: "
+                                              VerticalOptions="Center"
+                                              SuggestionViewHeight="100"
+                                              ItemsSource="{Binding Source}"
+                                              SuggestionItemTemplate="{StaticResource ContactSuggestionItemTemplate}"
+                                              ShowMoreTemplate="{StaticResource ContactShowMoreTemplate}"
+                                              TextSearchPath="Name"/>
+
+            <StackLayout Margin="0, 16, 0, 0" Orientation="Horizontal">
+                <Label Margin="3, 0, 0, 0" Text="Subject:" TextColor="#4B4C4C" VerticalOptions="Center" />
+                <Label VerticalOptions="Center" Text="Tools to speed up your workflow" TextColor="#000000"/>
+            </StackLayout>
+            <BoxView HeightRequest="1" Margin="0, 7, 0, 0" Color="#DBDBDB"/>
+        </StackLayout>
+
+        <StackLayout Margin="16, 37, 16, 0" Grid.Row="2">
+            <Label Text="The right cross platform tools can streamline your workflow, helping you work smarter – rather than harder – and more efficiently. After all, you want to invest your energy in solving problems, delighting users and creating beautiful apps." TextColor="#000000"/>
+            <Label Text="Please give us your Feedback" TextColor="#000000"/>
+            <Label Text="Regards," Margin="0, 25, 0, 0" TextColor="#000000"/>
+            <Label Text="Telerik UI for Xamarin Team" TextColor="#000000"/>
+        </StackLayout>
+        <telerikPrimitives:RadBorder x:Name="emailSent" 
+                                     BackgroundColor="Accent"
+                                     IsVisible="False"
+                                     CornerRadius="20"
+                                     Grid.Row="2"
+                                     Margin="0, 0, 0, 20"
+                                     HorizontalOptions="Center" 
+                                     VerticalOptions="End" 
+                                     HeightRequest="36" 
+                                     WidthRequest="160">
+            <Label Text="Email sent." TextColor="#FFFFFF" Margin="0, 9, 0, 8" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        </telerikPrimitives:RadBorder>
+    </Grid>
+</ContentView>

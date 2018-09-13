@@ -78,6 +78,11 @@ namespace QSF.Services
         {
             foreach (var control in this.configuration.Controls)
             {
+                if (string.IsNullOrEmpty(control.DisplayName))
+                {
+                    control.DisplayName = control.Name.InsertSpacesInPascalCase();
+                }
+
                 foreach (var example in control.Examples)
                 {
                     if (string.IsNullOrEmpty(example.DisplayName))

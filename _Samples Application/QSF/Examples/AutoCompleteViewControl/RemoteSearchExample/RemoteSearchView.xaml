@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:listview="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:datacontrols="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerik="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:autoCompleteView="clr-namespace:Telerik.XamarinForms.Input.AutoCompleteView;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.AutoCompleteViewControl.RemoteSearchExample.RemoteSearchView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="LoadingMoviesTemplate">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Margin="0, 20, 0, 20">
+                    <Label Text="Searching... " FontSize="16" TextColor="#8E8E93"/>
+                    <telerikPrimitives:RadBusyIndicator x:Name="BusyIndicator" 
+                                                        HeightRequest="24" 
+                                                        WidthRequest="24"
+                                                        IsBusy="True"
+                                                        VerticalOptions="Start"
+                                                        AnimationContentColor="Accent"
+                                                        AnimationType="Animation9"/>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="SuggestionMoviesTemplate">
+                <ViewCell>
+                    <telerikPrimitives:RadBorder BorderColor="#DBDBDB">
+                        <telerikPrimitives:RadBorder.BorderThickness>
+                            <OnPlatform x:TypeArguments="Thickness" Default="0">
+                                <On Platform="UWP" Value="0, 0, 0, 1"/>
+                            </OnPlatform>
+                        </telerikPrimitives:RadBorder.BorderThickness>
+                        <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 8">
+                            <telerikPrimitives:RadBorder BorderColor="{Binding Genre.Color}"
+                                                         BorderThickness="1.5, 0, 1.5, 0">
+                                <telerikPrimitives:RadBorder.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness" Default="0">
+                                        <On Platform="UWP" Value="3, 0, 0, 0"/>
+                                    </OnPlatform>
+                                </telerikPrimitives:RadBorder.Margin>
+                            </telerikPrimitives:RadBorder>
+                            <autoCompleteView:SuggestionItemLabel TextColor="#000000" FontSize="14" VerticalTextAlignment="Center"
+                                                                  HorizontalOptions="Center" UnformattedText="{Binding Title}"
+                                                                  HighlightText="{Binding Source={x:Reference autocompleteRemoteSearch}, Path=Text}"
+                                                                  HighlightTextColor="{Binding Source={x:Reference autocompleteRemoteSearch}, Path=SuggestionItemTextColor}"/>
+                        </StackLayout>
+                    </telerikPrimitives:RadBorder>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <Grid Margin="16, 0, 16, 0" RowSpacing="0" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="53"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="The Best Movies of All Time" TextColor="#4B4C4C" Font="Bold,20" HeightRequest="25" VerticalOptions="Center"/>
+            <telerik:RadAutoCompleteView x:Name="autocompleteRemoteSearch" 
+                                         Watermark="Search by Movie Title" 
+                                         WatermarkTextColor="#8E8E93" 
+                                         FontSize="15" 
+                                         Grid.Row="1"
+                                         CompletionMode="Contains"
+                                         Margin="0, 20, 0, 0"
+                                         TextChanged="OnTextChanged"
+                                         SuggestionViewHeight="250"
+                                         TextSearchPath="Title"
+                                         SuggestionViewBackgroundColor="#FFFFFF"
+                                         LoadingTemplate="{StaticResource LoadingMoviesTemplate}"
+                                         SuggestionItemTemplate="{StaticResource SuggestionMoviesTemplate}" 
+                                         SuggestionItemSelected="OnSuggestionItemSelected"/>
+            <StackLayout Margin="0, 30, 0, 0" Grid.Row="2" >
+                <Label Text="The movies on this list are picked according to their success (awards &amp; nominations), their popularity, and their cinematic greatness from a directing/writing perspective."/>
+                <Label Margin="0, 10, 0, 0" 
+                       Text="Note that each movie is represented by a color according to its genre. For more details please check the legend below."/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" 
+                         VerticalOptions="EndAndExpand" 
+                         Spacing="0"
+                         Margin="0, 0, 0, 6">
+                <Label Text="Legend:"
+                       TextColor="#4B4C4C"
+                       Font="Bold,15" 
+                       Margin="0, 0, 0, 12"
+                       FontAttributes="Bold" FontSize="17"/>
+                <telerikPrimitives:RadBorder BorderColor="#DBDBDB" 
+                                             BorderThickness="0, 0, 0, 1"/>
+                <datacontrols:RadListView ItemsSource="{Binding Genres}" SelectionMode="None">
+                    <datacontrols:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listview:ListViewTemplateCell>
+                                <listview:ListViewTemplateCell.View>
+                                    <telerikPrimitives:RadBorder BorderColor="#DBDBDB"
+                                                                 BorderThickness="0, 0, 0, 1">
+                                        <StackLayout Orientation="Horizontal">
+                                            <telerikPrimitives:RadBorder BorderColor="{Binding Color}"
+                                                                         BorderThickness="1, 0, 1, 0"
+                                                                         Margin="2, 0, 0, 0"
+                                                                         HeightRequest="20"
+                                                                         VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding Name}" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                    </telerikPrimitives:RadBorder>
+                                </listview:ListViewTemplateCell.View>
+                            </listview:ListViewTemplateCell>
+                        </DataTemplate>
+                    </datacontrols:RadListView.ItemTemplate>
+                    <datacontrols:RadListView.LayoutDefinition>
+                        <listview:ListViewGridLayout SpanCount="2" 
+                                                     Orientation="Vertical" 
+                                                     ItemLength="30" 
+                                                     VerticalItemSpacing="0"/>
+                    </datacontrols:RadListView.LayoutDefinition>
+                    <datacontrols:RadListView.ItemStyle>
+                        <listview:ListViewItemStyle BorderLocation="None" 
+                                                    BackgroundColor="Transparent"/>
+                    </datacontrols:RadListView.ItemStyle>
+                </datacontrols:RadListView>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentView>
+    

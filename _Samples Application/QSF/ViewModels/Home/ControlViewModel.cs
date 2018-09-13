@@ -7,6 +7,7 @@ namespace QSF.ViewModels
         public ControlViewModel(Control control)
         {
             this.Name = control.Name;
+            this.DisplayName = control.DisplayName;
             this.Image = control.Image;
             this.ShortDescription = control.ShortDescription;
             this.FullDescription = control.FullDescription;
@@ -20,6 +21,8 @@ namespace QSF.ViewModels
         }
 
         public string Name { get; }
+
+        public string DisplayName { get; }
 
         public string Image { get; }
 

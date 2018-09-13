@@ -1,0 +1,114 @@
+﻿<FoldersCollection>
+  <Folder Name="Assets" >
+    <Folder Name="Graphics" >
+      <Folder Name="Patterns" />
+      <Folder Name="Icons" />
+    </Folder>
+    <Folder Name="Fonts" >
+      <File Name="Fancy" />
+      <File Name="Foreign Look" />
+      <File Name="Techno" />
+      <File Name="Gothic" />
+      <File Name="Basic" />
+      <File Name="Script" />
+    </Folder>
+    <Folder Name="Photos" >
+      <Folder Name="Business" />
+      <Folder Name="Computers" />
+      <Folder Name="Entertainment" />
+      <Folder Name="People" />
+      <Folder Name="Social Media" />
+      <Folder Name="Work" />
+    </Folder>
+  </Folder>
+  <Folder Name="Books" >
+    <Folder Name="Accounting" >
+      <File Name="Basics of Accounting" />
+      <File Name="Strategic Financial Management" />
+    </Folder>
+    <Folder Name="Economics" >
+      <File Name="Basics of Business Management" />
+      <File Name="Introduction to Complex Numbers" />
+      <File Name="Strategic Financial Management" />
+    </Folder>
+    <Folder Name="Engineering" >
+      <File Name="Automation and Robotics" />
+      <File Name="Concepts in Electric Circuits" />
+    </Folder>
+    <Folder Name="IT and Programming" >
+      <File Name="Structured Programming with C++" />
+      <File Name="Java 1: Basic Syntax and Semantics" />
+      <File Name="Introduction to Complex Numbers" />
+      <File Name="System Analysis and Design" />
+      <File Name="Database Design and Impelemntation" />
+    </Folder>
+    <Folder Name="Languages" >
+      <File Name="English Grammar for Economics and Business" />
+      <File Name="How to Write an Essay" />
+      <File Name="Be a Better Writer" />
+    </Folder>
+    <Folder Name="Marketing" >
+      <File Name="An introduction to Business Research Methods" />
+      <File Name="Strategic Marketing" />
+      <File Name="Customer Relationship Management (CRM)" />
+      <File Name="Essentials of Marketing Research" />
+      <File Name="Essentials of Marketing Research" />
+    </Folder>
+  </Folder>
+  <Folder Name="Music" >
+    <Folder Name="AC/DC" >
+      <Folder Name="Back in Black" >
+        <File Name="Hells Bells" />
+        <File Name="Shoot to Thrill" />
+        <File Name="What Do You Do for Money Honey" />
+        <File Name="Givin' the Dog a Bone" />
+        <File Name="Let Me Put My Love into You" />
+        <File Name="Back in Black" />
+        <File Name="You Shook Me All Night Long" />
+        <File Name="Shake a Leg" />
+        <File Name="Rock and Roll Ain't Noise Pollution" />
+      </Folder>
+      <Folder Name="Highway to Hell" >
+        <File Name="Girls Got Rhythm" />
+        <File Name="Walk All Over You" />
+        <File Name="Touch Too Much" />
+        <File Name="Beating Around the Bush" />
+        <File Name="Shot Down in Flames" />
+        <File Name="Get It Hot" />
+        <File Name="If You Want Blood (You've Got It)" />
+        <File Name="Love Hungry Man" />
+        <File Name="Night Prowler" />
+      </Folder>
+    </Folder>
+    <Folder Name="Metallica" />
+    <Folder Name="Deep Purple" />
+  </Folder>
+  <Folder Name="Photos" >
+    <Folder Name="2018" >
+      <Folder Name="May" />
+      <Folder Name="April" />
+      <Folder Name="March" />
+      <Folder Name="February" />
+      <Folder Name="January" />
+    </Folder>
+    <Folder Name="2017" />
+    <Folder Name="2016" />
+  </Folder>
+  <Folder Name="Designs" >
+    <Folder Name="CRM App" >
+      <Folder Name="Wireframes" />
+      <Folder Name="Assets" />
+      <Folder Name="Design" />
+    </Folder>
+    <Folder Name="ERP App" >
+      <Folder Name="Wireframes" />
+      <Folder Name="Assets" />
+      <Folder Name="Design" />
+    </Folder>
+    <Folder Name="TODO App" >
+      <Folder Name="Wireframes" />
+      <Folder Name="Assets" />
+      <Folder Name="Design" />
+    </Folder>
+  </Folder>
+</FoldersCollection>

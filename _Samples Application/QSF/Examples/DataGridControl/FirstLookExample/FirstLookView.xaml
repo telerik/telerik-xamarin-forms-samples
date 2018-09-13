@@ -35,7 +35,8 @@
                                        Aspect="AspectFit"
                                        Margin="0, 2, 0, 2"
                                        WidthRequest="50" 
-                                       HeightRequest="50"/>
+                                       HeightRequest="50"
+                                       InputTransparent="True" />
                             </DataTemplate>
                         </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                     </telerikDataGrid:DataGridTemplateColumn>

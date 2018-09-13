@@ -22,7 +22,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/fontello.ttf</string>
+		<string>Fonts/telerikfontexamples.ttf</string>
 		<string>Fonts/SF-Pro-Text-Medium.otf</string>
 		<string>Fonts/SF-Pro-Text-MediumItalic.otf</string>
 		<string>Fonts/SF-Pro-Text-Regular.otf</string>
@@ -31,7 +31,7 @@
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Progress Telerik UI for Xamarin</string>
+	<string>Telerik&#x2007;UI&#x2007;for&#x2007;Xamarin</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.telerik.xamarin</string>
 	<key>CFBundleVersion</key>
@@ -43,7 +43,7 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.3</string>
+	<string>2.4</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Progress Telerik UI for Xamarin Examples Would Like to Access Your Calendar.</string>
 	<key>CustomProperty</key>

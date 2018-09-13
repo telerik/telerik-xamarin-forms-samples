@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GalleryExampleViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:example="clr-namespace:QSF.Examples.ChartControl.PieSeriesExample"
+                              xmlns:views="clr-namespace:QSF.Views"
+                              xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+                              x:Class="QSF.Examples.ChartControl.FinancialSeriesExample.FinancialSeriesView">
+    <views:GalleryExampleViewBase.Resources>
+      <ResourceDictionary MergedWith="views:GalleryResources">
+        <DataTemplate x:Key="CandlestickSeries">
+          <telerikChart:RadCartesianChart PaletteName="Light"
+                                          SelectionPaletteName="LightSelected"
+                                          BackgroundColor="White"
+                                          views:ThemesBehavior.StyleClass="TelerikTheme">
+            <telerikChart:RadCartesianChart.HorizontalAxis>
+              <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
+                                                   LabelFitMode="Rotate"
+                                                   LabelFormat="dd/MM"
+                                                   PlotMode="BetweenTicks"
+                                                   MajorStepUnit="Day"
+                                                   MajorStep="7">
+                <telerikChart:DateTimeContinuousAxis.GapLength>
+                  <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android,UWP">0.9</On>
+                    <On Platform="iOS">0.45</On>
+                  </OnPlatform>
+                </telerikChart:DateTimeContinuousAxis.GapLength>
+              </telerikChart:DateTimeContinuousAxis>
+            </telerikChart:RadCartesianChart.HorizontalAxis>
+            <telerikChart:RadCartesianChart.VerticalAxis>
+              <telerikChart:NumericalAxis LineColor="#A9A9A9"
+                                          Minimum="320"
+                                          Maximum="370"
+                                          MajorTickBackgroundColor="#A9A9A9" />
+            </telerikChart:RadCartesianChart.VerticalAxis>
+            <telerikChart:RadCartesianChart.Series>
+              <telerikChart:CandlestickSeries CategoryBinding="DateCategory"
+                                              OpenBinding="Open"
+                                              HighBinding="High"
+                                              LowBinding="Low"
+                                              CloseBinding="Close"
+                                              ItemsSource="{Binding SeriesData}" />
+            </telerikChart:RadCartesianChart.Series>
+          </telerikChart:RadCartesianChart>
+        </DataTemplate>
+        <DataTemplate x:Key="OhlcSeries">
+          <telerikChart:RadCartesianChart PaletteName="Light"
+                                          SelectionPaletteName="LightSelected"
+                                          BackgroundColor="White"
+                                          views:ThemesBehavior.StyleClass="TelerikTheme">
+            <telerikChart:RadCartesianChart.HorizontalAxis>
+              <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
+                                                   LabelFitMode="Rotate"
+                                                   LabelFormat="dd/MM"
+                                                   PlotMode="BetweenTicks"
+                                                   MajorStepUnit="Day"
+                                                   MajorStep="7">
+                <telerikChart:DateTimeContinuousAxis.GapLength>
+                  <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android,UWP">0.9</On>
+                    <On Platform="iOS">0.45</On>
+                  </OnPlatform>
+                </telerikChart:DateTimeContinuousAxis.GapLength>
+              </telerikChart:DateTimeContinuousAxis>
+            </telerikChart:RadCartesianChart.HorizontalAxis>
+            <telerikChart:RadCartesianChart.VerticalAxis>
+              <telerikChart:NumericalAxis LineColor="#A9A9A9"
+                                          Minimum="320"
+                                          Maximum="370"
+                                          MajorTickBackgroundColor="#A9A9A9" />
+            </telerikChart:RadCartesianChart.VerticalAxis>
+            <telerikChart:RadCartesianChart.Series>
+              <telerikChart:OhlcSeries CategoryBinding="DateCategory"
+                                       OpenBinding="Open"
+                                       HighBinding="High"
+                                       LowBinding="Low"
+                                       CloseBinding="Close"
+                                       ItemsSource="{Binding SeriesData}" />
+            </telerikChart:RadCartesianChart.Series>
+          </telerikChart:RadCartesianChart>
+        </DataTemplate>
+        <DataTemplate x:Key="FinancialIndicators">
+          <Grid>
+            <telerikChart:RadCartesianChart PaletteName="Light"
+                                            x:Name="financialChart"
+                                            SelectionPaletteName="LightSelected"
+                                            BackgroundColor="White"
+                                            views:ThemesBehavior.StyleClass="TelerikTheme">
+              <telerikChart:RadCartesianChart.HorizontalAxis>
+                <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
+                                                     LabelFitMode="Rotate"
+                                                     LabelFormat="dd/MM"
+                                                     PlotMode="BetweenTicks"
+                                                     MajorStepUnit="Day"
+                                                     MajorStep="7">
+                  <telerikChart:DateTimeContinuousAxis.GapLength>
+                    <OnPlatform x:TypeArguments="x:Double">
+                      <On Platform="Android,UWP">0.9</On>
+                      <On Platform="iOS">0.45</On>
+                    </OnPlatform>
+                  </telerikChart:DateTimeContinuousAxis.GapLength>
+                </telerikChart:DateTimeContinuousAxis>
+              </telerikChart:RadCartesianChart.HorizontalAxis>
+              <telerikChart:RadCartesianChart.VerticalAxis>
+                <telerikChart:NumericalAxis LineColor="#A9A9A9"
+                                            Minimum="320"
+                                            Maximum="370"
+                                            MajorTickBackgroundColor="#A9A9A9" />
+              </telerikChart:RadCartesianChart.VerticalAxis>
+              <telerikChart:RadCartesianChart.Series>
+                <telerikChart:OhlcSeries CategoryBinding="DateCategory"
+                                         DisplayName="AppleStocks-OHLC"
+                                         OpenBinding="Open"
+                                         HighBinding="High"
+                                         LowBinding="Low"
+                                         CloseBinding="Close"
+                                         ItemsSource="{Binding SeriesData}"/>
+
+                <telerikChart:ExponentialMovingAverageIndicator CategoryBinding="DateCategory"
+                                                                DisplayName="EMA 7days"
+                                                                ValueBinding="Close"
+                                                                Period="7"
+                                                                StrokeThickness="1"
+                                                                Stroke="DarkGreen"
+                                                                ItemsSource="{Binding SeriesData}"/>
+
+                <telerikChart:ExponentialMovingAverageIndicator CategoryBinding="DateCategory"
+                                                                DisplayName="EMA 14days"
+                                                                ValueBinding="Close"
+                                                                Period="14"
+                                                                StrokeThickness="1"
+                                                                Stroke="DarkOrange"
+                                                                ItemsSource="{Binding SeriesData}"/>
+              </telerikChart:RadCartesianChart.Series>
+            </telerikChart:RadCartesianChart>
+            <telerikChart:RadLegend HeightRequest="100"
+                                    LegendItemFontColor="Black"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="StartAndExpand"
+                                    LegendItemFontSize="12"
+                                    LegendProvider="{x:Reference Name=financialChart}"/>
+          </Grid>
+        </DataTemplate>
+      </ResourceDictionary>
+    </views:GalleryExampleViewBase.Resources>
+    <views:GalleryExampleViewBase.HeaderContent>
+      <Label Text="Apple Stocks, 2011"
+             Style="{StaticResource labelHeaderStyle}"
+             Margin="0, 6, 0, 0" />
+    </views:GalleryExampleViewBase.HeaderContent>
+</views:GalleryExampleViewBase>

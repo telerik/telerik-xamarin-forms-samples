@@ -15,16 +15,16 @@ namespace QSF.Services
 
             foreach (var control in allControls)
             {
-                var nameIndex = control.Name.ToLowerInvariant().IndexOf(lowerText);
+                var nameIndex = control.DisplayName.ToLowerInvariant().IndexOf(lowerText);
                 if (nameIndex >= 0)
                 {
-                    yield return new SearchResult(SearchResultType.Control, control.Name, null, null, nameIndex, nameIndex + text.Length);
+                    yield return new SearchResult(SearchResultType.Control, control.Name, control.DisplayName, null, null, nameIndex, nameIndex + text.Length);
                 }
 
                 var descriptionIndex = control.FullDescription.ToLowerInvariant().IndexOf(lowerText);
                 if (descriptionIndex >= 0)
                 {
-                    yield return new SearchResult(SearchResultType.ControlDescription, control.Name, null, null, descriptionIndex, descriptionIndex + text.Length);
+                    yield return new SearchResult(SearchResultType.ControlDescription, control.Name, control.DisplayName, null, null, descriptionIndex, descriptionIndex + text.Length);
                 }
 
                 foreach (var example in control.Examples)
@@ -32,13 +32,13 @@ namespace QSF.Services
                     var exampleNameIndex = example.DisplayName.ToLowerInvariant().IndexOf(lowerText);
                     if (exampleNameIndex >= 0)
                     {
-                        yield return new SearchResult(SearchResultType.Example, control.Name, example.Name, example.DisplayName, exampleNameIndex, exampleNameIndex + text.Length);
+                        yield return new SearchResult(SearchResultType.Example, control.Name, control.DisplayName, example.Name, example.DisplayName, exampleNameIndex, exampleNameIndex + text.Length);
                     }
 
                     var exampleDescrioptionIndex = example.Description.ToLowerInvariant().IndexOf(lowerText);
                     if (exampleDescrioptionIndex >= 0)
                     {
-                        yield return new SearchResult(SearchResultType.ExampleDescription, control.Name, example.Name, example.DisplayName, exampleDescrioptionIndex, exampleDescrioptionIndex + text.Length);
+                        yield return new SearchResult(SearchResultType.ExampleDescription, control.Name, control.DisplayName, example.Name, example.DisplayName, exampleDescrioptionIndex, exampleDescrioptionIndex + text.Length);
                     }
                 }
             }

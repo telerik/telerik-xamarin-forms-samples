@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.AutoCompleteViewControl.RemoteSearchExample.DetailsView">
+    <Grid BackgroundColor="White" Margin="16, 20, 16, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal">
+            <telerikPrimitives:RadBorder BackgroundColor="{Binding SelectedMovie.Genre.Color}"
+                                         VerticalOptions="Start" 
+                                         WidthRequest="5" 
+                                         HeightRequest="60">
+                <telerikPrimitives:RadBorder.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 5, 0, 5"/>
+                        <On Platform="Android" Value="5"/>
+                    </OnPlatform>
+                </telerikPrimitives:RadBorder.Margin>
+            </telerikPrimitives:RadBorder>
+            <StackLayout>
+                <Label Text="{Binding SelectedMovie.Title}"
+                       TextColor="#4B4C4C" 
+                       FontAttributes="Bold"
+                       FontSize="20"/>
+                <Label Text="{Binding SelectedMovie.Actors}"
+                       TextColor="#707070"
+                       FontSize="18"/>
+            </StackLayout>
+        </StackLayout>
+        <Label Grid.Row="1" 
+               Margin="5, 10, 0, 0"
+               Text="{Binding SelectedMovie.Description}" 
+               TextColor="#4B4C4C"
+               FontSize="16"/>
+    </Grid>
+</ContentView>

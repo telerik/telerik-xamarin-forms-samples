@@ -37,7 +37,8 @@
                                             Command="{Binding BackCommand}" 
                                             AutomationId="BackButton"/>
                     <Image HorizontalOptions="Start"
-                           VerticalOptions="Center">
+                           VerticalOptions="Center"
+                           InputTransparent="True">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource">
                                 <On Platform="iOS,Android">Navigation_Back</On>

@@ -4,7 +4,6 @@ using Xamarin.Forms.Xaml;
 
 namespace QSF.Examples.ConversationalUIControl.TravelAssistanceExample
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TravelAssistanceView : ContentView
     {
         public TravelAssistanceView()

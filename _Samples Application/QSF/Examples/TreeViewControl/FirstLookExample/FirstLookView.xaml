@@ -47,9 +47,46 @@
         <telerikDataControls:RadTreeView x:Name="treeView"
                                          Grid.Row="1"
                                          ItemsSource="{Binding Account.Folders}">
-            <telerikDataControls:RadTreeView.HierarchyAdapter>
-                <local:HierarchyAdapter />
-            </telerikDataControls:RadTreeView.HierarchyAdapter>
+            <telerikDataControls:TreeViewDescriptor TargetType="{x:Type local:FolderViewModel}"
+                                                    DisplayMemberPath="Name"
+                                                    ItemsSourcePath="Folders">
+                <telerikDataControls:TreeViewDescriptor.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="40"
+                              Margin="{Binding Level, Converter={StaticResource LevelToMarginConverter}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontSize="16"
+                                   FontFamily="{StaticResource IconsFont}"
+                                   TextColor="#B2B2B2"
+                                   Text="{Binding Item.Icon}" />
+                            <Label Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   FontSize="14"
+                                   TextColor="Black"
+                                   Text="{Binding Item.Name}" />
+                            <telerikInput:RadButton Grid.Column="2"
+                                                    BorderWidth="0"
+                                                    BorderRadius="0"
+                                                    BorderColor="Transparent"
+                                                    BackgroundColor="Red"
+                                                    FontSize="16"
+                                                    FontFamily="{StaticResource IconsFont}"
+                                                    TextColor="White"
+                                                    Text="{StaticResource DeleteIcon}"
+                                                    IsVisible="{Binding Item.IsActive}"
+                                                    Command="{Binding BindingContext.RemoveCommand, Source={x:Reference treeView}}"
+                                                    CommandParameter="{Binding Item}" />
+                        </Grid>
+                    </DataTemplate>
+                </telerikDataControls:TreeViewDescriptor.ItemTemplate>
+            </telerikDataControls:TreeViewDescriptor>
             <telerikDataControls:RadTreeView.Commands>
                 <telerikTreeViewCommands:TreeViewUserCommand Id="ItemTap"
                                                              Command="{Binding NavigateCommand}" />
@@ -60,42 +97,6 @@
                 <telerikTreeViewCommands:TreeViewUserCommand Id="ItemCollapse"
                                                              Command="{Binding CollapseCommand}" />
             </telerikDataControls:RadTreeView.Commands>
-            <telerikDataControls:RadTreeView.ItemTemplate>
-                <DataTemplate>
-                    <Grid HeightRequest="40"
-                          Margin="{Binding Level, Converter={StaticResource LevelToMarginConverter}}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40" />
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="40" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               FontSize="16"
-                               FontFamily="{StaticResource IconsFont}"
-                               TextColor="#B2B2B2"
-                               Text="{Binding Item.Icon}" />
-                        <Label Grid.Column="1"
-                               VerticalOptions="Center"
-                               FontSize="14"
-                               TextColor="Black"
-                               Text="{Binding Item.Name}" />
-                        <telerikInput:RadButton Grid.Column="2"
-                                                BorderWidth="0"
-                                                BorderRadius="0"
-                                                BorderColor="Transparent"
-                                                BackgroundColor="Red"
-                                                FontSize="16"
-                                                FontFamily="{StaticResource IconsFont}"
-                                                TextColor="White"
-                                                Text="{StaticResource DeleteIcon}"
-                                                IsVisible="{Binding Item.IsActive}"
-                                                Command="{Binding BindingContext.RemoveCommand, Source={x:Reference treeView}}"
-                                                CommandParameter="{Binding Item}" />
-                    </Grid>
-                </DataTemplate>
-            </telerikDataControls:RadTreeView.ItemTemplate>
         </telerikDataControls:RadTreeView>
     </Grid>
 </ContentView>

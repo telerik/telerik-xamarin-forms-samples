@@ -21,6 +21,9 @@
         </barcode:RadBarcode>
 
         <primitives:RadBorder BackgroundColor="{StaticResource DarkBackgroundColor}" CornerRadius="5" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Center" x:Name="border">
+            <primitives:RadBorder.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Path=AppBarMiddleButtonCommand}" />
+            </primitives:RadBorder.GestureRecognizers>
             <Grid Margin="20, 30">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />

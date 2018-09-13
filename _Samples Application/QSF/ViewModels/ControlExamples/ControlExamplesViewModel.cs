@@ -103,7 +103,7 @@ namespace QSF.ViewModels
             var controlsService = DependencyService.Get<IControlsService>();
             this.control = controlsService.GetControlByName(controlName);
 
-            this.Title = controlName;
+            this.Title = this.control.DisplayName;
             this.CanChangeTheme = this.control.IsThemable;
 
             this.Examples = new ObservableCollection<ExampleInfoViewModel>(this.control.Examples.Select(p => new ExampleInfoViewModel(p)));

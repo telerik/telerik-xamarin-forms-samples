@@ -44,7 +44,7 @@ namespace QSF.Examples.CalendarControl.DayViewExample
                 new Appointment(
                     DateTime.Today.AddHours(12).AddMinutes(30),
                     DateTime.Today.AddHours(14),
-                    "Lunch with Sam", "Skara Bira",
+                    "Lunch with Sam", "BBQ and Beer",
                     party),
                 new Appointment(
                     DateTime.Today.AddHours(14).AddMinutes(30),

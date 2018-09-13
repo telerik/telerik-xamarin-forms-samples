@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.ExpanderControl.CustomizationExample.CustomizationView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BlueColor">#0088C4</Color>
+
+            <Style x:Key="ExpanderHeaderLabelStyle" BasedOn="{StaticResource SubHeaderLabelStyle}" TargetType="Label" >
+                <Setter Property="TextColor" Value="{StaticResource BlueColor}" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="5, 15, 5, 10" />
+            </Style>
+
+            <Style TargetType="primitives:ExpanderHeader">
+                <Setter Property="BorderThickness" Value="0, 2" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="{StaticResource BlueColor}" />
+                <Setter Property="IndicatorColor" Value="{StaticResource BlueColor}" />
+                <Setter Property="IndicatorLocation" Value="End" />
+                <Setter Property="IndicatorText" Value="{StaticResource CollapsedIcon}" />
+                <Setter Property="IndicatorFontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="IndicatorFontSize" Value="20" />
+                <Setter Property="IndicatorMargin" Value="10, 5, 10, 0" />
+            </Style>
+
+            <Style TargetType="primitives:RadExpander">
+                <Setter Property="Margin" Value="16" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+
+            <Style x:Key="ExampleHeaderLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource BlueColor}" />
+                <Setter Property="Margin" Value="16, 16" />
+            </Style>
+
+            <Style x:Key="ExpanderContentLabelStyle" TargetType="Label" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="Margin" Value="0, 16" />
+            </Style>
+
+            <Style x:Key="ContentLabelStyle" TargetType="Label" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="Margin" Value="16, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ScrollView>
+        <StackLayout>
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS, Android" Value="Expander_Customization_Img1.png" />
+                        <On Platform="UWP" Value="Assets/Expander_Customization_Img1.png" />
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Mallorca Island Vacation Deals" Style="{StaticResource ExampleHeaderLabelStyle}" />
+
+            <Label Text="This beautiful island is best known for its beaches, which often overshadow its equally stunning monaster- ies, medieval towns and traditional markets."
+               Style="{StaticResource ContentLabelStyle}" />
+
+            <primitives:RadExpander x:Name="expander">
+                <primitives:RadExpander.Header>
+                    <primitives:ExpanderHeader>
+                        <Grid>
+                            <Label Text="Read More" IsVisible="{Binding Path=IsExpanded, Converter={StaticResource InvertedBooleanConverter}, Source={Reference expander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            <Label Text="Read Less" IsVisible="{Binding Path=IsExpanded, Source={Reference expander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                        </Grid>
+                    </primitives:ExpanderHeader>
+                </primitives:RadExpander.Header>
+                <primitives:RadExpander.Content>
+                    <Label Text="The island's culturally rich capital, Palma, is worth visiting to see the striking Gothic Catedral de Palma. Look for a surrealistic baldachin by Antoni Gaudí and a bizarre painted ceramic tableau by sculptor Miquel Barceló. Branching outward from the cathedral, you'll find a charming web of alleys lined with historic buildings and excellent restaurants."
+                           Style="{StaticResource ExpanderContentLabelStyle}" />
+                </primitives:RadExpander.Content>
+            </primitives:RadExpander>
+
+            <Image>
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS, Android" Value="Expander_Customization_Img2.png" />
+                        <On Platform="UWP" Value="Assets/Expander_Customization_Img2.png" />
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+
+            <Label Text="Tenerife Vacation Deals" Style="{StaticResource ExampleHeaderLabelStyle}" />
+
+            <Label Text="With its glistening beaches, breathtaking landmarks and bustling towns, the largest Canary Island has activities to suit all visitors."
+               Style="{StaticResource ContentLabelStyle}" />
+
+            <primitives:RadExpander IsExpanded="True" x:Name="expander1">
+                <primitives:RadExpander.Header>
+                    <primitives:ExpanderHeader>
+                        <Grid>
+                            <Label Text="Read More" IsVisible="{Binding Path=IsExpanded, Converter={StaticResource InvertedBooleanConverter}, Source={Reference expander1}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            <Label Text="Read Less" IsVisible="{Binding Path=IsExpanded, Source={Reference expander1}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                        </Grid>
+                    </primitives:ExpanderHeader>
+                </primitives:RadExpander.Header>
+                <primitives:RadExpander.Content>
+                    <Label Text="Climb to breathtaking heights and swim from golden shores just hours later on Tenerife. Uncover thriving culture and talented artisans or simply relax by the pool with a refreshing cocktail."
+                       Style="{StaticResource ExpanderContentLabelStyle}" />
+                </primitives:RadExpander.Content>
+            </primitives:RadExpander>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

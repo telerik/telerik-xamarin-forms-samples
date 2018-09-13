@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:local="clr-namespace:QSF.Examples.DataGridControl.CRUDOperationsExample"
+             x:Class="QSF.Examples.DataGridControl.CRUDOperationsExample.AddItemView">
+
+    <VisualElement.Resources>
+        <local:Resources />
+    </VisualElement.Resources>
+    
+    <Grid Padding="16, 10, 16, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Style="{StaticResource CrudButtonStyle2}"
+                Text="Cancel"
+                Command="{Binding CancelCommand}"
+                HorizontalOptions="Start" />
+        <Button Text="Add"
+                Command="{Binding AddCommand}"
+                HorizontalOptions="End"
+                Style="{StaticResource CrudButtonStyle2}" />
+        <telerikInput:RadDataForm x:Name="dataForm" 
+                                    Source="{Binding Order}" 
+                                    Grid.Row="1" />
+    </Grid>
+    
+</ContentView>

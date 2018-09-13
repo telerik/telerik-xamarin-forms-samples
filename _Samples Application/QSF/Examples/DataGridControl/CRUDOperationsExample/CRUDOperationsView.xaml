@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:local="clr-namespace:QSF.Examples.DataGridControl.CRUDOperationsExample"
+             x:Class="QSF.Examples.DataGridControl.CRUDOperationsExample.CRUDOperationsView">
+
+    <VisualElement.Resources>
+        <local:Resources />
+    </VisualElement.Resources>
+    
+    <Grid Margin="16, 1, 16, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.BackgroundColor>
+            <OnPlatform x:TypeArguments="Color">
+                <On Platform="Android">White</On>
+            </OnPlatform>
+        </Grid.BackgroundColor>
+        <StackLayout HorizontalOptions="End" Orientation="Horizontal" Spacing="0">
+            <telerikInput:RadButton x:Name="addButton"
+                                    Text="&#xe813;"
+                                    Command="{Binding GoToAddItemCommand}"
+                                    Style="{StaticResource CrudButtonStyle1}" />
+            <telerikInput:RadButton x:Name="editButton"
+                                    Text="&#xe818;"
+                                    Command="{Binding GoToEditItemCommand}"
+                                    Style="{StaticResource CrudButtonStyle1}" />
+            <telerikInput:RadButton x:Name="deleteButton"
+                                    Text="&#xe817;"
+                                    Command="{Binding DeleteItemsCommand}"
+                                    Style="{StaticResource CrudButtonStyle1}" />
+        </StackLayout>
+        <telerikDataGrid:RadDataGrid x:Name="dataGrid" 
+                                     views:ThemesBehavior.StyleClass="TelerikTheme"
+                                     ItemsSource="{Binding OrderDetails}" 
+                                     SelectedItems="{Binding SelectedItems}"
+                                     AutoGenerateColumns="False"
+                                     SelectionMode="Multiple"
+                                     SelectionStyle="{StaticResource DataGridSelectionStyle}"
+                                     Grid.Row="1">
+            <telerikDataGrid:RadDataGrid.Columns>
+                <telerikDataGrid:DataGridTextColumn PropertyName="OrderID" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="CustomerID" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="OrderDate" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShippedDate" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShipName" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShipVia" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="Freight" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
+            </telerikDataGrid:RadDataGrid.Columns>
+        </telerikDataGrid:RadDataGrid>
+    </Grid>
+</ContentView>
