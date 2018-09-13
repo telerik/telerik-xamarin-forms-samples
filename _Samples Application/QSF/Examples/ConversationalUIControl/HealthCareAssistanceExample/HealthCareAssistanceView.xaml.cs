@@ -12,7 +12,6 @@ using Xamarin.Forms.Xaml;
 
 namespace QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HealthCareAssistanceView : ContentView
     {
         public const string WaitingForBot = "WaitingForBot";

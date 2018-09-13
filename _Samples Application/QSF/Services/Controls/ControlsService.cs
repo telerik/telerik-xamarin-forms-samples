@@ -10,7 +10,7 @@ namespace QSF.Services
         public IEnumerable<Control> GetAllControls()
         {
             IConfigurationService configurationService = DependencyService.Get<IConfigurationService>();
-            var controls = configurationService.GetControlsConfiguration().OrderBy(p => p.Name);
+            var controls = configurationService.GetControlsConfiguration().OrderBy(p => p.DisplayName);
 
             return controls;
         }

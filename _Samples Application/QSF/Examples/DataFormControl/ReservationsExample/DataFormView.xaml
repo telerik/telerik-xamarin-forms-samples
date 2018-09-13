@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
-             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
-             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
-             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:local="clr-namespace:QSF.Examples.DataFormControl.ReservationsExample"
              x:Class="QSF.Examples.DataFormControl.ReservationsExample.DataFormView">
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0"
@@ -107,7 +104,7 @@
                 </Label>
             </Grid>
             <!-- form -->
-            <telerikInput:RadDataForm x:Name="dataForm"
+            <local:ReservationsDataForm x:Name="dataForm"
                                       Source="{Binding FormSource}"
                                       Grid.Row="1"
                                       CommitMode="Manual"
@@ -118,7 +115,7 @@
                         <On Platform="Android,UWP">16, 0, 4, 0</On>
                     </OnPlatform>
                 </telerikInput:RadDataForm.Margin>
-            </telerikInput:RadDataForm>
+            </local:ReservationsDataForm>
             <Label TextColor="#C73339"
                    HorizontalOptions="Start"
                    Grid.Row="2"

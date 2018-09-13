@@ -67,11 +67,32 @@
             <x:String x:Key="RulerIcon">&#xE81F;</x:String>
             <x:String x:Key="AUmlautIcon">&#xE81E;</x:String>
             <x:String x:Key="ExclamationMarkIcon">&#xE82F;</x:String>
+            <x:String x:Key="CarIcon">&#xE832;</x:String>
+            <x:String x:Key="ShoppingBagIcon">&#xE833;</x:String>
+            <x:String x:Key="CoffeCupIcon">&#xE834;</x:String>
+            <x:String x:Key="GetMoneyIcon">&#xE835;</x:String>
+            <x:String x:Key="ThicknessIcon">&#xE831;</x:String>
+            <x:String x:Key="FontSizeIcon">&#xE84B;</x:String>
+            <x:String x:Key="MarginIcon">&#xE84E;</x:String>
+            <x:String x:Key="DurationIcon">&#xE84F;</x:String>
+            <x:String x:Key="GaugeIcon">&#xE838;</x:String>
+            <x:String x:Key="AvatarIcon">&#xE836;</x:String>
+            <x:String x:Key="PlayIcon">&#xE850;</x:String>
+            <x:String x:Key="TwitterIcon">&#xF309;</x:String>
+            <x:String x:Key="GraphicIcon">&#xE849;</x:String>
+            <x:String x:Key="FontIcon">&#xE84B;</x:String>
+            <x:String x:Key="TemplateIcon">&#xE84C;</x:String>
+            <x:String x:Key="PhotoIcon">&#xE84A;</x:String>
+            <x:String x:Key="PatternIcon">&#xE812;</x:String>
+            <x:String x:Key="BookIcon">&#xE847;</x:String>
+            <x:String x:Key="AssetIcon">&#xE846;</x:String>
+            <x:String x:Key="DesignIcon">&#xE848;</x:String>
+            <x:String x:Key="WireframeIcon">&#xE84D;</x:String>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
-                <On Platform="iOS">fontello</On>
-                <On Platform="Android">Fonts/fontello.ttf#fontello</On>
-                <On Platform="UWP">/Assets/Fonts/fontello.ttf#fontello</On>
+                <On Platform="iOS">telerikfontexamples</On>
+                <On Platform="Android">Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+                <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
             </OnPlatform>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
@@ -101,6 +122,10 @@
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
                 <Setter Property="TextColor" Value="{StaticResource TextColor}" />
                 <Setter Property="Margin" Value="0, 12, 0, 0" />
+            </Style>
+
+            <Style TargetType="primitives:ExpanderHeader">
+                <Setter Property="Padding" Value="5" />
             </Style>
 
             <Style TargetType="Label" x:Key="HeaderLabelStyle">

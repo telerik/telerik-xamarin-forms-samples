@@ -87,7 +87,7 @@
                 </telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
                 <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" InputTransparent="True">
                             <Image Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}"
                                            Margin="10, 10, 10, 10"    
                                            VerticalOptions="Center"

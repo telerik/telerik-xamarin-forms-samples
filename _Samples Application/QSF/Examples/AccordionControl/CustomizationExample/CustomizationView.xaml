@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:expander="clr-namespace:Telerik.XamarinForms.Primitives.Expander;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             x:Class="QSF.Examples.AccordionControl.CustomizationExample.CustomizationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <expander:ExpandCollapseIndicatorLocationToGridColumnConverter x:Key="ExpandCollapseIndicatorLocationToGridColumnConverter" />
+            <expander:InverseThicknessConverter x:Key="InverseThicknessConverter" />
+            <converters:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+
+            <converters:ConditionalValueConverterParameter x:Key="AccordionItemHeaderBackgroundConverterParameter" FalseValue="#353535" TrueValue="#0088C4" />
+
+            <OnPlatform x:Key="IndicatorLabelMargin" x:TypeArguments="Thickness">
+                <On Platform="iOS, Android">0</On>
+                <On Platform="UWP">0, -8, 0, 0</On>
+            </OnPlatform>
+
+            <ControlTemplate x:Key="AccordionItemHeaderTemplate">
+                <primitives:RadBorder BorderColor="{TemplateBinding BorderColor}"
+                              Margin="{TemplateBinding Padding, Converter={StaticResource InverseThicknessConverter}}"
+                              Padding="{TemplateBinding Padding}"
+                              BorderThickness="{TemplateBinding BorderThickness}">
+                    <primitives:RadBorder.GestureRecognizers>
+                        <TapGestureRecognizer Command="{TemplateBinding ToggleExpandCommand}" />
+                    </primitives:RadBorder.GestureRecognizers>
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView BackgroundColor="{TemplateBinding IsExpanded, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource AccordionItemHeaderBackgroundConverterParameter}}"
+                                 Grid.Column="{TemplateBinding IndicatorLocation, Converter={StaticResource ExpandCollapseIndicatorLocationToGridColumnConverter}}"
+                                 WidthRequest="44"
+                                 HeightRequest="44"/>
+
+                        <Label Text="-"
+                               TextColor="White"
+                               FontSize="Large"
+                               IsVisible="{TemplateBinding IsExpanded}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Grid.Column="{TemplateBinding IndicatorLocation, Converter={StaticResource ExpandCollapseIndicatorLocationToGridColumnConverter}}"
+                               Margin="{StaticResource IndicatorLabelMargin}"/>
+                        <Label Text="+"
+                               TextColor="White"
+                               FontSize="Large"
+                               IsVisible="{TemplateBinding IsExpanded, Converter={StaticResource InvertedBooleanConverter}}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Grid.Column="{TemplateBinding IndicatorLocation, Converter={StaticResource ExpandCollapseIndicatorLocationToGridColumnConverter}}"
+                               Margin="{StaticResource IndicatorLabelMargin}"/>
+
+                        <ContentPresenter Grid.Column="1"  Margin="16, 0, 0, 0"/>
+                    </Grid>
+                </primitives:RadBorder>
+            </ControlTemplate>
+
+            <Style x:Key="AccordionItemHeaderLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="primitives:AccordionItemHeader">
+                <Setter Property="ControlTemplate" Value="{StaticResource AccordionItemHeaderTemplate}" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+
+            <Style TargetType="primitives:AccordionItem">
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+
+            <Style x:Key="InfoTextLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="#9D9B9B" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            </Style>
+
+            <Style x:Key="ValueTextLabel" TargetType="Label" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="SeparatorStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="BackgroundColor" Value="#AEAEAF" />
+                <Setter Property="Margin" Value="0, 6" />
+            </Style>
+
+            <Style x:Key="AvatarLabelStyle" TargetType="Label">
+                <Setter Property="Text" Value="{StaticResource AvatarIcon}" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="FontSize" Value="45" />
+                <Setter Property="TextColor" Value="#DDDDDD" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ScrollView>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="8, 16, 16, 8">
+                <Label FontFamily="{StaticResource IconsFont}" Text="{StaticResource GaugeIcon}" TextColor="#D11900" FontSize="25" VerticalOptions="Center"/>
+                <Label FontFamily="{StaticResource RegularFont}" Text="Dashboard" TextColor="#D11900" FontSize="19" VerticalOptions="Center" Margin="5, 0" />
+            </StackLayout>
+
+            <primitives:RadAccordion Spacing="5">
+                <primitives:AccordionItem IsExpanded="True">
+                    <primitives:AccordionItem.Header>
+                        <primitives:AccordionItemHeader>
+                            <Label Text="Sales Channel" Style="{StaticResource AccordionItemHeaderLabelStyle}"/>
+                        </primitives:AccordionItemHeader>
+                    </primitives:AccordionItem.Header>
+                    <primitives:AccordionItem.Content>
+                        <Grid HorizontalOptions="Center" Margin="16">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikChart:RadPieChart x:Name="chart" Grid.Column="1" HeightRequest="150" WidthRequest="150" PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White">
+                                <telerikChart:RadPieChart.ChartBehaviors>
+                                    <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
+                                </telerikChart:RadPieChart.ChartBehaviors>
+                                <telerikChart:RadPieChart.Series>
+                                    <telerikChart:PieSeries RadiusFactor="0.9" ItemsSource="{Binding SeriesData}" ShowLabels="False">
+                                        <telerikChart:PieSeries.ValueBinding>
+                                            <telerikChart:PropertyNameDataPointBinding PropertyName="Value"/>
+                                        </telerikChart:PieSeries.ValueBinding>
+                                    </telerikChart:PieSeries>
+                                </telerikChart:RadPieChart.Series>
+                                <telerikChart:RadPieChart.Palette>
+                                    <telerikChart:ChartPalette>
+                                        <telerikChart:ChartPalette.Entries>
+                                            <telerikChart:PaletteEntry>
+                                                <telerikChart:PaletteEntry.FillColor>#D11900</telerikChart:PaletteEntry.FillColor>
+                                                <telerikChart:PaletteEntry.StrokeColor>Transparent</telerikChart:PaletteEntry.StrokeColor>
+                                            </telerikChart:PaletteEntry>
+                                            <telerikChart:PaletteEntry>
+                                                <telerikChart:PaletteEntry.FillColor>#0088C4</telerikChart:PaletteEntry.FillColor>
+                                                <telerikChart:PaletteEntry.StrokeColor>Transparent</telerikChart:PaletteEntry.StrokeColor>
+                                            </telerikChart:PaletteEntry>
+                                            <telerikChart:PaletteEntry>
+                                                <telerikChart:PaletteEntry.FillColor>#F7AC16</telerikChart:PaletteEntry.FillColor>
+                                                <telerikChart:PaletteEntry.StrokeColor>Transparent</telerikChart:PaletteEntry.StrokeColor>
+                                            </telerikChart:PaletteEntry>
+                                        </telerikChart:ChartPalette.Entries>
+                                    </telerikChart:ChartPalette>
+                                </telerikChart:RadPieChart.Palette>
+                            </telerikChart:RadPieChart>
+
+                            <StackLayout Grid.Column="2" Spacing="20" VerticalOptions="Center" Margin="20, 0, 0, 0">
+                                <StackLayout Orientation="Horizontal">
+                                    <primitives:RadBorder BackgroundColor="#0088C4" WidthRequest="12" HeightRequest="12" CornerRadius="6" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    <Label Text="Ecommerce" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <primitives:RadBorder BackgroundColor="#F7AC16" WidthRequest="12" HeightRequest="12" CornerRadius="6" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    <Label Text="Personal Selling" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <primitives:RadBorder BackgroundColor="#D11900" WidthRequest="12" HeightRequest="12" CornerRadius="6" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    <Label Text="Direct Marketing" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </primitives:AccordionItem.Content>
+                </primitives:AccordionItem>
+
+                <primitives:AccordionItem>
+                    <primitives:AccordionItem.Header>
+                        <primitives:AccordionItemHeader>
+                            <Label Text="Latest Orders" Style="{StaticResource AccordionItemHeaderLabelStyle}"/>
+                        </primitives:AccordionItemHeader>
+                    </primitives:AccordionItem.Header>
+                    <primitives:AccordionItem.Content>
+                        <Grid Margin="16" ColumnSpacing="20" RowSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Order Id:" Style="{StaticResource InfoTextLabel}" />
+                            <Label Text="#123456" Style="{StaticResource ValueTextLabel}" Grid.Column="1" />
+
+                            <Label Text="Due Date:" Style="{StaticResource InfoTextLabel}" Grid.Row="1" />
+                            <Label Text="12.08.2018" Style="{StaticResource ValueTextLabel}" Grid.Row="1" Grid.Column="1" />
+
+                            <BoxView Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+
+                            <Label Text="Order Id:" Style="{StaticResource InfoTextLabel}" Grid.Row="3" />
+                            <Label Text="#123456" Style="{StaticResource ValueTextLabel}" Grid.Row="3" Grid.Column="1" />
+
+                            <Label Text="Due Date:" Style="{StaticResource InfoTextLabel}" Grid.Row="4" />
+                            <Label Text="12.08.2018" Style="{StaticResource ValueTextLabel}" Grid.Row="4" Grid.Column="1" />
+
+                            <BoxView Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+                        </Grid>
+                    </primitives:AccordionItem.Content>
+                </primitives:AccordionItem>
+
+                <primitives:AccordionItem>
+                    <primitives:AccordionItem.Header>
+                        <primitives:AccordionItemHeader>
+                            <Label Text="Recently Added Products" Style="{StaticResource AccordionItemHeaderLabelStyle}"/>
+                        </primitives:AccordionItemHeader>
+                    </primitives:AccordionItem.Header>
+                    <primitives:AccordionItem.Content>
+                        <Grid Margin="16" ColumnSpacing="20" RowSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Product Id:" Style="{StaticResource InfoTextLabel}" />
+                            <Label Text="P123" Style="{StaticResource ValueTextLabel}" Grid.Column="1" />
+
+                            <Label Text="Product Name:" Style="{StaticResource InfoTextLabel}" Grid.Row="1" />
+                            <Label Text="Head Tube" Style="{StaticResource ValueTextLabel}" Grid.Row="1" Grid.Column="1" />
+
+                            <BoxView Grid.Row="2" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+
+                            <Label Text="Product Id:" Style="{StaticResource InfoTextLabel}" Grid.Row="3" />
+                            <Label Text="P669" Style="{StaticResource ValueTextLabel}" Grid.Row="3" Grid.Column="1" />
+
+                            <Label Text="Product Name:" Style="{StaticResource InfoTextLabel}" Grid.Row="4" />
+                            <Label Text="Rear Brakes" Style="{StaticResource ValueTextLabel}" Grid.Row="4" Grid.Column="1" />
+
+                            <BoxView Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+                        </Grid>
+                    </primitives:AccordionItem.Content>
+                </primitives:AccordionItem>
+
+                <primitives:AccordionItem>
+                    <primitives:AccordionItem.Header>
+                        <primitives:AccordionItemHeader>
+                            <Label Text="Best Vendors" Style="{StaticResource AccordionItemHeaderLabelStyle}"/>
+                        </primitives:AccordionItemHeader>
+                    </primitives:AccordionItem.Header>
+                    <primitives:AccordionItem.Content>
+                        <Grid Margin="16" ColumnSpacing="20" RowSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Name:" Style="{StaticResource InfoTextLabel}" />
+                            <Label Text="Sales Amount:" Style="{StaticResource InfoTextLabel}" Grid.Column="1" />
+
+                            <BoxView Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+
+                            <Image Grid.Row="2">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS, Android" Value="Accordion_Customization_Vendor1.png" />
+                                        <On Platform="UWP" Value="Assets/Accordion_Customization_Vendor1.png" />
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                            <Label Text="$230 000" Style="{StaticResource ValueTextLabel}" Grid.Row="2" Grid.Column="1" />
+
+                            <BoxView Grid.Row="3" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+
+                            <Image Grid.Row="4">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS, Android" Value="Accordion_Customization_Vendor2.png" />
+                                        <On Platform="UWP" Value="Assets/Accordion_Customization_Vendor2.png" />
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                            <Label Text="$210 336" Style="{StaticResource ValueTextLabel}" Grid.Row="4" Grid.Column="1" />
+
+                            <BoxView Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+
+                            <Image Grid.Row="6">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS, Android" Value="Accordion_Customization_Vendor3.png" />
+                                        <On Platform="UWP" Value="Assets/Accordion_Customization_Vendor3.png" />
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                            <Label Text="$190 000" Style="{StaticResource ValueTextLabel}" Grid.Row="6" Grid.Column="1" />
+
+                            <BoxView Grid.Row="7" Grid.ColumnSpan="3" Style="{StaticResource SeparatorStyle}" />
+                        </Grid>
+                    </primitives:AccordionItem.Content>
+                </primitives:AccordionItem>
+
+                <primitives:AccordionItem>
+                    <primitives:AccordionItem.Header>
+                        <primitives:AccordionItemHeader>
+                            <Label Text="New Customers" Style="{StaticResource AccordionItemHeaderLabelStyle}"/>
+                        </primitives:AccordionItemHeader>
+                    </primitives:AccordionItem.Header>
+                    <primitives:AccordionItem.Content>
+                        <Grid Margin="16" RowSpacing="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <StackLayout Orientation="Horizontal" Spacing="16">
+                                <Label Style="{StaticResource AvatarLabelStyle}" />
+                                
+                                <StackLayout>
+                                    <Label Text="Kosta Kushlev" Style="{StaticResource ValueTextLabel}" />
+                                    <Label Text="KostaKushlev@Company.com" Style="{StaticResource InfoTextLabel}" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView Grid.Row="1" Style="{StaticResource SeparatorStyle}" />
+
+                            <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="16">
+                                <Label Style="{StaticResource AvatarLabelStyle}" />
+                                
+                                <StackLayout>
+                                    <Label Text="Svetlin Nikolaev" Style="{StaticResource ValueTextLabel}" />
+                                    <Label Text="SNikolaev@Company.com" Style="{StaticResource InfoTextLabel}" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView Grid.Row="3" Style="{StaticResource SeparatorStyle}" />
+
+                            <StackLayout Grid.Row="4" Orientation="Horizontal" Spacing="16">
+                                <Label Style="{StaticResource AvatarLabelStyle}" />
+                                
+                                <StackLayout>
+                                    <Label Text="Diana Koleva" Style="{StaticResource ValueTextLabel}" />
+                                    <Label Text="DianaK@Company.com" Style="{StaticResource InfoTextLabel}" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView Grid.Row="5" Style="{StaticResource SeparatorStyle}" />
+                        </Grid>
+                    </primitives:AccordionItem.Content>
+                </primitives:AccordionItem>
+            </primitives:RadAccordion>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

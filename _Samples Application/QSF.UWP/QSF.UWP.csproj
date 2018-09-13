@@ -11,8 +11,8 @@
     <AssemblyName>QSF.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -22,6 +22,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -74,11 +75,12 @@
     <OutputPath>bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <NoWarn>;2008</NoWarn>
-    <DebugType>full</DebugType>
+    <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -91,9 +93,50 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\Accordion_Configuration.scale-100.png" />
+    <Content Include="Assets\Accordion_Configuration.scale-125.png" />
+    <Content Include="Assets\Accordion_Configuration.scale-150.png" />
+    <Content Include="Assets\Accordion_Configuration.scale-200.png" />
+    <Content Include="Assets\Accordion_Configuration.scale-400.png" />
+    <Content Include="Assets\Accordion_Customization.scale-100.png" />
+    <Content Include="Assets\Accordion_Customization.scale-125.png" />
+    <Content Include="Assets\Accordion_Customization.scale-150.png" />
+    <Content Include="Assets\Accordion_Customization.scale-200.png" />
+    <Content Include="Assets\Accordion_Customization.scale-400.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor1.scale-100.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor1.scale-125.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor1.scale-150.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor1.scale-200.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor1.scale-400.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor2.scale-100.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor2.scale-125.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor2.scale-150.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor2.scale-200.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor2.scale-400.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor3.scale-100.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor3.scale-125.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor3.scale-150.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor3.scale-200.png" />
+    <Content Include="Assets\Accordion_Customization_Vendor3.scale-400.png" />
+    <Content Include="Assets\Accordion_FirstLook.scale-100.png" />
+    <Content Include="Assets\Accordion_FirstLook.scale-125.png" />
+    <Content Include="Assets\Accordion_FirstLook.scale-150.png" />
+    <Content Include="Assets\Accordion_FirstLook.scale-200.png" />
+    <Content Include="Assets\Accordion_FirstLook.scale-400.png" />
+    <Content Include="Assets\AutoCompleteView_FirstLook.scale-100.png" />
+    <Content Include="Assets\AutoCompleteView_FirstLook.scale-125.png" />
+    <Content Include="Assets\AutoCompleteView_FirstLook.scale-150.png" />
+    <Content Include="Assets\AutoCompleteView_FirstLook.scale-200.png" />
+    <Content Include="Assets\AutoCompleteView_FirstLook.scale-400.png" />
+    <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-100.png" />
+    <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-125.png" />
+    <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-150.png" />
+    <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-200.png" />
+    <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-400.png" />
     <Content Include="Assets\Autocomplete_Theming.scale-100.png" />
     <Content Include="Assets\Autocomplete_Theming.scale-125.png" />
     <Content Include="Assets\Autocomplete_Theming.scale-150.png" />
@@ -520,6 +563,65 @@
     <Content Include="Assets\Chart_Bar_Series.scale-150.png" />
     <Content Include="Assets\Chart_Bar_Series.scale-200.png" />
     <Content Include="Assets\Chart_Bar_Series.scale-400.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Active.scale-100.png.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Active.scale-125.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Active.scale-150.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Active.scale-200.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Active.scale-300.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Active.scale-400.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Inactive.scale-100.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Inactive.scale-125.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Inactive.scale-150.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Inactive.scale-200.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Inactive.scale-300.png" />
+    <Content Include="Assets\Chart_Donut1_Header_Inactive.scale-400.png" />
+    <Content Include="Assets\Chart_Financial.scale-100.png" />
+    <Content Include="Assets\Chart_Financial.scale-125.png" />
+    <Content Include="Assets\Chart_Financial.scale-150.png" />
+    <Content Include="Assets\Chart_Financial.scale-200.png" />
+    <Content Include="Assets\Chart_Financial.scale-300.png" />
+    <Content Include="Assets\Chart_Financial.scale-400.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Active.scale-100.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Active.scale-125.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Active.scale-150.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Active.scale-200.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Active.scale-300.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Active.scale-400.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Inactive.scale-100.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Inactive.scale-125.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Inactive.scale-150.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Inactive.scale-200.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Inactive.scale-300.png" />
+    <Content Include="Assets\Chart_Financial1_Header_Inactive.scale-400.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Active.scale-100.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Active.scale-125.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Active.scale-150.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Active.scale-200.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Active.scale-300.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Active.scale-400.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Inactive.scale-100.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Inactive.scale-125.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Inactive.scale-150.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Inactive.scale-200.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Inactive.scale-300.png" />
+    <Content Include="Assets\Chart_Financial2_Header_Inactive.scale-400.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Active.scale-100.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Active.scale-125.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Active.scale-150.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Active.scale-200.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Active.scale-300.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Active.scale-400.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Inactive.scale-100.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Inactive.scale-125.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Inactive.scale-150.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Inactive.scale-200.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Inactive.scale-300.png" />
+    <Content Include="Assets\Chart_Financial3_Header_Inactive.scale-400.png" />
+    <Content Include="Assets\Chart_Financial_Indicators.scale-100.png" />
+    <Content Include="Assets\Chart_Financial_Indicators.scale-125.png" />
+    <Content Include="Assets\Chart_Financial_Indicators.scale-150.png" />
+    <Content Include="Assets\Chart_Financial_Indicators.scale-200.png" />
+    <Content Include="Assets\Chart_Financial_Indicators.scale-400.png" />
     <Content Include="Assets\Chart_Line1_Header_Active.scale-100.png" />
     <Content Include="Assets\Chart_Line1_Header_Active.scale-125.png" />
     <Content Include="Assets\Chart_Line1_Header_Active.scale-150.png" />
@@ -878,6 +980,12 @@
     <Content Include="Assets\ChatBot_Vacation.scale-200.png" />
     <Content Include="Assets\ChatBot_Vacation.scale-300.png" />
     <Content Include="Assets\ChatBot_Vacation.scale-400.png" />
+    <Content Include="Assets\Chat_Chatroom.scale-100.png" />
+    <Content Include="Assets\Chat_Chatroom.scale-125.png" />
+    <Content Include="Assets\Chat_Chatroom.scale-150.png" />
+    <Content Include="Assets\Chat_Chatroom.scale-200.png" />
+    <Content Include="Assets\Chat_Chatroom.scale-300.png" />
+    <Content Include="Assets\Chat_Chatroom.scale-400.png" />
     <Content Include="Assets\CheckBox_FirstLook.scale-100.png" />
     <Content Include="Assets\CheckBox_FirstLook.scale-125.png" />
     <Content Include="Assets\CheckBox_FirstLook.scale-150.png" />
@@ -889,7 +997,7 @@
     <Content Include="Assets\Cocktails3.png" />
     <Content Include="Assets\DataForm_Add.scale-100.png" />
     <Content Include="Assets\DataForm_Add.scale-150.png" />
-    <Content Include="Assets\DataForm_Add.scale-2.png" />
+    <Content Include="Assets\DataForm_Add.scale-200.png" />
     <Content Include="Assets\DataForm_Add.scale-400.png" />
     <Content Include="Assets\DataForm_Calendar_Header.png" />
     <Content Include="Assets\DataForm_Cancel.png" />
@@ -899,10 +1007,16 @@
     <Content Include="Assets\DataForm_Theming.scale-150.png" />
     <Content Include="Assets\DataForm_Theming.scale-200.png" />
     <Content Include="Assets\DataForm_Theming.scale-400.png" />
-    <Content Include="Assets\DataGrid_Customization%401,5x.png" />
-    <Content Include="Assets\DataGrid_Customization%402x.png" />
-    <Content Include="Assets\DataGrid_Customization%403x.png" />
-    <Content Include="Assets\DataGrid_Customization.png" />
+    <Content Include="Assets\DataGrid_CRUD.scale-100.png" />
+    <Content Include="Assets\DataGrid_CRUD.scale-125.png" />
+    <Content Include="Assets\DataGrid_CRUD.scale-150.png" />
+    <Content Include="Assets\DataGrid_CRUD.scale-200.png" />
+    <Content Include="Assets\DataGrid_CRUD.scale-300.png" />
+    <Content Include="Assets\DataGrid_CRUD.scale-400.png" />
+    <Content Include="Assets\DataGrid_Customization.scale-150.png" />
+    <Content Include="Assets\DataGrid_Customization.scale-200.png" />
+    <Content Include="Assets\DataGrid_Customization.scale-300.png" />
+    <Content Include="Assets\DataGrid_Customization.scale-100.png" />
     <Content Include="Assets\DataGrid_FirstLook_person01.png" />
     <Content Include="Assets\DataGrid_FirstLook_person02.png" />
     <Content Include="Assets\DataGrid_FirstLook_person03.png" />
@@ -962,10 +1076,10 @@
     <Content Include="Assets\DataGrid_FirstLook.scale-150.png" />
     <Content Include="Assets\DataGrid_FirstLook.scale-200.png" />
     <Content Include="Assets\DataGrid_FirstLook.scale-400.png" />
-    <Content Include="Assets\DataGrid_LoadOnDemand%401,5x.png" />
-    <Content Include="Assets\DataGrid_LoadOnDemand%402x.png" />
-    <Content Include="Assets\DataGrid_LoadOnDemand%403x.png" />
-    <Content Include="Assets\DataGrid_LoadOnDemand.png" />
+    <Content Include="Assets\DataGrid_LoadOnDemand.scale-150.png" />
+    <Content Include="Assets\DataGrid_LoadOnDemand.scale-200.png" />
+    <Content Include="Assets\DataGrid_LoadOnDemand.scale-300.png" />
+    <Content Include="Assets\DataGrid_LoadOnDemand.scale-100.png" />
     <Content Include="Assets\Desserts0.png" />
     <Content Include="Assets\Desserts1.png" />
     <Content Include="Assets\Desserts2.png" />
@@ -980,6 +1094,41 @@
     <Content Include="Assets\Entry_FirstLook.scale-150.png" />
     <Content Include="Assets\Entry_FirstLook.scale-200.png" />
     <Content Include="Assets\Entry_FirstLook.scale-400.png" />
+    <Content Include="Assets\Expander_Configuration.scale-100.png" />
+    <Content Include="Assets\Expander_Configuration.scale-125.png" />
+    <Content Include="Assets\Expander_Configuration.scale-150.png" />
+    <Content Include="Assets\Expander_Configuration.scale-200.png" />
+    <Content Include="Assets\Expander_Configuration.scale-400.png" />
+    <Content Include="Assets\Expander_Customization.scale-100.png" />
+    <Content Include="Assets\Expander_Customization.scale-125.png" />
+    <Content Include="Assets\Expander_Customization.scale-150.png" />
+    <Content Include="Assets\Expander_Customization.scale-200.png" />
+    <Content Include="Assets\Expander_Customization.scale-400.png" />
+    <Content Include="Assets\Expander_Customization_Img1.scale-100.png" />
+    <Content Include="Assets\Expander_Customization_Img1.scale-125.png" />
+    <Content Include="Assets\Expander_Customization_Img1.scale-150.png" />
+    <Content Include="Assets\Expander_Customization_Img1.scale-200.png" />
+    <Content Include="Assets\Expander_Customization_Img1.scale-400.png" />
+    <Content Include="Assets\Expander_Customization_Img2.scale-100.png" />
+    <Content Include="Assets\Expander_Customization_Img2.scale-125.png" />
+    <Content Include="Assets\Expander_Customization_Img2.scale-150.png" />
+    <Content Include="Assets\Expander_Customization_Img2.scale-200.png" />
+    <Content Include="Assets\Expander_Customization_Img2.scale-400.png" />
+    <Content Include="Assets\Expander_FirstLook.scale-100.png" />
+    <Content Include="Assets\Expander_FirstLook.scale-125.png" />
+    <Content Include="Assets\Expander_FirstLook.scale-150.png" />
+    <Content Include="Assets\Expander_FirstLook.scale-200.png" />
+    <Content Include="Assets\Expander_FirstLook.scale-400.png" />
+    <Content Include="Assets\Expander_FirstLook_Img1.scale-100.png" />
+    <Content Include="Assets\Expander_FirstLook_Img1.scale-125.png" />
+    <Content Include="Assets\Expander_FirstLook_Img1.scale-150.png" />
+    <Content Include="Assets\Expander_FirstLook_Img1.scale-200.png" />
+    <Content Include="Assets\Expander_FirstLook_Img1.scale-400.png" />
+    <Content Include="Assets\Expander_FirstLook_Img2.scale-100.png" />
+    <Content Include="Assets\Expander_FirstLook_Img2.scale-125.png" />
+    <Content Include="Assets\Expander_FirstLook_Img2.scale-150.png" />
+    <Content Include="Assets\Expander_FirstLook_Img2.scale-200.png" />
+    <Content Include="Assets\Expander_FirstLook_Img2.scale-400.png" />
     <Content Include="Assets\Gauge_HorizontalGauge1_Active.scale-100.png" />
     <Content Include="Assets\Gauge_HorizontalGauge1_Active.scale-125.png" />
     <Content Include="Assets\Gauge_HorizontalGauge1_Active.scale-150.png" />
@@ -1113,6 +1262,31 @@
     <Content Include="Assets\NumericInput_FirstLook.scale-150.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-200.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-400.png" />
+    <Content Include="Assets\Scheduler_Configuration.scale-100.png" />
+    <Content Include="Assets\Scheduler_Configuration.scale-125.png" />
+    <Content Include="Assets\Scheduler_Configuration.scale-150.png" />
+    <Content Include="Assets\Scheduler_Configuration.scale-200.png" />
+    <Content Include="Assets\Scheduler_Configuration.scale-400.png" />
+    <Content Include="Assets\Scheduler_Person_1.scale-100.png" />
+    <Content Include="Assets\Scheduler_Person_1.scale-125.png" />
+    <Content Include="Assets\Scheduler_Person_1.scale-150.png" />
+    <Content Include="Assets\Scheduler_Person_1.scale-200.png" />
+    <Content Include="Assets\Scheduler_Person_1.scale-400.png" />
+    <Content Include="Assets\Scheduler_Person_2.scale-100.png" />
+    <Content Include="Assets\Scheduler_Person_2.scale-125.png" />
+    <Content Include="Assets\Scheduler_Person_2.scale-150.png" />
+    <Content Include="Assets\Scheduler_Person_2.scale-200.png" />
+    <Content Include="Assets\Scheduler_Person_2.scale-400.png" />
+    <Content Include="Assets\Scheduler_Resources.scale-100.png" />
+    <Content Include="Assets\Scheduler_Resources.scale-125.png" />
+    <Content Include="Assets\Scheduler_Resources.scale-150.png" />
+    <Content Include="Assets\Scheduler_Resources.scale-200.png" />
+    <Content Include="Assets\Scheduler_Resources.scale-400.png" />
+    <Content Include="Assets\Scheduler_Appointments.scale-100.png" />
+    <Content Include="Assets\Scheduler_Appointments.scale-125.png" />
+    <Content Include="Assets\Scheduler_Appointments.scale-150.png" />
+    <Content Include="Assets\Scheduler_Appointments.scale-200.png" />
+    <Content Include="Assets\Scheduler_Appointments.scale-400.png" />
     <Content Include="Assets\SideDrawer_Menu.png" />
     <Content Include="Assets\docx_file.scale-100.png" />
     <Content Include="Assets\docx_file.scale-200.png" />
@@ -1129,8 +1303,6 @@
     <Content Include="Assets\Fonts\seguili.ttf" />
     <Content Include="Assets\Fonts\seguisbi.ttf" />
     <Content Include="Assets\Fonts\seguisli.ttf" />
-    <Content Include="Assets\Fonts\fontello.ttf" />
-    <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -1145,11 +1317,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DeviceInfo\DeviceInfoService.cs" />
     <Compile Include="Services\FileViewer\FileViewerService.cs" />
+    <Compile Include="Services\XmlDocumentReader\XPathXmlReaderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Fonts\telerikfontexamples.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="QSF.UWP_StoreKey.pfx" />
     <None Include="QSF.UWP_TemporaryKey.pfx" />
   </ItemGroup>
@@ -1445,6 +1621,11 @@
     <Content Include="Assets\TreeView_Customization_Flag_USA.scale-150.png" />
     <Content Include="Assets\TreeView_Customization_Flag_USA.scale-200.png" />
     <Content Include="Assets\TreeView_Customization_Flag_USA.scale-400.png" />
+    <Content Include="Assets\TreeView_Drive.scale-100.png" />
+    <Content Include="Assets\TreeView_Drive.scale-125.png" />
+    <Content Include="Assets\TreeView_Drive.scale-150.png" />
+    <Content Include="Assets\TreeView_Drive.scale-200.png" />
+    <Content Include="Assets\TreeView_Drive.scale-400.png" />
     <Content Include="Assets\TreeView_FirstLook.scale-100.png" />
     <Content Include="Assets\TreeView_FirstLook.scale-125.png" />
     <Content Include="Assets\TreeView_FirstLook.scale-150.png" />
@@ -1455,6 +1636,11 @@
     <Content Include="Assets\TreeView_FirstLook_User.scale-150.png" />
     <Content Include="Assets\TreeView_FirstLook_User.scale-200.png" />
     <Content Include="Assets\TreeView_FirstLook_User.scale-400.png" />
+    <Content Include="Assets\TreeView_LoadOnDemand.scale-100.png" />
+    <Content Include="Assets\TreeView_LoadOnDemand.scale-125.png" />
+    <Content Include="Assets\TreeView_LoadOnDemand.scale-150.png" />
+    <Content Include="Assets\TreeView_LoadOnDemand.scale-200.png" />
+    <Content Include="Assets\TreeView_LoadOnDemand.scale-400.png" />
     <Content Include="Assets\tyre.png" />
     <Content Include="Assets\VacationBot.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
@@ -1491,6 +1677,38 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>1.6.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>1.6.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="NETStandard.Library">
+      <Version>2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp">
+      <Version>1.59.3</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>1.59.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.3.6</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.1.0.697729</Version>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

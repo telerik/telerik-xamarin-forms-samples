@@ -31,7 +31,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Label Text="{Binding Path=Name}" Style="{StaticResource Key=ControlExampleNameLabelStyle}" />
+                        <Label Text="{Binding Path=DisplayName}" Style="{StaticResource Key=ControlExampleNameLabelStyle}" />
                         <Label Text="{Binding Path=ShortDescription}" LineBreakMode="WordWrap"
                                Style="{StaticResource Key=BodyLabelStyle}" Grid.Row="1" />
                     </Grid>
@@ -124,7 +124,7 @@
                                                         <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}" Aspect="AspectFit"
                                                                WidthRequest="160" HeightRequest="160" HorizontalOptions="Center" VerticalOptions="Center"/>
                                                     </Grid>
-                                                    <Label Text="{Binding Path=Name}" Style="{StaticResource Key=ControlExampleNameLabelStyle}"/>
+                                                    <Label Text="{Binding Path=DisplayName}" Style="{StaticResource Key=ControlExampleNameLabelStyle}"/>
 
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>

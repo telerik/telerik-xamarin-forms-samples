@@ -10,6 +10,7 @@ namespace QSF
     {
         public App()
         {
+            var loadEbeddedFont = Telerik.XamarinForms.Common.TelerikFont.UseEmbeddedFontProperty;
             this.InitializeComponent();
 
             this.InitDependencies();
@@ -30,6 +31,7 @@ namespace QSF
             DependencyService.Register<ISearchService, SearchService>();
             DependencyService.Register<ISerializationService, SerializationService>();
             DependencyService.Register<IBackdoorService, BackdoorService>();
+            DependencyService.Register<IMessageService, MessageService>();
         }
 
         private Task InitNavigation()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 using QSF.ViewModels;
+using Telerik.XamarinForms.Common.DataAnnotations;
 
 namespace QSF.Examples.DataGridControl.Common
 {
@@ -23,6 +24,7 @@ namespace QSF.Examples.DataGridControl.Common
         private string shipRegion;
 
         [XmlAttribute(AttributeName = "OrderID")]
+        [DisplayOptions(Header = "Order ID", PlaceholderText = "Order ID")]
         public double OrderID
         {
             get
@@ -41,6 +43,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "ShipName")]
+        [DisplayOptions(Header = "Ship Name", PlaceholderText = "Ship Name")]
         public string ShipName
         {
             get
@@ -59,6 +62,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "CustomerID")]
+        [DisplayOptions(Header = "Ship Name", PlaceholderText = "Ship Name")]
         public string CustomerID
         {
             get
@@ -113,6 +117,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "OrderDate")]
+        [DisplayOptions(Header = "Order Date", PlaceholderText = "Order Date")]
         public DateTime OrderDate
         {
             get
@@ -149,6 +154,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "ShippedDate")]
+        [DisplayOptions(Header = "Shipped Date", PlaceholderText = "Shipped Date")]
         public DateTime ShippedDate
         {
             get
@@ -167,6 +173,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "ShipVia")]
+        [DisplayOptions(Header = "Ship Via", PlaceholderText = "Ship Via")]
         public double ShipVia
         {
             get
@@ -185,6 +192,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "Freight")]
+        [DisplayOptions(Header = "Freight", PlaceholderText = "Freight")]
         public double Freight
         {
             get

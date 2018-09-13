@@ -14,7 +14,6 @@ using Xamarin.Forms.Xaml;
 
 namespace QSF.Examples.ConversationalUIControl.InsuranceAssistanceExample
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InsuranceAssistanceView : ContentView
     {
         private Author botAuthor;

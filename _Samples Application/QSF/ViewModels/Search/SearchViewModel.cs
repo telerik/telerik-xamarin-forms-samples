@@ -103,8 +103,8 @@ namespace QSF.ViewModels
                 var controls = controlsService.GetAllControls();
                 foreach (var control in controls)
                 {
-                    var highlightedText = new HighlightedTextInfo(control.Name, 0, 0);
-                    results.Add(new ControlNameSearchResultViewModel(SearchResultType.AllControls, control.Name, highlightedText));
+                    var highlightedText = new HighlightedTextInfo(control.DisplayName, 0, 0);
+                    results.Add(new ControlNameSearchResultViewModel(SearchResultType.AllControls, control.Name, control.DisplayName, highlightedText));
                 }
             }
             else
@@ -151,8 +151,8 @@ namespace QSF.ViewModels
 
         private ControlNameSearchResultViewModel ControlSearchResultToViewModel(SearchResult result)
         {
-            var highlightedText = new HighlightedTextInfo(result.ControlName, result.FirstCharIndex, result.LastCharIndex);
-            return new ControlNameSearchResultViewModel(SearchResultType.Control, result.ControlName, highlightedText);
+            var highlightedText = new HighlightedTextInfo(result.ControlDisplayName, result.FirstCharIndex, result.LastCharIndex);
+            return new ControlNameSearchResultViewModel(SearchResultType.Control, result.ControlName, result.ControlDisplayName, highlightedText);
         }
 
         private ControlDescriptionSearchResultViewModel ControlDescriptionSearchResultToViewModel(SearchResult result)
@@ -161,13 +161,13 @@ namespace QSF.ViewModels
             var control = controlsService.GetControlByName(result.ControlName);
 
             var highlightedText = new HighlightedTextInfo(control.FullDescription, result.FirstCharIndex, result.LastCharIndex);
-            return new ControlDescriptionSearchResultViewModel(SearchResultType.ControlDescription, control.Name, control.FullDescription, highlightedText);
+            return new ControlDescriptionSearchResultViewModel(SearchResultType.ControlDescription, control.Name, control.DisplayName, control.FullDescription, highlightedText);
         }
 
         private ExampleNameSearchResultViewModel ExampleSearchResultToViewMovel(SearchResult result)
         {
             var highlightedText = new HighlightedTextInfo(result.ExampleDisplayName, result.FirstCharIndex, result.LastCharIndex);
-            return new ExampleNameSearchResultViewModel(SearchResultType.Example, result.ControlName, result.ExampleName, result.ExampleDisplayName, highlightedText);
+            return new ExampleNameSearchResultViewModel(SearchResultType.Example, result.ControlName, result.ControlDisplayName, result.ExampleName, result.ExampleDisplayName, highlightedText);
         }
 
         private ExampleDescriptionSearchResultViewModel ExampleDescriptionSearchResultToViewModel(SearchResult result)
@@ -176,7 +176,7 @@ namespace QSF.ViewModels
             var example = controlsService.GetControlExample(result.ControlName, result.ExampleName);
 
             var highlightedText = new HighlightedTextInfo(example.Description, result.FirstCharIndex, result.LastCharIndex);
-            return new ExampleDescriptionSearchResultViewModel(SearchResultType.ExampleDescription, result.ControlName, result.ExampleName, example.DisplayName, example.Description, highlightedText);
+            return new ExampleDescriptionSearchResultViewModel(SearchResultType.ExampleDescription, result.ControlName, result.ControlDisplayName, result.ExampleName, example.DisplayName, example.Description, highlightedText);
         }
     }
 }

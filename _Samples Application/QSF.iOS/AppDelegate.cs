@@ -1,4 +1,5 @@
-﻿using FFImageLoading.Forms.Touch;
+﻿using System.Linq;
+using FFImageLoading.Forms.Touch;
 using Foundation;
 using QSF.Services.BackdoorService;
 using UIKit;
@@ -54,6 +55,7 @@ namespace QSF.iOS
             return base.FinishedLaunching(app, options);
         }
 
+#if __TESTS__
         [Export("NavigateToExample:")]
         public NSString NavigateToExample(NSString value)
         {
@@ -72,5 +74,30 @@ namespace QSF.iOS
 
             return new NSString();
         }
+
+        [Export("ChangeToday:")]
+        public void ChangeDateTimeToday(string dateString)
+        {
+            var date = System.DateTime.Parse(dateString).ToNSDate();
+            TelerikUI.TKTestUtilities.SetDateTimeNow(date);
+        }
+
+        [Export("RestoreToday")]
+        public void RestoreToday()
+        {
+            TelerikUI.TKTestUtilities.RestoreDateTimeNow();
+        }
+
+        [Export("SetCalendarDate:")]
+        public void SetCalendarDate(string dateString)
+        {
+            var calendarView = TelerikUI.VisualTreeHelper.FindVisualDescendants
+                                        <Telerik.XamarinForms.InputRenderer.iOS.TKExtendedCalendar>(UIApplication.SharedApplication.KeyWindow).FirstOrDefault();
+            if (calendarView != null)
+            {
+                calendarView.NavigateToDate(System.DateTime.Parse(dateString).ToNSDate(), false);
+            }
+        }
+#endif
     }
 }

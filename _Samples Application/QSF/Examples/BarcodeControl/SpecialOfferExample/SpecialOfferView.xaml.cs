@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace QSF.Examples.BarcodeControl.SpecialOfferExample
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SpecialOfferView : ContentView
 	{
 		public SpecialOfferView ()

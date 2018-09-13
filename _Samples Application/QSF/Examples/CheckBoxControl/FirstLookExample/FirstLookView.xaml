@@ -9,12 +9,14 @@
         <ResourceDictionary>
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Margin" Value="0,12"/>
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
         <ScrollView>
-            <Grid>
+            <Grid BackgroundColor="White">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="90"/>
                     <RowDefinition Height="*"/>
@@ -62,8 +64,13 @@
                 </Grid>
                 <Grid Grid.Row="2">
                     <BoxView HeightRequest="2" Color="#E5E5E5" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
-                    <telerikInput:RadButton BackgroundColor="#1957B2" Text="Save Settings" TextColor="#cbd2f4" FontSize="Small" Margin="0,0,20,0" VerticalOptions="Center" WidthRequest="200" HeightRequest="40" HorizontalOptions="End"  FontFamily="{StaticResource RegularFont}" views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                    <telerikInput:RadButton BackgroundColor="#1957B2" Text="Save Settings" TextColor="#cbd2f4" FontSize="Small" Margin="0,0,20,0" VerticalOptions="Center" WidthRequest="200" HeightRequest="40" HorizontalOptions="End" FontFamily="{StaticResource RegularFont}" Clicked="RadButton_Clicked" views:ThemesBehavior.StyleClass="TelerikTheme"/>
                 </Grid>
+                <RelativeLayout Grid.RowSpan="3" InputTransparent="True" x:Name="relLayout" IsVisible="False">
+                    <telerikPrimitives:RadBorder CornerRadius="20" BackgroundColor="#DDDDDD" RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.20}" RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.75}">
+                        <Label Text="Your Profile has been updated." Margin="25,12"/>
+                    </telerikPrimitives:RadBorder>
+                </RelativeLayout>
             </Grid>
         </ScrollView>
     </ContentView.Content>

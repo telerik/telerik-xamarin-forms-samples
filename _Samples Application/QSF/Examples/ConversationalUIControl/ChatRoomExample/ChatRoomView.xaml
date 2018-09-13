@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikConversationalUI="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:local="clr-namespace:QSF.Examples.ConversationalUIControl.ChatRoomExample"
+             x:Class="QSF.Examples.ConversationalUIControl.ChatRoomExample.ChatRoomView">
+
+    <VisualElement.Resources>
+        <ResourceDictionary>
+            <local:AuthorsMap x:Key="AuthorsMap" />
+            <local:ChatroomMessageConverter x:Key="ChatroomMessageConverter" AuthorsMap="{StaticResource AuthorsMap}" />
+            <local:ChatroomParticipantConverter x:Key="ChatroomParticipantConverter" AuthorsMap="{StaticResource AuthorsMap}" />
+            <local:BackgroundColorConverter x:Key="BackgroundColorConverter">
+                <local:BackgroundColorConverter.Colors>
+                    <Color>#FFCDCDC0</Color>
+                    <Color>#FFD9E3DA</Color>
+                    <Color>#FFF3DCD4</Color>
+                    <Color>#FFC8D5E1</Color>
+                    <Color>#FFF1F2CE</Color>
+                    <Color>#FFECC9C7</Color>
+                </local:BackgroundColorConverter.Colors>
+            </local:BackgroundColorConverter>
+            <Style x:Key="BorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BackgroundColor" Value="{Binding Author, Converter={StaticResource BackgroundColorConverter}}" />
+            </Style>
+            <Style TargetType="telerikConversationalUI:IncomingTextMessageView" ApplyToDerivedTypes="True">
+                <Setter Property="BorderStyle" Value="{StaticResource BorderStyle}" />
+            </Style>
+            <Style TargetType="telerikConversationalUI:OutgoingTextMessageView" ApplyToDerivedTypes="True">
+                <Setter Property="BorderStyle" Value="{StaticResource BorderStyle}" />
+            </Style>
+        </ResourceDictionary>
+    </VisualElement.Resources>
+
+    <VisualElement.BindingContext>
+        <local:ChatroomViewModel />
+    </VisualElement.BindingContext>
+
+    <telerikConversationalUI:RadChat x:Name="chat" 
+                                     local:ChatroomUtils.AuthorsMap="{StaticResource AuthorsMap}"
+                                     local:ChatroomUtils.Author="{Binding User}"
+                                     ItemConverter="{StaticResource ChatroomMessageConverter}"
+                                     ItemsSource="{Binding Items}"
+                                     SendMessageCommand="{Binding SendMessageCommand}"
+                                     BackgroundColor="#FFE8EEEA">
+        <telerikConversationalUI:RadChat.TypingIndicator>
+            <telerikConversationalUI:TypingIndicator ItemConverter="{StaticResource ChatroomParticipantConverter}" 
+                                                     ItemsSource="{Binding TypingParticipants}"
+                                                     DotsColor="#FF415844" />
+        </telerikConversationalUI:RadChat.TypingIndicator>
+    </telerikConversationalUI:RadChat>
+</ContentView>

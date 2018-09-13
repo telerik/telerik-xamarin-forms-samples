@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.CalendarControl.MultiDayViewConfigurationExample.MultiDayViewPropertiesView">
+    <Grid Margin="16"
+          RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="0">
+            <StackLayout Spacing="10">
+                <Label Text="Number of Days" />
+                <Picker ItemsSource="{Binding VisibleDaysSource}"
+                        SelectedItem="{Binding VisibleDays, Mode=TwoWay}" />
+                <Label Text="Number of People" />
+                <Picker ItemsSource="{Binding PeopleCountSource}"
+                        SelectedItem="{Binding PeopleCount, Mode=TwoWay}" />
+                <Label Text="Start Time of Day" />
+                <TimePicker Time="{Binding DayStartTime}" />
+                <Label Text="End Time of Day" />
+                <TimePicker Time="{Binding DayEndTime}" />
+                <Label Text="Timeline Interval" />
+                <Picker ItemsSource="{Binding TimelineIntervalSource}"
+                        SelectedItem="{Binding TimelineInterval}"
+                        ItemDisplayBinding="{Binding TotalMinutes, StringFormat='{}{0} min'}"/>
+                <Label Text="Show Weekends" />
+                <Switch HorizontalOptions="Start"
+                        IsToggled="{Binding WeekendsVisible}" />
+                <Label Text="Show Current Time" />
+                <Switch HorizontalOptions="Start"
+                        IsToggled="{Binding CurrentTimeVisible}" />
+            </StackLayout>
+        </ScrollView>
+        <telerikPrimitives:RadBorder Grid.Row="1"
+                                     BorderColor="{StaticResource ErrorColor}"
+                                     BackgroundColor="{StaticResource ErrorBackgroundColor}"
+                                     IsVisible="{Binding HasValidationErrors}">
+            <Grid Padding="10"
+                  ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       FontSize="40"
+                       FontFamily="{StaticResource IconsFont}"
+                       TextColor="{StaticResource ErrorColor}"
+                       Text="{StaticResource ExclamationMarkIcon}" />
+                <Label Grid.Column="1"
+                       TextColor="{StaticResource ErrorColor}"
+                       Text="{Binding ValidationMessage}" />
+            </Grid>
+        </telerikPrimitives:RadBorder>
+    </Grid>
+</ContentView>

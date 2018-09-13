@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             x:Class="QSF.Examples.AccordionControl.ConfigurationExample.ConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:ConditionalValueConverter x:Key="conditionalValueConverter" />
+            <converters:ConditionalValueConverterParameter x:Key="messageBackgroundColorParameter" FalseValue="{StaticResource DarkBackgroundColor}" TrueValue="{StaticResource ErrorBackgroundColor}" />
+            <converters:ConditionalValueConverterParameter x:Key="messageErrorColorParameter" FalseValue="{StaticResource AccentColor}" TrueValue="{StaticResource ErrorColor}" />
+            <converters:ConditionalValueConverterParameter x:Key="messageHeaderTextParameter" FalseValue="Configuration" TrueValue="Error" />
+            <converters:ConditionalValueConverterParameter x:Key="messageIconParameter" FalseValue="{StaticResource EmptyGearIcon}" TrueValue="{StaticResource ExclamationMarkIcon}" />
+
+            <Style TargetType="primitives:AccordionItemHeader">
+                <Setter Property="IndicatorMargin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <primitives:RadAccordion Spacing="{Binding Path=Spacing}"
+                                 IsAnimationEnabled="{Binding Path=IsAnimationEnabled}"
+                                 AnimationDuration="{Binding Path=AnimationDuration}"
+                                 AnimationEasing="{Binding Path=AnimationEasing}">
+            
+            <primitives:AccordionItem IsExpanded="True"
+                                      BorderColor="{Binding Path=BorderColor}"
+                                      BorderThickness="{Binding Path=BorderThickness}">
+                <primitives:AccordionItem.Header>
+                    <primitives:AccordionItemHeader BorderColor="{Binding Path=BorderColor}"
+                                                    BorderThickness="{Binding Path=BorderThickness}"
+                                                    IndicatorLocation="{Binding Path=IndicatorLocation}"
+                                                    IndicatorColor="{Binding Path=IndicatorColor}"
+                                                    IndicatorText="{Binding Path=IndicatorText}"
+                                                    IndicatorFontFamily="{StaticResource IconsFont}"
+                                                    IndicatorFontSize="{Binding Path=IndicatorFontSize}"
+                                                    IndicatorMargin="{Binding Path=IndicatorMargin}">
+                        <Label Text="AutoComplete" VerticalOptions="Center"/>
+                    </primitives:AccordionItemHeader>
+                </primitives:AccordionItem.Header>
+                <primitives:AccordionItem.Content>
+                    <Label Margin="15" Text="RadAutoComplete for Xamarin can automatically complete user input string by comparing the text being entered to all strings in the associated data source. The control provides means for easy customization and data management." />
+                </primitives:AccordionItem.Content>
+            </primitives:AccordionItem>
+
+            <primitives:AccordionItem BorderColor="{Binding Path=BorderColor}"
+                                      BorderThickness="{Binding Path=BorderThickness}">
+                <primitives:AccordionItem.Header>
+                    <primitives:AccordionItemHeader BorderColor="{Binding Path=BorderColor}"
+                                                    BorderThickness="{Binding Path=BorderThickness}"
+                                                    IndicatorLocation="{Binding Path=IndicatorLocation}"
+                                                    IndicatorColor="{Binding Path=IndicatorColor}"
+                                                    IndicatorText="{Binding Path=IndicatorText}"
+                                                    IndicatorFontFamily="{StaticResource IconsFont}"
+                                                    IndicatorFontSize="{Binding Path=IndicatorFontSize}"
+                                                    IndicatorMargin="{Binding Path=IndicatorMargin}">
+                        <Label Text="Barcode" VerticalOptions="Center"/>
+                    </primitives:AccordionItemHeader>
+                </primitives:AccordionItem.Header>
+                <primitives:AccordionItem.Content>
+                    <Label Margin="15" Text="Telerik RadBarcode for Xamarin is a control used for creating and showing barcodes. You can generate and visualize barcodes in a machine-readable format via the RadBarcode control by providing numeric or character data." />
+                </primitives:AccordionItem.Content>
+            </primitives:AccordionItem>
+
+            <primitives:AccordionItem BorderColor="{Binding Path=BorderColor}"
+                                      BorderThickness="{Binding Path=BorderThickness}">
+                <primitives:AccordionItem.Header>
+                    <primitives:AccordionItemHeader BorderColor="{Binding Path=BorderColor}"
+                                                    BorderThickness="{Binding Path=BorderThickness}"
+                                                    IndicatorLocation="{Binding Path=IndicatorLocation}"
+                                                    IndicatorColor="{Binding Path=IndicatorColor}"
+                                                    IndicatorText="{Binding Path=IndicatorText}"
+                                                    IndicatorFontFamily="{StaticResource IconsFont}"
+                                                    IndicatorFontSize="{Binding Path=IndicatorFontSize}"
+                                                    IndicatorMargin="{Binding Path=IndicatorMargin}">
+                        <Label Text="Border" VerticalOptions="Center"/>
+                    </primitives:AccordionItemHeader>
+                </primitives:AccordionItem.Header>
+                <primitives:AccordionItem.Content>
+                    <Label Margin="15" Text="With the new Telerik RadBorder for Xamarin component you will have full control over the look &amp; feel of the border that wraps around your Xamarin views. You could surround any view such as Label, Image, and other, and specify different border thickness and corner radius on each side." />
+                </primitives:AccordionItem.Content>
+            </primitives:AccordionItem>
+        </primitives:RadAccordion>
+
+        <primitives:RadBorder BackgroundColor="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageBackgroundColorParameter}}"
+                              CornerRadius="5" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Center" x:Name="border">
+            <primitives:RadBorder.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Path=AppBarMiddleButtonCommand}" />
+            </primitives:RadBorder.GestureRecognizers>
+            <Grid Margin="20, 30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageIconParameter}}" 
+                       FontFamily="{StaticResource IconsFont}"
+                       TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageErrorColorParameter}}"
+                       HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
+
+                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                    <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageHeaderTextParameter}}" 
+                           TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageErrorColorParameter}}"
+                           Style="{StaticResource HeaderLabelStyle}" Margin="0"/>
+                    <Label Text="{Binding Path=MessageText}" LineBreakMode="WordWrap" Style="{StaticResource BodyLabelStyle}" />
+                </StackLayout>
+            </Grid>
+        </primitives:RadBorder>
+    </Grid>
+</ContentView>

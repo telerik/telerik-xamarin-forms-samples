@@ -36,7 +36,7 @@
               </telerikListView:ListViewGridLayout.GroupHeaderLength>
               <telerikListView:ListViewGridLayout.ItemLength>
                   <OnPlatform x:TypeArguments="x:Double">
-                      <On Platform="UWP" Value="245" />
+                      <On Platform="UWP" Value="260" />
                       <On Platform="iOS, Android" Value="235" />
                   </OnPlatform>
               </telerikListView:ListViewGridLayout.ItemLength>
