@@ -62,7 +62,7 @@
 
                     <StackLayout Grid.Column="1" Orientation="Horizontal">
                         <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding BorderThickness.Left}" Minimum="0" Maximum="30" ValueChanged="BorderThicknessSliderValueChanged">
+                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding BorderThickness.Left}" Minimum="0" Maximum="30" ValueChanged="BorderThicknessSliderValueChanged" AutomationId="borderThicknesSlider">
                             <Slider.Effects>
                                 <effects:SliderColorEffect Color="Blue" />
                             </Slider.Effects>
@@ -86,7 +86,7 @@
 
                     <StackLayout Grid.Column="1" Orientation="Horizontal">
                         <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding LeftCornerRadius}" Minimum="0" Maximum="75" ValueChanged="LeftCornerRadiusSliderValueChanged">
+                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding LeftCornerRadius}" Minimum="0" Maximum="75" ValueChanged="LeftCornerRadiusSliderValueChanged" AutomationId="leftCornerRadiusSlider">
                             <Slider.Effects>
                                 <effects:SliderColorEffect Color="Blue" />
                             </Slider.Effects>
@@ -105,7 +105,7 @@
 
                     <StackLayout Grid.Column="1" Orientation="Horizontal">
                         <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding TopCornerRadius}" Minimum="0" Maximum="75" ValueChanged="TopCornerRadiusSliderValueChanged">
+                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding TopCornerRadius}" Minimum="0" Maximum="75" ValueChanged="TopCornerRadiusSliderValueChanged" AutomationId="topCornerRadiusSlider">
                             <Slider.Effects>
                                 <effects:SliderColorEffect Color="Blue" />
                             </Slider.Effects>
@@ -124,7 +124,7 @@
 
                     <StackLayout Grid.Column="1" Orientation="Horizontal">
                         <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding RightCornerRadius}" Minimum="0" Maximum="75" ValueChanged="RightCornerRadiusSliderValueChanged">
+                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding RightCornerRadius}" Minimum="0" Maximum="75" ValueChanged="RightCornerRadiusSliderValueChanged" AutomationId="rightCornerRadiusSlider">
                             <Slider.Effects>
                                 <effects:SliderColorEffect Color="Blue" />
                             </Slider.Effects>
@@ -143,7 +143,7 @@
 
                     <StackLayout Grid.Column="1" Orientation="Horizontal">
                         <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding BottomCornerRadius}" Minimum="0" Maximum="75" ValueChanged="BottomCornerRadiusSliderValueChanged">
+                        <Slider HorizontalOptions="FillAndExpand" Value="{Binding BottomCornerRadius}" Minimum="0" Maximum="75" ValueChanged="BottomCornerRadiusSliderValueChanged" AutomationId="bottomCornerRadiusSlider">
                             <Slider.Effects>
                                 <effects:SliderColorEffect Color="Blue" />
                             </Slider.Effects>
