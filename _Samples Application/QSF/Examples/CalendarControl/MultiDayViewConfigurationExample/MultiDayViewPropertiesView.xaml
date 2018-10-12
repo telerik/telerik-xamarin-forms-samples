@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
@@ -18,9 +18,23 @@
                 <Picker ItemsSource="{Binding PeopleCountSource}"
                         SelectedItem="{Binding PeopleCount, Mode=TwoWay}" />
                 <Label Text="Start Time of Day" />
-                <TimePicker Time="{Binding DayStartTime}" />
+                <TimePicker Time="{Binding DayStartTime}">
+                    <TimePicker.HorizontalOptions>
+                        <OnPlatform x:TypeArguments="LayoutOptions">
+                            <On Platform="UWP" Value="Start" />
+                            <On Platform="iOS, Android" Value="FillAndExpand" />
+                        </OnPlatform>
+                    </TimePicker.HorizontalOptions>
+                </TimePicker>
                 <Label Text="End Time of Day" />
-                <TimePicker Time="{Binding DayEndTime}" />
+                <TimePicker Time="{Binding DayEndTime}">
+                    <TimePicker.HorizontalOptions>
+                        <OnPlatform x:TypeArguments="LayoutOptions">
+                            <On Platform="UWP" Value="Start" />
+                            <On Platform="iOS, Android" Value="FillAndExpand" />
+                        </OnPlatform>
+                    </TimePicker.HorizontalOptions>
+                </TimePicker>
                 <Label Text="Timeline Interval" />
                 <Picker ItemsSource="{Binding TimelineIntervalSource}"
                         SelectedItem="{Binding TimelineInterval}"

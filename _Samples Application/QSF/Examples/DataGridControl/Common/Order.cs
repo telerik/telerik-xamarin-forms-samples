@@ -62,7 +62,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "CustomerID")]
-        [DisplayOptions(Header = "Ship Name", PlaceholderText = "Ship Name")]
+        [DisplayOptions(Header = "Customer ID", PlaceholderText = "Customer ID")]
         public string CustomerID
         {
             get

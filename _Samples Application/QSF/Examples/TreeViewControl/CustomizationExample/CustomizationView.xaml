@@ -27,13 +27,11 @@
                         <Grid Margin="20,0,0,0"
                               HeightRequest="40">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="40" />
-                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <treeView:ExpandCollapseIndicator WidthRequest="40"
-                                                              HorizontalOptions="Center"
-                                                              HorizontalTextAlignment="Center"
-                                                              VerticalTextAlignment="Center"
+                                                              VerticalOptions="Center"
                                                               FontSize="Medium"
                                                               IsLoading="{Binding Path=IsLoading}"
                                                               IsLoadOnDemandEnabled="{Binding Path=IsLoadOnDemandEnabled}"
@@ -55,15 +53,13 @@
                         <Grid Margin="40,0,0,0"
                               HeightRequest="40">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="40" />
-                                <ColumnDefinition Width="50" />
-                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
                             <treeView:ExpandCollapseIndicator WidthRequest="40"
-                                                              HorizontalOptions="Center"
-                                                              HorizontalTextAlignment="Center"
-                                                              VerticalTextAlignment="Center"
+                                                              VerticalOptions="Center"
                                                               FontSize="Medium"
                                                               IsLoading="{Binding Path=IsLoading}"
                                                               IsLoadOnDemandEnabled="{Binding Path=IsLoadOnDemandEnabled}"
@@ -71,10 +67,10 @@
                                                               IsLeaf="{Binding Path=IsLeaf}"
                                                               BackgroundColor="Transparent" />
                             <Image Grid.Column="1"
-                                   HorizontalOptions="Center"
                                    VerticalOptions="Center"
                                    Source="{Binding Item.Icon, Converter={StaticResource ImageSourceConverter}}" />
                             <treeView:ItemText Grid.Column="2"
+                                               Margin="8,0,0,0"
                                                VerticalOptions="Center"
                                                Text="{Binding Item.Name}" />
                         </Grid>

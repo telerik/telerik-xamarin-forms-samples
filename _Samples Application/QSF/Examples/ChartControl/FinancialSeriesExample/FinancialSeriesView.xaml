@@ -12,6 +12,10 @@
                                           SelectionPaletteName="LightSelected"
                                           BackgroundColor="White"
                                           views:ThemesBehavior.StyleClass="TelerikTheme">
+            <telerikChart:RadCartesianChart.ChartBehaviors>
+                <telerikChart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True" />
+                <telerikChart:ChartTrackBallBehavior ShowTrackInfo="True"/>
+            </telerikChart:RadCartesianChart.ChartBehaviors>
             <telerikChart:RadCartesianChart.HorizontalAxis>
               <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
                                                    LabelFitMode="Rotate"
@@ -48,6 +52,10 @@
                                           SelectionPaletteName="LightSelected"
                                           BackgroundColor="White"
                                           views:ThemesBehavior.StyleClass="TelerikTheme">
+            <telerikChart:RadCartesianChart.ChartBehaviors>
+                <telerikChart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True" />
+                <telerikChart:ChartTrackBallBehavior ShowTrackInfo="True"/>
+            </telerikChart:RadCartesianChart.ChartBehaviors>
             <telerikChart:RadCartesianChart.HorizontalAxis>
               <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
                                                    LabelFitMode="Rotate"
@@ -81,11 +89,19 @@
         </DataTemplate>
         <DataTemplate x:Key="FinancialIndicators">
           <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
             <telerikChart:RadCartesianChart PaletteName="Light"
                                             x:Name="financialChart"
                                             SelectionPaletteName="LightSelected"
                                             BackgroundColor="White"
                                             views:ThemesBehavior.StyleClass="TelerikTheme">
+              <telerikChart:RadCartesianChart.ChartBehaviors>
+                <telerikChart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True" />
+                <telerikChart:ChartTrackBallBehavior ShowTrackInfo="True"/>
+              </telerikChart:RadCartesianChart.ChartBehaviors>
               <telerikChart:RadCartesianChart.HorizontalAxis>
                 <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
                                                      LabelFitMode="Rotate"
@@ -134,9 +150,10 @@
               </telerikChart:RadCartesianChart.Series>
             </telerikChart:RadCartesianChart>
             <telerikChart:RadLegend HeightRequest="100"
+                                    Grid.Row="1"
+                                    Orientation="Horizontal"
                                     LegendItemFontColor="Black"
-                                    HorizontalOptions="EndAndExpand"
-                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="StartAndExpand"
                                     LegendItemFontSize="12"
                                     LegendProvider="{x:Reference Name=financialChart}"/>
           </Grid>

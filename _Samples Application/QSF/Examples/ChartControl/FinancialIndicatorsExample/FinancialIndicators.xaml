@@ -31,6 +31,10 @@
                                             SelectionPaletteName="LightSelected" 
                                             BackgroundColor="White" 
                                             views:ThemesBehavior.StyleClass="TelerikTheme">
+                <telerikChart:RadCartesianChart.ChartBehaviors>
+                    <telerikChart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True" />
+                    <telerikChart:ChartTooltipBehavior TriggerMode="Tap"/>
+                </telerikChart:RadCartesianChart.ChartBehaviors>
                 <telerikChart:RadCartesianChart.HorizontalAxis>
                     <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
                                                          LabelFitMode="Rotate"
@@ -76,6 +80,10 @@
                                             SelectionPaletteName="LightSelected" 
                                             BackgroundColor="White" 
                                             views:ThemesBehavior.StyleClass="TelerikTheme">
+                <telerikChart:RadCartesianChart.ChartBehaviors>
+                    <telerikChart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True" />
+                    <telerikChart:ChartTrackBallBehavior ShowTrackInfo="True"/>
+                </telerikChart:RadCartesianChart.ChartBehaviors>
                 <telerikChart:RadCartesianChart.HorizontalAxis>
                     <telerikChart:DateTimeContinuousAxis LineColor="#A9A9A9"
                                                          LabelFitMode="Rotate"
