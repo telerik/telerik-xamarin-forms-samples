@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props')" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -90,7 +90,7 @@
       <HintPath>..\packages\Xamarin.FFImageLoading.2.3.6\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AppCenter.1.6.0\lib\MonoAndroid403\Microsoft.AppCenter.dll</HintPath>
@@ -137,68 +137,68 @@
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.Xamarin.Android.Chart, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Chart.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Common, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Common.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Data, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Data.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Data.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Gauges">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Gauges.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Gauges.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Input, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Input.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.List, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.Xamarin.Android.List.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.Xamarin.Android.List.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Primitives, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Primitives.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.Barcode.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Chart, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.Chart.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Common, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.Common.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataControls, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.DataControls.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataGrid, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.DataGrid.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataVisualization, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Input, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.Input.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Primitives, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\MonoAndroid10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\MonoAndroid10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Arch.Core.Common">
       <HintPath>..\packages\Xamarin.Android.Arch.Core.Common.1.0.0\lib\MonoAndroid80\Xamarin.Android.Arch.Core.Common.dll</HintPath>
@@ -264,16 +264,16 @@
       <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.27.0.2\lib\MonoAndroid81\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1347,7 +1347,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="QSF\Droid\" />
-    <Folder Include="Resources\mipmap\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\BusyIndicator_Theming_Gallery1_Header_Active.png" />
@@ -4250,13 +4249,13 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\launcher.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi\icon.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi\icon_round.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
@@ -4265,19 +4264,19 @@
     <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
@@ -4314,8 +4313,8 @@
     <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v7.MediaRouter.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.v7.MediaRouter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v7.MediaRouter.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.v7.MediaRouter.targets'))" />
     <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.props'))" />
     <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.targets'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets'))" />
   </Target>
   <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.0.3\build\MonoAndroid80\Xamarin.Android.Arch.Lifecycle.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.0.3\build\MonoAndroid80\Xamarin.Android.Arch.Lifecycle.Common.targets')" />
   <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.0.3\build\MonoAndroid80\Xamarin.Android.Arch.Lifecycle.Runtime.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.0.3\build\MonoAndroid80\Xamarin.Android.Arch.Lifecycle.Runtime.targets')" />
@@ -4337,5 +4336,5 @@
   <Import Project="..\packages\Xamarin.Android.Support.Design.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Design.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Design.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Design.targets')" />
   <Import Project="..\packages\Xamarin.Android.Support.v7.MediaRouter.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.v7.MediaRouter.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.MediaRouter.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.v7.MediaRouter.targets')" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.10\build\Xamarin.Build.Download.targets')" />
-  <Import Project="..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard2.0\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard2.0\Xamarin.Forms.targets')" />
 </Project>

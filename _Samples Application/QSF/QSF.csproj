@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
@@ -336,6 +336,9 @@
       <DependentUpon>ThemingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Examples\DataGridControl\ThemingExample\ThemingViewModel.cs" />
+    <Compile Include="Examples\DockLayoutControl\FirstLookExample\FirstLookView.xaml.cs">
+      <DependentUpon>FirstLookView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Examples\ExpanderControl\ConfigurationExample\ConfigurationView.xaml.cs">
       <DependentUpon>ConfigurationView.xaml</DependentUpon>
     </Compile>
@@ -515,6 +518,10 @@
     <Compile Include="Examples\TreeViewControl\LoadOnDemandExample\LoadOnDemandView.xaml.cs">
       <DependentUpon>LoadOnDemandView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Examples\WrapLayoutControl\FirstLookExample\FirstLookView.xaml.cs">
+      <DependentUpon>FirstLookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Examples\WrapLayoutControl\FirstLookExample\ZoomInOutBehavior.cs" />
     <Compile Include="Services\BackdoorService\BackdoorService.cs" />
     <Compile Include="Services\BackdoorService\IBackdoorService.cs" />
     <Compile Include="Services\Messages\IMessageService.cs" />
@@ -782,49 +789,49 @@
       <HintPath>..\packages\SkiaSharp.Views.Forms.1.59.3\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Views.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.SpreadsheetStreaming">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Barcode.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Chart">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Chart.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Common">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Common.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataControls">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataControls.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataGrid">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataGrid.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataVisualization">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Input">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Input.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Primitives">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Zip">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1018.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Zip.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2018.3.1109.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\netstandard1.0\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\netstandard1.0\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\netstandard1.0\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\netstandard1.0\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.3.1.0.697729\lib\netstandard1.0\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.2.0.871581\lib\netstandard1.0\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1398,13 +1405,25 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\WrapLayoutControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\DockLayoutControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.props'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.targets'))" />
   </Target>
-  <Import Project="..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.1.0.697729\build\netstandard1.0\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.2.0.871581\build\netstandard1.0\Xamarin.Forms.targets')" />
 </Project>

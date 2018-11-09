@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R3 2018 SP1</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R3 2018</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutContent>Telerik® UI for Xamarin is a suite of components for building great Xamarin.Forms apps for the most popular mobile platforms including iOS, from a single shared C# code base. With Progress® Telerik® UI for Xamarin you can easily implement various functionalities in your Xamarin.Forms projects and achieve the same scenarios across different platforms.</QSFAboutContent>
@@ -647,6 +647,31 @@
         </Example>
       </Examples>
     </Control>
+    <!--<Control>
+      <Name>DockLayout</Name>
+      <DisplayName>DockLayout</DisplayName>
+      <Image>DataGrid_FirstLook.png</Image>
+      <DescriptionHeader>Dock Layout</DescriptionHeader>
+      <ShortDescription>******</ShortDescription>
+      <FullDescription>******</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/datagrid/datagrid-overview</DocumentationURL>
+      <Latest>0</Latest>
+      <Featured>4</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>true</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>DataGrid_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>Demonstrates how you can easily configure the DockLayout.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/FirstLookExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>-->
     <Control>
       <Name>Entry</Name>
       <Image>Entry_FirstLook.png</Image>
@@ -800,7 +825,7 @@
           <Name>Layouts</Name>
           <Image>ListView_Layouts.png</Image>
           <DescriptionHeader>Layouts</DescriptionHeader>
-          <Description>Demonstrates the different layouts that the ListView supports - linear layout where there is one item per row and grid layout where you define how many items there should per row.</Description>
+          <Description>Demonstrates the different layouts that the ListView supports - linear layout where there is one item per row and grid layout where you define how many items there should be per row.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListViewControl/LayoutsExample</CodeURL>
@@ -864,7 +889,7 @@
           <Description>Demonstrates how you could utilize Load On Demand feature in order to delay the population of RadTreeView and load subitems only when they’re requested, thus improving the performance of your app.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TreeViewControl/LoadOnDemand</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TreeViewControl/LoadOnDemandExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1142,6 +1167,32 @@
         </Example>
       </Examples>
     </Control>
+    <!--<Control>
+      <Name>WrapLayout</Name>
+      <DisplayName>WrapLayout</DisplayName>
+      <Image>Zip_Library.png</Image>
+      <DescriptionHeader>WrapLayout</DescriptionHeader>
+      <ShortDescription>*********</ShortDescription>
+      <FullDescription>*****</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/ziplibrary/overview</DocumentationURL>
+      <Latest>0</Latest>
+      <Featured>0</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <IsThemable>false</IsThemable>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>Zip_Library.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>An example demonstrating the RadWrapLayout.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ZipLibraryControl/CreateArchiveExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>-->
     <Control>
       <Name>ZipLibrary</Name>
       <DisplayName>ZipLibrary</DisplayName>

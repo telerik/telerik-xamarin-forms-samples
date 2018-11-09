@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:common="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:local="clr-namespace:QSF.Examples.WrapLayoutControl.FirstLookExample"
+             x:Class="QSF.Examples.WrapLayoutControl.FirstLookExample.FirstLookView">
+    <common:RadWrapLayout BackgroundColor="LightGray" HorizontalOptions="Center" VerticalOptions="Start" ItemHeight="75" ItemWidth="75" Margin="16">
+        <common:RadWrapLayout.Behaviors>
+            <local:ZoomInOutBehavior/>
+        </common:RadWrapLayout.Behaviors>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_beach" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_beach.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_buenos_aires_hotel" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_buenos_aires_hotel.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_bulgaria_sunny_beach" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_bulgaria_sunny_beach.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_bulgaria_tevno_lake" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_bulgaria_tevno_lake.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_castel_sant_angelo" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_castel_sant_angelo.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_church_st_george_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_church_st_george_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_featherbed_nature_reserve_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_featherbed_nature_reserve_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_forbidden_city_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_forbidden_city_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_forest_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_forest_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_georgetown_university" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_georgetown_university.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_key_spices_indian_cuisine" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_key_spices_indian_cuisine.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_kustendil_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_kustendil_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_leopard_samburu_reserve" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_leopard_samburu_reserve.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_lioness_nakuru_national_park_kenya" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_lioness_nakuru_national_park_kenya.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_london_eye_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_london_eye_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_maasai_mara_nature_reserve" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_maasai_mara_nature_reserve.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_madison_square_garden_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_madison_square_garden_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_mahamuni_pagoda_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_mahamuni_pagoda_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_miraflores_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_miraflores_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_museum_qin_terracotta_warriors_horses_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_museum_qin_terracotta_warriors_horses_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_panichishte_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_panichishte_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_rent_a_car_or_taxi_in_cuba" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_rent_a_car_or_taxi_in_cuba.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_roman_colosseum_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_roman_colosseum_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_shwedagon_pagoda_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_shwedagon_pagoda_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_street_shanghai_china" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_street_shanghai_china.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_sunny_beach_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_sunny_beach_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_sunny_beach_bulgaria_balloon" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_sunny_beach_bulgaria_balloon.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_titicaca_lake_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_titicaca_lake_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_tsarevets_sound_and_light_veliko_tarnovo" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_tsarevets_sound_and_light_veliko_tarnovo.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_universal_studios_orlando_harry_potter_theme_park" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_universal_studios_orlando_harry_potter_theme_park.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_beach" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_beach.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_buenos_aires_hotel" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_buenos_aires_hotel.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_bulgaria_sunny_beach" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_bulgaria_sunny_beach.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_bulgaria_tevno_lake" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_bulgaria_tevno_lake.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_castel_sant_angelo" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_castel_sant_angelo.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_church_st_george_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_church_st_george_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_featherbed_nature_reserve_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_featherbed_nature_reserve_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_forbidden_city_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_forbidden_city_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_forest_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_forest_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_georgetown_university" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_georgetown_university.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_key_spices_indian_cuisine" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_key_spices_indian_cuisine.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_kustendil_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_kustendil_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_leopard_samburu_reserve" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_leopard_samburu_reserve.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_lioness_nakuru_national_park_kenya" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_lioness_nakuru_national_park_kenya.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_london_eye_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_london_eye_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_maasai_mara_nature_reserve" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_maasai_mara_nature_reserve.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_madison_square_garden_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_madison_square_garden_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_mahamuni_pagoda_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_mahamuni_pagoda_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_miraflores_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_miraflores_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_museum_qin_terracotta_warriors_horses_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_museum_qin_terracotta_warriors_horses_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_panichishte_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_panichishte_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_rent_a_car_or_taxi_in_cuba" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_rent_a_car_or_taxi_in_cuba.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_roman_colosseum_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_roman_colosseum_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_shwedagon_pagoda_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_shwedagon_pagoda_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_street_shanghai_china" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_street_shanghai_china.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_sunny_beach_bulgaria" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_sunny_beach_bulgaria.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_sunny_beach_bulgaria_balloon" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_sunny_beach_bulgaria_balloon.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_titicaca_lake_attraction" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_titicaca_lake_attraction.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_tsarevets_sound_and_light_veliko_tarnovo" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_tsarevets_sound_and_light_veliko_tarnovo.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="autocomplete_tokens_universal_studios_orlando_harry_potter_theme_park" />
+                    <On Platform="UWP" Value="Assets/autocomplete_tokens_universal_studios_orlando_harry_potter_theme_park.jpg" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+    </common:RadWrapLayout>
+</ContentView>
