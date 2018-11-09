@@ -9,10 +9,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="{Binding PageTitle}"
              x:Class="tagit.Views.HomePage">
 
-    <ContentPage.BindingContext>
-        <viewModels:HomeViewModel/>
-    </ContentPage.BindingContext>
-    
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding MenuSelectedCommand}" Text="Menu" Icon="ic_action_menu.png"/>
     </ContentPage.ToolbarItems>

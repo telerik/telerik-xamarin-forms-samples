@@ -38,20 +38,7 @@
                             <listView:ListViewTemplateCell>
                                 <listView:ListViewTemplateCell.View>
                                     <Grid VerticalOptions="Fill" HeightRequest="200" BackgroundColor="{Binding IsSelected, Converter={StaticResource IsSelectedBackgroundColorConverter}}">
-                                        <imageLoading:CachedImage DownsampleUseDipUnits="True" Margin="2" WidthRequest="100" HeightRequest="200" Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}">
-                                            <imageLoading:CachedImage.DownsampleWidth>
-                                                <OnPlatform x:TypeArguments="x:Double"
-                                                      iOS="100"   
-                                                      WinPhone="400" 
-                                                      Android="100"/>
-                                            </imageLoading:CachedImage.DownsampleWidth>
-                                            <imageLoading:CachedImage.DownsampleHeight>
-                                                <OnPlatform x:TypeArguments="x:Double"
-                                                      iOS="200"        
-                                                      WinPhone="800" 
-                                                      Android="200"/>
-                                            </imageLoading:CachedImage.DownsampleHeight>
-                                        </imageLoading:CachedImage>
+                                        <imageLoading:CachedImage Margin="2" WidthRequest="100" HeightRequest="200" Aspect="AspectFill" Source="{Binding ImageSource}" />
                                     </Grid>
                                 </listView:ListViewTemplateCell.View>
                             </listView:ListViewTemplateCell>

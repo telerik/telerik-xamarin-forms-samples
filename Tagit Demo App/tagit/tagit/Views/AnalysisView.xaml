@@ -7,9 +7,6 @@
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:viewModels="clr-namespace:tagit.ViewModels"  
              x:Class="tagit.Views.AnalysisView">
-    <ContentView.BindingContext>
-        <viewModels:AnalysisViewModel/>
-    </ContentView.BindingContext>
     
     <ContentView.Content>
         

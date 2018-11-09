@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -11,15 +12,11 @@ using tagit.Services;
 using tagit.UWP.Services;
 using Xamarin.Forms;
 using Windows.Storage.FileProperties;
-using Xamarin.Forms.Xaml;
-
 
 [assembly: Dependency(typeof(ImageService))]
-
 namespace tagit.UWP.Services
 {
-    /// Contains methods for accessing
-    /// local images on the file system
+    /// Contains methods for accessing local images on the file system
     public class ImageService : IImageService
     {
         public async Task<List<LocalFileInformation>> GetImagesAsync(IEnumerable<string> existingFileNames)
@@ -31,13 +28,13 @@ namespace tagit.UWP.Services
 
             var files = await cameraRollFolder.GetFilesAsync();
             
-            var filteredFiles = files.Where(w => !existingFileNames.Contains(w.Name.Split("/\\d".ToCharArray()).LastOrDefault()));
+            var filteredFiles = files.Where(w => !existingFileNames.Contains(w.Name.Split("/\\d".ToCharArray()).LastOrDefault())).OrderByDescending(p => p.DateCreated);
             
-            foreach (var file in filteredFiles.Take(Common.CoreConstants.ImageCountLimit))
+            foreach (var file in filteredFiles.Take(tagit.Common.CoreConstants.ImageCountLimit))
             {
                 BasicProperties properties = await file.GetBasicPropertiesAsync();
 
-                if (properties.Size < Common.CoreConstants.ImageSizeLimit)
+                if (properties.Size < tagit.Common.CoreConstants.ImageSizeLimit)
                 {
                     try
                     {
@@ -51,10 +48,11 @@ namespace tagit.UWP.Services
                             CreatedDate = properties.DateModified.Date
                         });
                     }
-                    catch { }
-                    
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"ImageService.GetImagesAsync Exception: {ex}");
+                    }
                 }
-                
             }
 
             return images;
@@ -65,8 +63,7 @@ namespace tagit.UWP.Services
             return new List<string>();
         }
         
-        public async Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation,
-            byte[] image)
+        public async Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation, byte[] image)
         {
             var filePath = string.Empty;
 
@@ -75,6 +72,7 @@ namespace tagit.UWP.Services
                 var imageData = await GetTaggedImageFromUriAsync(taggingInformation, image);
 
                 var imagesFolder = KnownFolders.PicturesLibrary;
+
                 var taggedFolder = await imagesFolder.CreateFolderAsync("Tagged", CreationCollisionOption.OpenIfExists);
 
                 var file = await taggedFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
@@ -83,8 +81,9 @@ namespace tagit.UWP.Services
 
                 filePath = file.Path;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine($"ImageService.SaveTaggedImageAsync Exception: {ex}");
             }
 
             return filePath;
@@ -97,6 +96,7 @@ namespace tagit.UWP.Services
                 var imageData = await GetImageFromUriAsync(url);
 
                 var imagesFolder = KnownFolders.PicturesLibrary;
+
                 var cameraRollFolder = await imagesFolder.GetFolderAsync("Camera Roll");
 
                 var file = await cameraRollFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
@@ -110,35 +110,38 @@ namespace tagit.UWP.Services
 
         private async Task<byte[]> GetTaggedImageFromUriAsync(FileTaggingInformation taggingInformation, byte[] image)
         {
-            var client = new HttpClient();
+            using(var client = new HttpClient())
+            {
+                var url = $"{CoreConstants.TaggingServiceUrl}";
 
-            var url = $"{CoreConstants.TaggingServiceUrl}";
+                var content = new MultipartContent();
 
-            var content = new MultipartContent();
+                var payload = JsonConvert.SerializeObject(taggingInformation);
 
-            var payload = JsonConvert.SerializeObject(taggingInformation);
+                var stringContent = new StringContent(payload);
+                stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var stringContent = new StringContent(payload);
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var byteContent = new ByteArrayContent(image);
+                byteContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
 
-            var byteContent = new ByteArrayContent(image);
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+                content.Add(stringContent);
+                content.Add(byteContent);
 
-            content.Add(stringContent);
-            content.Add(byteContent);
+                using(var response = await client.PostAsync(url, content))
+                {
+                    var result = await response.Content.ReadAsByteArrayAsync();
 
-            var response = await client.PostAsync(url, content);
-
-            var result = await response.Content.ReadAsByteArrayAsync();
-
-            return result;
+                    return result;
+                }
+            }
         }
 
         private async Task<byte[]> GetImageFromUriAsync(string uri)
         {
-            var client = new HttpClient();
-
-            return await client.GetByteArrayAsync(new Uri(uri));
+            using (var client = new HttpClient())
+            {
+                return await client.GetByteArrayAsync(new Uri(uri));
+            }
         }
     }
 }

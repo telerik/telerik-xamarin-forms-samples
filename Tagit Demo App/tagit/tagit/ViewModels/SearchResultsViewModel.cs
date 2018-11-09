@@ -87,7 +87,7 @@ namespace tagit.ViewModels
             set => SetProperty(ref _searchableImages, value);
         }
 
-        private void Initialize()
+        public void Initialize()
         {
             if (App.ViewModel != null) PopulateSearchableImages(App.ViewModel.AllTags, App.ViewModel.AllImages);
         }
@@ -103,7 +103,7 @@ namespace tagit.ViewModels
                 await App.NavigationService.PushAsync(new DetailsPage(), args.NewItems[0] as ImageInformation);
         }
 
-        public void ToggleFavorite()
+        public async void ToggleFavorite()
         {
             App.ViewModel.SelectedImage.IsFavorite = !App.ViewModel.SelectedImage.IsFavorite;
 
@@ -114,7 +114,7 @@ namespace tagit.ViewModels
 
             if (existingFavorite != null) existingFavorite.IsFavorite = !existingFavorite.IsFavorite;
 
-            StorageHelper.SaveFavoritesAsync(App.ViewModel.AllImages.Where(w => w.IsFavorite).ToList());
+            await StorageHelper.SaveTaggedImagesAsync(App.ViewModel.AllImages.ToList());
         }
 
         public void PopulateSearchableImages(IEnumerable<string> tags, IEnumerable<ImageInformation> images)

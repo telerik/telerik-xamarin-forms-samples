@@ -9,31 +9,44 @@ using tagit.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SettingsStorageService))]
-
 namespace tagit.iOS.Services
 {
-    /// Contains methods for saving
-    /// and and retrieving local storage
+    /// Contains methods for saving and and retrieving local storage
     public class SettingsStorageService : ISettingsStorageService
     {
         public T Read<T>(string name, T defaultValue)
         {
             if (NSUserDefaults.StandardUserDefaults[name] == null)
+            {
                 return defaultValue;
+            }
 
             if (typeof(T) == typeof(bool))
+            {
                 return (T) Convert.ChangeType(NSUserDefaults.StandardUserDefaults.BoolForKey(name), typeof(T));
+            }
+
             if (typeof(T) == typeof(double))
+            {
                 return (T) Convert.ChangeType(NSUserDefaults.StandardUserDefaults.DoubleForKey(name), typeof(T));
+            }
+
             if (typeof(T) == typeof(string))
+            {
                 return (T) Convert.ChangeType(NSUserDefaults.StandardUserDefaults.StringForKey(name), typeof(T));
+            }
+
             try
             {
                 var jsonText = Read(name, string.Empty);
+
                 if (string.IsNullOrEmpty(jsonText))
+                {
                     return defaultValue;
+                }
 
                 var jsonObject = JsonConvert.DeserializeObject<T>(jsonText);
+
                 return (T) Convert.ChangeType(jsonObject, typeof(T));
             }
             catch
@@ -68,8 +81,9 @@ namespace tagit.iOS.Services
                     var json = JsonConvert.SerializeObject(value, Formatting.None, settings);
                     Write(name, json);
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Console.WriteLine($"SettingsStorageService.Write Exception: {ex}");
                 }
             }
         }

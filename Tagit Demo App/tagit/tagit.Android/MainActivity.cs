@@ -1,12 +1,6 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
- 
 
 namespace tagit.Droid
 {
@@ -15,16 +9,21 @@ namespace tagit.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            tagit.Droid.Permissions.PermissionsHelper.Activity = this;
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             
             base.OnCreate(bundle);
                        
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            this.LoadApplication(new App());
         }
 
-       
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            tagit.Droid.Permissions.PermissionsHelper.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }
-

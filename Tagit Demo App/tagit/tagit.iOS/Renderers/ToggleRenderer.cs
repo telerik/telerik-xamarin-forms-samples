@@ -4,7 +4,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(Switch), typeof(ToggleRenderer))]
-
 namespace tagit.iOS.Renderers
 {
     public class ToggleRenderer : SwitchRenderer

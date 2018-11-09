@@ -45,16 +45,16 @@ namespace tagit.ViewModels
             set => SetProperty(ref _isBusy, value);
         }
 
-        private async void Initialize()
+        public async void Initialize()
         {
             var taggedImages = await StorageHelper.GetTaggedImagesAsync();
-            var favorites = (await StorageHelper.GetFavoritesAsync()).Select(s => s.FileName);
 
             foreach (var image in taggedImages)
             {
-                image.IsFavorite = favorites.Contains(image.FileName);
-
-                AllImages.Add(image);
+                if (!AllImages.Contains(image))
+                {
+                    AllImages.Add(image);
+                }
             }
         }
     }

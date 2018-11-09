@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using tagit.Common;
@@ -58,18 +56,9 @@ namespace tagit.ViewModels
 
         private void SetUploadImageSource(bool useDarkTheme)
         {
-            try
-            {
-                var assemblyName = typeof(UploadViewModel).GetTypeInfo().Assembly.GetName();
-                var assembly = Assembly.Load(new AssemblyName(assemblyName.Name));
-
-                UploadImageSource = useDarkTheme
-                    ? ImageSource.FromResource(UiConstants.UploadImageDarkFileName, assembly)
-                    : ImageSource.FromResource(UiConstants.UploadImageLightFileName, assembly);
-            }
-            catch (Exception ex)
-            {
-            }
+            UploadImageSource = useDarkTheme
+                ? ImageSource.FromResource(UiConstants.UploadImageDarkFileName, Assembly.GetExecutingAssembly())
+                : ImageSource.FromResource(UiConstants.UploadImageLightFileName, Assembly.GetExecutingAssembly());
         }
     }
 }

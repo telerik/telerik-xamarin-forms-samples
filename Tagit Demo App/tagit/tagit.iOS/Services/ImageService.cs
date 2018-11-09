@@ -4,7 +4,6 @@ using Photos;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -47,8 +46,9 @@ namespace tagit.iOS.Services
 
                     imageManager.RequestImageData(asset, requestOptions, (data, dataUti, orientation, info) =>
                     {
-                        name = (info?[(NSString)@"PHImageFileURLKey"] as NSUrl).FilePathUrl.LastPathComponent;
-                        path = (info?[(NSString)@"PHImageFileURLKey"] as NSUrl).Path;
+                        var fileURL = info?[(NSString)@"PHImageFileURLKey"] as NSUrl;
+                        name = fileURL?.FilePathUrl.LastPathComponent;
+                        path = fileURL?.Path;
                         if (data != null)
                         {
                             Byte[] imageBytes = new Byte[data.Length];
@@ -62,11 +62,10 @@ namespace tagit.iOS.Services
                                 CreatedDate = ImageService.NSDateToDateTime(asset.CreationDate)
                             });
                         }
-
                     });
                 }
             }
-            
+
             tcs.SetResult(images);
             return await tcs.Task;
         }
@@ -77,7 +76,7 @@ namespace tagit.iOS.Services
             var images = new List<LocalFileInformation>();
             List<string> fileNames = new List<string>();
             await this.GetImagesAssets();
-            
+
             foreach (PHAsset asset in this.imagesResult)
             {
                 imageManager.RequestImageData(asset, requestOptions, (data, dataUti, orientation, info) =>
@@ -90,7 +89,7 @@ namespace tagit.iOS.Services
             tcs.SetResult(fileNames);
             return await tcs.Task;
         }
-        
+
         public async Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation,
             byte[] image)
         {
@@ -116,6 +115,7 @@ namespace tagit.iOS.Services
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"ImageService.SaveTaggedImageAsync Exception: {ex}");
             }
 
             return string.Empty;
@@ -139,14 +139,16 @@ namespace tagit.iOS.Services
                 var data = NSData.FromArray(imageData);
                 var uiImage = UIImage.LoadFromData(data);
 
-                uiImage.SaveToPhotosAlbum((image, error) => {
-                    
+                uiImage.SaveToPhotosAlbum((image, error) =>
+                {
+
                     Console.WriteLine("error:" + error);
                 });
-               
+
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"ImageService.SaveImageAsync Exception: {ex}");
             }
         }
 
@@ -176,27 +178,33 @@ namespace tagit.iOS.Services
             return result;
         }
 
-        
         private Task GetImagesAssets()
         {
             this.imagesResult.Clear();
-            var assets = PHAsset.FetchAssets(PHAssetMediaType.Image, new PHFetchOptions());
+            var assets = PHAsset.FetchAssets(
+                PHAssetMediaType.Image,
+                new PHFetchOptions()
+                {
+                    IncludeAssetSourceTypes = PHAssetSourceType.UserLibrary,
+                    IncludeHiddenAssets = true,
+                    SortDescriptors = new NSSortDescriptor[] { new NSSortDescriptor("creationDate", false) }
+                });
             assets.Enumerate(new PHFetchResultEnumerator(OnPHFetchResultEnumerator));
 
             return Task.FromResult(true);
         }
 
-        private void OnPHFetchResultEnumerator(NSObject element, nuint elementIndex, out bool stop)
-        {
-            this.imagesResult.Add(element);
-            stop = this.imagesResult.Count >= Common.CoreConstants.ImageCountLimit;
-        }
-
-        public static DateTime NSDateToDateTime(Foundation.NSDate date)
-        {
-            DateTime reference = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            var utcDateTime = reference.AddSeconds(date.SecondsSinceReferenceDate);
-            return utcDateTime.ToLocalTime();
-        }
+    private void OnPHFetchResultEnumerator(NSObject element, nuint elementIndex, out bool stop)
+    {
+        this.imagesResult.Add(element);
+        stop = this.imagesResult.Count >= Common.CoreConstants.ImageCountLimit;
     }
+
+    public static DateTime NSDateToDateTime(Foundation.NSDate date)
+    {
+        DateTime reference = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+        var utcDateTime = reference.AddSeconds(date.SecondsSinceReferenceDate);
+        return utcDateTime.ToLocalTime();
+    }
+}
 }

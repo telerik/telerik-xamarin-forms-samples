@@ -47,7 +47,7 @@ namespace tagit.ViewModels
                 await App.NavigationService.PushAsync(new DetailsPage(), args.NewItems[0] as ImageInformation);
         }
 
-        public void ToggleFavorite()
+        public async void ToggleFavorite()
         {
             App.ViewModel.SelectedImage.IsFavorite = !App.ViewModel.SelectedImage.IsFavorite;
 
@@ -67,10 +67,10 @@ namespace tagit.ViewModels
                 if (Favorites.Contains(existingFavorite)) Favorites.Remove(existingFavorite);
             }
 
-            StorageHelper.SaveFavoritesAsync(Favorites.ToList());
+            await StorageHelper.SaveTaggedImagesAsync(App.ViewModel.AllImages.ToList());
         }
 
-        public void ToggleFavorite(ImageInformation image, bool isFavorite)
+        public async void ToggleFavorite(ImageInformation image, bool isFavorite)
         {
             image.IsFavorite = !image.IsFavorite;
 
@@ -88,7 +88,7 @@ namespace tagit.ViewModels
                 if (existingFavorite != null) Favorites.Remove(existingFavorite);
             }
 
-            StorageHelper.SaveFavoritesAsync(Favorites.ToList());
+            await StorageHelper.SaveTaggedImagesAsync(App.ViewModel.AllImages.ToList());
         }
 
         public async void Initialize()
@@ -97,10 +97,13 @@ namespace tagit.ViewModels
 
             Favorites.Clear();
 
-            var favorites = await StorageHelper.GetFavoritesAsync();
+            var images = await StorageHelper.GetTaggedImagesAsync();
+            var favorites = images.Where(p => p.IsFavorite);
 
             foreach (var favorite in favorites)
-                Favorites.Add(favorite);
+            {
+                this.Favorites.Add(favorite);
+            }
 
             IsBusy = false;
         }

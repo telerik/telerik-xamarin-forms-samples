@@ -26,7 +26,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.telerik.teleriktagit</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.11</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIRequiresFullScreen</key>
@@ -43,11 +43,11 @@
 	<string>Tagit App needs Camera Access</string>
 	<key>CFBundleName</key>
 	<string>Telerik Tagit</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.2</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Tagit App needs Callendar Access</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>

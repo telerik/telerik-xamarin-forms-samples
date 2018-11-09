@@ -8,7 +8,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding ToggleFavoriteCommand}" CommandParameter="{Binding}" Text="{Binding IsFavorite, Converter={StaticResource FavoriteLabelConverter}}" Icon="{Binding IsFavorite, Converter={StaticResource FavoriteIconConverter}}"/>
-        <!--<ToolbarItem Command="{Binding SaveCommand}" CommandParameter="{Binding}" Text="Save" Icon="ic_action_save.png"/>-->
+        <ToolbarItem Command="{Binding SaveCommand}" CommandParameter="{Binding}" Text="Save" Icon="ic_action_save.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
@@ -18,7 +18,7 @@
                         ItemShape="{x:Static rating:Geometries.Heart}"  
                         Value="{Binding Rating, Mode=TwoWay}" />
                     <Label HorizontalOptions="Start" Style="{DynamicResource SubtitleStyle}" Text="{Binding Caption}"/>
-                    <imageLoading:CachedImage Aspect="AspectFill" WidthRequest="300" DownsampleUseDipUnits="True" HorizontalOptions="Start" DownsampleWidth="300" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}"/>
+                    <imageLoading:CachedImage Aspect="AspectFill" WidthRequest="300" HorizontalOptions="Start" Source="{Binding ImageSource}"/>
 
                     <Label HorizontalOptions="Start" FontAttributes="Bold" Text="FACES"/>
                     <Label HorizontalOptions="Start" Text="{Binding Faces, Converter={StaticResource FaceListToLabelConverter}}"/>

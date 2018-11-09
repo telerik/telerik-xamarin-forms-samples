@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -22,8 +23,9 @@ namespace tagit.UWP.Renderers
             base.OnElementChanged(e);
 
             if (e.OldElement != null || Element == null)
-
+            {
                 return;
+            }
 
             var ellipse = new Ellipse();
 
@@ -45,8 +47,8 @@ namespace tagit.UWP.Renderers
                 }
 
                 image = new BitmapImage();
+
                 await image.SetSourceAsync(ms);
-                 
             }
 
             return image;
@@ -74,7 +76,9 @@ namespace tagit.UWP.Renderers
                     BitmapImage bitmapImage = null;
 
                     if (Element.Source is UriImageSource)
+                    {
                         bitmapImage = new BitmapImage(((UriImageSource) Element.Source).Uri);
+                    }
                     else if (Element.Source is StreamImageSource)
                     {
                         var imageBytes =
@@ -82,14 +86,15 @@ namespace tagit.UWP.Renderers
  
                         bitmapImage = await GetImageAsync(imageBytes);
                     }
-
-
+                    
                     if (bitmapImage != null)
+                    {
                         Control.Fill = new ImageBrush {ImageSource = bitmapImage, Stretch = Stretch.UniformToFill};
+                    }
                 }
-
-                catch
+                catch (Exception ex)
                 {
+                    Debug.WriteLine($"CircleRenderer.CreateCircle Exception: {ex}");
                 }
             }
         }

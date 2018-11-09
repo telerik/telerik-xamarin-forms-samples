@@ -85,7 +85,7 @@ namespace tagit.ViewModels
 
             TaggedImages = new ObservableCollection<ImageInformation>(taggedImages);
 
-            viewModel.UpdateAnalysis(allCategories.Distinct(), allTags.Distinct());
+            viewModel.UpdateAnalysis(allCategories, allTags);
 
             viewModel.SearchResults.PopulateSearchableImages(allTags.Distinct(), taggedImages);
 
@@ -128,6 +128,13 @@ namespace tagit.ViewModels
                 //Perform image analysis via the Computer Vision API
                 var analysis = await AnalysisHelper.AnalyzeImageAsync(image.File);
 
+                // If there was an exception in the dependency service making the request, you will get a null result.
+                if(analysis == null)
+                {
+                    MessagingCenter.Send<object>(this, "NoServiceConnection");
+                    continue;
+                }
+
                 image.ApplyAnalysis(analysis);
 
                 HomeTabs.ProcessingTab.Images.Remove(image);
@@ -157,13 +164,15 @@ namespace tagit.ViewModels
             //Save all tagged images locally
             await StorageHelper.SaveTaggedImagesAsync(TaggedImages.ToList());
 
+            viewModel.AllImages = TaggedImages;
+
             //Reset the picker to only display
             //untagged images
             viewModel.Picker.RefreshPickerImages();
 
          
             //Populate tag and category collections for searching, etc.
-            viewModel.UpdateAnalysis(allCategories.Distinct(), allTags.Distinct());
+            viewModel.UpdateAnalysis(allCategories, allTags);
             LoadTaggedImages();
 
             viewModel.SearchResults.SearchTags = new ObservableCollection<string>(allTags.Distinct());

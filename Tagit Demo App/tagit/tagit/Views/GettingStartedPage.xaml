@@ -4,9 +4,6 @@
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:viewModels="clr-namespace:tagit.ViewModels"  
              x:Class="tagit.Views.GettingStartedPage">
-    <ContentPage.BindingContext>
-        <viewModels:GettingStartedViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid HorizontalOptions="FillAndExpand" Padding="0">
 

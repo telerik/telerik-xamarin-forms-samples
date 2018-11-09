@@ -51,8 +51,6 @@ namespace tagit.Helpers
         {
             App.ViewModel.Home.PageTitle = title;
             await mainPage.Navigation.PushAsync(page, true);
-
-           
         }
 
         internal void NavigateToProcessing(RadSideDrawer drawer)

@@ -16,7 +16,7 @@ namespace tagit.ViewModels
     public class MainViewModel : ObservableBase
     {
         public MainViewModel()
-        {   
+        {
             Processing = new ProcessingViewModel(this);
 
             Initialize();
@@ -34,7 +34,7 @@ namespace tagit.ViewModels
 
         public AnalysisViewModel Analysis = new AnalysisViewModel();
         public SearchResultsViewModel SearchResults = new SearchResultsViewModel();
-        
+
         public FavoritesViewModel Favorites { get; } = new FavoritesViewModel();
         public GalleryViewModel Gallery { get; } = new GalleryViewModel();
         public GettingStartedViewModel GettingStarted { get; } = new GettingStartedViewModel();
@@ -81,7 +81,7 @@ namespace tagit.ViewModels
             var allTags = new List<string>();
 
             var taggedImages = await StorageHelper.GetTaggedImagesAsync();
-            var favorites = (await StorageHelper.GetFavoritesAsync()).Select(s => s.FileName);
+            var favorites = taggedImages.Where(p => p.IsTagged).Select(s => s.FileName);
 
             AllImages.Clear();
 

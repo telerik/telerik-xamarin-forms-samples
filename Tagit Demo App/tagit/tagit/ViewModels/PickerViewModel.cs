@@ -88,21 +88,39 @@ namespace tagit.ViewModels
 
             PickerImages.Clear();
 
-            var taggedImages = await StorageHelper.GetTaggedImagesAsync();
+            var taggedImages = (await StorageHelper.GetTaggedImagesAsync());
 
             var existingImageFileNames =
                 taggedImages.Select(s => s.FileName.Split("/\\".ToCharArray()).LastOrDefault());
-            
+
             var images = await ImageHelper.GetImagesAsync(existingImageFileNames);
-            foreach (var image in images.Where(w => !taggedImages.Select(s => s.FileName).Contains(w.FileName)))
-                PickerImages.Add(new ImageInformation
+
+            HashSet<ImageInformation> imageInformations = new HashSet<ImageInformation>();
+            foreach (var image in taggedImages)
+            {
+                if (!imageInformations.Contains(image))
+                {
+                    imageInformations.Add(image);
+                }
+            }
+       
+            foreach (var image in images)
+            {
+                var newInfo = new ImageInformation
                 {
                     Caption = image.FileName,
                     Url = image.Url,
                     FileName = image.FileName,
                     File = image.File,
                     CreatedDate = image.CreatedDate
-                });
+                };
+
+                if (!imageInformations.Contains(newInfo))
+                {
+                    imageInformations.Add(newInfo);
+                    PickerImages.Add(newInfo);
+                }
+            }
 
 
             var allImages = new List<ImageInformation>(taggedImages);

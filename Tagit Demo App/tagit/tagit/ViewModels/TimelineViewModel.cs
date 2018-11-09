@@ -20,6 +20,7 @@ namespace tagit.ViewModels
         {
             Initialize(Device.RuntimePlatform != Device.UWP);
             SelectSingleCommand = new RelayCommand<NotifyCollectionChangedEventArgs>(SelectSingleAsync);
+            this.Timeline = new ObservableCollection<ImageCreationEvent>();
         }
 
         private DateTime? _selectedDate;
@@ -76,7 +77,7 @@ namespace tagit.ViewModels
                 TaggedImages.Clear();
 
                 var taggedImages = await StorageHelper.GetTaggedImagesAsync();
-                var favorites = (await StorageHelper.GetFavoritesAsync()).Select(s => s.FileName);
+                var favorites = taggedImages.Where(p => p.IsTagged).Select(s => s.FileName);
 
                 foreach (var image in taggedImages)
                 {

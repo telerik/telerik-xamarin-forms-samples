@@ -10,6 +10,8 @@ namespace tagit.Views
         public GettingStartedPage()
         {
             InitializeComponent();
+
+            BindingContext = App.ViewModel.GettingStarted;
         }
 
         protected override void OnAppearing()

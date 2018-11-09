@@ -9,6 +9,10 @@ namespace tagit.Views
         public GalleryView()
         {
             InitializeComponent();
+
+            var viewModel = App.ViewModel.Gallery;
+            viewModel.Initialize();
+            BindingContext = viewModel;
         }
     }
 }
