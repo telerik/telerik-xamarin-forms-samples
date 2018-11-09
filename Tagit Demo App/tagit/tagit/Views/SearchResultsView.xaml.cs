@@ -18,6 +18,9 @@ namespace tagit.Views
         public SearchResultsView()
         {
             InitializeComponent();
+
+            App.ViewModel.SearchResults.Initialize();
+            BindingContext = App.ViewModel.SearchResults;
         }
     }
 }

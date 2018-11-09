@@ -11,22 +11,24 @@ using tagit.Common;
 using tagit.Droid.Services;
 using tagit.Services;
 using Xamarin.Forms;
-using Environment = Android.OS.Environment;
-using Uri = Android.Net.Uri;
 
 [assembly: Dependency(typeof(ImageService))]
-
 namespace tagit.Droid.Services
 {
-    /// Contains methods for accessing
-    /// local images on the file system
+    /// Contains methods for accessing local images on the file system
     public class ImageService : IImageService
     {
-        public async Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation,
-            byte[] image)
+        public async Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation, byte[] image)
         {
-            var imagesFolder = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryDcim);
+            if (!await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
+            {
+                return string.Empty;
+            }
+
+            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
+
             var imagesPath = imagesFolder.AbsolutePath;
+
             var taggedFolder = Path.Combine(imagesPath, "Tagged");
 
             var filePath = Path.Combine(taggedFolder, fileName);
@@ -43,26 +45,38 @@ namespace tagit.Droid.Services
                 File.WriteAllBytes(filePath, imageData);
 
                 var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-                mediaScanIntent.SetData(Uri.FromFile(new Java.IO.File(filePath)));
+
+                mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
+
                 Forms.Context.SendBroadcast(mediaScanIntent);
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"ImageService.SaveTaggedImageAsync Exception: {ex}");
             }
 
             return string.Empty;
         }
-        
+
         public async Task<List<string>> GetImageFileNamesAsync(IEnumerable<string> existingFileNames)
         {
             var tcs = new TaskCompletionSource<List<string>>();
 
-            var imagesFolder = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryDcim);
+            if (!await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
+            {
+                tcs.SetResult(new List<string>());
+
+                return await tcs.Task;
+            }
+
+            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
 
             var imagesPath = Path.Combine(imagesFolder.AbsolutePath, "Camera");
 
             if (!Directory.Exists(imagesPath))
+            {
                 Directory.CreateDirectory(imagesPath);
+            }
 
             var files = Directory.GetFiles(imagesPath).ToList();
 
@@ -72,12 +86,38 @@ namespace tagit.Droid.Services
             {
                 string fileName = file.Split("/\\".ToCharArray()).LastOrDefault();
 
-                if (!existingFileNames.ToList().Contains(fileName))  fileNames.Add(fileName);
+                if (!existingFileNames.ToList().Contains(fileName)) fileNames.Add(fileName);
             }
-            
+
             tcs.SetResult(fileNames);
 
             return await tcs.Task;
+        }
+        
+        public async Task SaveImageAsync(string fileName, string url)
+        {
+            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
+
+            var imagesPath = imagesFolder.AbsolutePath;
+
+            var filePath = Path.Combine(imagesPath, "Camera", fileName);
+
+            try
+            {
+                var imageData = await GetImageFromUriAsync(url);
+
+                File.WriteAllBytes(filePath, imageData);
+
+                var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+
+                mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
+
+                Forms.Context.SendBroadcast(mediaScanIntent);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ImageService.SaveImageAsync Exception: {ex}");
+            }
         }
 
 
@@ -87,25 +127,35 @@ namespace tagit.Droid.Services
 
             var images = new List<LocalFileInformation>();
 
-            var imagesFolder = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryDcim);
+            if (!await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
+            {
+                tcs.SetResult(images);
+
+                return await tcs.Task;
+            }
+
+            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
 
             var imagesPath = Path.Combine(imagesFolder.AbsolutePath, "Camera");
 
             if (!Directory.Exists(imagesPath))
+            {
                 Directory.CreateDirectory(imagesPath);
+            }
 
             var files = Directory.GetFiles(imagesPath).ToList();
-            var filteredFiles = files.Where(w => !existingFileNames.Contains(w.Split("/\\d".ToCharArray()).LastOrDefault()));
+
+            var filteredFiles = files.Where(w => !existingFileNames.Contains(w.Split("/\\d".ToCharArray()).LastOrDefault())).OrderByDescending(p => File.GetLastWriteTime(p));
 
             foreach (var file in filteredFiles.Take(Common.CoreConstants.ImageCountLimit))
             {
                 var fileSize = new FileInfo(file).Length;
-              
+
                 try
                 {
                     byte[] imageBytes = null;
 
-                    imageBytes = File.ReadAllBytes(file); 
+                    imageBytes = File.ReadAllBytes(file);
 
                     if (imageBytes.Length < (int)Common.CoreConstants.ImageSizeLimit)
                     {
@@ -120,58 +170,15 @@ namespace tagit.Droid.Services
                 }
                 catch (Exception ex)
                 {
-                    
+                    Console.WriteLine($"ImageService.SaveImageAsync Exception: {ex}");
                 }
             }
-            
+
             tcs.SetResult(images);
 
             return await tcs.Task;
         }
 
-        public void SaveImage(string fileName, byte[] fileBytes)
-        {
-            var imagesFolder = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryDcim);
-            var imagesPath = imagesFolder.AbsolutePath;
-
-            var filePath = Path.Combine(imagesPath, "Camera", fileName);
-
-            try
-            {
-                File.WriteAllBytes(filePath, fileBytes);
-
-                var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-                mediaScanIntent.SetData(Uri.FromFile(new Java.IO.File(filePath)));
-                Forms.Context.SendBroadcast(mediaScanIntent);
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-
-
-        public async Task SaveImageAsync(string fileName, string url)
-        {
-            var imagesFolder = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryDcim);
-            var imagesPath = imagesFolder.AbsolutePath;
-
-            var filePath = Path.Combine(imagesPath, "Camera", fileName);
-
-            try
-            {
-                var imageData = await GetImageFromUriAsync(url);
-
-                File.WriteAllBytes(filePath, imageData);
-
-                var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-                mediaScanIntent.SetData(Uri.FromFile(new Java.IO.File(filePath)));
-                Forms.Context.SendBroadcast(mediaScanIntent);
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-        
         private async Task<byte[]> GetTaggedImageFromUriAsync(FileTaggingInformation taggingInformation, byte[] image)
         {
             var client = new HttpClient();

@@ -15,6 +15,8 @@ namespace tagit.Views
         public HomePage()
         {
             InitializeComponent();
+
+            this.BindingContext = App.ViewModel.Home;
         }
 
         protected override void OnAppearing()
@@ -55,6 +57,12 @@ namespace tagit.Views
             //only show Search menu when image tags have been populated
             MessagingCenter.Subscribe<object>(this, "TagsAvailable", sender => { ToggleSearchMenu(); });
             MessagingCenter.Subscribe<object>(this, "IsSetup", sender => { EnableMainMenu(); });
+            MessagingCenter.Subscribe<object>(this, "NoServiceConnection", sender => { NoServiceConnection(); });
+        }
+
+        private void NoServiceConnection()
+        {
+            DisplayAlert("Error", "There is not connection to the computer vision service.", "OK");
         }
 
         //Add or remove the Search menu based

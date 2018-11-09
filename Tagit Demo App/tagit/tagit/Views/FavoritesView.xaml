@@ -44,7 +44,7 @@
                                             <Frame HasShadow="False" CornerRadius="8" BackgroundColor="{DynamicResource AppAccentColor}"/>
                                             <Label VerticalOptions="Center" Margin="35,20,20,20" Style="{DynamicResource SubtitleStyle}" TextColor="White" Text="{Binding Caption}"/>
                                         </Grid>
-                                        <controls:CircleImage Grid.Column="0" DownsampleUseDipUnits="True"
+                                        <controls:CircleImage Grid.Column="0"
                                                               VerticalOptions="Center"
                                                               Aspect="AspectFill" 
                                                               Source="{Binding Converter={StaticResource FileOrUriImageSourceConverter}}">
@@ -54,12 +54,6 @@
                                                                             Android="80"
                                                             WinPhone="80"/>
                                             </controls:CircleImage.HeightRequest>
-                                            <controls:CircleImage.DownsampleWidth>
-                                                <OnPlatform x:TypeArguments="x:Double"
-                                                                            iOS="40"                                          
-                                                                            Android="80"
-                                                            WinPhone="80"/>
-                                            </controls:CircleImage.DownsampleWidth>
                                         </controls:CircleImage>
                                     </Grid>
                                 </listView:ListViewTemplateCell.View>
@@ -91,7 +85,7 @@
                         </DataTemplate>
                     </telerikDataControls:RadListView.ItemSwipeContentTemplate>
                     <telerikDataControls:RadListView.LayoutDefinition>
-                        <listView:ListViewLinearLayout HorizontalItemSpacing="5">
+                        <listView:ListViewLinearLayout HorizontalItemSpacing="5" ItemLength="80">
                             <listView:ListViewLinearLayout.VerticalItemSpacing>
                                 <OnPlatform x:TypeArguments="x:Double"
                                                             iOS="15"                                          

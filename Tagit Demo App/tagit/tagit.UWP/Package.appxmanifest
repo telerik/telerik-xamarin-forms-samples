@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="daf67061-aca9-4377-985e-11887e8cdbb3" Publisher="CN=codes" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="c0681b44-b9ae-48a0-944f-aa19ee23fa6c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="Telerik.TelerikTagit" Publisher="CN=A6114CDA-C037-48BD-B8B6-9F8020555726" Version="1.2.1.0" />
+  <mp:PhoneIdentity PhoneProductId="f075f9b6-32eb-40c6-82ff-4354d0b567d2" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>tagit.UWP</DisplayName>
-    <PublisherDisplayName>codes</PublisherDisplayName>
+    <DisplayName>Telerik Tagit</DisplayName>
+    <PublisherDisplayName>Telerik</PublisherDisplayName>
     <Logo>Assets\PackageLogo.png</Logo>
   </Properties>
   <Dependencies>

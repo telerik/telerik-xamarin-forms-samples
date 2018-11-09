@@ -54,18 +54,7 @@
                                                                 </RowDefinition.Height>
                                                             </RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <imageLoading:CachedImage Grid.RowSpan="3" DownsampleUseDipUnits="True" WidthRequest="280" HeightRequest="280" Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}" Opacity="{Binding IsProcessing, Converter={StaticResource LoadingOpacityConverter}}">
-                                                            <imageLoading:CachedImage.DownsampleWidth>
-                                                                <OnPlatform x:TypeArguments="x:Double"
-                                                                            iOS="280"                                          
-                                                                            Android="280"/>
-                                                            </imageLoading:CachedImage.DownsampleWidth>
-                                                            <imageLoading:CachedImage.DownsampleHeight>
-                                                                <OnPlatform x:TypeArguments="x:Double"
-                                                                            iOS="280"                                          
-                                                                            Android="280"/>
-                                                            </imageLoading:CachedImage.DownsampleHeight>
-                                                        </imageLoading:CachedImage>
+                                                        <imageLoading:CachedImage Grid.RowSpan="3" WidthRequest="280" HeightRequest="280" Aspect="AspectFill" Source="{Binding ImageSource}" Opacity="{Binding IsProcessing, Converter={StaticResource LoadingOpacityConverter}}" />
                                                         <Grid LayoutChanged="OnVisualized" Grid.Row="1" IsVisible="{Binding Caption, Converter={StaticResource HasContentToVisibleConverter}}">
                                                             <Grid.TranslationY>
                                                                 <OnPlatform x:TypeArguments="x:Double" Android="300" />
@@ -92,11 +81,11 @@
                                                                 </telerikInput:RadShapeRating.ItemStrokeThickness>
                                                             </telerikInput:RadShapeRating>
                                                             <StackLayout Orientation="Horizontal" Grid.Column="1" Margin="5" VerticalOptions="Center" HorizontalOptions="End">
-                                                                <!--<Image InputTransparent="False" HeightRequest="24" WidthRequest="24" Source="ic_action_save.png">
+                                                                <Image InputTransparent="False" HeightRequest="24" WidthRequest="24" Source="ic_action_save.png">
                                                                     <Image.GestureRecognizers>
                                                                         <TapGestureRecognizer Command="{Binding SaveCommand}" />
                                                                     </Image.GestureRecognizers>
-                                                                </Image>-->
+                                                                </Image>
                                                                 <Image InputTransparent="False" HeightRequest="24" WidthRequest="24" Source="{Binding IsFavorite, Converter={StaticResource FavoriteIconConverter}}">
                                                                     <Image.GestureRecognizers>
                                                                         <TapGestureRecognizer Command="{Binding ToggleFavoriteCommand}" />
@@ -111,7 +100,7 @@
                                         </DataTemplate>
                                     </telerikDataControls:RadListView.ItemTemplate>
                                     <telerikDataControls:RadListView.LayoutDefinition>
-                                        <listView:ListViewLinearLayout HorizontalItemSpacing="2" VerticalItemSpacing="2" />
+                                        <listView:ListViewLinearLayout HorizontalItemSpacing="2" VerticalItemSpacing="2" ItemLength="280" />
                                     </telerikDataControls:RadListView.LayoutDefinition>
                                 </telerikDataControls:RadListView>
                             </Grid>
@@ -140,13 +129,7 @@
                                                                 </RowDefinition.Height>
                                                             </RowDefinition>
                                                         </Grid.RowDefinitions>
-                                                        <imageLoading:CachedImage DownsampleUseDipUnits="True" Grid.RowSpan="2" Opacity="{Binding IsProcessing, Converter={StaticResource LoadingOpacityConverter}}" WidthRequest="280" Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}">
-                                                            <imageLoading:CachedImage.DownsampleWidth>
-                                                                <OnPlatform x:TypeArguments="x:Double"
-                                                                            iOS="280"                                          
-                                                                            Android="280"/>
-                                                            </imageLoading:CachedImage.DownsampleWidth>
-                                                        </imageLoading:CachedImage>
+                                                        <imageLoading:CachedImage Grid.RowSpan="2" Opacity="{Binding IsProcessing, Converter={StaticResource LoadingOpacityConverter}}" WidthRequest="280" Aspect="AspectFill" Source="{Binding ImageSource}" />
                                                         <Grid Grid.Row="1">
                                                             <Grid Margin="6">
                                                                 <Frame HasShadow="False" OutlineColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill" CornerRadius="8" BackgroundColor="#99000000"/>
@@ -159,7 +142,7 @@
                                         </DataTemplate>
                                     </telerikDataControls:RadListView.ItemTemplate>
                                     <telerikDataControls:RadListView.LayoutDefinition>
-                                        <listView:ListViewLinearLayout HorizontalItemSpacing="2" VerticalItemSpacing="6" />
+                                        <listView:ListViewLinearLayout HorizontalItemSpacing="2" VerticalItemSpacing="6" ItemLength="280" />
                                     </telerikDataControls:RadListView.LayoutDefinition>
                                 </telerikDataControls:RadListView>
                             </Grid>

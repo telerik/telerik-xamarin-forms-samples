@@ -8,7 +8,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(CircleImage), typeof(CircleImageRenderer))]
-
 namespace tagit.iOS.Renderers
 {
     public class CircleImageRenderer : CachedImageRenderer
@@ -29,7 +28,9 @@ namespace tagit.iOS.Renderers
 
             if (e.PropertyName == VisualElement.HeightProperty.PropertyName ||
                 e.PropertyName == VisualElement.WidthProperty.PropertyName)
+            {
                 CreateCircle();
+            }
         }
 
         private void CreateCircle()
@@ -43,8 +44,9 @@ namespace tagit.iOS.Renderers
                 Control.Layer.BorderWidth = 3;
                 Control.ClipsToBounds = true;
             }
-            catch
+            catch(Exception ex)
             {
+                Console.WriteLine($"CircleRenderer.CreateCircle Exception: {ex}");
             }
         }
     }

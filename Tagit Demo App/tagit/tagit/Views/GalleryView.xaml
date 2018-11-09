@@ -6,9 +6,6 @@
              xmlns:viewModels="clr-namespace:tagit.ViewModels"  
              xmlns:imageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="tagit.Views.GalleryView">
-    <ContentView.BindingContext>
-        <viewModels:GalleryViewModel />
-    </ContentView.BindingContext>
     <ContentView.Content>
         <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
             <Grid.RowDefinitions>
@@ -36,19 +33,8 @@
                                         <Grid.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding NavigateToDetailsCommand}"/>
                                         </Grid.GestureRecognizers>
-                                        <imageLoading:CachedImage DownsampleUseDipUnits="True" Margin="2" HeightRequest="200" 
-                                                                    Aspect="AspectFill" Source="{Binding File, Converter={StaticResource FileToImageSourceConverter}}">
-                                            <imageLoading:CachedImage.DownsampleWidth>
-                                                <OnPlatform x:TypeArguments="x:Double"
-                                                      iOS="100"                                          
-                                                      Android="100"/>
-                                            </imageLoading:CachedImage.DownsampleWidth>
-                                            <imageLoading:CachedImage.DownsampleHeight>
-                                                <OnPlatform x:TypeArguments="x:Double"
-                                                      iOS="200"                                          
-                                                      Android="200"/>
-                                            </imageLoading:CachedImage.DownsampleHeight>
-                                        </imageLoading:CachedImage>
+                                        <imageLoading:CachedImage Margin="2" HeightRequest="200" 
+                                                                    Aspect="AspectFill" Source="{Binding ImageSource}" />
                                     </Grid>
                                 </listView:ListViewTemplateCell.View>
                             </listView:ListViewTemplateCell>

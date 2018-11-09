@@ -18,20 +18,16 @@ namespace tagit.Views
         {
             InitializeComponent();
 
+            var viewModel = App.ViewModel.Timeline;
+
+            this.BindingContext = viewModel;
+
             if (Device.RuntimePlatform == Device.UWP)
             {
-                this.BindingContext = App.ViewModel.Timeline;
-
                 calendar.AppointmentsSource = App.ViewModel.Timeline.Timeline;
-
-                Device.StartTimer(TimeSpan.FromSeconds(1), () =>
-                {
-                    ((TimelineViewModel)this.BindingContext)?.Initialize(true);
-                    return false;
-                });
-
             }
-        }
 
+            viewModel.Initialize(true);
+        }
     }
 }

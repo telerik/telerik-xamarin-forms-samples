@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using tagit.Common;
@@ -22,7 +22,7 @@ namespace tagit.ViewModels
             CanDownloadSampleImages = true;
 
             LoadSampleImagesCommand = new RelayCommand(async () => { await LoadSampleImagesAsync(); });
-            ShowDocumentationCommand = new RelayCommand(async () => { await ShowDocumentationAsync(); });
+            ShowDocumentationCommand = new RelayCommand(() => { ShowDocumentationAsync(); });
         }
 
         private bool _isBusy;
@@ -79,12 +79,9 @@ namespace tagit.ViewModels
                     Application.Current.Resources["AppTextColor"] =
                         (Color) Application.Current.Resources["AppLightColor"];
 
-                    var assemblyName = typeof(UploadViewModel).GetTypeInfo().Assembly.GetName();
-                    var assembly = Assembly.Load(new AssemblyName(assemblyName.Name));
-
                     App.ViewModel.Upload.UploadImageSource = isDarkEnabled
-                        ? ImageSource.FromResource(UiConstants.UploadImageDarkFileName, assembly)
-                        : ImageSource.FromResource(UiConstants.UploadImageLightFileName, assembly);
+                        ? ImageSource.FromResource(UiConstants.UploadImageDarkFileName)
+                        : ImageSource.FromResource(UiConstants.UploadImageLightFileName);
                 }
                 catch
                 {
@@ -116,9 +113,10 @@ namespace tagit.ViewModels
             IsBusy = false;
         }
 
-        private async Task ShowDocumentationAsync()
+        private void ShowDocumentationAsync()
         {
-            await App.NavigationService.PushAsync(new DocumentationPage());
+            //await App.NavigationService.PushAsync(new DocumentationPage());
+            Device.OpenUri(new Uri("http://www.telerik.com/xamarin-ui"));
         }
     }
 }

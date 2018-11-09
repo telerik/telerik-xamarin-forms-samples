@@ -8,9 +8,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewModels="clr-namespace:tagit.ViewModels"
              x:Class="tagit.Views.SearchResultsView">
-    <ContentView.BindingContext>
-        <viewModels:SearchResultsViewModel/>
-    </ContentView.BindingContext>
     <ContentView.Resources>
         <ResourceDictionary>
         <DataTemplate x:Key="SuggestionItemTemplate">
@@ -76,8 +73,7 @@
                                         <Frame HasShadow="False" CornerRadius="8" BackgroundColor="{DynamicResource AppAccentColor}"/>
                                         <Label VerticalOptions="Center" Margin="35,20,20,20" Style="{DynamicResource SubtitleStyle}" TextColor="White" Text="{Binding Caption}"/>
                                     </Grid>
-                                    <controls:CircleImage DownsampleUseDipUnits="True"
-                                                          VerticalOptions="Center"  DownsampleWidth="80"
+                                    <controls:CircleImage VerticalOptions="Center"
                                                           HeightRequest="80" Aspect="AspectFill" 
                                                           Source="{Binding Converter={StaticResource FileOrUriImageSourceConverter}}"/>
                                 </Grid>
@@ -107,7 +103,7 @@
                     </DataTemplate>
                 </telerikDataControls:RadListView.ItemSwipeContentTemplate>
                 <telerikDataControls:RadListView.LayoutDefinition>
-                    <listView:ListViewLinearLayout HorizontalItemSpacing="5">
+                    <listView:ListViewLinearLayout HorizontalItemSpacing="5" ItemLength="80">
                         <listView:ListViewLinearLayout.VerticalItemSpacing>
                             <OnPlatform x:TypeArguments="x:Double"
                                                             iOS="15"                                          

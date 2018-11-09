@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -10,11 +11,9 @@ using tagit.UWP.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SettingsStorageService))]
-
 namespace tagit.UWP.Services
 {
-    /// Contains methods for saving
-    /// and and retrieveing local storage
+    /// Contains methods for saving and and retrieving local storage
     public class SettingsStorageService : ISettingsStorageService
     {
         public T Read<T>(string name, T defaultValue)
@@ -28,11 +27,14 @@ namespace tagit.UWP.Services
                     var value = localSettings.Values[name];
 
                     if (typeof(T) == typeof(bool))
+                    {
                         return (T) Convert.ChangeType(value, typeof(bool));
+                    }
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                Debug.WriteLine($"SettingsStorageService.Read Exception: {ex}");
             }
 
             return defaultValue;
@@ -47,8 +49,9 @@ namespace tagit.UWP.Services
                 if (typeof(T) == typeof(bool))
                     localSettings.Values[name] = value;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine($"SettingsStorageService.Write Exception: {ex}");
             }
         }
 
@@ -71,6 +74,7 @@ namespace tagit.UWP.Services
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"SettingsStorageService.WriteAsync Exception: {ex}");
             }
         }
 
@@ -93,8 +97,9 @@ namespace tagit.UWP.Services
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine($"SettingsStorageService.ReadAsync Exception: {ex}");
             }
 
             return value == null ? new List<ImageInformation>() : value;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using tagit.Common;
@@ -73,10 +74,19 @@ namespace tagit.Models
         private List<string> _tags = new List<string>();
 
         private string _url;
-        
+
+        private ImageSource imageSource;
+
+        [IgnoreDataMember]
         public ICommand ToggleFavoriteCommand { get; }
+
+        [IgnoreDataMember]
         public ICommand NavigateToDetailsCommand { get; }
+
+        [IgnoreDataMember]
         public ICommand SaveCommand { get; }
+
+        [IgnoreDataMember]
         public ICommand SelectSingleCommand { get; }
 
         public string Caption
@@ -148,7 +158,25 @@ namespace tagit.Models
         public byte[] File
         {
             get => _file;
-            set => SetProperty(ref _file, value);
+            set
+            {
+                SetProperty(ref _file, value);
+                this.imageSource = null;
+            }
+        }
+
+        [IgnoreDataMember]
+        public ImageSource ImageSource
+        {
+            get
+            {
+                if (this.imageSource == null)
+                {
+                    this.imageSource = Xamarin.Forms.ImageSource.FromStream(() => new System.IO.MemoryStream(this.File));
+                }
+
+                return this.imageSource;
+            }
         }
 
         public int Rating
@@ -199,12 +227,14 @@ namespace tagit.Models
             set => SetProperty(ref _isAdult, value);
         }
 
+        [IgnoreDataMember]
         public bool IsProcessing
         {
             get => _isProcessing;
             set => SetProperty(ref _isProcessing, value);
         }
 
+        [IgnoreDataMember]
         public bool IsSelected
         {
             get => _isSelected;
@@ -223,6 +253,7 @@ namespace tagit.Models
             set => SetProperty(ref _isTagged, value);
         }
 
+        [IgnoreDataMember]
         public bool IsBusy
         {
             get => _isBusy;
@@ -233,10 +264,10 @@ namespace tagit.Models
             ? CreatedDate.ToString("dddd, MMM d, yyyy")
             : CreatedDate.ToString("M/d/yyyy");
 
-        private void ToggleFavorite()
+        private async void ToggleFavorite()
         {
             if (App.ViewModel.Processing.IsBusy || App.ViewModel.Processing.IsProcessing) return;
-            
+
             IsFavorite = !IsFavorite;
 
             var existingImage = App.ViewModel.AllImages.FirstOrDefault(w => w.FileName.Equals(FileName));
@@ -256,7 +287,7 @@ namespace tagit.Models
                     App.ViewModel.Favorites.Favorites.Remove(existingFavorite);
             }
 
-            StorageHelper.SaveFavoritesAsync(App.ViewModel.AllImages.Where(w => w.IsFavorite).ToList());
+            await StorageHelper.SaveTaggedImagesAsync(App.ViewModel.AllImages.ToList());
         }
 
         private async void SelectSingleAsync(NotifyCollectionChangedEventArgs args)
@@ -280,11 +311,37 @@ namespace tagit.Models
 
             IsBusy = true;
 
-            var fileName = FileName;
+            var taggedImages = await StorageHelper.GetTaggedImagesAsync();
+            var currentImage = taggedImages.FirstOrDefault(p => p.FileName == this.FileName);
 
-            await ImageHelper.SaveTaggedImageToDiskAsync(fileName, File, Caption, Tags, (short) Rating);
+            var index = taggedImages.IndexOf(currentImage);
+            taggedImages.Remove(currentImage);
+            taggedImages.Insert(index, this);
+
+            await StorageHelper.SaveTaggedImagesAsync(taggedImages);
 
             IsBusy = false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as ImageInformation;
+            if (other == null)
+            {
+                return false;
+            }
+
+            return this.FileName == other.FileName;
+        }
+
+        public override int GetHashCode()
+        {
+            if (this.FileName == null)
+            {
+                return 0;
+            }
+
+            return this.FileName.GetHashCode();
         }
     }
 }

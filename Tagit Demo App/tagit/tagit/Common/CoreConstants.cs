@@ -5,7 +5,7 @@
         //This can be changed to point to you own instance
         //of the Azure Cognitive Services Computer Vision API 
         //endpoints and values
-        public static string CognitiveServicesRegion = "westus";
+        public static string CognitiveServicesRegion = "eastus2";
         public static string CognitiveServicesBaseUrl = $"https://{CognitiveServicesRegion}.api.cognitive.microsoft.com";
 
         //The Computer Vision API subscription key may be used during evaluation
@@ -15,8 +15,8 @@
         public static string ComputerVisionApiSubscriptionKey = "Your API Key here";
 
         //External training lab APIs for tagging and saving images locally
-        public static string TaggingServiceUrl = "https://traininglabservices.azurewebsites.net/api/tagit";
-        public static string SampleImagesUrl = "https://tagit.blob.core.windows.net/sample-images/";
+        public static string TaggingServiceUrl = "http://tagit-webapi.azurewebsites.net/api/tagit";
+        public static string SampleImagesUrl = "https://tagitappstorage.blob.core.windows.net/tagit-sample-images/";
         
         public static ulong ImageSizeLimit = 4194304; //THIS NUMBER IS THE COMPUTER VISION UPPER LIMIT
         public static int ImageCountLimit = 100; //THIS NUMBER IS AN ARBITRARY LIMIT TO PREVENT MASSIVE IMAGE COUNTS

@@ -9,6 +9,11 @@ namespace tagit.Views
         public AnalysisView()
         {
             InitializeComponent();
+
+            var viewModel = App.ViewModel.Analysis;
+            viewModel.RefreshAnalysis();
+
+            BindingContext = viewModel;
         }
     }
 }

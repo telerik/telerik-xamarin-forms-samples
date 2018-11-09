@@ -62,7 +62,6 @@
             <converters:HomeTabForegroundConverter x:Key="HomeTabForegroundConverter"/>
             <converters:BooleanToFalseConverter x:Key="BooleanToFalseConverter"/>
             <converters:UpperCaseConverter x:Key="UpperCaseConverter"/>
-            <converters:FileToImageSourceConverter x:Key="FileToImageSourceConverter"/>
             <converters:ColorValidationConverter x:Key="ColorValidationConverter"/>
             <converters:BooleanToFriendlyConverter x:Key="BooleanToFriendlyConverter"/>
             <converters:ScoreLabelConverter x:Key="ScoreLabelConverter"/>
