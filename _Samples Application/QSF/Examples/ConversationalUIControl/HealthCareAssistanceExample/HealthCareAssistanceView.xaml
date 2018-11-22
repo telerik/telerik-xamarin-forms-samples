@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerikConversationalUI="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
-             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:local="clr-namespace:QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample"
-              xmlns:views="clr-namespace:QSF.Views"
+             xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample.HealthCareAssistanceView">
     <ContentView.Resources>
         <ResourceDictionary>
@@ -42,6 +41,56 @@
                     </DataTemplate>
                 </local:CustomChatItemTemplateSelector.WaitingForBotTemplate>
             </local:CustomChatItemTemplateSelector>
+            <ResourceDictionary x:Key="chatResources">
+                <Color x:Key="ChatChoiceItemsColor">Accent</Color>
+                <Style TargetType="telerikConversationalUI:RadChatPicker">
+                    <Setter Property="FooterBackgroundColor" Value="Transparent"/>
+                    <Setter Property="HeaderBackgroundColor" Value="Transparent"/>
+                </Style>
+                <Style x:Key="ItemLabelStyle" TargetType="Label">
+                    <Setter Property="TextColor" Value="{DynamicResource ChatChoiceItemsColor}"/>
+                    <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="10, 8, 10, 8"/>
+                    <Setter Property="FontSize" Value="15"/>
+                </Style>
+                <Style x:Key="ItemBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                    <Setter Property="Margin" Value="0, 0, 10, 7"/>
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderColor" Value="{DynamicResource ChatChoiceItemsColor}"/>
+                </Style>
+                <Style TargetType="telerikConversationalUI:ItemPickerView">
+                    <Setter Property="Margin" Value="45, 5, 0, 7"/>
+                    <Setter Property="Orientation" Value="Horizontal"/>
+                    <Setter Property="ItemStyle" Value="{StaticResource ItemBorderStyle}"/>
+                    <Setter Property="SelectedItemStyle" Value="{StaticResource ItemBorderStyle}"/>
+                </Style>
+                <Style TargetType="Image">
+                    <Setter Property="Aspect" Value="Fill"/>
+                    <Setter Property="WidthRequest" Value="250"/>
+                    <Setter Property="HeightRequest" Value="125"/>
+                </Style>
+                <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
+                    <Label Text="{Binding Title}" Style="{StaticResource ItemLabelStyle}"/>
+                </DataTemplate>
+            </ResourceDictionary>
+            <ResourceDictionary x:Key="innerChatPickerResources">
+                <Style TargetType="telerikConversationalUI:ItemPickerView" />
+                <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
+                    <Label Text="{Binding Title}"
+                           HorizontalTextAlignment="Start"
+                           FontSize="15"
+                           Margin="15, 10, 0, 10" />
+                </DataTemplate>
+            </ResourceDictionary>
+            <ResourceDictionary x:Key="outerChatPickerResources">
+                <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
+                    <Image Source="{Binding Image}"
+                           HeightRequest="35"
+                           Margin="0, 5, 0, 5"
+                           HorizontalOptions="Center"
+                           Aspect="AspectFit" />
+                </DataTemplate>
+            </ResourceDictionary>
         </ResourceDictionary>
     </ContentView.Resources>
     <Grid>
@@ -64,85 +113,32 @@
                    FontSize="18"
                    VerticalTextAlignment="Center"/>
         </StackLayout>
-        <telerikConversationalUI:RadChat x:Name="chat" Grid.Row="1"
+        <telerikConversationalUI:RadChat x:Name="chat"
+                                         views:ThemesBehavior.StyleClass="TelerikTheme"
+                                         Grid.Row="1"
                                          PropertyChanged="OnChatPropertyChanged"
                                          ItemTemplateSelector="{StaticResource CustomChatItemTemplateSelector}"
-                                         views:ThemesBehavior.StyleClass="TelerikTheme">
+                                         Resources="{StaticResource chatResources}">
             <telerikConversationalUI:RadChat.Picker>
-                <telerikConversationalUI:RadChatPicker x:Name="picker"
+                <telerikConversationalUI:RadChatPicker x:Name="innerChatPicker"
+                                                       views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                       Resources="{StaticResource innerChatPickerResources}"
                                                        IsOkButtonVisible="False"
                                                        IsCancelButtonVisible="False"
                                                        HeaderBackgroundColor="#FFE0E2E5"
                                                        IsVisible="False"
-                                                       BackgroundColor="White">
-                    <telerikConversationalUI:RadChatPicker.Resources>
-                        <ResourceDictionary>
-                            <Style TargetType="telerikConversationalUI:ItemPickerView"/>
-                            <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
-                                <Label Text="{Binding Title}"
-                                       HorizontalTextAlignment="Start"
-                                       FontSize="15"
-                                       Margin="15, 10, 0, 10"/>
-                            </DataTemplate>
-                        </ResourceDictionary>
-                    </telerikConversationalUI:RadChatPicker.Resources>
-                </telerikConversationalUI:RadChatPicker>
+                                                       BackgroundColor="White" />
             </telerikConversationalUI:RadChat.Picker>
-            <telerikConversationalUI:RadChat.Resources>
-                <ResourceDictionary>
-                    <Color x:Key="ChatChoiceItemsColor">Accent</Color>
-                    <Style TargetType="telerikConversationalUI:RadChatPicker">
-                        <Setter Property="FooterBackgroundColor" Value="Transparent"/>
-                        <Setter Property="HeaderBackgroundColor" Value="Transparent"/>
-                    </Style>
-                    <Style x:Key="ItemLabelStyle" TargetType="Label">
-                        <Setter Property="TextColor" Value="{DynamicResource ChatChoiceItemsColor}"/>
-                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
-                        <Setter Property="Margin" Value="10, 8, 10, 8"/>
-                        <Setter Property="FontSize" Value="15"/>
-                    </Style>
-                    <Style x:Key="ItemBorderStyle" TargetType="telerikPrimitives:RadBorder">
-                        <Setter Property="Margin" Value="0, 0, 10, 7"/>
-                        <Setter Property="CornerRadius" Value="15"/>
-                        <Setter Property="BorderColor" Value="{DynamicResource ChatChoiceItemsColor}"/>
-                    </Style>
-                    <Style TargetType="telerikConversationalUI:ItemPickerView">
-                        <Setter Property="Margin" Value="45, 5, 0, 7"/>
-                        <Setter Property="Orientation" Value="Horizontal"/>
-                        <Setter Property="ItemStyle" Value="{StaticResource ItemBorderStyle}"/>
-                        <Setter Property="SelectedItemStyle" Value="{StaticResource ItemBorderStyle}"/>
-                    </Style>
-                    <Style TargetType="Image">
-                        <Setter Property="Aspect" Value="Fill"/>
-                        <Setter Property="WidthRequest" Value="250"/>
-                        <Setter Property="HeightRequest" Value="125"/>
-                    </Style>
-                    <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
-                        <Label Text="{Binding Title}" Style="{StaticResource ItemLabelStyle}"/>
-                    </DataTemplate>
-                </ResourceDictionary>
-            </telerikConversationalUI:RadChat.Resources>
         </telerikConversationalUI:RadChat>
-        <telerikConversationalUI:RadChatPicker x:Name="chatPicker" 
+        <telerikConversationalUI:RadChatPicker x:Name="outerChatPicker" 
                                                views:ThemesBehavior.StyleClass="TelerikTheme"
+                                               Resources="{StaticResource outerChatPickerResources}"
                                                VerticalOptions="End"
                                                BackgroundColor="White"
                                                IsVisible="False"
                                                Grid.Row="1"
                                                IsCancelButtonVisible="False"
-                                               OkClicked="OnChatPickerOkClicked">
-            <telerikConversationalUI:RadChatPicker.Resources>
-                <ResourceDictionary>
-                    <DataTemplate x:Key="QSF.Examples.ConversationalUIControl.Common.CardAction">
-                        <Image Source="{Binding Image}"
-                               HeightRequest="35"
-                               Margin="0, 5, 0, 5"
-                               HorizontalOptions="Center"
-                               Aspect="AspectFit"/>
-                    </DataTemplate>
-                </ResourceDictionary>
-            </telerikConversationalUI:RadChatPicker.Resources>
-        </telerikConversationalUI:RadChatPicker>
+                                               OkClicked="OnChatPickerOkClicked" />
         <telerikPrimitives:RadBusyIndicator x:Name="busyIndicator"
                                             Grid.RowSpan="2"
                                             views:ThemesBehavior.StyleClass="TelerikTheme"

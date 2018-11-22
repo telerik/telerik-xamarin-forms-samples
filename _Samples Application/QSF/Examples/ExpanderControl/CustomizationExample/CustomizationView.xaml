@@ -64,12 +64,12 @@
             <Label Text="This beautiful island is best known for its beaches, which often overshadow its equally stunning monaster- ies, medieval towns and traditional markets."
                Style="{StaticResource ContentLabelStyle}" />
 
-            <primitives:RadExpander x:Name="expander">
+            <primitives:RadExpander x:Name="mallorcaExpander" AutomationId="mallorcaExpander">
                 <primitives:RadExpander.Header>
                     <primitives:ExpanderHeader>
                         <Grid>
-                            <Label Text="Read More" IsVisible="{Binding Path=IsExpanded, Converter={StaticResource InvertedBooleanConverter}, Source={Reference expander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
-                            <Label Text="Read Less" IsVisible="{Binding Path=IsExpanded, Source={Reference expander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            <Label Text="Read More" IsVisible="{Binding Path=IsExpanded, Converter={StaticResource InvertedBooleanConverter}, Source={Reference mallorcaExpander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            <Label Text="Read Less" IsVisible="{Binding Path=IsExpanded, Source={Reference mallorcaExpander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
                         </Grid>
                     </primitives:ExpanderHeader>
                 </primitives:RadExpander.Header>
@@ -93,12 +93,12 @@
             <Label Text="With its glistening beaches, breathtaking landmarks and bustling towns, the largest Canary Island has activities to suit all visitors."
                Style="{StaticResource ContentLabelStyle}" />
 
-            <primitives:RadExpander IsExpanded="True" x:Name="expander1">
+            <primitives:RadExpander IsExpanded="True" x:Name="tenerifeExpander" AutomationId="tenerifeExpander">
                 <primitives:RadExpander.Header>
                     <primitives:ExpanderHeader>
                         <Grid>
-                            <Label Text="Read More" IsVisible="{Binding Path=IsExpanded, Converter={StaticResource InvertedBooleanConverter}, Source={Reference expander1}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
-                            <Label Text="Read Less" IsVisible="{Binding Path=IsExpanded, Source={Reference expander1}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            <Label Text="Read More" IsVisible="{Binding Path=IsExpanded, Converter={StaticResource InvertedBooleanConverter}, Source={Reference tenerifeExpander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                            <Label Text="Read Less" IsVisible="{Binding Path=IsExpanded, Source={Reference tenerifeExpander}}" Style="{StaticResource ExpanderHeaderLabelStyle}" />
                         </Grid>
                     </primitives:ExpanderHeader>
                 </primitives:RadExpander.Header>

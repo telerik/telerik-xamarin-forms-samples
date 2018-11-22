@@ -899,7 +899,7 @@
       <Image>MaskedInput_FirstLook.png</Image>
       <DescriptionHeader>MaskedInput</DescriptionHeader>
       <ShortDescription>RadMaskedInput allows to control the data input within your Xamarin.Forms app. It enhances the functionality of the Entry control by adding input validation and custom masks.</ShortDescription>
-      <FullDescription>Telerik UI for Xamarin MaskedInput allows you to controll data input in your applications. They enhance the functionality of an Entry by adding input validation and masks, such as E-mail, IP Address, SSN, phone number, digits, leters and symbols.</FullDescription>
+      <FullDescription>Telerik UI for Xamarin MaskedInput allows you to controll data input in your applications. They enhance the functionality of an Entry by adding input validation and masks, such as E-mail, IP Address, SSN, phone number, digits, letters and symbols.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/maskedinput/maskedinput-overview</DocumentationURL>
       <Latest>0</Latest>
       <Featured>0</Featured>
@@ -1080,7 +1080,7 @@
       <Image>SlideView_SlidingImages.png</Image>
       <DescriptionHeader>SlideView</DescriptionHeader>
       <ShortDescription>RadSlideView is a flexible navigation control that allows you to slide between different views, thus providing an interactive navigation.</ShortDescription>
-      <FullDescription>From stock tickers and news scrollers, to product spotlights, the Telerik UI for Xamarin SlideView control delivers high interactivity and user involvment. It allows extensive customizations in terms of functionality and appearance.</FullDescription>
+      <FullDescription>From stock tickers and news scrollers, to product spotlights, the Telerik UI for Xamarin SlideView control delivers high interactivity and user involvement. It allows extensive customizations in terms of functionality and appearance.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/slideview/slideview-overview</DocumentationURL>
       <Latest>0</Latest>
       <Featured>0</Featured>
@@ -1093,7 +1093,7 @@
           <Name>SlidingImages</Name>
           <Image>SlideView_SlidingImages.png</Image>
           <DescriptionHeader>Sliding Images</DescriptionHeader>
-          <Description>From stock tickers and news scrollers, to product spotlights, the SlideView control delivers high interactivity and user involvment. It allows extensive customizations in terms of functionality and appearance.</Description>
+          <Description>From stock tickers and news scrollers, to product spotlights, the SlideView control delivers high interactivity and user involvement. It allows extensive customizations in terms of functionality and appearance.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SlideViewControl/SlidingImagesExample</CodeURL>
         </Example>

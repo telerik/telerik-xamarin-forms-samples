@@ -8,7 +8,6 @@ using System.Globalization;
 using System.Text;
 using Telerik.XamarinForms.ConversationalUI;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample
 {
@@ -316,15 +315,15 @@ namespace QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample
 
         private void CreateInsurancePickerHeroCard(HeroCard heroCard)
         {
-            this.chatPicker.HeaderText = heroCard.Text;
+            this.outerChatPicker.HeaderText = heroCard.Text;
             ItemPickerContext itemPickerContext = new ItemPickerContext() { ItemsSource = heroCard.Buttons };
-            this.chatPicker.Context = itemPickerContext;
-            this.chatPicker.IsVisible = true;
+            this.outerChatPicker.Context = itemPickerContext;
+            this.outerChatPicker.IsVisible = true;
         }
 
         private void CreateTimePickerHeroCard(HeroCard heroCard)
         {
-            this.chatPicker.HeaderText = heroCard.Text;
+            this.outerChatPicker.HeaderText = heroCard.Text;
 
             string startTimeText = heroCard.Buttons[0].Value.ToString();
             string endTimeText = heroCard.Buttons[heroCard.Buttons.Count - 1].Value.ToString();
@@ -338,13 +337,13 @@ namespace QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample
                 EndTime = endTime
             };
 
-            this.chatPicker.Context = timePickerContext;
-            this.chatPicker.IsVisible = true;
+            this.outerChatPicker.Context = timePickerContext;
+            this.outerChatPicker.IsVisible = true;
         }
 
         private void CreateItemPickerHeroCard(HeroCard heroCard)
         {
-            this.picker.HeaderText = heroCard.Text;
+            this.innerChatPicker.HeaderText = heroCard.Text;
             ItemPickerContext itemPickerContext = new ItemPickerContext { ItemsSource = heroCard.Buttons };
             itemPickerContext.PropertyChanged += (s, e) =>
             {
@@ -353,19 +352,19 @@ namespace QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample
                     if (itemPickerContext.SelectedItem != null)
                     {
                         this.chat.Items.Add(new TextMessage { Author = this.chat.Author, Text = ((CardAction)itemPickerContext.SelectedItem).Value.ToString() });
-                        this.picker.Context = null;
-                        this.picker.IsVisible = false;
+                        this.innerChatPicker.Context = null;
+                        this.innerChatPicker.IsVisible = false;
                     }
                 }
             };
 
-            this.picker.Context = itemPickerContext;
-            this.picker.IsVisible = true;
+            this.innerChatPicker.Context = itemPickerContext;
+            this.innerChatPicker.IsVisible = true;
         }
 
         private void OnChatPickerOkClicked(object sender, EventArgs e)
         {
-            TimePickerContext context = this.chatPicker.Context as TimePickerContext;
+            TimePickerContext context = this.outerChatPicker.Context as TimePickerContext;
             string message;
             if (context != null)
             {
@@ -373,13 +372,13 @@ namespace QSF.Examples.ConversationalUIControl.HealthCareAssistanceExample
             }
             else
             {
-                var action = ((ItemPickerContext)this.chatPicker.Context).SelectedItem;
+                var action = ((ItemPickerContext)this.outerChatPicker.Context).SelectedItem;
                 message = ((CardAction)action).Value.ToString();
             }
 
             this.chat.Items.Add(new TextMessage { Author = this.chat.Author, Text = message });
-            this.chatPicker.Context = null;
-            this.chatPicker.IsVisible = false;
+            this.outerChatPicker.Context = null;
+            this.outerChatPicker.IsVisible = false;
         }
 
         private void OnChatPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

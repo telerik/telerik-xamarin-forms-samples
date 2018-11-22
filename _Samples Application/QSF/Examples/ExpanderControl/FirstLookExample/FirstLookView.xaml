@@ -76,7 +76,7 @@
                 </Image.Source>
             </Image>
 
-            <primitives:RadExpander views:ThemesBehavior.StyleClass="TelerikTheme">
+            <primitives:RadExpander views:ThemesBehavior.StyleClass="TelerikTheme" AutomationId="visaExpander">
                 <primitives:RadExpander.Header>
                     <primitives:ExpanderHeader HeightRequest="44">
                         <Label Text="Transactions" Style="{StaticResource ExpanderHeaderLabelStyle}" />
@@ -167,7 +167,7 @@
                 </Image.Source>
             </Image>
 
-            <primitives:RadExpander IsExpanded="True" views:ThemesBehavior.StyleClass="TelerikTheme">
+            <primitives:RadExpander IsExpanded="True" views:ThemesBehavior.StyleClass="TelerikTheme" AutomationId="masterCardExpander">
                 <primitives:RadExpander.Header>
                     <primitives:ExpanderHeader HeightRequest="44">
                         <Label Text="Transactions" Style="{StaticResource ExpanderHeaderLabelStyle}" />

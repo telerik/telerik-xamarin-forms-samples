@@ -13,7 +13,7 @@
     </ContentView.Resources>
 
     <ScrollView>
-        <primitives:RadAccordion views:ThemesBehavior.StyleClass="TelerikTheme">
+        <primitives:RadAccordion views:ThemesBehavior.StyleClass="TelerikTheme" AutomationId="Accordion">
             <primitives:AccordionItem IsExpanded="True">
                 <primitives:AccordionItem.Header>
                     <primitives:AccordionItemHeader>
