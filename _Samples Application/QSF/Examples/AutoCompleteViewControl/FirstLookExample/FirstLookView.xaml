@@ -77,7 +77,8 @@
                                     HorizontalOptions="StartAndExpand"
                                     VerticalContentAlignment="Center"
                                     Clicked="OnCancelMailClicked"
-                                    Style="{StaticResource CommonButtonStyle}">
+                                    Style="{StaticResource CommonButtonStyle}"
+                                    AutomationId="cancelMailButton">
                 <telerikInput:RadButton.Margin>
                     <OnPlatform x:TypeArguments="Thickness" Default="16, 0, 0, 0">
                         <On Platform="UWP" Value="16, 18, 0, 17"/>
@@ -92,7 +93,8 @@
                                     Clicked="OnSendMailClicked"
                                     VerticalContentAlignment="Center"
                                     HorizontalOptions="EndAndExpand"
-                                    Style="{StaticResource CommonButtonStyle}">
+                                    Style="{StaticResource CommonButtonStyle}"
+                                    AutomationId="sendMailButton">
                 <telerikInput:RadButton.Margin>
                     <OnPlatform x:TypeArguments="Thickness" Default="0, 0, 16, 0">
                         <On Platform="UWP" Value="0, 18, 16, 17"/>
@@ -114,7 +116,9 @@
                                               SuggestionViewHeight="100"
                                               SuggestionItemTemplate="{StaticResource ContactSuggestionItemTemplate}"
                                               ShowMoreTemplate="{StaticResource ContactShowMoreTemplate}"
-                                              SuggestionViewBackgroundColor="#FFFFFF"/>
+                                              SuggestionViewBackgroundColor="#FFFFFF"
+                                              AutomationId="toContactAutoCompleteView"
+                                              />
             
             <telerikInput:RadAutoCompleteView x:Name="ccBccContact"
                                               Margin="0, 5, 0, 0"
@@ -126,7 +130,9 @@
                                               ItemsSource="{Binding Source}"
                                               SuggestionItemTemplate="{StaticResource ContactSuggestionItemTemplate}"
                                               ShowMoreTemplate="{StaticResource ContactShowMoreTemplate}"
-                                              TextSearchPath="Name"/>
+                                              TextSearchPath="Name"
+                                              AutomationId="ccBccContactAutoCompleteView"
+                                              />
 
             <StackLayout Margin="0, 16, 0, 0" Orientation="Horizontal">
                 <Label Margin="3, 0, 0, 0" Text="Subject:" TextColor="#4B4C4C" VerticalOptions="Center" />

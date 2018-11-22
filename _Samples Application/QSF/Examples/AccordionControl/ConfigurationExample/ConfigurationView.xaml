@@ -27,7 +27,8 @@
         <primitives:RadAccordion Spacing="{Binding Path=Spacing}"
                                  IsAnimationEnabled="{Binding Path=IsAnimationEnabled}"
                                  AnimationDuration="{Binding Path=AnimationDuration}"
-                                 AnimationEasing="{Binding Path=AnimationEasing}">
+                                 AnimationEasing="{Binding Path=AnimationEasing}"
+                                 AutomationId="Accordion">
             
             <primitives:AccordionItem IsExpanded="True"
                                       BorderColor="{Binding Path=BorderColor}"

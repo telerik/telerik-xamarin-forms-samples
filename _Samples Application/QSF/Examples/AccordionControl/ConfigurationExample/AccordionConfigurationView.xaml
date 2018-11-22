@@ -37,7 +37,7 @@
         <StackLayout Padding="16">
             <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0">
                 <Label Text="Is Animation Enabled" Style="{StaticResource BodyLabelStyle}" Margin="2, 0, 0, 0" VerticalOptions="Center" />
-                <primitives:RadCheckBox IsChecked="{Binding Path=IsAnimationEnabled, Mode=TwoWay}" VerticalOptions="Center" CheckedColor="Blue" />
+                <primitives:RadCheckBox IsChecked="{Binding Path=IsAnimationEnabled, Mode=TwoWay}" VerticalOptions="Center" CheckedColor="Blue" AutomationId="isAnimationEnabledCheckBox"/>
             </StackLayout>
 
             <Label Text="Animation Duration" Style="{StaticResource PropertyNameLabelStyle}" />
@@ -54,7 +54,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding AnimationDuration, Converter={StaticResource DoubleRoundConverter}}" Maximum="2000" Minimum="0">
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding AnimationDuration, Converter={StaticResource DoubleRoundConverter}}" Maximum="2000" Minimum="0" AutomationId="animationDurationSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>
@@ -64,7 +64,7 @@
             </Grid>
 
             <Label Text="Animation Easing" Style="{StaticResource PropertyNameLabelStyle}" />
-            <Picker SelectedItem="{Binding Path=AnimationEasing, Converter={StaticResource NameToEasingConverter}}">
+            <Picker SelectedItem="{Binding Path=AnimationEasing, Converter={StaticResource NameToEasingConverter}}" AutomationId="animationEasingPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Linear</x:String>
@@ -83,7 +83,7 @@
             </Picker>
 
             <Label Text="Indicator Location" Style="{StaticResource PropertyNameLabelStyle}" />
-            <Picker SelectedItem="{Binding Path=IndicatorLocation}">
+            <Picker SelectedItem="{Binding Path=IndicatorLocation}" AutomationId="indicatorLocationPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type primitives:ExpandCollapseIndicatorLocation}">
                         <primitives:ExpandCollapseIndicatorLocation>Start</primitives:ExpandCollapseIndicatorLocation>
@@ -93,7 +93,7 @@
             </Picker>
 
             <Label Text="Indicator Color" Style="{StaticResource PropertyNameLabelStyle}" />
-            <Picker SelectedItem="{Binding Path=IndicatorColor, Converter={StaticResource NameToColorConverter}}">
+            <Picker SelectedItem="{Binding Path=IndicatorColor, Converter={StaticResource NameToColorConverter}}" AutomationId="indicatorColortPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Light Grey</x:String>
@@ -105,7 +105,7 @@
             </Picker>
 
             <Label Text="Indicator Text" Style="{StaticResource PropertyNameLabelStyle}" />
-            <Picker SelectedItem="{Binding Path=IndicatorText, Converter={StaticResource NameToIndicatorTextConverter}}">
+            <Picker SelectedItem="{Binding Path=IndicatorText, Converter={StaticResource NameToIndicatorTextConverter}}" AutomationId="indicatorTextPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Triangle</x:String>
@@ -128,7 +128,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="12" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding IndicatorFontSize, Converter={StaticResource DoubleRoundConverter}}" Maximum="50" Minimum="12" >
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding IndicatorFontSize, Converter={StaticResource DoubleRoundConverter}}" Maximum="50" Minimum="12" AutomationId="indicatorFontSizeSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>
@@ -151,7 +151,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding IndicatorMargin, Converter={StaticResource DoubleRoundConverter}}" Maximum="20" Minimum="0">
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding IndicatorMargin, Converter={StaticResource DoubleRoundConverter}}" Maximum="20" Minimum="0" AutomationId="indicatorMarginSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>
@@ -161,7 +161,7 @@
             </Grid>
 
             <Label Text="Border Color" Style="{StaticResource PropertyNameLabelStyle}" />
-            <Picker SelectedItem="{Binding Path=BorderColor, Converter={StaticResource NameToColorConverter}}">
+            <Picker SelectedItem="{Binding Path=BorderColor, Converter={StaticResource NameToColorConverter}}" AutomationId="borderColorPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Light Grey</x:String>
@@ -186,7 +186,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding BorderThickness, Converter={StaticResource DoubleRoundConverter}}" Maximum="10" Minimum="0">
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding BorderThickness, Converter={StaticResource DoubleRoundConverter}}" Maximum="10" Minimum="0" AutomationId="borderThicknessSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>
@@ -209,7 +209,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding Spacing}" Maximum="10" Minimum="0">
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding Spacing}" Maximum="10" Minimum="0"  AutomationId="spacingSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>

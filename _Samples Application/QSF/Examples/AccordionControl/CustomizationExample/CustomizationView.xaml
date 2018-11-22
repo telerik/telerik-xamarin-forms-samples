@@ -109,7 +109,7 @@
                 <Label FontFamily="{StaticResource RegularFont}" Text="Dashboard" TextColor="#D11900" FontSize="19" VerticalOptions="Center" Margin="5, 0" />
             </StackLayout>
 
-            <primitives:RadAccordion Spacing="5">
+            <primitives:RadAccordion Spacing="5" AutomationId="Accordion">
                 <primitives:AccordionItem IsExpanded="True">
                     <primitives:AccordionItem.Header>
                         <primitives:AccordionItemHeader>
