@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Telerik.XamarinForms.Primitives;
 using Xamarin.Forms;
+using QSF.Converters;
 
 namespace QSF.Examples.AccordionControl.ConfigurationExample
 {

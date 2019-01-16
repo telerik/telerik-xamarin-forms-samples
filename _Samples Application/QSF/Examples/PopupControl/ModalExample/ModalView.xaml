@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:exampleConverters="clr-namespace:QSF.Examples.PopupControl.ModalExample.Converters"
+             xmlns:local="clr-namespace:QSF.Examples.PopupControl.ModalExample"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.PopupControl.ModalExample.ModalView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <exampleConverters:FileExtensionToIconConverter x:Key="FileExtensionToIconConverter" />
+            <exampleConverters:FileSizeConverter x:Key="FileSizeConverter" />
+            <exampleConverters:SelectionToBackgroundColorConverter x:Key="SelectionToBackgroundColorConverter" />
+
+            <ControlTemplate x:Key="PopupTemplate">
+                <telerikPrimitives:RadBorder CornerRadius="8" BackgroundColor="White" WidthRequest="280">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label Text="{StaticResource TickIcon}" Style="{StaticResource IconLabelStyle}" TextColor="#189FCC" FontSize="34" HorizontalOptions="Center" Margin="0, 0, 0, 20" />
+
+                        <Label Text="You have successfully invited your friends!"
+                               LineBreakMode="WordWrap"
+                               FontSize="16"
+                               Style="{StaticResource BodyLabelStyle}"
+                               HorizontalTextAlignment="Center"
+                               Grid.Row="1"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center"
+                                     Margin="20"
+                                     Grid.Row="2">
+                            <ffImageLoading:CachedImage Source="{Binding FirstSelectedPersonImage}" Aspect="AspectFit" Margin="4, 0" VerticalOptions="Center"
+                                                        WidthRequest="46" HeightRequest="46">
+                                <ffImageLoading:CachedImage.Transformations>
+                                    <fftransformations:CircleTransformation />
+                                </ffImageLoading:CachedImage.Transformations>
+                            </ffImageLoading:CachedImage>
+
+                            <ffImageLoading:CachedImage Source="{Binding SecondSelectedPersonImage}" Aspect="AspectFit" Margin="4, 0" VerticalOptions="Center"
+                                                        WidthRequest="46" HeightRequest="46"
+                                                        IsVisible="{Binding IsSecondSelectedPersonVisible}">
+                                <ffImageLoading:CachedImage.Transformations>
+                                    <fftransformations:CircleTransformation />
+                                </ffImageLoading:CachedImage.Transformations>
+                            </ffImageLoading:CachedImage>
+
+                            <telerikPrimitives:RadBorder WidthRequest="46" HeightRequest="46" CornerRadius="23" BackgroundColor="#189FCC" 
+                                                         IsVisible="{Binding IsAdditionalSelectedPersonsCountVisible}">
+                                <Label Text="{Binding Path=AdditionalSelectedPersonsCount, StringFormat='+{0}'}" TextColor="White" FontSize="21" Style="{StaticResource BodyLabelStyle}"
+                                       VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </telerikPrimitives:RadBorder>
+                        </StackLayout>
+
+                        <telerikInput:RadButton BackgroundColor="#189FCC"
+                                                Margin="8"
+                                                TextColor="White"
+                                                Text="Back to Contacts"
+                                                Grid.Row="3"
+                                                BorderRadius="22"
+                                                Command="{Binding Path=ClosePopupCommand}"
+                                                WidthRequest="200"
+                                                HeightRequest="44"
+                                                HorizontalOptions="Center"/>
+                    </Grid>
+                </telerikPrimitives:RadBorder>
+            </ControlTemplate>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
+        <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="#F2F2F2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Text="Contacts" Style="{StaticResource HeaderLabelStyle}" Margin="20" />
+
+            <telerikDataControls:RadListView x:Name="list" ItemsSource="{Binding Contacts}"
+                                             SelectionMode="None" Grid.Row="1"
+                                             BackgroundColor="White">
+                <telerikDataControls:RadListView.Behaviors>
+                    <local:ListViewItemTappedBehavior Command="{Binding Path=ItemTapCommand}" />
+                </telerikDataControls:RadListView.Behaviors>
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <listView:ListViewLinearLayout ItemLength="80" />
+                </telerikDataControls:RadListView.LayoutDefinition>
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <listView:ListViewTemplateCell>
+                            <listView:ListViewTemplateCell.View>
+                                <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="{Binding Path=IsSelected, Converter={StaticResource Key=SelectionToBackgroundColorConverter}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ffImageLoading:CachedImage Source="{Binding Image}" Aspect="AspectFit" Margin="16" VerticalOptions="Center">
+                                        <ffImageLoading:CachedImage.Transformations>
+                                            <fftransformations:CircleTransformation />
+                                        </ffImageLoading:CachedImage.Transformations>
+                                    </ffImageLoading:CachedImage>
+
+                                    <Label Text="{Binding Name}" FontSize="16" TextColor="Black" Grid.Column="1" VerticalOptions="Center" />
+
+                                    <Image IsVisible="{Binding Path=IsSelected}" Aspect="AspectFit" Grid.Column="2"
+                                           VerticalOptions="Center" HorizontalOptions="End" Margin="16" HeightRequest="20">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource">
+                                                <On Platform="iOS, Android">selected_item.png</On>
+                                                <On Platform="UWP">Assets\selected_item.png</On>
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                    <Image IsVisible="{Binding Path=IsSelected, Converter={StaticResource InvertedBooleanConverter}}" Aspect="AspectFit" Grid.Column="2"
+                                           VerticalOptions="Center" HorizontalOptions="End" Margin="16" HeightRequest="20">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource">
+                                                <On Platform="iOS, Android">unselected_item.png</On>
+                                                <On Platform="UWP">Assets\unselected_item.png</On>
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </listView:ListViewTemplateCell.View>
+                        </listView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+            </telerikDataControls:RadListView>
+
+            <telerikInput:RadButton BackgroundColor="#189FCC"
+                                    Margin="8"
+                                    Text="Send Invites"
+                                    TextColor="White"
+                                    Grid.Row="2"
+                                    BorderRadius="22"
+                                    Command="{Binding Path=SendInvitesCommand}"
+                                    WidthRequest="200"
+                                    HeightRequest="44"
+                                    HorizontalOptions="Center"/>
+        </Grid>
+    </Grid>
+</ContentView>

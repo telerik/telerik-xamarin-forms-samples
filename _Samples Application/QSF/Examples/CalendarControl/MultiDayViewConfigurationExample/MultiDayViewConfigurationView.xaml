@@ -15,9 +15,9 @@
         </Grid.RowDefinitions>
         <telerikInput:RadCalendar Grid.Row="0"
                                   views:ThemesBehavior.StyleClass="TelerikTheme"
+                                  ViewMode="MultiDay"
                                   BackgroundColor="White"
-                                  AppointmentsSource="{Binding Appointments}"
-                                  NativeControlLoaded="OnCalendarLoaded">
+                                  AppointmentsSource="{Binding Appointments}">
             <telerikInput:RadCalendar.Commands>
                 <telerikCalendar:CalendarUserCommand Id="AppointmentTap"
                                                      Command="{Binding AppointmentTappedCommand}" />

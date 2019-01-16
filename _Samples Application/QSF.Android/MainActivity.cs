@@ -40,7 +40,8 @@ namespace QSF.Droid
 
             this.SetTheme(Resource.Style.Theme_Design_Light);
 
-            CachedImageRenderer.Init(false);
+            //CachedImageRenderer.Init(false);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());

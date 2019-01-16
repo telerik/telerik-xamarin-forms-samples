@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QSF.Examples.DataFormControl.GlobalizationExample"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:dataform="clr-namespace:Telerik.XamarinForms.Input.DataForm;assembly=Telerik.XamarinForms.Input"
+             xmlns:views="clr-namespace:QSF.Views"
+             x:Class="QSF.Examples.DataFormControl.GlobalizationExample.GlobalizationView">
+    <ContentView.BindingContext>
+        <local:Person />
+    </ContentView.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Text="Changing the device's culture/language to German/Spanish will automatically apply the respective translated strings from the DE/ES resource files. Note that the app must be restarted for the change to be applied."
+               Margin="16,10,16,10"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"/>
+        <telerikInput:RadDataForm  x:Name="dataForm" 
+                                   Grid.Row="1"
+                                   Margin="16, 0"
+                                   ValidationMode="Manual"
+                                   views:ThemesBehavior.StyleClass="TelerikTheme"
+                                   CommitMode="Manual"
+                                   Source="{Binding}">
+            <telerikInput:RadDataForm.EditorStyle>
+                <dataform:DataFormEditorStyle  HeaderFontSize="12" 
+                                               HeaderForeground="Black"/>
+            </telerikInput:RadDataForm.EditorStyle>
+            <telerikInput:RadDataForm.GroupHeaderStyle>
+                <dataform:DataFormGroupHeaderStyle Background="#f2f2f2" 
+                                                   Padding="5"
+                                                   Foreground="#4280f4" />
+            </telerikInput:RadDataForm.GroupHeaderStyle>
+        </telerikInput:RadDataForm>
+    </Grid>
+</ContentView>

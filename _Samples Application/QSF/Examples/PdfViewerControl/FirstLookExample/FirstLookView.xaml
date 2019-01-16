@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
+             xmlns:views="clr-namespace:QSF.Views"
+             x:Class="QSF.Examples.PdfViewerControl.FirstLookExample.FirstLookView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <telerikPdfViewer:RadPdfViewerToolbar views:ThemesBehavior.StyleClass="TelerikTheme"
+                                              PdfViewer="{Binding Source={x:Reference pdfViewer}}">
+            <telerikPdfViewer:NavigateToNextPageToolbarItem/>
+            <telerikPdfViewer:NavigateToPreviousPageToolbarItem/>
+            <telerikPdfViewer:NavigateToPageToolbarItem/>
+            <telerikPdfViewer:FitToWidthToolbarItem/>
+            <telerikPdfViewer:ToggleLayoutModeToolbarItem/>
+        </telerikPdfViewer:RadPdfViewerToolbar>
+        <telerikPdfViewer:RadPdfViewer x:Name="pdfViewer" Grid.Row="1"/>
+    </Grid>
+</ContentView>

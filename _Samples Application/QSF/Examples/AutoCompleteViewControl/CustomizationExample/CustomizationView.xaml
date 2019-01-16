@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:autoCompleteView="clr-namespace:Telerik.XamarinForms.Input.AutoCompleteView;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.AutoCompleteViewControl.CustomizationExample.CustomizationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="JobsCategoryShowMoreTemplate">
+                <Label Text="{Binding Path=., StringFormat='+{0}'}" 
+                       VerticalTextAlignment="Center"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="JobsCategoryTokenTemplate">
+                <telerikPrimitives:RadBorder BorderColor="{Binding TextColor}" 
+                                             BorderThickness="2" 
+                                             CornerRadius="18" 
+                                             Margin="5"
+                                             BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="8, 5">
+                        <Label Text="{Binding Icon}"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                               FontFamily="{StaticResource IconsFont}"
+                               TextColor="{Binding TextColor}"/>
+                        <Label Text="{Binding Category}"
+                               TextColor="{Binding TextColor}"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"/>
+                        <Label FontFamily="{StaticResource IconsFont}"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                               Text="&#xE80A;"
+                               TextColor="{Binding TextColor}">
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS" Value="10"/>
+                                    <On Platform="UWP" Value="11"/>
+                                </OnPlatform>
+                            </Label.FontSize>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </telerikPrimitives:RadBorder>
+            </DataTemplate>
+
+            <DataTemplate x:Key="JobsCategorySuggestionItemTemplate">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <telerikPrimitives:RadBorder Margin="15, 5 ,5 ,5 "
+                                                     HorizontalOptions="Start" 
+                                                     VerticalOptions="Center"
+                                                     CornerRadius="6"
+                                                     HeightRequest="38"
+                                                     WidthRequest="38"
+                                                     BorderColor="{Binding TextColor, Mode=TwoWay}"
+                                                     BackgroundColor="{Binding BorderFill}">
+                            <Label Text="{Binding Icon}"
+                                   FontFamily="{StaticResource IconsFont}"
+                                   TextColor="{Binding TextColor}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </telerikPrimitives:RadBorder>
+                        <autoCompleteView:SuggestionItemLabel FontAttributes="Bold"
+                                                              FontSize="13"
+                                                              VerticalOptions="Center"
+                                                              VerticalTextAlignment="Center"
+                                                              HighlightTextColor="#209FD6"
+                                                              UnformattedText="{Binding Category}"
+                                                              HighlightText="{Binding Source={x:Reference autoCompleteViewCustomizationExample}, Path=Text}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="#17A2ED" 
+                     Padding="16, 23, 16, 20">
+            <Label Text="IT jobs"
+                   FontAttributes="Bold" 
+                   TextColor="White" 
+                   FontSize="24" 
+                   HorizontalTextAlignment="Start"/>
+            <telerikInput:RadAutoCompleteView x:Name="autoCompleteViewCustomizationExample" 
+                                              Watermark="Search by Job Title" 
+                                              BackgroundColor="White" 
+                                              DisplayMode="Tokens"
+                                              FontSize="13"
+                                              SuggestionViewHeight="185"
+                                              CompletionMode="Contains"
+                                              TextSearchPath="Category"
+                                              ItemsSource="{Binding JobCategories}"
+                                              SuggestionItemTemplate="{StaticResource JobsCategorySuggestionItemTemplate}"
+                                              ShowMoreTemplate="{StaticResource JobsCategoryShowMoreTemplate}"
+                                              TokenTemplate="{StaticResource JobsCategoryTokenTemplate}"
+                                              WatermarkTextColor="#6A6A6A"/>
+        </StackLayout>
+        <Label Text="Jobs you may be interested in" 
+               Margin="16, 10, 16, 10" Grid.Row="1"
+               FontSize="19" 
+               TextColor="#4B4C4C" 
+               FontAttributes="Bold"/>
+        <telerikDataControls:RadListView ItemsSource="{Binding JobPositions}" 
+                                         Margin="16, 0, 16, 0" 
+                                         Grid.Row="2"
+                                         SelectionMode="None"
+                                         BackgroundColor="White">
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <StackLayout>
+                                <Label Text="{Binding Title}" FontSize="16" TextColor="#4B4C4C" Margin="0, 5, 0, 0" />
+                                <Label Text="{Binding Description}" FontSize="14" TextColor="#707070" Margin="0, 0, 0, 5"/>
+                            </StackLayout>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+        </telerikDataControls:RadListView>
+    </Grid>
+</ContentView>

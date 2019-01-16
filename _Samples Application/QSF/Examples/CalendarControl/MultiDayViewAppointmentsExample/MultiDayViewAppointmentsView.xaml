@@ -10,10 +10,9 @@
 
         <telerikInput:RadCalendar x:Name="calendar"
                                   views:ThemesBehavior.StyleClass="TelerikTheme"
+                                  ViewMode="MultiDay"
                                   AppointmentsSource="{Binding Appointments}"
-                                  AppointmentTapped="AppointmentTapped"
-                                  TimeSlotTapped="TimeSlotTapped"
-                                  NativeControlLoaded="CalendarLoaded">
+                                  SchedulingUiEnabled="true">
             <telerikInput:RadCalendar.MultiDayViewSettings>
                 <telerikInput:MultiDayViewSettings DayStartTime="07:00" />
             </telerikInput:RadCalendar.MultiDayViewSettings>

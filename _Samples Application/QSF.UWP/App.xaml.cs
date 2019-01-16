@@ -54,11 +54,12 @@ namespace QSF.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                CachedImageRenderer.Init();
+                FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+                
                 var assembliesToInclude = new List<Assembly>()
                 {
                     typeof(CachedImage).GetTypeInfo().Assembly,
-                    typeof(CachedImageRenderer).GetTypeInfo().Assembly,
+                    typeof(FFImageLoading.Forms.Platform.CachedImageRenderer).GetTypeInfo().Assembly,
                     typeof(Image).GetTypeInfo().Assembly,
                     typeof(Telerik.XamarinForms.Input.RadButton).GetTypeInfo().Assembly,
                     typeof(Telerik.XamarinForms.InputRenderer.UWP.ButtonRenderer).GetTypeInfo().Assembly,

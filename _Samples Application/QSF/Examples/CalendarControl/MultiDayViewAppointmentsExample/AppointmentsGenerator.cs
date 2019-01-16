@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Telerik.XamarinForms.Input;
 using Xamarin.Forms;
 
 namespace QSF.Examples.CalendarControl.MultiDayViewAppointmentsExample
@@ -35,34 +36,48 @@ namespace QSF.Examples.CalendarControl.MultiDayViewAppointmentsExample
 
         public static ObservableCollection<Appointment> GenerateAppointments()
         {
+            var recurrencePattern = new RecurrencePattern(new int[] { }, RecurrenceDays.WeekDays, RecurrenceFrequency.Daily, 1, null, null);
+            var dailyRecurrenceRule = new RecurrenceRule(recurrencePattern);
+
             return new ObservableCollection<Appointment>
             {
-                new Appointment(
-                    DateTime.Today.AddHours(8),
-                    DateTime.Today.AddHours(8.5),
-                    "Meeting",
-                    AppointmentColors[0]),
-                new Appointment(
-                    DateTime.Today.AddDays(1),
-                    DateTime.Today.AddDays(3),
-                    "UX Conference",
-                    AppointmentColors[0],
-                    true),
-                new Appointment(
-                    DateTime.Today.AddHours(9),
-                    DateTime.Today.AddHours(10),
-                    "Retrospective meeting",
-                    AppointmentColors[1]),
-                new Appointment(
-                    DateTime.Today.AddDays(1).AddHours(10),
-                    DateTime.Today.AddDays(1).AddHours(12),
-                    "Planning",
-                    AppointmentColors[2]),
-                new Appointment(
-                    DateTime.Today.AddDays(3).AddHours(8),
-                    DateTime.Today.AddDays(3).AddHours(9),
-                    "Meeting",
-                    AppointmentColors[3])
+                new Appointment
+                {
+                   StartDate = DateTime.Today.AddHours(8),
+                   EndDate = DateTime.Today.AddHours(8.5),
+                   Title = "Meeting",
+                   Color = AppointmentColors[0],
+                   RecurrenceRule = dailyRecurrenceRule
+                },
+                new Appointment
+                {
+                   StartDate =  DateTime.Today.AddDays(1),
+                   EndDate = DateTime.Today.AddDays(3),
+                   Title = "UX Conference",
+                   Color = AppointmentColors[0],
+                   IsAllDay = true
+                },
+                new Appointment
+                {
+                   StartDate = DateTime.Today.AddHours(9),
+                   EndDate = DateTime.Today.AddHours(10),
+                   Title = "Retrospective meeting",
+                   Color = AppointmentColors[1]
+                },
+                new Appointment
+                {
+                   StartDate = DateTime.Today.AddDays(1).AddHours(10),
+                   EndDate = DateTime.Today.AddDays(1).AddHours(12),
+                   Title = "Planning",
+                   Color = AppointmentColors[2]
+                },
+                new Appointment
+                {
+                   StartDate = DateTime.Today.AddDays(3).AddHours(8),
+                   EndDate = DateTime.Today.AddDays(3).AddHours(9),
+                   Title = "Meeting",
+                   Color = AppointmentColors[3]
+                }
             };
         }
     }

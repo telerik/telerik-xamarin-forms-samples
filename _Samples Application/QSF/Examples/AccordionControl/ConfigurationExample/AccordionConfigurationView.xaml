@@ -28,7 +28,7 @@
             </Style>
 
             <local:NameToColorConverter x:Key="NameToColorConverter" />
-            <local:NameToEasingConverter x:Key="NameToEasingConverter" />
+            <converters:NameToEasingConverter x:Key="NameToEasingConverter" />
             <local:NameToIndicatorTextConverter x:Key="NameToIndicatorTextConverter" />
             <converters:DoubleRoundConverter x:Key="DoubleRoundConverter" />
         </ResourceDictionary>

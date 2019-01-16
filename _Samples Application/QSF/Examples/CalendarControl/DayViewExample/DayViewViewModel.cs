@@ -1,6 +1,7 @@
 using QSF.ViewModels;
 using System;
 using System.Collections.ObjectModel;
+using Input = Telerik.XamarinForms.Input;
 using Xamarin.Forms;
 
 namespace QSF.Examples.CalendarControl.DayViewExample
@@ -20,11 +21,12 @@ namespace QSF.Examples.CalendarControl.DayViewExample
             var home = Color.FromHex("59B6B8");
             var other = Color.FromHex("C42FBA");
             var party = Color.FromHex("FFA200");
+            var recurrencePattern = new Input.RecurrencePattern(new int[] { }, Input.RecurrenceDays.WeekDays, Input.RecurrenceFrequency.Daily, 1, null, null) { MaxOccurrences = 15 };
+            var dailyRecurrenceRule = new Input.RecurrenceRule(recurrencePattern);
 
             return new ObservableCollection<Appointment>
             {
                 // today
-
                 new Appointment(
                     DateTime.Today.AddHours(8).AddMinutes(30),
                     DateTime.Today.AddHours(9).AddMinutes(30),
@@ -35,7 +37,7 @@ namespace QSF.Examples.CalendarControl.DayViewExample
                     DateTime.Today.AddHours(11),
                     DateTime.Today.AddHours(11).AddMinutes(15),
                     "Daily SCRUM", "",
-                    work),
+                    work) { RecurrenceRule = dailyRecurrenceRule },
                 new Appointment(
                     DateTime.Today.AddHours(11),
                     DateTime.Today.AddHours(12),

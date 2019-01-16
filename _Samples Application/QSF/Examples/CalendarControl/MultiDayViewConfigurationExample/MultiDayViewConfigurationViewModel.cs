@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using QSF.Services;
 using QSF.ViewModels;
+using Telerik.XamarinForms.Input;
 using Telerik.XamarinForms.Input.Calendar.Commands;
 using Xamarin.Forms;
 
@@ -14,7 +15,7 @@ namespace QSF.Examples.CalendarControl.MultiDayViewConfigurationExample
     public class MultiDayViewConfigurationViewModel : ExampleViewModel, IMultiDayViewConfiguration
     {
         private IEnumerable<PersonViewModel> people;
-        private IEnumerable<AppointmentViewModel> appointments;
+        private IEnumerable<Appointment> appointments;
         private int visibleDays;
         private int peopleCount;
         private TimeSpan dayStartTime;
@@ -39,7 +40,7 @@ namespace QSF.Examples.CalendarControl.MultiDayViewConfigurationExample
             }
         }
 
-        public IEnumerable<AppointmentViewModel> Appointments
+        public IEnumerable<Appointment> Appointments
         {
             get
             {

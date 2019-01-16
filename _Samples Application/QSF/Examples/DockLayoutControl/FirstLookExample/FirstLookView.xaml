@@ -4,13 +4,52 @@
              xmlns:common="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:local="clr-namespace:QSF.Examples.DockLayoutControl.FirstLookExample"
              x:Class="QSF.Examples.DockLayoutControl.FirstLookExample.FirstLookView">
-    <common:RadDockLayout>
-        <BoxView Color="#FD818D" HeightRequest="70" WidthRequest="70" common:RadDockLayout.Dock="Top"/>
-        <BoxView Color="#81ADFD" HeightRequest="70" WidthRequest="70" common:RadDockLayout.Dock="Bottom"/>
-        <BoxView Color="#009688" HeightRequest="70" WidthRequest="70" common:RadDockLayout.Dock="Left"/>
-        <BoxView Color="#3F74D3" HeightRequest="70" WidthRequest="70" common:RadDockLayout.Dock="Right"/>
-        <ScrollView>
-            <Label Margin="16" Text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc." LineBreakMode="WordWrap"/>
-        </ScrollView>
-    </common:RadDockLayout>
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:StringToDockConverter x:Key="StringToDockConverter"/>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="Margin" Value="20,17"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <common:RadDockLayout>
+            <Grid HeightRequest="60"
+                  BackgroundColor="#009688"
+                  x:Name="titlePanel"
+                  IsVisible="{Binding IsTitlePanelVisible}"
+                  common:RadDockLayout.Dock="{Binding TitlePanelDock, Converter={StaticResource StringToDockConverter}}">
+                <Label Text="Title"/>
+            </Grid>
+            <Grid HeightRequest="60"
+                  BackgroundColor="#659BFC"
+                  x:Name="navigationPanel"
+                  IsVisible="{Binding IsNavigationPanelVisible}"
+                  common:RadDockLayout.Dock="{Binding NavigationPanelDock, Converter={StaticResource StringToDockConverter}}">
+                <Label Text="Navigation" />
+            </Grid>
+            <Grid WidthRequest="120"
+                  BackgroundColor="#1455C9"
+                  x:Name="listPanel"
+                  IsVisible="{Binding IsListPanelVisible}"
+                  common:RadDockLayout.Dock="{Binding ListPanelDock, Converter={StaticResource StringToDockConverter}}">
+                <StackLayout Margin="20">
+                    <Label Text="List" FontSize="Small" Margin="0"/>
+                    <Label Margin="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource PhotoIcon}" FontSize="50"/>
+                    <Label Margin="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource PhotoIcon}" FontSize="50"/>
+                    <Label Margin="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource PhotoIcon}" FontSize="50"/>
+                    <Label Margin="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource PhotoIcon}" FontSize="50"/>
+                </StackLayout>
+            </Grid>
+            <Grid BackgroundColor="#FD818D" IsVisible="{Binding IsContentPanelVisible}">
+                <StackLayout Margin="20">
+                    <Label Text="Content" FontSize="Small" Margin="0"/>
+                    <Label Margin="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource PhotoIcon}" FontSize="130"/>
+                    <Label Margin="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource TextIcon}" FontSize="130"/>
+                </StackLayout>
+            </Grid>
+        </common:RadDockLayout>
+    </ScrollView>
 </ContentView>

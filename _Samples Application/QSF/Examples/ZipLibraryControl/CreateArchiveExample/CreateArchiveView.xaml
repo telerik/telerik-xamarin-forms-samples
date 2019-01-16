@@ -56,6 +56,15 @@
                                             </OnPlatform>
                                         </Image.Source>
                                     </Image>
+                                    <Image IsVisible="{Binding Path=IsSelected, Converter={StaticResource InvertedBooleanConverter}}" Aspect="AspectFit" Grid.Column="2"
+                                           VerticalOptions="Center" HorizontalOptions="End" Margin="16" HeightRequest="20">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource">
+                                                <On Platform="iOS, Android">unselected_item.png</On>
+                                                <On Platform="UWP">Assets\unselected_item.png</On>
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
                                 </Grid>
                             </listView:ListViewTemplateCell.View>
                         </listView:ListViewTemplateCell>

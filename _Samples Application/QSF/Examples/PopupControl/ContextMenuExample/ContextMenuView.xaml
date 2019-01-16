@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikTreeViewCommands="clr-namespace:Telerik.XamarinForms.DataControls.TreeView.Commands;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:treeView="clr-namespace:Telerik.XamarinForms.DataControls.TreeView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:models="clr-namespace:QSF.Examples.PopupControl.ContextMenuExample"
+             x:Class="QSF.Examples.PopupControl.ContextMenuExample.ContextMenuView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <models:ChildrenCountToBooleanConverter x:Key="ChildrenCountToIconConverter"/>
+            <models:InvertedChildrenCountToBooleanConverter x:Key="InvertedChildrenCountToIconConverter"/>
+            <treeView:LevelToMarginConverter x:Key="levelToMarginConverter" />
+            <converters:ConditionalValueConverterParameter x:Key="ButtonIconColorConverterParameter" TrueValue="#189FCC" FalseValue="#D9D9D9" />
+
+            <Style TargetType="Label" x:Key="IconLabelStyle">
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="ContextMenuItemLabelStyle">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style TargetType="Label" BasedOn="{StaticResource IconLabelStyle}" x:Key="ContextMenuIconLabelStyle">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="0, 4, 10, 0" />
+            </Style>
+
+            <DataTemplate x:Key="popupContent">
+                <StackLayout BackgroundColor="#189FCC" Padding="20, 20, 20, 4" Spacing="0" BindingContext="{Binding Path=Item.PopupViewModel}">
+                    <Grid>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{StaticResource AddIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                            <Label Text="Add People" Style="{StaticResource ContextMenuItemLabelStyle}" />
+                        </StackLayout>
+                        <Button BackgroundColor="Transparent" Command="{Binding Path=AddPeople}" CommandParameter="Sharing permissions updated" Margin="0" HeightRequest="35" />
+                    </Grid>
+
+                    <Grid>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{StaticResource LinkIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                            <Label Text="Link Sharing" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                        </StackLayout>
+                        <Button  BackgroundColor="Transparent" Command="{Binding Path=LinkShare}" CommandParameter="Link shared" HeightRequest="35" />
+                    </Grid>
+
+                    <Grid>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{StaticResource CopyIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                            <Label Text="Copy Link" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                        </StackLayout>
+                        <Button  BackgroundColor="Transparent" Command="{Binding Path=CopyLink}" CommandParameter="Link copied" HeightRequest="35" />
+                    </Grid>
+
+                    <Grid>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{StaticResource EditIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                            <Label Text="Rename" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                        </StackLayout>
+                        <Button  BackgroundColor="Transparent" Command="{Binding Path=Rename}" CommandParameter="Shared resource renamed" HeightRequest="35" />
+                    </Grid>
+
+                    <Grid>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{StaticResource RecycleBinIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                            <Label Text="Remove" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                        </StackLayout>
+                        <Button  BackgroundColor="Transparent" Command="{Binding Path=Remove}" CommandParameter="Sharing permissions removed" HeightRequest="35" />
+                    </Grid>
+                </StackLayout>
+            </DataTemplate>
+
+            <DataTemplate x:Key="FolderItemTemplate">
+                <Grid>
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End"/>
+                    <Grid HeightRequest="40"
+                          Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <telerikPrimitives:RadBusyIndicator WidthRequest="40"
+                                                            AnimationContentColor="#2D50A7"
+                                                            AnimationType="Animation9"
+                                                            IsBusy="{Binding Path=IsLoading}">
+                            <telerikPrimitives:RadBusyIndicator.Content>
+                                <Grid WidthRequest="40">
+                                    <treeView:ExpandCollapseIndicator HorizontalOptions="Center"
+                                                                      HorizontalTextAlignment="Center"
+                                                                      VerticalTextAlignment="Center"
+                                                                      FontSize="Medium"
+                                                                      IsLoadOnDemandEnabled="{Binding Path=IsLoadOnDemandEnabled}"
+                                                                      IsExpanded="{Binding Path=IsExpanded}"
+                                                                      IsLeaf="{Binding Path=IsLeaf}"
+                                                                      IsVisible="{Binding Item, Converter={StaticResource InvertedChildrenCountToIconConverter}}"
+                                                                      BackgroundColor="Transparent"
+                                                                      TextColor="#494949">
+                                        <AutomationProperties.HelpText>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="RadTreeView"/>
+                                            </OnPlatform>
+                                        </AutomationProperties.HelpText>
+                                    </treeView:ExpandCollapseIndicator>
+                                    <Label FontFamily="{StaticResource IconsFont}"
+                                           Text="{StaticResource CollapsedIcon}"
+                                           IsVisible="{Binding Item, Converter={StaticResource ChildrenCountToIconConverter}}"
+                                           FontSize="Medium"
+                                           HorizontalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand"
+                                           VerticalTextAlignment="Center"
+                                           TextColor="#494949"/>
+                                </Grid>
+                            </telerikPrimitives:RadBusyIndicator.Content>
+                        </telerikPrimitives:RadBusyIndicator>
+
+                        <Grid WidthRequest="24" Grid.Column="1">
+                            <Label FontFamily="{StaticResource IconsFont}"
+                                   Text="{StaticResource ClosedFolderIcon}"
+                                   VerticalOptions="CenterAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   IsVisible="{Binding IsExpanded, Converter={StaticResource InvertedBooleanConverter}}"
+                                   TextColor="#EFC75E"/>
+
+                            <Label FontFamily="{StaticResource IconsFont}"
+                                   Text="{StaticResource OpenFolderIcon}"
+                                   VerticalOptions="CenterAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   IsVisible="{Binding IsExpanded}"
+                                   TextColor="#EFC75E"/>
+                        </Grid>
+
+                        <treeView:ItemText Text="{Binding Path=Header}"
+                                           Grid.Column="2"
+                                           VerticalTextAlignment="Center">
+                            <AutomationProperties.HelpText>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="RadTreeView"/>
+                                </OnPlatform>
+                            </AutomationProperties.HelpText>
+                        </treeView:ItemText>
+
+                        <Button Text="{StaticResource HorizontalDotsIcon}"
+                                FontFamily="{StaticResource IconsFont}"
+                                Command="{Binding Item.OpenContextMenuCommand}"
+                                BackgroundColor="Transparent"
+                                TextColor="{Binding Path=Item.IsPopupOpen,
+                                                    Converter={StaticResource ConditionalValueConveter},
+                                                    ConverterParameter={StaticResource ButtonIconColorConverterParameter}}"
+                                VerticalOptions="Center"
+                                Grid.Column="3"
+                                WidthRequest="46">
+                            <telerikPrimitives:RadPopup.Popup>
+                                <telerikPrimitives:RadPopup IsOpen="{Binding Item.IsPopupOpen}" HorizontalOffset="-14" ContentTemplate="{StaticResource popupContent}" />
+                            </telerikPrimitives:RadPopup.Popup>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="FileItemTemplate">
+                <Grid>
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End" />
+                    <Grid HeightRequest="40"
+                          Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <treeView:ExpandCollapseIndicator WidthRequest="40"
+                                                          HorizontalOptions="Center"
+                                                          HorizontalTextAlignment="Center"
+                                                          VerticalTextAlignment="Center"
+                                                          FontSize="Medium"
+                                                          IsExpanded="{Binding Path=IsExpanded}"
+                                                          IsLeaf="{Binding Path=IsLeaf}"
+                                                          BackgroundColor="Transparent">
+                            <AutomationProperties.HelpText>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="RadTreeView"/>
+                                </OnPlatform>
+                            </AutomationProperties.HelpText>
+                        </treeView:ExpandCollapseIndicator>
+
+                        <Label Text="{Binding Item.Icon}"
+                               VerticalOptions="CenterAndExpand"
+                               VerticalTextAlignment="Center"
+                               FontFamily="{StaticResource IconsFont}"
+                               TextColor="#7C7878"
+                               Grid.Column="1"/>
+
+                        <treeView:ItemText Text="{Binding Path=Header}"
+                                           VerticalTextAlignment="Center"
+                                           Grid.Column="2">
+                            <AutomationProperties.HelpText>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="RadTreeView"/>
+                                </OnPlatform>
+                            </AutomationProperties.HelpText>
+                        </treeView:ItemText>
+
+                        <Button Text="{StaticResource HorizontalDotsIcon}"
+                                FontFamily="{StaticResource IconsFont}"
+                                Command="{Binding Item.OpenContextMenuCommand}"
+                                BackgroundColor="Transparent"
+                                TextColor="{Binding Path=Item.IsPopupOpen,
+                                                    Converter={StaticResource ConditionalValueConveter},
+                                                    ConverterParameter={StaticResource ButtonIconColorConverterParameter}}"
+                                VerticalOptions="Center"
+                                Grid.Column="3"
+                                WidthRequest="46">
+                            <telerikPrimitives:RadPopup.Popup>
+                                <telerikPrimitives:RadPopup IsOpen="{Binding Item.IsPopupOpen}" HorizontalOffset="-14" ContentTemplate="{StaticResource popupContent}" />
+                            </telerikPrimitives:RadPopup.Popup>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid RowSpacing="0">
+        <Grid.BindingContext>
+            <models:ExampleViewModel/>
+        </Grid.BindingContext>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal" Margin="16,30" Spacing="20">
+            <Image VerticalOptions="Center">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="FileImageSource">
+                        <On Platform="Android, iOS">TreeView_Drive.png</On>
+                        <On Platform="UWP">Assets/TreeView_Drive.png</On>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+            <Label Text="My Drive" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+        </StackLayout>
+        <telerikDataControls:RadTreeView Grid.Row="1" ItemsSource="{Binding Source}">
+            <telerikDataControls:RadTreeView.Commands>
+                <telerikTreeViewCommands:TreeViewUserCommand Id="LoadOnDemand" Command="{Binding LoadOnDemandCommand}"/>
+            </telerikDataControls:RadTreeView.Commands>
+            <telerikDataControls:TreeViewDescriptor TargetType="{x:Type models:FolderViewModel}" DisplayMemberPath="Name" ItemsSourcePath="Children" ItemTemplate="{StaticResource FolderItemTemplate}"/>
+            <telerikDataControls:TreeViewDescriptor TargetType="{x:Type models:FileViewModel}" DisplayMemberPath="Name" ItemTemplate="{StaticResource FileItemTemplate}"/>
+        </telerikDataControls:RadTreeView>
+    </Grid>
+</ContentView>

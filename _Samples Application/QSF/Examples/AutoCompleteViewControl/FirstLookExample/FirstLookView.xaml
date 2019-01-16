@@ -49,6 +49,13 @@
             </DataTemplate>
             <Style TargetType="telerikInput:RadButton" x:Key="CommonButtonStyle">
                 <Setter Property="TextColor" Value="Accent"/>
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="12, 0"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="BorderWidth" Value="0"/>
