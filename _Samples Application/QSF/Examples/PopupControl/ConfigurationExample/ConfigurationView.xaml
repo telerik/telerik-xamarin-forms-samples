@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             x:Class="QSF.Examples.PopupControl.ConfigurationExample.ConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <DataTemplate x:Key="PopupContentTemplate">
+                <primitives:RadBorder CornerRadius="8" BackgroundColor="#F7F7F7" BorderColor="#C6C6C6" BorderThickness="1" WidthRequest="130">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label Style="{StaticResource HeaderLabelStyle}" Text="Telerik UI" VerticalOptions="Center" HorizontalOptions="Center" Margin="2" FontSize="16" />
+                        <Label Style="{StaticResource HeaderLabelStyle}" Text="for Xamarin" VerticalOptions="Center" HorizontalOptions="Center" Margin="2" FontSize="16"  Grid.Row="1" />
+
+                        <Grid Grid.Row="2" BackgroundColor="White" Padding="4, 4, 4, 4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="by" Style="{StaticResource BodyLabelStyle}" Grid.Column="1" VerticalOptions="End" />
+                            <Image Grid.Column="2" WidthRequest="20" HeightRequest="20" Margin="4, 0">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS, Android" Value="Logo.png" />
+                                        <On Platform="UWP" Value="Assets/Logo.png" />
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Progress" Style="{StaticResource BodyLabelStyle}" Grid.Column="3" VerticalOptions="End"/>
+                        </Grid>
+                    </Grid>
+                </primitives:RadBorder>
+            </DataTemplate>
+
+            <DataTemplate x:Key="PopupModalContentTemplate">
+                <primitives:RadBorder CornerRadius="8" BackgroundColor="#F7F7F7">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Orientation="Horizontal" Margin="4, 4, 4, 0">
+                            <Label Style="{StaticResource HeaderLabelStyle}" Text="Telerik UI for Xamarin" VerticalOptions="Center" Margin="6, 0, 0, 0" />
+                            <Button WidthRequest="35" HeightRequest="35" Text="X" VerticalOptions="Start" Margin="0" BackgroundColor="Transparent"
+                                            Command="{Binding Path=ClosePopupCommand}"/>
+                        </StackLayout>
+
+                        <Grid Grid.Row="2" BackgroundColor="White" Padding="4, 4, 4, 14">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="by" Style="{StaticResource BodyLabelStyle}" Grid.Column="1" VerticalOptions="End" />
+                            <Image Grid.Column="2" WidthRequest="20" HeightRequest="20" Margin="4, 0">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS, Android" Value="Logo.png" />
+                                        <On Platform="UWP" Value="Assets/Logo.png" />
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                            <Label Text="Progress" Style="{StaticResource BodyLabelStyle}" Grid.Column="3" VerticalOptions="End"/>
+                        </Grid>
+                    </Grid>
+                </primitives:RadBorder>
+            </DataTemplate>
+
+            <converters:ConditionalValueConverterParameter x:Key="MessageBackgroundColorParameter" FalseValue="{StaticResource DarkBackgroundColor}" TrueValue="{StaticResource ErrorBackgroundColor}" />
+            <converters:ConditionalValueConverterParameter x:Key="MessageErrorColorParameter" FalseValue="{StaticResource AccentColor}" TrueValue="{StaticResource ErrorColor}" />
+            <converters:ConditionalValueConverterParameter x:Key="MessageHeaderTextParameter" FalseValue="Configuration" TrueValue="Error" />
+            <converters:ConditionalValueConverterParameter x:Key="MessageIconParameter" FalseValue="{StaticResource EmptyGearIcon}" TrueValue="{StaticResource ExclamationMarkIcon}" />
+
+            <Style TargetType="primitives:AccordionItemHeader">
+                <Setter Property="IndicatorMargin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button CornerRadius="8"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Show Popup"
+                Command="{Binding Path=ShowPopupCommand}"
+                x:Name="button"
+                BackgroundColor="#F3FDEC"
+                TextColor="#4FC400"
+                WidthRequest="130">
+            <primitives:RadPopup.Popup>
+                <primitives:RadPopup x:Name="popup"
+                                     Placement="{Binding Path=Placement}"
+                                     HorizontalOffset="{Binding Path=HorizontalOffset}"
+                                     VerticalOffset="{Binding Path=VerticalOffset}"
+                                     IsModal="{Binding Path=IsModal}"
+                                     OutsideBackgroundColor="{Binding Path=OutsideBackgroundColor}"
+                                     AnimationDuration="{Binding Path=AnimationDuration}"
+                                     AnimationEasing="{Binding Path=AnimationEasing}"
+                                     AnimationType="{Binding Path=AnimationType}"/>
+            </primitives:RadPopup.Popup>
+        </Button>
+
+        <primitives:RadBorder BackgroundColor="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageBackgroundColorParameter}}"
+                              CornerRadius="5" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Center" x:Name="border">
+            <primitives:RadBorder.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Path=AppBarMiddleButtonCommand}" />
+            </primitives:RadBorder.GestureRecognizers>
+            <Grid Margin="20, 30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageIconParameter}}" 
+                       FontFamily="{StaticResource IconsFont}"
+                       TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageErrorColorParameter}}"
+                       HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
+
+                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                    <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageHeaderTextParameter}}" 
+                           TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageErrorColorParameter}}"
+                           Style="{StaticResource HeaderLabelStyle}" Margin="0"/>
+                    <Label Text="{Binding Path=MessageText}" LineBreakMode="WordWrap" Style="{StaticResource BodyLabelStyle}" />
+                </StackLayout>
+            </Grid>
+        </primitives:RadBorder>
+    </Grid>
+</ContentView>

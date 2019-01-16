@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using QSF.Services;
 using QSF.ViewModels;
+using Telerik.XamarinForms.Input;
 using Telerik.XamarinForms.Input.Calendar.Commands;
 using Xamarin.Forms;
 
@@ -13,7 +14,7 @@ namespace QSF.Examples.CalendarControl.MultiDayViewPeopleExample
     public class MultiDayViewPeopleViewModel : ExampleViewModel
     {
         private IEnumerable<PersonViewModel> people;
-        private IEnumerable<AppointmentViewModel> appointments;
+        private IEnumerable<Appointment> appointments;
         private TimeSpan dayStartTime;
         private TimeSpan dayEndTime;
 
@@ -35,7 +36,7 @@ namespace QSF.Examples.CalendarControl.MultiDayViewPeopleExample
             }
         }
 
-        public IEnumerable<AppointmentViewModel> Appointments
+        public IEnumerable<Appointment> Appointments
         {
             get
             {

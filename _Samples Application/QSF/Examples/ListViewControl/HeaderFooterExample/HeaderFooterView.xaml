@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.ListViewControl.HeaderFooterExample.HeaderFooterView">
+    <telerikDataControls:RadListView x:Name="listView"
+                                     ItemsSource="{Binding Items}"
+                                     SelectionMode="None">
+        <telerikDataControls:RadListView.HeaderTemplate>
+            <DataTemplate>
+                <Grid Padding="10,0"
+                      ColumnSpacing="10"
+                      HeightRequest="60"
+                      BackgroundColor="#F7F7F7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0"
+                           WidthRequest="40"
+                           HeightRequest="40"
+                           VerticalOptions="Center">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS, Android">ListView_Person.png</On>
+                                <On Platform="UWP">Assets/ListView_Person.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Column="1"
+                           Text="My Subscriptions"
+                           FontSize="18"
+                           VerticalOptions="Center">
+                        <Label.TextColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS">#007AFF</On>
+                                <On Platform="Android, UWP">#2964CE</On>
+                            </OnPlatform>
+                        </Label.TextColor>
+                    </Label>
+                </Grid>
+            </DataTemplate>
+        </telerikDataControls:RadListView.HeaderTemplate>
+        <telerikDataControls:RadListView.FooterTemplate>
+            <DataTemplate>
+                <Grid Padding="10,0"
+                      HeightRequest="60"
+                      BackgroundColor="#F7F7F7">
+                    <telerikInput:RadButton WidthRequest="240"
+                                            HeightRequest="40"
+                                            CornerRadius="20"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            TextColor="White"
+                                            Text="{Binding Label}"
+                                            Command="{Binding PayCommand}">
+                        <telerikInput:RadButton.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS">#007AFF</On>
+                                <On Platform="Android, UWP">#2964CE</On>
+                            </OnPlatform>
+                        </telerikInput:RadButton.BackgroundColor>
+                    </telerikInput:RadButton>
+                </Grid>
+            </DataTemplate>
+        </telerikDataControls:RadListView.FooterTemplate>
+        <telerikDataControls:RadListView.ItemTemplate>
+            <DataTemplate>
+                <telerikListView:ListViewTemplateCell>
+                    <Grid Padding="20,0"
+                          ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BindingContext.TapCommand, Source={Reference listView}}"
+                                                  CommandParameter="{Binding}" />
+                        </Grid.GestureRecognizers>
+                        <telerikPrimitives:RadCheckBox Grid.Column="0"
+                                                       HorizontalOptions="Start"
+                                                       VerticalOptions="Center"
+                                                       IsChecked="{Binding IsSelected, Mode=TwoWay}">
+                            <telerikPrimitives:RadCheckBox.CheckedColor>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="iOS">#007AFF</On>
+                                    <On Platform="Android, UWP">#2964CE</On>
+                                </OnPlatform>
+                            </telerikPrimitives:RadCheckBox.CheckedColor>
+                            <telerikPrimitives:RadCheckBox.UncheckedColor>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="iOS">#CCCCCC</On>
+                                    <On Platform="Android, UWP">#848484</On>
+                                </OnPlatform>
+                            </telerikPrimitives:RadCheckBox.UncheckedColor>
+                        </telerikPrimitives:RadCheckBox>
+                        <telerikPrimitives:RadBorder Grid.Column="1"
+                                                     WidthRequest="36"
+                                                     HeightRequest="36"
+                                                     CornerRadius="18"
+                                                     HorizontalOptions="Center"
+                                                     VerticalOptions="Center"
+                                                     BackgroundColor="#EFEFF4">
+                            <Label Text="{Binding Icon}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   FontFamily="{StaticResource IconsFont}">
+                                <Label.TextColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="iOS">#007AFF</On>
+                                        <On Platform="Android, UWP">#2964CE</On>
+                                    </OnPlatform>
+                                </Label.TextColor>
+                            </Label>
+                        </telerikPrimitives:RadBorder>
+                        <StackLayout Grid.Column="2"
+                                     Spacing="0"
+                                     VerticalOptions="Center">
+                            <Label Text="{Binding Name}"
+                                   TextColor="Black"
+                                   FontSize="18" />
+                            <Label Text="{Binding Company}"
+                                   TextColor="#8E8E93"
+                                   FontSize="14" />
+                        </StackLayout>
+                        <Label Grid.Column="3"
+                               Text="{Binding Amount, StringFormat='${0}'}"
+                               TextColor="Black"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               FontSize="14" />
+                    </Grid>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+        </telerikDataControls:RadListView.ItemTemplate>
+        <telerikDataControls:RadListView.LayoutDefinition>
+            <telerikListView:ListViewLinearLayout ItemLength="70" />
+        </telerikDataControls:RadListView.LayoutDefinition>
+        <telerikDataControls:RadListView.ItemStyle>
+            <telerikListView:ListViewItemStyle BorderWidth="1"
+                                               BorderColor="#C7C7CC"
+                                               BorderLocation="Bottom" />
+        </telerikDataControls:RadListView.ItemStyle>
+    </telerikDataControls:RadListView>
+</ContentView>

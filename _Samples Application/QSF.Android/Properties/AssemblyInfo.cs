@@ -1,7 +1,6 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using Android.App;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using Android.App;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -9,9 +8,9 @@ using Android.App;
 [assembly: AssemblyTitle("QSF.Android")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Progress Software Corporation")]
 [assembly: AssemblyProduct("QSF.Android")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright © 2014-2019 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

@@ -11,6 +11,7 @@
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:telerikConversationalUI="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
+             xmlns:telerikPdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
              xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
              xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:effects="clr-namespace:QSF.Effects"
@@ -26,6 +27,7 @@
                 <ResourceDictionary MergedWith="telerikDataControls:TelerikThemeStyles" />
                 <ResourceDictionary MergedWith="dataGrid:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="telerikConversationalUI:TelerikThemeStyles"/>
+                <ResourceDictionary MergedWith="telerikPdfViewer:TelerikThemeStyles"/>
             </ResourceDictionary.MergedDictionaries>
 
             <Color x:Key="HeaderBackgroundsColor">#4A4E52</Color>
@@ -78,6 +80,7 @@
             <x:String x:Key="GaugeIcon">&#xE838;</x:String>
             <x:String x:Key="AvatarIcon">&#xE836;</x:String>
             <x:String x:Key="PlayIcon">&#xE850;</x:String>
+            <x:String x:Key="TextIcon">&#xE853;</x:String>
             <x:String x:Key="TwitterIcon">&#xF309;</x:String>
             <x:String x:Key="GraphicIcon">&#xE849;</x:String>
             <x:String x:Key="FontIcon">&#xE84B;</x:String>
@@ -88,6 +91,14 @@
             <x:String x:Key="AssetIcon">&#xE846;</x:String>
             <x:String x:Key="DesignIcon">&#xE848;</x:String>
             <x:String x:Key="WireframeIcon">&#xE84D;</x:String>
+            <x:String x:Key="HorizontalDotsIcon">&#xE80C;</x:String>
+            <x:String x:Key="AddIcon">&#xE813;</x:String>
+            <x:String x:Key="LinkIcon">&#xE83E;</x:String>
+            <x:String x:Key="CopyIcon">&#xE819;</x:String>
+            <x:String x:Key="EditIcon">&#xE818;</x:String>
+            <x:String x:Key="RecycleBinIcon">&#xE817;</x:String>
+            <x:String x:Key="HorizontalOffsetIcon">&#xE860;</x:String>
+            <x:String x:Key="VerticalOffsetIcon">&#xE84E;</x:String>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">telerikfontexamples</On>

@@ -43,7 +43,7 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.5</string>
+	<string>2.6.1</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Progress Telerik UI for Xamarin Examples Would Like to Access Your Calendar.</string>
 	<key>CustomProperty</key>

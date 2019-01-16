@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.DockLayoutControl.FirstLookExample.DockLayoutConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="StackLayout">
+                <Setter Property="Margin" Value="0,15,0,0"/>
+                <Setter Property="Spacing" Value="12"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <Grid Margin="16,20" RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label  Text="Panel Positions:" FontSize="Large"/>
+        <StackLayout Grid.Row="1">
+            <Grid>
+                <Label Text="Title:" />
+                <Picker ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding TitlePanelDock, Mode=TwoWay}" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Label Text="List:"/>
+                <Picker ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding ListPanelDock, Mode=TwoWay}" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Label Text="Navigation:"/>
+                <Picker ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding NavigationPanelDock, Mode=TwoWay}" Grid.Column="1"/>
+            </Grid>
+        </StackLayout>
+        <Label Text="Panel Visibility:" FontSize="Large" Grid.Row="2"/>
+        <StackLayout Grid.Row="3">
+            <StackLayout Orientation="Horizontal">
+                <primitives:RadCheckBox IsChecked="{Binding IsTitlePanelVisible, Mode=TwoWay}"/>
+                <Label Text="Title"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <primitives:RadCheckBox IsChecked="{Binding IsListPanelVisible, Mode=TwoWay}"/>
+                <Label Text="List"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <primitives:RadCheckBox IsChecked="{Binding IsNavigationPanelVisible, Mode=TwoWay}"/>
+                <Label Text="Navigation"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <primitives:RadCheckBox IsChecked="{Binding IsContentPanelVisible, Mode=TwoWay}"/>
+                <Label Text="Content" Margin="0,0,0,16"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+    </ScrollView>
+</ContentView>

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using FFImageLoading.Forms.Touch;
+using FFImageLoading.Forms.Platform;
 using Foundation;
-using QSF.Services.BackdoorService;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using QSF.Services.BackdoorService;
 
 namespace QSF.iOS
 {

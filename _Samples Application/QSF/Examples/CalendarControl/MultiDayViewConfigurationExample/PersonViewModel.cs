@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using QSF.ViewModels;
+using Telerik.XamarinForms.Input;
 using Xamarin.Forms;
 
 namespace QSF.Examples.CalendarControl.MultiDayViewConfigurationExample
@@ -41,11 +42,11 @@ namespace QSF.Examples.CalendarControl.MultiDayViewConfigurationExample
             }
         }
 
-        public ObservableCollection<AppointmentViewModel> Appointments { get; private set; }
+        public ObservableCollection<Appointment> Appointments { get; private set; }
 
         public PersonViewModel()
         {
-            this.Appointments = new ObservableCollection<AppointmentViewModel>();
+            this.Appointments = new ObservableCollection<Appointment>();
         }
     }
 }

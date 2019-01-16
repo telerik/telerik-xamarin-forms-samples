@@ -1,6 +1,4 @@
-﻿using System;
-using Telerik.XamarinForms.Input;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace QSF.Examples.CalendarControl.MultiDayViewPeopleExample
@@ -11,13 +9,6 @@ namespace QSF.Examples.CalendarControl.MultiDayViewPeopleExample
         public MultiDayViewPeopleView()
         {
             this.InitializeComponent();
-        }
-
-        private void OnCalendarLoaded(object sender, EventArgs eventArgs)
-        {
-            var calendar = (RadCalendar)sender;
-
-            calendar.TrySetViewMode(CalendarViewMode.MultiDay);
         }
     }
 }
