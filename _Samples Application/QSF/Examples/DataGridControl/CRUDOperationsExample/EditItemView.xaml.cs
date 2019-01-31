@@ -42,11 +42,14 @@ namespace QSF.Examples.DataGridControl.CRUDOperationsExample
         {
             base.OnPropertyChanged(propertyName);
 
-            MessagingCenter.Unsubscribe<EditItemViewModel>(this, EditItemViewModel.SaveItemMessage);
-            object renderer = RadPlatform.GetRendererObject(this);
-            if (renderer != null)
+            if (propertyName == "Renderer")
             {
-                MessagingCenter.Subscribe<EditItemViewModel>(this, EditItemViewModel.SaveItemMessage, this.OnSaveItem);
+                MessagingCenter.Unsubscribe<EditItemViewModel>(this, EditItemViewModel.SaveItemMessage);
+                object renderer = RadPlatform.GetRendererObject(this);
+                if (renderer != null)
+                {
+                    MessagingCenter.Subscribe<EditItemViewModel>(this, EditItemViewModel.SaveItemMessage, this.OnSaveItem);
+                }
             }
         }
     }
