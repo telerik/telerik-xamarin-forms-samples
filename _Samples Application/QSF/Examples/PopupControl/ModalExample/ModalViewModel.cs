@@ -196,14 +196,12 @@ namespace QSF.Examples.PopupControl.ModalExample
 
         private IEnumerable<ContactViewModel> GetSampleFiles()
         {
-            Random rnd = new Random();
-
-            for (int i = 0; i < 20; i++)
+            for (int j = 0; j < 5; j++)
             {
-                int nameIndex = rnd.Next(0, Names.Length);
-                int imageIndex = rnd.Next(0, ImagePaths.Length);
-
-                yield return new ContactViewModel(Names[nameIndex], ImagePaths[imageIndex]);
+                for (int i = 0; i < Names.Length; i++)
+                {
+                    yield return new ContactViewModel(Names[i], ImagePaths[i]);
+                }
             }
         }
 

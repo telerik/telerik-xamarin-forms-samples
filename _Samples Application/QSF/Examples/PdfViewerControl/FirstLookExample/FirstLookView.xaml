@@ -11,8 +11,8 @@
         </Grid.RowDefinitions>
         <telerikPdfViewer:RadPdfViewerToolbar views:ThemesBehavior.StyleClass="TelerikTheme"
                                               PdfViewer="{Binding Source={x:Reference pdfViewer}}">
-            <telerikPdfViewer:NavigateToNextPageToolbarItem/>
             <telerikPdfViewer:NavigateToPreviousPageToolbarItem/>
+            <telerikPdfViewer:NavigateToNextPageToolbarItem/>
             <telerikPdfViewer:NavigateToPageToolbarItem/>
             <telerikPdfViewer:FitToWidthToolbarItem/>
             <telerikPdfViewer:ToggleLayoutModeToolbarItem/>

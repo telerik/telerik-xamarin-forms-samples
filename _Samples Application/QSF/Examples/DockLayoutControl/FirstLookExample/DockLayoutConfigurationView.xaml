@@ -26,33 +26,33 @@
         <StackLayout Grid.Row="1">
             <Grid>
                 <Label Text="Title:" />
-                <Picker ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding TitlePanelDock, Mode=TwoWay}" Grid.Column="1"/>
+                    <Picker AutomationId="TitlePicker" ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding TitlePanelDock, Mode=TwoWay}" Grid.Column="1"/>
             </Grid>
             <Grid>
                 <Label Text="List:"/>
-                <Picker ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding ListPanelDock, Mode=TwoWay}" Grid.Column="1"/>
+                    <Picker AutomationId="ListPicker" ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding ListPanelDock, Mode=TwoWay}" Grid.Column="1"/>
             </Grid>
             <Grid>
                 <Label Text="Navigation:"/>
-                <Picker ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding NavigationPanelDock, Mode=TwoWay}" Grid.Column="1"/>
+                    <Picker AutomationId="NavigationPicker" ItemsSource="{Binding DockPickerOptions}" SelectedItem="{Binding NavigationPanelDock, Mode=TwoWay}" Grid.Column="1"/>
             </Grid>
         </StackLayout>
         <Label Text="Panel Visibility:" FontSize="Large" Grid.Row="2"/>
         <StackLayout Grid.Row="3">
             <StackLayout Orientation="Horizontal">
-                <primitives:RadCheckBox IsChecked="{Binding IsTitlePanelVisible, Mode=TwoWay}"/>
+                    <primitives:RadCheckBox AutomationId="TitleChb" IsChecked="{Binding IsTitlePanelVisible, Mode=TwoWay}"/>
                 <Label Text="Title"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <primitives:RadCheckBox IsChecked="{Binding IsListPanelVisible, Mode=TwoWay}"/>
+                    <primitives:RadCheckBox AutomationId="ListChb" IsChecked="{Binding IsListPanelVisible, Mode=TwoWay}"/>
                 <Label Text="List"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <primitives:RadCheckBox IsChecked="{Binding IsNavigationPanelVisible, Mode=TwoWay}"/>
+                    <primitives:RadCheckBox AutomationId="NavigationChb" IsChecked="{Binding IsNavigationPanelVisible, Mode=TwoWay}"/>
                 <Label Text="Navigation"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <primitives:RadCheckBox IsChecked="{Binding IsContentPanelVisible, Mode=TwoWay}"/>
+                    <primitives:RadCheckBox AutomationId="ContentChb" IsChecked="{Binding IsContentPanelVisible, Mode=TwoWay}"/>
                 <Label Text="Content" Margin="0,0,0,16"/>
             </StackLayout>
         </StackLayout>

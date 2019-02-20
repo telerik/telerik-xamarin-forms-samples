@@ -284,8 +284,8 @@
       <Name>Button</Name>
       <Image>Button.png</Image>
       <DescriptionHeader>Button</DescriptionHeader>
-      <ShortDescription>RadButton is a button control which builds on top of the standard Xamarin.Forms Button, by providing you full control over its visual appearance.</ShortDescription>
-      <FullDescription>Telerik UI for Xamarin Button is a button control which build on top of the standard Xamarin Forms Button, by providing you full control over its visual appearance and adding support for our Theming mechanism. UI customization is possible through the provided themes, or you can add rotation, shapes, transparency, text, and backgrounds and images.</FullDescription>
+      <ShortDescription>RadButton is a button control which enhances the standard Xamarin.Forms Button, by providing you full control over its visual appearance.</ShortDescription>
+      <FullDescription>Telerik UI for Xamarin Button is a button control which enhances the standard Xamarin Forms Button, by providing you full control over its visual appearance and adding support for our Theming mechanism. UI customization is possible through the provided themes, or you can add rotation, shapes, transparency, text, and backgrounds and images.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/button/button-overview</DocumentationURL>
       <Latest>0</Latest>
       <Featured>0</Featured>
@@ -903,7 +903,7 @@
         <Example>
           <Name>ContextMenu</Name>
           <Image>Popup_ContextMenu.png</Image>
-          <DescriptionHeader>Selection</DescriptionHeader>
+          <DescriptionHeader>Context Menu</DescriptionHeader>
           <Description>This example demonstrates how you could use RadPopup control as a context menu - you can host any content inside the Popup and easily position it according to the target element.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
@@ -912,7 +912,7 @@
         <Example>
           <Name>Modal</Name>
           <Image>Popup_Modal.png</Image>
-          <DescriptionHeader>Selection</DescriptionHeader>
+          <DescriptionHeader>Modal</DescriptionHeader>
           <Description>This example demonstrates how you could use RadPopup as a modal, so that the UI behind it gets inactive and cannot be used until the Popup is closed.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
@@ -921,7 +921,7 @@
         <Example>
           <Name>Configuration</Name>
           <Image>Popup_Configuration.png</Image>
-          <DescriptionHeader>Selection</DescriptionHeader>
+          <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the Popup control provides.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
