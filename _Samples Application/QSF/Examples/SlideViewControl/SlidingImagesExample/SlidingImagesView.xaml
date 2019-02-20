@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:QSF.Converters"
@@ -16,7 +16,8 @@
         <telerikPrimitives:RadSlideView SelectedIndicatorColor="#3148CA"
                                         IsInfiniteScrollingEnabled="True"
                                         ItemsSource="{Binding Images}"
-                                        views:ThemesBehavior.StyleClass="TelerikTheme">
+                                        views:ThemesBehavior.StyleClass="TelerikTheme"
+                                        AutomationId="slideView">
             <telerikPrimitives:RadSlideView.ItemTemplate>
                 <DataTemplate>
                     <Image Source="{Binding Converter={StaticResource ImageSourceConverter}}" />
@@ -27,7 +28,7 @@
             <Label Text="RadSlideView"
                    FontSize="Medium"
                    FontAttributes="Bold" />
-            <Label Text="From stock tickers and news scrollers, to product spotlights the RadSlideView control delivers high interactivity and user involvment. It allows extensive customizations in terms of functionality and appearance." />
+            <Label Text="From stock tickers and news scrollers, to product spotlights the RadSlideView control delivers high interactivity and user involvement. It allows extensive customizations in terms of functionality and appearance." />
         </StackLayout>
     </Grid>
 </ContentView>

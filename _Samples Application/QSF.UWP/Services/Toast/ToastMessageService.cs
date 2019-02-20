@@ -41,6 +41,7 @@ namespace QSF.UWP.Services.Toast
             style.Setters.Add(new Setter(Control.BackgroundProperty, new SolidColorBrush(ToWindowsColor(DefaultBackgroundColor))));
             style.Setters.Add(new Setter(FrameworkElement.MaxHeightProperty, 1));
             style.Setters.Add(new Setter(FrameworkElement.MarginProperty, new Thickness(0, -30, 0, 30)));
+            style.Setters.Add(new Setter(ScrollViewer.VerticalScrollBarVisibilityProperty, ScrollBarVisibility.Hidden));
 
             var flyout = new Flyout
             {

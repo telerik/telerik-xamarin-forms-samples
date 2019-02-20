@@ -31,45 +31,60 @@
 
             <DataTemplate x:Key="popupContent">
                 <StackLayout BackgroundColor="#189FCC" Padding="20, 20, 20, 4" Spacing="0" BindingContext="{Binding Path=Item.PopupViewModel}">
-                    <Grid>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{StaticResource AddIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
-                            <Label Text="Add People" Style="{StaticResource ContextMenuItemLabelStyle}" />
-                        </StackLayout>
-                        <Button BackgroundColor="Transparent" Command="{Binding Path=AddPeople}" CommandParameter="Sharing permissions updated" Margin="0" HeightRequest="35" />
-                    </Grid>
+                    <StackLayout Orientation="Horizontal" HeightRequest="35">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding Path=AddPeople}"
+                                    CommandParameter="Sharing permissions updated" />
+                        </StackLayout.GestureRecognizers>
 
-                    <Grid>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{StaticResource LinkIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
-                            <Label Text="Link Sharing" Style="{StaticResource ContextMenuItemLabelStyle}"/>
-                        </StackLayout>
-                        <Button  BackgroundColor="Transparent" Command="{Binding Path=LinkShare}" CommandParameter="Link shared" HeightRequest="35" />
-                    </Grid>
+                        <Label Text="{StaticResource AddIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                        <Label Text="Add People" Style="{StaticResource ContextMenuItemLabelStyle}" />
+                    </StackLayout>
 
-                    <Grid>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{StaticResource CopyIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
-                            <Label Text="Copy Link" Style="{StaticResource ContextMenuItemLabelStyle}"/>
-                        </StackLayout>
-                        <Button  BackgroundColor="Transparent" Command="{Binding Path=CopyLink}" CommandParameter="Link copied" HeightRequest="35" />
-                    </Grid>
+                    <StackLayout Orientation="Horizontal" HeightRequest="35">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding Path=LinkShare}"
+                                    CommandParameter="Link shared" />
+                        </StackLayout.GestureRecognizers>
 
-                    <Grid>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{StaticResource EditIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
-                            <Label Text="Rename" Style="{StaticResource ContextMenuItemLabelStyle}"/>
-                        </StackLayout>
-                        <Button  BackgroundColor="Transparent" Command="{Binding Path=Rename}" CommandParameter="Shared resource renamed" HeightRequest="35" />
-                    </Grid>
+                        <Label Text="{StaticResource LinkIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                        <Label Text="Link Sharing" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                    </StackLayout>
 
-                    <Grid>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{StaticResource RecycleBinIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
-                            <Label Text="Remove" Style="{StaticResource ContextMenuItemLabelStyle}"/>
-                        </StackLayout>
-                        <Button  BackgroundColor="Transparent" Command="{Binding Path=Remove}" CommandParameter="Sharing permissions removed" HeightRequest="35" />
-                    </Grid>
+                    <StackLayout Orientation="Horizontal" HeightRequest="35">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding Path=CopyLink}"
+                                    CommandParameter="Link copied" />
+                        </StackLayout.GestureRecognizers>
+
+                        <Label Text="{StaticResource CopyIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                        <Label Text="Copy Link" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HeightRequest="35">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding Path=Rename}"
+                                    CommandParameter="Shared resource renamed" />
+                        </StackLayout.GestureRecognizers>
+
+                        <Label Text="{StaticResource EditIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                        <Label Text="Rename" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HeightRequest="35">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding Path=Remove}"
+                                    CommandParameter="Sharing permissions removed" />
+                        </StackLayout.GestureRecognizers>
+
+                        <Label Text="{StaticResource RecycleBinIcon}" Style="{StaticResource ContextMenuIconLabelStyle}" />
+                        <Label Text="Remove" Style="{StaticResource ContextMenuItemLabelStyle}"/>
+                    </StackLayout>
                 </StackLayout>
             </DataTemplate>
 
