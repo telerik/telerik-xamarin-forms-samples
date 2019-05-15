@@ -1,24 +1,27 @@
 ﻿using QSF.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using Telerik.XamarinForms.Input;
+using Telerik.XamarinForms.Input.Calendar;
 using Xamarin.Forms;
 
 namespace QSF.Examples.CalendarControl.MonthViewExample
 {
     public class MonthViewViewModel : ExampleViewModel
     {
-        private DateTime? selectedDate;
+        private SelectionModeItem selectedMode;
+        private bool isDrawerOpen;
+        private DateTimeRange selectedRange;
 
         public MonthViewViewModel()
         {
             this.SelectedEvents = new ObservableCollection<EventData>();
-            this.selectedDate = DateTime.Today;
             var recurrencePattern = new RecurrencePattern(new int[] { }, RecurrenceDays.WeekDays, RecurrenceFrequency.Daily, 1, null, null) { MaxOccurrences = 37 };
             var dailyRecurrenceRule = new RecurrenceRule(recurrencePattern);
 
+            this.OpenDrawerCommand = new Command(this.OnOpenDrawerCommandExecute);
             this.Events = new ObservableCollection<EventData>()
             {
                 new EventData(
@@ -157,65 +160,108 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     Color.White),
             };
 
-            this.UpdateSelectedEvents(DateTime.Today);
-        }
+            this.SelectionModes = new List<SelectionModeItem>();
+            this.SelectionModes.Add(new SelectionModeItem(char.ConvertFromUtf32(0xe864), CalendarSelectionMode.None));
+            this.SelectionModes.Add(new SelectionModeItem(char.ConvertFromUtf32(0xe866), CalendarSelectionMode.Single));
 
-        public string DayLabel
-        {
-            get
+            if (!Device.RuntimePlatform.Equals("UWP"))
             {
-                if (this.SelectedDate.HasValue)
-                {
-                    var date = SelectedDate.Value;
-                    var result = string.Format("{0}, {1} {2}", date.DayOfWeek, CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(date.Month), date.Day);
-
-                    if (Device.RuntimePlatform == Device.Android)
-                    {
-                        result = result.ToUpper();
-                    }
-
-                    return result;
-                }
-
-                return null;
+                this.SelectionModes.Add(new SelectionModeItem(char.ConvertFromUtf32(0xe867), CalendarSelectionMode.Multiple));
+                this.SelectionModes.Add(new SelectionModeItem(char.ConvertFromUtf32(0xe868), CalendarSelectionMode.Range));
             }
+
+            this.selectedMode = Device.RuntimePlatform == "UWP" ? this.SelectionModes[1] : this.SelectionModes[3];
+            this.selectedRange = new DateTimeRange(DateTime.Today, DateTime.Today.AddDays(2));
         }
 
-        public ObservableCollection<EventData> Events { get; }
-
-        public DateTime? SelectedDate
+        public DateTimeRange SelectedRange
         {
             get
             {
-                return this.selectedDate;
+                return this.selectedRange;
             }
             set
             {
-                if (value != this.selectedDate)
+                this.selectedRange = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        public SelectionModeItem SelectedMode
+        {
+            get
+            {
+                return this.selectedMode;
+            }
+            set
+            {
+                if (this.selectedMode != value)
                 {
-                    this.selectedDate = value;
+                    if (value == null)
+                    {
+                        var selectedModeCache = this.selectedMode;
+                        this.selectedMode = value;
+                        this.SelectedMode = selectedModeCache;
+                    }
+                    else
+                    {
+                        this.selectedMode = value;
+                        this.IsDrawerOpen = false;
+                        this.OnPropertyChanged();
+                    }
+                }
+            }
+        }
+
+        public List<SelectionModeItem> SelectionModes { get; set; }
+        public ObservableCollection<EventData> Events { get; }
+
+        public bool IsDrawerOpen
+        {
+            get
+            {
+                return this.isDrawerOpen;
+            }
+            set
+            {
+                if (this.isDrawerOpen != value)
+                {
+                    this.isDrawerOpen = value;
                     this.OnPropertyChanged();
-                    this.UpdateSelectedEvents(value);
                 }
             }
         }
 
         public ObservableCollection<EventData> SelectedEvents { get; }
+        public Command OpenDrawerCommand { get; set; }
 
-        private void UpdateSelectedEvents(DateTime? value)
+        internal void UpdateSelectedEvents(DateTime? value)
         {
-            this.SelectedEvents.Clear();
+            if (!value.HasValue)
+            {
+                return;
+            }
+
             foreach (EventData item in this.Events)
             {
                 var date = value.Value;
                 var recurrenceRule = item.RecurrenceRule;
-                if ((recurrenceRule == null && item.StartDate.CompareTo(date) >= 0 && item.StartDate.CompareTo(date.AddDays(1)) < 0) || (recurrenceRule != null && recurrenceRule.Pattern.GetOccurrences(date, date, date).Any()))
+                if (recurrenceRule == null && item.StartDate.CompareTo(date) >= 0 && item.StartDate.CompareTo(date.AddDays(1)) < 0)
                 {
                     this.SelectedEvents.Add(new EventData(item.StartDate, item.EndDate, item.Title, item.LeadBorderColor, item.ItemBackgroundColor));
                 }
-            }
 
-            this.OnPropertyChanged("DayLabel");
+                if (recurrenceRule != null && recurrenceRule.Pattern.GetOccurrences(item.StartDate, date, date.AddDays(1)).Any())
+                {
+                    EventData newEvent = new EventData(date.Date.Add(item.StartDate.TimeOfDay), date.Date.Add(item.EndDate.TimeOfDay), item.Title, item.LeadBorderColor, item.ItemBackgroundColor);
+                    this.SelectedEvents.Add(newEvent);
+                }
+            }
+        }
+
+        private void OnOpenDrawerCommandExecute(object obj)
+        {
+            this.IsDrawerOpen = true;
         }
     }
 }

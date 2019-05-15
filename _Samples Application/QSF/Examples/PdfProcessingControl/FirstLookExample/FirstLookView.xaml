@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QSF.Examples.PdfProcessingControl.FirstLookExample.FirstLookView">
+    <ContentView.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <Image VerticalOptions="FillAndExpand" Aspect="AspectFit">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">PdfProcessing_FirstLook_Screen.png</On>
+                            <On Platform="UWP">Assets\PdfProcessing_FirstLook_Screen.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+                
+                <Button BackgroundColor="#FBB03B" Text="Generate PDF" BorderRadius="0"
+                        Command="{Binding Path=Save}" HeightRequest="60" Grid.Row="1"
+                        AutomationId="GeneratePDFButton"/>
+            </Grid>
+    </ContentView.Content>
+</ContentView>

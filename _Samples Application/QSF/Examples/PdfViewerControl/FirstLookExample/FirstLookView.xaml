@@ -11,11 +11,11 @@
         </Grid.RowDefinitions>
         <telerikPdfViewer:RadPdfViewerToolbar views:ThemesBehavior.StyleClass="TelerikTheme"
                                               PdfViewer="{Binding Source={x:Reference pdfViewer}}">
-            <telerikPdfViewer:NavigateToPreviousPageToolbarItem/>
-            <telerikPdfViewer:NavigateToNextPageToolbarItem/>
-            <telerikPdfViewer:NavigateToPageToolbarItem/>
-            <telerikPdfViewer:FitToWidthToolbarItem/>
-            <telerikPdfViewer:ToggleLayoutModeToolbarItem/>
+            <telerikPdfViewer:NavigateToPreviousPageToolbarItem AutomationId="NavigateToPreviousPage"/>
+            <telerikPdfViewer:NavigateToNextPageToolbarItem AutomationId="NavigateToNextPage"/>
+            <telerikPdfViewer:NavigateToPageToolbarItem AutomationId="NavigateToPage"/>
+            <telerikPdfViewer:FitToWidthToolbarItem AutomationId="FitToWidth"/>
+            <telerikPdfViewer:ToggleLayoutModeToolbarItem AutomationId="ToggleLayoutMode"/>
         </telerikPdfViewer:RadPdfViewerToolbar>
         <telerikPdfViewer:RadPdfViewer x:Name="pdfViewer" Grid.Row="1"/>
     </Grid>

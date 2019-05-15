@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:imageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="QSF.Examples.ImageEditorControl.FirstLookExample.FirstLookView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Margin="10,20,10,0"
+               HorizontalOptions="Center"
+               Style="{StaticResource HeaderLabelStyle}"
+               Text="Pick an image to edit" />
+        <telerikCommon:RadWrapLayout x:Name="imageLayout"
+                                     Grid.Row="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     BindableLayout.ItemsSource="{Binding Images}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10"
+                          WidthRequest="120"
+                          HeightRequest="120">
+                        <imageLoading:CachedImage CacheType="None"
+                                                  HorizontalOptions="Center"
+                                                  VerticalOptions="Center"
+                                                  Source="{Binding}">
+                            <imageLoading:CachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.OpenCommand, Source={x:Reference imageLayout}}"
+                                                      CommandParameter="{Binding}" />
+                            </imageLoading:CachedImage.GestureRecognizers>
+                        </imageLoading:CachedImage>
+                    </Grid>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </telerikCommon:RadWrapLayout>
+        <telerikPrimitives:RadBusyIndicator Grid.Row="1"
+                                            IsBusy="{Binding IsBusy}"
+                                            IsVisible="{Binding IsBusy}" />
+    </Grid>
+</ContentView>

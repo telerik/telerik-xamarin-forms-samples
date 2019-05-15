@@ -26,13 +26,37 @@
     <Compile Remove="**\*.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Examples\MapControl\FirstLookExample\usa.dbf" />
+    <None Remove="Examples\MapControl\FirstLookExample\usa.shp" />
+    <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_base.shp" />
+    <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Corridors.shp" />
+    <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_LiftsAndLadders.shp" />
+    <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.dbf" />
+    <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.shp" />
+    <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
     <None Remove="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <None Remove="Resources\banner.jpg" />
+    <None Remove="Resources\SampleImage1.jpg" />
+    <None Remove="Resources\SampleImage2.jpg" />
+    <None Remove="Resources\SampleImage3.jpg" />
+    <None Remove="Resources\SampleImage4.jpg" />
+    <None Remove="Resources\SampleImage5.jpg" />
+    <None Remove="Resources\SampleImage6.jpg" />
+    <None Remove="Resources\telerikLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="config.xml" />
     <EmbeddedResource Include="Examples\ChartControl\FinancialSeriesExample\AppleStockPrices.json" />
     <EmbeddedResource Include="Examples\DataGridControl\Common\OrdersDataSource.xml" />
     <EmbeddedResource Include="Examples\DataGridControl\Common\PeopleDataSource.xml" />
+    <EmbeddedResource Include="Examples\MapControl\FirstLookExample\usa.dbf" />
+    <EmbeddedResource Include="Examples\MapControl\FirstLookExample\usa.shp" />
+    <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_base.shp" />
+    <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Corridors.shp" />
+    <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_LiftsAndLadders.shp" />
+    <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.dbf" />
+    <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.shp" />
+    <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
     <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\AccountDataSource.xml" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\AgenciesDataSource.xml" />
@@ -53,64 +77,443 @@
     <EmbeddedResource Include="Examples\ZipLibraryControl\CreateArchiveExample\Resources\ZipSampleDocuments\RepeatHeaderRows.docx" />
     <EmbeddedResource Include="Examples\ZipLibraryControl\CreateArchiveExample\Resources\ZipSampleDocuments\Sample.pdf" />
     <EmbeddedResource Include="Examples\ZipLibraryControl\CreateArchiveExample\Resources\ZipSampleDocuments\thumbnail.png" />
+    <EmbeddedResource Include="Resources\banner.jpg" />
+    <EmbeddedResource Include="Resources\SampleImage1.jpg" />
+    <EmbeddedResource Include="Resources\SampleImage2.jpg" />
+    <EmbeddedResource Include="Resources\SampleImage3.jpg" />
+    <EmbeddedResource Include="Resources\SampleImage4.jpg" />
+    <EmbeddedResource Include="Resources\SampleImage5.jpg" />
+    <EmbeddedResource Include="Resources\SampleImage6.jpg" />
+    <EmbeddedResource Include="Resources\telerikLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter" Version="1.6.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.6.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="SkiaSharp" Version="1.59.3" />
-    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.59.3" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
-    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.4.859" />
-    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.4.859" />
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.5.870-pre" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.5.870-pre" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Telerik.Documents.Core">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.Core.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.Core.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.Fixed">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.Fixed.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.Fixed.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.SpreadsheetStreaming">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Barcode.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Chart">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Chart.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Common">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Common.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataControls">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataControls.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataGrid">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataGrid.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataVisualization">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ImageEditor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Input">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Input.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Map">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Map.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.PdfViewer">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.PdfViewer.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.PdfViewer.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Primitives">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Zip">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.1.220.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Zip.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Zip.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Controls\AppBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AccordionControl\ConfigurationExample\AccordionConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AccordionControl\ConfigurationExample\ConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AccordionControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AccordionControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AutoCompleteViewControl\ConfigurationExample\ConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AutoCompleteViewControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AutoCompleteViewControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AutoCompleteViewControl\RemoteSearchExample\DetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\AutoCompleteViewControl\RemoteSearchExample\RemoteSearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BarcodeControl\Barcode1DGalleryExample\Barcode1DGalleryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BarcodeControl\BoardingPassExample\BoardingPassView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BarcodeControl\PDF417Example\PDF417ConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BarcodeControl\PDF417Example\PDF417View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BarcodeControl\QRCodeExample\QRCodeConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BarcodeControl\QRCodeExample\QRCodeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BarcodeControl\SpecialOfferExample\SpecialOfferView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BorderControl\ConfigurationExample\ConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BorderControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BusyIndicatorControl\CustomBusyContentExample\CustomBusyContentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BusyIndicatorControl\CustomIndicatorExample\CustomIndicatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BusyIndicatorControl\GalleryExample\GalleryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\BusyIndicatorControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ButtonControl\RecipesExample\RecipesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\DayViewExample\DayViewView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\MonthViewExample\MonthViewView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\MultiDayViewAppointmentsExample\MultiDayViewAppointmentsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\MultiDayViewConfigurationExample\MultiDayViewConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\MultiDayViewConfigurationExample\MultiDayViewPropertiesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\MultiDayViewPeopleExample\MultiDayViewPeopleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\AreaSeriesExample\AreaSeriesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\BarSeriesExample\BarSeriesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\FinancialIndicatorsExample\FinancialIndicators.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\FinancialSeriesExample\FinancialSeriesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\LineSeriesExample\LineSeriesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\NullValuesExample\NullValuesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\PieDonutSeriesExample\PieDonutSeriesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\ScatterSeriesExample\ScatterSeriesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ChartControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CheckBoxControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ConversationalUIControl\ChatRoomExample\ChatRoomView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ConversationalUIControl\HealthCareAssistanceExample\HealthCareAssistanceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ConversationalUIControl\InsuranceAssistanceExample\InsuranceAssistanceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ConversationalUIControl\TravelAssistanceExample\TravelAssistanceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataFormControl\GlobalizationExample\GlobalizationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataFormControl\ReservationsExample\DataFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataFormControl\ReservationsExample\ReservationsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataFormControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\CRUDOperationsExample\AddItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\CRUDOperationsExample\CRUDOperationsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\CRUDOperationsExample\EditItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\CRUDOperationsExample\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\LoadOnDemandExample\LoadOnDemandView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DataGridControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DockLayoutControl\FirstLookExample\DockLayoutConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\DockLayoutControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\EntryControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ExpanderControl\ConfigurationExample\ConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ExpanderControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ExpanderControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\ActivityDashboardExample\ActivityDashboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\ActivityDashboardExample\ChartsTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\ActivityDashboardExample\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\HorizontalGaugeGalleryExample\HorizontalGaugeGalleryItem1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\HorizontalGaugeGalleryExample\HorizontalGaugeGalleryItem2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\HorizontalGaugeGalleryExample\HorizontalGaugeGalleryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\RadialGaugeGalleryExample\RadialGaugeGalleryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\VerticalGaugeGalleryExample\VerticalGaugeGalleryItem1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\VerticalGaugeGalleryExample\VerticalGaugeGalleryItem2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\GaugeControl\VerticalGaugeGalleryExample\VerticalGaugeGalleryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ListViewControl\HeaderFooterExample\HeaderFooterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ListViewControl\LayoutsExample\LayoutsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ListViewControl\ReorderExample\ReorderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ListViewControl\SelectionExample\DetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ListViewControl\SelectionExample\SelectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ListViewControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\MaskedInputControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\MaskedInputControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\NumericInputControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\PathControl\FiguresExample\FiguresView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\PdfViewerControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\PopupControl\ConfigurationExample\ConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\PopupControl\ConfigurationExample\PopupConfigurationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\PopupControl\ContextMenuExample\ContextMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\PopupControl\ModalExample\ModalView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\RatingControl\RestaurantReviewExample\NewReviewView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\RatingControl\RestaurantReviewExample\RestaurantReviewView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\RatingControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\SegmentedControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\SegmentedControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\SideDrawerControl\RecipesExample\RecipesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\SideDrawerControl\SettingsExample\SettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\SlideViewControl\SlidingImagesExample\SlidingImagesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\SlideViewControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\SpreadStreamProcessingControl\GenerateSpreadsheetExample\GenerateSpreadsheetView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TabViewControl\RestaurantMenuExample\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TabViewControl\RestaurantMenuExample\RestaurantExploreItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TabViewControl\RestaurantMenuExample\RestaurantExploreTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TabViewControl\RestaurantMenuExample\RestaurantMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TabViewControl\ThemingExample\ThemingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TreeViewControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TreeViewControl\FirstLookExample\DetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TreeViewControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\TreeViewControl\LoadOnDemandExample\LoadOnDemandView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\ZipLibraryControl\CreateArchiveExample\CreateArchiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ControlExamples\ControlExamplesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Examles\GalleryExampleViewBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Examles\GalleryResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Home\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Info\InfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\OnBoarding\OnBoardingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Search\SearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Themes\ThemesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Examples\ImageEditorControl\FirstLookExample\EditImageView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\ImageEditorControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\PdfProcessingControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

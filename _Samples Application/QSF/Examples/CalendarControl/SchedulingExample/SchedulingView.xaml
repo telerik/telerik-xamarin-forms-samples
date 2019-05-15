@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:local="clr-namespace:QSF.Examples.CalendarControl.SchedulingExample"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.CalendarControl.SchedulingExample.SchedulingView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:CalendarModeToStringConverter x:Key="CalendarModeToStringConverter"/>
+            <local:VisibilityToGridLengthConverter x:Key="VisibilityToGridLengthConverter"/>
+            <converters:InvertedBooleanConverter x:Key="invertedBooleanConverter" />
+        </ResourceDictionary>
+        <Style x:Key="AgendaLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="#C4BEBE"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontFamily" Value="{StaticResource MediumFont}"/>
+        </Style>
+    </ContentView.Resources>
+    <primitives:RadSideDrawer DrawerLength="300"
+                              DrawerTransitionType="SlideInOnTop"
+                              IsOpen="{Binding IsDrawerOpen, Mode=TwoWay}">
+        <primitives:RadSideDrawer.MainContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="{Binding IsAgendaVisible, Converter={StaticResource VisibilityToGridLengthConverter}}"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <input:RadCalendar ViewMode="{Binding SelectedMode.CalendarMode}"
+                                   DisplayDate="{Binding DisplayDate, Mode=TwoWay}"
+                                   AppointmentsSource="{Binding Appointments}"
+                                   SchedulingUiEnabled="True">
+                    <input:RadCalendar.BackgroundColor>
+                        <OnPlatform x:DataType="Color" iOS="White"/>
+                    </input:RadCalendar.BackgroundColor>
+                    <input:RadCalendar.TitleHeight>
+                        <OnPlatform x:DataType="x:Double" Android="54" iOS="44"/>
+                    </input:RadCalendar.TitleHeight>
+                    <input:RadCalendar.AppointmentsStyle>
+                        <input:CalendarAppointmentsStyle DisplayMode="Shape"
+                                                         ShapesOrientation="Horizontal"
+                                                         ShapesHorizontalLocation="Right"
+                                                         ShapesVerticalLocation="Bottom"
+                                                         ShapeType="Ellipse">
+                            <input:CalendarAppointmentsStyle.ShapeSize>
+                                <Size Width="5" Height="5"/>
+                            </input:CalendarAppointmentsStyle.ShapeSize>
+                        </input:CalendarAppointmentsStyle>
+                    </input:RadCalendar.AppointmentsStyle>
+                    <input:RadCalendar.SelectedCellStyle>
+                        <input:CalendarCellStyle>
+                            <input:CalendarCellStyle.BorderColor>
+                                <OnPlatform x:DataType="Color" Android="Accent" iOS="#F0F0F0"/>
+                            </input:CalendarCellStyle.BorderColor>
+                            <input:CalendarCellStyle.BackgroundColor>
+                                <OnPlatform x:DataType="Color" Android="#F5F5F5"/>
+                            </input:CalendarCellStyle.BackgroundColor>
+                        </input:CalendarCellStyle>
+                    </input:RadCalendar.SelectedCellStyle>
+                    <input:RadCalendar.TitleCellStyle>
+                        <input:CalendarCellStyle VerticalTextAlignment="Center"
+                                                 HorizontalTextAlignment="Center">
+                            <input:CalendarCellStyle.TextColor>
+                                <OnPlatform x:DataType="Color" iOS="Black" Android="#3F74D3"/>
+                            </input:CalendarCellStyle.TextColor>
+                            <input:CalendarCellStyle.BackgroundColor>
+                                <OnPlatform x:DataType="Color" Android="#F7F7F7" iOS="White"/>
+                            </input:CalendarCellStyle.BackgroundColor>
+                            <input:CalendarCellStyle.BorderColor>
+                                <OnPlatform x:DataType="Color" iOS="#F0F0F0"/>
+                            </input:CalendarCellStyle.BorderColor>
+                        </input:CalendarCellStyle>
+                    </input:RadCalendar.TitleCellStyle>
+                    <input:RadCalendar.DayNameCellStyle>
+                        <input:CalendarCellStyle>
+                            <input:CalendarCellStyle.TextColor>
+                                <OnPlatform x:DataType="Color" Android="Black"/>
+                            </input:CalendarCellStyle.TextColor>
+                            <input:CalendarCellStyle.FontSize>
+                                <OnPlatform x:DataType="x:Double" Android="11" iOS="12"/>
+                            </input:CalendarCellStyle.FontSize>
+                            <input:CalendarCellStyle.HorizontalTextAlignment>
+                                <OnPlatform x:DataType="TextAlignment" Android="End" iOS="Center"/>
+                            </input:CalendarCellStyle.HorizontalTextAlignment>
+                            <input:CalendarCellStyle.VerticalTextAlignment>
+                                <OnPlatform x:DataType="TextAlignment" iOS="Center"/>
+                            </input:CalendarCellStyle.VerticalTextAlignment>
+                        </input:CalendarCellStyle>
+                    </input:RadCalendar.DayNameCellStyle>
+                    <input:RadCalendar.WeekendCellStyle>
+                        <input:CalendarCellStyle FontSize="16"
+                                                 TextColor="#919191"
+                                                 VerticalTextAlignment="Center">
+                            <input:CalendarCellStyle.HorizontalTextAlignment>
+                                <OnPlatform x:DataType="TextAlignment" Android="End" iOS="Center"/>
+                            </input:CalendarCellStyle.HorizontalTextAlignment>
+                            <input:CalendarCellStyle.BorderColor>
+                                <OnPlatform x:DataType="Color" iOS="#F0F0F0"/>
+                            </input:CalendarCellStyle.BorderColor>
+                            <input:CalendarCellStyle.BorderThickness>
+                                <OnPlatform x:DataType="Thickness" iOS="1, 1, 0, 1"/>
+                            </input:CalendarCellStyle.BorderThickness>
+                        </input:CalendarCellStyle>
+                    </input:RadCalendar.WeekendCellStyle>
+                    <input:RadCalendar.DayCellStyle>
+                        <input:CalendarCellStyle VerticalTextAlignment="Center"
+                                                 FontSize="16">
+                            <input:CalendarCellStyle.TextColor>
+                                <OnPlatform x:DataType="Color" Android="Black"/>
+                            </input:CalendarCellStyle.TextColor>
+                            <input:CalendarCellStyle.HorizontalTextAlignment>
+                                <OnPlatform x:DataType="TextAlignment" Android="End" iOS="Center"/>
+                            </input:CalendarCellStyle.HorizontalTextAlignment>
+                            <input:CalendarCellStyle.BorderColor>
+                                <OnPlatform x:DataType="Color" iOS="#F0F0F0"/>
+                            </input:CalendarCellStyle.BorderColor>
+                            <input:CalendarCellStyle.BorderThickness>
+                                <OnPlatform x:DataType="Thickness" iOS="1, 1, 0, 1"/>
+                            </input:CalendarCellStyle.BorderThickness>
+                        </input:CalendarCellStyle>
+                    </input:RadCalendar.DayCellStyle>
+                    <input:RadCalendar.MultiDayViewSettings>
+                        <input:MultiDayViewSettings IsCurrentTimeIndicatorVisible="True"/>
+                    </input:RadCalendar.MultiDayViewSettings>
+                    <input:RadCalendar.MultiDayViewStyle>
+                        <input:MultiDayViewStyle AppointmentTextColor="Black"
+                                                 AppointmentFontSize="12"
+                                                 TimelineLabelsTextColor="#919191"
+                                                 TimelineLabelsFontSize="12"
+                                                 AllDayAppointmentFontSize="11"
+                                                 AllDayLabelFontSize="12">
+                            <input:MultiDayViewStyle.CurrentTimeIndicatorColor>
+                                <OnPlatform x:DataType="Color" Android="#FF5225" iOS="#FF1744"/>
+                            </input:MultiDayViewStyle.CurrentTimeIndicatorColor>
+                            <input:MultiDayViewStyle.AllDayAppointmentTextColor>
+                                <OnPlatform x:DataType="Color" Android="White" iOS="Black"/>
+                            </input:MultiDayViewStyle.AllDayAppointmentTextColor>
+                            <input:MultiDayViewStyle.AllDayAppointmentBackgroundColor>
+                                <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#E7F4FC"/>
+                            </input:MultiDayViewStyle.AllDayAppointmentBackgroundColor>
+                            <input:MultiDayViewStyle.AllDayLabelTextColor>
+                                <OnPlatform x:DataType="Color" Android="#919191" iOS="#363F84"/>
+                            </input:MultiDayViewStyle.AllDayLabelTextColor>
+                            <input:MultiDayViewStyle.AllDayAreaBackgroundColor>
+                                <OnPlatform x:DataType="Color" Android="White" iOS="#A2BDF8"/>
+                            </input:MultiDayViewStyle.AllDayAreaBackgroundColor>
+                        </input:MultiDayViewStyle>
+                    </input:RadCalendar.MultiDayViewStyle>
+                    <input:RadCalendar.DayViewStyle>
+                        <input:DayViewStyle AppointmentTextColor="Black"
+                                            AppointmentFontSize="12"
+                                            TimelineLabelsTextColor="#919191"
+                                            TimelineLabelsFontSize="12"
+                                            AllDayAppointmentFontSize="11"
+                                            AllDayLabelFontSize="12">
+                            <input:DayViewStyle.AllDayAppointmentTextColor>
+                                <OnPlatform x:DataType="Color" Android="White" iOS="Black"/>
+                            </input:DayViewStyle.AllDayAppointmentTextColor>
+                            <input:DayViewStyle.AllDayAppointmentBackgroundColor>
+                                <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#E7F4FC"/>
+                            </input:DayViewStyle.AllDayAppointmentBackgroundColor>
+                            <input:DayViewStyle.AllDayLabelTextColor>
+                                <OnPlatform x:DataType="Color" Android="#919191" iOS="#363F84"/>
+                            </input:DayViewStyle.AllDayLabelTextColor>
+                            <input:DayViewStyle.AllDayAreaBackgroundColor>
+                                <OnPlatform x:DataType="Color" Android="White" iOS="#A2BDF8"/>
+                            </input:DayViewStyle.AllDayAreaBackgroundColor>
+                        </input:DayViewStyle>
+                    </input:RadCalendar.DayViewStyle>
+                </input:RadCalendar>
+                <telerikDataControls:RadListView Grid.Row="1"
+                                                 ItemsSource="{Binding WeekEvents}"
+                                                 IsVisible="{Binding IsAgendaVisible}"
+                                                 BackgroundColor="White"
+                                                 Margin="16, 8, 0, 0">
+                    <telerikDataControls:RadListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding Path=Key, StringFormat='{}{0:dddd, MMMM d}'}"
+                                   FontSize="15"
+                                   TextColor="Black"
+                                   FontAttributes="Bold"
+                                   Margin="0, 20, 0, 10"
+                                   BackgroundColor="White"
+                                   VerticalTextAlignment="Center"/>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.GroupHeaderTemplate>
+                    <telerikDataControls:RadListView.GroupDescriptors>
+                        <listView:PropertyGroupDescriptor PropertyName="StartDateOnly"/>
+                    </telerikDataControls:RadListView.GroupDescriptors>
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <listView:ListViewLinearLayout ItemLength="48"
+                                                       VerticalItemSpacing="3">
+                        </listView:ListViewLinearLayout>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+                    <telerikDataControls:RadListView.ItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="0" />
+                    </telerikDataControls:RadListView.ItemStyle>
+                    <telerikDataControls:RadListView.SelectedItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="0" />
+                    </telerikDataControls:RadListView.SelectedItemStyle>
+                    <telerikDataControls:RadListView.PressedItemStyle>
+                        <listView:ListViewItemStyle BackgroundColor="Transparent" BorderWidth="0" />
+                    </telerikDataControls:RadListView.PressedItemStyle>
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listView:ListViewTemplateCell>
+                                <listView:ListViewTemplateCell.View>
+                                    <Grid BackgroundColor="{Binding ItemBackgroundColor}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Title}"
+                                               TextColor="Black"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               FontSize="13"
+                                               Margin="15, 12, 0, 12"
+                                               FontFamily="{StaticResource MediumFont}"/>
+                                        <StackLayout Grid.Column="1"
+                                                     StackLayout.Spacing="0"
+                                                     VerticalOptions="Center"
+                                                     Margin="0, 6, 16, 6">
+                                            <Label Text="{Binding StartTimeString}"
+                                                   Style="{StaticResource AgendaLabelStyle}"/>
+                                            <Label Text="{Binding EndTimeString}"
+                                                   Style="{StaticResource AgendaLabelStyle}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </listView:ListViewTemplateCell.View>
+                            </listView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                </telerikDataControls:RadListView>
+                <primitives:RadBorder Grid.Row="2"
+                                      BorderThickness="0, 1, 0, 1"
+                                      BorderColor="#B9C0C4"
+                                      BackgroundColor="#F7F7F7">
+                    <telerikDataControls:NonVirtualizedItemsControl ItemsSource="{Binding Modes}"
+                                                                    SelectedItem="{Binding SelectedMode, Mode=TwoWay}"
+                                                                    Orientation="Horizontal"
+                                                                    HorizontalOptions="CenterAndExpand"
+                                                                    HeightRequest="50">
+                        <telerikDataControls:NonVirtualizedItemsControl.SelectedItemStyle>
+                            <Style TargetType="primitives:RadBorder">
+                                <Setter Property="BackgroundColor">
+                                    <Setter.Value>
+                                        <OnPlatform x:DataType="Color" Android="#EDF0F5" iOS="#EBF1F7"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </telerikDataControls:NonVirtualizedItemsControl.SelectedItemStyle>
+                        <telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid BackgroundColor="Transparent">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Text}"
+                                           FontFamily="{StaticResource IconsFont}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="26">
+                                        <Label.Margin>
+                                            <OnPlatform x:DataType="Thickness" Android="25, 5, 25, 0" iOS="22, 5, 22, 0"/>
+                                        </Label.Margin>
+                                        <Label.TextColor>
+                                            <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                        </Label.TextColor>
+                                    </Label>
+                                    <Label Grid.Row="1"
+                                           Text="{Binding CalendarMode, Converter={StaticResource CalendarModeToStringConverter}}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Margin="0, 3, 0, 3"
+                                           FontSize="10">
+                                        <Label.TextColor>
+                                            <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                        </Label.TextColor>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                    </telerikDataControls:NonVirtualizedItemsControl>
+                </primitives:RadBorder>
+                <Label FontFamily="{StaticResource IconsFont}"
+                       FontSize="26"
+                       Text="&#xe808;"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenDrawerCommand}"/>
+                    </Label.GestureRecognizers>
+                    <Label.TextColor>
+                        <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                    </Label.TextColor>
+                </Label>
+            </Grid>
+        </primitives:RadSideDrawer.MainContent>
+        <primitives:RadSideDrawer.DrawerContent>
+            <StackLayout BackgroundColor="White">
+                <primitives:RadBorder HorizontalOptions="Start"
+                                      CornerRadius="40"
+                                      HeightRequest="80"
+                                      WidthRequest="80"
+                                      Margin="16, 30, 0, 20">
+                    <Image Aspect="AspectFill"
+                           Source="Border_Configuration_Avatar"/>
+                </primitives:RadBorder>
+                <Label Text="Annie Holloway Calendar"
+                       TextColor="#F85446"
+                       FontSize="16"
+                       Margin="16, 0, 0, 16"/>
+                <BoxView HeightRequest="1"
+                         Color="#CCCCCC"
+                         Margin="0, 0, 0, 30"/>
+                <telerikDataControls:NonVirtualizedItemsControl ItemsSource="{Binding Modes}"
+                                                                SelectedItem="{Binding SelectedMode, Mode=TwoWay}"
+                                                                Margin="16, 0, 0, 0">
+                    <telerikDataControls:NonVirtualizedItemsControl.SelectedItemStyle>
+                        <Style TargetType="primitives:RadBorder">
+                            <Setter Property="BackgroundColor">
+                                <Setter.Value>
+                                    <OnPlatform x:DataType="Color" Android="#EDF0F5" iOS="#EBF1F7"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </telerikDataControls:NonVirtualizedItemsControl.SelectedItemStyle>
+                    <telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Transparent"
+                                         Orientation="Horizontal"
+                                         HeightRequest="50">
+                                <Label Text="{Binding Text}"
+                                       FontFamily="{StaticResource IconsFont}"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="30"
+                                       Margin="3, 0, 0, 0   ">
+                                    <Label.TextColor>
+                                        <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                    </Label.TextColor>
+                                </Label>
+                                <Label Text="{Binding CalendarMode, Converter={StaticResource CalendarModeToStringConverter}}"
+                                       Margin="11, 0, 0, 0"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="12">
+                                    <Label.TextColor>
+                                        <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                    </Label.TextColor>
+                                </Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                </telerikDataControls:NonVirtualizedItemsControl>
+            </StackLayout>
+        </primitives:RadSideDrawer.DrawerContent>
+    </primitives:RadSideDrawer>
+</ContentView>

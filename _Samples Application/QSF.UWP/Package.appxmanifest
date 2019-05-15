@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="Telerik.ProgressTelerikUIforXamarinExamples" Publisher="CN=A6114CDA-C037-48BD-B8B6-9F8020555726" Version="2.6.0.0" />
+  <Identity Name="Telerik.ProgressTelerikUIforXamarinExamples" Publisher="CN=A6114CDA-C037-48BD-B8B6-9F8020555726" Version="2.7.0.0" />
   <mp:PhoneIdentity PhoneProductId="23df51ef-c751-4fd9-aeb8-ed64003c6270" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Telerik UI for Xamarin Demo</DisplayName>

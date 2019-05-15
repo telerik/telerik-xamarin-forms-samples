@@ -16,6 +16,7 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
             this.ItemBackgroundColor = itemColor;
             this.LeadBorderColor = leadColor;
             this.StartDate = startTime;
+            this.StartDateOnly = startTime.Date;
             this.Title = eventText;
 
             if (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.UWP)
@@ -43,6 +44,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
         public Color ItemBackgroundColor { get; set; }
 
         public Color LeadBorderColor { get; set; }
+
+        public DateTime StartDateOnly { get; set; }
 
         public string StartTimeString
         {
