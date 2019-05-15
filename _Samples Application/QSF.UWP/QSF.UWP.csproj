@@ -147,47 +147,6 @@
     <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-150.png" />
     <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-200.png" />
     <Content Include="Assets\AutoCompleteView_RemoteSearch.scale-400.png" />
-    <Content Include="Assets\Autocomplete_Theming.scale-100.png" />
-    <Content Include="Assets\Autocomplete_Theming.scale-125.png" />
-    <Content Include="Assets\Autocomplete_Theming.scale-150.png" />
-    <Content Include="Assets\Autocomplete_Theming.scale-200.png" />
-    <Content Include="Assets\Autocomplete_Theming.scale-400.png" />
-    <Content Include="Assets\Autocomplete_Tokens.scale-100.png" />
-    <Content Include="Assets\Autocomplete_Tokens.scale-125.png" />
-    <Content Include="Assets\Autocomplete_Tokens.scale-150.png" />
-    <Content Include="Assets\Autocomplete_Tokens.scale-200.png" />
-    <Content Include="Assets\Autocomplete_Tokens.scale-400.png" />
-    <Content Include="Assets\autocomplete_tokens_beach.jpg" />
-    <Content Include="Assets\autocomplete_tokens_buenos_aires_hotel.jpg" />
-    <Content Include="Assets\autocomplete_tokens_bulgaria_sunny_beach.jpg" />
-    <Content Include="Assets\autocomplete_tokens_bulgaria_tevno_lake.jpg" />
-    <Content Include="Assets\autocomplete_tokens_castel_sant_angelo.jpg" />
-    <Content Include="Assets\autocomplete_tokens_church_st_george_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_featherbed_nature_reserve_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_forbidden_city_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_forest_bulgaria.jpg" />
-    <Content Include="Assets\autocomplete_tokens_georgetown_university.jpg" />
-    <Content Include="Assets\autocomplete_tokens_key_spices_indian_cuisine.jpg" />
-    <Content Include="Assets\autocomplete_tokens_kustendil_bulgaria.jpg" />
-    <Content Include="Assets\autocomplete_tokens_leopard_samburu_reserve.jpg" />
-    <Content Include="Assets\autocomplete_tokens_lioness_nakuru_national_park_kenya.jpg" />
-    <Content Include="Assets\autocomplete_tokens_london_eye_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_maasai_mara_nature_reserve.jpg" />
-    <Content Include="Assets\autocomplete_tokens_madison_square_garden_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_mahamuni_pagoda_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_miraflores_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_museum_qin_terracotta_warriors_horses_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_panichishte_bulgaria.jpg" />
-    <Content Include="Assets\autocomplete_tokens_rent_a_car_or_taxi_in_cuba.jpg" />
-    <Content Include="Assets\autocomplete_tokens_roman_colosseum_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_search.png" />
-    <Content Include="Assets\autocomplete_tokens_shwedagon_pagoda_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_street_shanghai_china.jpg" />
-    <Content Include="Assets\autocomplete_tokens_sunny_beach_bulgaria.jpg" />
-    <Content Include="Assets\autocomplete_tokens_sunny_beach_bulgaria_balloon.jpg" />
-    <Content Include="Assets\autocomplete_tokens_titicaca_lake_attraction.jpg" />
-    <Content Include="Assets\autocomplete_tokens_tsarevets_sound_and_light_veliko_tarnovo.jpg" />
-    <Content Include="Assets\autocomplete_tokens_universal_studios_orlando_harry_potter_theme_park.jpg" />
     <Content Include="Assets\BarCode_1D.scale-100.png" />
     <Content Include="Assets\BarCode_1D.scale-125.png" />
     <Content Include="Assets\BarCode_1D.scale-150.png" />
@@ -1255,6 +1214,11 @@
     <Content Include="Assets\Gauge_VerticalGauge2_Inactive.scale-200.png" />
     <Content Include="Assets\Gauge_VerticalGauge2_Inactive.scale-400.png" />
     <Content Include="Assets\HealthCareBot.png" />
+    <Content Include="Assets\ImageEditor_FirstLook.scale-100.png" />
+    <Content Include="Assets\ImageEditor_FirstLook.scale-125.png" />
+    <Content Include="Assets\ImageEditor_FirstLook.scale-150.png" />
+    <Content Include="Assets\ImageEditor_FirstLook.scale-200.png" />
+    <Content Include="Assets\ImageEditor_FirstLook.scale-400.png" />
     <Content Include="Assets\InsuranceBot.png" />
     <Content Include="Assets\KeyFeature_1.scale-100.png" />
     <Content Include="Assets\KeyFeature_1.scale-125.png" />
@@ -1291,12 +1255,28 @@
     <Content Include="Assets\ListView_Person.scale-150.png" />
     <Content Include="Assets\ListView_Person.scale-200.png" />
     <Content Include="Assets\ListView_Person.scale-400.png" />
+    <Content Include="Assets\Map_FirstLook.scale-100.png" />
+    <Content Include="Assets\Map_FirstLook.scale-125.png" />
+    <Content Include="Assets\Map_FirstLook.scale-150.png" />
+    <Content Include="Assets\Map_FirstLook.scale-200.png" />
+    <Content Include="Assets\Map_FirstLook.scale-400.png" />
+    <Content Include="Assets\Map_HotelFloorPlan.scale-100.png" />
+    <Content Include="Assets\Map_HotelFloorPlan.scale-125.png" />
+    <Content Include="Assets\Map_HotelFloorPlan.scale-150.png" />
+    <Content Include="Assets\Map_HotelFloorPlan.scale-200.png" />
+    <Content Include="Assets\Map_HotelFloorPlan.scale-400.png" />
     <Content Include="Assets\Navigation_Back.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-100.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-125.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-150.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-200.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-400.png" />
+    <Content Include="Assets\PdfProcessing_FirstLook.scale-100.png" />
+    <Content Include="Assets\PdfProcessing_FirstLook.scale-125.png" />
+    <Content Include="Assets\PdfProcessing_FirstLook.scale-150.png" />
+    <Content Include="Assets\PdfProcessing_FirstLook.scale-200.png" />
+    <Content Include="Assets\PdfProcessing_FirstLook.scale-400.png" />
+    <Content Include="Assets\PdfProcessing_FirstLook_Screen.scale-100.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-100.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-125.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-150.png" />
@@ -1373,6 +1353,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DeviceInfo\DeviceInfoService.cs" />
+    <Compile Include="Services\FileSystem\FileSystemService.cs" />
     <Compile Include="Services\FileViewer\FileViewerService.cs" />
     <Compile Include="Services\Toast\ToastMessageService.cs" />
     <Compile Include="Services\XmlDocumentReader\XPathXmlReaderService.cs" />
@@ -1758,25 +1739,25 @@
       <Version>11.0.2</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp">
-      <Version>1.59.3</Version>
+      <Version>1.68.0</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
-      <Version>1.59.3</Version>
+      <Version>1.68.0</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
-      <Version>2.4.4.859</Version>
+      <Version>2.4.5.870-pre</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
-      <Version>2.4.4.859</Version>
+      <Version>2.4.5.870-pre</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
-      <Version>2.4.4.859</Version>
+      <Version>2.4.5.870-pre</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.4.0.1008975</Version>
+      <Version>3.6.0.264807</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

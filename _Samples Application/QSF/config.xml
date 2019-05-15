@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R1 2019</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R2 2019</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutContent>Telerik® UI for Xamarin is a suite of components for building great Xamarin.Forms apps for the most popular mobile platforms including iOS, from a single shared C# code base. With Progress® Telerik® UI for Xamarin you can easily implement various functionalities in your Xamarin.Forms projects and achieve the same scenarios across different platforms.</QSFAboutContent>
@@ -90,13 +90,13 @@
       <Name>AutoCompleteView</Name>
       <DisplayName>AutoCompleteView</DisplayName>
       <Image>AutoCompleteView_FirstLook.png</Image>
-      <DescriptionHeader>AutoComplete</DescriptionHeader>
+      <DescriptionHeader>AutoCompleteView</DescriptionHeader>
       <ShortDescription>RadAutoCompleteView control can automatically complete user input string by comparing the text being entered to all strings in the associated data source.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin AutoCompleteView can automatically complete user input string by comparing the text being entered to all strings in the associated data source. The control has a number of advanced features such as different filtering options, tokens support and remote search, as well as full customization capabilities.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/autocompleteview/autocompleteview-overview</DocumentationURL>
-      <Latest>4</Latest>
+      <Latest>0</Latest>
       <Featured>0</Featured>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -214,7 +214,7 @@
         <Example>
           <Name>FirstLook</Name>
           <Image>Border_FirstLook.png</Image>
-          <DescriptionHeader>FirstLook</DescriptionHeader>
+          <DescriptionHeader>First Look</DescriptionHeader>
           <Description>This example shows how you could wrap RadBorder around different Views, such as Label and Image. In the case of the Image you could benefit from RadBorder's clipping functionality and have circular images and in the case of the Label you have different corner radius on the four angles.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BorderControl/FirstLookExample</CodeURL>
@@ -325,9 +325,10 @@
           <DisplayName>Month View</DisplayName>
           <Image>Calendar_Appointments.png</Image>
           <DescriptionHeader>Month View</DescriptionHeader>
-          <Description>The example demonstrates how the Calendar control displays dates of a month, showing how events information can be integrated in the Calendar cell's content.</Description>
+          <Description>The example demonstrates how the Calendar control displays dates of a month, showing how events information can be integrated in the Calendar cell's content. You can control the selection mode from the SideDrawer to show different events in the Agenda View</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/MonthViewExample</CodeURL>
+          <IsThemable>false</IsThemable>
         </Example>
         <Example>
           <Name>DayView</Name>
@@ -337,6 +338,17 @@
           <Description>Day view mode of RadCalendar with all day area, configurable time ruler and API allowing you to schedule appointments and achieve your scheduling functionality.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/DayViewExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Scheduling</Name>
+          <DisplayName>Scheduling</DisplayName>
+          <Image>Calendar_AllViews.png</Image>
+          <DescriptionHeader>Scheduling</DescriptionHeader>
+          <Description>This example demonstrates the scheduling capabilities and some of the built-in view modes of the control. The end-user could easily switch the modes using the toolbar or using the UI provided in the SideDrawer control.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/SchedulingExample</CodeURL>
+          <IsThemable>false</IsThemable>
+          <ExcludeFrom>UWP</ExcludeFrom>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -556,7 +568,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>Reservations</Name>
@@ -656,9 +668,9 @@
       <ShortDescription>RadDockLayout is a layout that provides a mechanism for child elements to be docked to the left, right, top or bottom edge or to occupy the center area of the layout.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin DockLayout is a layout that provides a mechanism for child elements to be docked to the left, right, top or bottom edge of the layout. You could easily define the docking side of each element through a RadDockLayout.Dock attached property. In addition, you can determine whether the last child element inside the layout will occupy the remaining available space.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/docklayout/docklayout-overview</DocumentationURL>
-      <Latest>3</Latest>
+      <Latest>0</Latest>
       <Featured>0</Featured>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -799,6 +811,33 @@
       </Examples>
     </Control>
     <Control>
+      <Name>ImageEditor</Name>
+      <DisplayName>ImageEditor</DisplayName>
+      <Image>ImageEditor_FirstLook.png</Image>
+      <DescriptionHeader>ImageEditor</DescriptionHeader>
+      <ShortDescription>ImageEditor is a component that enables you to easily visualize and edit images in different file formats in your mobile application.</ShortDescription>
+      <FullDescription>Telerik UI for Xamarin ImageEditor is a component enables you to easily visualize and edit images in different file formats in your mobile application. As an addition to the RadImageEditor control you can use an UI - RadImageEditorToolbar. This UI includes all editing capabilities of the control and it could be easily customized.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/imageeditor/imageeditor-overview</DocumentationURL>
+      <Latest>1</Latest>
+      <Featured>8</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <IsThemable>false</IsThemable>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>ImageEditor_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>Demonstrates the built-in image editing capabilities of the ImageEditor component.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ImageEditorControl/FirstLookExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
       <Name>ListView</Name>
       <DisplayName>ListView</DisplayName>
       <Image>ListView_Layouts.png</Image>
@@ -811,7 +850,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>Selection</Name>
@@ -868,11 +907,11 @@
       <ShortDescription>RadPdfViewer is a control that can visualize PDF documents straight into your application.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin PdfViewer is a control that can visualize PDF documents straight into your application. It has been made more than simple with the exposed commands that can be easily bound to and the full integration with the RadPdfViewerToolbar.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/pdfviewer/pdfviewer-overview</DocumentationURL>
-      <Latest>1</Latest>
+      <Latest>0</Latest>
       <Featured>7</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
-      <IsBeta>true</IsBeta>
+      <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
@@ -886,6 +925,32 @@
       </Examples>
     </Control>
     <Control>
+      <Name>PdfProcessing</Name>
+      <DisplayName>PdfProcessing</DisplayName>
+      <Image>PdfProcessing_FirstLook.png</Image>
+      <DescriptionHeader>PdfProcessing</DescriptionHeader>
+      <ShortDescription>RadPdfProcessing is a processing library that allows creation, import and export of PDF documents. </ShortDescription>
+      <FullDescription>The API of RadPdfProcessing contains two different editors, enabling you to choose between editing in a flow-like manner, or using the much more powerful and flexible fixed document structure and drawing on the page.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview</DocumentationURL>
+      <Latest>3</Latest>
+      <Featured>0</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <IsThemable>false</IsThemable>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>PdfProcessing_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>Telerik RadPdfProcessing provides easy to use API which allows code-only generation of PDF documents. This example demonstrates how to create a document containing images, text and shapes and export it to PDF.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfProcessingControl/FirstLookExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
       <Name>Popup</Name>
       <DisplayName>Popup</DisplayName>
       <Image>Popup_ContextMenu.png</Image>
@@ -893,9 +958,9 @@
       <ShortDescription>With RadPopup you could easily add modal popups to your application in order to draw attention to important information or receive user input.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Popup lets you display content of your choice on top of existing view. You could define whether the Popup will be modal or not as well as control its position through various placement settings.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/popup/popup-overview</DocumentationURL>
-      <Latest>2</Latest>
+      <Latest>0</Latest>
       <Featured>0</Featured>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -974,6 +1039,40 @@
       </Examples>
     </Control>
     <Control>
+      <Name>Map</Name>
+      <DisplayName>Map</DisplayName>
+      <Image>Map_FirstLook.png</Image>
+      <DescriptionHeader>Map</DescriptionHeader>
+      <ShortDescription>RadMap is a control that can visualize stunning map overlays through ESRI Shapefiles straight into your application.</ShortDescription>
+      <FullDescription>Telerik UI for Xamarin Map lets you display stunning map overlays using ESRI Shapefiles. The control provides support for labels, multiple, single selection and powerful customization APIs.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/map/map-overview</DocumentationURL>
+      <Latest>2</Latest>
+      <Featured>0</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <IsThemable>false</IsThemable>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>Map_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>An example that demonstrates how the Map can easily visualize an embedded into your application ESRI Shapefile.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/MapControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>HotelFloorPlan</Name>
+          <Image>Map_HotelFloorPlan.png</Image>
+          <DescriptionHeader>Hotel Floor Plan</DescriptionHeader>
+          <Description>This example demonstrates the usage of custom shapefile to represent hotel floor plan and allows you to interact with it.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/MapControl/HotelFloorPlanExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
       <Name>MaskedInput</Name>
       <DisplayName>MaskedInput</DisplayName>
       <Image>MaskedInput_FirstLook.png</Image>
@@ -991,7 +1090,7 @@
         <Example>
           <Name>FirstLook</Name>
           <Image>MaskedInput_FirstLook.png</Image>
-          <DescriptionHeader>FirstLook</DescriptionHeader>
+          <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Demonstrates the RadMaskedInput.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/MaskedInputControl/FirstLookExample</CodeURL>

@@ -2,29 +2,45 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:QSF.Views"
-             xmlns:local="clr-namespace:QSF.Examples.TabViewControl.ThemingExample"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              x:Class="QSF.Examples.TabViewControl.ThemingExample.ThemingView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="ListViewItemTemplate">
+                <listView:ListViewTemplateCell>
+                    <listView:ListViewTemplateCell.View>
+                        <Grid Margin="16">
+                            <Label Text="{Binding }" />
+                        </Grid>
+                    </listView:ListViewTemplateCell.View>
+                </listView:ListViewTemplateCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
     <Grid BackgroundColor="#FFF8F8F8">
         <telerikPrimitives:RadTabView views:ThemesBehavior.StyleClass="TelerikTheme">
             <telerikPrimitives:RadTabView.Items>
                 <telerikPrimitives:TabViewItem HeaderText="FRANCE" >
                     <telerikPrimitives:TabViewItem.Content>
                         <telerikDataControls:RadListView ItemsSource="{Binding FranceShips}"
-                                                         views:ThemesBehavior.StyleClass="TelerikTheme" />
+                                                         views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                         ItemTemplate="{StaticResource ListViewItemTemplate}"/>
                     </telerikPrimitives:TabViewItem.Content>
                 </telerikPrimitives:TabViewItem>
                 <telerikPrimitives:TabViewItem HeaderText="ITALY">
                     <telerikPrimitives:TabViewItem.Content>
                         <telerikDataControls:RadListView ItemsSource="{Binding ItalyShips}"
-                                                         views:ThemesBehavior.StyleClass="TelerikTheme" />
+                                                         views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                         ItemTemplate="{StaticResource ListViewItemTemplate}" />
                     </telerikPrimitives:TabViewItem.Content>
                 </telerikPrimitives:TabViewItem>
                 <telerikPrimitives:TabViewItem HeaderText="SPAIN">
                     <telerikPrimitives:TabViewItem.Content>
                         <telerikDataControls:RadListView ItemsSource="{Binding SpainShips}"
-                                                         views:ThemesBehavior.StyleClass="TelerikTheme" />
+                                                         views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                         ItemTemplate="{StaticResource ListViewItemTemplate}" />
                     </telerikPrimitives:TabViewItem.Content>
                 </telerikPrimitives:TabViewItem>
             </telerikPrimitives:RadTabView.Items>

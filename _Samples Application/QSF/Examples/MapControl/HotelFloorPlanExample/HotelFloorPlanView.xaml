@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:map="clr-namespace:Telerik.XamarinForms.Map;assembly=Telerik.XamarinForms.Map"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.MapControl.HotelFloorPlanExample.HotelFloorPlanView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <map:MapShapeLabelStyle x:Key="ShapeLabelStyle" 
+                                    TextColor="White"
+                                    FontSize="9"
+                                    FontFamily="Arial"/>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Text="Floor Plan"
+               FontSize="19"
+               Margin="24, 18, 0, 18"
+               TextColor="#4B4C4C"/>
+        <map:RadMap x:Name="map"
+                    Grid.Row="1">
+            <map:RadMap.MinZoomLevel>
+                <OnPlatform x:DataType="x:Double" Default="11" UWP="13"/>
+            </map:RadMap.MinZoomLevel>
+            <map:RadMap.Layers>
+                <map:ShapefileLayer>
+                    <map:ShapefileLayer.Reader>
+                        <map:MapShapeReader Source="{Binding BaseSource}"/>
+                    </map:ShapefileLayer.Reader>
+                    <map:ShapefileLayer.ShapeStyle>
+                        <map:MapShapeStyle FillColor="#BFBFBF" StrokeWidth="0"/>
+                    </map:ShapefileLayer.ShapeStyle>
+                </map:ShapefileLayer>
+                <map:ShapefileLayer>
+                    <map:ShapefileLayer.Reader>
+                        <map:MapShapeReader Source="{Binding CorridorsSource}"/>
+                    </map:ShapefileLayer.Reader>
+                    <map:ShapefileLayer.ShapeStyle>
+                        <map:MapShapeStyle FillColor="#F0F0F0" StrokeWidth="0"/>
+                    </map:ShapefileLayer.ShapeStyle>
+                </map:ShapefileLayer>
+                <map:ShapefileLayer>
+                    <map:ShapefileLayer.Reader>
+                        <map:MapShapeReader Source="{Binding ServiceRoomsSource}"/>
+                    </map:ShapefileLayer.Reader>
+                    <map:ShapefileLayer.ShapeStyle>
+                        <map:MapShapeStyle FillColor="#7E7E7E" StrokeWidth="0"/>
+                    </map:ShapefileLayer.ShapeStyle>
+                </map:ShapefileLayer>
+                <map:ShapefileLayer>
+                    <map:ShapefileLayer.Reader>
+                        <map:MapShapeReader Source="{Binding LiftsAndLaddersSource}"/>
+                    </map:ShapefileLayer.Reader>
+                    <map:ShapefileLayer.ShapeStyle>
+                        <map:MapShapeStyle FillColor="#CDCDCE" StrokeWidth="0"/>
+                    </map:ShapefileLayer.ShapeStyle>
+                </map:ShapefileLayer>
+                <map:ShapefileLayer x:Name="roomsLayer"
+                                    ShapeLabelStyle="{StaticResource ShapeLabelStyle}"
+                                    ShapeStyleSelector="{Binding ShapeStyleSelector, Mode=TwoWay}"
+                                    LabelAttributeName="Name"
+                                    SelectionMode="Single"
+                                    SelectedShape="{Binding SelectedRoom, Mode=TwoWay}">
+                    <map:ShapefileLayer.SelectedShapeStyle>
+                        <map:MapShapeStyle FillColor="#327F99" StrokeWidth="0"/>
+                    </map:ShapefileLayer.SelectedShapeStyle>
+                    <map:ShapefileLayer.Reader>
+                        <map:MapShapeReader Source="{Binding RoomsSource}"
+                                            DataSource="{Binding RoomsDataSource}"/>
+                    </map:ShapefileLayer.Reader>
+                </map:ShapefileLayer>
+            </map:RadMap.Layers>
+        </map:RadMap>
+        <StackLayout Grid.Row="2">
+            <Label FontSize="14"
+                   TextColor="#4B4C4C"
+                   Margin="0, 5, 0, 0"
+                   HeightRequest="20"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding RegistrationOperationText}"/>
+            <primitives:RadBorder IsEnabled="{Binding IsRegisterEnabled}"
+                                  Margin="0, 16, 0, 0"
+                                  CornerRadius="23"
+                                  BackgroundColor="#FE6078"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="End">
+                <Label Text="{Binding RegistrationText}"
+                       TextColor="#FFFFFF"
+                       FontAttributes="Bold"
+                       FontSize="14"
+                       Margin="25, 12, 25, 12"/>
+                <primitives:RadBorder.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                </primitives:RadBorder.GestureRecognizers>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#FFA7B4"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </primitives:RadBorder>
+            <StackLayout Margin="24, 35, 0, 30">
+                <Label Text="Legend:"
+                       FontSize="14"
+                       Margin="0, 0, 0, 16"
+                       TextColor="#4B4C4C"/>
+                <dataControls:RadListView ItemsSource="{Binding RoomStates}" 
+                                          SelectionMode="None">
+                    <dataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listView:ListViewTemplateCell>
+                                <listView:ListViewTemplateCell.View>
+                                    <StackLayout Orientation="Horizontal">
+                                        <BoxView BackgroundColor="{Binding StateColor}"
+                                                 WidthRequest="32" 
+                                                 HeightRequest="12"
+                                                 VerticalOptions="CenterAndExpand"
+                                                 Margin="0, 0, 8, 0"/>
+                                        <Label Text="{Binding State}" 
+                                               TextColor="#8E8E93"
+                                               VerticalTextAlignment="Center"
+                                               FontSize="12"/>
+                                    </StackLayout>
+                                </listView:ListViewTemplateCell.View>
+                            </listView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </dataControls:RadListView.ItemTemplate>
+                    <dataControls:RadListView.LayoutDefinition>
+                        <listView:ListViewGridLayout SpanCount="2" 
+                                                     Orientation="Vertical"
+                                                     VerticalItemSpacing="2"
+                                                     ItemLength="20">
+                        </listView:ListViewGridLayout>
+                    </dataControls:RadListView.LayoutDefinition>
+                    <dataControls:RadListView.ItemStyle>
+                        <listView:ListViewItemStyle BorderLocation="None" 
+                                                    BackgroundColor="Transparent"/>
+                    </dataControls:RadListView.ItemStyle>
+                </dataControls:RadListView>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentView>

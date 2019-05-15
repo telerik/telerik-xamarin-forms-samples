@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:QSF.Effects"
+             xmlns:example="clr-namespace:QSF.Examples.ImageEditorControl.FirstLookExample"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikImageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
+             x:Class="QSF.Examples.ImageEditorControl.FirstLookExample.EditImageView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type telerikImageEditor:ImageEditorToolbarItem}"
+                   ApplyToDerivedTypes="True">
+                <Setter Property="TextColor"
+                        Value="#007AFF" />
+            </Style>
+            <Style TargetType="{x:Type Slider}">
+                <Setter Property="effects:SliderColorEffect.SliderColor"
+                        Value="#007AFF" />
+                <Setter Property="ThumbColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android, UWP"
+                                Value="#007AFF" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid BackgroundColor="#4A4E52">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <BoxView HeightRequest="1"
+                     BackgroundColor="Black" />
+            <Grid Grid.Row="1"
+                  Padding="10,0"
+                  HeightRequest="56">
+                <telerikInput:RadButton Text="Discard"
+                                        TextColor="White"
+                                        BorderWidth="0"
+                                        BorderColor="Transparent"
+                                        BackgroundColor="Transparent"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center" 
+                                        Command="{Binding BackCommand}" />
+                <telerikInput:RadButton Text="Save"
+                                        TextColor="White"
+                                        BorderWidth="0"
+                                        BorderColor="Transparent"
+                                        BackgroundColor="Transparent"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center" 
+                                        Command="{Binding SaveCommand}">
+                    <telerikInput:RadButton.CommandParameter>
+                        <example:ImageContext ImageEditor="{x:Reference imageEditor}" />
+                    </telerikInput:RadButton.CommandParameter>
+                </telerikInput:RadButton>
+            </Grid>
+            <BoxView Grid.Row="2"
+                     HeightRequest="1"
+                     BackgroundColor="Black" />
+        </Grid>
+        <telerikImageEditor:RadImageEditor x:Name="imageEditor"
+                                           Grid.Row="1"
+                                           Padding="4"
+                                           BackgroundColor="#C9C9C9"
+                                           Source="{Binding Image}"
+                                           AutomationId="imageEditor"/>
+        <telerikImageEditor:RadImageEditorToolbar Grid.Row="2"
+                                                  Padding="4"
+                                                  BackgroundColor="#F7F7F7"
+                                                  ImageEditor="{x:Reference imageEditor}"
+                                                  AutomationId="imageEditorToolbar"/>
+    </Grid>
+</ContentPage>

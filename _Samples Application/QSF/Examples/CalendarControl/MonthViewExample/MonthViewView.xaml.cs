@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Telerik.XamarinForms.Input;
 using Xamarin.Forms;
 
@@ -119,6 +120,19 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
             }
 
             return null; // default style
+        }
+
+        private void Calendar_SelectionChanged(object sender, Telerik.XamarinForms.Common.ValueChangedEventArgs<object> e)
+        {
+            var viewModel = this.BindingContext as MonthViewViewModel;
+            if (viewModel != null)
+            {
+                viewModel.SelectedEvents.Clear();
+                foreach (var date in calendar.SelectedDates.OrderBy(x => x.Date))
+                {
+                    viewModel.UpdateSelectedEvents(date);
+                }
+            }
         }
     }
 }

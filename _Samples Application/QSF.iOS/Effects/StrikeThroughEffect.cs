@@ -14,7 +14,7 @@ namespace QSF.iOS.Effects
         {
             var label = this.Control as UILabel;
 
-            if (label != null)
+            if (label != null && !string.IsNullOrEmpty(label.Text))
             {
                 var text = new NSMutableAttributedString(label.Text);
                 var range = new NSRange(0, text.Length);
@@ -29,7 +29,7 @@ namespace QSF.iOS.Effects
         {
             var label = this.Control as UILabel;
 
-            if (label != null)
+            if (label != null && !string.IsNullOrEmpty(label.Text))
             {
                 var text = new NSMutableAttributedString(label.Text);
                 var range = new NSRange(0, text.Length);
