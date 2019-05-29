@@ -129,7 +129,7 @@
         <Example>
           <Name>Customization</Name>
           <Image>AutoCompleteView_Customization.png</Image>
-          <DescriptionHeader>Configuration</DescriptionHeader>
+          <DescriptionHeader>Customization</DescriptionHeader>
           <Description>This example presents how the AutoCompleteView control templates could be customized.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AutoCompleteViewControl/CustomizationExample</CodeURL>
@@ -520,7 +520,7 @@
           <Name>TravelAssistance</Name>
           <DisplayName>Travel Assistance</DisplayName>
           <Image>ChatBot_Vacation.png</Image>
-          <DescriptionHeader>TravelAssistance</DescriptionHeader>
+          <DescriptionHeader>Travel Assistance</DescriptionHeader>
           <Description>This example demonstrates a possible implementation of the RadChat control for a travel agency by integrating it with the Microsoft Bot Framework via Azure Bot Service.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ConversationalUIControl/TravelAssistanceExample</CodeURL>
@@ -529,7 +529,7 @@
           <Name>InsuranceAssistance</Name>
           <DisplayName>Insurance Assistance</DisplayName>
           <Image>ChatBot_Insurance.png</Image>
-          <DescriptionHeader>InsuranceAssistance</DescriptionHeader>
+          <DescriptionHeader>Insurance Assistance</DescriptionHeader>
           <Description>This example demonstrates a possible implementation of the RadChat control for a car insurance company by integrating it with Google’s DialogFlow framework.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ConversationalUIControl/InsuranceAssistanceExample</CodeURL>
@@ -538,7 +538,7 @@
           <Name>HealthCareAssistance</Name>
           <DisplayName>Healthcare Assistance</DisplayName>
           <Image>ChatBot_HealthCare.png</Image>
-          <DescriptionHeader>HealthCareAssistance</DescriptionHeader>
+          <DescriptionHeader>Healthcare Assistance</DescriptionHeader>
           <Description>This example demonstrates a possible implementation of the RadChat control for a health insurance company by integrating it with the Microsoft Bot Framework via Azure Bot Service.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ConversationalUIControl/HealthCareAssistanceExample</CodeURL>
@@ -642,7 +642,7 @@
         <Example>
           <Name>LoadOnDemand</Name>
           <Image>DataGrid_LoadOnDemand.png</Image>
-          <DescriptionHeader>LoadOnDemand</DescriptionHeader>
+          <DescriptionHeader>Load On Demand</DescriptionHeader>
           <Description>Loading a large data set on a mobile device has its challenges. One of the most popular approaches is using incremental data loading in the moment the items need to be visualized. This example demonstrates how you could utilize the LoadOnDemand feature of RadDataGrid to load the data items when the "Load More" button is activated. Additionally, RadDataGrid offers automatic LoadOnDemand mode in which the items are loaded once you scroll near to the last available record.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
@@ -664,7 +664,7 @@
       <Name>DockLayout</Name>
       <DisplayName>DockLayout</DisplayName>
       <Image>DockPanel_Configuration.png</Image>
-      <DescriptionHeader>Dock Layout</DescriptionHeader>
+      <DescriptionHeader>DockLayout</DescriptionHeader>
       <ShortDescription>RadDockLayout is a layout that provides a mechanism for child elements to be docked to the left, right, top or bottom edge or to occupy the center area of the layout.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin DockLayout is a layout that provides a mechanism for child elements to be docked to the left, right, top or bottom edge of the layout. You could easily define the docking side of each element through a RadDockLayout.Dock attached property. In addition, you can determine whether the last child element inside the layout will occupy the remaining available space.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/docklayout/docklayout-overview</DocumentationURL>
@@ -1030,7 +1030,7 @@
         <Example>
           <Name>LoadOnDemand</Name>
           <Image>TreeView_LoadOnDemand.png</Image>
-          <DescriptionHeader>LoadOnDemand</DescriptionHeader>
+          <DescriptionHeader>Load On Demand</DescriptionHeader>
           <Description>Demonstrates how you could utilize Load On Demand feature in order to delay the population of RadTreeView and load subitems only when they’re requested, thus improving the performance of your app.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
