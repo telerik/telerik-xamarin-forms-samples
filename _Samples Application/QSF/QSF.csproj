@@ -91,63 +91,11 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.6.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.2.513.1" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.5.870-pre" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.5.870-pre" />
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Telerik.Documents.Core">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Documents.Fixed">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.Fixed.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Documents.SpreadsheetStreaming">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Barcode.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Chart">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Chart.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Common">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.DataControls">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataControls.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.DataGrid">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataGrid.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.DataVisualization">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.DataVisualization.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.ImageEditor">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.ImageEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Input">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Input.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Map">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Map.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.PdfViewer">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.PdfViewer.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Primitives">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.SkiaSharp">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Zip">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\portable-net45+win8+wpa81+wp8\Telerik.Zip.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Update="App.xaml">
