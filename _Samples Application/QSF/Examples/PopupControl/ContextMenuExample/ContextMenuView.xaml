@@ -91,7 +91,7 @@
             <DataTemplate x:Key="FolderItemTemplate">
                 <Grid>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End"/>
-                    <Grid HeightRequest="40"
+                    <Grid HeightRequest="44"
                           Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -100,12 +100,12 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <telerikPrimitives:RadBusyIndicator WidthRequest="40"
+                        <telerikPrimitives:RadBusyIndicator WidthRequest="44"
                                                             AnimationContentColor="#2D50A7"
                                                             AnimationType="Animation9"
                                                             IsBusy="{Binding Path=IsLoading}">
                             <telerikPrimitives:RadBusyIndicator.Content>
-                                <Grid WidthRequest="40">
+                                <Grid WidthRequest="44">
                                     <treeView:ExpandCollapseIndicator HorizontalOptions="Center"
                                                                       HorizontalTextAlignment="Center"
                                                                       VerticalTextAlignment="Center"
@@ -182,7 +182,7 @@
             <DataTemplate x:Key="FileItemTemplate">
                 <Grid>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End" />
-                    <Grid HeightRequest="40"
+                    <Grid HeightRequest="44"
                           Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -191,7 +191,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <treeView:ExpandCollapseIndicator WidthRequest="40"
+                        <treeView:ExpandCollapseIndicator WidthRequest="44"
                                                           HorizontalOptions="Center"
                                                           HorizontalTextAlignment="Center"
                                                           VerticalTextAlignment="Center"

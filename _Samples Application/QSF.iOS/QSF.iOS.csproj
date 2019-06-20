@@ -37,6 +37,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386, x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <MtouchDebug>false</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -300,59 +301,44 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Telerik.Documents.Core, Version=2019.2.508.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.Documents.Core.dll</HintPath>
+    <Reference Include="Telerik.Xamarin.iOS">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.Xamarin.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Documents.Fixed, Version=2019.2.508.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.Documents.Fixed.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Barcode">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Documents.SpreadsheetStreaming, Version=2019.2.508.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.iOS, Version=2019.2.513.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.Xamarin.iOS.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Barcode, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.Barcode.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Chart, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.Chart.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Common, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.Common.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.ConversationalUI, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataControls, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.DataControls.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.ImageEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataGrid, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataVisualization, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Map">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.Map.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.ImageEditor, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Input, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.Input.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Map, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.Map.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.PdfViewer, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.PdfViewer.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Primitives, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.SkiaSharp, Version=2019.2.513.360, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Zip, Version=2019.2.508.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.513.1\lib\xamarinios10\Telerik.Zip.dll</HintPath>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.2.619.1\lib\xamarinios10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="WebP.Touch, Version=1.0.6628.22311, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebP.Touch.1.0.8\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>
@@ -4161,6 +4147,18 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\PdfProcessing_FirstLook_Screen%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TelerikXamarin_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TelerikXamarin_Logo%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TelerikXamarin_Logo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TelerikXamarin_Logo%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

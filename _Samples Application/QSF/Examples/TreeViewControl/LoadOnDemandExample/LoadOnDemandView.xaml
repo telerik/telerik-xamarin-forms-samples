@@ -16,14 +16,14 @@
                 <Grid>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End"/>
                     <StackLayout Orientation="Horizontal"
-                                 HeightRequest="40"
+                                 HeightRequest="44"
                                  Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
-                        <telerikPrimitives:RadBusyIndicator WidthRequest="40"
+                        <telerikPrimitives:RadBusyIndicator WidthRequest="44"
                                                             AnimationContentColor="#2D50A7"
                                                             AnimationType="Animation9"
                                                             IsBusy="{Binding Path=IsLoading}">
                             <telerikPrimitives:RadBusyIndicator.Content>
-                                <Grid WidthRequest="40">
+                                <Grid WidthRequest="44">
                                     <treeView:ExpandCollapseIndicator HorizontalOptions="Center"
                                                                       HorizontalTextAlignment="Center"
                                                                       VerticalTextAlignment="Center"
@@ -85,9 +85,9 @@
                 <Grid>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End"/>
                     <StackLayout Orientation="Horizontal"
-                                 HeightRequest="40"
+                                 HeightRequest="44"
                                  Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
-                        <treeView:ExpandCollapseIndicator WidthRequest="40"
+                        <treeView:ExpandCollapseIndicator WidthRequest="44"
                                                           HorizontalOptions="Center"
                                                           HorizontalTextAlignment="Center"
                                                           VerticalTextAlignment="Center"

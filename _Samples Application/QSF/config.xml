@@ -3,10 +3,12 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R2 2019</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R2 2019 SP1</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
-  <QSFAboutContent>Telerik® UI for Xamarin is a suite of components for building great Xamarin.Forms apps for the most popular mobile platforms including iOS, from a single shared C# code base. With Progress® Telerik® UI for Xamarin you can easily implement various functionalities in your Xamarin.Forms projects and achieve the same scenarios across different platforms.</QSFAboutContent>
+  <QSFAboutImageName>TelerikXamarin_Logo.png</QSFAboutImageName>
+  <QSFAboutLinkText>Telerik® UI for Xamarin</QSFAboutLinkText>
+  <QSFAboutContent>This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms such as Android and iOS, as well as UWP.</QSFAboutContent>
   <SplashScreen>
     <Title>Telerik UI for Xamarin</Title>
     <Icon>Logo.png</Icon>
