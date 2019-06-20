@@ -16,6 +16,10 @@ namespace QSF.Services.Configuration
 
         public string QSFAboutHeader { get; set; }
 
+        public string QSFAboutImageName { get; set; }
+
+        public string QSFAboutLinkText { get; set; }
+
         public string QSFAboutContent { get; set; }
 
         public SplashScreen SplashScreen { get; set; }

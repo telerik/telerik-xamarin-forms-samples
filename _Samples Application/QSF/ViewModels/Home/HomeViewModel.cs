@@ -115,8 +115,10 @@ namespace QSF.ViewModels
             var configurationService = DependencyService.Get<IConfigurationService>();
             var aboutContent = configurationService.GetQSFAboutContent();
             var aboutHeader = configurationService.GetQSFAboutHeader();
+            var aboutImageName = configurationService.GetQSFAboutImageName();
+            var aboutLinkText = configurationService.GetQSFAboutLinkText();
 
-            InfoViewSettings settings = new InfoViewSettings(InfoType.About, aboutHeader, aboutContent);
+            InfoViewSettings settings = new InfoViewSettings(InfoType.About, aboutHeader, aboutContent, aboutLinkText, aboutImageName);
             this.NavigationService.NavigateToAsync<InfoViewModel>(settings);
         }
 

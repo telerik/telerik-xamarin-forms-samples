@@ -123,6 +123,16 @@ namespace QSF.Services
             return this.configuration.QSFAboutHeader;
         }
 
+        public string GetQSFAboutLinkText()
+        {
+            return this.configuration.QSFAboutLinkText;
+        }
+
+        public string GetQSFAboutImageName()
+        {
+            return this.configuration.QSFAboutImageName;
+        }
+
         public string GetQSFAboutContent()
         {
             return this.configuration.QSFAboutContent;

@@ -2,6 +2,9 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <UsePublicRepo>true</UsePublicRepo>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{6BBC9A44-B0C5-4BEC-B257-D6EC2B86E127}</ProjectGuid>
@@ -1590,6 +1593,11 @@
     <Content Include="Assets\TabView_Theming.scale-150.png" />
     <Content Include="Assets\TabView_Theming.scale-200.png" />
     <Content Include="Assets\TabView_Theming.scale-400.png" />
+    <Content Include="Assets\TelerikXamarin_Logo.scale-100.png" />
+    <Content Include="Assets\TelerikXamarin_Logo.scale-125.png" />
+    <Content Include="Assets\TelerikXamarin_Logo.scale-150.png" />
+    <Content Include="Assets\TelerikXamarin_Logo.scale-200.png" />
+    <Content Include="Assets\TelerikXamarin_Logo.scale-400.png" />
     <Content Include="Assets\TreeView_Customization.scale-100.png" />
     <Content Include="Assets\TreeView_Customization.scale-125.png" />
     <Content Include="Assets\TreeView_Customization.scale-150.png" />
@@ -1744,9 +1752,6 @@
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>1.68.0</Version>
     </PackageReference>
-    <PackageReference Include="Telerik.UI.for.Xamarin.Trial">
-      <Version>2019.2.513.1</Version>
-    </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
@@ -1763,6 +1768,13 @@
       <Version>3.6.0.264807</Version>
     </PackageReference>
   </ItemGroup>
+  <Choose>
+    <When Condition=" '$(UsePublicRepo)'=='true' ">
+      <ItemGroup>
+        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.2.619.1" />
+      </ItemGroup>
+    </When>
+  </Choose>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

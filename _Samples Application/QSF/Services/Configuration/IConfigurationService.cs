@@ -20,6 +20,10 @@ namespace QSF.Services
 
         string GetQSFAboutHeader();
 
+        string GetQSFAboutLinkText();
+
+        string GetQSFAboutImageName();
+
         string GetQSFAboutContent();
 
         string GetHomePageTitleIcon();

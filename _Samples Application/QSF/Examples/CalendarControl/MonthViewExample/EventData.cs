@@ -8,6 +8,10 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
     {
         private const string timeFormat = "t";
 
+        public EventData()
+        {
+        }
+
         public EventData(DateTime startTime, DateTime endTime, string eventText, Color leadColor, Color itemColor, bool isEventAllDay = false)
         {
             this.Color = leadColor;
