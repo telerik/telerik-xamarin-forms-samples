@@ -48,5 +48,5 @@ To download the finished application, use the following links.
 License
 -------
 
-See the [license file](LICENSE) and any additional license information attached to each sample.
+See the [license file](LICENSE.md) and any additional license information attached to each sample.
 
