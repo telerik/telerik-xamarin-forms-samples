@@ -27,7 +27,7 @@ The Telerik UI for Xamarin Samples application demonstrates the variety of contr
 |[Rating](https://www.telerik.com/xamarin-ui/rating)                 | Donut Chart                                                                          | **Chat Bot UI**                                                          | [ZIP Library](https://www.telerik.com/xamarin-ui/zip-library)     
 |                                                                    | OHLC Chart                                                                           |[Conversational UI](https://www.telerik.com/xamarin-ui/conversational-ui) |                                                                      | 
 |                                                                    | Candlestick Chart                                                                    |                                                                          | 
-|||                    
+                
 
 Please visit the following links to download the samples on your devices
 * [Telerik UI for Xamarin Samples Application on AppStore](https://itunes.apple.com/dm/app/telerik-ui-for-xamarin-examples/id1083924868?mt=8)
