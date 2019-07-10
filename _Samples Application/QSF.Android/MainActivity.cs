@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using FFImageLoading.Forms.Droid;
 using Java.Interop;
 using QSF.Droid.Permissions;
 using QSF.Services.BackdoorService;
