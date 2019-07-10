@@ -818,7 +818,7 @@
       <Image>ImageEditor_FirstLook.png</Image>
       <DescriptionHeader>ImageEditor</DescriptionHeader>
       <ShortDescription>ImageEditor is a component that enables you to easily visualize and edit images in different file formats in your mobile application.</ShortDescription>
-      <FullDescription>Telerik UI for Xamarin ImageEditor is a component enables you to easily visualize and edit images in different file formats in your mobile application. As an addition to the RadImageEditor control you can use an UI - RadImageEditorToolbar. This UI includes all editing capabilities of the control and it could be easily customized.</FullDescription>
+      <FullDescription>Telerik UI for Xamarin ImageEditor is a component that enables you to easily visualize and edit images in different file formats in your mobile application. As an addition to the RadImageEditor control you can use an UI - RadImageEditorToolbar. This UI includes all editing capabilities of the control and it could be easily customized.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/imageeditor/imageeditor-overview</DocumentationURL>
       <Latest>1</Latest>
       <Featured>8</Featured>

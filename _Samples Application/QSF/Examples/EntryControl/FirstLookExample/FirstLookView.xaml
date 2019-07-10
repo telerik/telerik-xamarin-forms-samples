@@ -44,7 +44,7 @@
                 <StackLayout Margin="20, 20, 20, 0">
 
                     <Label Text="First Name:" TextColor="White"/>
-                    <telerikInput:RadEntry BackgroundColor="#26A6D1" WatermarkText="Enter First Name" TextColor="White">
+                    <telerikInput:RadEntry AutomationId="FirstNameEntry" BackgroundColor="#26A6D1" WatermarkText="Enter First Name" TextColor="White">
 
                         <telerikInput:RadEntry.HeightRequest>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -72,7 +72,7 @@
                 <StackLayout Margin="20, 20, 20, 0">
 
                     <Label Text="Last Name:" TextColor="White"/>
-                    <telerikInput:RadEntry BackgroundColor="#26A6D1" WatermarkText="Enter Last Name" TextColor="White">
+                    <telerikInput:RadEntry AutomationId="LastNameEntry" BackgroundColor="#26A6D1" WatermarkText="Enter Last Name" TextColor="White">
 
                         <telerikInput:RadEntry.HeightRequest>
                             <OnPlatform x:TypeArguments="x:Double">
@@ -100,7 +100,7 @@
                 <StackLayout Margin="20, 20, 20, 0">
 
                     <Label Text="Email address:" TextColor="White"/>
-                    <telerikInput:RadEntry BackgroundColor="#26A6D1" WatermarkText="Enter Email" TextColor="White" Keyboard="Email">
+                    <telerikInput:RadEntry AutomationId="EmailAddressEntry" BackgroundColor="#26A6D1" WatermarkText="Enter Email" TextColor="White" Keyboard="Email">
 
                         <telerikInput:RadEntry.HeightRequest>
                             <OnPlatform x:TypeArguments="x:Double">
