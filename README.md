@@ -1,4 +1,4 @@
-<p align="center"> <img src="https://docs.telerik.com/devtools/xamarin/front-image.jpg"/></p>
+<p align="center"> <img src="../master/_Samples Application/Telerik-UI-For-Xamarin-SDK-Image.png"/></p>
 
 Telerik UI for Xamarin Sample Applications
 =====================
