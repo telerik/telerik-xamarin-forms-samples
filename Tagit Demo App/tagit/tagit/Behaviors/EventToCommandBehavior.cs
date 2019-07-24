@@ -10,11 +10,20 @@ namespace tagit.Behaviors
 {
     public class EventToCommandBehavior : BindableBehavior<View>
     {
-        public static readonly BindableProperty EventNameProperty = BindableProperty.Create<EventToCommandBehavior, string>(p => p.EventName, null);
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create<EventToCommandBehavior, ICommand>(p => p.Command, null);
-        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<EventToCommandBehavior, object>(p => p.CommandParameter, null);
-        public static readonly BindableProperty EventArgsConverterProperty = BindableProperty.Create<EventToCommandBehavior, IValueConverter>(p => p.EventArgsConverter, null);
-        public static readonly BindableProperty EventArgsConverterParameterProperty = BindableProperty.Create<EventToCommandBehavior, object>(p => p.EventArgsConverterParameter, null);
+        public static readonly BindableProperty EventNameProperty = 
+            BindableProperty.Create(nameof(EventName), typeof(string), typeof(EventToCommandBehavior), null);
+
+        public static readonly BindableProperty CommandProperty = 
+            BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(EventToCommandBehavior), null);
+
+        public static readonly BindableProperty CommandParameterProperty = 
+            BindableProperty.Create(nameof(CommandParameter), typeof(object), typeof(EventToCommandBehavior), null);
+
+        public static readonly BindableProperty EventArgsConverterProperty = 
+            BindableProperty.Create(nameof(EventArgsConverter), typeof(IValueConverter), typeof(EventToCommandBehavior), null);
+
+        public static readonly BindableProperty EventArgsConverterParameterProperty = 
+            BindableProperty.Create(nameof(EventArgsConverterParameter), typeof(object), typeof(EventToCommandBehavior), null);
 
         private Delegate _handler;
         private EventInfo _eventInfo;
@@ -117,8 +126,6 @@ namespace tagit.Behaviors
             {
                 Command.Execute(parameter);
             }
-
         }
-
     }
 }

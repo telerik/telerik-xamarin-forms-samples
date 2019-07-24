@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FFImageLoading.Forms.Platform;
 
 namespace tagit.Droid
 {
@@ -15,7 +16,8 @@ namespace tagit.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             
             base.OnCreate(bundle);
-                       
+
+            CachedImageRenderer.Init(true);
             global::Xamarin.Forms.Forms.Init(this, bundle);
             this.LoadApplication(new App());
         }

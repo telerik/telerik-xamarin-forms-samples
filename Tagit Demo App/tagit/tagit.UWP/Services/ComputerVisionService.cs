@@ -58,7 +58,7 @@ namespace tagit.UWP.Services
 
                     var analysisFeatures = "Color,ImageType,Tags,Categories,Description,Adult,Faces";
 
-                    var uri = new Uri($"{CoreConstants.CognitiveServicesBaseUrl}/vision/v1.0/analyze?visualFeatures={analysisFeatures}");
+                    var uri = new Uri($"{CoreConstants.CognitiveServicesBaseUrl}/analyze?visualFeatures={analysisFeatures}");
 
                     using (var results = await client.PostAsync(uri, payload))
                     {
