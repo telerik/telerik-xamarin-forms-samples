@@ -5,9 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Behaviors\BehaviorBehavior.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="app.config" />
     <None Remove="Images\ic_upload_dark.png" />
     <None Remove="Images\ic_upload_light.png" />
     <None Remove="Images\see_you_ninja.png" />
+    <None Remove="packages.config" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,17 +24,21 @@
 
   <ItemGroup>
     <PackageReference Include="modernhttpclient" Version="2.4.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="SkiaSharp" Version="1.59.3" />
-    <PackageReference Include="SkiaSharp.Views" Version="1.59.3" />
-    <PackageReference Include="Telerik.UI.for.Xamarin" Version="2018.3.912.1" />
-    <PackageReference Include="Xamarin.FFImageLoading" Version="2.2.20" />
-    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.2.20" />
-    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
-    <PackageReference Include="Xamarin.Forms.Pages" Version="3.2.0.839982" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Views" Version="1.68.0" />
+    <PackageReference Include="Telerik.UI.for.Xamarin" Version="2019.2.708.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
+    <PackageReference Include="Xamarin.Forms.Pages" Version="4.1.0.581479" />
     <PackageReference Include="Xamarin.Forms.Theme.Base" Version="1.0.0.43-pre1" />
     <PackageReference Include="Xamarin.Forms.Theme.Dark" Version="1.0.0.43-pre1" />
     <PackageReference Include="Xamarin.Forms.Theme.Light" Version="1.0.0.43-pre1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -80,10 +90,6 @@
     <None Update="Views\UploadView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

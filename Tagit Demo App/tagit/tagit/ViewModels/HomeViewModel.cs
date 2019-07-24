@@ -75,7 +75,7 @@ namespace tagit.ViewModels
                 {
                     var toolbarItem = new Xamarin.Forms.ToolbarItem
                     {
-                        Icon = "ic_action_search.png",
+                        IconImageSource = ImageSource.FromFile("ic_action_search.png"),
                         Text = AppResources.SearchLabel,
                         Command = App.ViewModel.Home.SearchSelectedCommand
                     };
@@ -164,7 +164,7 @@ namespace tagit.ViewModels
             {
                 var toolbarItem = new Xamarin.Forms.ToolbarItem
                 {
-                    Icon = "ic_action_menu.png",
+                    IconImageSource = ImageSource.FromFile("ic_action_menu.png"),
                     Text = "Menu",
                     Command = App.ViewModel.Home.MenuSelectedCommand
                 };

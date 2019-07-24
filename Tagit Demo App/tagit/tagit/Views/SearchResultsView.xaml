@@ -40,20 +40,20 @@
 
             <Grid Grid.Row="1" VerticalOptions="Center">
 
-                <telerikInput:RadAutoComplete HorizontalOptions="Fill" x:Name="searchInput" Text="{Binding SearchTextValue, Mode=TwoWay, UpdateSourceEventName=TextChanged}"
+                <telerikInput:RadAutoCompleteView HorizontalOptions="Fill" x:Name="searchInput" Text="{Binding SearchTextValue, Mode=TwoWay, UpdateSourceEventName=TextChanged}"
                             ItemsSource="{Binding SearchTags}" VerticalOptions="Center"  BackgroundColor="White"
                             CompletionMode="Contains" ShowSuggestionView="True" DisplayMode="Plain" BorderColor="Transparent"
                             SuggestionViewBackgroundColor="{DynamicResource AppLightColor}" 
                             Watermark="Search for images">
 
-                    <telerikInput:RadAutoComplete.SuggestionItemTemplate>
+                    <telerikInput:RadAutoCompleteView.SuggestionItemTemplate>
                         <OnPlatform x:TypeArguments="DataTemplate" iOS="{StaticResource SuggestionItemTemplate}" Android="{StaticResource SuggestionItemTemplate}"  />
-                    </telerikInput:RadAutoComplete.SuggestionItemTemplate>
+                    </telerikInput:RadAutoCompleteView.SuggestionItemTemplate>
 
-                    <telerikDataControls:RadListView.Behaviors>
+                    <telerikInput:RadAutoCompleteView.Behaviors>
                         <behaviors:EventToCommandBehavior EventName="SuggestionItemSelected" Command="{Binding SuggestionSelectedCommand}" EventArgsConverter="{StaticResource SuggestionItemSelectedEventArgsConverter}" />
-                    </telerikDataControls:RadListView.Behaviors>
-                </telerikInput:RadAutoComplete>
+                    </telerikInput:RadAutoCompleteView.Behaviors>
+                </telerikInput:RadAutoCompleteView>
             </Grid>
 
             <telerikDataControls:RadListView SwipeOffset="80, 0" SwipeThreshold="10" IsItemSwipeEnabled="True" IsItemsReorderEnabled="True" Margin="10" SelectionGesture="Tap" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding SearchResults}" >

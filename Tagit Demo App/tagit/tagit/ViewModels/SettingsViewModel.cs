@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using tagit.Common;
 using tagit.Helpers;
-using tagit.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Themes;
 
