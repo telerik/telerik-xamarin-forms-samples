@@ -24,6 +24,8 @@ The Telerik UI for Xamarin Samples application demonstrates the variety of contr
 |                                                                    | Candlestick Chart                                                                    |                                                                          | 
                 
 
+To take advantage of the controls and to be able to work with the demos, download free 30 day trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui)
+
 Please visit the following links to download the samples on your devices
 * [Telerik UI for Xamarin Samples Application on AppStore](https://itunes.apple.com/dm/app/telerik-ui-for-xamarin-examples/id1083924868?mt=8)
 * [Telerik UI for Xamarin Samples Application on Google Play](https://play.google.com/store/apps/details?id=com.telerik.xamarin&hl=en)
