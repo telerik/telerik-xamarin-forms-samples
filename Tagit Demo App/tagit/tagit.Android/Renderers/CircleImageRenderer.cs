@@ -8,8 +8,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Color = Android.Graphics.Color;
 using View = Android.Views.View;
-using FFImageLoading.Forms.Droid;
 using FFImageLoading.Forms;
+using FFImageLoading.Forms.Platform;
+using Android.Content;
 
 [assembly: ExportRenderer(typeof(CircleImage), typeof(CircleImageRenderer))]
 
@@ -17,6 +18,12 @@ namespace tagit.Droid.Renderers
 {   
     public class CircleImageRenderer : CachedImageRenderer
     {
+        public CircleImageRenderer(Context ctx) :
+            base(ctx)
+        {
+
+        }
+
         protected override void OnElementChanged(ElementChangedEventArgs<CachedImage> e)
         {
             base.OnElementChanged(e);

@@ -53,7 +53,7 @@ namespace tagit.Droid.Services
 
                     var analysisFeatures = "Color,ImageType,Tags,Categories,Description,Adult,Faces";
 
-                    var uri = new Uri($"{CoreConstants.CognitiveServicesBaseUrl}/vision/v1.0/analyze?visualFeatures={analysisFeatures}");
+                    var uri = new Uri($"{CoreConstants.CognitiveServicesBaseUrl}/analyze?visualFeatures={analysisFeatures}");
 
                     using (var results = await Retry.DoAsync(() => client.PostAsync(uri, payload), new TimeSpan(0, 0, 3), 10))
                     {

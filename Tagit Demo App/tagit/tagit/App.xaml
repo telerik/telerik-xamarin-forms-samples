@@ -7,7 +7,6 @@
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"            
              x:Class="tagit.App">
     <Application.Resources>
-
         <ResourceDictionary MergedWith="light:LightThemeResources" >
             <Color x:Key="AppBaseColor">#003366</Color>
             <Color x:Key="AppAccentColor">#0097DF</Color>
@@ -15,8 +14,7 @@
             <Color x:Key="AppTertiaryAccentColor">#FFC926</Color>
             <Color x:Key="AppTextColor">#939393</Color>
             <Color x:Key="AppLightColor">#FFFFFF</Color>
-            <Color x:Key="AppDarkColor">#969393</Color>
-            
+            <Color x:Key="AppDarkColor">#969393</Color>            
             <Color x:Key="Tag1Color">#FF96C912</Color>
             <Color x:Key="Tag1ColorSemiTransparent">#3396C912</Color>
             <Color x:Key="Tag1ColorLight">#FF96C912</Color>
@@ -73,8 +71,7 @@
             <converters:SelectionChangedEventArgsConverter x:Key="SelectionChangedEventArgsConverter"/>
             <converters:SuggestionItemSelectedEventArgsConverter x:Key="SuggestionItemSelectedEventArgsConverter"/>
             <converters:FileOrUriImageSourceConverter x:Key="FileOrUriImageSourceConverter"/>
-            <converters:CanDownloadSampleImagesOpacityConverter x:Key="CanDownloadSampleImagesOpacityConverter"/>
-            
+            <converters:CanDownloadSampleImagesOpacityConverter x:Key="CanDownloadSampleImagesOpacityConverter"/>            
 
             <telerikCommon:AnimationSettings x:Key="DisabledAnimation" Enabled="False" />
 
@@ -94,8 +91,6 @@
                     </Label>
                 </Grid>
             </ControlTemplate>
-
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

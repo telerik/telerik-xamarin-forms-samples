@@ -1,14 +1,7 @@
 <p align="center"> <img src="../master/_Samples Application/Telerik-UI-For-Xamarin-SDK-Image.png"/></p>
 
-Telerik UI for Xamarin Sample Applications
-=====================
-
-This repository contains examples of the Xamarin.Forms, Xamarin.Android and Xamarin.iOS controls of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui), as well as real world sample application for building native cross-platform apps for iOS, Android, and the Universal Windows Platform (UWP). 
-
-To take advantage of the controls and to be able to work with the demos, download free 30 day trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui)
-
 Telerik UI for Xamarin Samples Application
--------
+======================
 The Telerik UI for Xamarin Samples application demonstrates the variety of controls available in the component suite as well as demos of some of their highlighted features. Currently, it features demos for the following Xamarin controls.
 
 |   |   |   |   |

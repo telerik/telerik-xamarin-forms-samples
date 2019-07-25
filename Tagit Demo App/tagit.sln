@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tagit.Android", "tagit\tagit.Android\tagit.Android.csproj", "{DAA7C153-9404-4644-AC9F-6575E5AFC906}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tagit.iOS", "tagit\tagit.iO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tagit.WebApi", "tagit.WebApi\tagit.WebApi.csproj", "{BF26CED4-6AB9-4E3D-9B3C-7FAB9BF1B753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tagit", "tagit\tagit\tagit.csproj", "{A69FDDBD-C4DB-49E2-9E3D-5E2DFBCDA8D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tagit", "tagit\tagit\tagit.csproj", "{A69FDDBD-C4DB-49E2-9E3D-5E2DFBCDA8D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

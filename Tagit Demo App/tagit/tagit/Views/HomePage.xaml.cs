@@ -62,7 +62,7 @@ namespace tagit.Views
 
         private void NoServiceConnection()
         {
-            DisplayAlert("Error", "There is not connection to the computer vision service.", "OK");
+            DisplayAlert("Error", "There is no connection to the computer vision service.", "OK");
         }
 
         //Add or remove the Search menu based
