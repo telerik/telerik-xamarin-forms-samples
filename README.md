@@ -31,7 +31,7 @@ Please visit the following links to download the samples on your devices
 * [Telerik UI for Xamarin Samples Application on Google Play](https://play.google.com/store/apps/details?id=com.telerik.xamarin&hl=en)
 * [Telerik UI for Xamarin Samples Application on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-ui-for-xamarin-examples/9pld1kn2tcxs)
 
-Telerik TagIt Sample Application
+Telerik TagIt Demo Application
 -------
 The Telerik TagIt sample application is a Xamarin.Forms application targeting iOS, Android and UWP, which demonstrates how to turn the photo collection of a phone into a easy to search data base of photos. It utilized Telerik UI for Xamarin, as well as Microsoft Azure's Computer Vision API. 
 
