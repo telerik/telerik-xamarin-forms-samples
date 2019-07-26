@@ -11,7 +11,12 @@ namespace QSF.Converters
             var date = value as DateTime?;
             if (date != null)
             {
+                if (parameter is string format)
+                {
+                    return date.ToString(format);
+                }
                 return string.Format("{0:MMMMM yyyy}", date);
+                
             }
 
             return value;
