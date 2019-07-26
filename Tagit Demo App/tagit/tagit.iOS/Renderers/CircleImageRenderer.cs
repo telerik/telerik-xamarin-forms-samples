@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using FFImageLoading.Forms;
-using FFImageLoading.Forms.Touch;
+using FFImageLoading.Forms.Platform;
 using tagit.Controls;
 using tagit.iOS.Renderers;
 using Xamarin.Forms;
