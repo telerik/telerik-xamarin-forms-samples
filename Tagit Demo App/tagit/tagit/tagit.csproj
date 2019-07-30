@@ -27,7 +27,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="SkiaSharp" Version="1.68.0" />
     <PackageReference Include="SkiaSharp.Views" Version="1.68.0" />
-    <PackageReference Include="Telerik.UI.for.Xamarin" Version="2019.2.708.1" />
+    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.2.708.1" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
