@@ -31,19 +31,19 @@ Please visit the following links to download the samples on your devices
 * [Telerik UI for Xamarin Samples Application on Google Play](https://play.google.com/store/apps/details?id=com.telerik.xamarin&hl=en)
 * [Telerik UI for Xamarin Samples Application on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-ui-for-xamarin-examples/9pld1kn2tcxs)
 
-Telerik TagIt Demo Application
+Telerik Tagit Demo Application
 -------
-The Telerik TagIt sample application is a Xamarin.Forms application targeting iOS, Android and UWP, which demonstrates how to turn the photo collection of a phone into a easy to search data base of photos. It utilized Telerik UI for Xamarin, as well as Microsoft Azure's Computer Vision API. 
+The Telerik Tagit sample application is a Xamarin.Forms application targeting iOS, Android and UWP, which demonstrates how to turn the photo collection of a phone into a easy to search data base of photos. It utilized Telerik UI for Xamarin, as well as Microsoft Azure's Computer Vision API. 
 
-For more information on the application and a walk through of how it was built, please refer to the [Telerik TagIt page](https://www.telerik.com/xamarin-ui/telerik-tagit)
+For more information on the application and a walk through of how it was built, please refer to the [Telerik Tagit page](https://www.telerik.com/xamarin-ui/telerik-tagit)
 
 To download the finished application, use the following links. 
-* [Telerik TagIt on AppStore](https://apps.apple.com/us/app/telerik-tagit/id1310584457)
-* [Telerik TagIt on Google Play](https://play.google.com/store/apps/details?id=com.telerik.tagit)
-* [Telerik TagIt on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-tagit/9pb07plrwpfs)
+* [Telerik Tagit on AppStore](https://apps.apple.com/us/app/telerik-tagit/id1310584457)
+* [Telerik Tagit on Google Play](https://play.google.com/store/apps/details?id=com.telerik.tagit)
+* [Telerik Tagit on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-tagit/9pb07plrwpfs)
 
 ## How to build the solutions
-In order to build the solutions you will need an active trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui). Once you get it, simply open the solution and add the Telerik Nuget server as described in [this artilce](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server). 
+In order to build the solutions you will need an active trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui). Once you get it, simply open the solution and add the Telerik Nuget server as described in [this article](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server). 
 
 If you already have dev version of Telerik UI for Xamarin, you can change the referenced trial nuget package to the dev one. Simply Uninstall **Telerik.UI.For.Xamarin.Trial** and install **Telerik.UI.For.Xamarin** from the Telerik Nuget Server. 
 
