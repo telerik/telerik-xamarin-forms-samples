@@ -59,7 +59,10 @@ namespace QSF.Examples.ImageEditorControl.FirstLookExample
 
             var navigationService = DependencyService.Get<INavigationService>();
 
-            await navigationService.NavigateBackAsync();
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await navigationService.NavigateBackAsync();
+            });
         }
     }
 }
