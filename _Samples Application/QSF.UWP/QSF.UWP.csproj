@@ -1765,13 +1765,13 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.6.0.264807</Version>
+      <Version>4.1.0.581479</Version>
     </PackageReference>
   </ItemGroup>
   <Choose>
     <When Condition=" '$(UsePublicRepo)'=='true' ">
       <ItemGroup>
-        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.2.708.1" />
+        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.2.802.1" />
       </ItemGroup>
     </When>
   </Choose>
