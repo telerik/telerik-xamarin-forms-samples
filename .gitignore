@@ -205,7 +205,7 @@ ClientBin/
 
 *.pfx
 # Include UWP temporary key file
-!_Samples\ Application/QSF.UWP/QSF.UWP_TemporaryKey.pfx
+!_Samples/Application/QSF.UWP/QSF.UWP_TemporaryKey.pfx
 
 *.publishsettings
 orleans.codegen.cs
