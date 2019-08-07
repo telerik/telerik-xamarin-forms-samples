@@ -5,8 +5,8 @@
         //This can be changed to point to you own instance
         //of the Azure Cognitive Services Computer Vision API 
         //endpoints and values
-        public static string CognitiveServicesRegion = "eastus2";
-        public static string CognitiveServicesBaseUrl = $"https://{CognitiveServicesRegion}.api.cognitive.microsoft.com/vision.v1.0";
+        public static string CognitiveServicesRegion = "Your CognitiveServicesRegion here";
+        public static string CognitiveServicesBaseUrl = $"https://{CognitiveServicesRegion}.api.cognitive.microsoft.com/vision/v1.0";
 
         //The Computer Vision API subscription key may be used during evaluation
         //Be sure to change this to your own instance of Computer Vision API
