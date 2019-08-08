@@ -8,20 +8,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewModels="clr-namespace:tagit.ViewModels"
              x:Class="tagit.Views.SearchResultsView">
-    <ContentView.Resources>
-        <ResourceDictionary>
-        <DataTemplate x:Key="SuggestionItemTemplate">
-            <Grid>
-                <telerikInput:RadAutoCompleteLabel 
-                    Margin="5" 
-                    FontSize="18"   
-                    HighlightColor="{DynamicResource AppAccentColor}"
-                    TextColor="{DynamicResource AppDarkColor}"
-                    VerticalOptions="Center" />
-            </Grid>
-        </DataTemplate>
-        </ResourceDictionary>
-    </ContentView.Resources>
     <ContentView.Content>
         <Grid Padding="0">
             <Grid.RowDefinitions>
@@ -31,25 +17,17 @@
             </Grid.RowDefinitions>
 
             <Grid BackgroundColor="{StaticResource AppAccentColor}" HorizontalOptions="FillAndExpand" Padding="10">
-                 
+
                 <StackLayout VerticalOptions="Center" Orientation="Vertical">
-                    <Label HorizontalOptions="Start" Style="{DynamicResource PageDescriptionStyle}" Text="{Binding SearchQueryLabel}" />                         
+                    <Label HorizontalOptions="Start" Style="{DynamicResource PageDescriptionStyle}" Text="{Binding SearchQueryLabel}" />
                 </StackLayout>
-                
             </Grid>
 
             <Grid Grid.Row="1" VerticalOptions="Center">
-
-                <telerikInput:RadAutoCompleteView HorizontalOptions="Fill" x:Name="searchInput" Text="{Binding SearchTextValue, Mode=TwoWay, UpdateSourceEventName=TextChanged}"
+                <telerikInput:RadAutoCompleteView HorizontalOptions="Fill" x:Name="searchInput" Text="{Binding SearchTextValue, Mode=TwoWay}"
                             ItemsSource="{Binding SearchTags}" VerticalOptions="Center"  BackgroundColor="White"
-                            CompletionMode="Contains" ShowSuggestionView="True" DisplayMode="Plain" BorderColor="Transparent"
-                            SuggestionViewBackgroundColor="{DynamicResource AppLightColor}" 
+                            CompletionMode="Contains" DisplayMode="Plain" BorderColor="Transparent"
                             Watermark="Search for images">
-
-                    <telerikInput:RadAutoCompleteView.SuggestionItemTemplate>
-                        <OnPlatform x:TypeArguments="DataTemplate" iOS="{StaticResource SuggestionItemTemplate}" Android="{StaticResource SuggestionItemTemplate}"  />
-                    </telerikInput:RadAutoCompleteView.SuggestionItemTemplate>
-
                     <telerikInput:RadAutoCompleteView.Behaviors>
                         <behaviors:EventToCommandBehavior EventName="SuggestionItemSelected" Command="{Binding SuggestionSelectedCommand}" EventArgsConverter="{StaticResource SuggestionItemSelectedEventArgsConverter}" />
                     </telerikInput:RadAutoCompleteView.Behaviors>
@@ -113,8 +91,6 @@
                     </listView:ListViewLinearLayout>
                 </telerikDataControls:RadListView.LayoutDefinition>
             </telerikDataControls:RadListView>
-
-
         </Grid>
     </ContentView.Content>
 </ContentView>
