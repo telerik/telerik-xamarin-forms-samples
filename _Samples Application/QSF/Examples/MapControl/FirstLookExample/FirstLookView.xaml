@@ -127,10 +127,9 @@
                                    TextColor="#FFFFFF"
                                    FontFamily="{StaticResource IconsFont}"
                                    FontSize="12"
-                                   Margin="0, 10, 12, 0"
                                    Text="&#xE80A;"
-                                   HorizontalTextAlignment="End"
-                                   VerticalTextAlignment="Start"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
                                    WidthRequest="35"
                                    HeightRequest="35">
                                 <Label.GestureRecognizers>

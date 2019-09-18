@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikPdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.PdfViewerControl.CustomizationExample.CustomizationView">
+    
+    <VisualElement.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainColor">#FC5173</Color>
+            <Color x:Key="MainColorTranslucent">#4DFD8BA2</Color>
+            <Style TargetType="telerikPrimitives:RadBusyIndicator">
+                <Setter Property="AnimationContentColor" Value="{StaticResource MainColor}" />
+            </Style>
+            <Style TargetType="telerikPdfViewer:SelectionMenu">
+                <Setter Property="Fill" Value="{StaticResource MainColor}" />
+            </Style>
+            <Style TargetType="telerikPrimitives:ToolbarItem" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="{StaticResource MainColor}" />
+            </Style>
+        </ResourceDictionary>
+    </VisualElement.Resources>
+    
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <telerikPdfViewer:RadPdfViewer x:Name="pdfViewer">
+                <telerikPdfViewer:RadPdfViewer.SelectionSettings>
+                    <telerikPdfViewer:SelectionSettings SelectionIndicatorColor="{StaticResource MainColor}"
+                                                        SelectionFill="{StaticResource MainColorTranslucent}" />
+                </telerikPdfViewer:RadPdfViewer.SelectionSettings>
+            </telerikPdfViewer:RadPdfViewer>
+            <telerikPdfViewer:RadPdfViewerToolbar PdfViewer="{Binding Source={x:Reference pdfViewer}}" 
+                                                  Grid.Row="1">
+                <telerikPdfViewer:NavigateToPreviousPageToolbarItem />
+                <telerikPdfViewer:NavigateToNextPageToolbarItem />
+                <telerikPdfViewer:ToggleLayoutModeToolbarItem  />
+                <telerikPdfViewer:NavigateToPageToolbarItem HorizontalOptions="End" />
+            </telerikPdfViewer:RadPdfViewerToolbar>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

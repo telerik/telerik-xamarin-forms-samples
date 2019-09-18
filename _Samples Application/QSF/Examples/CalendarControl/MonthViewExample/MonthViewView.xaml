@@ -131,7 +131,7 @@
                                                     </Label.FontSize>
                                                 </Label>
 
-                                                <Label IsVisible="{Binding IsEventAllDay}"
+                                                <Label IsVisible="{Binding IsAllDay}"
                            Text="{Binding AllDayString}"
                            TextColor="Black"
                            Grid.Column="1"
@@ -139,7 +139,7 @@
                            VerticalOptions="Center" />
 
                                                 <StackLayout Grid.Column="1"
-                                 IsVisible="{Binding IsEventAllDay, Converter={StaticResource invertedBooleanConverter}}"
+                                 IsVisible="{Binding IsAllDay, Converter={StaticResource invertedBooleanConverter}}"
                                  StackLayout.Spacing="0"
                                  VerticalOptions="Center">
                                                     <Label Text="{Binding StartTimeString}" TextColor="#737373" HorizontalOptions="End"

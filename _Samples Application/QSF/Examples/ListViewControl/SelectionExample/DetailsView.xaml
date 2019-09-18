@@ -47,7 +47,7 @@
                         </Image.Source>
                     </Image>
                 </Grid>
-                <Grid Grid.ColumnSpacing="0"
+                <Grid Grid.ColumnSpacing="2"
                       Grid.RowSpacing="0"
                       Padding="0,0,16,0"
                       Grid.Column="1"

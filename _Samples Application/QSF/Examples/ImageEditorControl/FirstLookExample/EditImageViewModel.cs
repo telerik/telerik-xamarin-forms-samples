@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using QSF.Services;
 using QSF.ViewModels;
+using Telerik.XamarinForms.ImageEditor;
 using Xamarin.Forms;
 
 namespace QSF.Examples.ImageEditorControl.FirstLookExample
@@ -52,9 +53,16 @@ namespace QSF.Examples.ImageEditorControl.FirstLookExample
 
         private async void SaveImageAsync(IImageContext imageContext)
         {
-            using (var stream = File.Create(image))
+            if (File.Exists(this.image))
             {
-                await imageContext.SaveAsync(stream);
+                File.Delete(this.image);
+            }
+
+            var imagePath = Path.ChangeExtension(this.image, "png");
+
+            using (var stream = File.Create(imagePath))
+            {
+                await imageContext.SaveAsync(stream, ImageFormat.Png, 1.0);
             }
 
             var navigationService = DependencyService.Get<INavigationService>();

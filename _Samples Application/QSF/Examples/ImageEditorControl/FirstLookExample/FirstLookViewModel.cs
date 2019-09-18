@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Reflection;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using QSF.Services;
 using QSF.ViewModels;
@@ -46,40 +43,10 @@ namespace QSF.Examples.ImageEditorControl.FirstLookExample
 
         private async void LoadImagesAsync()
         {
-            var fileSystemService = DependencyService.Get<IFileSystemService>();
-            var localPath = fileSystemService.GetLocalFolder();
-            var cachePath = Path.Combine(localPath, "ImageEditor", "SampleImages");
-
             this.IsBusy = true;
-
-            if (!Directory.Exists(cachePath))
-            {
-                Directory.CreateDirectory(cachePath);
-
-                var currentAssembly = Assembly.GetExecutingAssembly();
-                var resourceNames = currentAssembly.GetManifestResourceNames();
-
-                foreach (var resourceName in resourceNames)
-                {
-                    var startIndex = resourceName.IndexOf("SampleImage");
-
-                    if (startIndex >= 0)
-                    {
-                        var imageName = resourceName.Substring(startIndex);
-                        var imagePath = Path.Combine(cachePath, imageName);
-
-                        using (var sourceStream = currentAssembly.GetManifestResourceStream(resourceName))
-                        using (var targetStream = File.Create(imagePath))
-                        {
-                            await sourceStream.CopyToAsync(targetStream);
-                        }
-                    }
-                }
-            }
-
             this.Images.Clear();
 
-            var imagePaths = Directory.EnumerateFiles(cachePath);
+            var imagePaths = await StorageHelper.ExtractResourcesAsync("ImageEditor", "FirstLook");
 
             foreach (var imagePath in imagePaths)
             {

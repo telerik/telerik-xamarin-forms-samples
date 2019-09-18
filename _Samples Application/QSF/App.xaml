@@ -99,6 +99,12 @@
             <x:String x:Key="RecycleBinIcon">&#xE817;</x:String>
             <x:String x:Key="HorizontalOffsetIcon">&#xE860;</x:String>
             <x:String x:Key="VerticalOffsetIcon">&#xE84E;</x:String>
+            <x:String x:Key="GalleryIcon">&#xE869;</x:String>
+            <x:String x:Key="CameraIcon">&#xE86A;</x:String>
+            <x:String x:Key="CropFreeIcon">&#xE86B;</x:String>
+            <x:String x:Key="CropOriginalIcon">&#xE86C;</x:String>
+            <x:String x:Key="CropSquareIcon">&#xE86D;</x:String>
+            <x:String x:Key="CropCircleIcon">&#xE86E;</x:String>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">telerikfontexamples</On>
@@ -164,6 +170,12 @@
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
                 <Setter Property="TextColor" Value="{StaticResource TextColor}" />
                 <Setter Property="Margin" Value="0, 10" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="TagLabelStyle">
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Key=RegularFont}"/>
+                <Setter Property="FontSize" Value="10"/>
             </Style>
 
             <Style TargetType="Label" x:Key="HyperlinkIconLabelStyle">

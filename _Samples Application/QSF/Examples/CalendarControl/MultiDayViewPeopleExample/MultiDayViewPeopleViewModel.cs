@@ -1,10 +1,10 @@
-﻿using System;
+﻿using QSF.Services;
+using QSF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
-using QSF.Services;
-using QSF.ViewModels;
 using Telerik.XamarinForms.Input;
 using Telerik.XamarinForms.Input.Calendar.Commands;
 using Xamarin.Forms;
@@ -30,6 +30,12 @@ namespace QSF.Examples.CalendarControl.MultiDayViewPeopleExample
                 {
                     this.people = value;
                     this.OnPropertyChanged();
+
+                    foreach (var person in this.people)
+                    {
+                        person.PropertyChanged += this.OnPersonPropertyChanged;
+                    }
+
                     this.UpdateTimeline();
                     this.UpdateAppointments();
                 }
@@ -85,19 +91,22 @@ namespace QSF.Examples.CalendarControl.MultiDayViewPeopleExample
         }
 
         public ICommand AppointmentTappedCommand { get; private set; }
-        public ICommand PersonCheckedCommand { get; private set; }
 
         public MultiDayViewPeopleViewModel()
         {
             this.People = DataProvider.GetData(DateTime.Today);
             this.AppointmentTappedCommand = new Command<AppointmentTapCommandContext>(this.OnAppointmentTapped);
-            this.PersonCheckedCommand = new Command(() =>
+        }
+
+        private void OnPersonPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(PersonViewModel.IsSelected))
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                   this.UpdateAppointments();
+                    this.UpdateAppointments();
                 });
-            });
+            }
         }
 
         private void UpdateTimeline()

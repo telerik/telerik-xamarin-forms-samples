@@ -86,7 +86,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     DateTime.Today.AddHours(15).AddMinutes(30),
                     "Yachting",
                     Color.FromHex("59B6B8"),
-                    Color.White),
+                    Color.White,
+                    true),
                 new EventData(
                     DateTime.Today.AddHours(16),
                     DateTime.Today.AddHours(17).AddMinutes(30),
@@ -104,7 +105,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     DateTime.Today.AddHours(22),
                     "Watch a movie",
                     Color.FromHex("C42FBA"),
-                    Color.White),
+                    Color.White,
+                    true),
                 //Tomorrow
                 new EventData(
                     DateTime.Today.AddHours(20),
@@ -118,7 +120,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     DateTime.Today.AddDays(2).AddHours(19).AddMinutes(30),
                     "Watch your favourite show",
                     Color.FromHex("59B6B8"),
-                    Color.White),
+                    Color.White,
+                    true),
                 new EventData(
                     DateTime.Today.AddDays(2).AddHours(19),
                     DateTime.Today.AddDays(2).AddHours(20).AddMinutes(30),
@@ -137,7 +140,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     DateTime.Today.AddDays(3).AddHours(16).AddMinutes(30),
                     "Theater evening",
                     Color.FromHex("59B6B8"),
-                    Color.White),
+                    Color.White,
+                    true),
                 new EventData(
                      DateTime.Today.AddDays(3).AddHours(18),
                      DateTime.Today.AddDays(3).AddHours(19).AddMinutes(30),
@@ -248,12 +252,12 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                 var recurrenceRule = item.RecurrenceRule;
                 if (recurrenceRule == null && item.StartDate.CompareTo(date) >= 0 && item.StartDate.CompareTo(date.AddDays(1)) < 0)
                 {
-                    this.SelectedEvents.Add(new EventData(item.StartDate, item.EndDate, item.Title, item.LeadBorderColor, item.ItemBackgroundColor));
+                    this.SelectedEvents.Add(new EventData(item.StartDate, item.EndDate, item.Title, item.LeadBorderColor, item.ItemBackgroundColor, item.IsAllDay));
                 }
 
                 if (recurrenceRule != null && recurrenceRule.Pattern.GetOccurrences(item.StartDate, date, date.AddDays(1)).Any())
                 {
-                    EventData newEvent = new EventData(date.Date.Add(item.StartDate.TimeOfDay), date.Date.Add(item.EndDate.TimeOfDay), item.Title, item.LeadBorderColor, item.ItemBackgroundColor);
+                    EventData newEvent = new EventData(date.Date.Add(item.StartDate.TimeOfDay), date.Date.Add(item.EndDate.TimeOfDay), item.Title, item.LeadBorderColor, item.ItemBackgroundColor, item.IsAllDay);
                     this.SelectedEvents.Add(newEvent);
                 }
             }

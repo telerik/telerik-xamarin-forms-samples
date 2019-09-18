@@ -16,7 +16,7 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
         {
             this.Color = leadColor;
             this.EndDate = endTime;
-            this.IsEventAllDay = isEventAllDay;
+            this.IsAllDay = isEventAllDay;
             this.ItemBackgroundColor = itemColor;
             this.LeadBorderColor = leadColor;
             this.StartDate = startTime;
@@ -42,8 +42,6 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                 return this.EndDate.ToString(timeFormat);
             }
         }
-
-        public bool IsEventAllDay { get; set; }
 
         public Color ItemBackgroundColor { get; set; }
 

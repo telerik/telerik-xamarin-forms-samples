@@ -88,10 +88,10 @@
                                             <Grid.Padding>
                                                 <OnPlatform x:TypeArguments="Thickness">
                                                     <On Platform="iOS,Android">12</On>
-                                                    <On Platform="UWP">12, 18, 12, 0</On>
+                                                    <On Platform="UWP">12, 0, 12, 40</On>
                                                 </OnPlatform>
                                             </Grid.Padding>
-                                            <ffimageloading:CachedImage Source="{Binding Image, Converter={StaticResource ImageSourceConverter}" />
+                                            <ffimageloading:CachedImage Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}" />
                                         </Grid>
                                     </telerikListView:ListViewTemplateCell.View>
                                 </telerikListView:ListViewTemplateCell>

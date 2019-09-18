@@ -43,17 +43,12 @@
                             <ColumnDefinition Width="40" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        
+
                         <telerikPrimitives:RadCheckBox Grid.Column="0"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                IsChecked="{Binding IsSelected, Mode=TwoWay}"
-                               CheckedColor="{Binding Color}">
-                            <telerikPrimitives:RadCheckBox.Commands>
-                                <checkBoxComamnds:CheckBoxUserCommand Id="IsCheckedChanged" 
-                                                                      Command="{Binding BindingContext.PersonCheckedCommand, Source={x:Reference calendar}}" />
-                            </telerikPrimitives:RadCheckBox.Commands>
-                        </telerikPrimitives:RadCheckBox>
+                               CheckedColor="{Binding Color}"/>
                         <Label Grid.Column="1"
                                FontSize="14"
                                VerticalOptions="Center"
