@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:schedulingExample="clr-namespace:QSF.Examples.CalendarControl.SchedulingExample"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:example="clr-namespace:QSF.Examples.CalendarControl.SpecialSlotsExample"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.CalendarControl.SpecialSlotsExample.SpecialSlotsView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <schedulingExample:CalendarModeToStringConverter x:Key="CalendarModeToStringConverter"/>
+            <example:HolidaySlotStyleSelector x:Key="HolidaySlotStyleSelector">
+                <example:HolidaySlotStyleSelector.FederalHolidayStyle>
+                    <telerikInput:CalendarSpecialSlotStyle BackgroundColor="#E6EAFF"/>
+                </example:HolidaySlotStyleSelector.FederalHolidayStyle>
+                <example:HolidaySlotStyleSelector.RegionalHolidayStyle>
+                    <telerikInput:CalendarSpecialSlotStyle BackgroundColor="#CBDEFF"/>
+                </example:HolidaySlotStyleSelector.RegionalHolidayStyle>
+            </example:HolidaySlotStyleSelector>
+            <DataTemplate x:Key="HolidaySlotTemplate">
+                <Label Text="{Binding Name}"
+                       Margin="5"
+                       TextColor="#29398D"/>
+            </DataTemplate>
+            <Style x:Key="LegendLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Opacity" Value="0.87"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="LegendBoxStyle" TargetType="BoxView">
+                <Setter Property="WidthRequest" Value="16"/>
+                <Setter Property="HeightRequest" Value="16"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="0, 0, 4, 0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <telerikInput:RadCalendar x:Name="calendar"
+                                  DisplayDate="{Binding DisplayDate}"
+                                  ViewMode="{Binding SelectedMode.CalendarMode}">
+            <telerikInput:RadCalendar.DayViewSettings>
+                <telerikInput:DayViewSettings SpecialSlotsSource="{Binding Holidays}"
+                                              SpecialSlotStyleSelector="{StaticResource HolidaySlotStyleSelector}"
+                                              SpecialSlotContentTemplate="{StaticResource HolidaySlotTemplate}"/>
+            </telerikInput:RadCalendar.DayViewSettings>
+            <telerikInput:RadCalendar.MultiDayViewSettings>
+                <telerikInput:MultiDayViewSettings SpecialSlotsSource="{Binding Holidays}"
+                                                   SpecialSlotStyleSelector="{StaticResource HolidaySlotStyleSelector}"
+                                                   SpecialSlotContentTemplate="{StaticResource HolidaySlotTemplate}"/>
+            </telerikInput:RadCalendar.MultiDayViewSettings>
+        </telerikInput:RadCalendar>
+        <StackLayout Grid.Row="1"
+                     Margin="16, 10, 0, 10"
+                     Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal"
+                         Margin="0, 0, 30, 0">
+                <BoxView BackgroundColor="#E6EAFF"
+                         Style="{StaticResource LegendBoxStyle}"/>
+                <Label Text="National Holiday"
+                       Style="{StaticResource LegendLabelStyle}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <BoxView BackgroundColor="#CBDEFF"
+                         Style="{StaticResource LegendBoxStyle}"/>
+                <Label Text="Regional Holiday"
+                       Style="{StaticResource LegendLabelStyle}"/>
+            </StackLayout>
+        </StackLayout>
+        <telerikPrimitives:RadBorder Grid.Row="2"
+                                     BorderThickness="0, 1, 0, 1"
+                                     BorderColor="#B9C0C4"
+                                     BackgroundColor="#F7F7F7">
+            <telerikPrimitives:RadBorder.IsVisible>
+                <OnPlatform x:DataType="x:Boolean" Default="True" UWP="False"/>
+            </telerikPrimitives:RadBorder.IsVisible>
+            <telerikDataControls:RadListView ItemsSource="{Binding Modes}"
+                                             SelectedItem="{Binding SelectedMode, Mode=TwoWay}"
+                                             HeightRequest="50">
+                <telerikDataControls:RadListView.SelectedItemStyle>
+                    <telerikListView:ListViewItemStyle BorderWidth="0">
+                        <telerikListView:ListViewItemStyle.BackgroundColor>
+                            <OnPlatform x:DataType="Color" Android="#EDF0F5" iOS="#EBF1F7"/>
+                        </telerikListView:ListViewItemStyle.BackgroundColor>
+                    </telerikListView:ListViewItemStyle>
+                </telerikDataControls:RadListView.SelectedItemStyle>
+                <telerikDataControls:RadListView.ItemStyle>
+                    <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                       BorderWidth="0"/>
+                </telerikDataControls:RadListView.ItemStyle>
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <telerikListView:ListViewGridLayout Orientation="Vertical"
+                                                        SpanCount="2"
+                                                        ItemLength="50"/>
+                </telerikDataControls:RadListView.LayoutDefinition>
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <telerikListView:ListViewTemplateCell>
+                            <telerikListView:ListViewTemplateCell.View>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Text}"
+                                           FontFamily="{StaticResource IconsFont}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="26">
+                                        <Label.Margin>
+                                            <OnPlatform x:DataType="Thickness" Android="42, 5, 42, 0" iOS="40, 5, 40, 0"/>
+                                        </Label.Margin>
+                                        <Label.TextColor>
+                                            <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                        </Label.TextColor>
+                                    </Label>
+                                    <Label Grid.Row="1"
+                                           Text="{Binding CalendarMode, Converter={StaticResource CalendarModeToStringConverter}}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Margin="0, 3, 0, 3"
+                                           FontSize="10">
+                                        <Label.TextColor>
+                                            <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                        </Label.TextColor>
+                                    </Label>
+                                </Grid>
+                            </telerikListView:ListViewTemplateCell.View>
+                        </telerikListView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+            </telerikDataControls:RadListView>
+        </telerikPrimitives:RadBorder>
+    </Grid>
+</ContentView>

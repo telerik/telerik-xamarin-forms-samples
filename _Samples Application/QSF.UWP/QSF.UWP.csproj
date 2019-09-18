@@ -50,6 +50,19 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppStore|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <PackageCertificateKeyFile>QSF.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
@@ -72,6 +85,19 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppStore|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <PackageCertificateKeyFile>QSF.UWP_StoreKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -97,6 +123,20 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppStore|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS;Release</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <PackageCertificateKeyFile>QSF.UWP_StoreKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
@@ -395,11 +435,21 @@
     <Content Include="Assets\Calendar_Appointments.scale-150.png" />
     <Content Include="Assets\Calendar_Appointments.scale-200.png" />
     <Content Include="Assets\Calendar_Appointments.scale-400.png" />
+    <Content Include="Assets\Calendar_app_template.scale-100.png" />
+    <Content Include="Assets\Calendar_app_template.scale-125.png" />
+    <Content Include="Assets\Calendar_app_template.scale-150.png" />
+    <Content Include="Assets\Calendar_app_template.scale-200.png" />
+    <Content Include="Assets\Calendar_app_template.scale-400.png" />
     <Content Include="Assets\Calendar_Day_View.scale-100.png" />
     <Content Include="Assets\Calendar_Day_View.scale-125.png" />
     <Content Include="Assets\Calendar_Day_View.scale-150.png" />
     <Content Include="Assets\Calendar_Day_View.scale-200.png" />
     <Content Include="Assets\Calendar_Day_View.scale-400.png" />
+    <Content Include="Assets\Calendar_SpecialSlots.scale-100.png" />
+    <Content Include="Assets\Calendar_SpecialSlots.scale-125.png" />
+    <Content Include="Assets\Calendar_SpecialSlots.scale-150.png" />
+    <Content Include="Assets\Calendar_SpecialSlots.scale-200.png" />
+    <Content Include="Assets\Calendar_SpecialSlots.scale-400.png" />
     <Content Include="Assets\Calendar_Theming.scale-100.png" />
     <Content Include="Assets\Calendar_Theming.scale-125.png" />
     <Content Include="Assets\Calendar_Theming.scale-150.png" />
@@ -972,6 +1022,11 @@
     <Content Include="Assets\Cocktails1.png" />
     <Content Include="Assets\Cocktails2.png" />
     <Content Include="Assets\Cocktails3.png" />
+    <Content Include="Assets\coffee.scale-100.png" />
+    <Content Include="Assets\coffee.scale-125.png" />
+    <Content Include="Assets\coffee.scale-150.png" />
+    <Content Include="Assets\coffee.scale-200.png" />
+    <Content Include="Assets\coffee.scale-400.png" />
     <Content Include="Assets\DataForm_Add.scale-100.png" />
     <Content Include="Assets\DataForm_Add.scale-150.png" />
     <Content Include="Assets\DataForm_Add.scale-200.png" />
@@ -1116,6 +1171,11 @@
     <Content Include="Assets\Expander_FirstLook_Img2.scale-150.png" />
     <Content Include="Assets\Expander_FirstLook_Img2.scale-200.png" />
     <Content Include="Assets\Expander_FirstLook_Img2.scale-400.png" />
+    <Content Include="Assets\ImageEditor_CustomToolbar.scale-100.png" />
+    <Content Include="Assets\ImageEditor_CustomToolbar.scale-125.png" />
+    <Content Include="Assets\ImageEditor_CustomToolbar.scale-150.png" />
+    <Content Include="Assets\ImageEditor_CustomToolbar.scale-200.png" />
+    <Content Include="Assets\ImageEditor_CustomToolbar.scale-400.png" />
     <Content Include="Assets\Gauge_HorizontalGauge1_Active.scale-100.png" />
     <Content Include="Assets\Gauge_HorizontalGauge1_Active.scale-125.png" />
     <Content Include="Assets\Gauge_HorizontalGauge1_Active.scale-150.png" />
@@ -1280,6 +1340,11 @@
     <Content Include="Assets\PdfProcessing_FirstLook.scale-200.png" />
     <Content Include="Assets\PdfProcessing_FirstLook.scale-400.png" />
     <Content Include="Assets\PdfProcessing_FirstLook_Screen.scale-100.png" />
+    <Content Include="Assets\PdfViewer_Customization.scale-100.png" />
+    <Content Include="Assets\PdfViewer_Customization.scale-125.png" />
+    <Content Include="Assets\PdfViewer_Customization.scale-150.png" />
+    <Content Include="Assets\PdfViewer_Customization.scale-200.png" />
+    <Content Include="Assets\PdfViewer_Customization.scale-400.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-100.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-125.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-150.png" />
@@ -1365,11 +1430,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <Content Include="Assets\Fonts\telerikfontexamples.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="QSF.UWP_StoreKey.pfx" />
-    <None Include="QSF.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Gauge_Activity_Dashboard.scale-100.png" />
@@ -1700,7 +1760,31 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\WordsProcessing_Export_Example.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_Export_Example.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_Export_Example.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_Export_Example.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_Export_Example.scale-400.png" />
+    <Content Include="Assets\WordsProcessing_Export.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_Export.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_Export.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_Export.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_Export.scale-400.png" />
+    <Content Include="Assets\WordsProcessing_FindReplace.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_FindReplace.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_FindReplace.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_FindReplace.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_FindReplace.scale-400.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook.scale-400.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook_Example.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook_Example.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook_Example.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook_Example.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_FirstLook_Example.scale-400.png" />
     <Content Include="Assets\xlsx_file.scale-100.png" />
     <Content Include="Assets\xlsx_file.scale-200.png" />
     <Content Include="Assets\xlsx_file.scale-400.png" />
@@ -1746,11 +1830,17 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
     <PackageReference Include="SkiaSharp">
       <Version>1.68.0</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>1.68.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
@@ -1768,10 +1858,15 @@
       <Version>4.1.0.581479</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Fonts\telerikfontexamples.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Choose>
     <When Condition=" '$(UsePublicRepo)'=='true' ">
       <ItemGroup>
-        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.2.802.1" />
+        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.913.1" />
       </ItemGroup>
     </When>
   </Choose>

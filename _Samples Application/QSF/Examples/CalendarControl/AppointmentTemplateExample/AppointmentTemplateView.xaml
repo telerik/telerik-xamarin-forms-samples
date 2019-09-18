@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:QSF.Examples.CalendarControl.AppointmentTemplateExample"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:schedulingExample="clr-namespace:QSF.Examples.CalendarControl.SchedulingExample"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.CalendarControl.AppointmentTemplateExample.AppointmentTemplateView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="telerikPrimitives:RadBorder" x:Key="IconsBorder">
+                <Setter Property="BackgroundColor" Value="#EBF2FD" />
+                <Setter Property="CornerRadius" Value="90" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 0, 15, 0" />
+            </Style>
+            <Style TargetType="Label" x:Key="IconLabel">
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="FontSize" Value="Title" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+            <Style TargetType="Label" x:Key="TitleLabel">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="MultiDayTitleLabel" TargetType="Label"  BasedOn="{StaticResource TitleLabel}">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style TargetType="StackLayout" x:Key="AppointmentStacklayoutMargin">
+                <Setter Property="Margin" Value="10, 10, 20, 10" />
+            </Style>
+            <Style TargetType="Label" x:Key="DetailLabel">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="HeightRequest" Value="25" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            <Style TargetType="Label" x:Key="MultiDayDetailLabel" BasedOn="{StaticResource DetailLabel}">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+            <schedulingExample:CalendarModeToStringConverter x:Key="CalendarModeToStringConverter" />
+            <local:AppointmentTemplateSelector x:Key="DayViewAppointmentTemplateSelector">
+                <local:AppointmentTemplateSelector.LeftAlingImageTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding Source}"
+                                   Margin="10, 0, 10, 0" />
+                            <StackLayout Grid.Column="1"
+                                         VerticalOptions="Center"
+                                         Margin="0, 5, 0, 5">
+                                <Label Text="{Binding Title}" Style="{StaticResource TitleLabel}" />
+                                <Label Text="{Binding Detail}" Style="{StaticResource DetailLabel}" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </local:AppointmentTemplateSelector.LeftAlingImageTemplate>
+                <local:AppointmentTemplateSelector.RightAlignImageTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="120" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Margin="10, 10, 0, 10">
+                                <Label Text="{Binding Title}" Style="{StaticResource TitleLabel}" />
+                                <Label Text="{Binding Detail}" Style="{StaticResource DetailLabel}" />
+                            </StackLayout>
+
+                            <Image Grid.Column="1"
+                                   Source="{Binding Source}"
+                                   Aspect="Fill"
+                                   HorizontalOptions="End" />
+                        </Grid>
+                    </DataTemplate>
+                </local:AppointmentTemplateSelector.RightAlignImageTemplate>
+                <local:AppointmentTemplateSelector.AppointmentTemplate>
+                    <DataTemplate>
+                        <StackLayout Style="{StaticResource AppointmentStacklayoutMargin}">
+                            <Label Text="{Binding Title}"
+                                   TextColor="{Binding TitleTextColor}"
+                                   Style="{StaticResource TitleLabel}" />
+                            <Label Text="{Binding Detail}"
+                                   TextColor="{Binding DetailTextColor}"
+                                   Style="{StaticResource DetailLabel}"
+                                   Margin="0, 0, 10, 0"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </local:AppointmentTemplateSelector.AppointmentTemplate>
+                <local:AppointmentTemplateSelector.IconTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Style="{StaticResource AppointmentStacklayoutMargin}">
+                                <Label Text="{Binding Title}"
+                                       TextColor="{Binding TitleTextColor}"
+                                       Style="{StaticResource TitleLabel}"/>
+                                <Label Text="{Binding Detail}"
+                                       TextColor="{Binding DetailTextColor}"
+                                       Style="{StaticResource DetailLabel}"/>
+                            </StackLayout>
+                            <telerikPrimitives:RadBorder Grid.Column="1"
+                                                         Style="{StaticResource IconsBorder}">
+                                <Label Text="{Binding IconSource}"
+                                       Style="{StaticResource IconLabel}" />
+                            </telerikPrimitives:RadBorder>
+                        </Grid>
+                    </DataTemplate>
+                </local:AppointmentTemplateSelector.IconTemplate>
+            </local:AppointmentTemplateSelector>
+            <local:AppointmentTemplateSelector x:Key="MultiDayViewAppointmentTemplateSelector">
+                <local:AppointmentTemplateSelector.ImageTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Source}"
+                                   HorizontalOptions="Start"
+                                   HeightRequest="25"
+                                   WidthRequest="25"
+                                   Margin="0, 0, 0, 10" />
+                            <Label Grid.Row="1"
+                                   Text="{Binding Title}"
+                                   TextColor="{Binding TitleTextColor}"
+                                   Style="{StaticResource MultiDayTitleLabel}"
+                                   Margin="0, 0, 0, 4"/>
+                        </Grid>
+                    </DataTemplate>
+                </local:AppointmentTemplateSelector.ImageTemplate>
+                <local:AppointmentTemplateSelector.IconTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2, 2, 0, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <telerikPrimitives:RadBorder Style="{StaticResource IconsBorder}"
+                                                         WidthRequest="25"
+                                                         HeightRequest="25"
+                                                         HorizontalOptions="Start">
+                                <Label Text="{Binding IconSource}"
+                                       Style="{StaticResource IconLabel}"
+                                       FontSize="Small" />
+                            </telerikPrimitives:RadBorder>
+                            <Label Grid.Row="1"
+                                   Text="{Binding Title}"
+                                   TextColor="{Binding TitleTextColor}"
+                                   Style="{StaticResource MultiDayTitleLabel}"
+                                   Margin="0, 0, 0, 3"/>
+                            <Label Grid.Row="2"
+                                   Text="{Binding Detail}"
+                                   TextColor="{Binding DetailTextColor}"
+                                   Style="{StaticResource MultiDayDetailLabel}"
+                                   FontSize="8"/>
+                        </Grid>
+                    </DataTemplate>
+                </local:AppointmentTemplateSelector.IconTemplate>
+                <local:AppointmentTemplateSelector.AppointmentTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Title}"
+                                   TextColor="{Binding TitleTextColor}"
+                                   Style="{StaticResource TitleLabel}"
+                                   FontSize="10"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="Start" />
+                            <Label Grid.Row="1"
+                                   Text="{Binding Detail}"
+                                   Style="{StaticResource MultiDayDetailLabel}"
+                                   FontSize="9" />
+                        </Grid>
+                    </DataTemplate>
+                </local:AppointmentTemplateSelector.AppointmentTemplate>
+            </local:AppointmentTemplateSelector>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <telerikInput:RadCalendar x:Name="calendar"
+                                ViewMode="{Binding SelectedMode.CalendarMode}"
+                                SchedulingUiEnabled="true"
+                                AppointmentsSource="{Binding Appointments}" 
+                                ViewChanged="Calendar_ViewChanged">
+                <telerikInput:RadCalendar.DayViewSettings>
+                    <telerikInput:DayViewSettings AppointmentContentTemplate="{StaticResource DayViewAppointmentTemplateSelector}" />
+                </telerikInput:RadCalendar.DayViewSettings>
+                <telerikInput:RadCalendar.MultiDayViewSettings>
+                    <telerikInput:MultiDayViewSettings AppointmentContentTemplate="{StaticResource MultiDayViewAppointmentTemplateSelector}" />
+                </telerikInput:RadCalendar.MultiDayViewSettings>
+            </telerikInput:RadCalendar>
+            <telerikPrimitives:RadBorder Grid.Row="1"
+                                         BorderThickness="0, 1, 0, 1"
+                                         BorderColor="#B9C0C4"
+                                         BackgroundColor="#F7F7F7">
+                <telerikDataControls:RadListView ItemsSource="{Binding CalendarViewModes}"
+                                                                SelectedItem="{Binding SelectedMode, Mode=TwoWay}"
+                                                                HorizontalOptions="CenterAndExpand"
+                                                                HeightRequest="50">
+                    <telerikDataControls:RadListView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS, Android">true</On>
+                            <On Platform="UWP">false</On>
+                        </OnPlatform>
+                    </telerikDataControls:RadListView.IsVisible>
+                    <telerikDataControls:RadListView.SelectedItemStyle>
+                        <telerikListView:ListViewItemStyle BorderWidth="0">
+                            <telerikListView:ListViewItemStyle.BackgroundColor>
+                                <OnPlatform x:DataType="Color" Android="#EDF0F5" iOS="#EBF1F7"/>
+                            </telerikListView:ListViewItemStyle.BackgroundColor>
+                        </telerikListView:ListViewItemStyle>
+                    </telerikDataControls:RadListView.SelectedItemStyle>
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <telerikListView:ListViewGridLayout Orientation="Vertical"
+                                                            SpanCount="2"
+                                                            ItemLength="50"/>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <telerikListView:ListViewTemplateCell>
+                                <telerikListView:ListViewTemplateCell.View>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding Text}"
+                                           FontFamily="{StaticResource IconsFont}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="26">
+                                            <Label.Margin>
+                                                <OnPlatform x:DataType="Thickness" Android="42, 5, 42, 0" iOS="40, 5, 40, 0"/>
+                                            </Label.Margin>
+                                            <Label.TextColor>
+                                                <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                            </Label.TextColor>
+                                        </Label>
+                                        <Label Grid.Row="1"
+                                           Text="{Binding CalendarMode, Converter={StaticResource CalendarModeToStringConverter}}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Margin="0, 3, 0, 3"
+                                           FontSize="10">
+                                            <Label.TextColor>
+                                                <OnPlatform x:DataType="Color" Android="#3F74D3" iOS="#007AFF"/>
+                                            </Label.TextColor>
+                                        </Label>
+                                    </Grid>
+                                </telerikListView:ListViewTemplateCell.View>
+                            </telerikListView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                </telerikDataControls:RadListView>
+            </telerikPrimitives:RadBorder>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

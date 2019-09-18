@@ -11,6 +11,8 @@ namespace QSF.ViewModels
             this.Name = example.DisplayName;
             this.Description = example.Description;
             this.Example = example;
+            this.IsNew = example.IsNew;
+            this.IsUpdated = example.IsUpdated;
         }
 
         public string GroupName { get; }
@@ -22,5 +24,9 @@ namespace QSF.ViewModels
         public string Description { get; }
 
         internal Example Example { get; }
+
+        public bool IsNew { get; }
+
+        public bool IsUpdated { get; }
     }
 }

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.WordsProcessingControl.FindAndReplaceExample.FindAndReplaceView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="input:RadEntry">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="WidthRequest">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS">270</On>
+                        <On Platform="UWP">300</On>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="BorderStyle">
+                    <input:BorderStyle BorderThickness="0, 0, 0, 1" BorderColor="#919191"/>
+                </Setter>
+            </Style>
+
+            <Style x:Key="checkBoxLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            
+            <Style x:Key="boldLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 0, 0, 15" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+ 
+            <Style TargetType="telerikPrimitives:RadCheckBox">
+                <Setter Property="UncheckedColor" Value="#CCCCCC" />
+                <Setter Property="CheckedColor" Value="#A1BF3D" />
+                <Setter Property="Margin" Value="30, 0, 0, 0" />
+            </Style>
+
+            <Style TargetType="input:RadButton">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="CornerRadius">
+                    <OnPlatform x:TypeArguments="x:Int32">
+                        <On Platform="Android, iOS">22</On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout>
+            <Grid BackgroundColor="#F0F0F0" 
+                  HeightRequest="135"
+                  Margin="0, 0, 0, 15"
+                  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="Center"
+                             VerticalOptions="End"
+                             Margin="0, 0, 0, 21"
+                             >
+                    <Label Text="File:"
+                           FontAttributes="Bold" 
+                           FontSize="Small" 
+                           TextColor="Black"
+                           />
+                    <Label Text="SampleDocument.docx" FontSize="Small"/>
+                </StackLayout>
+
+                <input:RadButton Grid.Row="1" 
+                                 BackgroundColor="Transparent"
+                                 Text="View Document" 
+                                 TextColor="#A1BF3D"
+                                 Command="{Binding GenerateSampleCommand}" 
+                                 BorderColor="#A1BF3D"
+                                 BorderWidth="2"
+                                 />
+            </Grid>
+
+            <Label Text="Find Text:" Style="{StaticResource boldLabel}" />
+
+            <input:RadEntry WatermarkText="Enter Text to be found ex. fast"
+                            Margin="0, 0, 0, 18"
+                            Text="{Binding FindWhat, Mode=OneWayToSource}"
+                            />
+
+            <Label Text="Replace with:" Style="{StaticResource boldLabel}" />
+
+            <input:RadEntry WatermarkText="Enter Text to be replaced ex. slow"
+                            Margin="0, 0, 0, 41"
+                            Text="{Binding ReplaceWith, Mode=OneWayToSource}"
+                            />
+
+            <StackLayout Orientation="Vertical" 
+                         Margin="35, 0, 35, 0">
+                <StackLayout.HorizontalOptions>
+                    <OnPlatform x:TypeArguments="LayoutOptions">
+                        <On Platform="UWP">Center</On>
+                    </OnPlatform>
+                </StackLayout.HorizontalOptions>
+            
+                <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 24">
+            
+                    <telerikPrimitives:RadCheckBox UncheckedColor="#CCCCCC"
+                                                   CheckedColor="#A1BF3D"
+                                                   IsChecked="{Binding MatchCase}"
+                                                   HorizontalOptions="Center"
+                                                   />
+                    <Label Text="Match Case" Style="{StaticResource checkBoxLabel}"/>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 24">
+                    <telerikPrimitives:RadCheckBox UncheckedColor="#CCCCCC"
+                                                   CheckedColor="#A1BF3D"
+                                                   IsChecked="{Binding MatchWholeWord}"
+                                                   />
+                    <Label Text="Match Whole Word" Style="{StaticResource checkBoxLabel}"/>
+                </StackLayout>
+            
+                <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 35">
+                    <telerikPrimitives:RadCheckBox UncheckedColor="#CCCCCC"
+                                                   CheckedColor="#A1BF3D"
+                                                   IsChecked="{Binding UseRegex}"
+                                                   />
+                    <Label Text="Use Regular Expression" Style="{StaticResource checkBoxLabel}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <input:RadButton BackgroundColor="#A1BF3D" 
+                             Text="Replace and Save" 
+                             TextColor="White"
+                             Command="{Binding ReplaceAndSaveCommand}" 
+                             Margin="0, 0, 0, 10"
+                             VerticalOptions="EndAndExpand"
+                             />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

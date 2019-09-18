@@ -27,20 +27,20 @@
             <telerikListView:PropertyGroupDescriptor PropertyName="GroupName" SortOrder="Descending"/>
         </telerikDataControls:RadListView.GroupDescriptors>
         <telerikDataControls:RadListView.LayoutDefinition>
-          <telerikListView:ListViewGridLayout GroupHeaderLength="48" HorizontalItemSpacing="12" VerticalItemSpacing="12">
-              <telerikListView:ListViewGridLayout.GroupHeaderLength>
-                  <OnPlatform x:TypeArguments="x:Double">
-                      <On Platform="UWP" Value="30" />
-                      <On Platform="iOS, Android" Value="48" />
-                  </OnPlatform>
-              </telerikListView:ListViewGridLayout.GroupHeaderLength>
-              <telerikListView:ListViewGridLayout.ItemLength>
-                  <OnPlatform x:TypeArguments="x:Double">
-                      <On Platform="UWP" Value="260" />
-                      <On Platform="iOS, Android" Value="235" />
-                  </OnPlatform>
-              </telerikListView:ListViewGridLayout.ItemLength>
-          </telerikListView:ListViewGridLayout>
+            <telerikListView:ListViewGridLayout GroupHeaderLength="48" HorizontalItemSpacing="12" VerticalItemSpacing="12">
+                <telerikListView:ListViewGridLayout.GroupHeaderLength>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="UWP" Value="30" />
+                        <On Platform="iOS, Android" Value="48" />
+                    </OnPlatform>
+                </telerikListView:ListViewGridLayout.GroupHeaderLength>
+                <telerikListView:ListViewGridLayout.ItemLength>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="UWP" Value="260" />
+                        <On Platform="iOS, Android" Value="235" />
+                    </OnPlatform>
+                </telerikListView:ListViewGridLayout.ItemLength>
+            </telerikListView:ListViewGridLayout>
         </telerikDataControls:RadListView.LayoutDefinition>
         <telerikDataControls:RadListView.GroupHeaderTemplate>
             <DataTemplate>
@@ -109,19 +109,17 @@
             <DataTemplate>
                 <telerikListView:ListViewTemplateCell>
                     <telerikListView:ListViewTemplateCell.View>
-                        <Grid BackgroundColor="{StaticResource Key=LightBackgroundColor}" Padding="10, 10, 10, 0">
-                            <Grid.RowDefinitions>
-                              <RowDefinition Height="Auto" />
-                              <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-
+                        <StackLayout BackgroundColor="{StaticResource Key=LightBackgroundColor}" Padding="10, 10, 10, 10">
                             <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}" HeightRequest="160">
                                 <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}" Aspect="AspectFit"
                                        WidthRequest="160" HeightRequest="160" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Grid>
 
-                            <Label Text="{Binding Path=Name}" Grid.Row="1" Style="{StaticResource Key=ControlExampleNameLabelStyle}" />
-                        </Grid>
+                            <Label Text="{Binding Path=Name}" Style="{StaticResource Key=ControlExampleNameLabelStyle}" Margin="0, 5, 0, 0"/>
+
+                            <Label Text="NEW" IsVisible="{Binding Path=IsNew}" Style="{StaticResource TagLabelStyle}"/>
+                            <Label Text="UPDATED" IsVisible="{Binding Path=IsUpdated}" Style="{StaticResource TagLabelStyle}"/>
+                        </StackLayout>
                     </telerikListView:ListViewTemplateCell.View>
                 </telerikListView:ListViewTemplateCell>
             </DataTemplate>

@@ -140,19 +140,13 @@
                                             </Grid>
                                             <Label Text="{Binding Path=DisplayName}" Style="{StaticResource Key=ControlExampleNameLabelStyle}"/>
 
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*" />
-                                                    <ColumnDefinition Width="Auto" />
-                                                </Grid.ColumnDefinitions>
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Label Text="BETA" IsVisible="{Binding Path=IsBeta}" TextColor="{StaticResource Key=AccentColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
-                                                    <Label Text="CTP" IsVisible="{Binding Path=IsCTP}" TextColor="{StaticResource Key=CTPTextColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
-                                                    <Label Text="NEW" IsVisible="{Binding Path=IsNew}" TextColor="{StaticResource Key=AccentColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
-                                                </StackLayout>
-
-                                                <Label Text="UPDATED" IsVisible="{Binding Path=IsUpdated}" Grid.Column="1" TextColor="{StaticResource Key=AccentColor}" FontSize="10" FontFamily="{StaticResource Key=RegularFont}" />
-                                            </Grid>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="BETA" IsVisible="{Binding Path=IsBeta}" Style="{StaticResource TagLabelStyle}" />
+                                                <Label Text="CTP" IsVisible="{Binding Path=IsCTP}" Style="{StaticResource TagLabelStyle}" TextColor="{StaticResource Key=CTPTextColor}" />
+                                                <Label Text="NEW" IsVisible="{Binding Path=IsNew}" Style="{StaticResource TagLabelStyle}" />
+                                            </StackLayout>
+                                            
+                                            <Label Text="UPDATED" IsVisible="{Binding Path=IsUpdated}" Style="{StaticResource TagLabelStyle}" />
                                         </StackLayout>
                                     </telerikListView:ListViewTemplateCell.View>
                                 </telerikListView:ListViewTemplateCell>

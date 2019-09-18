@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:imageEditorExample="clr-namespace:QSF.Examples.ImageEditorControl"
+             xmlns:customToolbarExample="clr-namespace:QSF.Examples.ImageEditorControl.CustomToolbarExample"
+             xmlns:telerikImageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
+             x:Class="QSF.Examples.ImageEditorControl.CustomToolbarExample.EditImageView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <customToolbarExample:CropToolbarViewModel x:Key="cropToolbarViewModel" />
+            <Style TargetType="{x:Type telerikImageEditor:ImageEditorToolbarItem}"
+                   ApplyToDerivedTypes="True">
+                <Setter Property="TextColor"
+                        Value="Black" />
+                <Setter Property="SelectedColor"
+                        Value="#FE6078" />
+                <Setter Property="SelectedBackgroundColor"
+                        Value="Transparent" />
+            </Style>
+            <Style x:Key="toolbarLayoutStyle"
+                   TargetType="{x:Type StackLayout}">
+                <Setter Property="Margin"
+                        Value="4" />
+                <Setter Property="Spacing"
+                        Value="4" />
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">48</On>
+                            <On Platform="UWP">64</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="toolbarTextStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="FontSize"
+                        Value="Micro" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+            </Style>
+            <Style x:Key="toolbarIconStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource IconsFont}" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+            </Style>
+            <Style x:Key="normalTextStyle"
+                   TargetType="{x:Type Label}"
+                   BasedOn="{StaticResource toolbarTextStyle}">
+                <Setter Property="TextColor"
+                        Value="Black" />
+            </Style>
+            <Style x:Key="normalIconStyle"
+                   TargetType="{x:Type Label}"
+                   BasedOn="{StaticResource toolbarIconStyle}">
+                <Setter Property="TextColor"
+                        Value="Black" />
+            </Style>
+            <Style x:Key="selectedTextStyle"
+                   TargetType="{x:Type Label}"
+                   BasedOn="{StaticResource toolbarTextStyle}">
+                <Setter Property="TextColor"
+                        Value="#FE6078" />
+            </Style>
+            <Style x:Key="selectedIconStyle"
+                   TargetType="{x:Type Label}"
+                   BasedOn="{StaticResource toolbarIconStyle}">
+                <Setter Property="TextColor"
+                        Value="#FE6078" />
+            </Style>
+            <customToolbarExample:SelectedItemStyleConverter x:Key="iconStyleConverter"
+                                                             DefaultStyle="{StaticResource normalIconStyle}"
+                                                             SelectedStyle="{StaticResource selectedIconStyle}" />
+            <customToolbarExample:SelectedItemStyleConverter x:Key="textStyleConverter"
+                                                             DefaultStyle="{StaticResource normalTextStyle}"
+                                                             SelectedStyle="{StaticResource selectedTextStyle}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <telerikImageEditor:RadImageEditorToolbar Grid.Row="0"
+                                                  Padding="8, 0"
+                                                  BackgroundColor="#F7F7F7"
+                                                  ImageEditor="{x:Reference imageEditor}"
+                                                  AutoGenerateItems="False">
+            <telerikImageEditor:CommandToolbarItem Text="Discard"
+                                                   HorizontalOptions="Start"
+                                                   Command="{Binding BackCommand}" />
+            <telerikImageEditor:UndoToolbarItem HorizontalOptions="Center" />
+            <telerikImageEditor:RedoToolbarItem HorizontalOptions="Center" />
+            <telerikImageEditor:CommandToolbarItem Text="Save"
+                                                   HorizontalOptions="End"
+                                                   Command="{Binding SaveCommand}">
+                <telerikImageEditor:CommandToolbarItem.CommandParameter>
+                    <imageEditorExample:ImageContext ImageEditor="{x:Reference imageEditor}" />
+                </telerikImageEditor:CommandToolbarItem.CommandParameter>
+            </telerikImageEditor:CommandToolbarItem>
+        </telerikImageEditor:RadImageEditorToolbar>
+        <telerikImageEditor:RadImageEditor x:Name="imageEditor"
+                                           Grid.Row="1"
+                                           Padding="4"
+                                           BackgroundColor="#C9C9C9"
+                                           Source="{Binding Image}"/>
+        <telerikImageEditor:RadImageEditorToolbar Grid.Row="2"
+                                                  BackgroundColor="#F7F7F7"
+                                                  ImageEditor="{x:Reference imageEditor}"
+                                                  AutoGenerateItems="False">
+            <telerikImageEditor:CropToolbarItem x:Name="cropToolbarItem"
+                                                HorizontalOptions="Start"
+                                                AutoGenerateItems="False"
+                                                BindingContext="{StaticResource cropToolbarViewModel}"
+                                                Tool="{Binding SelectedTool, Mode=OneWayToSource}">
+                <telerikImageEditor:CancelToolbarItem HorizontalOptions="Start" />
+                <telerikImageEditor:TemplateToolbarItem HorizontalOptions="Center">
+                    <telerikImageEditor:TemplateToolbarItem.Template>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal"
+                                         BindingContext="{StaticResource cropToolbarViewModel}"
+                                         BindableLayout.ItemsSource="{Binding Items}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Style="{StaticResource toolbarLayoutStyle}">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding SelectCommand, Source={StaticResource cropToolbarViewModel}}"
+                                                                      CommandParameter="{Binding}" />
+                                            </StackLayout.GestureRecognizers>
+                                            <Label Text="{Binding Icon}"
+                                                   Style="{Binding IsSelected, Converter={StaticResource iconStyleConverter}}" />
+                                            <Label Text="{Binding Text}"
+                                                   Style="{Binding IsSelected, Converter={StaticResource textStyleConverter}}" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </DataTemplate>
+                    </telerikImageEditor:TemplateToolbarItem.Template>
+                </telerikImageEditor:TemplateToolbarItem>
+                <telerikImageEditor:ApplyToolbarItem HorizontalOptions="End" />
+            </telerikImageEditor:CropToolbarItem>
+            <telerikImageEditor:RotateLeftToolbarItem HorizontalOptions="Start" />
+            <telerikImageEditor:CommandToolbarItem Text="{StaticResource CameraIcon}"
+                                                   FontFamily="{StaticResource IconsFont}"
+                                                   HorizontalOptions="End"
+                                                   Command="{Binding TakePhotoCommand}" />
+            <telerikImageEditor:CommandToolbarItem Text="{StaticResource GalleryIcon}"
+                                                   FontFamily="{StaticResource IconsFont}"
+                                                   HorizontalOptions="End"
+                                                   Command="{Binding PickPhotoCommand}" />
+        </telerikImageEditor:RadImageEditorToolbar>
+    </Grid>
+</ContentPage>

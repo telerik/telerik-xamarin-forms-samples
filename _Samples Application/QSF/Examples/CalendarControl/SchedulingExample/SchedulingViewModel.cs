@@ -64,6 +64,14 @@ namespace QSF.Examples.CalendarControl.SchedulingExample
             {
                 if (this.selectedMode != value)
                 {
+                    if (value == null)
+                    {
+                        var oldSelectedItem = this.selectedMode;
+                        this.selectedMode = value;
+                        this.SelectedMode = oldSelectedItem;
+                        return;
+                    }
+
                     this.selectedMode = value;
                     this.IsAgendaVisible = this.selectedMode != null && this.selectedMode.CalendarMode == Telerik.XamarinForms.Input.CalendarViewMode.Week;
                     this.IsDrawerOpen = false;

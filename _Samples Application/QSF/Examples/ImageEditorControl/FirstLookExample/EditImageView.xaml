@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:QSF.Effects"
-             xmlns:example="clr-namespace:QSF.Examples.ImageEditorControl.FirstLookExample"
+             xmlns:imageEditorExample="clr-namespace:QSF.Examples.ImageEditorControl"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikImageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
              x:Class="QSF.Examples.ImageEditorControl.FirstLookExample.EditImageView">
@@ -11,6 +11,8 @@
             <Style TargetType="{x:Type telerikImageEditor:ImageEditorToolbarItem}"
                    ApplyToDerivedTypes="True">
                 <Setter Property="TextColor"
+                        Value="#007AFF" />
+                <Setter Property="SelectedBackgroundColor"
                         Value="#007AFF" />
             </Style>
             <Style TargetType="{x:Type Slider}">
@@ -61,7 +63,7 @@
                                         VerticalOptions="Center" 
                                         Command="{Binding SaveCommand}">
                     <telerikInput:RadButton.CommandParameter>
-                        <example:ImageContext ImageEditor="{x:Reference imageEditor}" />
+                        <imageEditorExample:ImageContext ImageEditor="{x:Reference imageEditor}" />
                     </telerikInput:RadButton.CommandParameter>
                 </telerikInput:RadButton>
             </Grid>

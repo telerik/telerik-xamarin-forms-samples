@@ -24,5 +24,9 @@
         public string ExcludeFrom { get; set; }
 
         public string CodeURL { get; set; }
+
+        public bool IsNew { get; set; }
+
+        public bool IsUpdated { get; set; }
     }
 }
