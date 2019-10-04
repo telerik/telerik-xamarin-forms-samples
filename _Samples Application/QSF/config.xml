@@ -968,6 +968,15 @@
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/CustomizationExample</CodeURL>
           <IsNew>true</IsNew>
         </Example>
+        <Example>
+          <Name>LargeFile</Name>
+          <Image>PdfViewer_LargeFile.png</Image>
+          <DescriptionHeader>Large file</DescriptionHeader>
+          <Description>A demonstration of the read-on-demand feature that allows to quickly open large files. This is done by not loading the whole document initially, but a page is loaded on demand, only when it enters the viewable area.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/LargeFileExample</CodeURL>
+        </Example>
       </Examples>
     </Control>
     <Control>

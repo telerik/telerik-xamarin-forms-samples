@@ -1350,6 +1350,11 @@
     <Content Include="Assets\PdfViewer_FirstLook.scale-150.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-200.png" />
     <Content Include="Assets\PdfViewer_FirstLook.scale-400.png" />
+    <Content Include="Assets\PdfViewer_LargeFile.scale-100.png" />
+    <Content Include="Assets\PdfViewer_LargeFile.scale-150.png" />
+    <Content Include="Assets\PdfViewer_LargeFile.scale-200.png" />
+    <Content Include="Assets\PdfViewer_LargeFile.scale-300.png" />
+    <Content Include="Assets\PdfViewer_LargeFile.scale-400.png" />
     <Content Include="Assets\Popup_Configuration.scale-100.png" />
     <Content Include="Assets\Popup_Configuration.scale-125.png" />
     <Content Include="Assets\Popup_Configuration.scale-150.png" />
@@ -1866,7 +1871,7 @@
   <Choose>
     <When Condition=" '$(UsePublicRepo)'=='true' ">
       <ItemGroup>
-        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.913.1" />
+        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.1004.1" />
       </ItemGroup>
     </When>
   </Choose>
