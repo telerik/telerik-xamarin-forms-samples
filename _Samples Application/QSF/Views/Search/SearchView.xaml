@@ -107,13 +107,7 @@
 
         <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Path=SearchResults}" SelectedItem="{Binding Path=SelectedSearchResult, Mode=TwoWay}"
                                          ItemTemplateSelector="{StaticResource Key=searchResultListViewItemTemplateSelector}" IsVisible="{Binding Path=HasResults}"
-                                         AutomationId="ResultsListView">
-            <telerikDataControls:RadListView.Margin>
-                <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform="iOS" Value="12" />
-                    <On Platform="UWP, Android" Value="12, 0" />
-                </OnPlatform>
-            </telerikDataControls:RadListView.Margin>
+                                         Margin="12, 0" AutomationId="ResultsListView">
             <telerikDataControls:RadListView.GroupDescriptors>
                 <telerikListView:PropertyGroupDescriptor PropertyName="ResultTypeText" SortOrder="Ascending"/>
             </telerikDataControls:RadListView.GroupDescriptors>

@@ -35,6 +35,7 @@
     <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
     <None Remove="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <None Remove="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <None Remove="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\DocToBeProcessed.docx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\JohnGrisham.docx" />
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\DocToBeProcessed.docx" />
@@ -62,6 +63,7 @@
     <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.dbf" />
     <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.shp" />
     <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
+    <EmbeddedResource Include="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\AccountDataSource.xml" />
@@ -109,9 +111,14 @@
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
   </ItemGroup>
   <ItemGroup Condition=" '$(UsePublicRepo)' == 'true' ">
-    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.913.1" />
+    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.1004.1" />
   </ItemGroup>
   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Examples\PdfViewerControl\LargeFileExample\LargeFileView.xaml.cs">
+      <DependentUpon>LargeFileView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Update="App.xaml">

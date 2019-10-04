@@ -46,7 +46,10 @@
                                                          ShapesOrientation="Horizontal"
                                                          ShapesHorizontalLocation="Right"
                                                          ShapesVerticalLocation="Bottom"
-                                                         ShapeType="Ellipse">
+                                                         ShapeType="Ellipse"
+                                                         AllDayShapeType="Ellipse"
+                                                         AllDayShapesDisplayMode="WithShapes"
+                                                         AllDayIndicatorLocation="Bottom">
                             <input:CalendarAppointmentsStyle.ShapeSize>
                                 <Size Width="5" Height="5"/>
                             </input:CalendarAppointmentsStyle.ShapeSize>

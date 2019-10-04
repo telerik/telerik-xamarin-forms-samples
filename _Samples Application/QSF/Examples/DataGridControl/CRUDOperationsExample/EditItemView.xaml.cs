@@ -25,7 +25,7 @@ namespace QSF.Examples.DataGridControl.CRUDOperationsExample
             {
                 nameof(Order.OrderID),
                 nameof(Order.ShipName),
-                nameof(Order.ShippedDate),
+                nameof(Order.OrderDate),
                 nameof(Order.ShippedDate),
                 nameof(Order.ShipVia),
                 nameof(Order.CustomerID),
