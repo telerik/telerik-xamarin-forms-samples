@@ -134,7 +134,6 @@
                 </Grid.RowDefinitions>
                 <telerikPrimitives:RadPath StrokeThickness="1"
                                            Stroke="White"
-                                           Fill="Red"
                                            Geometry="{x:Static telerikInput:Geometries.Heart}">
                     <telerikPrimitives:RadPath.Fill>
                         <telerikCommon:RadSweepGradientBrush>
