@@ -129,6 +129,9 @@
                 <telerikDataControls:RadListView.GroupDescriptors>
                     <telerikListView:PropertyGroupDescriptor PropertyName="Group" />
                 </telerikDataControls:RadListView.GroupDescriptors>
+                <telerikDataControls:RadListView.GroupHeaderStyle>
+                    <telerikListView:ListViewGroupStyle BackgroundColor="Transparent" />
+                </telerikDataControls:RadListView.GroupHeaderStyle>
                 <telerikDataControls:RadListView.ItemTemplate>
                     <DataTemplate>
                         <telerikListView:ListViewTemplateCell>

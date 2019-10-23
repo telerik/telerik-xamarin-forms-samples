@@ -1871,7 +1871,7 @@
   <Choose>
     <When Condition=" '$(UsePublicRepo)'=='true' ">
       <ItemGroup>
-        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.1004.1" />
+        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.1023.1" />
       </ItemGroup>
     </When>
   </Choose>
