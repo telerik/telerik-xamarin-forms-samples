@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ErpApp.Models"
+             xmlns:rating="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="ErpApp.Pages.Vendors.VendorEditViewPhone" BackgroundColor="White">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="itemSpacing">0,0,0,10</Thickness>
+            <Color x:Key="TitleLabelColor">#bcbcbc</Color>
+            <Color x:Key="LineColor">#d7d7d7</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <ScrollView>
+            <Grid RowSpacing="6" Margin="12,12,12,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="7*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="{Binding Path=DraftVendor.ImageURL}" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="StartAndExpand" />
+                <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Path=DraftVendor.Name, Mode=TwoWay}" VerticalOptions="Center" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Vendor ID" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Mode}" Value="{x:Static models:PresentationMode.Create}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=DraftVendor.VendorNumber}" Margin="{StaticResource itemSpacing}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Mode}" Value="{x:Static models:PresentationMode.Create}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding Mode}" Value="{x:Static models:PresentationMode.Create}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Rating" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <rating:RadShapeRating Grid.Row="2" Grid.Column="1" ItemsCount="{x:Static models:Vendor.MaxRating}" Value="{Binding Path=DraftVendor.Rating, Mode=TwoWay}" IsReadOnly="False" HeightRequest="22" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Annual Revenue" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center" />
+                <telerikInput:RadNumericInput Grid.Row="3" Grid.Column="1" Value="{Binding Path=DraftVendor.AnnualRevenue, Mode=TwoWay}" Step="100" Minimum="0" Margin="{StaticResource itemSpacing}" StringFormat="{}{0:C}"  />
+                <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Order Frequency" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center" />
+                <Picker Grid.Row="4" Grid.Column="1" ItemsSource="{x:Static models:Vendor.AvailableOrderFrequencies}" SelectedItem="{Binding Path=DraftVendor.OrderFrequency, Mode=TwoWay}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Phone" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center" />
+                <Entry Grid.Row="5" Grid.Column="1" Text="{Binding Path=DraftVendor.Phone, Mode=TwoWay}" Keyboard="Telephone" Margin="{StaticResource itemSpacing}"  />
+                <BoxView Grid.Row="5" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

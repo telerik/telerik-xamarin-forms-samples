@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcf:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:mcf="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:vm="clr-namespace:ErpApp.ViewModels"
+                    x:TypeArguments="vm:SearchResultsViewModel"
+                    xmlns:controls="clr-namespace:ErpApp.Controls"
+                    xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                    xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+                    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    x:Class="ErpApp.Pages.SearchResultsPage" ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False">
+    <mcf:MvxContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Command="{Binding CancelCommand}"
+                    HorizontalOptions="Start"
+                    BackgroundColor="Transparent"
+                    WidthRequest="50"
+                    FontFamily="{StaticResource IconsFont}"
+                    Text="{StaticResource icon-left-open-big}"
+                    Padding="0" />
+            <SearchBar x:Name="searchBox" Grid.Row="0" Placeholder="Search" Text="{Binding SearchTerm, Mode=TwoWay}" Margin="50,10,0,10" BackgroundColor="Transparent" />
+            <BoxView Grid.Row="0" HeightRequest="1" VerticalOptions="End" BackgroundColor="#d7d7d7" />
+            
+            <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Source, Mode=OneWay}" SelectionMode="Single"
+                                             SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <telerikListView:ListViewTemplateCell>
+                            <telerikListView:ListViewTemplateCell.View>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Image Source="{Binding ImageURL}" Grid.Column="0" Margin="23,3,10,3" />
+                                    
+                                    <Label Text="{Binding Description}" Grid.Column="1" FontSize="18" TextColor="Black" Margin="0,9,0,0" VerticalOptions="Start" FontAttributes="Bold" />
+                                    <Label Text="{Binding Number, StringFormat='ID: #{0}'}" Grid.Column="1" VerticalOptions="Start" Margin="0,30,0,0" TextColor="#757575" />
+                                    
+                                    <Label Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Gray" Margin="0,0,40,0"
+                                           FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-right-open-big}">
+                                        <Label.IsVisible>
+                                            <OnIdiom x:TypeArguments="x:Boolean" Default="False">
+                                                <OnIdiom.Phone>True</OnIdiom.Phone>
+                                            </OnIdiom>
+                                        </Label.IsVisible>
+                                    </Label>
+                                    
+                                    <BoxView Grid.ColumnSpan="3" HeightRequest="1" VerticalOptions="End" BackgroundColor="#d7d7d7" Margin="20,0" />
+                                </Grid>
+                            </telerikListView:ListViewTemplateCell.View>
+                        </telerikListView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+                <telerikDataControls:RadListView.ItemStyle>
+                    <telerikListView:ListViewItemStyle BorderLocation="None" BorderWidth="0" />
+                </telerikDataControls:RadListView.ItemStyle>
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <telerikListView:ListViewLinearLayout ItemLength="60" />
+                </telerikDataControls:RadListView.LayoutDefinition>
+            </telerikDataControls:RadListView>
+            
+            <controls:EmptySearchResultsView Grid.Row="1" BackgroundColor="White" Term="{Binding SearchTerm}"
+                                             IsVisible="{Binding IsSearchEmpty, Mode=OneWay}" />
+        </Grid>
+    </mcf:MvxContentPage.Content>
+</mcf:MvxContentPage>

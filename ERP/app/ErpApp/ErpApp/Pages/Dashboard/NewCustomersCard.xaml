@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Dashboard.NewCustomersCard"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart">
+    
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="New Customers" Style="{StaticResource TitleLabelStyle}"  />
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="For the last 3 Months" Style="{StaticResource SubtitleLabelStyle}"  />
+
+        <telerikChart:RadCartesianChart Grid.Row="2" Grid.Column="0">
+            <telerikChart:RadCartesianChart.ChartBehaviors>
+                <telerikChart:ChartSelectionBehavior SeriesSelectionMode="None" DataPointSelectionMode="None"/>
+            </telerikChart:RadCartesianChart.ChartBehaviors>
+            <telerikChart:RadCartesianChart.Series>
+                <telerikChart:BarSeries ItemsSource="{Binding NewCustomers}" ShowLabels="false" PaletteMode="DataPoint"> 
+                    <telerikChart:BarSeries.ValueBinding>
+                        <telerikChart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </telerikChart:BarSeries.ValueBinding>
+                    <telerikChart:BarSeries.CategoryBinding>
+                        <telerikChart:PropertyNameDataPointBinding PropertyName="Name" />
+                    </telerikChart:BarSeries.CategoryBinding>
+                </telerikChart:BarSeries>
+            </telerikChart:RadCartesianChart.Series>
+            <telerikChart:RadCartesianChart.HorizontalAxis>
+                <telerikChart:NumericalAxis Minimum="0"
+                                            LineColor="White" LabelTextColor="White" MajorTickBackgroundColor="White" />
+            </telerikChart:RadCartesianChart.HorizontalAxis>
+            <telerikChart:RadCartesianChart.VerticalAxis>
+                <telerikChart:CategoricalAxis />
+            </telerikChart:RadCartesianChart.VerticalAxis>
+        </telerikChart:RadCartesianChart>
+        </Grid>
+</ContentView>

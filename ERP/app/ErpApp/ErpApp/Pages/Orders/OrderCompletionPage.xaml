@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcf:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:mcf="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    x:TypeArguments="vm:OrderCompletionViewModel"
+                    xmlns:vm="clr-namespace:ErpApp.ViewModels"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+                    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                    x:Class="ErpApp.Pages.Orders.OrderCompletionPage" ios:Page.UseSafeArea="true">
+    <mcf:MvxContentPage.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Tablet>10,20</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.Margin>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <BoxView BackgroundColor="White" Grid.RowSpan="3" CornerRadius="4" />
+            
+            <Label Margin="20" Text="Please, sign here:" Grid.Row="0" FontSize="20" FontAttributes="Bold" />
+            <controls:SignaturePadView Grid.Row="1" x:Name="signatureView" StrokeWidth="0" BackgroundColor="White" Margin="20,0" />
+
+            <telerikInput:RadButton Text="Back" Grid.Row="2" HorizontalOptions="Start" Margin="20,0,0,20" Command="{Binding CancelCommand}" Padding="3"
+                    BorderWidth="2" BorderRadius="17" BorderColor="#4488F6" BackgroundColor="White" WidthRequest="100" HeightRequest="34" />
+            <telerikInput:RadButton Text="Done" Grid.Row="2" HorizontalOptions="End" Margin="0,0,20,20" Command="{Binding DoneCommand}" Padding="3"
+                    BorderWidth="2" BorderRadius="17" BorderColor="#4488F6" BackgroundColor="#4488F6" WidthRequest="100" HeightRequest="34" TextColor="White" />
+        </Grid>
+    </mcf:MvxContentPage.Content>
+</mcf:MvxContentPage>

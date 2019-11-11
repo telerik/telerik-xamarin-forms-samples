@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TemplatedView xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:app="clr-namespace:ErpApp"
+               x:Class="ErpApp.Controls.EmptySearchResultsView">
+    <TemplatedView.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="{x:Static app:EmbeddedImages.NoItemsImage}" Margin="0,0,0,10" />
+                <Label Text="{TemplateBinding Term, StringFormat='No items matched your search for {0}'}"
+                       FontSize="22" HorizontalTextAlignment="Center" />
+                <Label Text="Please try searching with another term" HorizontalTextAlignment="Center" />
+            </StackLayout>
+        </ControlTemplate>
+    </TemplatedView.ControlTemplate>
+</TemplatedView>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Orders.OrderEditView"
+             xmlns:models="clr-namespace:ErpApp.Models"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls">
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid x:Name="LayoutRoot">
+            <Grid.Margin>
+                <OnIdiom x:TypeArguments="Thickness" Default="0,20,20,20">
+                    <OnIdiom.Phone>0,0,0,0</OnIdiom.Phone>
+                </OnIdiom>
+            </Grid.Margin>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <BoxView BackgroundColor="White" Grid.RowSpan="3">
+                <BoxView.IsVisible>
+                    <OnIdiom x:TypeArguments="x:Boolean">
+                        <OnIdiom.Phone>False</OnIdiom.Phone>
+                        <OnIdiom.Default>True</OnIdiom.Default>
+                    </OnIdiom>
+                </BoxView.IsVisible>
+            </BoxView>
+            
+            <Label Margin="6,20" Text="{Binding Title}" Grid.Row="0" FontSize="20" FontAttributes="Bold">
+                <Label.IsVisible>
+                    <OnIdiom x:TypeArguments="x:Boolean">
+                        <OnIdiom.Phone>False</OnIdiom.Phone>
+                        <OnIdiom.Default>True</OnIdiom.Default>
+                    </OnIdiom>
+                </Label.IsVisible>
+            </Label>
+            
+            <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,20,0" WidthRequest="100"
+                    BorderWidth="2" BorderRadius="20" BorderColor="#f33d4c" BackgroundColor="White" TextColor="#f33d4c"
+                    Text="Cancel" Command="{Binding CancelCommand, Mode=OneWay}">
+                <Button.IsVisible>
+                    <OnIdiom x:TypeArguments="x:Boolean">
+                        <OnIdiom.Phone>False</OnIdiom.Phone>
+                        <OnIdiom.Default>True</OnIdiom.Default>
+                    </OnIdiom>
+                </Button.IsVisible>
+            </Button>
+            
+            <telerikPrimitives:RadTabView x:Name="tabView" Grid.Row="1">
+                <telerikPrimitives:RadTabView.Margin>
+                    <OnIdiom x:TypeArguments="Thickness" Default="20,10,20,10">
+                        <OnIdiom.Phone>6,6,6,6</OnIdiom.Phone>
+                    </OnIdiom>
+                </telerikPrimitives:RadTabView.Margin>
+                <telerikPrimitives:RadTabView.Resources>
+                    <ResourceDictionary>
+                        <ControlTemplate x:Key="HeaderControlTemplate">
+                            <telerikPrimitives:RadBorder BorderColor="{TemplateBinding SelectedColor}" BorderThickness="1" Padding="0,10">
+                                <Label Text="{TemplateBinding Text}" HorizontalTextAlignment="Center" />
+                            </telerikPrimitives:RadBorder>
+                        </ControlTemplate>
+                    </ResourceDictionary>
+                </telerikPrimitives:RadTabView.Resources>
+                <telerikPrimitives:RadTabView.Items>
+                    <!-- Clients -->
+                    <telerikPrimitives:TabViewItem x:Name="clientTab">
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem x:Name="clientTabHeader" Text="{Binding TabIndex, StringFormat='{}{0}. Clients', Source={x:Reference clientTabHeader}}"
+                                                                 ControlTemplate="{StaticResource HeaderControlTemplate}" SelectedColor="#bcbcbc">
+                                <telerikPrimitives:TabViewHeaderItem.Triggers>
+                                    <Trigger TargetType="telerikPrimitives:TabViewHeaderItem" Property="IsSelected" Value="True">
+                                        <Setter Property="SelectedColor" Value="Black" />
+                                    </Trigger>
+                                </telerikPrimitives:TabViewHeaderItem.Triggers>
+                            </telerikPrimitives:TabViewHeaderItem>
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <telerikDataGrid:RadDataGrid ItemsSource="{Binding AllCustomers}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}" SelectionMode="Single"
+                                                         AutoGenerateColumns="False" UserEditMode="None" Style="{StaticResource DataGridStyle}" Margin="0,10,0,50">
+                                    <telerikDataGrid:RadDataGrid.Columns>
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Customer" PropertyName="Name" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Phone" PropertyName="Phone" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Mail" PropertyName="Email" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="ID" PropertyName="CustomerNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                    </telerikDataGrid:RadDataGrid.Columns>
+                                </telerikDataGrid:RadDataGrid>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                    
+                    <!-- Products -->
+                    <telerikPrimitives:TabViewItem>
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem x:Name="productTabHeader" Text="{Binding TabIndex, StringFormat='{}{0}. Products', Source={x:Reference productTabHeader}}"
+                                                                 ControlTemplate="{StaticResource HeaderControlTemplate}" SelectedColor="#bcbcbc">
+                                <telerikPrimitives:TabViewHeaderItem.Triggers>
+                                    <Trigger TargetType="telerikPrimitives:TabViewHeaderItem" Property="IsSelected" Value="True">
+                                        <Setter Property="SelectedColor" Value="Black" />
+                                    </Trigger>
+                                </telerikPrimitives:TabViewHeaderItem.Triggers>
+                            </telerikPrimitives:TabViewHeaderItem>
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <Grid>
+                                <telerikDataGrid:RadDataGrid ItemsSource="{Binding AllProducts}" AutoGenerateColumns="False" UserEditMode="None" Style="{StaticResource DataGridStyle}" Margin="0,10,0,50">
+                                    <telerikDataGrid:RadDataGrid.Columns>
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Product" PropertyName="ProductName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTemplateColumn HeaderText="Quantity" HeaderStyle="{StaticResource cellHeaderStyle}" Width="160" SizeMode="Fixed">
+                                            <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                                <DataTemplate>
+                                                    <telerikInput:RadNumericInput Value="{Binding Quantity, Mode=TwoWay}" Step="1" Minimum="0" Margin="0,6" WidthRequest="160" HorizontalOptions="Center" VerticalOptions="Center" />
+                                                </DataTemplate>
+                                            </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                        </telerikDataGrid:DataGridTemplateColumn>
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Price" PropertyName="Ammount" CellContentFormat="{}{0:C0}" HeaderStyle="{StaticResource cellHeaderStyle}">
+                                            <telerikDataGrid:DataGridTextColumn.HeaderStyle>
+                                                <telerikDataGrid:DataGridColumnHeaderStyle TextColor="#acacac" BorderThickness="0,0,0,1" BorderColor="#d7d7d7" BackgroundColor="White" OptionsButtonTextColor="White" HorizontalTextAlignment="End" />
+                                            </telerikDataGrid:DataGridTextColumn.HeaderStyle>
+                                            <telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                                                <telerikDataGrid:DataGridTextCellStyle HorizontalTextAlignment="End" />
+                                            </telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                                        </telerikDataGrid:DataGridTextColumn>
+                                    </telerikDataGrid:RadDataGrid.Columns>
+                                </telerikDataGrid:RadDataGrid>
+                                
+                                <Label Text="{Binding Path=DraftOrder.Ammount, StringFormat='Total: {0:C0}'}" FontAttributes="Bold" FontSize="20"
+                                       HorizontalOptions="End" VerticalOptions="End" Margin="0,0,20,20" />
+                            </Grid>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                    
+                    <!-- Shipping -->
+                    <telerikPrimitives:TabViewItem>
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem x:Name="shippingTabHeader" Text="{Binding TabIndex, StringFormat='{}{0}. Shipping', Source={x:Reference shippingTabHeader}}"
+                                                                 ControlTemplate="{StaticResource HeaderControlTemplate}" SelectedColor="#bcbcbc">
+                                <telerikPrimitives:TabViewHeaderItem.Triggers>
+                                    <Trigger TargetType="telerikPrimitives:TabViewHeaderItem" Property="IsSelected" Value="True">
+                                        <Setter Property="SelectedColor" Value="Black" />
+                                    </Trigger>
+                                </telerikPrimitives:TabViewHeaderItem.Triggers>
+                            </telerikPrimitives:TabViewHeaderItem>
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <StackLayout Orientation="Vertical" Spacing="0">
+                                <Label Text="Shipping Address" FontAttributes="Bold" FontSize="20" Margin="0,20,0,0" />
+                                <BoxView HeightRequest="1" BackgroundColor="#d7d7d7" Margin="0,6" />
+                                
+                                <telerikDataControls:NonVirtualizedItemsControl Margin="0,6" ItemsSource="{Binding CustomerAddresses, Mode=OneWay}"
+                                                                                SelectedItem="{Binding SelectedShippingAddress, Mode=TwoWay}">
+                                    <telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid HeightRequest="60">
+                                                <Label Text="{Binding FullAddress}" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start" VerticalTextAlignment="Center" />
+                                                <BoxView HeightRequest="1" VerticalOptions="End" BackgroundColor="#d7d7d7" Margin="0,20,0,0" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                                </telerikDataControls:NonVirtualizedItemsControl>
+                                
+                                <Label Text="Shipping Date/Method" FontAttributes="Bold" FontSize="20" Margin="0,20,0,0" />
+                                <BoxView HeightRequest="1" BackgroundColor="#d7d7d7" Margin="0,6" />
+                                
+                                <Label Text="Due Date" TextColor="#bcbcbc" HorizontalOptions="Start" Margin="3,10,0,0" />
+                                <DatePicker Date="{Binding DraftOrder.DueDate, Mode=TwoWay}" HorizontalOptions="Start" WidthRequest="200" />
+                                
+                                <Label Text="Ship Method" TextColor="#bcbcbc" HorizontalOptions="Start" Margin="3,10,0,0" />
+                                <Picker ItemsSource="{x:Static models:Order.AvailableShipMethods}" SelectedItem="{Binding DraftOrder.ShipMethod, Mode=TwoWay}" HorizontalOptions="Start" WidthRequest="200" />
+                            </StackLayout>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                    
+                    <!-- Overview -->
+                    <telerikPrimitives:TabViewItem x:Name="overviewTab">
+                        <telerikPrimitives:TabViewItem.Header>
+                            <telerikPrimitives:TabViewHeaderItem x:Name="overviewTabHeader" Text="{Binding TabIndex, StringFormat='{}{0}. Overview', Source={x:Reference overviewTabHeader}}"
+                                                                 ControlTemplate="{StaticResource HeaderControlTemplate}" SelectedColor="#bcbcbc">
+                                <telerikPrimitives:TabViewHeaderItem.Triggers>
+                                    <Trigger TargetType="telerikPrimitives:TabViewHeaderItem" Property="IsSelected" Value="True">
+                                        <Setter Property="SelectedColor" Value="Black" />
+                                    </Trigger>
+                                </telerikPrimitives:TabViewHeaderItem.Triggers>
+                            </telerikPrimitives:TabViewHeaderItem>
+                        </telerikPrimitives:TabViewItem.Header>
+                        <telerikPrimitives:TabViewItem.Content>
+                            <StackLayout Orientation="Vertical">
+                                <telerikPrimitives:RadBorder Margin="0,20,0,10" HeightRequest="30" BackgroundColor="#e7e8ea">
+                                    <Label Text="Products" FontAttributes="Bold" FontSize="20" Margin="5,0,0,0" TextColor="#616161" VerticalOptions="Center" />
+                                </telerikPrimitives:RadBorder>
+                                <telerikDataGrid:RadDataGrid ItemsSource="{Binding DraftOrder.OrderDetails, Mode=OneWay}" SelectionMode="None"
+                                                             AutoGenerateColumns="False" UserEditMode="None" Style="{StaticResource DataGridStyle}"
+                                                             HeightRequest="110">
+                                    <telerikDataGrid:RadDataGrid.Columns>
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Product" PropertyName="ProductName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Quantity" PropertyName="Count" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Price" PropertyName="Ammount" CellContentFormat="{}{0:C0}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                    </telerikDataGrid:RadDataGrid.Columns>
+                                </telerikDataGrid:RadDataGrid>
+                                <Label Text="{Binding Path=DraftOrder.Ammount, StringFormat='Total: {0:C0}'}" FontAttributes="Bold" FontSize="20"
+                                       HorizontalOptions="End" Margin="0,0,20,0" />
+                                
+                                <ScrollView>
+                                    <StackLayout Orientation="Vertical">
+                                        <telerikPrimitives:RadBorder Margin="0,20,0,10" HeightRequest="30" BackgroundColor="#e7e8ea">
+                                            <Label Text="Customer Details" FontAttributes="Bold" FontSize="20" Margin="5,0,0,0" TextColor="#616161" VerticalOptions="Center" />
+                                        </telerikPrimitives:RadBorder>
+                                        <Label Text="{Binding DraftOrder.CustomerName}" Margin="5,0,0,0" />
+                                        <Label Text="{Binding DraftOrder.ShippingAddressAddress}" Margin="5,0,0,0" />
+                                        <Label Text="{Binding DraftOrder.ShippingAddressCityAddress}" Margin="5,0,0,0" />
+                                        
+                                        <telerikPrimitives:RadBorder Margin="0,20,0,10" HeightRequest="30" BackgroundColor="#e7e8ea">
+                                            <Label Text="Shipping Details" FontAttributes="Bold" FontSize="20" Margin="5,0,0,0" TextColor="#616161" VerticalOptions="Center" />
+                                        </telerikPrimitives:RadBorder>
+                                        <Label Text="{Binding DraftOrder.DueDate, StringFormat='{}{0:dd.MM.yyyy}'}" Margin="5,0,0,0" />
+                                        <Label Text="{Binding DraftOrder.ShipMethod}" Margin="5,0,0,0" />
+                                    </StackLayout>
+                                </ScrollView>
+                            </StackLayout>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                </telerikPrimitives:RadTabView.Items>
+            </telerikPrimitives:RadTabView>
+            
+            <Button x:Name="nextButton" Grid.Row="2" HorizontalOptions="End" Text="Next" Margin="0,0,20,6" WidthRequest="120" Clicked="OnNextClicked"
+                    BorderWidth="2" BorderRadius="20" BorderColor="Black" BackgroundColor="White" TextColor="Black">
+                <Button.IsVisible>
+                    <OnIdiom x:TypeArguments="x:Boolean">
+                        <OnIdiom.Phone>False</OnIdiom.Phone>
+                        <OnIdiom.Default>True</OnIdiom.Default>
+                    </OnIdiom>
+                </Button.IsVisible>
+            </Button>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

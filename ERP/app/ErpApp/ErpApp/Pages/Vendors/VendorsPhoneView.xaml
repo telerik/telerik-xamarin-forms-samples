@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:ErpApp"
+             xmlns:converters="clr-namespace:ErpApp.Converters"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="ErpApp.Pages.Vendors.VendorsPhoneView">
+    
+    <telerikPrimitives:RadPopup.Popup>
+        <telerikPrimitives:RadPopup x:Name="popup"
+                                    IsModal="false"
+                                    OutsideBackgroundColor="#6F000000"
+                                    Placement="Right"
+                                    VerticalOffset="10">
+            <telerikPrimitives:RadBorder CornerRadius="2" 
+                                         BackgroundColor="White">
+                <Grid Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                        <Label Text="View:" VerticalOptions="Center" TextColor="Gray"/>
+                        <Button Margin="15,0,0,0" TextColor="Black"
+                                FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-list}"
+                                Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Linear}" />
+                        <Button Margin="10,0,0,0" TextColor="Black"
+                                FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-large}"
+                                Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Grid}" />
+                    </StackLayout>
+                </Grid>
+            </telerikPrimitives:RadBorder>
+        </telerikPrimitives:RadPopup>
+    </telerikPrimitives:RadPopup.Popup>
+    
+     <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:SharedStyles />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:EvenOddConverter x:Key="isEventCon" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <Grid>
+            <telerikDataControls:RadListView ItemsSource="{Binding Vendors, Mode=OneWay}"
+                                             SelectionMode="Single" SelectedItem="{Binding SelectedVendor, Mode=TwoWay}"
+                                             BackgroundColor="White">
+                <telerikDataControls:RadListView.Triggers>
+                    <!--Linear Layout-->
+                    <DataTrigger TargetType="telerikDataControls:RadListView" Binding="{Binding CurrentLayoutMode}" Value="{x:Static app:LayoutMode.Linear}">
+                        <Setter Property="LayoutDefinition">
+                            <Setter.Value>
+                                <telerikListView:ListViewLinearLayout ItemLength="70" />
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="ItemTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <telerikListView:ListViewTemplateCell>
+                                        <telerikListView:ListViewTemplateCell.View>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="50" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                
+                                                <Image Source="{Binding ImageURL}" Grid.RowSpan="2" Grid.Column="0" Margin="20,0,0,0" />
+                                                
+                                                <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" TextColor="Black" VerticalOptions="End" />
+                                                <Label Text="{Binding VendorNumber}" Grid.Row="1" Grid.Column="1" VerticalOptions="Start" TextColor="Gray" FontSize="Small"/>
+                                                
+                                                <Label Grid.RowSpan="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Gray" Margin="0,0,40,0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-right-open-big}" />
+                                                
+                                                <BoxView Grid.RowSpan="2" Grid.ColumnSpan="3" HeightRequest="1" VerticalOptions="End" BackgroundColor="#d7d7d7" Margin="20,0" />
+                                            </Grid>
+                                        </telerikListView:ListViewTemplateCell.View>
+                                    </telerikListView:ListViewTemplateCell>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    
+                    <!--Grid Layout-->
+                    <DataTrigger TargetType="telerikDataControls:RadListView" Binding="{Binding CurrentLayoutMode}" Value="{x:Static app:LayoutMode.Grid}">
+                        <Setter Property="LayoutDefinition">
+                            <Setter.Value>
+                                <telerikListView:ListViewGridLayout HorizontalItemSpacing="0"
+                                                                    SpanCount="2"
+                                                                    VerticalItemSpacing="0"
+                                                                    ItemLength="150" />
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="ItemTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <telerikListView:ListViewTemplateCell>
+                                        <telerikListView:ListViewTemplateCell.View>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                
+                                                <Image Source="{Binding ImageURL}" Margin="20,10" WidthRequest="150" HeightRequest="100" HorizontalOptions="StartAndExpand" Aspect="AspectFill"/>
+
+                                                <Label Text="{Binding Name}" Grid.Row="1" TextColor="Black" VerticalOptions="End" LineBreakMode="TailTruncation" Margin="20,0,0,0"/>
+                                                <Label Text="{Binding VendorNumber}" Grid.Row="2" VerticalOptions="Start" LineBreakMode="TailTruncation" TextColor="Gray" Margin="20,0,0,10" FontSize="Small"/>
+                                                
+                                                <BoxView Grid.Row="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="#d7d7d7" Margin="20,0,0,0">
+                                                    <BoxView.Triggers>
+                                                        <DataTrigger TargetType="{x:Type BoxView}"
+                                                                     Binding="{Binding Index, Converter={StaticResource isEventCon}}" Value="False">
+                                                            <Setter Property="Margin" Value="0,0,20,0" />
+                                                        </DataTrigger>
+                                                    </BoxView.Triggers>
+                                                </BoxView>
+                                                <BoxView Grid.RowSpan="3" WidthRequest="1" HorizontalOptions="End" BackgroundColor="#d7d7d7"
+                                                         IsVisible="{Binding Index, Converter={StaticResource isEventCon}}"/>
+                                            </Grid>
+                                        </telerikListView:ListViewTemplateCell.View>
+                                    </telerikListView:ListViewTemplateCell>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </telerikDataControls:RadListView.Triggers>
+                <telerikDataControls:RadListView.ItemStyle>
+                    <telerikListView:ListViewItemStyle BorderLocation="None" BorderWidth="0" BackgroundColor="Transparent" />
+                </telerikDataControls:RadListView.ItemStyle>
+            </telerikDataControls:RadListView>
+            <telerikInput:RadButton HorizontalOptions="End" VerticalOptions="End" Margin="0, 0, 18, 18"
+                                    FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-plus}"
+                                    Command="{Binding CreateVendorCommand}"
+                                    Style="{StaticResource FloatingActionButton}" />
+
+            <telerikPrimitives:RadBusyIndicator AnimationType="Animation3" IsBusy="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="#E6FFFFFF" IsVisible="{Binding IsBusy}" AnimationContentColor="#2196F3" AnimationContentWidthRequest="60" AnimationContentHeightRequest="60"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

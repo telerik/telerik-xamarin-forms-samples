@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mcf:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:mcf="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:vm="clr-namespace:ErpApp.ViewModels"
+                    x:TypeArguments="vm:ProductDetailViewModel"
+                    xmlns:products="clr-namespace:ErpApp.Pages.Products"
+                    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    x:Class="ErpApp.Pages.Products.ProductDetailPage"
+                    Title="{Binding Title}" BackgroundColor="#f1f3f7" ios:Page.UseSafeArea="true">
+    <mcf:MvxContentPage.Content>
+        <Grid x:Name="LayoutRoot">
+            <products:ProductDetailView x:Name="detailView" IsVisible="False">
+                <products:ProductDetailView.Triggers>
+                    <DataTrigger TargetType="products:ProductDetailView" Binding="{Binding IsReading}" Value="True">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </products:ProductDetailView.Triggers>
+            </products:ProductDetailView>
+        </Grid>
+    </mcf:MvxContentPage.Content>
+</mcf:MvxContentPage>

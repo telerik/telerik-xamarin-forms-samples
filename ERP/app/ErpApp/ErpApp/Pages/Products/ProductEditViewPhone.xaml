@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ErpApp.Pages.Products"
+             xmlns:models="clr-namespace:ErpApp.Models"
+             xmlns:controls="clr-namespace:ErpApp.Controls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="ErpApp.Pages.Products.ProductEditViewPhone" BackgroundColor="White">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="itemSpacing">0,0,0,10</Thickness>
+            <Color x:Key="TitleLabelColor">#bcbcbc</Color>
+            <Color x:Key="LineColor">#d7d7d7</Color>
+            <local:ProductBrushEqualityConverter x:Key="productBrushEqualityConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <ScrollView>
+            <Grid RowSpacing="6" Margin="12,12,12,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="7*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="{Binding Path=DraftProduct.ImageURL}" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="StartAndExpand" />
+                <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Path=DraftProduct.Name, Mode=TwoWay}" VerticalOptions="Center" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Product ID" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Mode}" Value="{x:Static models:PresentationMode.Create}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=DraftProduct.ProductNumber}" Margin="{StaticResource itemSpacing}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Mode}" Value="{x:Static models:PresentationMode.Create}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}">
+                    <BoxView.Triggers>
+                        <DataTrigger TargetType="BoxView" Binding="{Binding Mode}" Value="{x:Static models:PresentationMode.Create}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </BoxView.Triggers>
+                </BoxView>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Weight" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center"/>
+                <telerikInput:RadNumericInput Grid.Row="2" Grid.Column="1" Value="{Binding Path=DraftProduct.Weight, Mode=TwoWay}" Step="0.25" Minimum="0" Margin="{StaticResource itemSpacing}" StringFormat="{}{0} lb"  />
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Price" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center"/>
+                <telerikInput:RadNumericInput Grid.Row="3" Grid.Column="1" Value="{Binding Path=DraftProduct.Price, Mode=TwoWay}" Step="0.5" Minimum="0" Margin="{StaticResource itemSpacing}" StringFormat="{}{0:C}"  />
+                <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Location" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center"/>
+                <Picker Grid.Row="4" Grid.Column="1" ItemsSource="{x:Static models:Product.AvailableLocations}" SelectedItem="{Binding Path=DraftProduct.Location, Mode=TwoWay}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Stock Level" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center"/>
+                <telerikInput:RadNumericInput Grid.Row="5" Grid.Column="1" Value="{Binding Path=DraftProduct.StockLevel, Mode=TwoWay}" Step="1" Minimum="0" Margin="{StaticResource itemSpacing}"  />
+                <BoxView Grid.Row="5" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Color" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" VerticalTextAlignment="Center"/>
+                <Grid Grid.Row="6" Grid.Column="1" VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <controls:SelectablePath Brush="{Binding Path=AvailableBrushes[0]}" Grid.Column="0"
+                                         IsSelected="{Binding Path=SelectedBrushIndex, Mode=OneWay, Converter={StaticResource productBrushEqualityConverter}, ConverterParameter=0}">
+                        <controls:SelectablePath.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectProductColorCommand}" CommandParameter="{Binding Path=AvailableBrushes[0]}" />
+                        </controls:SelectablePath.GestureRecognizers>
+                    </controls:SelectablePath>
+                    <controls:SelectablePath Brush="{Binding Path=AvailableBrushes[1]}" Grid.Column="1"
+                                         IsSelected="{Binding Path=SelectedBrushIndex, Mode=OneWay, Converter={StaticResource productBrushEqualityConverter}, ConverterParameter=1}">>
+                        <controls:SelectablePath.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectProductColorCommand}" CommandParameter="{Binding Path=AvailableBrushes[1]}" />
+                        </controls:SelectablePath.GestureRecognizers>
+                    </controls:SelectablePath>
+                    <controls:SelectablePath Brush="{Binding Path=AvailableBrushes[2]}" Grid.Column="2"
+                                         IsSelected="{Binding Path=SelectedBrushIndex, Mode=OneWay, Converter={StaticResource productBrushEqualityConverter}, ConverterParameter=2}">>
+                        <controls:SelectablePath.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectProductColorCommand}" CommandParameter="{Binding Path=AvailableBrushes[2]}" />
+                        </controls:SelectablePath.GestureRecognizers>
+                    </controls:SelectablePath>
+                    <controls:SelectablePath Brush="{Binding Path=AvailableBrushes[3]}" Grid.Column="3"
+                                         IsSelected="{Binding Path=SelectedBrushIndex, Mode=OneWay, Converter={StaticResource productBrushEqualityConverter}, ConverterParameter=3}">
+                        <controls:SelectablePath.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectProductColorCommand}" CommandParameter="{Binding Path=AvailableBrushes[3]}" />
+                        </controls:SelectablePath.GestureRecognizers>
+                    </controls:SelectablePath>
+                    <controls:SelectablePath Brush="{Binding Path=AvailableBrushes[4]}" Grid.Column="4"
+                                         IsSelected="{Binding Path=SelectedBrushIndex, Mode=OneWay, Converter={StaticResource productBrushEqualityConverter}, ConverterParameter=4}">
+                        <controls:SelectablePath.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectProductColorCommand}" CommandParameter="{Binding Path=AvailableBrushes[4]}" />
+                        </controls:SelectablePath.GestureRecognizers>
+                    </controls:SelectablePath>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

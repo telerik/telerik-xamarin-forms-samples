@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Dashboard.LatestOrdersCard"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid">
+    
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Latest Orders" Style="{StaticResource TitleLabelStyle}" />
+        
+        <telerikDataGrid:RadDataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding LatestOrders}"
+                                     AutoGenerateColumns="false" Style="{StaticResource DataGridStyle}">
+            <telerikDataGrid:RadDataGrid.Columns>
+                <telerikDataGrid:DataGridTextColumn HeaderText="Order ID" PropertyName="OrderNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridTextColumn HeaderText="Customer" PropertyName="CustomerName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridTextColumn HeaderText="Amount" PropertyName="Ammount" CellContentFormat="{}{0:C}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridTextColumn HeaderText="Product" PropertyName="ProductName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridDateColumn HeaderText="Due Date" PropertyName="DueDate" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+            </telerikDataGrid:RadDataGrid.Columns>
+        </telerikDataGrid:RadDataGrid>
+    </Grid>
+</ContentView>

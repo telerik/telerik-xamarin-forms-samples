@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Customers.CustomerEditViewTablet"
+             xmlns:models="clr-namespace:ErpApp.Models"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             BackgroundColor="#f1f3f7">
+    <ContentView.Content>
+        <Grid x:Name="LayoutRoot" Margin="0,20,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <BoxView BackgroundColor="White" Grid.RowSpan="2" />
+            
+            <Label x:Name="title" Margin="20" Text="Customer's Details" Grid.Row="0" FontSize="20" FontAttributes="Bold" />
+
+            <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,20,0" WidthRequest="100"
+                    BorderWidth="2" BorderRadius="20" BorderColor="Green" BackgroundColor="White" TextColor="Green"
+                    Text="Save" Command="{Binding CommitCommand, Mode=OneWay}" />
+            
+            <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,126,0" WidthRequest="100"
+                    BorderWidth="2" BorderRadius="20" BorderColor="#f33d4c" BackgroundColor="White" TextColor="#f33d4c"
+                    Text="Cancel" Command="{Binding CancelCommand, Mode=OneWay}" />
+            
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical">
+                    <Grid Margin="20, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image x:Name="customerImage" WidthRequest="96" HeightRequest="96" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center" Source="{Binding DraftCustomer.ImageURL}" />
+                        
+                        <StackLayout Grid.Column="1" Margin="40, 0, 0, 0" WidthRequest="400" VerticalOptions="Start" HorizontalOptions="Start" Spacing="0">
+                            <Label Text="Name" TextColor="#bcbcbc" />
+                            <Entry Text="{Binding DraftCustomer.Name, Mode=TwoWay}" FontAttributes="Bold" />
+                            <Label Text="Email" TextColor="#bcbcbc" Margin="0,3,0,0" />
+                            <Entry Text="{Binding DraftCustomer.Email, Mode=TwoWay}" Keyboard="Email" />
+                            <Label Text="Phone" TextColor="#bcbcbc" Margin="0,3,0,0" />
+                            <Entry Text="{Binding DraftCustomer.Phone, Mode=TwoWay}" Keyboard="Telephone" />
+                            <Label Text="Default Discount" TextColor="#bcbcbc" Margin="0,3,0,0" />
+                            <telerikInput:RadNumericInput Margin="0,1" Minimum="0" Maximum="1" Step="0.01" Value="{Binding DraftCustomer.DefaultDiscount, Mode=TwoWay}" StringFormat="{}{0:P0}" />
+                            <Label Text="Way of Communication" TextColor="#bcbcbc" Margin="0,4,0,0" />
+                            <Picker ItemsSource="{x:Static models:Customer.AvailableCommunicationChannels}" SelectedItem="{Binding DraftCustomer.PreferredCommunicationChannel, Mode=TwoWay}" />
+                        </StackLayout>
+                    </Grid>
+                    
+                    <!--Addresses-->
+                    <telerikDataControls:RadListView x:Name="addressList" Margin="0,20" ItemsSource="{Binding DraftCustomerAddresses, Mode=OneWay}">
+                        <telerikDataControls:RadListView.ItemTemplate>
+                            <DataTemplate>
+                                <telerikListView:ListViewTemplateCell>
+                                    <telerikListView:ListViewTemplateCell.View>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Button Grid.Column="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-cancel-3}" FontSize="20" Margin="70,0,20,0" HorizontalOptions="Center" VerticalOptions="Center"
+                                                    Command="{Binding Path=BindingContext.DeleteAddressCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" Clicked="OnDeleteAddressClicked" />
+                                            <Button Grid.Column="1" FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-pencil}" FontSize="20" Margin="20,0" HorizontalOptions="Center" VerticalOptions="Center"
+                                                    Command="{Binding Path=BindingContext.EditAddressCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
+                                            
+                                            <StackLayout Orientation="Vertical" Grid.Column="2" VerticalOptions="Center" Spacing="0">
+                                                <Label Text="{Binding Index, StringFormat='Address {0}:'}" TextColor="#757575" HorizontalOptions="Start" />
+                                                <Label Text="{Binding FullAddress}" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            
+                                            <BoxView Grid.ColumnSpan="3" HeightRequest="1" VerticalOptions="End" BackgroundColor="#d7d7d7" Margin="50,0" />
+                                        </Grid>
+                                    </telerikListView:ListViewTemplateCell.View>
+                                </telerikListView:ListViewTemplateCell>
+                            </DataTemplate>
+                        </telerikDataControls:RadListView.ItemTemplate>
+                        <telerikDataControls:RadListView.ItemStyle>
+                            <telerikListView:ListViewItemStyle BorderLocation="None" BorderWidth="0" />
+                        </telerikDataControls:RadListView.ItemStyle>
+                        <telerikDataControls:RadListView.LayoutDefinition>
+                            <telerikListView:ListViewLinearLayout ItemLength="60" />
+                        </telerikDataControls:RadListView.LayoutDefinition>
+                    </telerikDataControls:RadListView>
+                    
+                    <StackLayout IsVisible="{Binding IsEditingAddress, Mode=OneWay}" Margin="50,6,400,0">
+                        <Label Text="Address" TextColor="#bcbcbc" />
+                        <Entry Text="{Binding DraftCustomerAddress.Address, Mode=TwoWay}" FontAttributes="Bold" />
+                        <Label Text="City" TextColor="#bcbcbc" />
+                        <Entry Text="{Binding DraftCustomerAddress.City, Mode=TwoWay}" FontAttributes="Bold" />
+                        <Label Text="State" TextColor="#bcbcbc" />
+                        <Entry Text="{Binding DraftCustomerAddress.State, Mode=TwoWay}" FontAttributes="Bold" />
+                        <Label Text="Country" TextColor="#bcbcbc" />
+                        <Entry Text="{Binding DraftCustomerAddress.Country, Mode=TwoWay}" FontAttributes="Bold" />
+                        <Label Text="Postal Code" TextColor="#bcbcbc" />
+                        <Entry Text="{Binding DraftCustomerAddress.POCode, Mode=TwoWay}" FontAttributes="Bold" Keyboard="Numeric" />
+                    </StackLayout>
+                    
+                    <Button Grid.Row="0" HorizontalOptions="End" Margin="0,30,20,0" WidthRequest="200"
+                            BorderWidth="2" BorderRadius="20" BorderColor="Black" BackgroundColor="White" TextColor="Black"
+                            Text="Add New Address" Command="{Binding CreateAddressCommand, Mode=OneWay}" Clicked="OnCreateAddressClicked">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="{x:Type Button}" Binding="{Binding IsEditingAddress, Mode=OneWay}" Value="True">
+                                <Setter Property="Command" Value="{Binding CommitAddressCommand, Mode=OneWay}" />
+                                <Setter Property="Text" Value="Save address" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:ErpApp.Pages.Dashboard"
+             xmlns:telerikBusyIndicator="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:app="clr-namespace:ErpApp"
+             x:Class="ErpApp.Pages.Dashboard.TabletView">
+    <Grid x:Name="LayoutRoot" Margin="10" RowSpacing="10" ColumnSpacing="10">
+        <Grid.Resources>
+            <Style x:Key="cardStyle" TargetType="ContentView">
+                <Setter Property="ControlTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Grid>
+                                <BoxView CornerRadius="4" BackgroundColor="White" />
+                                <ContentPresenter Margin="20" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <cards:SalesChannelsCard Grid.Row="0" Grid.Column="0" Style="{StaticResource cardStyle}" />
+        <cards:SalesQuentitiesCard Grid.Row="0" Grid.Column="1" Style="{StaticResource cardStyle}" />
+        <cards:BusinessOverviewCard Grid.Row="0" Grid.Column="2" Style="{StaticResource cardStyle}" />
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <cards:LatestOrdersCard Grid.Column="0" Style="{StaticResource cardStyle}" />
+            <cards:RecentProductsCard Grid.Column="1" Style="{StaticResource cardStyle}" />
+        </Grid>
+        <cards:NewCustomersCard Grid.Row="2" Grid.Column="0" Style="{StaticResource cardStyle}" />
+        <cards:BestVendorsCard Grid.Row="2" Grid.Column="1" Style="{StaticResource cardStyle}" />
+        <cards:OrderStatusCard Grid.Row="2" Grid.Column="2" Style="{StaticResource cardStyle}" />
+        <telerikBusyIndicator:RadBusyIndicator AnimationType="Animation3" Grid.ColumnSpan="3" Grid.RowSpan="3" IsBusy="{Binding IsBusy, Mode=TwoWay}"  BackgroundColor="#E6FFFFFF" IsVisible="{Binding IsBusy}" AnimationContentColor="#2196F3" AnimationContentWidthRequest="60" AnimationContentHeightRequest="60"/>
+    </Grid>
+</ContentView>

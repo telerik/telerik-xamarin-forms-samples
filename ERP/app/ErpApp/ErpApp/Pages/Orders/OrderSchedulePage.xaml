@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcf:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:mcf="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+                    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                    xmlns:local="clr-namespace:ErpApp.Pages.Orders"
+                    x:TypeArguments="vm:OrderScheduleViewModel"
+                    xmlns:vm="clr-namespace:ErpApp.ViewModels"
+                    x:Class="ErpApp.Pages.Orders.OrderSchedulePage"
+                    Title="Schedule" ios:Page.UseSafeArea="true">
+    <mcf:MvxContentPage.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mcf:MvxContentPage.Resources>
+    
+    <mcf:MvxContentPage.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Tablet>10,20</OnIdiom.Tablet>
+                </OnIdiom>
+            </Grid.Margin>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <BoxView BackgroundColor="White" Grid.RowSpan="2" CornerRadius="4" />
+            
+            <Label Grid.Row="0" Margin="20" Text="Today's Orders" FontSize="20" FontAttributes="Bold" />
+            
+            <telerikDataGrid:RadDataGrid x:Name="dataGrid" Grid.Row="1" ItemsSource="{Binding Orders}" Margin="20,0"
+                                         SelectionMode="Single" SelectedItem="{Binding SelectedVendor, Mode=TwoWay}"
+                                         AutoGenerateColumns="false" Style="{StaticResource DataGridStyle}">
+                <telerikDataGrid:RadDataGrid.Columns>
+                    <telerikDataGrid:DataGridTextColumn HeaderText="Order ID" PropertyName="OrderNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                    <telerikDataGrid:DataGridTextColumn HeaderText="Customer" PropertyName="CustomerName" HeaderStyle="{StaticResource cellHeaderStyle}">
+                        <telerikDataGrid:DataGridTextColumn.IsVisible>
+                            <OnIdiom x:TypeArguments="x:Boolean" Default="True">
+                                <OnIdiom.Phone>False</OnIdiom.Phone>
+                            </OnIdiom>
+                        </telerikDataGrid:DataGridTextColumn.IsVisible>
+                    </telerikDataGrid:DataGridTextColumn>
+                    <telerikDataGrid:DataGridTextColumn HeaderText="Amount" PropertyName="Ammount" CellContentFormat="{}{0:C}" HeaderStyle="{StaticResource cellHeaderStyle}">
+                        <telerikDataGrid:DataGridTextColumn.IsVisible>
+                            <OnIdiom x:TypeArguments="x:Boolean" Default="True">
+                                <OnIdiom.Phone>False</OnIdiom.Phone>
+                            </OnIdiom>
+                        </telerikDataGrid:DataGridTextColumn.IsVisible>
+                    </telerikDataGrid:DataGridTextColumn>
+                    <telerikDataGrid:DataGridTextColumn HeaderText="Product" PropertyName="ProductName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                    <telerikDataGrid:DataGridDateColumn HeaderText="Due Date" PropertyName="DueDate" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+                    <telerikDataGrid:DataGridTemplateColumn HeaderText="Status" HeaderStyle="{StaticResource cellHeaderStyle}">
+                        <telerikDataGrid:DataGridTemplateColumn.CellContentTemplateSelector>
+                            <local:OrderStatusTemplateSelector>
+                                <local:OrderStatusTemplateSelector.ComplatedTemplate>
+                                    <DataTemplate>
+                                        <Label Text="{Binding Status}" VerticalOptions="Center" HorizontalOptions="Start" />
+                                    </DataTemplate>
+                                </local:OrderStatusTemplateSelector.ComplatedTemplate>
+                                <local:OrderStatusTemplateSelector.ActionTemplate>
+                                    <DataTemplate>
+                                        <telerikInput:RadButton Text="Complete" 
+                                                                Command="{Binding Path=BindingContext.CompleteOrderCommand, Source={x:Reference dataGrid}}"
+                                                                CommandParameter="{Binding}"
+                                                                VerticalOptions="Center" 
+                                                                HorizontalOptions="Start"
+                                                                BorderWidth="2" 
+                                                                Padding="0" Margin="0,8"
+                                                                BorderRadius="17" 
+                                                                BorderColor="#4488F6" 
+                                                                WidthRequest="100" 
+                                                                HeightRequest="34" 
+                                                                BackgroundColor="White" />
+                                    </DataTemplate>
+                                </local:OrderStatusTemplateSelector.ActionTemplate>
+                            </local:OrderStatusTemplateSelector>
+                        </telerikDataGrid:DataGridTemplateColumn.CellContentTemplateSelector>
+                    </telerikDataGrid:DataGridTemplateColumn>
+                </telerikDataGrid:RadDataGrid.Columns>
+            </telerikDataGrid:RadDataGrid>
+            <telerikPrimitives:RadBusyIndicator Grid.RowSpan="2" AnimationType="Animation3" IsBusy="{Binding IsBusy, Mode=TwoWay}"  BackgroundColor="#E6FFFFFF" IsVisible="{Binding IsBusy}" AnimationContentColor="#2196F3" AnimationContentWidthRequest="60" AnimationContentHeightRequest="60"/>
+        </Grid>
+    </mcf:MvxContentPage.Content>
+</mcf:MvxContentPage>

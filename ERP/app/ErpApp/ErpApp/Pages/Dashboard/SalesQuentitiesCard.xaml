@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Dashboard.SalesQuentitiesCard"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart">
+    
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Sales Quantities" Style="{StaticResource TitleLabelStyle}"  />
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="For the last 3 Months" Style="{StaticResource SubtitleLabelStyle}" />
+        
+        <telerikChart:RadCartesianChart x:Name="chart" Grid.Row="2" Grid.Column="0">
+            <telerikChart:RadCartesianChart.ChartBehaviors>
+                <telerikChart:ChartSelectionBehavior SeriesSelectionMode="None" DataPointSelectionMode="None"/>
+            </telerikChart:RadCartesianChart.ChartBehaviors>
+            <telerikChart:RadCartesianChart.Series>
+                <telerikChart:LineSeries ItemsSource="{Binding ExpectedSalesQuantitues}" ShowLabels="false" DisplayName="Expected"> 
+                    <telerikChart:LineSeries.ValueBinding>
+                        <telerikChart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </telerikChart:LineSeries.ValueBinding>
+                    <telerikChart:LineSeries.CategoryBinding>
+                        <telerikChart:PropertyNameDataPointBinding PropertyName="Name" />
+                    </telerikChart:LineSeries.CategoryBinding>
+                </telerikChart:LineSeries>
+                <telerikChart:LineSeries ItemsSource="{Binding ActualSalesQuantitues}" ShowLabels="false" DisplayName="Actual">
+                    <telerikChart:LineSeries.ValueBinding>
+                        <telerikChart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </telerikChart:LineSeries.ValueBinding>
+                    <telerikChart:LineSeries.CategoryBinding>
+                        <telerikChart:PropertyNameDataPointBinding PropertyName="Name" />
+                    </telerikChart:LineSeries.CategoryBinding>
+                </telerikChart:LineSeries>
+            </telerikChart:RadCartesianChart.Series>
+            <telerikChart:RadCartesianChart.HorizontalAxis>
+                <telerikChart:CategoricalAxis LabelTextColor="Black" LabelFitMode="Rotate" />
+            </telerikChart:RadCartesianChart.HorizontalAxis>
+            <telerikChart:RadCartesianChart.VerticalAxis>
+                <telerikChart:NumericalAxis LabelTextColor="White" Minimum="0" />
+            </telerikChart:RadCartesianChart.VerticalAxis>
+            <telerikChart:RadCartesianChart.Grid>
+                <telerikChart:CartesianChartGrid MajorLinesVisibility="X" />
+            </telerikChart:RadCartesianChart.Grid>
+        </telerikChart:RadCartesianChart>
+
+        <telerikChart:RadLegend Grid.Row="2" Grid.Column="1" HeightRequest="200" VerticalOptions="Center"
+                                Style="{StaticResource LegendStyle}"
+                                LegendProvider="{x:Reference Name=chart}"/>
+        </Grid>
+</ContentView>

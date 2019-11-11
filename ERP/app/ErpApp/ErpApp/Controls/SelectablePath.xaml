@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TemplatedView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ErpApp.Controls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="ErpApp.Controls.SelectablePath">
+    <TemplatedView.ControlTemplate>
+        <ControlTemplate>
+            <Grid>
+                <telerikPrimitives:RadPath WidthRequest="24" HeightRequest="24" HorizontalOptions="Center" VerticalOptions="Center"
+                                           IsVisible="{TemplateBinding IsSelected}"
+                                           Geometry="{x:Static telerikInput:Geometries.Circle}" StrokeThickness="1" Stroke="{TemplateBinding Brush}" />
+                <telerikPrimitives:RadPath WidthRequest="18" HeightRequest="18" HorizontalOptions="Center" VerticalOptions="Center"
+                                           Geometry="{x:Static telerikInput:Geometries.Circle}" Fill="{TemplateBinding Brush}" />
+            </Grid>
+        </ControlTemplate>
+    </TemplatedView.ControlTemplate>
+</TemplatedView>

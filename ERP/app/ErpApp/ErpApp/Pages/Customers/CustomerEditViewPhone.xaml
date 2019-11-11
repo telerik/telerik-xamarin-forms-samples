@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Customers.CustomerEditViewPhone"
+             xmlns:models="clr-namespace:ErpApp.Models"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             BackgroundColor="White">
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout Margin="40, 0" Spacing="3" x:Name="LayoutRoot">
+                <Image x:Name="customerImage" WidthRequest="96" HeightRequest="96" Margin="0,40,0,20" HorizontalOptions="Center" Source="{Binding DraftCustomer.ImageURL}" />
+                
+                <Label Text="Name" TextColor="#bcbcbc" />
+                <Entry Text="{Binding DraftCustomer.Name, Mode=TwoWay}" />
+                <Label Text="Email" TextColor="#bcbcbc" Margin="0,3,0,0" />
+                <Entry Text="{Binding DraftCustomer.Email, Mode=TwoWay}" Keyboard="Email" />
+                <Label Text="Phone" TextColor="#bcbcbc" Margin="0,3,0,0" />
+                <Entry Text="{Binding DraftCustomer.Phone, Mode=TwoWay}" Keyboard="Telephone" />
+                <Label Text="Default Discount" TextColor="#bcbcbc" Margin="0,3,0,0" />
+                <telerikInput:RadNumericInput Margin="0,1" Minimum="0" Maximum="1" Step="0.01" Value="{Binding DraftCustomer.DefaultDiscount, Mode=TwoWay}" StringFormat="{}{0:P0}" />
+                <Label Text="Way of Communication" TextColor="#bcbcbc" Margin="0,5,0,0" />
+                <Picker ItemsSource="{x:Static models:Customer.AvailableCommunicationChannels}" SelectedItem="{Binding DraftCustomer.PreferredCommunicationChannel, Mode=TwoWay}" />
+                
+                <!--Addresses-->
+                <telerikDataControls:RadListView x:Name="addressList" ItemsSource="{Binding DraftCustomerAddresses, Mode=OneWay}" Margin="0,30">
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <telerikListView:ListViewTemplateCell>
+                                <telerikListView:ListViewTemplateCell.View>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <BoxView IsVisible="false" Grid.ColumnSpan="3" HeightRequest="1" VerticalOptions="Start" BackgroundColor="#d7d7d7">
+                                            <BoxView.Triggers>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Index}" Value="1">
+                                                    <Setter Property="IsVisible" Value="True" />
+                                                </DataTrigger>
+                                            </BoxView.Triggers>
+                                        </BoxView>
+                                        
+                                        <Button Grid.Column="0" FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-cancel-3}" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"
+                                                Command="{Binding Path=BindingContext.DeleteAddressCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" Clicked="OnDeleteAddressClicked">
+                                            <Button.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Default="10,0">
+                                                    <On Platform="iOS" Value="0,0,6,0" />
+                                                </OnPlatform>
+                                            </Button.Margin>
+                                        </Button>
+                                        <Button Grid.Column="1" FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-pencil}" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"
+                                                Command="{Binding Path=BindingContext.EditAddressCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}">
+                                            <Button.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Default="10,0">
+                                                    <On Platform="iOS" Value="6,0,4,0" />
+                                                </OnPlatform>
+                                            </Button.Margin>
+                                        </Button>
+                                        
+                                        <StackLayout Orientation="Vertical" Grid.Column="2" VerticalOptions="Center" Spacing="0" Padding="0,3">
+                                            <Label Text="{Binding Index, StringFormat='Address {0}:'}" TextColor="#757575" HorizontalOptions="Start" />
+                                            <Label Text="{Binding FullAddress}" TextColor="Black" HorizontalOptions="Start" LineBreakMode="CharacterWrap" />
+                                        </StackLayout>
+                                        
+                                        <BoxView Grid.ColumnSpan="3" HeightRequest="1" VerticalOptions="End" BackgroundColor="#d7d7d7" />
+                                    </Grid>
+                                </telerikListView:ListViewTemplateCell.View>
+                            </telerikListView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                    <telerikDataControls:RadListView.ItemStyle>
+                        <telerikListView:ListViewItemStyle BorderLocation="None" BorderWidth="0" />
+                    </telerikDataControls:RadListView.ItemStyle>
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <telerikListView:ListViewLinearLayout>
+                            <telerikListView:ListViewLinearLayout.ItemLength>
+                                <OnPlatform x:TypeArguments="x:Double" Default="60">
+                                    <On Platform="iOS" Value="90" />
+                                </OnPlatform>
+                            </telerikListView:ListViewLinearLayout.ItemLength>
+                        </telerikListView:ListViewLinearLayout>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+                </telerikDataControls:RadListView>
+                
+                <StackLayout IsVisible="{Binding IsEditingAddress, Mode=OneWay}">
+                    <Label Text="Address" TextColor="#bcbcbc" Margin="0,3,0,0"  />
+                    <Entry Text="{Binding DraftCustomerAddress.Address, Mode=TwoWay}" />
+                    <Label Text="City" TextColor="#bcbcbc" Margin="0,3,0,0"  />
+                    <Entry Text="{Binding DraftCustomerAddress.City, Mode=TwoWay}" />
+                    <Label Text="State" TextColor="#bcbcbc" Margin="0,3,0,0"  />
+                    <Entry Text="{Binding DraftCustomerAddress.State, Mode=TwoWay}" />
+                    <Label Text="Country" TextColor="#bcbcbc" Margin="0,3,0,0"  />
+                    <Entry Text="{Binding DraftCustomerAddress.Country, Mode=TwoWay}" />
+                    <Label Text="Postal Code" TextColor="#bcbcbc" Margin="0,3,0,0"  />
+                    <Entry Text="{Binding DraftCustomerAddress.POCode, Mode=TwoWay}" Keyboard="Numeric" />
+                </StackLayout>
+                
+                <Button HorizontalOptions="End" Margin="0,10" HeightRequest="34" CornerRadius="17" Padding="3" WidthRequest="150"
+                        BorderWidth="2" BorderColor="Black" BackgroundColor="White" TextColor="Black"
+                        Text="Add New Address" Command="{Binding CreateAddressCommand, Mode=OneWay}" Clicked="OnCreateAddressClicked">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="{x:Type Button}" Binding="{Binding IsEditingAddress, Mode=OneWay}" Value="True">
+                            <Setter Property="Command" Value="{Binding CommitAddressCommand, Mode=OneWay}" />
+                            <Setter Property="Text" Value="Save address" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

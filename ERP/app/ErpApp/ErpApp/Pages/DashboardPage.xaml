@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcf:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:mcf="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    xmlns:cards="clr-namespace:ErpApp.Pages.Dashboard"
+                    xmlns:vm="clr-namespace:ErpApp.ViewModels"
+                    x:TypeArguments="vm:DashboardPageViewModel"
+                    xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+                    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    Title="Dashboard" Icon="Dashboard" ios:Page.UseSafeArea="true"
+                    x:Class="ErpApp.Pages.DashboardPage" BackgroundColor="#f1f3f7">    
+    <mcf:MvxContentPage.Content>
+        <OnIdiom x:TypeArguments="ContentView">
+            <OnIdiom.Phone>
+                <cards:PhoneView/>
+            </OnIdiom.Phone>
+            <OnIdiom.Tablet>
+                <cards:TabletView />
+            </OnIdiom.Tablet>
+            <OnIdiom.Desktop>
+                <cards:TabletView />
+            </OnIdiom.Desktop>
+        </OnIdiom>
+    </mcf:MvxContentPage.Content>
+</mcf:MvxContentPage>

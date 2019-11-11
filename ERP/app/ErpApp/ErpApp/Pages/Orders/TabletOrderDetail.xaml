@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Orders.TabletOrderDetail"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:converters="clr-namespace:ErpApp.Converters"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             BackgroundColor="White">
+    <ContentView.Resources>
+        <telerikDataGrid:DataGridColumnHeaderStyle x:Key="cellHeaderStyle" TextColor="#acacac" BorderThickness="0,0,0,1" BorderColor="#d7d7d7" BackgroundColor="White" OptionsButtonTextColor="White" />
+        <telerikDataGrid:DataGridBorderStyle x:Key="rowStyle" BorderColor="#d7d7d7" BorderThickness="0,0,0,1" />
+
+        <Style x:Key="DataGridStyle" TargetType="{x:Type telerikDataGrid:RadDataGrid}">
+            <Setter Property="RowBackgroundStyle" Value="{StaticResource rowStyle}" />
+        </Style>
+        <converters:StringToFileImageSourceConverter x:Key="StringToFileImageSourceConverter"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid>
+            <!-- Empty order view -->
+            <Grid BackgroundColor="White" Margin="0,20,20,20" IsVisible="{Binding IsEmpty}">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="{Binding EmptyImageName, Converter={StaticResource StringToFileImageSourceConverter}}"/>
+                    <Label Text="No Orders Yet!" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    <Label Text="Please enter some from the button below" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Grid>
+            
+            <!-- Order Details view-->
+            <Grid BackgroundColor="White" Margin="0,20,20,20">
+                <Grid.Triggers>
+                    <DataTrigger TargetType="Grid" Binding="{Binding IsEmpty}" Value="True">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Grid" Binding="{Binding IsEmpty}" Value="False">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </Grid.Triggers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="7*" />
+                </Grid.RowDefinitions>
+            
+                <BoxView BackgroundColor="White" Grid.RowSpan="3">
+                    <BoxView.CornerRadius>
+                        <OnIdiom x:TypeArguments="CornerRadius" Default="0,4,0,4">
+                            <OnIdiom.Phone>0</OnIdiom.Phone>
+                        </OnIdiom>
+                    </BoxView.CornerRadius>
+                </BoxView>
+            
+                <Label x:Name="title" Margin="20" Text="Order's Details" Grid.Row="0" FontSize="20" FontAttributes="Bold" />
+                <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,20,0" WidthRequest="100"
+                        BorderWidth="2" BorderRadius="20" BorderColor="#f33d4c" BackgroundColor="White" TextColor="#f33d4c"
+                        Text="&#xE809; Delete" FontFamily="{StaticResource IconsFont}" Command="{Binding DeleteCommand, Mode=OneWay}" />
+            
+                <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,126,0" WidthRequest="100"
+                        BorderWidth="2" BorderRadius="20" BorderColor="Orange" BackgroundColor="White" TextColor="Orange"
+                        Text="Edit" Command="{Binding BeginEditCommand, Mode=OneWay}">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding Order.IsCompleted}" Value="True">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            
+                <Grid Grid.Row="1" Margin="20,0">
+                    <telerikDataGrid:RadDataGrid VerticalOptions="FillAndExpand"
+                                                 ItemsSource="{Binding OrdersList}"
+                                                 AutoGenerateColumns="false"
+                                                 Style="{StaticResource DataGridStyle}">
+                        <telerikDataGrid:RadDataGrid.Columns>
+                            <telerikDataGrid:DataGridTextColumn HeaderText="Order ID" PropertyName="OrderNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                            <telerikDataGrid:DataGridTextColumn HeaderText="Customer" PropertyName="CustomerName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                            <telerikDataGrid:DataGridDateColumn HeaderText="Due Date" PropertyName="DueDate" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+                            <telerikDataGrid:DataGridTextColumn HeaderText="Ship Method" PropertyName="ShipMethod" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                            <telerikDataGrid:DataGridTextColumn HeaderText="Freight" PropertyName="Freight" CellContentFormat="{}{0} lb" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                            <telerikDataGrid:DataGridTextColumn HeaderText="Total Amount" PropertyName="Ammount" CellContentFormat="{}{0:C}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                        </telerikDataGrid:RadDataGrid.Columns>
+                    </telerikDataGrid:RadDataGrid>
+                </Grid>
+            
+                <telerikPrimitives:RadTabView Grid.Row="2" Margin="20,0">
+                    <telerikPrimitives:RadTabView.Items>
+                        <telerikPrimitives:TabViewItem HeaderText="Order Info">
+                            <telerikPrimitives:TabViewItem.Content>
+                                <telerikDataGrid:RadDataGrid ItemsSource="{Binding Order.OrderDetails}"
+                                                             AutoGenerateColumns="false"
+                                                             Style="{StaticResource DataGridStyle}">
+                                    <telerikDataGrid:RadDataGrid.Columns>
+                                        <telerikDataGrid:DataGridTemplateColumn HeaderText="Image" HeaderStyle="{StaticResource cellHeaderStyle}">
+                                            <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                                <DataTemplate>
+                                                    <Image Source="{Binding Product.ImageURL}" />
+                                                </DataTemplate>
+                                            </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                        </telerikDataGrid:DataGridTemplateColumn>
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Product ID" PropertyName="ProductNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Product Name" PropertyName="ProductName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Order Quantity" PropertyName="Count" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Unit Price" PropertyName="ProductPrice" CellContentFormat="{}{0:C0}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Discount" PropertyName="Discount" CellContentFormat="{}{0:P0}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridDateColumn HeaderText="Modified Date" PropertyName="ModifiedDate" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+                                    </telerikDataGrid:RadDataGrid.Columns>
+                                </telerikDataGrid:RadDataGrid>
+                            </telerikPrimitives:TabViewItem.Content>
+                        </telerikPrimitives:TabViewItem>
+                    
+                        <telerikPrimitives:TabViewItem HeaderText="Shipping Details">
+                            <telerikPrimitives:TabViewItem.Content>
+                                <telerikDataGrid:RadDataGrid ItemsSource="{Binding OrdersList}"
+                                                             AutoGenerateColumns="false"
+                                                             Style="{StaticResource DataGridStyle}">
+                                    <telerikDataGrid:RadDataGrid.Columns>
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Address" PropertyName="ShippingAddressAddress" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="City" PropertyName="ShippingAddressCity" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="State" PropertyName="ShippingAddressState" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Postal Code" PropertyName="ShippingAddressPOCode" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridDateColumn HeaderText="Modified Date" PropertyName="ShippingAddressModifiedDate" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+                                    </telerikDataGrid:RadDataGrid.Columns>
+                                </telerikDataGrid:RadDataGrid>
+                            </telerikPrimitives:TabViewItem.Content>
+                        </telerikPrimitives:TabViewItem>
+                    
+                        <telerikPrimitives:TabViewItem HeaderText="Customer Details">
+                            <telerikPrimitives:TabViewItem.Content>
+                                <telerikDataGrid:RadDataGrid ItemsSource="{Binding OrdersList}"
+                                                             AutoGenerateColumns="false"
+                                                             Style="{StaticResource DataGridStyle}">
+                                    <telerikDataGrid:RadDataGrid.Columns>
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Name" PropertyName="CustomerName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="ID" PropertyName="CustomerNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Email" PropertyName="CustomerEmail" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                        <telerikDataGrid:DataGridTextColumn HeaderText="Phone" PropertyName="CustomerPhone" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                    </telerikDataGrid:RadDataGrid.Columns>
+                                </telerikDataGrid:RadDataGrid>
+                            </telerikPrimitives:TabViewItem.Content>
+                        </telerikPrimitives:TabViewItem>
+                    </telerikPrimitives:RadTabView.Items>
+                </telerikPrimitives:RadTabView>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
