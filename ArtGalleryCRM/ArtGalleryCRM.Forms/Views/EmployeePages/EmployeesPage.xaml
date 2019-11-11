@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                xmlns:commands="clr-namespace:Telerik.XamarinForms.DataControls.ListView.Commands;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:employeeViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.EmployeeViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.EmployeePages.EmployeesPage"
+                Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <employeeViewModels:EmployeesViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="sync"
+                     Icon="refresh.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="sync" />
+        <ToolbarItem Text="add"
+                     Icon="add_new.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="add" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="{StaticResource AutoStarRowDefinitions}">
+        <input:RadEntry x:Name="FilterEntry"
+                        Text="{Binding SearchText, Mode=TwoWay}"
+                        WatermarkText="Search"
+                        Margin="20,10,10,0">
+            <input:RadEntry.BorderStyle>
+                <input:BorderStyle BorderThickness="1"
+                                   BorderColor="{StaticResource GrayBackgroundColor}" />
+            </input:RadEntry.BorderStyle>
+        </input:RadEntry>
+
+        <dataControls:RadListView ItemsSource="{Binding Employees}"
+                                  Style="{StaticResource BaseListViewStyle}"
+                                  Grid.Row="1">
+            <dataControls:RadListView.Commands>
+                <commands:ListViewUserCommand Id="ItemTap"
+                                              Command="{Binding ItemTapCommand}" />
+            </dataControls:RadListView.Commands>
+            <dataControls:RadListView.LayoutDefinition>
+                <listView:ListViewLinearLayout VerticalItemSpacing="10" />
+            </dataControls:RadListView.LayoutDefinition>
+            <dataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <listView:ListViewTemplateCell>
+                        <listView:ListViewTemplateCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <primitives:RadBorder Style="{StaticResource ImageBorderCircleStyle}"
+                                                      VerticalOptions="Center"
+                                                      HorizontalOptions="Center"
+                                                      Margin="10">
+                                    <ff:CachedImage Source="{Binding PhotoUri}"
+                                                    LoadingPlaceholder="gray_circle.png"
+                                                    ErrorPlaceholder="download_error_placeholder.png"
+                                                    Margin="{OnPlatform Android='0', iOS='0', UWP='-2'}"
+                                                    Aspect="AspectFill"
+                                                    DownsampleWidth="80"
+                                                    DownsampleHeight="80"
+                                                    WidthRequest="80"
+                                                    HeightRequest="80">
+                                        <ff:CachedImage.Transformations>
+                                            <transformations:CircleTransformation />
+                                        </ff:CachedImage.Transformations>
+                                    </ff:CachedImage>
+                                </primitives:RadBorder>
+
+                                <Label Text="{Binding Name}"
+                                       TextColor="{StaticResource AccentColor}"
+                                       Margin="{OnPlatform Android='26', iOS='26', UWP='30'}"
+                                       Grid.Column="1"
+                                       VerticalOptions="Center"
+                                       VerticalTextAlignment="Center" />
+
+                                <Image Source="next_chevron.png"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       Grid.Column="2" />
+                            </Grid>
+                        </listView:ListViewTemplateCell.View>
+                    </listView:ListViewTemplateCell>
+                </DataTemplate>
+            </dataControls:RadListView.ItemTemplate>
+        </dataControls:RadListView>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource TopPageBusyIndicatorStyle}"
+                                     Grid.RowSpan="2">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+            <primitives:RadBusyIndicator.Content>
+                <Grid BindingContext="{x:Reference Page}"
+                      WidthRequest="{Binding Width}"
+                      HeightRequest="{Binding Height}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

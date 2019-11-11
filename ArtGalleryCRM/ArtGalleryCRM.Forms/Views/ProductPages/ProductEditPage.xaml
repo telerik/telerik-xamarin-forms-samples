@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:behaviors="clr-namespace:ArtGalleryCRM.Forms.Behaviors;assembly=ArtGalleryCRM.Forms"
+                xmlns:productViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.ProductViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.ProductPages.ProductEditPage"
+                Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <productViewModels:ProductEditViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="save"
+                     Icon="save.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="save" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid RowDefinitions="{StaticResource AutoStarRowDefinitions}">
+            <Grid Style="{StaticResource PageHeaderGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <ff:CachedImage Source="{Binding SelectedProduct.PhotoUri}"
+                                LoadingPlaceholder="download_placeholder.png"
+                                ErrorPlaceholder="download_error_placeholder.png"
+                                DownsampleHeight="200"
+                                DownsampleWidth="200"
+                                HeightRequest="200"
+                                WidthRequest="200"
+                                Margin="10" />
+
+                <Button Text="Edit Image"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Margin="10"
+                        Grid.Column="1"
+                        TextColor="{StaticResource DarkGrayTextColor}"
+                        BackgroundColor="{StaticResource LightTranslucentBackgroundColor}"
+                        Command="{Binding SetPhotoCommand}" />
+            </Grid>
+
+            <input:RadDataForm x:Name="DataForm"
+                               Source="{Binding SelectedProduct}"
+                               Grid.Row="1"
+                               Margin="10,0,10,0"
+                               StyleClass="TelerikTheme">
+                <input:RadDataForm.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="FormValidationCompleted"
+                                                      Command="{Binding FormValidationCompleteCommand}" />
+                </input:RadDataForm.Behaviors>
+            </input:RadDataForm>
+        </Grid>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+            <primitives:RadBusyIndicator.Content>
+                <Grid BindingContext="{x:Reference Page}"
+                      WidthRequest="{Binding Width}"
+                      HeightRequest="{Binding Height}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

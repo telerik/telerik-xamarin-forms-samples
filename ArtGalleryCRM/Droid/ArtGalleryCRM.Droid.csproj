@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{34B9099E-4B00-4707-BFDE-0B95997F8893}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ArtGalleryCRM.Droid</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidApplication>True</AndroidApplication>
+    <AssemblyName>ArtGalleryCRM.Droid</AssemblyName>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidLinkSkip />
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AndroidSupportedAbis>x86;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+    <Debugger>Xamarin</Debugger>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+    <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <NoWarn>XA0106</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <MandroidI18n />
+    <JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
+    <Debugger>Xamarin</Debugger>
+    <DebugSymbols>False</DebugSymbols>
+    <androidusesharedruntime>false</androidusesharedruntime>
+    <ConsolePause>false</ConsolePause>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+    <AndroidSupportedAbis>x86;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <!-- <AndroidSupportedAbis /> -->
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Telerik.Xamarin.Android.Chart">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Common">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Data">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Gauges">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Gauges.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Input">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.List">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.List.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Primitives">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Barcode">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Map">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Map.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.PdfViewer">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.PdfViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Effects\AppVersionEffect.Android.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\CustomDataFormRenderer.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values-v21\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_dialog.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_list.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab.png" />
+    <AndroidResource Include="Resources\drawable-hdpi-v5\ic_tab.png" />
+    <AndroidResource Include="Resources\drawable-hdpi-v9\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi-v9\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-hdpi-v11\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi-v11\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\btn_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_dialog.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_list.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ic_tab.png" />
+    <AndroidResource Include="Resources\drawable-ldpi-v5\ic_tab.png" />
+    <AndroidResource Include="Resources\drawable-ldpi-v9\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-ldpi-v9\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-ldpi-v11\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-ldpi-v11\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_dialog.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_list.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab.png" />
+    <AndroidResource Include="Resources\drawable-mdpi-v5\ic_tab.png" />
+    <AndroidResource Include="Resources\drawable-mdpi-v9\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-mdpi-v9\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-mdpi-v11\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-mdpi-v11\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\market.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi-v9\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi-v9\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi-v11\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi-v11\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable\btn_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable\ic_dialog.png" />
+    <AndroidResource Include="Resources\drawable\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable\ic_list.png" />
+    <AndroidResource Include="Resources\drawable\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable\ic_stat_notify.png" />
+    <AndroidResource Include="Resources\drawable\ic_tab.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\splash.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\splash.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\splash.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.1" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Views " Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms " Version="1.68.0" />
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Exif" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Fragment" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Vector.Drawable" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArtGalleryCRM.Forms\ArtGalleryCRM.Forms.csproj">
+      <Project>{92703bb7-71aa-44ba-9ec8-db98f3a55ded}</Project>
+      <Name>ArtGalleryCRM.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\add_new.png">
+      <Link>Resources\drawable\add_new.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\add_order.png">
+      <Link>Resources\drawable\add_order.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\art_placeholder.png">
+      <Link>Resources\drawable\art_placeholder.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\delete.png">
+      <Link>Resources\drawable\delete.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\download_error_placeholder.png">
+      <Link>Resources\drawable\download_error_placeholder.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\download_placeholder.png">
+      <Link>Resources\drawable\download_placeholder.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\edit.png">
+      <Link>Resources\drawable\edit.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\error_round.png">
+      <Link>Resources\drawable\error_round.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\gray_circle.png">
+      <Link>Resources\drawable\gray_circle.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_about.png">
+      <Link>Resources\drawable\ic_about.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_chat_bot.png">
+      <Link>Resources\drawable\ic_chat_bot.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_chat_reply.png">
+      <Link>Resources\drawable\ic_chat_reply.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_chat_user.png">
+      <Link>Resources\drawable\ic_chat_user.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_customers.png">
+      <Link>Resources\drawable\ic_customers.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_employees.png">
+      <Link>Resources\drawable\ic_employees.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_help.png">
+      <Link>Resources\drawable\ic_help.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_orders.png">
+      <Link>Resources\drawable\ic_orders.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_products.png">
+      <Link>Resources\drawable\ic_products.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_settings.png">
+      <Link>Resources\drawable\ic_settings.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ic_shipping.png">
+      <Link>Resources\drawable\ic_shipping.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\master_header_logo.png">
+      <Link>Resources\drawable\master_header_logo.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\master_logo_75.png">
+      <Link>Resources\drawable\master_logo_75.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\menu.png">
+      <Link>Resources\drawable\menu.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\next_chevron.png">
+      <Link>Resources\drawable\next_chevron.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\ninja.png">
+      <Link>Resources\drawable\ninja.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\profile_photo.png">
+      <Link>Resources\drawable\profile_photo.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\refresh.png">
+      <Link>Resources\drawable\refresh.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\save.png">
+      <Link>Resources\drawable\save.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\sign_in.png">
+      <Link>Resources\drawable\sign_in.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\Welcome1.png">
+      <Link>Resources\drawable\Welcome1.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\Welcome2.png">
+      <Link>Resources\drawable\Welcome2.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\Welcome3.png">
+      <Link>Resources\drawable\Welcome3.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\Welcome4.png">
+      <Link>Resources\drawable\Welcome4.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\Welcome5.png">
+      <Link>Resources\drawable\Welcome5.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="..\ArtGalleryCRM.Forms\Images\Welcome6.png">
+      <Link>Resources\drawable\Welcome6.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+</Project>

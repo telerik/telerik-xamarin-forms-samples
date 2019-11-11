@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.ShippingPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:ShippingViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <Grid x:Name="rootGrid">
+        <input:RadCalendar x:Name="radCalendar"
+                           AppointmentsSource="{Binding ShippingAppointments}"
+                           DisplayDate="{Binding CalendarDisplayDate}"
+                           NativeControlLoaded="RadCalendar_OnNativeControlLoaded">
+            <input:RadCalendar.MultiDayViewSettings>
+                <input:MultiDayViewSettings VisibleDays="{OnPlatform Android='3', iOS='3', UWP='5'}"
+                                            IsCurrentTimeIndicatorVisible="true"
+                                            IsWeekendVisible="True" />
+            </input:RadCalendar.MultiDayViewSettings>
+            <input:RadCalendar.MultiDayViewStyle>
+                <input:MultiDayViewStyle TodayBackgroundColor="{StaticResource LightTranslucentBackgroundColor}"
+                                         CurrentTimeIndicatorColor="{StaticResource AccentSecondaryColor}"
+                                         AppointmentTextColor="{StaticResource AccentDarkColor}"
+                                         AppointmentDetailsTextColor="{StaticResource AccentColor}"
+                                         AllDayLabelTextColor="{StaticResource AccentDarkColor}"
+                                         AllDayAppointmentTextColor="{StaticResource AccentDarkColor}"
+                                         AllDayAppointmentBackgroundColor="{StaticResource AccentTertiaryColor}"
+                                         AllDayAreaBackgroundColor="{StaticResource GrayBackgroundColor}"
+                                         TimelineLabelsTextColor="{StaticResource AccentDarkColor}"
+                                         TimelineBackgroundColor="{StaticResource LightBackgroundColor}" />
+            </input:RadCalendar.MultiDayViewStyle>
+        </input:RadCalendar>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+            <primitives:RadBusyIndicator.Content>
+                <Grid BindingContext="{x:Reference Page}"
+                      WidthRequest="{Binding Width}"
+                      HeightRequest="{Binding Height}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

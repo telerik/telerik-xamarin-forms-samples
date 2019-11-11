@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:conversationalUi="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:effects="clr-namespace:ArtGalleryCRM.Forms.Effects;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.SupportPage"
+                Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <viewModels:SupportViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- ConversationUI Templates and Styles -->
+
+            <!-- Label Styles -->
+
+            <Style x:Key="BaseMessageLabelStyle"
+                   TargetType="Label">
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="FontSize"
+                        Value="Medium" />
+            </Style>
+            <Style x:Key="IncomingMessageLabelStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource BaseMessageLabelStyle}">
+                <Setter Property="HorizontalOptions"
+                        Value="Start" />
+            </Style>
+            <Style x:Key="OutgoingMessageLabelStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource BaseMessageLabelStyle}">
+                <Setter Property="HorizontalOptions"
+                        Value="End" />
+            </Style>
+
+            <!-- Avatar styles -->
+
+            <Style x:Key="BaseAvatarImageStyle"
+                   TargetType="Image">
+                <Setter Property="Source"
+                        Value="{Binding Author.Avatar}" />
+                <Setter Property="WidthRequest"
+                        Value="30" />
+                <Setter Property="HeightRequest"
+                        Value="30" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+            </Style>
+            <Style x:Key="IncomingAvatarImageStyle"
+                   TargetType="Image"
+                   BasedOn="{StaticResource BaseAvatarImageStyle}">
+                <Setter Property="Margin"
+                        Value="10,10,0,10" />
+            </Style>
+            <Style x:Key="OutgoingAvatarImageStyle"
+                   TargetType="Image"
+                   BasedOn="{StaticResource BaseAvatarImageStyle}">
+                <Setter Property="Margin"
+                        Value="0,10,10,10" />
+            </Style>
+
+            <!-- Grid Container styles (item root container) -->
+
+            <Style x:Key="BaseGridStyle"
+                   TargetType="Grid">
+                <Setter Property="Margin"
+                        Value="5" />
+            </Style>
+            <Style x:Key="LeftAlignedGridStyle"
+                   TargetType="Grid"
+                   BasedOn="{StaticResource BaseGridStyle}">
+                <Setter Property="ColumnDefinitions">
+                    <Setter.Value>
+                        <ColumnDefinitionCollection>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </ColumnDefinitionCollection>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="RightAlignedGridStyle"
+                   TargetType="Grid">
+                <Setter Property="ColumnDefinitions">
+                    <Setter.Value>
+                        <ColumnDefinitionCollection>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </ColumnDefinitionCollection>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- RadBorder (message text container) styles -->
+
+            <Style x:Key="BaseMessageContainerStyle"
+                   TargetType="primitives:RadBorder">
+                <Setter Property="BackgroundColor"
+                        Value="LightGray" />
+                <Setter Property="Padding"
+                        Value="10" />
+            </Style>
+
+            <Style x:Key="SingleIncomingMessageContainerStyle"
+                   TargetType="primitives:RadBorder"
+                   BasedOn="{StaticResource BaseMessageContainerStyle}">
+                <Setter Property="CornerRadius"
+                        Value="0,15,15,0" />
+                <Setter Property="Margin"
+                        Value="10" />
+            </Style>
+            <Style x:Key="SingleOutgoingMessageContainerStyle"
+                   TargetType="primitives:RadBorder"
+                   BasedOn="{StaticResource BaseMessageContainerStyle}">
+                <Setter Property="CornerRadius"
+                        Value="15,0,0,15" />
+                <Setter Property="Margin"
+                        Value="10" />
+            </Style>
+
+            <Style x:Key="FirstMessageContainerStyle"
+                   TargetType="primitives:RadBorder"
+                   BasedOn="{StaticResource BaseMessageContainerStyle}">
+                <Setter Property="CornerRadius"
+                        Value="15,15,0,0" />
+                <Setter Property="Margin"
+                        Value="10,10,10,5" />
+            </Style>
+            <Style x:Key="MiddleMessageContainerStyle"
+                   TargetType="primitives:RadBorder"
+                   BasedOn="{StaticResource BaseMessageContainerStyle}">
+                <Setter Property="CornerRadius"
+                        Value="0" />
+                <Setter Property="Margin"
+                        Value="10,0,10,0" />
+            </Style>
+            <Style x:Key="LastMessageContainerStyle"
+                   TargetType="primitives:RadBorder"
+                   BasedOn="{StaticResource BaseMessageContainerStyle}">
+                <Setter Property="CornerRadius"
+                        Value="0,0,15,15" />
+                <Setter Property="Margin"
+                        Value="10,5,10,10" />
+            </Style>
+
+            <!-- DataTemplates -->
+
+            <!-- Incoming -->
+            <!-- When there is is only a single line between authors, the 'SingleText' template is used.
+                 When there are multiple messages from the same author in a row, the First-Middle-Last grouping will be used-->
+            <DataTemplate x:Key="IncomingSingleTextTemplate">
+                <Grid Style="{StaticResource LeftAlignedGridStyle}">
+                    <Image Style="{StaticResource IncomingAvatarImageStyle}"
+                           Grid.Column="0" />
+                    <primitives:RadBorder Style="{StaticResource SingleIncomingMessageContainerStyle}"
+                                          Grid.Column="1">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource IncomingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="IncomingFirstTemplate">
+                <Grid Style="{StaticResource LeftAlignedGridStyle}">
+                    <Image Style="{StaticResource IncomingAvatarImageStyle}"
+                           Grid.Column="0" />
+                    <primitives:RadBorder Style="{StaticResource FirstMessageContainerStyle}"
+                                          Grid.Column="1">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource IncomingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="IncomingMiddleTemplate">
+                <Grid Style="{StaticResource LeftAlignedGridStyle}"
+                      Padding="0,5">
+                    <Image Style="{StaticResource IncomingAvatarImageStyle}"
+                           Grid.Column="0" />
+                    <primitives:RadBorder Style="{StaticResource MiddleMessageContainerStyle}"
+                                          Grid.Column="1">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource IncomingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="IncomingLastTemplate">
+                <Grid Style="{StaticResource LeftAlignedGridStyle}">
+                    <Image Style="{StaticResource IncomingAvatarImageStyle}"
+                           Grid.Column="0" />
+                    <primitives:RadBorder Style="{StaticResource LastMessageContainerStyle}"
+                                          Grid.Column="1">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource IncomingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                </Grid>
+            </DataTemplate>
+
+            <!-- Outgoing -->
+            <DataTemplate x:Key="OutgoingSingleTextTemplate">
+                <Grid Style="{StaticResource RightAlignedGridStyle}">
+                    <primitives:RadBorder Style="{StaticResource SingleOutgoingMessageContainerStyle}"
+                                          Grid.Column="0">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource OutgoingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                    <Image Style="{StaticResource OutgoingAvatarImageStyle}"
+                           Grid.Column="1" />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="OutgoingFirstTemplate">
+                <Grid x:Name="ContainerGrid"
+                      Style="{StaticResource RightAlignedGridStyle}">
+                    <primitives:RadBorder Style="{StaticResource FirstMessageContainerStyle}"
+                                          Grid.Column="0">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource OutgoingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                    <Image Style="{StaticResource OutgoingAvatarImageStyle}"
+                           Grid.Column="1" />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="OutgoingMiddleTemplate">
+                <Grid Style="{StaticResource RightAlignedGridStyle}"
+                      Padding="0,5">
+                    <primitives:RadBorder Style="{StaticResource MiddleMessageContainerStyle}"
+                                          Grid.Column="0">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource OutgoingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                    <Image Style="{StaticResource OutgoingAvatarImageStyle}"
+                           Grid.Column="1" />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="OutgoingLastTemplate">
+                <Grid Style="{StaticResource RightAlignedGridStyle}">
+                    <primitives:RadBorder Style="{StaticResource LastMessageContainerStyle}"
+                                          Grid.Column="0">
+                        <Label Text="{Binding Text}"
+                               Style="{StaticResource OutgoingMessageLabelStyle}" />
+                    </primitives:RadBorder>
+                    <Image Style="{StaticResource OutgoingAvatarImageStyle}"
+                           Grid.Column="1" />
+                </Grid>
+            </DataTemplate>
+
+            <conversationalUi:ChatItemTemplateSelector x:Key="AzureChatItemTemplateSelector"
+                                                       IncomingFirstTextMessageTemplate="{StaticResource IncomingFirstTemplate}"
+                                                       IncomingMiddleTextMessageTemplate="{StaticResource IncomingMiddleTemplate}"
+                                                       IncomingSingleTextMessageTemplate="{StaticResource IncomingSingleTextTemplate}"
+                                                       IncomingLastTextMessageTemplate="{StaticResource IncomingLastTemplate}"
+                                                       OutgoingFirstTextMessageTemplate="{StaticResource OutgoingFirstTemplate}"
+                                                       OutgoingMiddleTextMessageTemplate="{StaticResource OutgoingMiddleTemplate}"
+                                                       OutgoingSingleTextMessageTemplate="{StaticResource OutgoingSingleTextTemplate}"
+                                                       OutgoingLastTextMessageTemplate="{StaticResource OutgoingLastTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <conversationalUi:RadChat x:Name="Chat"
+                                  Author="{Binding Me}"
+                                  ItemsSource="{Binding ConversationItems}"
+                                  ItemTemplateSelector="{StaticResource AzureChatItemTemplateSelector}">
+            <conversationalUi:RadChat.Effects>
+                <effects:SafeAreaEffect />
+            </conversationalUi:RadChat.Effects>
+            <conversationalUi:RadChat.TypingIndicator>
+                <conversationalUi:TypingIndicator x:Name="typingIndicator"
+                                                  ItemsSource="{Binding TypingAuthors}"
+                                                  DotsColor="{StaticResource AccentSecondaryColor}"
+                                                  TextColor="{StaticResource AccentTertiaryColor}" />
+            </conversationalUi:RadChat.TypingIndicator>
+        </conversationalUi:RadChat>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+            <primitives:RadBusyIndicator.Content>
+                <Grid BindingContext="{x:Reference Page}"
+                      WidthRequest="{Binding Width}"
+                      HeightRequest="{Binding Height}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

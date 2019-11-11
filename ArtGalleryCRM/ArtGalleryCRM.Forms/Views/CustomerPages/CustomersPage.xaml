@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:commands="clr-namespace:Telerik.XamarinForms.DataControls.ListView.Commands;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:customerViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.CustomerViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.CustomerPages.CustomersPage"
+                Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <customerViewModels:CustomersViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="sync"
+                     Icon="refresh.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="sync" />
+        <ToolbarItem Text="add"
+                     Icon="add_new.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="add" />
+    </ContentPage.ToolbarItems>
+
+    <Grid x:Name="RootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout x:Name="GroupingButtonsPanel"
+                     Margin="{OnPlatform Android='16,16,16,5', iOS='3,3,3,2', UWP='16,16,16,5'}">
+            <Label Text="Group By:"
+                   TextColor="{StaticResource DarkGrayTextColor}"
+                   FontSize="Small"
+                   Margin="0,0,0,5" />
+
+            <input:RadSegmentedControl ItemsSource="{Binding GroupingOptions}"
+                                       SelectedIndex="{Binding SelectedSegmentIndex, Mode=TwoWay}"
+                                       SegmentTextColor="{StaticResource AccentColor}"
+                                       SelectedSegmentTextColor="{StaticResource ExtraLightTextColor}"
+                                       SegmentBackgroundColor="{StaticResource LightBackgroundColor}"
+                                       SelectedSegmentBackgroundColor="{StaticResource AccentSecondaryColor}"
+                                       DisabledSegmentTextColor="{StaticResource LightGrayTextColor}" />
+        </StackLayout>
+
+        <dataControls:RadListView ItemsSource="{Binding Customers}"
+                                  GroupDescriptors="{Binding GroupDescriptors, Mode=OneWayToSource}"
+                                  Style="{StaticResource BaseListViewStyle}"
+                                  Grid.Row="1">
+            <dataControls:RadListView.Commands>
+                <commands:ListViewUserCommand Id="ItemTap"
+                                              Command="{Binding ItemTapCommand}" />
+            </dataControls:RadListView.Commands>
+            <dataControls:RadListView.LayoutDefinition>
+                <listView:ListViewLinearLayout VerticalItemSpacing="1"
+                                               ItemLength="100" />
+            </dataControls:RadListView.LayoutDefinition>
+            <dataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <listView:ListViewTemplateCell>
+                        <listView:ListViewTemplateCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <primitives:RadBorder Style="{StaticResource ImageBorderCircleStyle}"
+                                                      BorderColor="{StaticResource LightGrayTextColor}"
+                                                      BackgroundColor="{StaticResource GrayBackgroundColor}"
+                                                      VerticalOptions="Fill"
+                                                      HorizontalOptions="Center"
+                                                      WidthRequest="80"
+                                                      HeightRequest="80"
+                                                      Margin="10">
+                                    <Label Text="{Binding Name, Converter={StaticResource NameToInitialsConverter}}"
+                                           TextColor="{StaticResource DarkGrayTextColor}"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           Margin="{OnPlatform Android='4,0,0,0', iOS='0,3,0,0', UWP='0'}"
+                                           FontSize="{OnPlatform Android='28', iOS='30', UWP='32'}" />
+                                </primitives:RadBorder>
+
+                                <Label Text="{Binding Name}"
+                                       TextColor="{StaticResource AccentColor}"
+                                       FontSize="Large"
+                                       Grid.Column="1"
+                                       VerticalOptions="Center"
+                                       VerticalTextAlignment="Center" />
+
+                                <Image Source="next_chevron.png"
+                                       HeightRequest="40"
+                                       WidthRequest="40"
+                                       Grid.Column="2" />
+                            </Grid>
+                        </listView:ListViewTemplateCell.View>
+                    </listView:ListViewTemplateCell>
+                </DataTemplate>
+            </dataControls:RadListView.ItemTemplate>
+            <dataControls:RadListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="{StaticResource AccentSecondaryColor}"
+                          HeightRequest="{OnPlatform Android='40', iOS='36', UWP='40'}">
+                        <Label Text="{Binding Converter={StaticResource DateTimeToDateStringConverter}}"
+                               TextColor="{StaticResource ExtraLightTextColor}"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="{OnPlatform Android='16', iOS='18', UWP='20'}" />
+                    </Grid>
+                </DataTemplate>
+            </dataControls:RadListView.GroupHeaderTemplate>
+        </dataControls:RadListView>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource TopPageBusyIndicatorStyle}"
+                                     Grid.Row="0"
+                                     Grid.RowSpan="2">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+            <primitives:RadBusyIndicator.Content>
+                <Grid BindingContext="{x:Reference Page}"
+                      WidthRequest="{Binding Width}"
+                      HeightRequest="{Binding Height}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

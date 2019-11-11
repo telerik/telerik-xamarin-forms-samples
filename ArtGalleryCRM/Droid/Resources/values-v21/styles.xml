@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <style name="MyTheme" parent="MyTheme.Base">
+    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <item name="android:statusBarColor">@color/statusBar_background</item>
+  </style>
+  
+  <style name="Theme.Splash" parent="android:Theme">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+  </style>
+</resources>

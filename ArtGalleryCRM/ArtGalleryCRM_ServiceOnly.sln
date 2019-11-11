@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtGalleryCRMService", "ArtGalleryCRMService\ArtGalleryCRMService.csproj", "{BEDF7841-34A8-4887-8143-D2C7F542BC26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|iPhone = Debug|iPhone
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|x64.Build.0 = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Debug|x86.Build.0 = Debug|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|ARM.Build.0 = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|iPhone.Build.0 = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|x64.ActiveCfg = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|x64.Build.0 = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|x86.ActiveCfg = Release|Any CPU
+		{BEDF7841-34A8-4887-8143-D2C7F542BC26}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {001B1D3F-F586-4A23-A970-608535DEA529}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.RootPageMaster"
+                Icon="menu.png"
+                Title="Master">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid BackgroundColor="{StaticResource AccentDarkColor}"
+              HeightRequest="200">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Source="master_header_logo.png"
+                   Margin="{OnPlatform Android='20', iOS='20,40,20,20', UWP='20'}" />
+
+            <Label Text="Art Gallery CRM"
+                   TextColor="{StaticResource ExtraLightTextColor}"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"
+                   Grid.Row="1" />
+        </Grid>
+
+        <dataControls:RadListView x:Name="MenuItemsListView"
+                                  ItemsSource="{Binding MenuItems}"
+                                  VerticalOptions="Start"
+                                  SelectionMode="None"
+                                  Grid.Row="1">
+            <dataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <listView:ListViewTemplateCell>
+                        <StackLayout Padding="15,10"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand"
+                                     BackgroundColor="{Binding RowBackgroundColor}">
+                            <Image Source="{Binding IconPath}"
+                                   HeightRequest="25"
+                                   WidthRequest="25"
+                                   Margin="0,0,5,0" />
+                            <Label Text="{Binding Title}"
+                                   VerticalOptions="FillAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="24" />
+                        </StackLayout>
+                    </listView:ListViewTemplateCell>
+                </DataTemplate>
+            </dataControls:RadListView.ItemTemplate>
+        </dataControls:RadListView>
+    </Grid>
+</views:BasePage>

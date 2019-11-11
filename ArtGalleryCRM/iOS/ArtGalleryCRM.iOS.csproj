@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{5FA0219F-B063-4D07-800B-CC38BDB5B916}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ArtGalleryCRM.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>ArtGalleryCRMiOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchProfiling>true</MtouchProfiling>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <CodesignEntitlements />
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <CodesignProvision>UI for Xamarin CRM Demo Distribution Profile</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <MtouchProfiling>true</MtouchProfiling>
+    <CodesignKey></CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <Compile Include="Effects\AppVersionEffect.iOS.cs" />
+    <Compile Include="Effects\SafeAreaEffect.iOS.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Telerik.Xamarin.iOS">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.Xamarin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Barcode">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Map">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Map.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.PdfViewer">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.PdfViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.1" />
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Views " Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms " Version="1.68.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="ITunesArtwork" />
+    <ITunesArtwork Include="ITunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\1024 Icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\20x20 Icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 5+6 Settings 1x (29x29).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 5+6 Settings 2x (58x58).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 7+8 Application Icon 1x (76x76).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 7+8 Application Icon 2x (152x152).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 7+8 Spotlight 1x (40x40).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 7+8 Spotlight 1x (40x40)1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 7+8 Spotlight 2x (80x80).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 9+10 Application Icon 2x (167x167).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPad-iOS 9+10 Settings 2x (58x58).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPhone-iOS 7+8 Application Icon 1x (60x60).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPhone-iOS 7+8 Application Icon 2x (120x120).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPhone-iOS 7+8 Spotlight 1x (40x40).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPhone-iOS 7+8 Spotlight 2x (80x80).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPhone-iOS 9+10 Application Icon 3x (180x180).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPhone-iOS 9+10 Settings 3x (87x87).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iPhone-iOS 9+10 SpotLight 3x (120x120).png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\art_gallery_logo-1024x768.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\art_gallery_logo-1536x2048.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\art_gallery_logo-2048x1536.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\art_gallery_logo-640x1136.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\art_gallery_logo-640x960.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\art_gallery_logo-768x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArtGalleryCRM.Forms\ArtGalleryCRM.Forms.csproj">
+      <Project>{92703bb7-71aa-44ba-9ec8-db98f3a55ded}</Project>
+      <Name>ArtGalleryCRM.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\add_new.png">
+      <Link>Resources\add_new.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\add_order.png">
+      <Link>Resources\add_order.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\art_placeholder.png">
+      <Link>Resources\art_placeholder.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\delete.png">
+      <Link>Resources\delete.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\download_error_placeholder.png">
+      <Link>Resources\download_error_placeholder.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\download_placeholder.png">
+      <Link>Resources\download_placeholder.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\edit.png">
+      <Link>Resources\edit.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\error_round.png">
+      <Link>Resources\error_round.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\gray_circle.png">
+      <Link>Resources\gray_circle.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_about.png">
+      <Link>Resources\ic_about.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_chat_bot.png">
+      <Link>Resources\ic_chat_bot.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_chat_reply.png">
+      <Link>Resources\ic_chat_reply.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_chat_user.png">
+      <Link>Resources\ic_chat_user.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_customers.png">
+      <Link>Resources\ic_customers.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_employees.png">
+      <Link>Resources\ic_employees.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_help.png">
+      <Link>Resources\ic_help.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_orders.png">
+      <Link>Resources\ic_orders.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_products.png">
+      <Link>Resources\ic_products.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_settings.png">
+      <Link>Resources\ic_settings.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ic_shipping.png">
+      <Link>Resources\ic_shipping.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\master_header_logo.png">
+      <Link>Resources\master_header_logo.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\master_logo_75.png">
+      <Link>Resources\master_logo_75.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\menu.png">
+      <Link>Resources\menu.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\next_chevron.png">
+      <Link>Resources\next_chevron.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\ninja.png">
+      <Link>Resources\ninja.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\profile_photo.png">
+      <Link>Resources\profile_photo.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\refresh.png">
+      <Link>Resources\refresh.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\save.png">
+      <Link>Resources\save.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\sign_in.png">
+      <Link>Resources\sign_in.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\Welcome1.png">
+      <Link>Resources\Welcome1.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\Welcome2.png">
+      <Link>Resources\Welcome2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\Welcome3.png">
+      <Link>Resources\Welcome3.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\Welcome4.png">
+      <Link>Resources\Welcome4.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\Welcome5.png">
+      <Link>Resources\Welcome5.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\ArtGalleryCRM.Forms\Images\Welcome6.png">
+      <Link>Resources\Welcome6.png</Link>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

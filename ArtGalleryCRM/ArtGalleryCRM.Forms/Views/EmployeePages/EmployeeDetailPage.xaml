@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:gauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+                xmlns:chart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+                xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                xmlns:system="clr-namespace:System;assembly=netstandard"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:common="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                x:Class="ArtGalleryCRM.Forms.Views.EmployeePages.EmployeeDetailPage"
+                Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <Color x:Key="SeparatorColor">#FF768099</Color>
+
+        <Style x:Key="PiePathStyle" 
+               TargetType="primitives:RadPath">
+            <Setter Property="HorizontalOptions" 
+                    Value="Center"/>
+            <Setter Property="VerticalOptions"
+                    Value="Center" />
+            <Setter Property="WidthRequest"
+                    Value="100" />
+            <Setter Property="HeightRequest"
+                    Value="100" />
+            <Setter Property="Margin"
+                    Value="0,20,0,0"/>
+        </Style>
+
+        <Style x:Key="PieLegendLabelStyle"
+               TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="12" />
+            <Setter Property="Margin"
+                    Value="0,0,0,2" />
+            <Setter Property="TextColor"
+                    Value="{StaticResource LightGrayTextColor}"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="order"
+                     Icon="add_order.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="order" />
+        <ToolbarItem Text="edit"
+                     Icon="edit.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="edit" />
+        <!-- This demo is readonly, uncomment deletion code to implement with your data.-->
+        <!-- <ToolbarItem Text="delete"
+                     Icon="delete.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="delete" />-->
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <Grid x:Name="RootGrid"
+              RowDefinitions="{StaticResource AutoStarRowDefinitions}">
+            <StackLayout Style="{StaticResource PageHeaderStackLayoutStyle}">
+                <primitives:RadBorder Style="{StaticResource ImageBorderCircleStyle}"
+                                      BorderColor="{StaticResource LightBackgroundColor}"
+                                      VerticalOptions="Center"
+                                      HorizontalOptions="Center"
+                                      Margin="10">
+                    <ff:CachedImage Source="{Binding SelectedEmployee.PhotoUri}"
+                                    HeightRequest="150"
+                                    WidthRequest="150"
+                                    DownsampleHeight="150"
+                                    DownsampleWidth="150"
+                                    LoadingPlaceholder="gray_circle.png"
+                                    ErrorPlaceholder="download_error_placeholder.png"
+                                    Aspect="AspectFill">
+                        <ff:CachedImage.Transformations>
+                            <transformations:CircleTransformation />
+                        </ff:CachedImage.Transformations>
+                    </ff:CachedImage>
+                </primitives:RadBorder>
+
+                <StackLayout Padding="10">
+                    <Label Text="{Binding SelectedEmployee.Name}"
+                           TextColor="{StaticResource ExtraLightTextColor}"
+                           HorizontalTextAlignment="Center"
+                           FontSize="Large" />
+
+                    <Label Text="{Binding SelectedEmployee.OfficeLocation}"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{StaticResource LightGrayTextColor}"
+                           FontSize="Medium" />
+                </StackLayout>
+            </StackLayout>
+
+            <Grid x:Name="MetricsGrid"
+                  BackgroundColor="{StaticResource LightBackgroundColor}"
+                  Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="180" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!-- SEPARATOR -->
+                <BoxView BackgroundColor="{StaticResource MediumBaseColor}"
+                         Margin="{OnPlatform Android='0,16,0,16', iOS='0,15,0,15', UWP='0,16,0,16'}"
+                         Grid.RowSpan="3"
+                         Grid.Column="1" />
+
+                <!-- TOP RIGHT - Vacation Radial Gauge -->
+                <Grid Grid.Row="0"
+                      Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <gauges:RadRadialGauge x:Name="VacationGauge"
+                                               StartAngle="90"
+                                               SweepAngle="360"
+                                               AxisRadiusFactor="1"
+                                               Margin="0,20,0,0">
+                            <gauges:RadRadialGauge.Axis>
+                                <gauges:GaugeLinearAxis x:Name="VacationLinearAxis"
+                                                        StrokeThickness="0"
+                                                        ShowLabels="False" />
+                            </gauges:RadRadialGauge.Axis>
+                            <gauges:RadRadialGauge.Ranges>
+                                <gauges:GaugeRangesDefinition x:Name="VacationRangesDefinition"
+                                                              StartThickness="10"
+                                                              EndThickness="10">
+                                    <gauges:GaugeRange x:Name="VacationRange"
+                                                       Color="{StaticResource GrayBackgroundColor}" />
+                                </gauges:GaugeRangesDefinition>
+                            </gauges:RadRadialGauge.Ranges>
+                            <gauges:RadRadialGauge.Indicators>
+                                <gauges:GaugeBarIndicator x:Name="VacationIndicator"
+                                                          Fill="{StaticResource AccentColor}"
+                                                          StartThickness="10"
+                                                          EndThickness="10"
+                                                          StartCap="ConcaveOval"
+                                                          EndCap="Oval" />
+                            </gauges:RadRadialGauge.Indicators>
+                        </gauges:RadRadialGauge>
+
+                        <Label Text="{Binding SelectedEmployee.VacationUsed}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="0,20,0,0"
+                               FontSize="30" />
+                    </Grid>
+
+                    <Label Text="{Binding SelectedEmployee.VacationBalance, StringFormat='Vacation Total: {0}'}"
+                           TextColor="{StaticResource LightGrayTextColor}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Grid.Row="1" />
+                </Grid>
+
+                <!-- TOP LEFT - Salary Pie Chart -->
+                <Grid x:Name="PieChartGrid"
+                      VerticalOptions="Center"
+                      HorizontalOptions="Center"
+                      Grid.Row="0"
+                      Grid.Column="0">
+                    <!-- Filled by dynamically created pie series using RadPath. See Line 56 in code-behind. -->
+                </Grid>
+
+                <!-- SEPARATOR -->
+                <BoxView BackgroundColor="{StaticResource SeparatorColor}"
+                         Margin="{OnPlatform Android='16,0,16,0', iOS='15,0,15,0', UWP='16,0,16,0'}"
+                         Grid.Row="1"
+                         Grid.ColumnSpan="3"
+                         Grid.Column="0" />
+
+                <!-- BOTTOM LEFT - Sales Radial Gauge -->
+                <Grid Grid.Row="2"
+                      Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Text="{Binding EmployeeSalesCount, StringFormat='{}{0:N0} Sales'}"
+                           VerticalOptions="Start"
+                           HorizontalTextAlignment="Center"
+                           FontSize="22"
+                           Margin="0,20,0,0" />
+
+                    <Grid VerticalOptions="Start"
+                          Margin="{OnPlatform Android='20,20,20,0', iOS='20,20,20,0', UWP='20,10,20,10'}"
+                          Grid.Row="1">
+                        <gauges:RadHorizontalGauge x:Name="SalesGauge">
+                            <gauges:RadHorizontalGauge.Axis>
+                                <gauges:GaugeLinearAxis x:Name="SalesLinearAxis"
+                                                        Stroke="{StaticResource MediumBaseColor}"
+                                                        TickStroke="{StaticResource MediumBaseColor}"
+                                                        ShowLabels="False"
+                                                        StrokeThickness="0" />
+                            </gauges:RadHorizontalGauge.Axis>
+                            <gauges:RadHorizontalGauge.Ranges>
+                                <gauges:GaugeRangesDefinition>
+                                    <gauges:GaugeRange x:Name="CompanySalesRange"
+                                                       Color="{StaticResource GrayBackgroundColor}" />
+                                </gauges:GaugeRangesDefinition>
+                            </gauges:RadHorizontalGauge.Ranges>
+                            <gauges:RadHorizontalGauge.Indicators>
+                                <gauges:GaugeBarIndicator x:Name="EmployeeSalesIndicator"
+                                                          Fill="{StaticResource AccentLightColor}"
+                                                          StartCap="Flat"
+                                                          EndCap="Oval" />
+                            </gauges:RadHorizontalGauge.Indicators>
+                        </gauges:RadHorizontalGauge>
+                    </Grid>
+
+                    <StackLayout Grid.Row="2"
+                                 Margin="10,0,10,10">
+                        <Label Text="{Binding CompanySalesCount}"
+                               TextColor="{StaticResource DarkGrayTextColor}"
+                               FontSize="{OnPlatform Android='14', iOS='16', UWP='22'}"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Company Total"
+                               TextColor="{StaticResource LightGrayTextColor}"
+                               FontSize="{OnPlatform Android='14', iOS='16', UWP='22'}"
+                               HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </Grid>
+
+                <!-- BOTTOM RIGHT - Revenue Linear Gauge -->
+                <Grid Grid.Row="2"
+                      Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Text="{Binding EmployeeSalesRevenue, StringFormat='{}{0:C0}'}"
+                           VerticalOptions="Start"
+                           HorizontalTextAlignment="Center"
+                           FontSize="22"
+                           Margin="0,20,0,0" />
+
+                    <Grid VerticalOptions="Start"
+                          Margin="{OnPlatform Android='20', iOS='20', UWP='20,10,20,10'}"
+                          Grid.Row="1">
+                        <gauges:RadHorizontalGauge x:Name="RevenueGauge">
+                            <gauges:RadHorizontalGauge.Axis>
+                                <gauges:GaugeLinearAxis x:Name="RevenueLinearAxis"
+                                                        Stroke="{StaticResource MediumBaseColor}"
+                                                        TickStroke="{StaticResource MediumBaseColor}"
+                                                        ShowLabels="False"
+                                                        StrokeThickness="0" />
+                            </gauges:RadHorizontalGauge.Axis>
+                            <gauges:RadHorizontalGauge.Ranges>
+                                <gauges:GaugeRangesDefinition>
+                                    <gauges:GaugeRange x:Name="CompanyRevenueRange"
+                                                       Color="{StaticResource GrayBackgroundColor}" />
+                                </gauges:GaugeRangesDefinition>
+                            </gauges:RadHorizontalGauge.Ranges>
+                            <gauges:RadHorizontalGauge.Indicators>
+                                <gauges:GaugeBarIndicator x:Name="EmployeeRevenueIndicator"
+                                                          Fill="{StaticResource AccentDarkColor}"
+                                                          StartCap="Flat"
+                                                          EndCap="Oval" />
+                            </gauges:RadHorizontalGauge.Indicators>
+                        </gauges:RadHorizontalGauge>
+                    </Grid>
+
+                    <StackLayout Grid.Row="2"
+                                 Margin="10,0,10,10">
+                        <Label Text="{Binding CompanySalesRevenue, StringFormat='{0:C0}'}"
+                               TextColor="{StaticResource DarkGrayTextColor}"
+                               FontSize="{OnPlatform Android='14', iOS='16', UWP='22'}"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Company Total"
+                               TextColor="{StaticResource LightGrayTextColor}"
+                               FontSize="{OnPlatform Android='14', iOS='16', UWP='22'}"
+                               HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </Grid>
+
+                <!-- SEPARATOR -->
+                <BoxView BackgroundColor="{StaticResource SeparatorColor}"
+                         Margin="{OnPlatform Android='16,0,16,0', iOS='15,0,15,0', UWP='16,0,16,0'}"
+                         Grid.Row="3"
+                         Grid.ColumnSpan="3"
+                         Grid.Column="0" />
+
+                <!-- BOTTOM - Sales History Cartesian Chart (Bar Series) -->
+                <Grid x:Name="HistoryChartGrid"
+                      Grid.Row="4"
+                      Grid.ColumnSpan="3"
+                      Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <chart:RadCartesianChart x:Name="SalesHistoryChart"
+                                             BackgroundColor="Transparent"
+                                             Margin="10,0,10,0">
+                        <chart:RadCartesianChart.HorizontalAxis>
+                            <chart:DateTimeContinuousAxis ShowLabels="True"
+                                                          LabelFitMode="Rotate"
+                                                          LabelFormat="MMMM dd"
+                                                          LabelFontSize="8"
+                                                          LabelTextColor="{StaticResource LightGrayTextColor}"
+                                                          MajorStepUnit="Day"
+                                                          MajorStep="2">
+                            </chart:DateTimeContinuousAxis>
+                        </chart:RadCartesianChart.HorizontalAxis>
+                        <chart:RadCartesianChart.VerticalAxis>
+                            <chart:NumericalAxis RangeExtendDirection="Both"
+                                                 LabelFormat="C0"
+                                                 MajorTickThickness="0"
+                                                 LineColor="Transparent"
+                                                 LabelTextColor="{StaticResource LightGrayTextColor}" />
+                        </chart:RadCartesianChart.VerticalAxis>
+                        <chart:RadCartesianChart.Grid>
+                            <chart:CartesianChartGrid x:Name="ChartGrid"
+                                                      MajorLinesVisibility="Y"
+                                                      MajorLineThickness="1"
+                                                      MajorLineColor="{StaticResource GrayBackgroundColor}" />
+                        </chart:RadCartesianChart.Grid>
+                        <chart:RadCartesianChart.Series>
+                            <chart:BarSeries ItemsSource="{Binding SalesHistory}"
+                                             ValueBinding="Value"
+                                             CategoryBinding="Date" />
+                            <chart:LineSeries ItemsSource="{Binding SalesHistory}"
+                                              ValueBinding="Value"
+                                              CategoryBinding="Date" />
+                        </chart:RadCartesianChart.Series>
+                        <chart:RadCartesianChart.Palette>
+                            <chart:ChartPalette>
+                                <chart:ChartPalette.Entries>
+                                    <chart:PaletteEntry FillColor="{StaticResource AccentLightColor}"
+                                                        StrokeColor="{StaticResource AccentLightColor}" />
+                                    <chart:PaletteEntry FillColor="{StaticResource AccentTertiaryColor}"
+                                                        StrokeColor="{StaticResource AccentTertiaryColor}" />
+                                    <chart:PaletteEntry FillColor="{StaticResource AccentSecondaryColor}"
+                                                        StrokeColor="{StaticResource AccentSecondaryColor}" />
+                                </chart:ChartPalette.Entries>
+                            </chart:ChartPalette>
+                        </chart:RadCartesianChart.Palette>
+                    </chart:RadCartesianChart>
+
+                    <Label Text="Recent Sales Performance"
+                           TextColor="{StaticResource LightGrayTextColor}"
+                           HorizontalTextAlignment="Center"
+                           Grid.Row="1" />
+                </Grid>
+            </Grid>
+
+            <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                         IsVisible="{Binding IsBusy}"
+                                         IsBusy="{Binding IsBusy}"
+                                         Style="{StaticResource BusyIndicatorStyle}"
+                                         Grid.RowSpan="2">
+                <primitives:RadBusyIndicator.BusyContent>
+                    <Label Text="{Binding IsBusyMessage}"
+                           BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                           HorizontalTextAlignment="Center" />
+                </primitives:RadBusyIndicator.BusyContent>
+                <primitives:RadBusyIndicator.Content>
+                    <Grid BindingContext="{x:Reference RootGrid}"
+                          WidthRequest="{Binding Width}"
+                          HeightRequest="{Binding Height}" />
+                </primitives:RadBusyIndicator.Content>
+            </primitives:RadBusyIndicator>
+        </Grid>
+    </ScrollView>
+</views:BasePage>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:orderViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.OrderViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.OrderPages.OrderDetailPage"
+                Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <orderViewModels:OrderDetailViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="edit"
+                     Icon="edit.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="edit" />
+        <!-- This demo is readonly, uncomment deletion code to implement with your data.-->
+        <!--<ToolbarItem Text="delete"
+                     Icon="delete.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="delete" />-->
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="{StaticResource AutoStarRowDefinitions}">
+        <StackLayout Style="{StaticResource PageHeaderStackLayoutStyle}"
+                     VerticalOptions="Start">
+            <ff:CachedImage Source="{Binding RelatedProduct.PhotoUri}"
+                            HeightRequest='{OnPlatform Android="180", iOS="180", UWP="151.5"}'
+                            LoadingPlaceholder="download_placeholder.png"
+                            ErrorPlaceholder="download_error_placeholder.png"
+                            VerticalOptions="Start"
+                            Aspect="AspectFill" />
+
+            <StackLayout VerticalOptions="Start"
+                         BackgroundColor="{StaticResource AccentLightColor}"
+                         Padding="10">
+                <Label Text="{Binding RelatedProduct.Title}"
+                       TextColor="{StaticResource ExtraLightTextColor}"
+                       FontSize="Medium" />
+
+                <Label Text="{Binding RelatedCustomer.Name, StringFormat='Ordered by {0:D}'}"
+                       TextColor="{StaticResource LightBackgroundColor}"
+                       FontSize="Small" />
+            </StackLayout>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1"
+                    Margin="0,-6,0,0">
+            <Grid RowDefinitions="{StaticResource AutoStarRowDefinitions}">
+                <StackLayout BackgroundColor="{StaticResource LightTranslucentBackgroundColor}"
+                             Orientation="Horizontal"
+                             Margin="0,0,0,0">
+                    <primitives:RadBorder Style="{StaticResource ImageBorderCircleStyle}"
+                                          BorderColor="{StaticResource AccentLightColor}"
+                                          VerticalOptions="Center"
+                                          HorizontalOptions="Center"
+                                          Margin="10">
+                        <ff:CachedImage Source="{Binding RelatedEmployee.PhotoUri}"
+                                        LoadingPlaceholder="download_placeholder.png"
+                                        ErrorPlaceholder="download_error_placeholder.png"
+                                        WidthRequest="50"
+                                        HeightRequest="50">
+                            <ff:CachedImage.Transformations>
+                                <transformations:CircleTransformation />
+                            </ff:CachedImage.Transformations>
+                        </ff:CachedImage>
+                    </primitives:RadBorder>
+
+                    <Label Text="{Binding RelatedEmployee.Name, StringFormat='Sold by: {0}'}"
+                           TextColor="{StaticResource AccentColor}"
+                           FontSize="Medium"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"
+                             Padding="10,10,10,0"
+                             Grid.Row="1">
+
+                    <Label Text="{Binding SelectedOrder.OrderDate, StringFormat='Ordered: {0:D}'}"
+                           TextColor="{StaticResource AccentDarkColor}"
+                           FontSize="Small" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding RelatedProduct.Price, StringFormat='Price: {0:C2}, '}"
+                               TextColor="{StaticResource DarkGrayTextColor}"
+                               FontSize="Small" />
+                        <Label Text="{Binding SelectedOrder.Quantity, StringFormat='Quantity: {0:N0}'}"
+                               TextColor="{StaticResource DarkGrayTextColor}"
+                               FontSize="Small" />
+
+                    </StackLayout>
+
+                    <Label Text="{Binding SelectedOrder.TotalPrice, StringFormat='Total: {0:C2}'}"
+                           TextColor="{StaticResource DarkGrayTextColor}"
+                           FontSize="Small"
+                           Margin="0,0,0,10" />
+
+                    <Label Text="{Binding SelectedOrder.DeliveryService, StringFormat='Shipped by {0}'}"
+                           TextColor="{StaticResource DarkGrayTextColor}" />
+
+                    <Label Text="{Binding SelectedOrder.Street}"
+                           TextColor="{StaticResource LightGrayTextColor}" />
+
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0,0,0,10">
+                        <Label Text="{Binding SelectedOrder.City, StringFormat='{0}, '}"
+                               TextColor="{StaticResource LightGrayTextColor}" />
+                        <Label Text="{Binding SelectedOrder.State, StringFormat='{0} '}"
+                               TextColor="{StaticResource LightGrayTextColor}" />
+                        <Label Text="{Binding SelectedOrder.ZipCode, StringFormat='{0} '}"
+                               TextColor="{StaticResource LightGrayTextColor}" />
+                        <Label Text="{Binding SelectedOrder.Country}"
+                               TextColor="{StaticResource LightGrayTextColor}" />
+                    </StackLayout>
+
+                    <Label Text="Notes:"
+                           TextColor="{StaticResource DarkGrayTextColor}" />
+
+                    <Label Text="{Binding SelectedOrder.Notes}"
+                           LineBreakMode="WordWrap"
+                           TextColor="{StaticResource LightGrayTextColor}" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}"
+                                     Grid.RowSpan="2">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+            <primitives:RadBusyIndicator.Content>
+                <Grid BindingContext="{x:Reference Page}"
+                      WidthRequest="{Binding Width}"
+                      HeightRequest="{Binding Height}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>
