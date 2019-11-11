@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="TodoApp.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <!--Icons-->
+            <x:String x:Key="IconSearch">&#xE800;</x:String>
+            <x:String x:Key="IconSearch1">&#xE801;</x:String>
+            <x:String x:Key="IconSearch2">&#xE802;</x:String>
+            <x:String x:Key="IconSearch3">&#xE803;</x:String>
+            <x:String x:Key="IconSearch4">&#xE804;</x:String>
+            <x:String x:Key="IconRightOpenBig">&#xE805;</x:String>
+            <x:String x:Key="IconRightOpen">&#xE806;</x:String>
+            <x:String x:Key="IconEdit">&#xE807;</x:String>
+            <x:String x:Key="IconPencil">&#xE808;</x:String>
+            <x:String x:Key="IconTrashEmpty">&#xE809;</x:String>
+            <x:String x:Key="IconCalendar">&#xE80A;</x:String>
+            <x:String x:Key="IconCCW">&#xE80B;</x:String>
+            <x:String x:Key="IconCW">&#xE80C;</x:String>
+            <x:String x:Key="IconDocText">&#xE80D;</x:String>
+            <x:String x:Key="IconClock">&#xE80E;</x:String>
+            <x:String x:Key="IconClock1">&#xE80F;</x:String>
+            <x:String x:Key="IconPlus">&#xE810;</x:String>
+            <x:String x:Key="IconPlus1">&#xE811;</x:String>
+            <x:String x:Key="IconPlus2">&#xE812;</x:String>
+            <x:String x:Key="IconPlus3">&#xE813;</x:String>
+            <x:String x:Key="IconUpOpenBig">&#xE814;</x:String>
+            <x:String x:Key="IconLeftOpenBig">&#xE815;</x:String>
+            <x:String x:Key="IconDownOpenBig">&#xE816;</x:String>
+            <x:String x:Key="IconLeftOpenMini">&#xE817;</x:String>
+            <x:String x:Key="IconDownOpenMini">&#xE818;</x:String>
+            <x:String x:Key="IconLeftOpen">&#xE819;</x:String>
+            <x:String x:Key="IconDownOpen">&#xE81A;</x:String>
+            <x:String x:Key="IconUpOpen">&#xE81B;</x:String>
+            <x:String x:Key="IconRightOpen1">&#xE81C;</x:String>
+            <x:String x:Key="IconLeftOpen1">&#xE81D;</x:String>
+            <x:String x:Key="IconDownOpen1">&#xE81E;</x:String>
+            <x:String x:Key="IconOK">&#xE81F;</x:String>
+            <x:String x:Key="IconCheck">&#xE820;</x:String>
+            <x:String x:Key="IconOK1">&#xE821;</x:String>
+            <x:String x:Key="IconPlus4">&#xE822;</x:String>
+            <x:String x:Key="IconDocText1">&#xF0F6;</x:String>
+            <x:String x:Key="IconFolderOpenEmpty">&#xF115;</x:String>
+            <x:String x:Key="IconFlagEmpty">&#xF11D;</x:String>
+            <x:String x:Key="IconEllipsisVert">&#xF142;</x:String>
+
+            <FileImageSource x:Key="checkmarkIcon">
+                <FileImageSource.File>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS">check</On>
+                        <On Platform="Android">check.png</On>
+                        <On Platform="UWP">Assets/Icons/check.png</On>
+                    </OnPlatform>
+                </FileImageSource.File>
+            </FileImageSource>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
+                <On Platform="iOS">fontello</On>
+                <On Platform="Android">Fonts/fontello.ttf#fontello</On>
+                <On Platform="UWP">/Assets/Fonts/fontello.ttf#fontello</On>
+            </OnPlatform>
+
+            <Style TargetType="telerikInput:RadButton" x:Key="SideDrawerButtonStyle">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+
+            <Style x:Key="circleButon" TargetType="telerikInput:RadButton">
+                <Setter Property="WidthRequest" Value="56" />
+                <Setter Property="HeightRequest" Value="56" />
+                <Setter Property="CornerRadius" Value="28" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+            </Style>
+
+            <Style x:Key="floatingActionButton" BasedOn="{StaticResource circleButon}" TargetType="telerikInput:RadButton">
+                <Setter Property="BackgroundColor" Value="#f45d64" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderRadius" Value="28" />
+                <Setter Property="BorderColor" Value="#f45d64" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

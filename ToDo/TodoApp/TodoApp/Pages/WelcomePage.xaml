@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="TodoApp.Pages.WelcomePage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowSpacing="0" Padding="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image Source="{Binding Logo}" />
+        
+        <telerikPrimitives:RadSlideView x:Name="slideView" Grid.Row="1" Margin="0,38,0,34"
+                                        ItemsSource="{Binding Slides}" ShowButtons="False" IndicatorColor="#F2F2F3" SelectedIndicatorColor="#4DA3E0">
+            <telerikPrimitives:RadSlideView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical" Margin="0,0,0,50" Spacing="0">
+                        <Image Source="{Binding Image}" Aspect="AspectFit">
+                            <Image.HorizontalOptions>
+                                <OnPlatform x:TypeArguments="LayoutOptions" Default="FillAndExpand">
+                                    <On Platform="UWP" Value="CenterAndExpand" />
+                                </OnPlatform>
+                            </Image.HorizontalOptions>
+                            <Image.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double" Default="-1">
+                                    <On Platform="UWP" Value="300" />
+                                </OnPlatform>
+                            </Image.WidthRequest>
+                        </Image>
+                        <Label Text="{Binding Title}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="Medium" Margin="0,15,0,0" />
+                        <Label Text="{Binding Description}" HorizontalTextAlignment="Center" TextColor="#5C5C68"  Margin="0,14,0,0" />
+                    </StackLayout>
+                </DataTemplate>
+            </telerikPrimitives:RadSlideView.ItemTemplate>
+        </telerikPrimitives:RadSlideView>
+
+        <Grid HeightRequest="42" Grid.Row="2" BackgroundColor="#4DA3E0">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ContinueCommand}" />
+            </Grid.GestureRecognizers>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Get Started" TextColor="White" FontSize="18" VerticalOptions="Center" />
+
+                <Label FontFamily="{StaticResource IconsFont}" Text="{StaticResource IconRightOpen1}"
+                       TextColor="White" Margin="24,3,0,0"  VerticalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

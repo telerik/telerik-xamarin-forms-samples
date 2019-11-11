@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="TodoApp.Pages.DateTimeInputPage" Padding="20">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="OK" Command="{Binding AcceptCommand}" Icon="{StaticResource checkmarkIcon}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid ColumnSpacing="24">
+        <Grid.RowSpacing>
+            <OnPlatform x:TypeArguments="x:Double">
+                <On Platform="iOS,Android" Value="24"/>
+                <On Platform="UWP" Value="8"/>
+            </OnPlatform>
+        </Grid.RowSpacing>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="96" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label HorizontalOptions="Start" VerticalOptions="Center" Text="All Day" />
+        <Switch Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" IsToggled="{Binding IsAllDay, Mode=TwoWay}" />
+
+        <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"
+               Text="Begin:"/>
+        <DatePicker Grid.Row="1" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                    Date="{Binding StartDate, Mode=TwoWay}" FontSize="Small" />
+        <TimePicker Grid.Row="1" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center"
+                    Time="{Binding StartTime, Mode=TwoWay}" IsEnabled="{Binding CanSetEndDateTime}" FontSize="Small"/>
+
+        <Label Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"
+               Text="End:" IsEnabled="{Binding CanSetEndDateTime}" />
+        <DatePicker Grid.Row="2" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                    Date="{Binding EndDate, Mode=TwoWay}" IsEnabled="{Binding CanSetEndDateTime}" FontSize="Small" />
+        <TimePicker Grid.Row="2" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Center"
+                    Time="{Binding EndTime, Mode=TwoWay}" IsEnabled="{Binding CanSetEndDateTime}" FontSize="Small"/>
+
+        <telerikInput:RadButton Grid.Row="3" Grid.ColumnSpan="4" VerticalOptions="End" HorizontalOptions="Fill"
+                                Text="OK" Command="{Binding AcceptCommand}" />
+    </Grid>
+</ContentPage>

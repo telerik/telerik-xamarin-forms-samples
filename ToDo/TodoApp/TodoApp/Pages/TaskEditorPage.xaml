@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TodoApp.Controls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="TodoApp.Pages.TaskEditorPage" Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding AcceptAction, Mode=OneWay}" Command="{Binding AcceptCommand}" Icon="{StaticResource checkmarkIcon}" />
+    </ContentPage.ToolbarItems>    
+    <Grid>
+        <TableView Intent="Menu" Margin="20" BackgroundColor="Transparent">
+            <TableRoot>
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Spacing="0">
+                            <StackLayout.Margin>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="iOS" Value="0, 3" />
+                                </OnPlatform>
+                            </StackLayout.Margin>
+                            <Label FontFamily="{StaticResource IconsFont}" Text="{StaticResource IconDocText}"
+                                   HorizontalOptions="Center" VerticalOptions="Center" TextColor="#79BAE8" WidthRequest="26">
+                                <Label.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="Android" Value="0,0,13,0" />
+                                        <On Platform="iOS" Value="0,0,6,0" />
+                                    </OnPlatform>
+                                </Label.Margin>
+                            </Label>
+                            <controls:BorderlessEntry Text="{Binding Path=TodoItem.Name}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Placeholder="Task Name" />
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <controls:TaskEditCell Icon="{StaticResource IconFolderOpenEmpty}" Text="{Binding TaskCategory}" Command="{Binding SelectCategoryCommand}" ShowDisclosureIndicator="True" />
+                    </ViewCell>
+                    <ViewCell>
+                        <controls:TaskEditCell Icon="{StaticResource IconDocText1}" Text="{Binding TaskContent}" Command="{Binding SelectTaskContentCommand}" ShowDisclosureIndicator="True" />
+                    </ViewCell>
+                    <ViewCell>
+                        <controls:TaskEditCell Icon="{StaticResource IconCalendar}" Text="{Binding TaskDuration}" Command="{Binding SelectDateTimeCommand}" ShowDisclosureIndicator="True" />
+                    </ViewCell>
+                    <ViewCell>
+                        <controls:TaskEditCell Icon="{StaticResource IconFlagEmpty}" Text="{Binding TaskPriority}" Command="{Binding SelectPriorityCommand}" ShowDisclosureIndicator="True" />
+                    </ViewCell>
+                    <ViewCell>
+                        <controls:TaskEditCell Icon="{StaticResource IconClock}" Text="{Binding TaskAlert}" Command="{Binding SelectAlertCommand}" />
+                    </ViewCell>
+                    <ViewCell>
+                        <controls:TaskEditCell Icon="{StaticResource IconCW}" Text="{Binding TaskRecurrence}" Command="{Binding SelectRecurrenceCommand}" />
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <telerikPrimitives:RadPopup.Popup>
+            <telerikPrimitives:RadPopup x:Name="popup" IsModal="True" Placement="Center" OutsideBackgroundColor="#6F000000" />
+        </telerikPrimitives:RadPopup.Popup>
+    </Grid>
+</ContentPage>

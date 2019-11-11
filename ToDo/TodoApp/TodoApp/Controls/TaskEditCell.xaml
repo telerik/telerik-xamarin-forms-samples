@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TemplatedView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoApp.Controls.TaskEditCell">
+    <TemplatedView.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="UWP" Value="0, 11" />
+                    </OnPlatform>
+                </StackLayout.Padding>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{TemplateBinding Command}" />
+                </StackLayout.GestureRecognizers>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="26" 
+                       FontFamily="{StaticResource IconsFont}"
+                       Text="{TemplateBinding Icon}" TextColor="#79BAE8" />
+                <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                       Text="{TemplateBinding Text}" TextColor="Black">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="11, 0, 0, 0" />
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
+                <Label VerticalOptions="Center"
+                       FontFamily="{StaticResource IconsFont}"
+                       Text="{StaticResource IconRightOpenBig}"
+                       IsVisible="{TemplateBinding ShowDisclosureIndicator}">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="11, 0" />
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
+            </StackLayout>
+        </ControlTemplate>
+    </TemplatedView.ControlTemplate>
+</TemplatedView>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="About"
+             xmlns:converters="clr-namespace:TodoApp.Converters"
+             x:Class="TodoApp.Pages.AboutPage"
+             BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="TextColor">#4A4E52</Color>
+            <Color x:Key="LinkTextColor">#2296F3</Color>
+            <Color x:Key="DarkBackgroundColor">#F5F6F7</Color>
+            <Color x:Key="LightBackgroundColor">White</Color>
+            <Style TargetType="Label" x:Key="HeaderLabelStyle">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="Margin" Value="0, 10, 0, 0" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style TargetType="Label" x:Key="BodyLabelStyle">
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+            </Style>
+            <converters:StringToFileImageSourceConverter x:Key="StringToFileImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid RowSpacing="10" Padding="12, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding Path=Header}" Style="{StaticResource Key=HeaderLabelStyle}" AutomationId="HeaderLabel"/>
+            <Grid Grid.Row="1" Padding="32, 16" BackgroundColor="{StaticResource LightBackgroundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Margin="0, 24" Source="{Binding LogoImage, Converter={StaticResource StringToFileImageSourceConverter}}" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                <StackLayout Grid.Row="1">
+                    <Label Style="{StaticResource Key=BodyLabelStyle}" AutomationId="ContentLabel" Text="{Binding Path=HyperlinkText}" TextColor="{StaticResource LinkTextColor}" HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LinkTapped}" CommandParameter="https://www.telerik.com/xamarin-ui"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="{Binding Path=TrailingContent}" Style="{StaticResource Key=BodyLabelStyle}"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>
