@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TodoApp.Controls"
+             xmlns:converters="clr-namespace:TodoApp.Converters"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="TodoApp.Pages.CategoryDetailsPage" Title="{Binding Path=Category.Name, Mode=OneWay}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringToFileImageSourceConverter x:Key="StringToFileImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <telerikDataControls:RadListView x:Name="listview" ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask, Mode=TwoWay}" IsItemSwipeEnabled="True" SwipeOffset="70, 0" SwipeThreshold="70" ItemSwipeCompleted="OnItemSwipeCompleted">
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <Grid Padding="20, 0" BackgroundColor="White">
+                                <controls:ExtendedLabel Text="{Binding Name}" VerticalOptions="Center"
+                                                        IsStrikeThrough="{Binding Completed}" />
+                            </Grid>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+            <telerikDataControls:RadListView.ItemSwipeContentTemplate>
+                <DataTemplate>
+                    <Grid Margin="2"
+                          Padding="0"
+                          ColumnSpacing="0"
+                          RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Label BackgroundColor="#2474d2"
+                               HorizontalTextAlignment="Center"
+                               Text="{StaticResource IconCheck}"
+                               FontFamily="{StaticResource IconsFont}"
+                               TextColor="White"
+                               FontSize="22"
+                               VerticalTextAlignment="Center"
+                               WidthRequest="70" />
+                        <Label Grid.Column="2"
+                               BackgroundColor="Red"
+                               HorizontalTextAlignment="Center"
+                               Text="{StaticResource IconTrashEmpty}"
+                               FontFamily="{StaticResource IconsFont}"
+                               TextColor="White" FontSize="22"
+                               VerticalTextAlignment="Center"
+                               WidthRequest="70" />
+                    </Grid>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemSwipeContentTemplate>
+            <telerikDataControls:RadListView.LayoutDefinition>
+                <telerikListView:ListViewLinearLayout VerticalItemSpacing="2">
+                    <telerikListView:ListViewLinearLayout.ItemLength>
+                        <OnPlatform x:TypeArguments="x:Double" Default="50">
+                            <On Platform="UWP">66</On>
+                        </OnPlatform>
+                    </telerikListView:ListViewLinearLayout.ItemLength>
+                </telerikListView:ListViewLinearLayout>
+            </telerikDataControls:RadListView.LayoutDefinition>
+        </telerikDataControls:RadListView>
+        
+        <StackLayout IsVisible="{Binding TasksUnavailable, Mode=OneWay}" Margin="32, 50">
+            <Image Source="{Binding NoItemsImageName, Converter={StaticResource StringToFileImageSourceConverter}}" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.HorizontalOptions>
+                    <OnPlatform x:TypeArguments="LayoutOptions" Default="FillAndExpand">
+                        <On Platform="UWP" Value="CenterAndExpand" />
+                    </OnPlatform>
+                </Image.HorizontalOptions>
+                <Image.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double" Default="-1">
+                        <On Platform="UWP" Value="300" />
+                    </OnPlatform>
+                </Image.WidthRequest>
+            </Image>
+            <Label HorizontalOptions="Center" VerticalOptions="Center" Text="No tasks yet" FontAttributes="Bold" FontSize="Large"  />
+        </StackLayout>
+        
+        <telerikInput:RadButton HorizontalOptions="End" VerticalOptions="End" Margin="0, 0, 18, 18"
+                                Command="{Binding AddNewCommand}" 
+                                Text="{StaticResource IconPlus}"
+                                Style="{StaticResource floatingActionButton}" />
+    </Grid>
+</ContentPage>

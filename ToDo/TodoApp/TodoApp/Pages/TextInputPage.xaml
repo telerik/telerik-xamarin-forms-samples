@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="TodoApp.Pages.TextInputPage" Padding="20"
+             Title="Add Your Note Here">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="OK" Command="{Binding AcceptCommand}" Icon="{StaticResource checkmarkIcon}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Editor x:Name="editor" VerticalOptions="FillAndExpand"
+                Text="{Binding Text, Mode=TwoWay}" >
+        </Editor>
+        <telerikInput:RadButton HorizontalOptions="Fill" Text="OK" Command="{Binding AcceptCommand}">
+            <telerikInput:RadButton.Margin>
+                <OnPlatform x:TypeArguments="Thickness" Default="0">
+                    <On Platform="iOS" Value="20" />
+                </OnPlatform>
+            </telerikInput:RadButton.Margin>
+        </telerikInput:RadButton>
+    </StackLayout>
+</ContentPage>

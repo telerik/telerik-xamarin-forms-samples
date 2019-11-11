@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoApp.Views.AlertSelectView"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             BackgroundColor="White">
+    <StackLayout Orientation="Vertical">
+        <Label Margin="15,20,0,0" Text="Add Alert:" FontSize="Medium" FontAttributes="Bold"/>
+        <ListView Margin="0, 15, 0, 0" VerticalOptions="FillAndExpand"
+                  ItemsSource="{Binding Alerts}"
+                  SelectedItem="{Binding Path=TodoItemAlert.Alert, Mode=TwoWay}">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Label Margin="0, 10" Text="{Binding}" FontAttributes="Bold" >
+                        <Label.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="UWP" Value="18"/>
+                                <On Platform="Android,iOS" Value="20"/>
+                            </OnPlatform>
+                        </Label.FontSize>
+                    </Label>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <telerikPrimitives:RadBorder BorderThickness="0,0,0,1" BorderColor="#F4F4F4">
+                            <Label Text="{Binding Description}" TextColor="#0B0B0B" Margin="16,8"/>
+                        </telerikPrimitives:RadBorder>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Orientation="Horizontal" Margin="15,10">
+            <Label Text="Play Sound:" HorizontalOptions="Start" VerticalOptions="Center" />
+            <Switch IsToggled="{Binding Path=TodoItemAlert.PlaySound, Mode=TwoWay}" HorizontalOptions="Start" VerticalOptions="Center" Margin="5,0,0,0"/>
+        </StackLayout>
+
+        <Button Text="OK" Command="{Binding AcceptCommand}" />
+    </StackLayout>
+</ContentView>

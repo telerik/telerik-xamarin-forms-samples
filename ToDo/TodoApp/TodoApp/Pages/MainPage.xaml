@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TodoApp"
+             xmlns:models="clr-namespace:TodoApp.Models"
+             xmlns:pageModels="clr-namespace:TodoApp.PageModels"
+             xmlns:converters="clr-namespace:TodoApp.Converters"
+             xmlns:controls="clr-namespace:TodoApp.Controls"
+             xmlns:templateSelectors="clr-namespace:TodoApp.TemplateSelectors"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input" NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             x:Class="TodoApp.Pages.MainPage" Title="All Tasks">
+    <ContentPage.Resources>
+        <converters:UppercaseConverter x:Key="uppercaseConv" />
+        <converters:EventConverter x:Key="isEventCon" />
+        <Color x:Key="BorderColor">#F3F2F6</Color>
+        <telerikListView:ListViewItemStyle x:Key="UnifiedItemStyle" BorderWidth="0" BorderLocation="None" BackgroundColor="Transparent" />
+    </ContentPage.Resources>
+    
+    <primitives:RadSideDrawer x:Name="sd"
+                              IsOpen="{Binding IsDrawerOpen, Mode=TwoWay}"
+                              DrawerLength="300"
+                              DrawerTransitionType="SlideInOnTop"
+                              DrawerLocation="Bottom"
+                              TouchTargetThreshold="0">
+        <primitives:RadSideDrawer.MainContent>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <controls:AppBar Title="All Tasks" SearchPlaceholder="Search for tasks"
+                                 SearchCommand="{Binding SearchItemsCommand}"
+                                 CancelSearchCommand="{Binding CancelSearchCommand}"
+                                 BurgerCommand="{Binding OpenDrawerCommand, Mode=OneTime}" />
+
+                <!--Card view-->
+                <telerikDataControls:RadListView Grid.Row="1"
+                                                 ItemsSource="{Binding Categories}"
+                                                 ItemStyle="{StaticResource UnifiedItemStyle}"
+                                                 SelectedItemStyle="{StaticResource UnifiedItemStyle}"
+                                                 PressedItemStyle="{StaticResource UnifiedItemStyle}"
+                                                 SelectedItem="{Binding SelectedCategory, Mode=TwoWay}">
+                    <telerikDataControls:RadListView.Triggers>
+                        <DataTrigger TargetType="telerikDataControls:RadListView"
+                                     Binding="{Binding CurrentListViewLayout, Mode=OneWay}"
+                                     Value="{x:Static pageModels:LayoutType.Linear}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="telerikDataControls:RadListView" Binding="{Binding ShowSearchResults}" Value="True">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </telerikDataControls:RadListView.Triggers>
+
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <telerikListView:ListViewGridLayout HorizontalItemSpacing="0"
+                                                            ItemLength="100"
+                                                            SpanCount="2"
+                                                            VerticalItemSpacing="0" />
+                    </telerikDataControls:RadListView.LayoutDefinition>
+
+                    <!--ItemTemplateSelector-->
+                    <telerikDataControls:RadListView.ItemTemplateSelector>
+                        <templateSelectors:RadListViewItemTemplateSelector>
+                            <templateSelectors:RadListViewItemTemplateSelector.CategoryTemplate>
+                                <DataTemplate>
+                                    <telerikListView:ListViewTemplateCell>
+                                        <telerikListView:ListViewTemplateCell.View>
+                                            <AbsoluteLayout>
+                                                <!--Bottom line-->
+                                                <BoxView BackgroundColor="{StaticResource BorderColor}"
+                                                         AbsoluteLayout.LayoutBounds="0, 1, 1, 2"
+                                                         AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
+                                                         Margin="20,0,0,0">
+                                                    <BoxView.Triggers>
+                                                        <DataTrigger TargetType="{x:Type BoxView}"
+                                                                     Binding="{Binding Index, Converter={StaticResource isEventCon}}" Value="False">
+                                                            <Setter Property="Margin" Value="0,0,20,0" />
+                                                        </DataTrigger>
+                                                    </BoxView.Triggers>
+                                                </BoxView>
+                                                <!--Right line-->
+                                                <BoxView BackgroundColor="{StaticResource BorderColor}"
+                                                         IsVisible="{Binding Index, Converter={StaticResource isEventCon}}"
+                                                         AbsoluteLayout.LayoutBounds="1, 0, 2, 1"
+                                                         AbsoluteLayout.LayoutFlags="HeightProportional, PositionProportional">
+                                                    <BoxView.Triggers>
+                                                        <DataTrigger TargetType="{x:Type BoxView}"
+                                                                     Binding="{Binding Index}" Value="0">
+                                                            <Setter Property="Margin" Value="0,20,0,0" />
+                                                        </DataTrigger>
+                                                    </BoxView.Triggers>
+                                                </BoxView>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="Start"
+                                                             Padding="30"
+                                                             AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <telerikPrimitives:RadPath WidthRequest="8" HeightRequest="8" VerticalOptions="Center"
+                                                                       Geometry="{x:Static telerikInput:Geometries.Circle}"
+                                                                       Fill="{Binding Path=Brush, Mode=OneWay}" />
+                                                        <Label Text="{Binding Name, Converter={StaticResource uppercaseConv}}"
+                                                               TextColor="Black" LineBreakMode="TailTruncation" />
+                                                    </StackLayout>
+                                                    <Label Text="{Binding Path=PendingItemsCount, StringFormat='{}{0} items.'}"
+                                                           TextColor="#4DA3E0" FontSize="Micro" />
+                                                </StackLayout>
+                                            </AbsoluteLayout>
+                                        </telerikListView:ListViewTemplateCell.View>
+                                    </telerikListView:ListViewTemplateCell>
+                                </DataTemplate>
+                            </templateSelectors:RadListViewItemTemplateSelector.CategoryTemplate>
+                            <templateSelectors:RadListViewItemTemplateSelector.NewCategoryTemplate>
+                                <DataTemplate>
+                                    <telerikListView:ListViewTemplateCell>
+                                        <telerikListView:ListViewTemplateCell.View>
+                                            <AbsoluteLayout>
+                                                <!--Bottom line-->
+                                                <BoxView BackgroundColor="{StaticResource BorderColor}"
+                                                         AbsoluteLayout.LayoutBounds="0, 1, 1, 2"
+                                                         AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
+                                                         Margin="20,0,0,0">
+                                                    <BoxView.Triggers>
+                                                        <DataTrigger TargetType="{x:Type BoxView}"
+                                                                     Binding="{Binding Index, Converter={StaticResource isEventCon}}" Value="False">
+                                                            <Setter Property="Margin" Value="0,0,20,0" />
+                                                        </DataTrigger>
+                                                    </BoxView.Triggers>
+                                                </BoxView>
+                                                <!--Right line-->
+                                                <BoxView BackgroundColor="{StaticResource BorderColor}"
+                                                         IsVisible="{Binding Index, Converter={StaticResource isEventCon}}"
+                                                         AbsoluteLayout.LayoutBounds="1, 0, 2, 1"
+                                                         AbsoluteLayout.LayoutFlags="HeightProportional, PositionProportional">
+                                                    <BoxView.Triggers>
+                                                        <DataTrigger TargetType="{x:Type BoxView}"
+                                                                     Binding="{Binding Index}" Value="0">
+                                                            <Setter Property="Margin" Value="0,20,0,0" />
+                                                        </DataTrigger>
+                                                    </BoxView.Triggers>
+                                                </BoxView>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="Start"
+                                                             Padding="30"
+                                                             AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                                                    <Label Text="ADD"
+                                                           TextColor="#8a8a99" LineBreakMode="TailTruncation" />
+                                                    <Label Text="Category"
+                                                           TextColor="#8a8a99" FontSize="Micro" />
+                                                </StackLayout>
+                                            </AbsoluteLayout>
+                                        </telerikListView:ListViewTemplateCell.View>
+                                    </telerikListView:ListViewTemplateCell>
+                                </DataTemplate>
+                            </templateSelectors:RadListViewItemTemplateSelector.NewCategoryTemplate>
+                        </templateSelectors:RadListViewItemTemplateSelector>
+                    </telerikDataControls:RadListView.ItemTemplateSelector>
+                    
+                </telerikDataControls:RadListView>
+
+                <!--Linear view-->
+                <telerikDataControls:RadTreeView x:Name="treeView" Grid.Row="1"
+                                                 ItemsSource="{Binding Categories}">
+                    <telerikDataControls:RadTreeView.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="20, 13" />
+                        </OnPlatform>
+                    </telerikDataControls:RadTreeView.Margin>
+                    <telerikDataControls:RadTreeView.Triggers>
+                        <DataTrigger TargetType="telerikDataControls:RadTreeView"
+                                     Binding="{Binding CurrentListViewLayout, Mode=OneWay}"
+                                     Value="{x:Static pageModels:LayoutType.Grid}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="telerikDataControls:RadTreeView" Binding="{Binding ShowSearchResults}" Value="True">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="telerikDataControls:RadTreeView"
+                                     Binding="{Binding CategoryEdit, Mode=OneWay}"
+                                     Value="True">
+                            <Setter Property="CheckBoxMode" Value="Individual" />
+                        </DataTrigger>
+                    </telerikDataControls:RadTreeView.Triggers>
+                    <telerikDataControls:RadTreeView.Descriptors>
+                        <telerikDataControls:TreeViewDescriptor TargetType="{x:Type models:Category}" DisplayMemberPath="Name" ItemsSourcePath="Items">
+                            <telerikDataControls:TreeViewDescriptor.ItemTemplate>
+                                <templateSelectors:RadTreeViewItemTemplateSelector>
+                                    <templateSelectors:RadTreeViewItemTemplateSelector.CategoryTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal" Margin="13">
+                                                <primitives:RadCheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" IsVisible="{Binding IsCheckBoxVisible}" />
+                                                <telerikPrimitives:RadPath WidthRequest="8" HeightRequest="8" VerticalOptions="Center"
+                                                                       Geometry="{x:Static telerikInput:Geometries.Circle}"
+                                                                       Fill="{Binding Path=Item.Brush, Mode=OneWay}">
+                                                    <telerikPrimitives:RadPath.Triggers>
+                                                        <DataTrigger TargetType="telerikPrimitives:RadPath" Binding="{Binding IsCheckBoxVisible}" Value="True">
+                                                            <Setter Property="IsVisible" Value="False" />
+                                                        </DataTrigger>
+                                                    </telerikPrimitives:RadPath.Triggers>
+                                                </telerikPrimitives:RadPath>
+                                                <Label Text="{Binding Path=Item.Name, Converter={StaticResource uppercaseConv}}" FontAttributes="Bold" />
+                                                <Label Text="{Binding Path=Item.PendingItemsCount}" TextColor="#4DA3E0" FontSize="Micro" />
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </templateSelectors:RadTreeViewItemTemplateSelector.CategoryTemplate>
+                                    <templateSelectors:RadTreeViewItemTemplateSelector.NewCategoryTemplate>
+                                        <DataTemplate>
+                                            <Label Text="ADD CATEGORY" FontAttributes="Bold" TextColor="#8a8a99" Margin="13">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.CreateNewCategoryCommand, Source={x:Reference treeView}}" />
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </DataTemplate>
+                                    </templateSelectors:RadTreeViewItemTemplateSelector.NewCategoryTemplate>
+                                </templateSelectors:RadTreeViewItemTemplateSelector>
+                            </telerikDataControls:TreeViewDescriptor.ItemTemplate>
+                        </telerikDataControls:TreeViewDescriptor>
+                        <telerikDataControls:TreeViewDescriptor TargetType="{x:Type models:TodoItem}" DisplayMemberPath="Name">
+                            <telerikDataControls:TreeViewDescriptor.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:TodoItemPresenter Item="{Binding Item}" Margin="26, 13, 13, 13"
+                                                                EditItemCommand="{Binding Path=BindingContext.EditItemCommand, Source={x:Reference treeView}}" />
+                                </DataTemplate>
+                            </telerikDataControls:TreeViewDescriptor.ItemTemplate>
+                        </telerikDataControls:TreeViewDescriptor>
+                    </telerikDataControls:RadTreeView.Descriptors>
+                </telerikDataControls:RadTreeView>
+
+                <!--Search results-->
+                <telerikDataControls:RadListView Grid.Row="1"
+                                                 ItemsSource="{Binding SearchResults}"
+                                                 IsVisible="{Binding ShowSearchResults}"
+                                                 SelectedItem="{Binding SelectedTodoItem, Mode=OneWayToSource}">
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <telerikListView:ListViewTemplateCell>
+                                <telerikListView:ListViewTemplateCell.View>
+                                    <Grid Padding="20, 8">
+                                        <Label Text="{Binding Name, Mode=OneWay}" TextColor="Black" VerticalOptions="Center" />
+                                    </Grid>
+                                </telerikListView:ListViewTemplateCell.View>
+                            </telerikListView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                    <telerikDataControls:RadListView.ItemStyle>
+                        <telerikListView:ListViewItemStyle BorderColor="#0A3A82"
+                                                           BorderWidth="1"
+                                                           BorderLocation="Bottom" />
+                    </telerikDataControls:RadListView.ItemStyle>
+                </telerikDataControls:RadListView>
+
+                <primitives:RadBorder BorderThickness="0, 1, 0, 0" BorderColor="#D0CEDD" BackgroundColor="#F6F5F8"
+                                        HeightRequest="56" Grid.Row="2">
+                    <primitives:RadBorder.Triggers>
+                        <DataTrigger TargetType="primitives:RadBorder"
+                                     Binding="{Binding CategoryEdit, Mode=OneWay}"
+                                     Value="False">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </primitives:RadBorder.Triggers>
+                    <StackLayout Orientation="Horizontal" Padding="3" Spacing="3">
+                        <telerikInput:RadButton Text="{StaticResource IconTrashEmpty}" FontFamily="{StaticResource IconsFont}"
+                                                WidthRequest="56" HeightRequest="56" VerticalOptions="Center"
+                                                FontSize="30" TextColor="#77B7E6" BackgroundColor="Transparent"
+                                                Command="{Binding DeleteCategoryCommand}"
+                                                CommandParameter="{Binding CheckedItems, Source={Reference treeView}}" />
+                        <telerikInput:RadButton Text="{StaticResource IconEdit}" FontFamily="{StaticResource IconsFont}"
+                                                WidthRequest="56" HeightRequest="56" VerticalOptions="Center"
+                                                FontSize="30" TextColor="#8A8A99" BackgroundColor="Transparent"
+                                                Command="{Binding EditCategoryCommand}"
+                                                CommandParameter="{Binding CheckedItems, Source={Reference treeView}}" />
+                        <telerikInput:RadButton Text="{StaticResource IconPlus}" FontFamily="{StaticResource IconsFont}"
+                                                WidthRequest="56" HeightRequest="56" VerticalOptions="Center"
+                                                FontSize="30" TextColor="#8A8A99" BackgroundColor="Transparent"
+                                                Command="{Binding AddCategoryCommand}" />
+                    </StackLayout>
+                </primitives:RadBorder>
+
+                <telerikInput:RadButton Grid.Row="1" HorizontalOptions="End" VerticalOptions="End" Margin="0, 0, 18, 18"
+                                        Command="{Binding AddNewCommand, Mode=OneTime}"
+                                        Text="{StaticResource IconPlus}"
+                                        Style="{StaticResource floatingActionButton}">
+                    <telerikInput:RadButton.Triggers>
+                        <DataTrigger TargetType="telerikInput:RadButton"
+                                     Binding="{Binding CategoryEdit, Mode=OneWay}"
+                                     Value="True">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="telerikInput:RadButton" Binding="{Binding ShowSearchResults}" Value="True">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </telerikInput:RadButton.Triggers>
+                </telerikInput:RadButton>
+            </Grid>
+        </primitives:RadSideDrawer.MainContent>
+        
+        <primitives:RadSideDrawer.DrawerContent>
+            <Grid BackgroundColor="#FFFFFF">
+                <StackLayout Spacing="10" Padding="10" VerticalOptions="Center">
+                    <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}"
+                                            Command="{Binding ToggleListViewLayoutCommand}"
+                                            HorizontalOptions="Fill">
+                        <telerikInput:RadButton.Triggers>
+                            <DataTrigger TargetType="telerikInput:RadButton"
+                                         Binding="{Binding CurrentListViewLayout, Mode=OneWay}"
+                                         Value="{x:Static pageModels:LayoutType.Linear}">
+                                <Setter Property="Text" Value="Card View" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="telerikInput:RadButton"
+                                         Binding="{Binding CurrentListViewLayout, Mode=OneWay}"
+                                         Value="{x:Static pageModels:LayoutType.Grid}">
+                                <Setter Property="Text" Value="Linear View" />
+                            </DataTrigger>
+                        </telerikInput:RadButton.Triggers>
+                    </telerikInput:RadButton>
+
+                    <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Edit Categories"
+                                            Command="{Binding ToggleEditCategoryCommand}"
+                                            HorizontalOptions="Fill">
+                        <telerikInput:RadButton.Triggers>
+                            <DataTrigger TargetType="telerikInput:RadButton"
+                                         Binding="{Binding CategoryEdit}"
+                                         Value="True">
+                                <Setter Property="Text" Value="Done Editing Categories" />
+                            </DataTrigger>
+                        </telerikInput:RadButton.Triggers>
+                    </telerikInput:RadButton>
+
+                    <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Filter by Date"
+                                            Command="{Binding SelectDateFilterCommand}"
+                                            HorizontalOptions="Fill">
+                        <telerikInput:RadButton.Triggers>
+                            <DataTrigger TargetType="telerikInput:RadButton"
+                                         Binding="{Binding DateFilteringApplied, Mode=OneWay}"
+                                         Value="True">
+                                <Setter Property="Text" Value="Clear Date Filter" />
+                            </DataTrigger>
+                        </telerikInput:RadButton.Triggers>
+                    </telerikInput:RadButton>
+
+                    <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Show Completed Tasks"
+                                            Command="{Binding ToggleShowCompletedTasksCommand}"
+                                            HorizontalOptions="Fill">
+                        <telerikInput:RadButton.Triggers>
+                            <DataTrigger TargetType="telerikInput:RadButton"
+                                         Binding="{Binding ShowCompletedTasks}"
+                                         Value="True">
+                                <Setter Property="Text" Value="Hide Completed Tasks" />
+                            </DataTrigger>
+                        </telerikInput:RadButton.Triggers>
+                    </telerikInput:RadButton>
+
+                    <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="About"
+                                            Command="{Binding ShowAboutPageCommand}"
+                                            HorizontalOptions="Fill"/>
+                </StackLayout>
+            </Grid>
+        </primitives:RadSideDrawer.DrawerContent>
+    </primitives:RadSideDrawer>
+    
+</ContentPage>

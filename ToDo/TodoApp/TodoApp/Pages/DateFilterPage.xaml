@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:TodoApp.Converters"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="TodoApp.Pages.DateFilterPage">
+    <ContentPage.Resources>
+        <converters:UppercaseConverter x:Key="uppercaseConv" />
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="OK" Command="{Binding AcceptCommand}" Icon="{StaticResource checkmarkIcon}" />
+    </ContentPage.ToolbarItems>
+
+    <telerikDataControls:RadListView Margin="20" ItemsSource="{Binding Filters}"
+                                     SelectedItem="{Binding SelectedFilter, Mode=TwoWay}">
+        <telerikDataControls:RadListView.ItemTemplate>
+            <DataTemplate>
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <StackLayout Orientation="Horizontal" Margin="13">
+                            <Label Text="{Binding Path=Filter.Name, Converter={StaticResource uppercaseConv}}" Font="Medium" FontAttributes="Bold" />
+                            <Label Text="{Binding Path=ItemsCount}" TextColor="#999999" Margin="4, 0, 0, 0" FontSize="Small" VerticalOptions="Start" />
+                        </StackLayout>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+        </telerikDataControls:RadListView.ItemTemplate>
+        <telerikDataControls:RadListView.ItemStyle>
+            <telerikListView:ListViewItemStyle BorderColor="#0A3A82"
+                                               BorderWidth="1"
+                                               BorderLocation="Bottom" />
+        </telerikDataControls:RadListView.ItemStyle>
+    </telerikDataControls:RadListView>
+    
+</ContentPage>

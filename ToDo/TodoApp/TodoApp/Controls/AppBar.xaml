@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TemplatedView xmlns="http://xamarin.com/schemas/2014/forms" 
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:converters="clr-namespace:TodoApp.Converters"
+               xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+               x:Class="TodoApp.Controls.AppBar">
+    <TemplatedView.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="HeaderBackgroundsColor" x:TypeArguments="Color">
+                <On Platform="Android">#4A4E52</On>
+                <On Platform="UWP">#F2F2F2</On>
+                <On Platform="iOS">#FFFFFF</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="LightTextColor" x:TypeArguments="Color">
+                <On Platform="Android">White</On>
+                <On Platform="UWP">Black</On>
+                <On Platform="iOS">Black</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="GridLayoutBounds" x:TypeArguments="Rectangle">
+                <On Platform="Android">0, 0, 1, 56</On>
+                <On Platform="UWP">0, 0, 1, 48</On>
+                <On Platform="iOS">0, 0, 1, 44</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="BottomBorderVisibility" x:TypeArguments="x:Boolean">
+                <On Platform="iOS">True</On>
+            </OnPlatform>
+
+            <Style TargetType="input:RadButton" x:Key="AppBarButtonStyle">
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+                <Setter Property="HeightRequest" Value="46" />
+                <Setter Property="WidthRequest" Value="46" />
+                <Setter Property="BorderRadius" Value="23" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+            </Style>
+
+            <OnPlatform x:Key="HeaderContentPadding" x:TypeArguments="Thickness">
+                <On Platform="Android">36, 0, 0, 0</On>
+                <On Platform="UWP">23, 0, 0, 0</On>
+                <On Platform="iOS">30, 0, 0, 0</On>
+            </OnPlatform>
+
+            <converters:BooleanNotConverter x:Key="notConverter" />
+        </ResourceDictionary>
+    </TemplatedView.Resources>
+    
+    <TemplatedView.ControlTemplate>
+        <ControlTemplate>
+            <AbsoluteLayout>
+                <Grid AbsoluteLayout.LayoutBounds="{StaticResource GridLayoutBounds}"
+                      AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
+                      BackgroundColor="{StaticResource Key=HeaderBackgroundsColor}"
+                      Padding="{StaticResource HeaderContentPadding}">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" VerticalOptions="Center"
+                           Text="{TemplateBinding Path=Title}"
+                           TextColor="{StaticResource Key=LightTextColor}" FontSize="Medium">
+                        <Label.Triggers>
+                            <DataTrigger Binding="{TemplateBinding IsExpanded}" Value="True" TargetType="Label">
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
+                    <input:RadButton Text="{StaticResource IconSearch}"
+                                     Clicked="OnSearchButtonClicked"
+                                     Style="{StaticResource Key=AppBarButtonStyle}"
+                                     AutomationId="AppBarSearchButton"
+                                     HorizontalOptions="End"
+                                     Grid.Column="1">
+                        <input:RadButton.Triggers>
+                            <DataTrigger Binding="{TemplateBinding IsExpanded}" Value="True" TargetType="input:RadButton">
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                        </input:RadButton.Triggers>
+                    </input:RadButton>
+
+                    <SearchBar x:Name="searchBar" Grid.Column="0" Grid.ColumnSpan="2"
+                               Placeholder="{TemplateBinding Path=SearchPlaceholder}"
+                               SearchCommand="{TemplateBinding Path=SearchCommand}"
+                               SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
+                               BackgroundColor="White" VerticalOptions="Center"
+                               TextChanged="OnSearchBarTextChanged">
+                        <SearchBar.Triggers>
+                            <DataTrigger Binding="{TemplateBinding IsExpanded}" Value="False" TargetType="SearchBar">
+                                <Setter Property="Opacity" Value="0" />
+                                <Setter Property="TranslationY" Value="-200" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{TemplateBinding IsExpanded}" Value="True" TargetType="SearchBar">
+                                <Setter Property="Opacity" Value="1" />
+                                <Setter Property="TranslationY" Value="0.1" />
+                            </DataTrigger>
+                        </SearchBar.Triggers>
+                    </SearchBar>
+
+                    <input:RadButton Text="{StaticResource IconEllipsisVert}"
+                                     Command="{TemplateBinding Path=BurgerCommand}"
+                                     Style="{StaticResource Key=AppBarButtonStyle}"
+                                     AutomationId="AppBarBurgerButton"
+                                     HorizontalOptions="End"
+                                     Grid.Column="2" />
+
+                </Grid>
+                <BoxView AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                         AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
+                         Color="#D9D9D9" IsVisible="{StaticResource BottomBorderVisibility}" />
+            </AbsoluteLayout>
+        </ControlTemplate>
+    </TemplatedView.ControlTemplate>
+</TemplatedView>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TemplatedView xmlns="http://xamarin.com/schemas/2014/forms" 
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:controls="clr-namespace:TodoApp.Controls"
+               xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+               xmlns:telerikCalendar="clr-namespace:Telerik.XamarinForms.Input.Calendar;assembly=Telerik.XamarinForms.Input"
+               xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+               x:Class="TodoApp.Controls.CategoryEditor">
+    <TemplatedView.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout>
+                <Entry Placeholder="Category Name" Text="{TemplateBinding Path=Item.Name}" TextChanged="OnTextChanged" />
+                <StackLayout Orientation="Horizontal" Padding="0, 8" BackgroundColor="Transparent">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnExpandClicked" />
+                    </StackLayout.GestureRecognizers>
+                    <Grid>
+                        <telerikPrimitives:RadBorder VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     Margin="12, 8, 12, 8"
+                                     HeightRequest="26" 
+                                     WidthRequest="26"
+                                     CornerRadius="13"
+                                     BorderThickness="1"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="{TemplateBinding Path=Item.Brush.Color, Mode=OneWay}">
+
+                            <telerikPrimitives:RadBorder VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     HeightRequest="22" 
+                                     WidthRequest="22"
+                                     BackgroundColor="{TemplateBinding Path=Item.Brush.Color, Mode=OneWay}"
+                                     CornerRadius="11" />
+                        </telerikPrimitives:RadBorder>
+                    </Grid>
+                    <Label Text="Color" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                    <telerikInput:RadButton FontFamily="{StaticResource IconsFont}"
+                                            Text="{StaticResource IconDownOpen1}" WidthRequest="56"
+                                            BackgroundColor="Transparent" BorderWidth="0" Clicked="OnExpandClicked"
+                                            HorizontalOptions="Center" VerticalOptions="Center">
+                        <telerikInput:RadButton.Triggers>
+                            <DataTrigger Binding="{TemplateBinding IsExpanded}" Value="True" TargetType="telerikInput:RadButton">
+                                <Setter Property="Text" Value="{StaticResource IconUpOpen}" />
+                            </DataTrigger>
+                        </telerikInput:RadButton.Triggers>
+                    </telerikInput:RadButton>
+                </StackLayout>
+                <telerikCalendar:CalendarColorPicker x:Name="colorPicker"
+                                                     IsVisible="{TemplateBinding IsExpanded}"
+                                                     SelectedColor="{TemplateBinding Path=Item.Color, Mode=TwoWay}"/>
+                <telerikInput:RadButton CornerRadius="28" WidthRequest="56" HeightRequest="56"
+                                        Margin="0, 25, 0, 0" HorizontalOptions="End"
+                                        FontFamily="{StaticResource IconsFont}" BackgroundColor="Transparent"
+                                        Text="{StaticResource IconCheck}"
+                                        Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding Item}"
+                                        BorderColor="LightGray" BorderWidth="1" />
+            </StackLayout>
+        </ControlTemplate>
+    </TemplatedView.ControlTemplate>
+</TemplatedView>

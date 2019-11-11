@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="TodoApp.Pages.PriorityPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="OK" Command="{Binding AcceptCommand}" Icon="{StaticResource checkmarkIcon}" />
+    </ContentPage.ToolbarItems>
+
+    <telerikDataControls:RadListView ItemsSource="{Binding Priorities}"
+                                     SelectedItem="{Binding SelectedPriority, Mode=TwoWay}">
+        <telerikDataControls:RadListView.ItemTemplate>
+            <DataTemplate>
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <Grid Padding="20, 8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" HeightRequest="26" WidthRequest="26" HorizontalOptions="Center" VerticalOptions="Center"
+                                   Margin="10, 0, 0, 0" Text="{Binding Icon}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontFamily="{StaticResource IconsFont}" TextColor="#b2d6f2">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="{x:Type Label}" Binding="{Binding Weight}" Value="7">
+                                        <Setter Property="TextColor" Value="#f78d91" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Label Text="{Binding Name}" Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+                        </Grid>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+        </telerikDataControls:RadListView.ItemTemplate>
+        <telerikDataControls:RadListView.ItemStyle>
+            <telerikListView:ListViewItemStyle BorderWidth="0" />
+        </telerikDataControls:RadListView.ItemStyle>
+    </telerikDataControls:RadListView>
+</ContentPage>

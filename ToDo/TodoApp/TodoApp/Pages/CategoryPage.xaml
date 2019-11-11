@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TodoApp.Controls"
+             xmlns:templateSelectors="clr-namespace:TodoApp.TemplateSelectors"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="TodoApp.Pages.CategoryPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="OK" Command="{Binding AcceptCommand}" Icon="{StaticResource checkmarkIcon}" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Margin="20">
+            <telerikDataControls:RadListView ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}">
+                <telerikDataControls:RadListView.ItemTemplateSelector>
+                    <templateSelectors:RadListViewItemTemplateSelector>
+                        <templateSelectors:RadListViewItemTemplateSelector.CategoryTemplate>
+                            <DataTemplate>
+                                <telerikListView:ListViewTemplateCell>
+                                    <telerikListView:ListViewTemplateCell.View>
+                                        <StackLayout Orientation="Horizontal" Padding="0, 8">
+                                            <telerikPrimitives:RadPath WidthRequest="26" HeightRequest="26" VerticalOptions="Center"
+                                                                       Margin="10, 0" Geometry="{x:Static telerikInput:Geometries.Circle}"
+                                                                       Fill="{Binding Path=Brush, Mode=OneWay}" />
+                                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                                        </StackLayout>
+                                    </telerikListView:ListViewTemplateCell.View>
+                                </telerikListView:ListViewTemplateCell>
+                            </DataTemplate>
+                        </templateSelectors:RadListViewItemTemplateSelector.CategoryTemplate>
+                        <templateSelectors:RadListViewItemTemplateSelector.NewCategoryTemplate>
+                            <DataTemplate>
+                                <telerikListView:ListViewTemplateCell>
+                                    <telerikListView:ListViewTemplateCell.View>
+                                        <StackLayout Orientation="Horizontal" Padding="0, 8">
+                                            <Label WidthRequest="26" HeightRequest="26" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="10, 0" Text="{StaticResource IconPlus1}" FontFamily="{StaticResource IconsFont}" />
+                                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+                                        </StackLayout>
+                                    </telerikListView:ListViewTemplateCell.View>
+                                </telerikListView:ListViewTemplateCell>
+                            </DataTemplate>
+                        </templateSelectors:RadListViewItemTemplateSelector.NewCategoryTemplate>
+                    </templateSelectors:RadListViewItemTemplateSelector>
+                </telerikDataControls:RadListView.ItemTemplateSelector>
+
+                <telerikDataControls:RadListView.ItemStyle>
+                    <telerikListView:ListViewItemStyle BorderWidth="0" />
+                </telerikDataControls:RadListView.ItemStyle>
+            </telerikDataControls:RadListView>
+
+            <controls:CategoryEditor IsVisible="{Binding CategoryEditorVisible}"
+                                     Item="{Binding NewCategory, Mode=OneWay}"
+                                     Command="{Binding AddNewCategoryCommand}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
