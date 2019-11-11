@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    x:Class="ErpApp.Themes.SharedStyles">
+    
+    <Style x:Key="FloatingActionButton" TargetType="telerikInput:RadButton">
+        <Setter Property="WidthRequest" Value="56" />
+        <Setter Property="HeightRequest" Value="56" />
+        <Setter Property="CornerRadius" Value="28" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="BorderRadius" Value="28" />
+        <Setter Property="BorderColor" Value="#f45d64" />
+        <Setter Property="BackgroundColor" Value="#f45d64" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+    
+    <Style x:Key="StretchedActionButton" TargetType="telerikInput:RadButton">
+        <Setter Property="WidthRequest" Value="80" />
+        <Setter Property="HeightRequest" Value="46" />
+        <Setter Property="CornerRadius" Value="23" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="BorderRadius" Value="28" />
+        <Setter Property="BorderColor" Value="#f45d64" />
+        <Setter Property="BackgroundColor" Value="#f45d64" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+    
+    <Color x:Key="NavigationPageHighlightColor">#319CF3</Color>
+
+    <Style TargetType="views:MvxNavigationPage">
+        <Setter Property="BarTextColor" Value="{StaticResource NavigationPageHighlightColor}" />
+    </Style>
+</ResourceDictionary>

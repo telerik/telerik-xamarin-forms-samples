@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ErpApp.Models"
+             xmlns:rating="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="ErpApp.Pages.Vendors.VendorEditViewTablet">
+    <ContentView.Content>
+        <Grid x:Name="LayoutRoot" Margin="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <BoxView BackgroundColor="White" Grid.RowSpan="2" />
+            
+            <Label Margin="20" Text="{Binding Title}" Grid.Row="0" FontSize="20" FontAttributes="Bold" />
+
+            <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,28,0" WidthRequest="100"
+                    BorderWidth="2" BorderRadius="20" BorderColor="Green" BackgroundColor="White" TextColor="Green"
+                    Text="Save" Command="{Binding CommitCommand, Mode=OneWay}" />
+            
+            <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,134,0" WidthRequest="100"
+                    BorderWidth="2" BorderRadius="20" BorderColor="#f33d4c" BackgroundColor="White" TextColor="#f33d4c"
+                    Text="Cancel" Command="{Binding CancelCommand, Mode=OneWay}" />
+            
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical">
+                    <Grid Margin="20, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image WidthRequest="96" HeightRequest="96" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center" Source="{Binding DraftVendor.ImageURL}" />
+                        
+                        <StackLayout Grid.Column="1" Margin="40,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" Spacing="0" WidthRequest="400">
+                            <Label Text="Name:" TextColor="#bcbcbc" />
+                            <Entry Text="{Binding DraftVendor.Name, Mode=TwoWay}" FontAttributes="Bold" />
+                            
+                            <Label Text="Rating:" TextColor="#bcbcbc" Margin="0,20,0,2" />
+                            <rating:RadShapeRating ItemsCount="{x:Static models:Vendor.MaxRating}" Value="{Binding Path=DraftVendor.Rating, Mode=TwoWay}" IsReadOnly="False" HeightRequest="28" />
+                            
+                            <Label Text="Annual Revenue:" TextColor="#bcbcbc" Margin="0,20,0,2" />
+                            <telerikInput:RadNumericInput Value="{Binding Path=DraftVendor.AnnualRevenue, Mode=TwoWay}" Step="100" Minimum="0" StringFormat="{}{0:C}"  />
+                            
+                            <Label Text="Order Frequency:" TextColor="#bcbcbc" Margin="0,20,0,0" />
+                            <Picker ItemsSource="{x:Static models:Vendor.AvailableOrderFrequencies}" SelectedItem="{Binding Path=DraftVendor.OrderFrequency, Mode=TwoWay}" />
+                            
+                            <Label Text="Phone:" TextColor="#bcbcbc" Margin="0,20,0,0" />
+                            <Entry Text="{Binding Path=DraftVendor.Phone, Mode=TwoWay}" Keyboard="Telephone" />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

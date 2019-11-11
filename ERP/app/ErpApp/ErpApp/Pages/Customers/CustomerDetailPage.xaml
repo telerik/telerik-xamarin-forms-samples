@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcf:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:mcf="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    x:TypeArguments="vm:CustomerDetailViewModel"
+                    xmlns:app="clr-namespace:ErpApp"
+                    xmlns:vm="clr-namespace:ErpApp.ViewModels"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="ErpApp.Pages.Customers.CustomerDetailPage"
+                    xmlns:controls="clr-namespace:ErpApp.Controls"
+                    xmlns:customers="clr-namespace:ErpApp.Pages.Customers"
+                    xmlns:models="clr-namespace:ErpApp.Models"
+                    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    BackgroundColor="#f1f3f7" ios:Page.UseSafeArea="true">
+    <mcf:MvxContentPage.Content>
+        <Grid x:Name="LayoutRoot" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="searchBar" Grid.Row="0" BackgroundColor="White">
+                <SearchBar VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="600" Margin="0,15,200,15"
+                           Placeholder="Search Customers" BackgroundColor="Transparent"
+                           Text="{Binding DraftSearchTerm, Mode=TwoWay}" />
+                <Image Source="{x:Static app:Constants.EmptyCustomerImage}"
+                       VerticalOptions="Center" HorizontalOptions="End">
+                    <Image.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Default="0,15,100,15">
+                            <On Platform="iOS" Value="0,20,125,20" />
+                        </OnPlatform>
+                    </Image.Margin>
+                </Image>
+                <Label Text="{Binding CurrentUserName}" VerticalOptions="Center" HorizontalOptions="End">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Default="0,0,30,0">
+                            <On Platform="iOS" Value="0,0,40,0" />
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
+            </Grid>
+            <Grid x:Name="ContentRoot" Grid.Row="1">
+                <customers:CustomerDetailView x:Name="detailView" IsVisible="False">
+                    <customers:CustomerDetailView.Triggers>
+                        <DataTrigger TargetType="customers:CustomerDetailView" Binding="{Binding IsReading}" Value="True">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </customers:CustomerDetailView.Triggers>
+                </customers:CustomerDetailView>
+            </Grid>
+            <controls:EmptySearchResultsView x:Name="EmptySearchResults" Grid.Row="1" BackgroundColor="White" Term="{Binding DraftSearchTerm}" IsVisible="{Binding IsSearchEmpty, Mode=OneWay}">
+                <controls:EmptySearchResultsView.Margin>
+                    <OnIdiom x:TypeArguments="Thickness">
+                        <OnIdiom.Tablet>0,20,20,20</OnIdiom.Tablet>
+                    </OnIdiom>
+                </controls:EmptySearchResultsView.Margin>
+            </controls:EmptySearchResultsView>
+        </Grid>
+    </mcf:MvxContentPage.Content>
+</mcf:MvxContentPage>

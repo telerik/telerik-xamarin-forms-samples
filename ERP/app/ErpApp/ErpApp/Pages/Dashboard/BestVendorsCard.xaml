@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Dashboard.BestVendorsCard"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid">
+    
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Best Vendors" Style="{StaticResource TitleLabelStyle}" />
+        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="For the last 3 Months" Style="{StaticResource SubtitleLabelStyle}" />
+        
+        <telerikDataGrid:RadDataGrid Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding BestVendors}"
+                                     AutoGenerateColumns="false" Style="{StaticResource DataGridStyle}">
+            <telerikDataGrid:RadDataGrid.Columns>
+                <telerikDataGrid:DataGridTextColumn HeaderText="Name" PropertyName="Name" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridTextColumn HeaderText="Sales Amount" PropertyName="SalesAmount" CellContentFormat="{}{0:C}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+            </telerikDataGrid:RadDataGrid.Columns>
+        </telerikDataGrid:RadDataGrid>
+    </Grid>
+</ContentView>

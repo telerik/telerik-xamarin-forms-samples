@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Dashboard.BusinessOverviewCard"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart">
+    
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Business Overview" Style="{StaticResource TitleLabelStyle}"  />
+
+            <telerikChart:RadPieChart x:Name="pieChart" Grid.Row="1" Grid.Column="0">
+                <telerikChart:RadPieChart.ChartBehaviors>
+                    <telerikChart:ChartSelectionBehavior SeriesSelectionMode="None" DataPointSelectionMode="None"/>
+                </telerikChart:RadPieChart.ChartBehaviors>
+                <telerikChart:RadPieChart.Series>
+                    <telerikChart:DonutSeries ItemsSource="{Binding BusinessOverview}" ShowLabels="false" ValueBinding="Value" LegendTitleBinding="Name" LabelBinding="Name"/>
+                </telerikChart:RadPieChart.Series>
+            </telerikChart:RadPieChart>
+
+            <telerikChart:RadLegend Grid.Row="1" Grid.Column="1" HeightRequest="200"
+                                    Style="{StaticResource LegendStyle}"
+                                    LegendProvider="{x:Reference Name=pieChart}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

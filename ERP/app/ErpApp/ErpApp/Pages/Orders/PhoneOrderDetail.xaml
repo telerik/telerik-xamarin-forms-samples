@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="ErpApp.Pages.Orders.PhoneOrderDetail">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="itemSpacing">0,0,0,10</Thickness>
+            <Color x:Key="TitleLabelColor">#bcbcbc</Color>
+            <Color x:Key="LineColor">#d7d7d7</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <ScrollView>
+            <Grid Margin="12, 12, 12, 0" RowSpacing="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" Text="Order ID" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Order.OrderNumber}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="0" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                
+                <Label Grid.Row="1" Grid.Column="0" Text="Customer" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Order.CustomerName}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                
+                <Label Grid.Row="2" Grid.Column="0" Text="Due Date" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Order.DueDate, StringFormat='{}{0:dd.MM.yyyy}'}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                
+                <Label Grid.Row="3" Grid.Column="0" Text="Ship Method" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=Order.ShipMethod}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                
+                <Label Grid.Row="4" Grid.Column="0" Text="Freight" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=Order.Freight, StringFormat='{}{0} lb'}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                
+                <Label Grid.Row="5" Grid.Column="0" Text="Total Amount" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding Path=Order.Ammount, StringFormat='{}{0:C}'}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="5" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                
+                <telerikPrimitives:RadTabView Grid.Row="6" Grid.ColumnSpan="2" Margin="0,20,0,0">
+                    <telerikPrimitives:RadTabView.Items>
+                        <telerikPrimitives:TabViewItem HeaderText="Order Info">
+                            <telerikPrimitives:TabViewItem.Content>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Image Grid.Row="0" Grid.Column="0" Source="{Binding Order.Product.ImageURL}" Aspect="AspectFit" Margin="0,10" HorizontalOptions="Start" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Order.ProductName}" VerticalOptions="Center" FontAttributes="Bold" />
+                                    
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Customer" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Order.CustomerName}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Due Date" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Order.DueDate, StringFormat='{}{0:dd.MM.yyyy}'}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Ship Method" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=Order.ShipMethod}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="4" Grid.Column="0" Text="Freight" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=Order.Freight, StringFormat='{}{0} lb'}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="5" Grid.Column="0" Text="Total Amount" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding Path=Order.Ammount, StringFormat='{}{0:C}'}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="5" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                </Grid>
+                            </telerikPrimitives:TabViewItem.Content>
+                        </telerikPrimitives:TabViewItem>
+                        
+                        <telerikPrimitives:TabViewItem HeaderText="Shipping Details">
+                            <telerikPrimitives:TabViewItem.Content>
+                                <Grid Padding="0,20,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Address" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Order.ShippingAddressAddress}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="0" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="1" Grid.Column="0" Text="City" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Order.ShippingAddressCity}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="2" Grid.Column="0" Text="State" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Order.ShippingAddressState}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Postal Code" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=Order.ShippingAddressPOCode}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="4" Grid.Column="0" Text="Modified Date" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=Order.ShippingAddressModifiedDate, StringFormat='{}{0:dd.MM.yyyy}'}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                </Grid>
+                            </telerikPrimitives:TabViewItem.Content>
+                        </telerikPrimitives:TabViewItem>
+                        
+                        <telerikPrimitives:TabViewItem HeaderText="Customer Details">
+                            <telerikPrimitives:TabViewItem.Content>
+                                <Grid Padding="0,20,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Name" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Order.CustomerName}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="0" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="1" Grid.Column="0" Text="ID" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Order.CustomerNumber}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Email" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Order.CustomerEmail, StringFormat='{}{0:dd.MM.yyyy}'}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                    
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Phone" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=Order.CustomerPhone}" Margin="{StaticResource itemSpacing}" />
+                                    <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                </Grid>
+                            </telerikPrimitives:TabViewItem.Content>
+                        </telerikPrimitives:TabViewItem>
+                    </telerikPrimitives:RadTabView.Items>
+                </telerikPrimitives:RadTabView>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+    
+    <telerikPrimitives:RadPopup.Popup>
+        <telerikPrimitives:RadPopup x:Name="popup"
+                                    IsModal="false"
+                                    Placement="Right" VerticalOffset="10"
+                                    OutsideBackgroundColor="#6F000000">
+            <telerikPrimitives:RadBorder CornerRadius="2" WidthRequest="110"
+                                         BackgroundColor="White">
+                <telerikPrimitives:RadBorder.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double" Default="110">
+                        <On Platform="iOS" Value="130" />
+                    </OnPlatform>
+                </telerikPrimitives:RadBorder.HeightRequest>
+                <StackLayout Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout.Spacing>
+                        <OnPlatform x:TypeArguments="x:Double" Default="18">
+                            <On Platform="iOS" Value="0" />
+                        </OnPlatform>
+                    </StackLayout.Spacing>
+                    <Button Text="&#xE813; Edit" FontFamily="{StaticResource IconsFont}" TextColor="Orange" Command="{Binding BeginEditCommand, Mode=OneWay}" HorizontalOptions="Start">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding Order.IsCompleted}" Value="True">
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Text="&#xE809; Delete" FontFamily="{StaticResource IconsFont}" TextColor="#f33d4c" Clicked="Button_Clicked" Command="{Binding DeleteCommand, Mode=OneWay}" HorizontalOptions="Start" />
+                </StackLayout>
+            </telerikPrimitives:RadBorder>
+        </telerikPrimitives:RadPopup>
+    </telerikPrimitives:RadPopup.Popup>
+</ContentView>

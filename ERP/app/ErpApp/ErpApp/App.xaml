@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.App">
+	<Application.Resources>
+        <!--Icons-->
+        <x:String x:Key="icon-th-large">&#xe800;</x:String>
+        <x:String x:Key="icon-menu">&#xe801;</x:String>
+        <x:String x:Key="icon-th-list">&#xe802;</x:String>
+        <x:String x:Key="icon-right-open-big">&#xe803;</x:String>
+        <x:String x:Key="icon-right-open">&#xe804;</x:String>
+        <x:String x:Key="icon-right-open-mini">&#xe805;</x:String>
+        <x:String x:Key="icon-cancel">&#xe806;</x:String>
+        <x:String x:Key="icon-cancel-1">&#xe807;</x:String>
+        <x:String x:Key="icon-cancel-2">&#xe808;</x:String>
+        <x:String x:Key="icon-cancel-3">&#xe809;</x:String>
+        <x:String x:Key="icon-cancel-4">&#xe80a;</x:String>
+        <x:String x:Key="icon-cancel-5">&#xe80b;</x:String>
+        <x:String x:Key="icon-cancel-6">&#xe80c;</x:String>
+        <x:String x:Key="icon-right-open-1">&#xf006;</x:String>
+        <x:String x:Key="icon-th-thumb">&#xf00a;</x:String>
+        <x:String x:Key="icon-ellipsis">&#xF141;</x:String>
+        <x:String x:Key="icon-ellipsis-vert">&#xF142;</x:String>
+        <x:String x:Key="icon-plus">&#xe80d;</x:String>
+        <x:String x:Key="icon-plus-1">&#xe80e;</x:String>
+        <x:String x:Key="icon-plus-2">&#xe80f;</x:String>
+        <x:String x:Key="icon-plus-3">&#xe810;</x:String>
+        <x:String x:Key="icon-plus-4">&#xe811;</x:String>
+        <x:String x:Key="icon-plus-5">&#xe812;</x:String>
+        <x:String x:Key="icon-pencil">&#xe813;</x:String>
+        <x:String x:Key="icon-pencil-1">&#xe814;</x:String>
+        <x:String x:Key="icon-pencil-2">&#xe815;</x:String>
+        <x:String x:Key="icon-pencil-3">&#xe816;</x:String>
+        <x:String x:Key="icon-pencil-4">&#xe817;</x:String>
+        <x:String x:Key="icon-left-open-big">&#xe818;</x:String>
+        <x:String x:Key="icon-left-open">&#xe819;</x:String>
+        <x:String x:Key="icon-left-open-1">&#xe81a;</x:String>
+        <x:String x:Key="icon-left-open-3">&#xe81b;</x:String>
+        <x:String x:Key="icon-left-open-4">&#xe81c;</x:String>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
+            <On Platform="iOS">fontello</On>
+            <On Platform="Android">Fonts/fontello.ttf#fontello</On>
+            <On Platform="UWP">/Assets/Fonts/fontello.ttf#fontello</On>
+        </OnPlatform>
+	</Application.Resources>
+</Application>

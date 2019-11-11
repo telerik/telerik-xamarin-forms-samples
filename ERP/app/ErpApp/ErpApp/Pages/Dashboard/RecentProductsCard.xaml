@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Dashboard.RecentProductsCard"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid">
+    
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Recently Added Products" Style="{StaticResource TitleLabelStyle}" />
+        
+        <telerikDataGrid:RadDataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding RecentProducts}"
+                                     AutoGenerateColumns="false" Style="{StaticResource DataGridStyle}">
+            <telerikDataGrid:RadDataGrid.Columns>
+                <telerikDataGrid:DataGridTextColumn HeaderText="Product ID" PropertyName="ProductNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridTextColumn HeaderText="Product Name" PropertyName="Name" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridTextColumn HeaderText="Price" PropertyName="Price" CellContentFormat="{}{0:C}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                <telerikDataGrid:DataGridDateColumn HeaderText="Date Added" PropertyName="DateAdded" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+            </telerikDataGrid:RadDataGrid.Columns>
+        </telerikDataGrid:RadDataGrid>
+    </Grid>
+</ContentView>

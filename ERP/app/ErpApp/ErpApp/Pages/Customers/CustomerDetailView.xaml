@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Customers.CustomerDetailView"
+             xmlns:converters="clr-namespace:ErpApp.Converters"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             BackgroundColor="#f1f3f7">
+    <ContentView.Resources>
+        <Style x:Key="CustomerDetailTitle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="x:Double">
+                         <OnIdiom.Tablet>16</OnIdiom.Tablet>
+                         <OnIdiom.Phone>11</OnIdiom.Phone>
+                    </OnIdiom>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="WidthRequest" Value="100" />
+        </Style>
+
+        <OnIdiom x:Key="FirstItemSpacing" x:TypeArguments="Thickness">
+            <OnIdiom.Tablet>20</OnIdiom.Tablet>
+            <OnIdiom.Phone>10</OnIdiom.Phone>
+        </OnIdiom>
+        
+        <OnIdiom x:Key="ItemSpacing" x:TypeArguments="Thickness">
+            <OnIdiom.Tablet>20,20,0,0</OnIdiom.Tablet>
+            <OnIdiom.Phone>10,10,0,0</OnIdiom.Phone>
+        </OnIdiom>
+
+        <Style TargetType="telerikPrimitives:RadCheckBox" x:Key="CheckBoxStyle">
+            <Setter Property="CheckedColor" Value="#2196F3"/>
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+        
+        <Style x:Key="CustomerNameandMail" TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="0,0,0,8"/>
+        </Style>
+        
+        <telerikDataGrid:DataGridColumnHeaderStyle x:Key="cellHeaderStyle" TextColor="#acacac" BorderThickness="0,0,0,1" BorderColor="#d7d7d7" BackgroundColor="White" OptionsButtonTextColor="White" />
+        <telerikDataGrid:DataGridBorderStyle x:Key="rowStyle" BorderColor="#d7d7d7" BorderThickness="0,0,0,1" />
+
+        <Style x:Key="DataGridStyle" TargetType="{x:Type telerikDataGrid:RadDataGrid}">
+            <Setter Property="RowBackgroundStyle" Value="{StaticResource rowStyle}" />
+        </Style>
+        <converters:StringToFileImageSourceConverter x:Key="StringToFileImageSourceConverter"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ScrollView BackgroundColor="White">
+            <Grid Padding="8,0,0,0">
+                <!-- Empty customers view-->
+                <Grid BackgroundColor="White" Margin="0,20,20,20" IsVisible="{Binding IsEmpty}">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="{Binding EmptyImageName, Converter={StaticResource StringToFileImageSourceConverter}}"/>
+                        <Label Text="No Customers Yet!" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                        <Label Text="Please enter some from the button below" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Grid>
+
+                <!-- CustomerDetails View -->
+                <Grid>
+                    <Grid.Triggers>
+                        <DataTrigger TargetType="Grid" Binding="{Binding IsEmpty}" Value="True">
+                            <Setter Property="IsVisible" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Grid" Binding="{Binding IsEmpty}" Value="False">
+                            <Setter Property="IsVisible" Value="True"/>
+                        </DataTrigger>
+                    </Grid.Triggers>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CommitEditCommand}" />
+                    </Grid.GestureRecognizers>
+                    <Grid.Margin>
+                        <OnIdiom x:TypeArguments="Thickness">
+                            <OnIdiom.Tablet>0,20,20,20</OnIdiom.Tablet>
+                        </OnIdiom>
+                    </Grid.Margin>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+
+                    <BoxView BackgroundColor="White" Grid.RowSpan="4">
+                        <BoxView.CornerRadius>
+                            <OnIdiom x:TypeArguments="CornerRadius" Default="0,4,0,4">
+                                <OnIdiom.Phone>0</OnIdiom.Phone>
+                            </OnIdiom>
+                        </BoxView.CornerRadius>
+                    </BoxView>
+
+                    <Label x:Name="title" Margin="{StaticResource FirstItemSpacing}" Text="Customer's Details" Grid.Row="0" FontSize="20" FontAttributes="Bold" />
+
+                    <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,20,0" WidthRequest="100"
+                            BorderWidth="2" BorderRadius="20" BorderColor="#f33d4c" BackgroundColor="White" TextColor="#f33d4c"
+                            Text="&#xE809; Delete" FontFamily="{StaticResource IconsFont}" Command="{Binding DeleteCommand, Mode=OneWay}">
+                        <Button.IsVisible>
+                            <OnIdiom x:TypeArguments="x:Boolean">
+                                <OnIdiom.Phone>False</OnIdiom.Phone>
+                                <OnIdiom.Default>True</OnIdiom.Default>
+                            </OnIdiom>
+                        </Button.IsVisible>
+                    </Button>
+
+                    <Button Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,126,0" WidthRequest="100"
+                            BorderWidth="2" BorderRadius="20" BorderColor="Orange" BackgroundColor="White" TextColor="Orange"
+                            Text="Edit" Command="{Binding BeginEditCommand, Mode=OneWay}">
+                        <Button.IsVisible>
+                            <OnIdiom x:TypeArguments="x:Boolean">
+                                <OnIdiom.Phone>False</OnIdiom.Phone>
+                                <OnIdiom.Default>True</OnIdiom.Default>
+                            </OnIdiom>
+                        </Button.IsVisible>
+                    </Button>
+
+                    <Grid x:Name="grid" Grid.Row="1" Margin="{StaticResource ItemSpacing}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image WidthRequest="96" HeightRequest="96" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Center" Source="{Binding Customer.ImageURL}" />
+                        <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="40, 0, 0, 0" Spacing="4">
+                            <Label Text="Name" TextColor="#bcbcbc" FontSize="Micro"/>
+                            <Label Text="{Binding Customer.Name}"  FontSize="20" Style="{StaticResource CustomerNameandMail}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BeginEditCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label Text="Email" TextColor="#bcbcbc" FontSize="Micro"/>
+                            <Label Text="{Binding Customer.Email}" FontSize="20" Style="{StaticResource CustomerNameandMail}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BeginEditCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label Text="Phone" TextColor="#bcbcbc" FontSize="Micro"/>
+                            <Label Text="{Binding Customer.Phone}" FontSize="20">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BeginEditCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Margin="{StaticResource ItemSpacing}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Customer's Satisfaction" HorizontalOptions="Center"
+                               Style="{StaticResource CustomerDetailTitle}" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Customer's Activity" HorizontalOptions="Center"
+                               Style="{StaticResource CustomerDetailTitle}" />
+                        <Label Grid.Row="0" Grid.Column="2" Text="Default Discount" HorizontalOptions="Center"
+                               Style="{StaticResource CustomerDetailTitle}" />
+                        <Label Grid.Row="0" Grid.Column="3" Text="Preferred Way of Communication" HorizontalOptions="Center"
+                               Style="{StaticResource CustomerDetailTitle}" WidthRequest="150" />
+
+                        <telerikChart:RadPieChart Grid.Row="1" Grid.Column="0"
+                                                  HorizontalOptions="Center"
+                                                  VerticalOptions="Center"
+                                                  WidthRequest="100" HeightRequest="100">
+                            <telerikChart:RadPieChart.ChartBehaviors>
+                                <telerikChart:ChartSelectionBehavior SeriesSelectionMode="None" DataPointSelectionMode="None"/>
+                            </telerikChart:RadPieChart.ChartBehaviors>
+                            <telerikChart:RadPieChart.Series>
+                                <telerikChart:DonutSeries ItemsSource="{Binding CustomerSatisfaction}" ShowLabels="false">
+                                    <telerikChart:DonutSeries.ValueBinding>
+                                        <telerikChart:PropertyNameDataPointBinding PropertyName="Value"/>
+                                    </telerikChart:DonutSeries.ValueBinding>
+                                </telerikChart:DonutSeries>
+                            </telerikChart:RadPieChart.Series>
+                        </telerikChart:RadPieChart>
+
+                        <telerikChart:RadCartesianChart Grid.Row="1" Grid.Column="1"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="100" HeightRequest="100">
+                            <telerikChart:RadCartesianChart.Series>
+                                <telerikChart:BarSeries ItemsSource="{Binding CustomerActivity}" ShowLabels="false" PaletteMode="DataPoint">
+                                    <telerikChart:BarSeries.ValueBinding>
+                                        <telerikChart:PropertyNameDataPointBinding PropertyName="Value"/>
+                                    </telerikChart:BarSeries.ValueBinding>
+                                    <telerikChart:BarSeries.CategoryBinding>
+                                        <telerikChart:PropertyNameDataPointBinding PropertyName="Name" />
+                                    </telerikChart:BarSeries.CategoryBinding>
+                                </telerikChart:BarSeries>
+                            </telerikChart:RadCartesianChart.Series>
+                            <telerikChart:RadCartesianChart.HorizontalAxis>
+                                <telerikChart:NumericalAxis LabelTextColor="White" MajorTickBackgroundColor="White" Minimum="0" LineColor="White" />
+                            </telerikChart:RadCartesianChart.HorizontalAxis>
+                            <telerikChart:RadCartesianChart.VerticalAxis>
+                                <telerikChart:CategoricalAxis LabelTextColor="White" MajorTickBackgroundColor="White" />
+                            </telerikChart:RadCartesianChart.VerticalAxis>
+                        </telerikChart:RadCartesianChart>
+
+                        <Label Grid.Row="1" Grid.Column="2"
+                               HorizontalOptions="Center" VerticalOptions="Center"
+                               Text="{Binding Customer.DefaultDiscount, StringFormat='{}{0:P0}'}"
+                               FontSize="42" TextColor="#a1a1a1" />
+
+                        <Image Grid.Row="1" Grid.Column="3"
+                               HorizontalOptions="Center" VerticalOptions="Center"
+                               WidthRequest="42" HeightRequest="42"
+                               Source="{Binding CustomerPreferredCommunicationChannelImageSource, Mode=OneWay}" />
+                    </Grid>
+
+                    <Grid Grid.Row="3" Margin="{StaticResource ItemSpacing}">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Orders by the Customer" FontAttributes="Bold" />
+                            <telerikDataGrid:RadDataGrid VerticalOptions="FillAndExpand"
+                                                         ItemsSource="{Binding Customer.Orders}"
+                                                         AutoGenerateColumns="false"
+                                                         Style="{StaticResource DataGridStyle}">
+                                <telerikDataGrid:RadDataGrid.Columns>
+                                    <telerikDataGrid:DataGridTextColumn HeaderText="Order ID" PropertyName="OrderNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                    <telerikDataGrid:DataGridTextColumn HeaderText="Product Name" PropertyName="ProductName" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                    <telerikDataGrid:DataGridTextColumn HeaderText="Total Amount" PropertyName="Ammount" CellContentFormat="{}{0:C}" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                    <telerikDataGrid:DataGridTemplateColumn HeaderText="Is Online Order" HeaderStyle="{StaticResource cellHeaderStyle}">
+                                        <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                            <DataTemplate>
+                                                <telerikPrimitives:RadCheckBox IsChecked="{Binding IsOnline, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}" />
+                                            </DataTemplate>
+                                        </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                    </telerikDataGrid:DataGridTemplateColumn>
+                                    <telerikDataGrid:DataGridTextColumn HeaderText="Status" PropertyName="Status" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                                    <telerikDataGrid:DataGridDateColumn HeaderText="Due Date" PropertyName="DueDate" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+                                </telerikDataGrid:RadDataGrid.Columns>
+                            </telerikDataGrid:RadDataGrid>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+    
+    <telerikPrimitives:RadPopup.Popup>
+        <telerikPrimitives:RadPopup x:Name="popup"
+                                    IsModal="false"
+                                    Placement="Right" VerticalOffset="10"
+                                    OutsideBackgroundColor="#6F000000">
+            <telerikPrimitives:RadBorder CornerRadius="2" WidthRequest="110"
+                                         BackgroundColor="White">
+                <telerikPrimitives:RadBorder.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double" Default="110">
+                        <On Platform="iOS" Value="130" />
+                    </OnPlatform>
+                </telerikPrimitives:RadBorder.HeightRequest>
+                <StackLayout Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout.Spacing>
+                        <OnPlatform x:TypeArguments="x:Double" Default="18">
+                            <On Platform="iOS" Value="0" />
+                        </OnPlatform>
+                    </StackLayout.Spacing>
+                    <Button Text="&#xE813; Edit" FontFamily="{StaticResource IconsFont}" TextColor="Orange" Command="{Binding BeginEditCommand, Mode=OneWay}" HorizontalOptions="Start" />
+                    <Button Text="&#xE809; Delete" FontFamily="{StaticResource IconsFont}" TextColor="#f33d4c" Command="{Binding DeleteCommand, Mode=OneWay}" HorizontalOptions="Start" />
+                </StackLayout>
+            </telerikPrimitives:RadBorder>
+        </telerikPrimitives:RadPopup>
+    </telerikPrimitives:RadPopup.Popup>
+</ContentView>

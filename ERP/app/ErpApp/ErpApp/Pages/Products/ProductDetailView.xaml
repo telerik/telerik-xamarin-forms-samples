@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ErpApp.Pages.Products"
+             xmlns:controls="clr-namespace:ErpApp.Controls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="ErpApp.Pages.Products.ProductDetailView" BackgroundColor="White">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="itemSpacing">0,0,0,10</Thickness>
+            <Color x:Key="TitleLabelColor">#bcbcbc</Color>
+            <Color x:Key="LineColor">#d7d7d7</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <ScrollView>
+            <Grid RowSpacing="6" Margin="12,12,12,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="{Binding Path=Product.ImageURL}" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="StartAndExpand" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Product.Name}" VerticalOptions="Center" FontAttributes="Bold" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Product ID" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Product.ProductNumber}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Weight" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Product.Weight, StringFormat='{}{0} lb'}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Price" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=Product.Price, StringFormat='{}{0:C}'}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Location" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=Product.Location}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Stock Level" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding Path=Product.StockLevel}" Margin="{StaticResource itemSpacing}" />
+                <BoxView Grid.Row="5" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Color" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacing}" />
+                <telerikPrimitives:RadPath Grid.Row="6" Grid.Column="1" WidthRequest="12" HeightRequest="12" HorizontalOptions="Start" VerticalOptions="Center"
+                                       Geometry="{x:Static telerikInput:Geometries.Circle}"
+                                       Fill="{Binding Path=Product.Brush, Mode=OneWay}" />
+            </Grid>
+        </ScrollView>
+       
+    </ContentView.Content>
+    
+    <telerikPrimitives:RadPopup.Popup>
+        <telerikPrimitives:RadPopup x:Name="popup"
+                                    IsModal="false"
+                                    Placement="Right" VerticalOffset="10"
+                                    OutsideBackgroundColor="#6F000000">
+            <telerikPrimitives:RadBorder CornerRadius="2" WidthRequest="110"
+                                         BackgroundColor="White">
+                <telerikPrimitives:RadBorder.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double" Default="110">
+                        <On Platform="iOS" Value="130" />
+                    </OnPlatform>
+                </telerikPrimitives:RadBorder.HeightRequest>
+                <StackLayout Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout.Spacing>
+                        <OnPlatform x:TypeArguments="x:Double" Default="18">
+                            <On Platform="iOS" Value="0" />
+                        </OnPlatform>
+                    </StackLayout.Spacing>
+                    <Button Text="&#xE813; Edit" FontFamily="{StaticResource IconsFont}" TextColor="Orange" Command="{Binding BeginEditCommand, Mode=OneWay}" HorizontalOptions="Start" />
+                    <Button Text="&#xE809; Delete" FontFamily="{StaticResource IconsFont}" TextColor="#f33d4c" Command="{Binding DeleteCommand, Mode=OneWay}" HorizontalOptions="Start" />
+                </StackLayout>
+            </telerikPrimitives:RadBorder>
+        </telerikPrimitives:RadPopup>
+    </telerikPrimitives:RadPopup.Popup>
+</ContentView>

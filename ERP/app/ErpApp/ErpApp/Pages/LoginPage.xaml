@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mcf:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:mcf="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                    xmlns:app="clr-namespace:ErpApp"
+                    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                    x:TypeArguments="vm:LoginPageViewModel"
+                    xmlns:vm="clr-namespace:ErpApp.ViewModels" x:Class="ErpApp.Pages.LoginPage">
+    
+    <mcf:MvxContentPage.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:LoginStyles />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mcf:MvxContentPage.Resources>
+    
+    <Grid>
+        <Image Aspect="AspectFill" Opacity="0.2" Source="{x:Static app:EmbeddedImages.LoginBackgroundImage}" />
+    
+        <StackLayout VerticalOptions="Center" Padding="20,0">
+            <StackLayout.WidthRequest>
+                <OnIdiom x:TypeArguments="x:Double" Default="-1">
+                    <OnIdiom.Tablet>400</OnIdiom.Tablet>
+                    <OnIdiom.Desktop>400</OnIdiom.Desktop>
+                </OnIdiom>
+            </StackLayout.WidthRequest>
+            <StackLayout.HorizontalOptions>
+                <OnIdiom x:TypeArguments="LayoutOptions">
+                    <OnIdiom.Tablet>Center</OnIdiom.Tablet>
+                    <OnIdiom.Desktop>Center</OnIdiom.Desktop>
+                    <OnIdiom.Phone>Fill</OnIdiom.Phone>
+                </OnIdiom>
+            </StackLayout.HorizontalOptions>
+            
+            <Label Text="Welcome!"
+                   Style="{StaticResource TitleLabelStyle}" />
+            <Label Text="Enter your details below here"
+                   Style="{StaticResource SubtitleLabelStyle}" />
+            <telerikInput:RadEntry x:Name="usernameBox" Text="{Binding Username, Mode=TwoWay}"
+                                   BackgroundColor="White"
+                                   WatermarkText="Username"
+                                   Style="{StaticResource LoginEntryStyle}">
+                <telerikInput:RadEntry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                      <x:Arguments>
+                        <KeyboardFlags>None</KeyboardFlags>
+                      </x:Arguments>
+                    </Keyboard>
+                </telerikInput:RadEntry.Keyboard>
+            </telerikInput:RadEntry>
+            <telerikInput:RadEntry Text="{Binding Password, Mode=TwoWay}"
+                                   BackgroundColor="White"
+                                   CompletedCommand="{Binding LoginCommand}"
+                                   IsPassword="True"
+                                   WatermarkText="Password"
+                                   Style="{StaticResource LoginEntryStyle}" />
+            <telerikInput:RadButton Text="LOGIN"
+                                    
+                                    Command="{Binding LoginCommand}"
+                                    Style="{StaticResource ActionButtonStyle}" />
+        </StackLayout>
+    </Grid>
+</mcf:MvxContentPage>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Vendors.VendorsTabletView"
+             xmlns:app="clr-namespace:ErpApp"
+             xmlns:controls="clr-namespace:ErpApp.Controls"
+             xmlns:converters="clr-namespace:ErpApp.Converters"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="White">
+    <ContentView.Resources>
+        <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <ResourceDictionary.MergedDictionaries>
+                <themes:DashboardStyles />
+                <themes:SharedStyles />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <converters:EvenOddConverter x:Key="isEventCon" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" BackgroundColor="White">
+                <Label Text="Vendors" HorizontalOptions="Start" VerticalOptions="Center" Margin="30,0,0,0"
+                       FontAttributes="Bold" FontSize="25" />
+                <SearchBar VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="600" Margin="0,15"
+                           Text="{Binding DraftSearchTerm, Mode=TwoWay}"
+                           Placeholder="Search Vendors" BackgroundColor="Transparent" />
+                <ffimageloading:CachedImage Source="{x:Static app:Constants.EmptyCustomerImage}"
+                       VerticalOptions="Center" HorizontalOptions="End">
+                    <ffimageloading:CachedImage.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Default="0,15,100,15">
+                            <On Platform="iOS" Value="0,20,125,20" />
+                        </OnPlatform>
+                    </ffimageloading:CachedImage.Margin>
+                </ffimageloading:CachedImage>
+                <Label Text="{Binding CurrentUserName}" VerticalOptions="Center" HorizontalOptions="End">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" Default="0,0,30,0">
+                            <On Platform="iOS" Value="0,0,40,0" />
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
+            </Grid>
+            <Grid x:Name="LayoutRoot" Margin="10,20" BackgroundColor="White" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <BoxView BackgroundColor="White" CornerRadius="4" Grid.RowSpan="2" />
+                
+                <Label Grid.Row="0" Margin="20" Text="{Binding ListDescription}" FontSize="20" FontAttributes="Bold" />
+                <telerikInput:RadButton Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center" Margin="130,0,0,0" Clicked="ShowPopup"
+                                        BackgroundColor="Transparent" WidthRequest="30" BorderWidth="0"
+                                        FontFamily="{StaticResource IconsFont}" FontSize="20" Text="{StaticResource icon-ellipsis-vert}">
+                    <telerikPrimitives:RadPopup.Popup>
+                        <telerikPrimitives:RadPopup x:Name="popup"
+                                                    IsModal="false"
+                                                    OutsideBackgroundColor="#6F000000">
+                            <telerikPrimitives:RadBorder CornerRadius="2" 
+                                                         BackgroundColor="White">
+                                <Grid Padding="20">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="40" />
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                                        <Label Text="View:" VerticalOptions="Center" />
+                                        <Button Margin="15,0,0,0"
+                                                FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-list}"
+                                                Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Linear}" />
+                                        <Button Margin="10,0,0,0"
+                                                FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-large}"
+                                                Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Grid}" />
+                                    </StackLayout>
+                                </Grid>
+                            </telerikPrimitives:RadBorder>
+                        </telerikPrimitives:RadPopup>
+                    </telerikPrimitives:RadPopup.Popup>
+                </telerikInput:RadButton>
+                
+                <telerikInput:RadButton HorizontalOptions="End" VerticalOptions="Center" Grid.Row="0" Margin="0,0,30,0"
+                                        FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-plus}"
+                                        Command="{Binding CreateVendorCommand}"
+                                        Style="{StaticResource StretchedActionButton}" />
+                
+                <!--Linear view-->
+                <telerikDataGrid:RadDataGrid Grid.Row="1" ItemsSource="{Binding Vendors}" Margin="20,0,20,30"
+                                             SelectedItem="{Binding SelectedVendor, Mode=TwoWay}" UserEditMode="None"
+                                             AutoGenerateColumns="false" Style="{StaticResource DataGridStyle}">
+                    <telerikDataGrid:RadDataGrid.SelectionMode>
+                        <OnIdiom x:TypeArguments="telerikDataGrid:DataGridSelectionMode" Default="None">
+                            <OnIdiom.Phone>Single</OnIdiom.Phone>
+                        </OnIdiom>
+                    </telerikDataGrid:RadDataGrid.SelectionMode>
+                    <telerikDataGrid:RadDataGrid.Triggers>
+                        <DataTrigger TargetType="telerikDataGrid:RadDataGrid" Binding="{Binding CurrentLayoutMode}" Value="{x:Static app:LayoutMode.Grid}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </telerikDataGrid:RadDataGrid.Triggers>
+                    <telerikDataGrid:RadDataGrid.Columns>
+                        <telerikDataGrid:DataGridTemplateColumn HeaderText="Image" HeaderStyle="{StaticResource cellHeaderStyle}">
+                            <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <ffimageloading:CachedImage Source="{Binding ImageURL}" WidthRequest="48" HeightRequest="48" Margin="3" HorizontalOptions="Start" />
+                                </DataTemplate>
+                            </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                        </telerikDataGrid:DataGridTemplateColumn>
+                        <telerikDataGrid:DataGridTextColumn HeaderText="Vendor ID" PropertyName="VendorNumber" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                        <telerikDataGrid:DataGridTextColumn HeaderText="Vendor Name" PropertyName="Name" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                        <telerikDataGrid:DataGridTextColumn HeaderText="Rating" PropertyName="Rating" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                        <telerikDataGrid:DataGridTextColumn HeaderText="Annual Revenue" PropertyName="AnnualRevenue" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:C}" />
+                        <telerikDataGrid:DataGridTextColumn HeaderText="Phone" PropertyName="Phone" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                        <telerikDataGrid:DataGridTextColumn HeaderText="Order Frequency" PropertyName="OrderFrequency" HeaderStyle="{StaticResource cellHeaderStyle}" />
+                        <telerikDataGrid:DataGridTextColumn HeaderText="Last Order" PropertyName="LastOrderDate" HeaderStyle="{StaticResource cellHeaderStyle}" CellContentFormat="{}{0:dd.MM.yyyy}" />
+                        <telerikDataGrid:DataGridTemplateColumn HeaderText="" HeaderStyle="{StaticResource cellHeaderStyle}">
+                            <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Button Text="{StaticResource icon-pencil}" FontFamily="{StaticResource IconsFont}" Margin="0,0,30,0"
+                                                Command="{Binding BindingContext.DeleteVendorCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
+                                        <Button Text="{StaticResource icon-cancel-3}" FontFamily="{StaticResource IconsFont}"
+                                                Command="{Binding BindingContext.EditVendorCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
+                                    </StackLayout>
+                                </DataTemplate>
+                            </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
+                        </telerikDataGrid:DataGridTemplateColumn>
+                    </telerikDataGrid:RadDataGrid.Columns>
+                </telerikDataGrid:RadDataGrid>
+                
+                <!--Grid view-->
+                <telerikDataControls:RadListView Grid.Row="1" ItemsSource="{Binding Vendors}" Margin="20,0,20,30"
+                                                 SelectedItem="{Binding SelectedVendor, Mode=TwoWay}">
+                    <telerikDataControls:RadListView.SelectionMode>
+                        <OnIdiom x:TypeArguments="telerikListView:SelectionMode" Default="None">
+                            <OnIdiom.Phone>Single</OnIdiom.Phone>
+                        </OnIdiom>
+                    </telerikDataControls:RadListView.SelectionMode>
+                    <telerikDataControls:RadListView.Triggers>
+                        <DataTrigger TargetType="telerikDataControls:RadListView" Binding="{Binding CurrentLayoutMode}" Value="{x:Static app:LayoutMode.Linear}">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </telerikDataControls:RadListView.Triggers>
+                    <telerikDataControls:RadListView.LayoutDefinition>
+                        <telerikListView:ListViewGridLayout HorizontalItemSpacing="0"
+                                                            SpanCount="2"
+                                                            VerticalItemSpacing="0">
+                            <telerikListView:ListViewGridLayout.ItemLength>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="iOS" Value="290" />
+                                    <On Platform="Android" Value="280" />
+                                    <On Platform="UWP" Value="340" />
+                                </OnPlatform>
+                            </telerikListView:ListViewGridLayout.ItemLength>
+                        </telerikListView:ListViewGridLayout>
+                    </telerikDataControls:RadListView.LayoutDefinition>
+
+                    <telerikDataControls:RadListView.ItemStyle>
+                        <telerikListView:ListViewItemStyle BorderWidth="0" BorderLocation="None" BackgroundColor="Transparent" />
+                    </telerikDataControls:RadListView.ItemStyle>
+                        
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <telerikListView:ListViewTemplateCell>
+                                <telerikListView:ListViewTemplateCell.View>
+                                    <Grid RowSpacing="0" ColumnSpacing="20">
+                                        <Grid.Resources>
+                                            <ResourceDictionary>
+                                                <Thickness x:Key="itemSpacing">0,0,0,10</Thickness>
+                                                <Thickness x:Key="itemSpacingL">40,0,0,0</Thickness>
+                                                <Thickness x:Key="imageItemSpacingL">40,10,0,5</Thickness>
+                                                <Color x:Key="TitleLabelColor">#bcbcbc</Color>
+                                                <Color x:Key="LineColor">#d7d7d7</Color>
+                                            </ResourceDictionary>
+                                        </Grid.Resources>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <ffimageloading:CachedImage Grid.Row="0" Grid.Column="0" Source="{Binding Path=ImageURL}" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="Start" Margin="{StaticResource imageItemSpacingL}" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name}" VerticalOptions="Center" FontAttributes="Bold" Margin="0,0,130,0" LineBreakMode="TailTruncation" FontSize="Large" TextColor="#4A4949"/>
+                                        <Button Grid.Row="0" Grid.Column="1" Text="{StaticResource icon-pencil}" FontFamily="{StaticResource IconsFont}" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,70,0"
+                                                Command="{Binding BindingContext.EditVendorCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
+                                        <Button Grid.Row="0" Grid.Column="1" Text="{StaticResource icon-cancel-3}" FontFamily="{StaticResource IconsFont}" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,40,0"
+                                                Command="{Binding BindingContext.DeleteVendorCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
+
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Vendor ID" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacingL}"  FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=VendorNumber}" Margin="{StaticResource itemSpacing}" />
+
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Rating" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacingL}"  FontSize="Small"/>
+                                        <telerikInput:RadShapeRating Grid.Row="2" Grid.Column="1" ItemsCount="{Binding Path=Rating}" Value="{Binding Path=Rating}" IsReadOnly="true" HeightRequest="16" />
+
+                                        <Label Grid.Row="3" Grid.Column="0" Text="Annual Revenue" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacingL}"  FontSize="Small"/>
+                                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=AnnualRevenue, StringFormat='{}{0:C}'}" Margin="{StaticResource itemSpacing}" />
+
+                                        <Label Grid.Row="4" Grid.Column="0" Text="Order Frequency" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacingL}"  FontSize="Small"/>
+                                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=OrderFrequency}" Margin="{StaticResource itemSpacing}" />
+
+                                        <Label Grid.Row="5" Grid.Column="0" Text="Last Order" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacingL}"  FontSize="Small"/>
+                                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding Path=LastOrderDate, StringFormat='{}{0:dd.MM.yyyy}'}" Margin="{StaticResource itemSpacing}" />
+
+                                        <Label Grid.Row="6" Grid.Column="0" Text="Phone" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacingL}"  FontSize="Small"/>
+                                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding Path=Phone}" Margin="{StaticResource itemSpacing}" />
+
+                                        
+                                        <BoxView Grid.Row="6" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
+                                        <BoxView Grid.RowSpan="7" Grid.Column="1" WidthRequest="1" HorizontalOptions="End" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource LineColor}" IsVisible="{Binding Index, Converter={StaticResource isEventCon}}" />
+                                    </Grid>
+                                </telerikListView:ListViewTemplateCell.View>
+                            </telerikListView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                </telerikDataControls:RadListView>
+            </Grid>
+            <controls:EmptySearchResultsView Grid.Row="1" BackgroundColor="White" Term="{Binding DraftSearchTerm}"
+                                             Margin="10,20" IsVisible="{Binding IsSearchEmpty, Mode=OneWay}" />
+
+            <telerikPrimitives:RadBusyIndicator AnimationType="Animation3" Grid.RowSpan="2" IsBusy="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="#E6FFFFFF" IsVisible="{Binding IsBusy}" AnimationContentColor="#2196F3" AnimationContentWidthRequest="60" AnimationContentHeightRequest="60"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ErpApp.Pages.Dashboard.PhoneView"
+             xmlns:telerikBusyIndicator="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:cards="clr-namespace:ErpApp.Pages.Dashboard">
+    <Grid>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Spacing="10" Margin="20,0">
+                <StackLayout.Resources>
+                    <Style x:Key="cardStyle" TargetType="ContentView">
+                        <Setter Property="ControlTemplate">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <BoxView CornerRadius="4" BackgroundColor="White" />
+                                        <ContentPresenter Margin="20" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackLayout.Resources>
+                <cards:SalesChannelsCard HeightRequest="200" Margin="0,10,0,0" Style="{StaticResource cardStyle}" />
+                <cards:SalesQuentitiesCard HeightRequest="220" Style="{StaticResource cardStyle}" />
+                <cards:BusinessOverviewCard HeightRequest="200" Style="{StaticResource cardStyle}" />
+                <cards:LatestOrdersCard HeightRequest="230" Style="{StaticResource cardStyle}" />
+                <cards:RecentProductsCard HeightRequest="230" Style="{StaticResource cardStyle}" />
+                <cards:NewCustomersCard HeightRequest="200" Style="{StaticResource cardStyle}" />
+                <cards:BestVendorsCard HeightRequest="230" Style="{StaticResource cardStyle}" />
+                <cards:OrderStatusCard HeightRequest="200" Margin="0,0,0,10" Style="{StaticResource cardStyle}" />
+            </StackLayout>
+        </ScrollView>
+        <telerikBusyIndicator:RadBusyIndicator AnimationType="Animation3" IsBusy="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="#E6FFFFFF" IsVisible="{Binding IsBusy}" AnimationContentColor="#2196F3" AnimationContentWidthRequest="60" AnimationContentHeightRequest="60"/>
+    </Grid>
+</ContentView>
