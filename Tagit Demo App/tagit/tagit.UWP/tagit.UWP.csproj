@@ -115,8 +115,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="tagit.UWP_StoreKey.pfx" />
-    <None Include="tagit.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AppIcon.scale-100.png" />
@@ -184,7 +182,6 @@
     <Content Include="ic_start_all_dark.png" />
     <Content Include="ic_sync.png" />
     <Content Include="optimizing.png" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="progress_brand.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="tagit_header.png" />
