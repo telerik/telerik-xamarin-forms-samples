@@ -7,10 +7,10 @@ namespace QSF.Examples.DataGridControl.Common
 {
     public class Order : ViewModelBase
     {
-        private double orderID;
+        private int orderID;
         private string shipName;
         private string customerID;
-        private double employeeID;
+        private int employeeID;
         private string employeeImage;
         private DateTime orderDate;
         private DateTime requiredDate;
@@ -25,7 +25,7 @@ namespace QSF.Examples.DataGridControl.Common
 
         [XmlAttribute(AttributeName = "OrderID")]
         [DisplayOptions(Header = "Order ID", PlaceholderText = "Order ID")]
-        public double OrderID
+        public int OrderID
         {
             get
             {
@@ -81,7 +81,7 @@ namespace QSF.Examples.DataGridControl.Common
         }
 
         [XmlAttribute(AttributeName = "EmployeeID")]
-        public double EmployeeID
+        public int EmployeeID
         {
             get
             {
