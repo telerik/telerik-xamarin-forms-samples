@@ -70,7 +70,8 @@
                                                 Command="{Binding Path=ClosePopupCommand}"
                                                 WidthRequest="200"
                                                 HeightRequest="44"
-                                                HorizontalOptions="Center"/>
+                                                HorizontalOptions="Center"
+                                                AutomationId="BackToContactsBtn"/>
                     </Grid>
                 </telerikPrimitives:RadBorder>
             </ControlTemplate>
@@ -149,7 +150,8 @@
                                     Command="{Binding Path=SendInvitesCommand}"
                                     WidthRequest="200"
                                     HeightRequest="44"
-                                    HorizontalOptions="Center"/>
+                                    HorizontalOptions="Center"
+                                    AutomationId="SendInvitesBtn"/>
         </Grid>
     </Grid>
 </ContentView>

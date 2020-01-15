@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikNumericInput="clr-namespace:Telerik.XamarinForms.Input.NumericInput;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:local="clr-namespace:QSF.Effects"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.DateTimePickerControl.DatePickerExample.DatePickerView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#B73562</Color>
+            <Style x:Key="DefaultDateTimePickerStyle"
+                   TargetType="telerikInput:RadDateTimePicker">
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="DisplayStringFormat" Value="MMMM dd yyyy" />
+                <Setter Property="SpinnerFormatString" Value="MMMM dd yyyy" />
+                <Setter Property="Margin" Value="16, 0, 16, 0" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+                <Setter Property="BorderColor" Value="#B7B7BA" />
+            </Style>
+            <Style x:Key="PickerPopupFooterButtons_BaseStyle"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="#007AFF"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0, 0, 20, 0</On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style x:Key="PickerPopupFooterAcceptButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
+                   TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="End"/>
+            </Style>
+            <Style x:Key="PickerPopupFooterCancelButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
+                   TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            </Style>
+            <Style x:Key="DefaultTabStripItemStyle" 
+                   TargetType="telerikInput:DateTimeSelectorTabStripItem">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="#E3E3E3"/>
+                <Setter Property="BorderColor" Value="#E3E3E3"/>
+                <Setter Property="SelectedColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <ControlTemplate x:Key="MyNumericControlTemplate">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <telerikNumericInput:NumericInputButton Text="{TemplateBinding DecreaseButtonText}"
+                                      Command="{TemplateBinding DecreaseCommand}"
+                                      StyleClass="DefaultNumericInputButtonStyle"
+                                      telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
+                                      AutomationId="NumericDecreaseButton">
+                        <AutomationProperties.HelpText>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="UWP" Value="NumericDecreaseButton" />
+                                <On Platform="iOS" Value="NumericDecreaseButton" />
+                            </OnPlatform>
+                        </AutomationProperties.HelpText>
+                    </telerikNumericInput:NumericInputButton>
+                    <telerikNumericInput:NumericInputEntry Grid.Column="1"
+                                     x:Name="PART_Entry"
+                                     StyleClass="DefaultNumericInputEntryStyle"
+                                     Text="{TemplateBinding Value, Mode=OneWay}"
+                                     InputTransparent="{TemplateBinding IsReadOnly}"
+                                     telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
+                                     AutomationId="NumericEntry" />
+                    <telerikNumericInput:NumericInputButton Grid.Column="2"
+                                      Text="{TemplateBinding IncreaseButtonText}"
+                                      Command="{TemplateBinding IncreaseCommand}"
+                                      StyleClass="DefaultNumericInputButtonStyle"
+                                      telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
+                                      AutomationId="NumericIncreaseButton">
+                        <AutomationProperties.HelpText>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="NumericIncreaseButton" />
+                                <On Platform="UWP" Value="NumericIncreaseButton" />
+                            </OnPlatform>
+                        </AutomationProperties.HelpText>
+                    </telerikNumericInput:NumericInputButton>
+                </Grid>
+            </ControlTemplate>
+            <Style Class="NumericInputStyleClass"
+                   TargetType="{x:Type telerikNumericInput:NumericInputButton}">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="WidthRequest" Value="32" />
+                <Setter Property="HeightRequest" Value="32" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="BorderRadius" Value="16" />
+                <Setter Property="BorderColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style Class="NumericInputStyleClass"
+                   TargetType="{x:Type telerikNumericInput:NumericInputEntry}">
+                <Setter Property="BorderStyle">
+                    <Setter.Value>
+                        <telerikInput:BorderStyle BorderColor="Transparent"
+                                                  BorderThickness="0" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style x:Key="DefaultLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="16, 32, 16, 10" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <StackLayout>
+            <Grid Margin="0, 0, 0, 45">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.ColumnSpan="3"
+                       Aspect="Fill">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">Picker_Demo5_Header.png</On>
+                            <On Platform="UWP">Assets/Picker_Demo5_Header.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Row="1"
+                       Grid.ColumnSpan="2"
+                       Text="Millue Hotel" 
+                       TextColor="#CB1F4D" 
+                       Margin="16, 15, 16, 0"
+                       FontSize="Large"
+                       HorizontalOptions="Start" />
+                <Label Grid.Row="2"
+                       Grid.ColumnSpan="3"
+                       Text="713 S Hope St, Los Angeles, CA 90017 USA" 
+                       TextColor="#6A6A6A" 
+                       Margin="16, 10, 16, 0"
+                       FontSize="Micro"
+                       HorizontalOptions="Start" />
+                <Label Grid.Row="3"
+                       Grid.ColumnSpan="3"
+                       Text="Situated in the heart of Los Angeles' Financial District, our upscale hotel features a prime location near the Staples Center."
+                       TextColor="Black"
+                       FontSize="Small"
+                       Margin="16, 10, 16, 0"
+                       HorizontalOptions="Start" />
+
+                <Label Grid.Row="4"
+                       Text="Check in"
+                       Style="{StaticResource DefaultLabelStyle}" />
+                <telerikInput:RadDateTimePicker Grid.Row="5"
+                                                SelectedDate="{Binding CheckInDate, Mode=TwoWay}"
+                                                Style="{StaticResource DefaultDateTimePickerStyle}"
+                                                TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}">
+                    <telerikInput:RadDateTimePicker.PlaceholderLabelStyle>
+                        <Style TargetType="Label">
+                            <Setter Property="FontAttributes" Value="Bold" />
+                            <Setter Property="TextColor" Value="Red" />
+                        </Style>
+                    </telerikInput:RadDateTimePicker.PlaceholderLabelStyle>
+                    <telerikInput:RadDateTimePicker.SelectorSettings>
+                        <telerikInput:PickerPopupSelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                                <Style TargetType="Button" 
+                                       BasedOn="{StaticResource PickerPopupFooterAcceptButton_Style}">
+                                    <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                                </Style>
+                            </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                            <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                                <Style TargetType="Button" 
+                                       BasedOn="{StaticResource PickerPopupFooterCancelButton_Style}">
+                                    <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                                </Style>
+                            </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                        </telerikInput:PickerPopupSelectorSettings>
+                    </telerikInput:RadDateTimePicker.SelectorSettings>
+                    <telerikInput:RadDateTimePicker.TabStripStyle>
+                        <Style TargetType="telerikPrimitives:TabViewHeader">
+                            <Setter Property="ItemSpacing" Value="0"/>
+                            <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"/>
+                        </Style>
+                    </telerikInput:RadDateTimePicker.TabStripStyle>
+                </telerikInput:RadDateTimePicker>
+                <Label Grid.Row="4"
+                       Grid.Column="2"
+                       Text="Check out"
+                       Style="{StaticResource DefaultLabelStyle}" />
+                <telerikInput:RadDateTimePicker Grid.Row="5"
+                                                Grid.Column="2"
+                                                SelectedDate="{Binding CheckOutDate, Mode=TwoWay}"
+                                                Style="{StaticResource DefaultDateTimePickerStyle}"
+                                                TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}">
+                    <telerikInput:RadDateTimePicker.PlaceholderLabelStyle>
+                        <Style TargetType="Label">
+                            <Setter Property="FontAttributes" Value="Bold" />
+                            <Setter Property="TextColor" Value="Red" />
+                        </Style>
+                    </telerikInput:RadDateTimePicker.PlaceholderLabelStyle>
+                    <telerikInput:RadDateTimePicker.SelectorSettings>
+                        <telerikInput:PickerPopupSelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                                <Style TargetType="Button" 
+                                       BasedOn="{StaticResource PickerPopupFooterAcceptButton_Style}">
+                                    <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                                </Style>
+                            </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                            <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                                <Style TargetType="Button" 
+                                       BasedOn="{StaticResource PickerPopupFooterCancelButton_Style}">
+                                    <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                                </Style>
+                            </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                        </telerikInput:PickerPopupSelectorSettings>
+                    </telerikInput:RadDateTimePicker.SelectorSettings>
+                    <telerikInput:RadDateTimePicker.TabStripStyle>
+                        <Style TargetType="telerikPrimitives:TabViewHeader">
+                            <Setter Property="ItemSpacing" Value="0"/>
+                            <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"/>
+                        </Style>
+                    </telerikInput:RadDateTimePicker.TabStripStyle>
+                </telerikInput:RadDateTimePicker>
+                <Label Grid.Row="6"
+                       Text="Number of guests"
+                       Style="{StaticResource DefaultLabelStyle}" />
+                <telerikInput:RadNumericInput Grid.Row="7"
+                                              Margin="16, 0, 0, 0"
+                                              IsReadOnly="True"
+                                              Minimum="0"
+                                              Value="{Binding Guests, Mode=TwoWay}" 
+                                              StyleClass="NumericInputStyleClass" 
+                                              ControlTemplate="{StaticResource MyNumericControlTemplate}" />
+            </Grid>
+            <Grid VerticalOptions="EndAndExpand" HeightRequest="65" BackgroundColor="#F6FAFB">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <telerikInput:RadButton Grid.Column="1"
+                                        Grid.ColumnSpan="4"
+                                        Text="Book"
+                                        BackgroundColor="{StaticResource AccentColor}" 
+                                        TextColor="White"
+                                        CornerRadius="20"
+                                        HeightRequest="40"
+                                        VerticalOptions="Center" 
+                                        Clicked="ShowToastMessage"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

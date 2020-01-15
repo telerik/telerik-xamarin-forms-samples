@@ -36,11 +36,11 @@
         <StackLayout Padding="16">
             <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0">
                 <Label Text="Is Modal" Style="{StaticResource BodyLabelStyle}" Margin="2, 0, 0, 0" VerticalOptions="Center" />
-                <primitives:RadCheckBox IsChecked="{Binding Path=IsModal, Mode=TwoWay}" VerticalOptions="Center" CheckedColor="Blue" AutomationId="isModalCheckBox"/>
+                <primitives:RadCheckBox IsChecked="{Binding Path=IsModal, Mode=TwoWay}" VerticalOptions="Center" CheckedColor="Blue" AutomationId="IsModalChb"/>
             </StackLayout>
 
-            <Label Text="Otside Background Color" Style="{StaticResource PropertyNameLabelStyle}" />
-            <Picker SelectedItem="{Binding Path=OutsideBackgroundColor, Converter={StaticResource NameToColorConverter}}" AutomationId="otsideBackgroundColorPicker">
+            <Label Text="Outside Background Color" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Picker SelectedItem="{Binding Path=OutsideBackgroundColor, Converter={StaticResource NameToColorConverter}}" AutomationId="OutsideBgColorPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Transparent</x:String>
@@ -54,7 +54,7 @@
 
             <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0">
                 <Label Text="Placement" Style="{StaticResource BodyLabelStyle}" Margin="2, 0, 0, 0" VerticalOptions="Center" />
-                <Picker SelectedItem="{Binding Path=Placement}" AutomationId="placementPicker">
+                <Picker SelectedItem="{Binding Path=Placement}" AutomationId="PlacementPicker">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type primitives:PlacementMode}">
                             <primitives:PlacementMode>Left</primitives:PlacementMode>
@@ -70,7 +70,7 @@
 
             <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0">
                 <Label Text="Animation Type" Style="{StaticResource BodyLabelStyle}" Margin="2, 0, 0, 0" VerticalOptions="Center" />
-                <Picker SelectedItem="{Binding Path=AnimationType}" AutomationId="animationTypePicker">
+                <Picker SelectedItem="{Binding Path=AnimationType}" AutomationId="AnimationTypePicker">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type primitives:PopupAnimationType}">
                             <primitives:PopupAnimationType>None</primitives:PopupAnimationType>
@@ -95,7 +95,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding AnimationDuration, Converter={StaticResource DoubleRoundConverter}}" Maximum="2000" Minimum="0" AutomationId="animationDurationSlider">
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding AnimationDuration, Converter={StaticResource DoubleRoundConverter}}" Maximum="2000" Minimum="0" AutomationId="AnimationDurationSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>
@@ -105,7 +105,7 @@
             </Grid>
 
             <Label Text="Animation Easing" Style="{StaticResource PropertyNameLabelStyle}" />
-            <Picker SelectedItem="{Binding Path=AnimationEasing, Converter={StaticResource NameToEasingConverter}}" AutomationId="animationEasingPicker">
+            <Picker SelectedItem="{Binding Path=AnimationEasing, Converter={StaticResource NameToEasingConverter}}" AutomationId="AnimationEasingPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Linear</x:String>
@@ -137,7 +137,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding HorizontalOffset, Converter={StaticResource DoubleRoundConverter}}" Minimum="0" Maximum="200" AutomationId="horizontalOffsetSlider">
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding HorizontalOffset, Converter={StaticResource DoubleRoundConverter}}" Minimum="0" Maximum="200" AutomationId="HorizontalOffsetSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>
@@ -160,7 +160,7 @@
 
                 <StackLayout Grid.Column="1" Orientation="Horizontal">
                     <Label Style="{StaticResource SliderMinMaxLabelStyle}" Text="0" VerticalOptions="Center" Margin="0, 0, 5, 0" />
-                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding VerticalOffset, Converter={StaticResource DoubleRoundConverter}}" Minimum="0" Maximum="200" AutomationId="verticalOffsetSlider">
+                    <Slider HorizontalOptions="FillAndExpand" Value="{Binding VerticalOffset, Converter={StaticResource DoubleRoundConverter}}" Minimum="0" Maximum="200" AutomationId="VerticalOffsetSlider">
                         <Slider.Effects>
                             <effects:SliderColorEffect Color="Blue" />
                         </Slider.Effects>

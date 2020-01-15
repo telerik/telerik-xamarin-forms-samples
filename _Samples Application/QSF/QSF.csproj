@@ -36,6 +36,7 @@
     <None Remove="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <None Remove="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
     <None Remove="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
+    <None Remove="Examples\SpreadProcessingControl\ConvertExample\SpreadProcessingDocument1.xlsx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\DocToBeProcessed.docx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\JohnGrisham.docx" />
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\DocToBeProcessed.docx" />
@@ -66,6 +67,7 @@
     <EmbeddedResource Include="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <EmbeddedResource Include="Examples\SpreadProcessingControl\ConvertExample\SpreadProcessingDocument1.xlsx" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\AccountDataSource.xml" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\AgenciesDataSource.xml" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\LoadOnDemandDataSource.xml" />
@@ -118,6 +120,21 @@
   <ItemGroup>
     <Compile Update="Examples\PdfViewerControl\LargeFileExample\LargeFileView.xaml.cs">
       <DependentUpon>LargeFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\ListPickerControl\FirstLookExample\FirstLookView.xaml.cs">
+      <DependentUpon>FirstLookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\SpreadProcessingControl\ConvertExample\ConvertView.xaml.cs">
+      <DependentUpon>ConvertView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\SpreadProcessingControl\FindAndReplaceExample\FindAndReplaceView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\SpreadProcessingControl\FirstLookExample\FirstLookView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\TemplatedPickerControl\FirstLookExample\FirstLookView.xaml.cs">
+      <DependentUpon>FirstLookView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -490,6 +507,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\PdfViewerControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\DateTimePickerControl\DateTimePickerExample\DateTimePickerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\ListPickerControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\TemplatedPickerControl\FirstLookExample\FirstLookView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

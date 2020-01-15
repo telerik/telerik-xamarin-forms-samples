@@ -21,6 +21,8 @@ namespace QSF.Examples.CalendarControl.SchedulingExample
                     return "DAY";
                 case CalendarViewMode.MultiDay:
                     return "MULTI-DAY";
+                case CalendarViewMode.Agenda:
+                    return "AGENDA";
                 default:
                     break;
             }

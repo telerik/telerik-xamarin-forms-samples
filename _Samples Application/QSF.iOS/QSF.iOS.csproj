@@ -34,7 +34,7 @@
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>i386, x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <MtouchDebug>false</MtouchDebug>
@@ -54,6 +54,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision />
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -243,10 +244,18 @@
     <BundleResource Include="Resources\Fonts\telerikfontexamples.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\Calendar_AgendaView_Configuration.png" />
+    <BundleResource Include="Resources\Calendar_AgendaView_Configuration%401,5x.png" />
+    <BundleResource Include="Resources\Calendar_AgendaView_Configuration%402x.png" />
+    <BundleResource Include="Resources\Calendar_AgendaView_Configuration%403x.png" />
+    <BundleResource Include="Resources\Calendar_AgendaView_Customization.png" />
+    <BundleResource Include="Resources\Calendar_AgendaView_Customization%401,5x.png" />
+    <BundleResource Include="Resources\Calendar_AgendaView_Customization%402x.png" />
+    <BundleResource Include="Resources\Calendar_AgendaView_Customization%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Condition="'$(Configuration)|$(Platform)' == 'Tests|iPhoneSimulator' Or '$(Configuration)|$(Platform)' == 'Tests|iPhone'" Include="Calabash, Version=21.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.21.7\lib\Xamarin.iOS\Calabash.dll</HintPath>
+    <Reference Condition="'$(Configuration)|$(Platform)' == 'Tests|iPhoneSimulator' Or '$(Configuration)|$(Platform)' == 'Tests|iPhone'" Include="Calabash, Version=21.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.21.9\lib\Xamarin.iOS\Calabash.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading, Version=2.4.11.982, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.FFImageLoading.2.4.11.982\lib\Xamarin.iOS10\FFImageLoading.dll</HintPath>
@@ -323,6 +332,15 @@
     <Reference Include="Telerik.Documents.Flow.FormatProviders.Pdf">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Binaries\Portable\Telerik.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet">
+      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.Pdf">
+      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.SpreadsheetStreaming">
       <SpecificVersion>False</SpecificVersion>
@@ -4322,6 +4340,186 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\PdfViewer_LargeFile%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo1_Header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo1_Header%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo1_Header%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo1_Header%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook_GenerateCue%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook_GenerateCue%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook_GenerateCue%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook_GenerateCue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FirstLook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo2_Header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo2_Header%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo2_Header%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo2_Header%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FindReplace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FindReplace%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FindReplace%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_FindReplace%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert_Cue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert_Cue%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert_Cue%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SpreadProcessing_Convert_Cue%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo4_Header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo4_Header%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo4_Header%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo4_Header%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TimePicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TimePicker%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TimePicker%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TimePicker%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TemplatedPicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TemplatedPicker%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TemplatedPicker%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_TemplatedPicker%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo5_Header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo5_Header%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo5_Header%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo5_Header%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DateTimePicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DateTimePicker%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DateTimePicker%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DateTimePicker%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo3_Header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo3_Header%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo3_Header%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_Demo3_Header%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DatePicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DatePicker%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DatePicker%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_DatePicker%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_ListPicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_ListPicker%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_ListPicker%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Picker_ListPicker%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

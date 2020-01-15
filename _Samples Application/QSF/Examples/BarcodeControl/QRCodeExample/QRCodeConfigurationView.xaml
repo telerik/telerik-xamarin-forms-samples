@@ -7,7 +7,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <ControlTemplate x:Key="TabViewHeaderItemTemplate">
-                <Grid BackgroundColor="Transparent" HeightRequest="50">
+                <Grid AutomationId="TabViewItem" BackgroundColor="Transparent" HeightRequest="50">
                     <BoxView IsVisible="{TemplateBinding IsSelected}"
                              BackgroundColor="White"
                              VerticalOptions="End"
@@ -33,16 +33,16 @@
                 <ScrollView Padding="20">
                     <StackLayout>
                         <Label Text="URL:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=URL}"/>
+                        <Entry AutomationId="UrlEntry" Text="{Binding Path=URL}"/>
 
                         <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+                        <Picker AutomationId="ErrorCorrectionPicker" ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
 
                         <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+                        <Picker AutomationId="SizeVersionPicker" ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
 
                         <Label Text="Encoding:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=EncodingSource}" SelectedItem="{Binding Path=SelectedEncoding}" />
+                        <Picker AutomationId="EncodingPicker" ItemsSource="{Binding Path=EncodingSource}" SelectedItem="{Binding Path=SelectedEncoding}" />
                     </StackLayout>
                 </ScrollView>
             </ContentView>
@@ -51,23 +51,23 @@
                 <ScrollView Padding="20">
                     <StackLayout>
                         <Label Text="Text:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=Text}"/>
+                        <Entry AutomationId="TextEntry" Text="{Binding Path=Text}"/>
 
                         <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+                        <Picker AutomationId="ErrorCorrectionPicker" ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
 
                         <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+                        <Picker AutomationId="SizeVersionPicker" ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
 
                         <Label Text="Fnc1 Mode:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=Fnc1ModeSource}" SelectedItem="{Binding Path=SelectedFnc1Mode}" />
-                        <Entry Text="{Binding Path=ApplicationIndicator}" IsEnabled="{Binding Path=IsApplicationIndicatorEnabled}" Placeholder="Application indicator"/>
+                        <Picker AutomationId="Fnc1ModePicker" ItemsSource="{Binding Path=Fnc1ModeSource}" SelectedItem="{Binding Path=SelectedFnc1Mode}" />
+                        <Entry AutomationId="AppIndicatorEntry" Text="{Binding Path=ApplicationIndicator}" IsEnabled="{Binding Path=IsApplicationIndicatorEnabled}" Placeholder="Application indicator"/>
 
                         <Label Text="Encoding:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=EncodingSource}" SelectedItem="{Binding Path=SelectedEncoding}" />
+                        <Picker AutomationId="EncodingPicker" ItemsSource="{Binding Path=EncodingSource}" SelectedItem="{Binding Path=SelectedEncoding}" />
 
                         <Label Text="Eci Number:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=EciNumberSource}" SelectedItem="{Binding Path=SelectedEciNumber}" />
+                        <Picker AutomationId="EciNumberPicker" ItemsSource="{Binding Path=EciNumberSource}" SelectedItem="{Binding Path=SelectedEciNumber}" />
                     </StackLayout>
                 </ScrollView>
             </ContentView>
@@ -76,22 +76,22 @@
                 <ScrollView Padding="20">
                     <StackLayout>
                         <Label Text="First Name:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=ContactName}"/>
+                        <Entry AutomationId="FirstNameEntry" Text="{Binding Path=ContactName}"/>
 
                         <Label Text="Last Name:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=ContactFamily}"/>
+                        <Entry AutomationId="LastNameEntry" Text="{Binding Path=ContactFamily}"/>
 
                         <Label Text="Phone number:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=ContactPhone}"/>
+                        <Entry AutomationId="PhoneNumberEntry" Text="{Binding Path=ContactPhone}"/>
 
                         <Label Text="Email:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=ContactEmail}"/>
+                        <Entry AutomationId="EmailEntry" Text="{Binding Path=ContactEmail}"/>
 
                         <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+                        <Picker AutomationId="ErrorCorrectionPicker" ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
 
                         <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+                        <Picker AutomationId="SizeVersionPicker" ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
                     </StackLayout>
                 </ScrollView>
             </ContentView>
@@ -100,16 +100,16 @@
                 <ScrollView Padding="20">
                     <StackLayout>
                         <Label Text="Latitude degrees:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=LocationLat}"/>
+                        <Entry AutomationId="LatitudeEntry" Text="{Binding Path=LocationLat}"/>
 
                         <Label Text="Longitude degrees:" Style="{StaticResource LabelStyle}" />
-                        <Entry Text="{Binding Path=LocationLong}"/>
+                        <Entry AutomationId="LongitudeEntry" Text="{Binding Path=LocationLong}"/>
 
                         <Label Text="Error Correction Level:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
+                        <Picker AutomationId="ErrorCorrectionPicker" ItemsSource="{Binding Path=ECLSource}" SelectedItem="{Binding Path=SelectedECL}" />
 
                         <Label Text="Size Version:" Style="{StaticResource LabelStyle}" />
-                        <Picker ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
+                        <Picker AutomationId="SizeVersionPicker" ItemsSource="{Binding Path=VersionSource}" SelectedItem="{Binding Path=SelectedVersion}" />
                     </StackLayout>
                 </ScrollView>
             </ContentView>

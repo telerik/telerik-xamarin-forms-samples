@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:local="clr-namespace:QSF.Examples.CalendarControl.AgendaViewConfigurationExample"
+             xmlns:effects="clr-namespace:QSF.Effects"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="QSF.Examples.CalendarControl.AgendaViewConfigurationExample.AgendaViewConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:TodayAgendaItemStyleSelector x:Key="TodayAgendaItemStyleSelector">
+                <local:TodayAgendaItemStyleSelector.TodayStyle>
+                    <input:AgendaTextItemStyle TextColor="#FF9F55"
+                                               HorizontalTextAlignment="Start"/>
+                </local:TodayAgendaItemStyleSelector.TodayStyle>
+            </local:TodayAgendaItemStyleSelector>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <input:RadCalendar ViewMode="Agenda"
+                           DisplayDate="{Binding DisplayDate, Mode=TwoWay}"
+                           AppointmentsSource="{Binding Appointments}">
+            <input:RadCalendar.AgendaViewSettings>
+                <input:AgendaViewSettings MonthItemFormat="{Binding MonthItemFormat}"
+                                      WeekItemStartDateFormat="{Binding WeekItemStartDateFormat}"
+                                      WeekItemEndDateFormat="{Binding WeekItemEndDateFormat}"
+                                      DayItemFormat="{Binding DayItemFormat}"
+                                      AppointmentItemStartDateFormat="{Binding AppointmentItemStartDateFormat}"
+                                      AppointmentItemEndDateFormat="{Binding AppointmentItemEndDateFormat}"
+                                      AppointmentItemTimeFormat="{Binding AppointmentItemTimeFormat}"
+                                      AgendaItemStyleSelector="{StaticResource TodayAgendaItemStyleSelector}"/>
+            </input:RadCalendar.AgendaViewSettings>
+        </input:RadCalendar>
+        <primitives:RadBorder BackgroundColor="#FC7456"
+                              WidthRequest="56"
+                              HeightRequest="56"
+                              Margin="0, 0, 20, 20"
+                              HorizontalOptions="End"
+                              CornerRadius="28"
+                              VerticalOptions="End">
+            <primitives:RadBorder.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToTodayCommand}"/>
+            </primitives:RadBorder.GestureRecognizers>
+            <Grid VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMM}'}"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="End"
+                       FontSize="11"
+                       TextColor="#CCFFFFFF">
+                    <Label.Effects>
+                        <effects:LabelRemoveFontPaddingEffect/>
+                    </Label.Effects>
+                </Label>
+                <Label Grid.Row="1"
+                       Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:dd}'}"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center">
+                    <Label.Effects>
+                        <effects:LabelRemoveFontPaddingEffect/>
+                    </Label.Effects>
+                </Label>
+            </Grid>
+        </primitives:RadBorder>
+    </Grid>
+
+</ContentView>

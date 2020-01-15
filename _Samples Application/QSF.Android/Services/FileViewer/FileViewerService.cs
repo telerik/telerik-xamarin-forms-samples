@@ -1,12 +1,12 @@
 ﻿using Android.Content;
 using Android.OS;
+using Android.Support.V4.Content;
 using Java.IO;
-using QSF.Droid.Permissions;
 using QSF.Droid.Services.FileViewer;
+using QSF.Helpers;
 using QSF.Services;
 using System.IO;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Dependency(typeof(FileViewerService))]
 namespace QSF.Droid.Services.FileViewer
@@ -26,18 +26,19 @@ namespace QSF.Droid.Services.FileViewer
                     }
                 }
 
-                string root = null;
+                var context = Android.App.Application.Context;
+                Java.IO.File myDir;
 
                 if (Android.OS.Environment.IsExternalStorageEmulated)
                 {
-                    root = Android.OS.Environment.ExternalStorageDirectory.ToString();
+                    myDir = new Java.IO.File(context.GetExternalFilesDir(null), "/Telerik");
                 }
                 else
                 {
-                    root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+                    string root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+                    myDir = new Java.IO.File(root + "/Telerik");
                 }
 
-                Java.IO.File myDir = new Java.IO.File(root + "/Telerik");
                 if (!myDir.Exists())
                 {
                     if (!myDir.Mkdir())
@@ -68,17 +69,17 @@ namespace QSF.Droid.Services.FileViewer
 
                 if (file.Exists())
                 {
-                    Android.Net.Uri path = Android.Net.Uri.FromFile(file);
+                    Android.Net.Uri path = FileProvider.GetUriForFile(context, "com.telerik.xamarin.fileprovider", file);
 
                     string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
                     string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
                     Intent intent = new Intent(Intent.ActionView);
                     intent.SetDataAndType(path, mimeType);
-
-                    var context = Android.App.Application.Context;
+                    intent.AddFlags(ActivityFlags.GrantReadUriPermission);
 
                     var choserActivity = Intent.CreateChooser(intent, "Choose App");
                     choserActivity.SetFlags(ActivityFlags.NewTask);
+                    choserActivity.AddFlags(ActivityFlags.GrantReadUriPermission);
 
                     context.StartActivity(choserActivity);
                 }

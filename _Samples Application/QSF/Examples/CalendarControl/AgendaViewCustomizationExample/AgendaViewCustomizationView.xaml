@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:local="clr-namespace:QSF.Examples.CalendarControl.AgendaViewCustomizationExample"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:effects="clr-namespace:QSF.Effects"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="QSF.Examples.CalendarControl.AgendaViewCustomizationExample.AgendaViewCustomizationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:AgendaViewStyleSelector x:Key="AgendaViewStyleSelector">
+                <local:AgendaViewStyleSelector.MonthItemStyle>
+                    <input:AgendaTextItemStyle FontAttributes="Bold"
+                                               FontSize="21"
+                                               HorizontalTextAlignment="Start"
+                                               Padding="10, 19, 0, 19"/>
+                </local:AgendaViewStyleSelector.MonthItemStyle>
+                <local:AgendaViewStyleSelector.WeekItemStyle>
+                    <input:AgendaTextItemStyle FontSize="13"
+                                               HorizontalTextAlignment="End"
+                                               Padding="0, 15, 10, 0"/>
+                </local:AgendaViewStyleSelector.WeekItemStyle>
+                <local:AgendaViewStyleSelector.DayItemStyle>
+                    <input:AgendaTextItemStyle TextColor="#3C50CB"
+                                               FontAttributes="Bold"
+                                               FontSize="17"
+                                               HorizontalTextAlignment="End"
+                                               Padding="0, 15, 10, 8"/>
+                </local:AgendaViewStyleSelector.DayItemStyle>
+                <local:AgendaViewStyleSelector.TodayStyle>
+                    <input:AgendaTextItemStyle TextColor="#D84235"
+                                               FontAttributes="Bold"
+                                               FontSize="17"
+                                               HorizontalTextAlignment="End"
+                                               Padding="0, 15, 10, 8"/>
+                </local:AgendaViewStyleSelector.TodayStyle>
+                <local:AgendaViewStyleSelector.AppointmentItemStyle>
+                    <input:AgendaAppointmentItemStyle TitleTextColor="Black"
+                                                      TitleFontSize="14"
+                                                      DaysDurationTextColor="#919191"
+                                                      DaysDurationFontSize="13"
+                                                      TimeDurationTextColor="#39404D"
+                                                      TimeDurationFontSize="11"/>
+                </local:AgendaViewStyleSelector.AppointmentItemStyle>
+            </local:AgendaViewStyleSelector>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <input:RadCalendar AppointmentsSource="{Binding Appointments}"
+                           DisplayDate="{Binding DisplayDate, Mode=TwoWay}"
+                           ViewMode="Agenda">
+            <input:RadCalendar.AgendaViewSettings>
+                <input:AgendaViewSettings AgendaItemStyleSelector="{StaticResource AgendaViewStyleSelector}"/>
+            </input:RadCalendar.AgendaViewSettings>
+        </input:RadCalendar>
+        <primitives:RadBorder BackgroundColor="#3C50CB"
+                              WidthRequest="56"
+                              HeightRequest="56"
+                              Margin="0, 0, 20, 20"
+                              HorizontalOptions="End"
+                              CornerRadius="28"
+                              VerticalOptions="End">
+            <primitives:RadBorder.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToTodayCommand}"/>
+            </primitives:RadBorder.GestureRecognizers>
+            <Grid VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMM}'}"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="End"
+                       FontSize="11"
+                       TextColor="#CCFFFFFF">
+                    <Label.Effects>
+                        <effects:LabelRemoveFontPaddingEffect/>
+                    </Label.Effects>
+                </Label>
+                <Label Grid.Row="1"
+                       Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:dd}'}"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center">
+                    <Label.Effects>
+                        <effects:LabelRemoveFontPaddingEffect/>
+                    </Label.Effects>
+                </Label>
+            </Grid>
+        </primitives:RadBorder>
+    </Grid>
+
+</ContentView>

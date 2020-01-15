@@ -49,58 +49,60 @@
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    
+
     <ScrollView Orientation="Vertical">
-    <Grid BackgroundColor="#EFEFED">
+        <Grid BackgroundColor="#EFEFED">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-
-        <StackLayout Grid.Row="0" Margin="20, 0, 20, 0">
-
-            <Label Margin="0, 30, 0, 0" Text="Calorie Calculator:" FontSize="25" TextColor="Black" />
-            <Label Margin="0, 0, 0, 30" Text="Use the calculator to estimate the number of calories you need to consume each day." TextColor="#666868" FontSize="15" />
-
-        </StackLayout>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
 
-        <StackLayout Grid.Row="1" BackgroundColor="White">
-            <StackLayout Margin="10, 20, 10, 0" Orientation="Horizontal">
-                <Label VerticalOptions="Center" Text="Gender" />
-                <telerikInput:RadSegmentedControl Margin="10, 0, 0, 0"
+            <StackLayout Grid.Row="0" Margin="20, 0, 20, 0">
+
+                <Label Margin="0, 30, 0, 0" Text="Calorie Calculator:" FontSize="25" TextColor="Black" />
+                <Label Margin="0, 0, 0, 30" Text="Use the calculator to estimate the number of calories you need to consume each day." TextColor="#666868" FontSize="15" />
+
+            </StackLayout>
+
+
+            <StackLayout Grid.Row="1" BackgroundColor="White">
+                <StackLayout Margin="10, 20, 10, 0" Orientation="Horizontal">
+                    <Label VerticalOptions="Center" Text="Gender" />
+                    <telerikInput:RadSegmentedControl Margin="10, 0, 0, 0"
                                                   WidthRequest="240"
                                                   SelectedSegmentBackgroundColor="#298EA5"
                                                   ItemsSource="{Binding Genders}"
                                                   SelectedIndex="{Binding Gender, Mode=TwoWay, Converter={StaticResource GenderConverter}}" />
-            </StackLayout>
+                </StackLayout>
 
-            <StackLayout Margin="10, 20, 10, 0">
-                <Label Text="Age:" TextColor="#5A5B5B" />
+                <StackLayout Margin="10, 20, 10, 0">
+                    <Label Text="Age:" TextColor="#5A5B5B" />
 
-                <telerikInput:RadNumericInput Margin="0, 10, 0, 0" Minimum="0" Value="{Binding Age, Mode=TwoWay}">
-                    <telerikInput:RadNumericInput.ControlTemplate>
-                        <ControlTemplate>
+                    <telerikInput:RadNumericInput AutomationId="AgeNumeric" Margin="0, 10, 0, 0" Minimum="0" Value="{Binding Age, Mode=TwoWay}" >
+                        <telerikInput:RadNumericInput.ControlTemplate>
+                            <ControlTemplate>
 
-                            <Grid ColumnSpacing="{StaticResource Spacing}"
+                                <Grid ColumnSpacing="{StaticResource Spacing}"
                                   HeightRequest="{StaticResource Height}">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <telerikNumericInput:NumericInputEntry
+                                    <telerikNumericInput:NumericInputEntry
+                                     AutomationId="NumericEntry"
                                      x:Name="PART_Entry"
                                      StyleClass="CustomNumericInputEntryStyle" 
                                      Text="{TemplateBinding Value, Mode=OneWay}"
                                      InputTransparent="{TemplateBinding IsReadOnly}"
                                      common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"/>
 
-                                <telerikNumericInput:NumericInputButton 
+                                    <telerikNumericInput:NumericInputButton 
+                                    AutomationId="NumericDecreaseButton"
                                     Grid.Column="1" 
                                     Command="{TemplateBinding DecreaseCommand}" 
                                     WidthRequest="70" 
@@ -108,7 +110,8 @@
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
                                     StyleClass="CustomNumericInputButtonStyle"/>
 
-                                <telerikNumericInput:NumericInputButton 
+                                    <telerikNumericInput:NumericInputButton 
+                                    AutomationId="NumericIncreaseButton"
                                     Grid.Column="2" 
                                     Command="{TemplateBinding IncreaseCommand}" 
                                     WidthRequest="70" 
@@ -116,87 +119,93 @@
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
                                     StyleClass="CustomNumericInputButtonStyle"/>
 
-                            </Grid>
+                                </Grid>
 
-                        </ControlTemplate>
-                    </telerikInput:RadNumericInput.ControlTemplate>
-                </telerikInput:RadNumericInput>
-            </StackLayout>
+                            </ControlTemplate>
+                        </telerikInput:RadNumericInput.ControlTemplate>
+                    </telerikInput:RadNumericInput>
+                </StackLayout>
 
 
 
-            <StackLayout Margin="10, 20, 10, 0">
-                <Label Text="Height (feet):" TextColor="#5A5B5B" />
+                <StackLayout Margin="10, 20, 10, 0">
+                    <Label Text="Height (feet):" TextColor="#5A5B5B" />
 
-                <telerikInput:RadNumericInput Margin="0, 10, 0, 0" Minimum="0" Value="{Binding Height, Mode=TwoWay}">
-                    <telerikInput:RadNumericInput.ControlTemplate>
-                        <ControlTemplate>
+                    <telerikInput:RadNumericInput AutomationId="HeightNumeric" Margin="0, 10, 0, 0" Minimum="0" Value="{Binding Height, Mode=TwoWay}">
+                        <telerikInput:RadNumericInput.ControlTemplate>
+                            <ControlTemplate>
 
-                            <Grid ColumnSpacing="{StaticResource Spacing}"
+                                <Grid ColumnSpacing="{StaticResource Spacing}"
                                   HeightRequest="{StaticResource Height}">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <telerikNumericInput:NumericInputButton 
+                                    <telerikNumericInput:NumericInputButton
+                                    AutomationId="NumericDecreaseButton"
                                     Grid.Column="0" 
                                     Command="{TemplateBinding DecreaseCommand}" 
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
                                     WidthRequest="70" 
                                     Text="-" 
                                     StyleClass="CustomNumericInputButtonStyle" />
-                                    
-                                <telerikNumericInput:NumericInputEntry Grid.Column="1"
+
+                                    <telerikNumericInput:NumericInputEntry 
+                                     AutomationId="NumericEntry"
+                                     Grid.Column="1"
                                      x:Name="PART_Entry"
                                      StyleClass="CustomNumericInputEntryStyle" 
                                      Text="{TemplateBinding Value, Mode=OneWay}"
                                      InputTransparent="{TemplateBinding IsReadOnly}"
                                      common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"/>
 
-                                <telerikNumericInput:NumericInputButton 
+                                    <telerikNumericInput:NumericInputButton
+                                    AutomationId="NumericIncreaseButton"
                                     Grid.Column="2" 
                                     Command="{TemplateBinding IncreaseCommand}" 
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
                                     WidthRequest="70" 
                                     Text="+" 
                                     StyleClass="CustomNumericInputButtonStyle"/>
-                                    
-                            </Grid>
 
-                        </ControlTemplate>
-                    </telerikInput:RadNumericInput.ControlTemplate>
-                </telerikInput:RadNumericInput>
-            </StackLayout>
+                                </Grid>
+
+                            </ControlTemplate>
+                        </telerikInput:RadNumericInput.ControlTemplate>
+                    </telerikInput:RadNumericInput>
+                </StackLayout>
 
 
-            <StackLayout Margin="10, 20, 10, 0">
-                <Label Text="Weight (pounds):" TextColor="#5A5B5B" />
+                <StackLayout Margin="10, 20, 10, 0">
+                    <Label Text="Weight (pounds):" TextColor="#5A5B5B" />
 
-                <telerikInput:RadNumericInput Margin="0, 10, 0, 0" Minimum="0" Value="{Binding Weight, Mode=TwoWay}">
-                    <telerikInput:RadNumericInput.ControlTemplate>
-                        <ControlTemplate>
+                    <telerikInput:RadNumericInput AutomationId="WeightNumeric" Margin="0, 10, 0, 0" Minimum="0" Value="{Binding Weight, Mode=TwoWay}">
+                        <telerikInput:RadNumericInput.ControlTemplate>
+                            <ControlTemplate>
 
-                            <Grid ColumnSpacing="{StaticResource Spacing}"
+                                <Grid ColumnSpacing="{StaticResource Spacing}"
                                   HeightRequest="{StaticResource Height}">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <telerikNumericInput:NumericInputButton 
+                                    <telerikNumericInput:NumericInputButton 
+                                    AutomationId="NumericDecreaseButton"
                                     Grid.Column="0" 
                                     Command="{TemplateBinding DecreaseCommand}" 
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
                                     WidthRequest="70" 
                                     Text="-" 
                                     StyleClass="CustomNumericInputButtonStyle" />
-                                
-                                <telerikNumericInput:NumericInputButton 
+
+                                    <telerikNumericInput:NumericInputButton 
+                                    AutomationId="NumericIncreaseButton"
                                     Grid.Column="1" 
                                     Command="{TemplateBinding IncreaseCommand}" 
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
@@ -204,52 +213,57 @@
                                     Text="+" 
                                     StyleClass="CustomNumericInputButtonStyle"/>
 
-                                 <telerikNumericInput:NumericInputEntry Grid.Column="2"
+                                    <telerikNumericInput:NumericInputEntry 
+                                     AutomationId="NumericEntry"
+                                     Grid.Column="2"
                                      x:Name="PART_Entry"
                                      StyleClass="CustomNumericInputEntryStyle" 
                                      Text="{TemplateBinding Value, Mode=OneWay}"
                                      InputTransparent="{TemplateBinding IsReadOnly}"
                                      common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"/>
-                                
-                            </Grid>
 
-                        </ControlTemplate>
-                    </telerikInput:RadNumericInput.ControlTemplate>
-                </telerikInput:RadNumericInput>
-            </StackLayout>
+                                </Grid>
 
-            <StackLayout Margin="10, 20, 10, 0">
-                <Label Text="Activity (sports per week):" TextColor="#5A5B5B" />
+                            </ControlTemplate>
+                        </telerikInput:RadNumericInput.ControlTemplate>
+                    </telerikInput:RadNumericInput>
+                </StackLayout>
 
-                <telerikInput:RadNumericInput Margin="0, 10, 0, 0" Minimum="0" Maximum="7" IsReadOnly="True" Value="{Binding Activity, Mode=TwoWay}">
-                    <telerikInput:RadNumericInput.ControlTemplate>
-                        <ControlTemplate>
+                <StackLayout Margin="10, 20, 10, 0">
+                    <Label Text="Activity (sports per week):" TextColor="#5A5B5B" />
 
-                            <Grid ColumnSpacing="{StaticResource Spacing}"
+                    <telerikInput:RadNumericInput AutomationId="ActivityNumeric" Margin="0, 10, 0, 0" Minimum="0" Maximum="7" IsReadOnly="True" Value="{Binding Activity, Mode=TwoWay}">
+                        <telerikInput:RadNumericInput.ControlTemplate>
+                            <ControlTemplate>
+
+                                <Grid ColumnSpacing="{StaticResource Spacing}"
                                   HeightRequest="{StaticResource Height}">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                    <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                        <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <telerikNumericInput:NumericInputEntry
+                                    <telerikNumericInput:NumericInputEntry
+                                     AutomationId="NumericEntry"
                                      x:Name="PART_Entry"
                                      StyleClass="CustomNumericInputEntryStyle" 
                                      Text="{TemplateBinding Value, Mode=OneWay}"
                                      InputTransparent="{TemplateBinding IsReadOnly}"
                                      common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"/>
 
-                                <telerikNumericInput:NumericInputButton 
+                                    <telerikNumericInput:NumericInputButton 
+                                    AutomationId="NumericIncreaseButton"
                                     Grid.Column="1" 
                                     Command="{TemplateBinding IncreaseCommand}" 
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
                                     WidthRequest="70" 
                                     Text="+" 
                                     StyleClass="CustomNumericInputButtonStyle"/>
-                                
-                                <telerikNumericInput:NumericInputButton 
+
+                                    <telerikNumericInput:NumericInputButton 
+                                    AutomationId="NumericDecreaseButton"
                                     Grid.Column="2" 
                                     Command="{TemplateBinding DecreaseCommand}" 
                                     common:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
@@ -257,17 +271,17 @@
                                     Text="-" 
                                     StyleClass="CustomNumericInputButtonStyle" />
 
-                            </Grid>
+                                </Grid>
 
-                        </ControlTemplate>
-                    </telerikInput:RadNumericInput.ControlTemplate>
-                </telerikInput:RadNumericInput>
-            </StackLayout>
+                            </ControlTemplate>
+                        </telerikInput:RadNumericInput.ControlTemplate>
+                    </telerikInput:RadNumericInput>
+                </StackLayout>
 
-            <StackLayout Margin="10, 20">
-                <Label Text="{Binding Calories, StringFormat='Calories: {0:0}'}" TextColor="#5A5B5B" />
+                <StackLayout Margin="10, 20">
+                    <Label AutomationId="Calories" Text="{Binding Calories, StringFormat='Calories: {0:0}'}" TextColor="#5A5B5B" />
 
-                <telerikInput:RadButton Text="CALCULATE"
+                    <telerikInput:RadButton Text="CALCULATE"
                         Margin="0, 10, 0, 0"
                         BackgroundColor="#FB8006"
                         FontSize="20"
@@ -276,9 +290,9 @@
                         BorderColor="#FB8006"
                         BorderThickness="1"
                         Command="{Binding CalculateCommand}" />
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-    </Grid>
+        </Grid>
     </ScrollView>
-   
+
 </ContentView>

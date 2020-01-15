@@ -10,6 +10,7 @@ namespace QSF.Examples.AccordionControl.ConfigurationExample
         private Color borderColor = NameToColorConverter.LightGray;
         private double borderThickness = 1;
         private bool isAnimationEnabled = true;
+        private bool canCollapseAllItems;
         private int animationDuration = 500;
         private Easing animationEasing = Easing.SinIn;
         private ExpandCollapseIndicatorLocation indicatorLocation;
@@ -62,6 +63,22 @@ namespace QSF.Examples.AccordionControl.ConfigurationExample
                 if (this.isAnimationEnabled != value)
                 {
                     this.isAnimationEnabled = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool CanCollapseAllItems
+        {
+            get
+            {
+                return this.canCollapseAllItems;
+            }
+            set
+            {
+                if (this.canCollapseAllItems != value)
+                {
+                    this.canCollapseAllItems = value;
                     this.OnPropertyChanged();
                 }
             }

@@ -26,7 +26,7 @@
                 <Setter Property="WidthRequest">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android, iOS">48</On>
+                            <On Platform="Android, iOS">44</On>
                             <On Platform="UWP">64</On>
                         </OnPlatform>
                     </Setter.Value>
@@ -114,7 +114,8 @@
         <telerikImageEditor:RadImageEditorToolbar Grid.Row="2"
                                                   BackgroundColor="#F7F7F7"
                                                   ImageEditor="{x:Reference imageEditor}"
-                                                  AutoGenerateItems="False">
+                                                  AutoGenerateItems="False"
+                                                  IsMultiLine="True">
             <telerikImageEditor:CropToolbarItem x:Name="cropToolbarItem"
                                                 HorizontalOptions="Start"
                                                 AutoGenerateItems="False"
