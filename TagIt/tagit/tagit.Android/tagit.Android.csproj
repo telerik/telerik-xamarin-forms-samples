@@ -63,6 +63,11 @@
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+  </PropertyGroup>
+  
   <ItemGroup>
     <Reference Include="FFImageLoading, Version=2.4.11.982, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.FFImageLoading.2.4.11.982\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
@@ -107,12 +112,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.ObjectModel" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
-
-    <PropertyGroup>
-      <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
-    </PropertyGroup>
-    
+    <Reference Include="System.Xml" />    
     <Reference Include="Telerik.Xamarin.Android.Chart">
       <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
