@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:chart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:converters="clr-namespace:ArtGalleryCRM.Forms.Converters;assembly=ArtGalleryCRM.Forms"
+             xmlns:conversationalUi="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
+             xmlns:crmCommon="clr-namespace:ArtGalleryCRM.Forms.Common;assembly=ArtGalleryCRM.Forms"
+             xmlns:pdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
+             xmlns:imageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
+             x:Class="ArtGalleryCRM.Forms.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary MergedWith="crmCommon:CustomThemeStyles" />
+                <ResourceDictionary MergedWith="input:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="primitives:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="chart:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="dataControls:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="dataGrid:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="imageEditor:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="conversationalUi:TelerikThemeStyles" />
+                <ResourceDictionary MergedWith="pdfViewer:TelerikThemeStyles" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Color Resources -->
+
+            <Color x:Key="AccentColor">#232A39</Color>
+            <Color x:Key="AccentDarkColor">#0F171E</Color>
+            <Color x:Key="AccentLightColor">#3D4268</Color>
+            <Color x:Key="AccentSecondaryColor">#6196D1</Color>
+            <Color x:Key="AccentTertiaryColor">#BAB65A</Color>
+
+            <Color x:Key="LightBaseColor">#FFFFFF</Color>
+            <Color x:Key="DarkBaseColor">#003366</Color>
+            <Color x:Key="MediumBaseColor">#969393</Color>
+
+            <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
+            <Color x:Key="GrayBackgroundColor">#C0C0C0</Color>
+
+            <Color x:Key="LightTranslucentBackgroundColor">#CCEAEAEC</Color>
+            <Color x:Key="MediumTranslucentBackgroundColor">#AA000000</Color>
+            <Color x:Key="DarkTranslucentBackgroundColor">#CC000000</Color>
+
+            <Color x:Key="ExtraLightTextColor">#FFFFFF</Color>
+            <Color x:Key="LightGrayTextColor">#999999</Color>
+            <Color x:Key="DarkGrayTextColor">#4d4d4d</Color>
+
+            <!-- Converters -->
+
+            <converters:IntToDoubleConverter x:Key="IntToDoubleConverter" />
+            <converters:DateTimeToDateStringConverter x:Key="DateTimeToDateStringConverter" />
+            <converters:ConfigurableBoolConverter x:Key="InvertBoolConverter"
+                                                  x:TypeArguments="x:Boolean"
+                                                  TrueResult="False"
+                                                  FalseResult="True" />
+            <converters:NameToInitialsConverter x:Key="NameToInitialsConverter" />
+
+            <!-- Shared configurations -->
+
+            <RowDefinitionCollection x:Key="AutoStarRowDefinitions">
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </RowDefinitionCollection>
+
+            <RowDefinitionCollection x:Key="OneTwoStarRowDefinitions">
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+            </RowDefinitionCollection>
+
+            <!-- Styles -->
+
+            <Style x:Key="BaseListViewStyle"
+                   TargetType="dataControls:RadListView">
+                <Setter Property="Margin"
+                        Value="{OnPlatform Android='16,0', UWP='16,0', iOS='3,0'}" />
+                <Setter Property="SelectionMode"
+                        Value="None" />
+            </Style>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="{StaticResource AccentColor}" />
+                <Setter Property="BarTextColor"
+                        Value="{StaticResource ExtraLightTextColor}" />
+            </Style>
+
+            <Style x:Key="PageDescriptionStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="White" />
+                <Setter Property="FontSize"
+                        Value="16" />
+            </Style>
+
+            <Style x:Key="BusyIndicatorBaseStyle"
+                   TargetType="primitives:RadBusyIndicator">
+                <Setter Property="AnimationType"
+                        Value="Animation6" />
+                <Setter Property="AnimationContentHeightRequest"
+                        Value="100" />
+                <Setter Property="AnimationContentWidthRequest"
+                        Value="100" />
+                <Setter Property="AnimationContentColor"
+                        Value="{StaticResource AccentColor}" />
+                <Setter Property="HorizontalOptions"
+                        Value="Fill" />
+                <Setter Property="VerticalOptions"
+                        Value="Fill" />
+                <Setter Property="BusyContentTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter Content="{TemplateBinding Path=AnimationContent}"
+                                                  Grid.Row="1" />
+                                <ContentPresenter Content="{TemplateBinding Path=BusyContent}"
+                                                  Grid.Row="2" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="TopPageBusyIndicatorStyle"
+                   TargetType="primitives:RadBusyIndicator"
+                   BasedOn="{StaticResource BusyIndicatorBaseStyle}">
+                <Setter Property="BackgroundColor"
+                        Value="Transparent" />
+            </Style>
+
+            <Style x:Key="BusyIndicatorStyle"
+                   TargetType="primitives:RadBusyIndicator"
+                   BasedOn="{StaticResource BusyIndicatorBaseStyle}">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource LightTranslucentBackgroundColor}" />
+            </Style>
+
+            <Style x:Key="PageHeaderGridStyle"
+                   TargetType="Grid">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource AccentLightColor}" />
+            </Style>
+
+            <Style x:Key="PageHeaderStackLayoutStyle"
+                   TargetType="StackLayout">
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource AccentLightColor}" />
+            </Style>
+
+            <Style x:Key="ImageBorderCircleStyle"
+                   TargetType="primitives:RadBorder">
+                <Setter Property="BorderThickness"
+                        Value="2" />
+                <Setter Property="CornerRadius"
+                        Value="90" />
+                <Setter Property="BorderColor"
+                        Value="{StaticResource GrayBackgroundColor}" />
+            </Style>
+
+            <Style x:Key="HintOverlayLabelStyle"
+                   TargetType="Label">
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="LineBreakMode"
+                        Value="WordWrap" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource ExtraLightTextColor}" />
+            </Style>
+
+            <Style x:Key="UrlTextStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource DarkGrayTextColor}" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+            </Style>
+
+            <Style x:Key="BaseRadButtonStyle"
+                   TargetType="input:RadButton">
+                <Setter Property="BorderThickness"
+                        Value="0" />
+            </Style>
+
+            <Style x:Key="ExportButtonStyle"
+                   TargetType="input:RadButton"
+                   BasedOn="{StaticResource BaseRadButtonStyle}">
+                <Setter Property="WidthRequest"
+                        Value="60" />
+                <Setter Property="HeightRequest"
+                        Value="60" />
+                <Setter Property="FontSize"
+                        Value="Micro" />
+                <Setter Property="CornerRadius"
+                        Value="10" />
+                <Setter Property="BorderRadius"
+                        Value="10" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource ExtraLightTextColor}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource AccentSecondaryColor}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

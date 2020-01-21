@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:commands="clr-namespace:Telerik.XamarinForms.DataControls.ListView.Commands;assembly=Telerik.XamarinForms.DataControls"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:barcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
+                xmlns:system="clr-namespace:System;assembly=netstandard"
+                x:Class="ArtGalleryCRM.Forms.Views.CustomerPages.CustomerDetailPage"
+                Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="order"
+                     IconImageSource="add_order.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="order" />
+        <ToolbarItem Text="edit"
+                     IconImageSource="edit.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="edit" />
+        <!-- This demo is readonly, uncomment deletion code to implement with your data.-->
+        <!--<ToolbarItem Text="delete"
+                     Icon="delete.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="delete" />-->
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource PageHeaderGridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout HorizontalOptions="Center"
+                         Padding="10">
+                <Label Text="{Binding SelectedCustomer.Name}"
+                       TextColor="{StaticResource ExtraLightTextColor}"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       Margin="{OnPlatform Android='0,5,0,0', UWP='0,6,0,0', iOS='0,5,0,0'}" />
+
+                <Label Text="{Binding SelectedCustomer.Street}"
+                       TextColor="{StaticResource LightBackgroundColor}"
+                       HorizontalTextAlignment="Center" />
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Margin="0,0,0,5">
+                    <Label Text="{Binding SelectedCustomer.City, StringFormat='{0}, '}"
+                           TextColor="{StaticResource LightBackgroundColor}" />
+                    <Label Text="{Binding SelectedCustomer.State, StringFormat='{0} '}"
+                           TextColor="{StaticResource LightBackgroundColor}" />
+                    <Label Text="{Binding SelectedCustomer.ZipCode, StringFormat='{0} '}"
+                           TextColor="{StaticResource LightBackgroundColor}" />
+                    <Label Text="{Binding SelectedCustomer.Country}"
+                           TextColor="{StaticResource LightBackgroundColor}" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+
+        <Label Text="Order History"
+               TextColor="{StaticResource DarkGrayTextColor}"
+               HorizontalOptions="Center"
+               FontSize="{OnPlatform Android='18', UWP='24', iOS='18'}"
+               Grid.Row="1" />
+
+        <Grid x:Name="OrderHistoryGrid"
+              Grid.Row="2">
+            <dataControls:RadListView ItemsSource="{Binding SelectedCustomerOrders}"
+                                      IsPullToRefreshEnabled="True"
+                                      Style="{StaticResource BaseListViewStyle}">
+                <dataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <listView:ListViewTemplateCell>
+                            <Grid x:Name="ItemGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout x:Name="DetailsPanel"
+                                             Margin="10,5">
+                                    <Label Text="{Binding DeliveryService}"
+                                           TextColor="{StaticResource AccentDarkColor}"
+                                           FontAttributes="Bold"
+                                           FontSize="Medium" />
+                                    <Label Text="{Binding OrderDate, StringFormat='Ordered: {0:MMMM dd, yyyy}'}"
+                                           TextColor="{StaticResource DarkGrayTextColor}" />
+                                    <Label Text="{Binding TotalPrice, StringFormat='Total: {0:C2}'}"
+                                           TextColor="{StaticResource DarkGrayTextColor}" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding City, StringFormat='{0}, '}"
+                                               TextColor="{StaticResource LightGrayTextColor}" />
+                                        <Label Text="{Binding State, StringFormat='{0} '}"
+                                               TextColor="{StaticResource LightGrayTextColor}" />
+                                        <Label Text="{Binding Country}"
+                                               TextColor="{StaticResource LightGrayTextColor}" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <barcode:RadBarcode Value="{Binding ProductId}"
+                                                    BackgroundColor="Transparent"
+                                                    ForegroundColor="{StaticResource AccentLightColor}"
+                                                    VerticalOptions="Fill"
+                                                    HorizontalOptions="End"
+                                                    Grid.Column="1">
+                                    <barcode:RadBarcode.Symbology>
+                                        <barcode:QRCode />
+                                    </barcode:RadBarcode.Symbology>
+                                </barcode:RadBarcode>
+                            </Grid>
+                        </listView:ListViewTemplateCell>
+                    </DataTemplate>
+                </dataControls:RadListView.ItemTemplate>
+                <dataControls:RadListView.Commands>
+                    <commands:ListViewUserCommand Id="ItemTap"
+                                                  Command="{Binding ItemTapCommand}" />
+                    <commands:ListViewUserCommand Id="PullToRefreshRequested"
+                                                  Command="{Binding RefreshRequestedCommand}" />
+                </dataControls:RadListView.Commands>
+                <dataControls:RadListView.LayoutDefinition>
+                    <listView:ListViewLinearLayout>
+                        <listView:ListViewLinearLayout.VerticalItemSpacing>
+                            <OnPlatform x:TypeArguments="system:Double">
+                                <On Platform="iOS"
+                                    Value="5" />
+                                <On Platform="Android"
+                                    Value="5" />
+                                <On Platform="UWP"
+                                    Value="5" />
+                            </OnPlatform>
+                        </listView:ListViewLinearLayout.VerticalItemSpacing>
+                        <listView:ListViewLinearLayout.ItemLength>
+                            <OnPlatform x:TypeArguments="system:Double">
+                                <On Platform="iOS"
+                                    Value="110" />
+                                <On Platform="Android"
+                                    Value="110" />
+                                <On Platform="UWP"
+                                    Value="150" />
+                            </OnPlatform>
+                        </listView:ListViewLinearLayout.ItemLength>
+                    </listView:ListViewLinearLayout>
+                </dataControls:RadListView.LayoutDefinition>
+            </dataControls:RadListView>
+
+            <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                         IsVisible="{Binding IsBusy}"
+                                         IsBusy="{Binding IsBusy}"
+                                         Style="{StaticResource BusyIndicatorStyle}">
+                <primitives:RadBusyIndicator.BusyContent>
+                    <Label Text="{Binding IsBusyMessage}"
+                           BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                           HorizontalTextAlignment="Center" />
+                </primitives:RadBusyIndicator.BusyContent>
+            </primitives:RadBusyIndicator>
+        </Grid>
+    </Grid>
+</views:BasePage>

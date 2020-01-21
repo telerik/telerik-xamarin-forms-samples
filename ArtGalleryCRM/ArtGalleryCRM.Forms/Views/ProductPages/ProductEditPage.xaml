@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:behaviors="clr-namespace:ArtGalleryCRM.Forms.Behaviors;assembly=ArtGalleryCRM.Forms"
+                xmlns:productViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.ProductViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.ProductPages.ProductEditPage"
+                Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <productViewModels:ProductEditViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="save"
+                     IconImageSource="save.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="save" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid RowDefinitions="{StaticResource AutoStarRowDefinitions}">
+            <Grid Style="{StaticResource PageHeaderGridStyle}">
+                <ff:CachedImage Source="{Binding SelectedProduct.PhotoUri}"
+                                LoadingPlaceholder="download_placeholder.png"
+                                ErrorPlaceholder="download_error_placeholder.png"
+                                Aspect="AspectFit"/>
+
+                <input:RadButton ImageSource="edit.png"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 BackgroundColor="{StaticResource MediumTranslucentBackgroundColor}"
+                                 Command="{Binding SetPhotoCommand}" 
+                                 CornerRadius="90"/>
+            </Grid>
+
+            <input:RadDataForm x:Name="DataForm"
+                               Source="{Binding SelectedProduct}"
+                               Grid.Row="1"
+                               Margin="10,0,10,0"
+                               StyleClass="TelerikTheme">
+                <input:RadDataForm.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="FormValidationCompleted"
+                                                      Command="{Binding FormValidationCompleteCommand}" />
+                </input:RadDataForm.Behaviors>
+            </input:RadDataForm>
+        </Grid>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

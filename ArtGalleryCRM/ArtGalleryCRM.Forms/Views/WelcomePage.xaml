@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                ios:Page.UseSafeArea="true"
+                ios:Page.LargeTitleDisplay="Automatic"
+                x:Class="ArtGalleryCRM.Forms.Views.WelcomePage">
+
+    <ContentPage.BindingContext>
+        <viewModels:WelcomeViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid HorizontalOptions="FillAndExpand"
+          Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid BackgroundColor="{StaticResource AccentDarkColor}"
+              HorizontalOptions="FillAndExpand"
+              Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="TitleBarImage"
+                   Source="master_logo_75.png"
+                   VerticalOptions="Center"
+                   WidthRequest="40"
+                   HeightRequest="40"
+                   Margin="0,0,10,0" />
+
+            <Label Text="Welcome!"
+                   TextColor="{StaticResource ExtraLightTextColor}"
+                   FontSize="26"
+                   Grid.Column="1"
+                   VerticalOptions="Center" />
+        </Grid>
+
+        <primitives:RadSlideView ItemsSource="{Binding WelcomeCards}"
+                                 SelectedIndicatorColor="{StaticResource AccentDarkColor}"
+                                 IndicatorColor="{StaticResource GrayBackgroundColor}"
+                                 SlideButtonsColor="{StaticResource AccentLightColor}"
+                                 IsAnimated="True"
+                                 ShowButtons="True"
+                                 VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 IsInfiniteScrollingEnabled="True"
+                                 HorizontalContentOptions="Center"
+                                 VerticalContentOptions="Center"
+                                 Grid.Row="1">
+            <primitives:RadSlideView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Title}"
+                               TextColor="{StaticResource AccentLightColor}"
+                               FontAttributes="Bold"
+                               FontSize="{OnPlatform Android='26', iOS='26', UWP='28'}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="20" />
+
+                        <forms:CachedImage Source="{Binding IconSource}"
+                                           LoadingPlaceholder="download_placeholder.png"
+                                           ErrorPlaceholder="download_error_placeholder.png"
+                                           WidthRequest="{OnPlatform Android='256', iOS='200', UWP='256'}"
+                                           HeightRequest="{OnPlatform Android='256', iOS='200', UWP='256'}"
+                                           Margin="40"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+
+                        <Label Text="{Binding Subtitle}"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               TextColor="{StaticResource DarkGrayTextColor}"
+                               Margin="{OnPlatform Android='20,10,20,40', iOS='20,10,20,30', UWP='26'}" />
+                    </StackLayout>
+                </DataTemplate>
+            </primitives:RadSlideView.ItemTemplate>
+        </primitives:RadSlideView>
+
+        <input:RadButton Command="{Binding GetStartedCommand}"
+                         BackgroundColor="{StaticResource AccentSecondaryColor}"
+                         TextColor="{StaticResource ExtraLightTextColor}"
+                         CornerRadius="{OnPlatform Android='30', iOS='10', UWP='10'}"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         WidthRequest="200"
+                         Style="{StaticResource BaseRadButtonStyle}"
+                         Margin="10"
+                         Text="Get Started"
+                         Grid.Row="2" />
+    </Grid>
+</views:BasePage>

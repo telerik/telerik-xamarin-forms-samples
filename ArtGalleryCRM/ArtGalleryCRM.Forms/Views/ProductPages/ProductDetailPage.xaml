@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.ProductPages.ProductDetailPage"
+                Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="order"
+                     IconImageSource="add_order.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="order" />
+        <ToolbarItem Text="edit"
+                     IconImageSource="edit.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="edit" />
+        <!-- This demo is readonly, uncomment deletion code to implement with your data.-->
+        <!--<ToolbarItem Text="delete"
+                     Icon="delete.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="delete" />-->
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackLayout Style="{StaticResource PageHeaderStackLayoutStyle}"
+                     VerticalOptions="Start">
+            <ff:CachedImage Source="{Binding SelectedProduct.PhotoUri}"
+                            LoadingPlaceholder="download_placeholder.png"
+                            ErrorPlaceholder="download_error_placeholder.png"
+                            VerticalOptions="Start"
+                            Aspect="AspectFill" />
+
+            <StackLayout BackgroundColor="{StaticResource AccentLightColor}"
+                         Padding="10,8,10,10">
+
+                <Label Text="{Binding SelectedProduct.Title}"
+                       TextColor="{StaticResource ExtraLightTextColor}"
+                       IsVisible="{OnPlatform Android='False', iOS='True', UWP='False'}"
+                       FontSize="Medium" />
+
+                <Label Text="{Binding SelectedProduct.Price, StringFormat='{0:C0}'}"
+                       TextColor="{StaticResource ExtraLightTextColor}"
+                       FontAttributes="Bold"
+                       FontSize="Small" />
+
+                <Label Text="{Binding SelectedProduct.InventoryCount, StringFormat='In Stock: {0}'}"
+                       TextColor="{StaticResource ExtraLightTextColor}" />
+
+                <Label Text="{Binding SelectedProduct.IsDiscontinued, StringFormat='Is Discontinued: {0}'}"
+                       IsVisible="{Binding SelectedProduct.IsDiscontinued}"
+                       TextColor="{StaticResource ExtraLightTextColor}" />
+            </StackLayout>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="10">
+                <Label Text="{Binding SelectedProduct.Description}"
+                       LineBreakMode="WordWrap"
+                       TextColor="{StaticResource DarkGrayTextColor}" />
+            </StackLayout>
+        </ScrollView>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}"
+                                     Grid.Row="0"
+                                     Grid.RowSpan="2">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

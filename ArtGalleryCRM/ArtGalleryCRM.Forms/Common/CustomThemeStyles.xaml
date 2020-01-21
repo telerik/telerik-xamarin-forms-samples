@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArtGalleryCRM.Forms.Common.CustomThemeStyles">
+    
+    <!-- Based from the Telerik BlueResources theme-->
+
+    <!-- AutoComplete -->
+    <Color x:Key="TelerikAutoCompleteSelectedTokenBackgroundColor">#3148CA</Color>
+    <Color x:Key="TelerikAutoCompleteSelectedTokenStrokeColor">#3148CA</Color>
+    <Color x:Key="TelerikAutoCompleteSelectedTokenTextColor">#FFFFFF</Color>
+    <Color x:Key="TelerikAutoCompleteSuggestionItemTextColor">#3148CA</Color>
+    <Color x:Key="TelerikAutoCompleteBorderColor">#D9D9D9</Color>
+    <Color x:Key="TelerikAutoCompleteSuggestionViewBackgroundColor">#F8F8F8</Color>
+    <Color x:Key="TelerikAutoCompleteTokenTextColor">#3148CA</Color>
+    <Color x:Key="TelerikAutoCompleteTokenStrokeColor">#3148CA</Color>
+    <Color x:Key="TelerikAutoCompleteTokenBackgroundColor">#F8F8F8</Color>
+
+    <!-- BusyIndicator -->
+    <Color x:Key="TelerikBusyIndicatorContent">#3148CA</Color>
+
+    <!-- Button -->
+    <Color x:Key="TelerikButtonBackgroundColor">#3148CA</Color>
+    <Color x:Key="TelerikButtonTextColor">White</Color>
+
+    <!-- Calendar -->
+    <Color x:Key="TelerikCalendarBasicFontColor">#4A4949</Color>
+    <Color x:Key="TelerikCalendarAlternativeFontColor">#919191</Color>
+    <Color x:Key="TelerikCalendarMenuBarColor">#F8F8F8</Color>
+    <Color x:Key="TelerikCalendarAccentColor1">#3148CA</Color>
+    <Color x:Key="TelerikCalendarAccentColor2">#30BCFF</Color>
+    <Color x:Key="TelerikCalendarBackgroundColor1">#3D5AFE</Color>
+    <Color x:Key="TelerikCalendarBackgroundColor2">#000000</Color>
+    <Color x:Key="TelerikCalendarBackgroundColor3">#FFFFFF</Color>
+
+    <!-- Chart -->
+    <Color x:Key="TelerikChartAxisColor">#919191</Color>
+    <Color x:Key="TelerikChartGridLinesColor">#D9D9D9</Color>
+
+    <!-- Chat -->
+    <Color x:Key="TelerikChatIncomingMessageTextColor">#333333</Color>
+    <Color x:Key="TelerikChatOutgoingMessageTextColor">#FFFFFF</Color>
+    <Color x:Key="TelerikChatIncomingMessageBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="TelerikChatOutgoingMessageBackgroundColor">#3148CA</Color>
+    <Color x:Key="TelerikChatCardTitleTextColor">#3148CA</Color>
+    <Color x:Key="TelerikChatCardActionTextColor">#3148CA</Color>
+    <Color x:Key="TelerikChatTypingIndicatorDotsColor">#3148CA</Color>
+    <Color x:Key="TelerikChatPickerHeaderBackgroundColor">#F8F8F8</Color>
+    <Color x:Key="TelerikChatPickerHeaderTextColor">#3148CA</Color>
+    <Color x:Key="TelerikChatPickerOkButtonTextColor">#3148CA</Color>
+    <Color x:Key="TelerikChatPickerCancelButtonTextColor">#3148CA</Color>
+    <Color x:Key="TelerikChatPickerFooterBackgroundColor">#F8F8F8</Color>
+    <Color x:Key="TelerikChatItemPickerSelectedBackgroundColor">Transparent</Color>
+    <Color x:Key="TelerikChatItemPickerSelectedBorderColor">#3148CA</Color>
+    <Color x:Key="TelerikChatItemPickerSelectedTextColor">#3148CA</Color>
+
+    <!-- CheckBox -->
+    <Color x:Key="TelerikCheckBoxCheckedColor">#3148CA</Color>
+    <Color x:Key="TelerikCheckBoxCheckedSymbolColor">White</Color>
+    <Color x:Key="TelerikCheckBoxIndeterminateColor">#3148CA</Color>
+    <Color x:Key="TelerikCheckBoxIndeterminateSymbolColor">White</Color>
+    <Color x:Key="TelerikCheckBoxUncheckedColor">#919191</Color>
+
+    <!-- DataForm -->
+    <Color x:Key="TelerikDataFormEditorAccentColor">#3148CA</Color>
+    <Color x:Key="TelerikDataFormBackgroundColor">White</Color>
+    <Color x:Key="TelerikDataFormHeaderFontColor">#919191</Color>
+    <Color x:Key="TelerikDataFormEditorBorderColor">#D9D9D9</Color>
+
+    <!-- DataGrid -->
+    <Color x:Key="TelerikDataGridAccentColor">#3148CA</Color>
+
+    <!-- Entry -->
+    <OnPlatform x:TypeArguments="Color"
+                x:Key="TelerikEntryTextColor">
+        <On Platform="iOS"
+            Value="#020202" />
+    </OnPlatform>
+    <Color x:Key="TelerikEntryBorderColor">#3148CA</Color>
+
+    <!-- Expander -->
+    <Color x:Key="TelerikExpandCollapseIndicatorColor">#3148CA</Color>
+
+    <!-- ListView -->
+    <Color x:Key="TelerikListViewItemBorderColor">#D9D9D9</Color>
+    <Color x:Key="TelerikListViewSelectionColor">#3148CA</Color>
+    <Color x:Key="TelerikListViewBackgroundColor">White</Color>
+    <Color x:Key="TelerikListViewForegroundColor">#4A4949</Color>
+    <Color x:Key="TelerikListViewGroupHeaderBackgroundColor">#F8F8F8</Color>
+
+    <!-- MaskedInput -->
+    <Color x:Key="TelerikMaskedInputBorderColor">#3148CA</Color>
+    <Color x:Key="TelerikMaskedInputWatermarkColor">#3148CA</Color>
+    <Color x:Key="TelerikMaskedInputErrorColor">#D50002</Color>
+    <Color x:Key="TelerikMaskedInputDisplayedTextColor">#4A4949</Color>
+
+    <!-- NonVirtualizedItemsControl -->
+    <Color x:Key="TelerikNonVirtualizedItemsControlSelectedBackgroundColor">Transparent</Color>
+    <Color x:Key="TelerikNonVirtualizedItemsControlSelectedBorderColor">#3148CA</Color>
+    <Color x:Key="TelerikNonVirtualizedItemsControlSelectedTextColor">#3148CA</Color>
+
+    <!-- NumericInput -->
+    <Color x:Key="TelerikNumericInputButtonBorderColor">#3148CA</Color>
+    <Color x:Key="TelerikNumericInputButtonTextColor">#3148CA</Color>
+    <Color x:Key="TelerikNumericInputButtonBackgroundColor">Transparent</Color>
+    <Color x:Key="TelerikNumericInputEntryBorderColor">#3148CA</Color>
+    <OnPlatform x:TypeArguments="Color"
+                x:Key="TelerikNumericInputEntryTextColor">
+        <On Platform="iOS"
+            Value="#020202" />
+    </OnPlatform>
+
+    <!-- Rating -->
+    <Color x:Key="TelerikRatingControlAccentColor">#3148CA</Color>
+
+    <!-- SegmentedControl -->
+    <Color x:Key="TelerikSegmentControlAccentColor">#3148CA</Color>
+    <Color x:Key="TelerikSegmentControlMainColor">#FFFFFF</Color>
+    <Color x:Key="TelerikSegmentControlDisabledTextColor">#803148CA</Color>
+
+    <!-- SlideView -->
+    <Color x:Key="TelerikSlideViewIndicatorColor">#D9D9D9</Color>
+    <Color x:Key="TelerikSlideViewSelectedIndicatorColor">#3148CA</Color>
+    <Color x:Key="TelerikSlideViewSlideButtonsColor">#3148CA</Color>
+
+    <!-- TabView-->
+    <Color x:Key="TelerikTabViewHeaderItemSelectedColor">#3148CA</Color>
+
+    <!-- TimePicker -->
+    <Color x:Key="TelerikTimePickerSelectedBackgroundColor">Transparent</Color>
+    <Color x:Key="TelerikTimePickerSelectedBorderColor">#3148CA</Color>
+    <Color x:Key="TelerikTimePickerSelectedTextColor">#3148CA</Color>
+
+    <!-- TreeView -->
+    <Color x:Key="TelerikTreeViewCheckBoxCheckedColor">#3148CA</Color>
+    <Color x:Key="TelerikTreeViewCheckBoxCheckedSymbolColor">White</Color>
+    <Color x:Key="TelerikTreeViewCheckBoxIndeterminateColor">#3148CA</Color>
+    <Color x:Key="TelerikTreeViewCheckBoxIndeterminateSymbolColor">White</Color>
+    <Color x:Key="TelerikTreeViewCheckBoxUncheckedColor">#919191</Color>
+    <Color x:Key="TelerikTreeViewItemTextTextColor">Black</Color>
+    <Color x:Key="TelerikTreeViewExpandCollapseIndicatorTextColor">#3148CA</Color>
+
+</ResourceDictionary>

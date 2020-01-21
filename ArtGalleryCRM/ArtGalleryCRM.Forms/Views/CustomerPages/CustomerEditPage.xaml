@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:behaviors="clr-namespace:ArtGalleryCRM.Forms.Behaviors;assembly=ArtGalleryCRM.Forms"
+                xmlns:customerViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.CustomerViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.CustomerPages.CustomerEditPage"
+                Title="{Binding Title}"
+                Padding="10,10,10,0">
+
+    <ContentPage.BindingContext>
+        <customerViewModels:CustomerEditViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="save"
+                     IconImageSource="save.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="save" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <input:RadDataForm x:Name="DataForm"
+                           Source="{Binding SelectedCustomer}">
+            <input:RadDataForm.Behaviors>
+                <behaviors:EventToCommandBehavior EventName="FormValidationCompleted"
+                                                  Command="{Binding FormValidationCompleteCommand}"/>
+            </input:RadDataForm.Behaviors>
+        </input:RadDataForm>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>
