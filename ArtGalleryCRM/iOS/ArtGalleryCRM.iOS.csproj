@@ -102,12 +102,64 @@
       <Version>1.3.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
-    <PackageReference Include="Telerik.UI.for.Xamarin" Version="2019.3.1119.1" />
     <PackageReference Include="SkiaSharp" Version="1.68.0" />
     <PackageReference Include="SkiaSharp.Views " Version="1.68.0" />
     <PackageReference Include="SkiaSharp.Views.Forms " Version="1.68.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Telerik.Xamarin.iOS">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.Xamarin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitive">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Barcode.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
