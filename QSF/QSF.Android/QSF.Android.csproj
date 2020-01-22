@@ -64,6 +64,9 @@
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
+  <PropertyGroup>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FFImageLoading, Version=2.4.11.982, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.FFImageLoading.2.4.11.982\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
@@ -137,93 +140,102 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.Documents.Core">
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Core.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Core.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.Fixed">
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Fixed.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Fixed.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.Flow">
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Flow.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.Flow.FormatProviders.Pdf">
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.Pdf">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.SpreadsheetStreaming">
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Chart, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Xamarin.Android.Chart">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Chart.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Common, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Xamarin.Android.Common">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Common.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Data, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Xamarin.Android.Data">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Data.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Data.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Gauges">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Gauges.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Gauges.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Input, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Xamarin.Android.Input">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Input.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Input.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.Android.List, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Xamarin.Android.List">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.Xamarin.Android.List.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.List.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Primitives, Version=2017.3.1018.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.Xamarin.Android.Primitives">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Primitives.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.Xamarin.Android.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.Barcode.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Chart, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.Chart">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.Chart.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Common, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.Common">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.Common.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataControls, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.DataControls">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.DataControls.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataGrid, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.DataGrid">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.DataGrid.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataVisualization, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ImageEditor">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.ImageEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Input, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.Input">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.Input.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Map">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.Map.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Map.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Primitives, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.Primitives">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.SkiaSharp, Version=2017.3.1018.240, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\MonoAndroid10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Android\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Zip">
-      <HintPath>..\..\Binaries\Portable\Telerik.Zip.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Arch.Core.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.1\lib\monoandroid90\Xamarin.Android.Arch.Core.Common.dll</HintPath>
