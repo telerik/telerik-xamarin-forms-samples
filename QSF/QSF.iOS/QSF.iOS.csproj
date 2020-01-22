@@ -121,6 +121,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Effects\BorderEffect.cs" />
     <Compile Include="Effects\PickerEffect.cs" />
@@ -310,66 +313,75 @@
     <Reference Include="System.Core" />
     <Reference Include="Telerik.Documents.Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Core.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Core.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.Fixed">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Fixed.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Fixed.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.Flow">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Flow.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.Flow.FormatProviders.Pdf">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.Pdf">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Documents.SpreadsheetStreaming">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\Portable\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.iOS">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.Xamarin.iOS.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.Xamarin.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.Barcode.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Chart">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.Chart.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Common">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.Common.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataControls">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.DataControls.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataGrid">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.DataGrid.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataVisualization">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ImageEditor">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.ImageEditor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Input">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.Input.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Map">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.Map.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Map.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Primitives">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2019.3.1023.1\lib\xamarinios10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Zip">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Binaries\Portable\Telerik.Zip.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Zip.dll</HintPath>
     </Reference>
     <Reference Include="WebP.Touch, Version=1.0.6628.22311, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebP.Touch.1.0.8\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>

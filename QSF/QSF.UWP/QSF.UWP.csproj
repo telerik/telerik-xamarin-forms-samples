@@ -2,9 +2,6 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <UsePublicRepo>true</UsePublicRepo>
-  </PropertyGroup>
-  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{6BBC9A44-B0C5-4BEC-B257-D6EC2B86E127}</ProjectGuid>
@@ -138,6 +135,106 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <PackageCertificateKeyFile>QSF.UWP_StoreKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Telerik.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Data">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Core">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Fixed">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Fixed.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Flow">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Flow.FormatProviders.Pdf">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Spreadsheet.FormatProviders.Pdf">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Chart.UWP">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.UI.Xaml.Chart.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Controls.Data.UWP">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.UI.Xaml.Controls.Data.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Input.UWP">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.UI.Xaml.Input.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.UI.Xaml.Primitives.UWP">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.UI.Xaml.Primitives.UWP.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Barcode">
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualizationL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Map">
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Map.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Zip">
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <Content Include="Assets\Accordion_Configuration.scale-100.png" />
@@ -1868,13 +1965,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <Choose>
-    <When Condition=" '$(UsePublicRepo)'=='true' ">
-      <ItemGroup>
-        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2019.3.1023.1" />
-      </ItemGroup>
-    </When>
-  </Choose>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
