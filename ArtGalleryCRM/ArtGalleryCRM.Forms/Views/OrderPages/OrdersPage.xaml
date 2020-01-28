@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:viewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels;assembly=ArtGalleryCRM.Forms"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+                xmlns:behaviors="clr-namespace:ArtGalleryCRM.Forms.Behaviors;assembly=ArtGalleryCRM.Forms"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:spreadsheetStreaming="clr-namespace:Telerik.Documents.SpreadsheetStreaming;assembly=Telerik.Documents.SpreadsheetStreaming"
+                xmlns:orderViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.OrderViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.OrderPages.OrdersPage"
+                Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <orderViewModels:OrdersViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="sync"
+                     IconImageSource="refresh.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="sync" />
+        <ToolbarItem Text="add"
+                     IconImageSource="add_new.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="add" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <dataGrid:RadDataGrid x:Name="DataGrid"
+                              ItemsSource="{Binding Orders}"
+                              IsBusy="{Binding IsBusy}"
+                              AutoGenerateColumns="False"
+                              UserGroupMode="Enabled"
+                              UserFilterMode="Enabled"
+                              UserSortMode="Multiple">
+            <dataGrid:RadDataGrid.Behaviors>
+                <behaviors:EventToCommandBehavior EventName="SelectionChanged"
+                                                  Command="{Binding SelectionChangedCommand}" />
+            </dataGrid:RadDataGrid.Behaviors>
+            <dataGrid:RadDataGrid.Columns>
+                <dataGrid:DataGridDateColumn PropertyName="OrderDate"
+                                             HeaderText="Ordered"
+                                             CellContentFormat="{}{0:d}" />
+                <dataGrid:DataGridNumericalColumn PropertyName="Quantity"
+                                                  HeaderText="Quantity"
+                                                  CellContentFormat="{}{0:N0}" />
+                <dataGrid:DataGridNumericalColumn PropertyName="TotalPrice"
+                                                  HeaderText="Total"
+                                                  CellContentFormat="{}{0:C0}" />
+                <dataGrid:DataGridTextColumn PropertyName="DeliveryService"
+                                             HeaderText="Delivery" />
+                <dataGrid:DataGridTextColumn PropertyName="City"
+                                             HeaderText="City" />
+                <dataGrid:DataGridTextColumn PropertyName="State"
+                                             HeaderText="State" />
+                <dataGrid:DataGridTextColumn PropertyName="Country"
+                                             HeaderText="Country" />
+            </dataGrid:RadDataGrid.Columns>
+        </dataGrid:RadDataGrid>
+
+        <input:RadButton Text="Export"
+                         Command="{Binding TogglePopupCommand}"
+                         BackgroundColor="{StaticResource AccentTertiaryColor}"
+                         TextColor="{StaticResource ExtraLightTextColor}"
+                         HorizontalOptions="End"
+                         VerticalOptions="End"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         CornerRadius="10"
+                         Padding="10"
+                         Margin="10"
+                         BorderThickness="0">
+            <primitives:RadPopup.Popup>
+                <primitives:RadPopup x:Name="popup"
+                                     IsOpen="{Binding IsPopupOpen, Mode=TwoWay}">
+                    <primitives:RadBorder CornerRadius="10"
+                                          Padding="10"
+                                          Margin="20"
+                                          BackgroundColor="{StaticResource MediumTranslucentBackgroundColor}">
+                        <StackLayout Spacing="10">
+                            <input:RadButton Text="XLSX"
+                                             Command="{Binding SpreadsheetExportCommand}"
+                                             CommandParameter="{x:Static spreadsheetStreaming:SpreadDocumentFormat.Xlsx}"
+                                             Style="{StaticResource ExportButtonStyle}" />
+                            <input:RadButton Text="CSV"
+                                             Command="{Binding SpreadsheetExportCommand}"
+                                             CommandParameter="{x:Static spreadsheetStreaming:SpreadDocumentFormat.Csv}"
+                                             Style="{StaticResource ExportButtonStyle}" />
+                        </StackLayout>
+                    </primitives:RadBorder>
+                </primitives:RadPopup>
+            </primitives:RadPopup.Popup>
+        </input:RadButton>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource TopPageBusyIndicatorStyle}">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

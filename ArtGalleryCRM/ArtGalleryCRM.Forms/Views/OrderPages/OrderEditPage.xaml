@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:numericInput="clr-namespace:Telerik.XamarinForms.Input.NumericInput;assembly=Telerik.XamarinForms.Input"
+                xmlns:behaviors="clr-namespace:ArtGalleryCRM.Forms.Behaviors;assembly=ArtGalleryCRM.Forms"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:orderViewModels="clr-namespace:ArtGalleryCRM.Forms.ViewModels.OrderViewModels;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.OrderPages.OrderEditPage"
+                Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ThemedNumericInputEntryStyle"
+                   TargetType="numericInput:NumericInputEntry">
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+                <Setter Property="Padding"
+                        Value="0,0,0,0" />
+                <Setter Property="Keyboard"
+                        Value="Numeric" />
+                <Setter Property="MinimumWidthRequest"
+                        Value="100" />
+                <Setter Property="HorizontalOptions"
+                        Value="Fill" />
+                <Setter Property="BorderStyle">
+                    <Setter.Value>
+                        <input:BorderStyle BorderColor="{StaticResource AccentLightColor}"
+                                           BorderThickness="{OnPlatform Android='0,0,0,2', iOS='2', UWP='2'}" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <ControlTemplate x:Key="NoButtonsNumericEntryControlTemplate">
+                <Grid MinimumHeightRequest="{OnPlatform Android='28', iOS='28', UWP='33'}"
+                      HeightRequest="{OnPlatform Android='45', iOS='36', UWP='32'}">
+                    <numericInput:NumericInputEntry x:Name="PART_Entry"
+                                                    StyleClass="TelerikTheme"
+                                                    Text="{TemplateBinding Value, Mode=OneWay}"
+                                                    InputTransparent="{TemplateBinding IsReadOnly}"
+                                                    Style="{StaticResource ThemedNumericInputEntryStyle}" />
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <orderViewModels:OrderEditViewModel x:Name="ViewModel"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="save"
+                     IconImageSource="save.png"
+                     Command="{Binding ToolbarCommand}"
+                     CommandParameter="save" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <ScrollView x:Name="RootScrollView">
+            <StackLayout Padding="{OnPlatform Android='10,10,10,0', iOS='10,10,10,0', UWP='10,10,10,0'}">
+                <Label Text="Product"
+                       TextColor="{StaticResource DarkGrayTextColor}" />
+                <Grid x:Name="ProductSelectionGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Picker x:Name="ProductPicker"
+                            ItemsSource="{Binding Products}"
+                            SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding Title}" />
+
+                    <ff:CachedImage Source="{Binding SelectedProduct.PhotoUri}"
+                                    HeightRequest="{Binding Height, Source={x:Reference ProductPicker}}"
+                                    Grid.Column="1"
+                                    Margin="5,0,0,0">
+                        <ff:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ProductImageTappedCommand}" />
+                        </ff:CachedImage.GestureRecognizers>
+                    </ff:CachedImage>
+                </Grid>
+
+                <Label Text="Customer"
+                       TextColor="{StaticResource DarkGrayTextColor}" />
+                <Picker x:Name="CustomerPicker"
+                        ItemsSource="{Binding Customers}"
+                        SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"
+                        ItemDisplayBinding="{Binding Name}" />
+
+                <Label Text="Employee"
+                       TextColor="{StaticResource DarkGrayTextColor}" />
+                <Picker x:Name="EmployeePicker"
+                        ItemsSource="{Binding Employees}"
+                        SelectedItem="{Binding SelectedEmployee, Mode=TwoWay}"
+                        ItemDisplayBinding="{Binding Name}" />
+
+                <Label Text="Order Date"
+                       TextColor="{StaticResource DarkGrayTextColor}" />
+                <DatePicker x:Name="OrderDateDatePicker"
+                            Date="{Binding SelectedOrder.OrderDate, Mode=TwoWay}"
+                            HorizontalOptions="Start"
+                            Margin="0,0,0,10" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Quantity"
+                           TextColor="{StaticResource DarkGrayTextColor}" />
+                    <Label Text="{Binding SelectedOrder.TotalPrice, StringFormat='(calculated total: {0:C})'}"
+                           TextColor="{StaticResource DarkGrayTextColor}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,0,0,20">
+                    <input:RadNumericInput x:Name="QuantityNumericInput"
+                                           Value="{Binding SelectedOrder.Quantity, Mode=TwoWay, Converter={StaticResource IntToDoubleConverter}}"
+                                           WidthRequest="100"
+                                           Minimum="0"
+                                           Step="1"
+                                           StyleClass="TelerikTheme"
+                                           ControlTemplate="{StaticResource NoButtonsNumericEntryControlTemplate}"
+                                           Margin="0,0,10,0">
+                        <input:RadNumericInput.Behaviors>
+                            <behaviors:EventToCommandBehavior EventName="ValueChanged"
+                                                              Command="{Binding QuantityChangedCommand}" />
+                        </input:RadNumericInput.Behaviors>
+                    </input:RadNumericInput>
+
+                    <Label Text="{Binding SelectedProduct.InventoryCount, StringFormat='({0} available)'}"
+                           VerticalOptions="Center"
+                           FontAttributes="Italic"
+                           TextColor="{StaticResource LightGrayTextColor}" />
+                </StackLayout>
+
+                <Label Text="Delivery Service"
+                       TextColor="{StaticResource DarkGrayTextColor}" />
+                <Picker ItemsSource="{Binding DeliveryServices}"
+                        SelectedItem="{Binding SelectedDeliveryService, Mode=TwoWay}"
+                        Margin="0,0,0,20" />
+
+                <input:RadEntry x:Name="StreetEntry"
+                                Text="{Binding SelectedOrder.Street, Mode=TwoWay}"
+                                WatermarkText="Enter street..."
+                                TextColor="{StaticResource DarkGrayTextColor}"
+                                WatermarkTextColor="{StaticResource LightGrayTextColor}"
+                                StyleClass="TelerikTheme">
+                    <input:RadEntry.BorderStyle>
+                        <input:BorderStyle BorderColor="{StaticResource AccentLightColor}"
+                                           BorderThickness="{OnPlatform Android='0,0,0,2', iOS='1', UWP='2'}" />
+                    </input:RadEntry.BorderStyle>
+                </input:RadEntry>
+
+                <input:RadEntry x:Name="CityEntry"
+                                WatermarkText="Enter city..."
+                                Text="{Binding SelectedOrder.City, Mode=TwoWay}"
+                                TextColor="{StaticResource DarkGrayTextColor}"
+                                WatermarkTextColor="{StaticResource LightGrayTextColor}"
+                                StyleClass="TelerikTheme">
+                    <input:RadEntry.BorderStyle>
+                        <input:BorderStyle BorderColor="{StaticResource AccentLightColor}"
+                                           BorderThickness="{OnPlatform Android='0,0,0,2', iOS='1', UWP='2'}" />
+                    </input:RadEntry.BorderStyle>
+                </input:RadEntry>
+
+                <input:RadEntry x:Name="StateEntry"
+                                WatermarkText="Enter state..."
+                                Text="{Binding SelectedOrder.State, Mode=TwoWay}"
+                                TextColor="{StaticResource DarkGrayTextColor}"
+                                WatermarkTextColor="{StaticResource LightGrayTextColor}"
+                                StyleClass="TelerikTheme">
+                    <input:RadEntry.BorderStyle>
+                        <input:BorderStyle BorderColor="{StaticResource AccentLightColor}"
+                                           BorderThickness="{OnPlatform Android='0,0,0,2', iOS='1', UWP='2'}" />
+                    </input:RadEntry.BorderStyle>
+                </input:RadEntry>
+
+                <input:RadEntry x:Name="ZipCodeEntry"
+                                WatermarkText="Enter ZIP code (5 or 9 digit)..."
+                                Text="{Binding SelectedOrder.ZipCode, Mode=TwoWay}"
+                                TextColor="{StaticResource DarkGrayTextColor}"
+                                WatermarkTextColor="{StaticResource LightGrayTextColor}"
+                                StyleClass="TelerikTheme">
+                    <input:RadEntry.BorderStyle>
+                        <input:BorderStyle BorderColor="{StaticResource AccentLightColor}"
+                                           BorderThickness="{OnPlatform Android='0,0,0,2', iOS='1', UWP='2'}" />
+                    </input:RadEntry.BorderStyle>
+                </input:RadEntry>
+
+                <input:RadEntry x:Name="CountryEntry"
+                                WatermarkText="Enter country..."
+                                Text="{Binding SelectedOrder.Country, Mode=TwoWay}"
+                                TextColor="{StaticResource DarkGrayTextColor}"
+                                WatermarkTextColor="{StaticResource LightGrayTextColor}"
+                                StyleClass="TelerikTheme">
+                    <input:RadEntry.BorderStyle>
+                        <input:BorderStyle BorderColor="{StaticResource AccentLightColor}"
+                                           BorderThickness="{OnPlatform Android='0,0,0,2', iOS='1', UWP='2'}" />
+                    </input:RadEntry.BorderStyle>
+                </input:RadEntry>
+
+                <Label Text="Notes"
+                       TextColor="{StaticResource DarkGrayTextColor}" />
+                <Editor x:Name="NotesEntry"
+                        Text="{Binding SelectedOrder.Notes, Mode=TwoWay}"
+                        Margin="0,0,0,10" />
+            </StackLayout>
+        </ScrollView>
+
+        <Grid x:Name="ProductPreviewOverlay"
+              IsVisible="{Binding IsProductPreviewVisible}"
+              BackgroundColor="{StaticResource DarkTranslucentBackgroundColor}">
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ProductImageTappedCommand}" />
+            </Grid.GestureRecognizers>
+
+            <StackLayout VerticalOptions="Center">
+                <ff:CachedImage Source="{Binding SelectedProduct.PhotoUri}"
+                                Margin="20"
+                                VerticalOptions="Center"
+                                InputTransparent="True" />
+
+                <Label Text="(tap anywhere to close)"
+                       TextColor="{StaticResource ExtraLightTextColor}"
+                       HorizontalOptions="Center"
+                       InputTransparent="True" />
+            </StackLayout>
+        </Grid>
+
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     Style="{StaticResource BusyIndicatorStyle}">
+            <primitives:RadBusyIndicator.BusyContent>
+                <Label Text="{Binding IsBusyMessage}"
+                       BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                       HorizontalTextAlignment="Center" />
+            </primitives:RadBusyIndicator.BusyContent>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</views:BasePage>

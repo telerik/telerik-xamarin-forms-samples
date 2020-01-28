@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage x:Name="Page"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:ArtGalleryCRM.Forms.Views;assembly=ArtGalleryCRM.Forms"
+                xmlns:imageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
+                xmlns:effects="clr-namespace:ArtGalleryCRM.Forms.Effects;assembly=ArtGalleryCRM.Forms"
+                x:Class="ArtGalleryCRM.Forms.Views.ImageEditorPage">
+    <Grid>
+        <Grid.Effects>
+            <effects:SafeAreaEffect />
+        </Grid.Effects>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <imageEditor:RadImageEditor x:Name="imageEditor"/>
+
+        <imageEditor:RadImageEditorToolbar ImageEditor="{x:Reference imageEditor}"
+                                           Grid.Row="1">
+            <imageEditor:CommandToolbarItem Text="save" 
+                                            Tapped="SaveToolbarItem_OnTapped" />
+        </imageEditor:RadImageEditorToolbar>
+    </Grid>
+</views:BasePage>
