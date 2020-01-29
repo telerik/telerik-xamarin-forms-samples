@@ -9,7 +9,6 @@
              xmlns:converters="clr-namespace:ArtGalleryCRM.Forms.Converters;assembly=ArtGalleryCRM.Forms"
              xmlns:conversationalUi="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
              xmlns:crmCommon="clr-namespace:ArtGalleryCRM.Forms.Common;assembly=ArtGalleryCRM.Forms"
-             xmlns:pdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
              xmlns:imageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
              x:Class="ArtGalleryCRM.Forms.App">
 
@@ -24,7 +23,6 @@
                 <ResourceDictionary MergedWith="dataGrid:TelerikThemeStyles" />
                 <ResourceDictionary MergedWith="imageEditor:TelerikThemeStyles" />
                 <ResourceDictionary MergedWith="conversationalUi:TelerikThemeStyles" />
-                <ResourceDictionary MergedWith="pdfViewer:TelerikThemeStyles" />
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Color Resources -->

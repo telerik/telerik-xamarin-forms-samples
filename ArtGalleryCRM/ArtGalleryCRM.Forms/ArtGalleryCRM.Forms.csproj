@@ -67,7 +67,7 @@
       <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.Documents.Barcode.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
   </ItemGroup>
 
