@@ -29,6 +29,20 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchExtraArgs>--linkskip=Microsoft.EntityFrameworkCore --linkskip=Microsoft.EntityFrameworkCore.Relational --linkskip=Microsoft.EntityFrameworkCore.Sqlite --linkskip=Remotion.Linq --linkskip=Microsoft.Data.Sqlite.Core --linkskip=Microsoft.EntityFrameworkCore.Sqlite.Core --linkskip=Microsoft.Extensions.DependencyInjection.Abstractions --linkskip=Microsoft.Extensions.DependencyInjection --linkskip=Microsoft.Extensions.Logging.Abstractions --linkskip=Microsoft.Extensions.Logging --linkskip=Microsoft.Extensions.Caching.Abstractions --linkskip=Microsoft.Extensions.Caching.Memory --linkskip=Microsoft.Extensions.Options --linkskip=Microsoft.Extensions.Primitives --linkskip=System.Reflection --linkskip=System.Reflection.Primitives --linkskip=System.Linq --linkskip=System.Linq.Expressions --linkskip=System.Linq.Queryable</MtouchExtraArgs>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Tests|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchExtraArgs>--linkskip=Microsoft.EntityFrameworkCore --linkskip=Microsoft.EntityFrameworkCore.Relational --linkskip=Microsoft.EntityFrameworkCore.Sqlite --linkskip=Remotion.Linq --linkskip=Microsoft.Data.Sqlite.Core --linkskip=Microsoft.EntityFrameworkCore.Sqlite.Core --linkskip=Microsoft.Extensions.DependencyInjection.Abstractions --linkskip=Microsoft.Extensions.DependencyInjection --linkskip=Microsoft.Extensions.Logging.Abstractions --linkskip=Microsoft.Extensions.Logging --linkskip=Microsoft.Extensions.Caching.Abstractions --linkskip=Microsoft.Extensions.Caching.Memory --linkskip=Microsoft.Extensions.Options --linkskip=Microsoft.Extensions.Primitives --linkskip=System.Reflection --linkskip=System.Reflection.Primitives --linkskip=System.Linq --linkskip=System.Linq.Expressions --linkskip=System.Linq.Queryable</MtouchExtraArgs>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
@@ -220,6 +234,7 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
   </ItemGroup>
+  <Import Project="uitests.targets" Condition="'$(Configuration)|$(Platform)' == 'Tests|iPhoneSimulator' Or '$(Configuration)|$(Platform)' == 'Tests|iPhone'" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\TodoApp\TodoApp.csproj">
