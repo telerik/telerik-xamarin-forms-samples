@@ -194,6 +194,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.3.191211002</Version>
+    </PackageReference>
     <PackageReference Include="MvvmCross.Forms">
       <Version>6.4.1</Version>
     </PackageReference>
