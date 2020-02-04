@@ -23,6 +23,17 @@
   <PropertyGroup>
     <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
   </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Tests|AnyCPU' ">
+    <IntermediateOutputPath>obj\Tests</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Tests</OutputPath>
+    <DefineConstants></DefineConstants>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="Telerik.XamarinForms.Common">
