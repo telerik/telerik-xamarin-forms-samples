@@ -16,7 +16,7 @@ namespace ErpApp.Pages
             {
                 var aboutItem = new ToolbarItem();
                 aboutItem.Text = "About";
-                aboutItem.Icon = new FileImageSource() { File = "About" };
+                aboutItem.IconImageSource = new FileImageSource() { File = "About" };
                 aboutItem.SetBinding(ToolbarItem.CommandProperty, new Binding("AboutCommand"));
                 this.ToolbarItems.Add(aboutItem);
             }
