@@ -23,12 +23,12 @@ namespace ErpApp.Pages.Orders
 
                 optionsToolbarItem = new ToolbarItem();
                 optionsToolbarItem.Text = "Layout";
-                optionsToolbarItem.Icon = new FileImageSource() { File = "ellipsis" };
+                optionsToolbarItem.IconImageSource = new FileImageSource() { File = "ellipsis" };
                 optionsToolbarItem.Clicked += this.OptionsToolbarItem_Clicked;
 
                 checkToolbarItem = new ToolbarItem();
                 checkToolbarItem.Text = "Save";
-                checkToolbarItem.Icon = new FileImageSource() { File = "check" };
+                checkToolbarItem.IconImageSource = new FileImageSource() { File = "check" };
                 checkToolbarItem.SetBinding(ToolbarItem.CommandProperty, new Binding("CommitCommand"));
 
                 this.SetBinding(TitleProperty, new Binding("Title"));
