@@ -24,7 +24,9 @@ namespace TodoApp.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+#if __TESTS__
+            Xamarin.Calabash.Start();
+#endif
             return base.FinishedLaunching(app, options);
         }
     }
