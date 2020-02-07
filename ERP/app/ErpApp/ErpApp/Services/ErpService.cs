@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using ErpApp.Models;
 using Microsoft.WindowsAzure.MobileServices;
@@ -20,16 +18,7 @@ namespace ErpApp.Services
         public ErpService(IMvxMessenger messenger)
         {
             this.messenger = messenger;
-
-            //TODO: revert this code when this:https://github.com/Azure/azure-mobile-apps-net-client/issues/514 issue is fixed
-            // old code was: this.client = new MobileServiceClient(Constants.ApplicationURL); 
-
-            var handler = new HttpClientHandler();
-            if (handler.SupportsAutomaticDecompression)
-            {
-                handler.AutomaticDecompression = DecompressionMethods.None;
-            }
-            this.client = new MobileServiceClient(Constants.ApplicationURL, handler);
+            this.client = new MobileServiceClient(Constants.ApplicationURL);
 
             var store = new MobileServiceSQLiteStore(offlineDbPath);
             store.DefineTable<Vendor>();
