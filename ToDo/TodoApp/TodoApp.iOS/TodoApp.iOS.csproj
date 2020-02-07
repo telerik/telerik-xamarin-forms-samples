@@ -29,6 +29,20 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchExtraArgs>--linkskip=Microsoft.EntityFrameworkCore --linkskip=Microsoft.EntityFrameworkCore.Relational --linkskip=Microsoft.EntityFrameworkCore.Sqlite --linkskip=Remotion.Linq --linkskip=Microsoft.Data.Sqlite.Core --linkskip=Microsoft.EntityFrameworkCore.Sqlite.Core --linkskip=Microsoft.Extensions.DependencyInjection.Abstractions --linkskip=Microsoft.Extensions.DependencyInjection --linkskip=Microsoft.Extensions.Logging.Abstractions --linkskip=Microsoft.Extensions.Logging --linkskip=Microsoft.Extensions.Caching.Abstractions --linkskip=Microsoft.Extensions.Caching.Memory --linkskip=Microsoft.Extensions.Options --linkskip=Microsoft.Extensions.Primitives --linkskip=System.Reflection --linkskip=System.Reflection.Primitives --linkskip=System.Linq --linkskip=System.Linq.Expressions --linkskip=System.Linq.Queryable</MtouchExtraArgs>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Tests|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Tests</OutputPath>
+    <DefineConstants>DEBUG;__IOS__;__MOBILE__;__UNIFIED__;__TESTS__</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchExtraArgs>--linkskip=Microsoft.EntityFrameworkCore --linkskip=Microsoft.EntityFrameworkCore.Relational --linkskip=Microsoft.EntityFrameworkCore.Sqlite --linkskip=Remotion.Linq --linkskip=Microsoft.Data.Sqlite.Core --linkskip=Microsoft.EntityFrameworkCore.Sqlite.Core --linkskip=Microsoft.Extensions.DependencyInjection.Abstractions --linkskip=Microsoft.Extensions.DependencyInjection --linkskip=Microsoft.Extensions.Logging.Abstractions --linkskip=Microsoft.Extensions.Logging --linkskip=Microsoft.Extensions.Caching.Abstractions --linkskip=Microsoft.Extensions.Caching.Memory --linkskip=Microsoft.Extensions.Options --linkskip=Microsoft.Extensions.Primitives --linkskip=System.Reflection --linkskip=System.Reflection.Primitives --linkskip=System.Linq --linkskip=System.Linq.Expressions --linkskip=System.Linq.Queryable</MtouchExtraArgs>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
@@ -167,6 +181,9 @@
   <PropertyGroup>
     <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Tests|iPhone'">
+    <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;__TESTS__</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -219,6 +236,9 @@
       <Version>1.3.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xamarin.TestCloud.Agent">
+      <Version>0.21.9</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
