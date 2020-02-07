@@ -287,6 +287,7 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Fonts\fontello.ttf" />
+    <BundleResource Include="Resources\ERP-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TelerikXamarin_Logo.png" />
