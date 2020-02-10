@@ -44,6 +44,7 @@
             <uap:ShowOn Tile="square310x310Logo" />
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\Todo-logo.png" BackgroundColor="#FFFFFF"/>
       </uap:VisualElements>
     </Application>
   </Applications>

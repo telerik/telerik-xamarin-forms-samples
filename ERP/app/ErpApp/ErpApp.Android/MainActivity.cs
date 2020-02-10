@@ -8,7 +8,7 @@ using MvvmCross.Forms.Presenters;
 
 namespace ErpApp.Droid
 {
-    [Activity(Label = "Telerik ERP", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Telerik ERP", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : MvxFormsAppCompatActivity<ErpAndroidSetup, ErpApplication, App>
     {
         protected override void OnCreate(Bundle bundle)
