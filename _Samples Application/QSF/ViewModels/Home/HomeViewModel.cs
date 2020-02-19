@@ -41,6 +41,7 @@ namespace QSF.ViewModels
             this.NavigateToDocumentationCommand = new Command(this.NavigateToDocumentation);
             this.NavigateToProductPageCommand = new Command(this.NavigateToProductPage);
             this.NavigateToWhatsNewPageCommand = new Command(this.NavigateToWhatsNewPage);
+            this.NavigateToPrivacyPolicyPageCommand = new Command(this.NavigateToPrivacyPolicyPage);
         }
 
         public string SideDrawerHeaderIcon { get; }
@@ -100,6 +101,8 @@ namespace QSF.ViewModels
 
         public ICommand NavigateToWhatsNewPageCommand { get; }
 
+        public ICommand NavigateToPrivacyPolicyPageCommand { get; }
+
         private void ToggleIsSideDrawerOpen(object obj)
         {
             this.IsSideDrawerOpen = !this.IsSideDrawerOpen;
@@ -148,6 +151,13 @@ namespace QSF.ViewModels
             AnalyticsHelper.TraceNavigateToWhatsNewPage();
             var configurationService = DependencyService.Get<IConfigurationService>();
             Device.OpenUri(new Uri(configurationService.GetWhatsNewPageURL()));
+        }
+
+        private void NavigateToPrivacyPolicyPage(object obj)
+        {
+            AnalyticsHelper.TraceNavigateToWhatsNewPage();
+            var configurationService = DependencyService.Get<IConfigurationService>();
+            Device.OpenUri(new Uri(configurationService.GetPrivacyPolicyPageURL()));
         }
 
         private void SlideViewTap(object obj)

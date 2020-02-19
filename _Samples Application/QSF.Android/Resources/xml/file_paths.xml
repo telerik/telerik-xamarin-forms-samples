@@ -3,4 +3,5 @@
   <external-files-path name="my_images" path="Pictures" />
   <external-files-path name="my_movies" path="Movies" />
   <external-files-path name="my_telerik" path="Telerik" />
+  <files-path name="my_telerikfiles" path="TelerikFiles" />
 </paths>

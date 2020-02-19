@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.DateTimePickerControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PlaceholderLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="#919191"/>
+            </Style>
+            <Style x:Key="DisplayLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="BorderStyle"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderColor" Value="#919191" />
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+                <Setter Property="Margin" Value="0, 8, 0, 15" />
+            </Style>
+            <Style x:Key="DisabledBorderStyle"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderColor" Value="#919191" />
+                <Setter Property="BorderThickness" Value="0, 0, 0, 0.2" />
+                <Setter Property="Margin" Value="0, 8, 0, 15" />
+            </Style>
+            <Style x:Key="ListViewLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+            </Style>
+            <Style x:Key="TabStripItemStyle"
+                   TargetType="telerikInput:DateTimeSelectorTabStripItem">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="SelectedColor" Value="#007AFF" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="FontSize" Value="21" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout BackgroundColor="#EAEAEA">
+                        <Image Source="graphic.png" 
+                               VerticalOptions="End"
+                               HorizontalOptions="End" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="1"
+                                 Margin="16, 40, 16, 0">
+                        <Label Text="Good Afternoon, Joe"  
+                               TextColor="#007AFF" 
+                               FontSize="22" 
+                               Margin="0,0,0,24" />
+                        <Label Text="Schedule a Trip:"
+                               TextColor="Black" 
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               Margin="0, 0, 0, 21" />
+                        <telerikInput:RadDateTimePicker x:Name="genrePicker"
+                                                        PlaceholderLabelStyle="{StaticResource PlaceholderLabelStyle}"
+                                                        DisplayLabelStyle="{StaticResource DisplayLabelStyle}"
+                                                        TabStripItemStyle="{StaticResource TabStripItemStyle}"
+                                                        SelectedDate="{Binding SelectedDate}"
+                                                        Placeholder="Select Date &amp; Time" />
+                        <telerikPrimitives:RadBorder Style="{StaticResource BorderStyle}" />
+                        <telerikInput:RadListPicker Placeholder="Pickup Location" IsEnabled="False" />
+                        <telerikPrimitives:RadBorder Style="{StaticResource DisabledBorderStyle}" />
+                        <telerikInput:RadListPicker Placeholder="Destination Loacation" IsEnabled="False" />
+                        <telerikPrimitives:RadBorder Style="{StaticResource DisabledBorderStyle}" />
+                        <Label Text="Past Trips:" 
+                               TextColor="#919191"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               Margin="0, 25, 0, 0" />
+                    </StackLayout>
+                    <telerikDataControls:RadListView Grid.Row="2" 
+                                                     ItemsSource="{Binding Data}" 
+                                                     Margin="16,0,16,0">
+                        <telerikDataControls:RadListView.ItemTemplate>
+                            <DataTemplate>
+                                <listView:ListViewTemplateCell>
+                                    <listView:ListViewTemplateCell.View>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" 
+                                                         Orientation="Horizontal" 
+                                                         Margin="0, 15, 10, 15"
+                                                         VerticalOptions="Center">
+                                                <Label Text="{Binding Date, StringFormat='{0: MMM d yyyy}'}" 
+                                                       Style="{StaticResource ListViewLabelStyle}" />
+                                                <Label Text=" | " 
+                                                       FontAttributes="Bold" 
+                                                       TextColor="Black" 
+                                                       Margin="0,0,0,2" />
+                                                <Label Text="{Binding Time, StringFormat='{0: hh:mm tt}'}" 
+                                                       Style="{StaticResource ListViewLabelStyle}" />
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1" 
+                                                         HorizontalOptions="End" 
+                                                         VerticalOptions="Center" 
+                                                         Margin="0,0,10,0">
+                                                <Label Text="{Binding Cost}" 
+                                                       FontSize="12" 
+                                                       TextColor="#919191" 
+                                                       VerticalOptions="Center" 
+                                                       HorizontalOptions="Center" />
+                                            </StackLayout>
+                                            <telerikPrimitives:RadBorder Grid.ColumnSpan="2" 
+                                                                         Grid.Row="1"
+                                                                         Style="{StaticResource DisabledBorderStyle}" 
+                                                                         Margin="0" />
+                                        </Grid>
+                                    </listView:ListViewTemplateCell.View>
+                                </listView:ListViewTemplateCell>
+                            </DataTemplate>
+                        </telerikDataControls:RadListView.ItemTemplate>
+                    </telerikDataControls:RadListView>
+                </Grid>
+            </ScrollView>
+            <StackLayout Grid.Row="1" 
+                         BackgroundColor="#EAEAEA" 
+                         HeightRequest="65">
+                <telerikInput:RadButton Text="Request a Car" 
+                                        CornerRadius="20" 
+                                        Padding="10,5,10,5"
+                                        BorderColor="#007AFF" 
+                                        BorderWidth="1"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand"
+                                        WidthRequest="200"
+                                        HeightRequest="40"
+                                        TextColor="#007AFF" 
+                                        FontSize="15"
+                                        Clicked="OnCarRequested"
+                                        BackgroundColor="Transparent" />
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

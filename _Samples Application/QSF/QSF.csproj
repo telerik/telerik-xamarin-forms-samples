@@ -113,7 +113,7 @@
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
   </ItemGroup>
   <ItemGroup Condition=" '$(UsePublicRepo)' == 'true' ">
-    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2020.1.114.1" />
+    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2020.1.218.1" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -133,8 +133,8 @@
     <Compile Update="Examples\SpreadProcessingControl\FirstLookExample\FirstLookView.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Examples\TemplatedPickerControl\FirstLookExample\FirstLookView.xaml.cs">
-      <DependentUpon>FirstLookView.xaml</DependentUpon>
+    <Compile Update="Examples\TemplatedPickerControl\CustomizationExample\CustomizationView.xaml.cs">
+      <DependentUpon>CustomizationView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -503,6 +503,9 @@
     <EmbeddedResource Update="Examples\ImageEditorControl\FirstLookExample\FirstLookView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Examples\ListPickerControl\CustomizationExample\CustomizationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Examples\PdfProcessingControl\FirstLookExample\FirstLookView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -513,6 +516,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\ListPickerControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\TemplatedPickerControl\CustomizationExample\CustomizationView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\TemplatedPickerControl\FirstLookExample\FirstLookView.xaml">

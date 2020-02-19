@@ -1,6 +1,6 @@
 ﻿using QSF.ViewModels;
 
-namespace QSF.Examples.ListPickerControl.FirstLookExample
+namespace QSF.Examples.ListPickerControl.CustomizationExample
 {
     public class ProductViewModel : BindableBase
     {

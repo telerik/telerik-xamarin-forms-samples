@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:this="clr-namespace:QSF.Examples.DateTimePickerControl.TimePickerExample"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
@@ -16,25 +17,6 @@
                    TargetType="telerikInput:RadDateTimePicker">
                 <Setter Property="DisplayStringFormat" Value="hh:mm tt" />
                 <Setter Property="HorizontalOptions" Value="StartAndExpand" />
-            </Style>
-            <Style x:Key="PickerPopupFooterButtons_BaseStyle"
-                   TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="TextColor" Value="#007AFF" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Margin">
-                    <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS">0, 0, 20, 0</On>
-                    </OnPlatform>
-                </Setter>
-            </Style>
-            <Style x:Key="PickerPopupFooterAcceptButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
-                   TargetType="Button">
-                <Setter Property="HorizontalOptions" Value="End" />
-            </Style>
-            <Style x:Key="PickerPopupFooterCancelButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
-                   TargetType="Button">
-                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
             </Style>
             <Style x:Key="DefaultTabStripItemStyle" 
                    TargetType="telerikInput:DateTimeSelectorTabStripItem">
@@ -84,6 +66,9 @@
                                                                 SelectedDate="{Binding SelectedHour, Mode=TwoWay}"
                                                                 Style="{StaticResource DefaultDateTimePickerStyle}"
                                                                 TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}">
+                                    <telerikInput:RadDateTimePicker.Behaviors>
+                                        <this:OpenPopupBehavior IsPickerOpened="{Binding IsPickerOpened}"/>
+                                    </telerikInput:RadDateTimePicker.Behaviors>
                                     <telerikInput:RadDateTimePicker.DisplayLabelStyle>
                                         <Style TargetType="Label">
                                             <Setter Property="VerticalOptions" Value="Center" />
@@ -93,14 +78,12 @@
                                     <telerikInput:RadDateTimePicker.SelectorSettings>
                                         <telerikInput:PickerPopupSelectorSettings>
                                             <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
-                                                <Style TargetType="Button" 
-                                                       BasedOn="{StaticResource PickerPopupFooterAcceptButton_Style}">
+                                                <Style TargetType="Button" >
                                                     <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
                                                 </Style>
                                             </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
                                             <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
-                                                <Style TargetType="Button" 
-                                                       BasedOn="{StaticResource PickerPopupFooterCancelButton_Style}">
+                                                <Style TargetType="Button" >
                                                     <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
                                                 </Style>
                                             </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>

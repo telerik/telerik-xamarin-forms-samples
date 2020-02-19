@@ -1,12 +1,13 @@
 ﻿using QSF.ViewModels;
 using Xamarin.Forms;
 
-namespace QSF.Examples.ListPickerControl.FirstLookExample
+namespace QSF.Examples.TemplatedPickerControl.FirstLookExample
 {
     public class ColorViewModel : BindableBase
     {
         private string name;
         private Color color;
+        private Color borderColor;
 
         public ColorViewModel(string name, string color)
             : this(name, Color.FromHex(color))
@@ -17,6 +18,7 @@ namespace QSF.Examples.ListPickerControl.FirstLookExample
         {
             this.name = name;
             this.color = color;
+            this.borderColor = Xamarin.Forms.Color.Transparent;
         }
 
         public string Name
@@ -46,6 +48,22 @@ namespace QSF.Examples.ListPickerControl.FirstLookExample
                 if (this.color != value)
                 {
                     this.color = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        public Color BorderColor
+        {
+            get
+            {
+                return this.borderColor;
+            }
+            set
+            {
+                if(this.borderColor != value)
+                {
+                    this.borderColor = value;
                     this.OnPropertyChanged();
                 }
             }

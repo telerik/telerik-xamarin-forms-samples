@@ -130,7 +130,7 @@
                     <telerikListView:PropertyGroupDescriptor PropertyName="Group" />
                 </telerikDataControls:RadListView.GroupDescriptors>
                 <telerikDataControls:RadListView.GroupHeaderStyle>
-                    <telerikListView:ListViewGroupStyle BackgroundColor="Transparent" />
+                    <telerikListView:ListViewGroupStyle BackgroundColor="White" />
                 </telerikDataControls:RadListView.GroupHeaderStyle>
                 <telerikDataControls:RadListView.ItemTemplate>
                     <DataTemplate>

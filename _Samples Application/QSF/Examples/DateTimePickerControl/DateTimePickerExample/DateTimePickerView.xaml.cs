@@ -11,8 +11,6 @@ namespace QSF.Examples.DateTimePickerControl.DateTimePickerExample
         public DateTimePickerView()
         {
             InitializeComponent();
-
-            this.BindingContext = new ViewModel();
         }
 
         private void ShowToastMessage(object sender, EventArgs e)

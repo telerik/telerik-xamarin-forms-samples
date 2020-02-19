@@ -168,6 +168,11 @@ namespace QSF.Services
             return this.configuration.WhatsNewPageURL;
         }
 
+        public string GetPrivacyPolicyPageURL()
+        {
+            return this.configuration.PrivacyPolicyPageURL;
+        }
+
         public IEnumerable<Theme> GetThemes()
         {
             return this.configuration.Themes;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 using Telerik.XamarinForms.Common;
 using Xamarin.Forms;
 
@@ -8,7 +9,7 @@ namespace QSF.Examples.DateTimePickerControl.TimePickerExample
     {
         private DateTime? selectedHour;
         private string name;
-        private bool isEnabled;
+        private bool isEnabled, isPickerOpened;
         private Color pickerTextColor;
         private Color nameTextColor;
 
@@ -20,6 +21,22 @@ namespace QSF.Examples.DateTimePickerControl.TimePickerExample
             this.nameTextColor = Color.FromHex("#6A6A6A");
             this.AccentColor = Color.FromHex("#B73562");
             this.SwitchColor = Color.FromHex("#66008265");
+        }
+
+        public bool IsPickerOpened
+        {
+            get
+            {
+                return this.isPickerOpened;
+            }
+            set
+            {
+                if (this.isPickerOpened != value)
+                {
+                    this.isPickerOpened = value;
+                    this.OnPropertyChanged();
+                }
+            }
         }
 
         public DateTime? SelectedHour

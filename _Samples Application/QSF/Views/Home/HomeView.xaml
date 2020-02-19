@@ -157,7 +157,7 @@
             </telerikPrimitives:RadSideDrawer.MainContent>
             <telerikPrimitives:RadSideDrawer.DrawerContent>
                 <ScrollView>
-                    <StackLayout Spacing="10" BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                    <StackLayout Spacing="6" BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
                         <StackLayout BackgroundColor="{StaticResource Key=HeaderBackgroundsColor}" >
                             <ffimageloading:CachedImage HorizontalOptions="Center" Source="{Binding Path=SideDrawerHeaderIcon, Converter={StaticResource ImageSourceConverter}}" Margin="0, 60, 0, 25" />
 
@@ -222,6 +222,20 @@
                                 </telerikInput:RadButton.Effects>
                             </telerikInput:RadButton>
 
+                            <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
+                        </Grid>
+
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Privacy Policy" Command="{Binding Path=NavigateToPrivacyPolicyPageCommand}">
+                                <telerikInput:RadButton.Effects>
+                                    <effects:NoAllCapsButtonEffect />
+                                </telerikInput:RadButton.Effects>
+                            </telerikInput:RadButton>
                             <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
                         </Grid>
 

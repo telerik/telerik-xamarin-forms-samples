@@ -1027,6 +1027,11 @@
     <Content Include="Assets\coffee.scale-150.png" />
     <Content Include="Assets\coffee.scale-200.png" />
     <Content Include="Assets\coffee.scale-400.png" />
+    <Content Include="Assets\colors.scale-100.png" />
+    <Content Include="Assets\colors.scale-125.png" />
+    <Content Include="Assets\colors.scale-150.png" />
+    <Content Include="Assets\colors.scale-200.png" />
+    <Content Include="Assets\colors.scale-400.png" />
     <Content Include="Assets\DataForm_Add.scale-100.png" />
     <Content Include="Assets\DataForm_Add.scale-150.png" />
     <Content Include="Assets\DataForm_Add.scale-200.png" />
@@ -1171,6 +1176,16 @@
     <Content Include="Assets\Expander_FirstLook_Img2.scale-150.png" />
     <Content Include="Assets\Expander_FirstLook_Img2.scale-200.png" />
     <Content Include="Assets\Expander_FirstLook_Img2.scale-400.png" />
+    <Content Include="Assets\graphic.scale-100.png" />
+    <Content Include="Assets\graphic.scale-125.png" />
+    <Content Include="Assets\graphic.scale-150.png" />
+    <Content Include="Assets\graphic.scale-200.png" />
+    <Content Include="Assets\graphic.scale-400.png" />
+    <Content Include="Assets\hanger.scale-100.png" />
+    <Content Include="Assets\hanger.scale-125.png" />
+    <Content Include="Assets\hanger.scale-150.png" />
+    <Content Include="Assets\hanger.scale-200.png" />
+    <Content Include="Assets\hanger.scale-400.png" />
     <Content Include="Assets\ImageEditor_CustomToolbar.scale-100.png" />
     <Content Include="Assets\ImageEditor_CustomToolbar.scale-125.png" />
     <Content Include="Assets\ImageEditor_CustomToolbar.scale-150.png" />
@@ -1328,6 +1343,11 @@
     <Content Include="Assets\Map_HotelFloorPlan.scale-150.png" />
     <Content Include="Assets\Map_HotelFloorPlan.scale-200.png" />
     <Content Include="Assets\Map_HotelFloorPlan.scale-400.png" />
+    <Content Include="Assets\music.scale-100.png" />
+    <Content Include="Assets\music.scale-125.png" />
+    <Content Include="Assets\music.scale-150.png" />
+    <Content Include="Assets\music.scale-200.png" />
+    <Content Include="Assets\music.scale-400.png" />
     <Content Include="Assets\Navigation_Back.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-100.png" />
     <Content Include="Assets\NumericInput_FirstLook.scale-125.png" />
@@ -1365,6 +1385,10 @@
     <Content Include="Assets\Picker_DateTimePicker.scale-150.png" />
     <Content Include="Assets\Picker_DateTimePicker.scale-200.png" />
     <Content Include="Assets\Picker_DateTimePicker.scale-400.png" />
+    <Content Include="Assets\Picker_DateTimePicker_FirstLook.scale-100.png" />
+    <Content Include="Assets\Picker_DateTimePicker_FirstLook.scale-125.png" />
+    <Content Include="Assets\Picker_DateTimePicker_FirstLook.scale-150.png" />
+    <Content Include="Assets\Picker_DateTimePicker_FirstLook.scale-200.png" />
     <Content Include="Assets\Picker_Demo2_Header.scale-100.png" />
     <Content Include="Assets\Picker_Demo2_Header.scale-125.png" />
     <Content Include="Assets\Picker_Demo2_Header.scale-150.png" />
@@ -1395,11 +1419,21 @@
     <Content Include="Assets\Picker_ListPicker.scale-150.png" />
     <Content Include="Assets\Picker_ListPicker.scale-200.png" />
     <Content Include="Assets\Picker_ListPicker.scale-400.png" />
+    <Content Include="Assets\Picker_ListPicker_FirstLook.scale-100.png" />
+    <Content Include="Assets\Picker_ListPicker_FirstLook.scale-125.png" />
+    <Content Include="Assets\Picker_ListPicker_FirstLook.scale-150.png" />
+    <Content Include="Assets\Picker_ListPicker_FirstLook.scale-200.png" />
+    <Content Include="Assets\Picker_ListPicker_FirstLook.scale-400.png" />
     <Content Include="Assets\Picker_TemplatedPicker.scale-100.png" />
     <Content Include="Assets\Picker_TemplatedPicker.scale-125.png" />
     <Content Include="Assets\Picker_TemplatedPicker.scale-150.png" />
     <Content Include="Assets\Picker_TemplatedPicker.scale-200.png" />
     <Content Include="Assets\Picker_TemplatedPicker.scale-400.png" />
+    <Content Include="Assets\Picker_TemplatedPicker_FirstLook.scale-100.png" />
+    <Content Include="Assets\Picker_TemplatedPicker_FirstLook.scale-125.png" />
+    <Content Include="Assets\Picker_TemplatedPicker_FirstLook.scale-150.png" />
+    <Content Include="Assets\Picker_TemplatedPicker_FirstLook.scale-200.png" />
+    <Content Include="Assets\Picker_TemplatedPicker_FirstLook.scale-400.png" />
     <Content Include="Assets\Picker_TimePicker.scale-100.png" />
     <Content Include="Assets\Picker_TimePicker.scale-125.png" />
     <Content Include="Assets\Picker_TimePicker.scale-150.png" />
@@ -1831,6 +1865,11 @@
     <Content Include="Assets\TreeView_LoadOnDemand.scale-200.png" />
     <Content Include="Assets\TreeView_LoadOnDemand.scale-400.png" />
     <Content Include="Assets\tyre.png" />
+    <Content Include="Assets\t_shirt.scale-100.png" />
+    <Content Include="Assets\t_shirt.scale-125.png" />
+    <Content Include="Assets\t_shirt.scale-150.png" />
+    <Content Include="Assets\t_shirt.scale-200.png" />
+    <Content Include="Assets\t_shirt.scale-400.png" />
     <Content Include="Assets\unselected_item.scale-100.png" />
     <Content Include="Assets\unselected_item.scale-125.png" />
     <Content Include="Assets\unselected_item.scale-150.png" />
@@ -1948,7 +1987,7 @@
   <Choose>
     <When Condition=" '$(UsePublicRepo)'=='true' ">
       <ItemGroup>
-        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2020.1.114.1" />
+        <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2020.1.218.1" />
       </ItemGroup>
     </When>
   </Choose>

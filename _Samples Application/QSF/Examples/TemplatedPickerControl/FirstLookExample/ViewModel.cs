@@ -1,505 +1,206 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using Telerik.XamarinForms.Common;
+﻿using QSF.ViewModels;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace QSF.Examples.TemplatedPickerControl.FirstLookExample
 {
-    public class ViewModel : NotifyPropertyChangedBase
+    public class ViewModel : ExampleViewModel
     {
-        private Country fromCountry, destinationCountry;
-        private City fromCity, destinationCity;
-        private int adults = 1;
-        private int children;
+        private ColorViewModel selectedColor;
+        private SizeViewModel selectedSize;
+        private Color defaultDeselectedColor;
+        private Color defaultSelectedColor;
+        private Color defaultDeselectedTextColor;
+        private Color defaultSelectedTextColor;
+        private string highlightedValue;
+        private string selectedValue;
+        private bool isSelectedValue;
 
         public ViewModel()
         {
-            this.Countries = new ObservableCollection<Country>
-            {
-                new Country
+            this.defaultDeselectedColor = Color.FromHex("#EAEAEA");
+            this.defaultSelectedColor = Color.FromHex("#919191");
+            this.defaultDeselectedTextColor = Color.Black;
+            this.defaultSelectedTextColor = Color.White;
+            this.HighlightedValue = string.Empty;
+            this.SelectedValue = string.Empty;
+            this.IsSelectedValue = false;
+
+            this.XS = new SizeViewModel("XS");
+            this.S = new SizeViewModel("S");
+            this.M = new SizeViewModel("M");
+            this.L = new SizeViewModel("L");
+            this.XL = new SizeViewModel("XL");
+            this.XXL = new SizeViewModel("XXL");
+
+            this.Blue = new ColorViewModel("Blue", "#007AFF");
+            this.Yellow = new ColorViewModel("Yellow", "#F3C163");
+            this.Purple = new ColorViewModel("Purple", "#CE3A6D");
+            this.Orange = new ColorViewModel("Orange", "#EE6C4D");
+            this.LightGray = new ColorViewModel("LightGray", "#EAEAEA");
+            this.DarkGray = new ColorViewModel("DarkGray", "#919191");
+
+            this.SelectSizeCommand = new Command<SizeViewModel>(
+                execute: (SizeViewModel arg) =>
                 {
-                    Name = "Austria",
-                    Cities =
+                    if (this.SelectedSize != null)
                     {
-                        new City
-                        {
-                            Name = "Graz"
-                        },
-                        new City
-                        {
-                            Name = "Innsbruck"
-                        },
-                        new City
-                        {
-                            Name = "Linz"
-                        },
-                        new City
-                        {
-                            Name = "Ratz"
-                        },
-                        new City
-                        {
-                            Name = "Salzburg"
-                        },
-                        new City
-                        {
-                            Name = "Vienna"
-                        },
-                        new City
-                        {
-                            Name = "Wolfsberg"
-                        },
-                        new City
-                        {
-                            Name = "Zeltweg"
-                        }
+                        this.SelectedSize.BackgroundColor = this.defaultDeselectedColor;
+                        this.SelectedSize.TextColor = this.defaultDeselectedTextColor;
                     }
-                },
-                new Country
+                    arg.BackgroundColor = this.defaultSelectedColor;
+                    arg.TextColor = this.defaultSelectedTextColor;
+                    this.SelectedSize = arg;
+
+                    if (this.HighlightedValue.Contains(", "))
+                    {
+                        this.HighlightedValue = arg.Name + this.HighlightedValue.Substring(this.HighlightedValue.IndexOf(','));
+                    }
+                    else
+                    {
+                        this.HighlightedValue = arg.Name + ", ";
+                    }
+                });
+            this.SelectColorCommand = new Command<ColorViewModel>(
+                execute: (ColorViewModel arg) =>
                 {
-                    Name = "Belgium",
-                    Cities =
+                    if (this.SelectedColor != null)
                     {
-                        new City
-                        {
-                            Name = "Antwerp"
-                        },
-                        new City
-                        {
-                            Name = "Assesse"
-                        },
-                        new City
-                        {
-                            Name = "Bruges"
-                        },
-                        new City
-                        {
-                            Name = "Charleroi"
-                        },
-                        new City
-                        {
-                            Name = "Lint"
-                        },
-                        new City
-                        {
-                            Name = "Ranst"
-                        },
-                        new City
-                        {
-                            Name = "Schaffen"
-                        },
-                        new City
-                        {
-                            Name = "Veurne"
-                        },
-                        new City
-                        {
-                            Name = "Zingem"
-                        },
+                        this.SelectedColor.BorderColor = Color.Transparent;
                     }
-                },
-                new Country
-                {
-                    Name = "Denmark",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Aalborg"
-                        },
-                        new City
-                        {
-                            Name = "Aarhus"
-                        },
-                        new City
-                        {
-                            Name = "Billund"
-                        },
-                        new City
-                        {
-                            Name = "Copenhagen"
-                        },
-                        new City
-                        {
-                            Name = "Karup"
-                        },
-                        new City
-                        {
-                            Name = "Odense"
-                        },
-                        new City
-                        {
-                            Name = "Viborg"
-                        },
-                        new City
-                        {
-                            Name = "Vojens"
-                        }
-                    }
-                },
-                new Country
-                {
-                    Name = "France",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Aurillac"
-                        },
-                        new City
-                        {
-                            Name = "Belley"
-                        },
-                        new City
-                        {
-                            Name = "Bourg-en-Bresse"
-                        },
-                        new City
-                        {
-                            Name = "Carcassonne"
-                        },
-                        new City
-                        {
-                            Name = "Caen"
-                        },
-                        new City
-                        {
-                            Name = "Deauville"
-                        },
-                        new City
-                        {
-                            Name = "La Rochelle"
-                        },
-                        new City
-                        {
-                            Name = "Nice"
-                        },
-                        new City
-                        {
-                            Name = "Marseille"
-                        },
-                        new City
-                        {
-                            Name = "Paris - Val-De-Marne"
-                        },
-                        new City
-                        {
-                            Name = "Paris - Val d'Oise"
-                        },
-                        new City
-                        {
-                            Name = "Rodez"
-                        }
-                    }
-                },
-                new Country
-                {
-                    Name = "Germany",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Baden-Baden"
-                        },
-                        new City
-                        {
-                            Name = "Berlin"
-                        },
-                        new City
-                        {
-                            Name = "Borkum"
-                        },
-                        new City
-                        {
-                            Name = "Bremen"
-                        },
-                        new City
-                        {
-                            Name = "Dortmund"
-                        },
-                        new City
-                        {
-                            Name = "Dresden"
-                        },
-                        new City
-                        {
-                            Name = "Hamburg"
-                        },
-                        new City
-                        {
-                            Name = "Hannover"
-                        },
-                        new City
-                        {
-                            Name = "Leipzig"
-                        },
-                        new City
-                        {
-                            Name = "Mannheim"
-                        },
-                        new City
-                        {
-                            Name = "Munich"
-                        },
-                        new City
-                        {
-                            Name = "Nuremberg"
-                        }
-                    }
-                },
-                new Country
-                {
-                    Name = "Italy",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Aosta"
-                        },
-                        new City
-                        {
-                            Name = "Bari"
-                        },
-                        new City
-                        {
-                            Name = "Bologna"
-                        },
-                        new City
-                        {
-                            Name = "Parma"
-                        },
-                        new City
-                        {
-                            Name = "Rimini"
-                        },
-                        new City
-                        {
-                            Name = "Rome - Fiumicino"
-                        },
-                        new City
-                        {
-                            Name = "Rome - Ciampino"
-                        }
-                    }
-                },
-                new Country
-                {
-                    Name = "Netherlands",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Amsterdam"
-                        },
-                        new City
-                        {
-                            Name = "Bonaire"
-                        },
-                        new City
-                        {
-                            Name = "Eindhoven"
-                        },
-                        new City
-                        {
-                            Name = "Maastricht"
-                        },
-                        new City
-                        {
-                            Name = "Rotterdam"
-                        }
-                    }
-                },
-                new Country
-                {
-                    Name = "Portugal",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Braga"
-                        },
-                        new City
-                        {
-                            Name = "Cascais"
-                        },
-                        new City
-                        {
-                            Name = "Lisbon"
-                        },
-                        new City
-                        {
-                            Name = "Porto"
-                        }
-                    }
-                },
-                new Country
-                {
-                    Name = "Spain",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Alicante"
-                        },
-                        new City
-                        {
-                            Name = "Barcelona"
-                        },
-                        new City
-                        {
-                            Name = "Madrid"
-                        },
-                        new City
-                        {
-                            Name = "Seville"
-                        },
-                        new City
-                        {
-                            Name = "Valencia"
-                        },
-                        new City
-                        {
-                            Name = "Zaragoza"
-                        }
-                    }
-                },
-                new Country
-                {
-                    Name = "United Kingdom",
-                    Cities =
-                    {
-                        new City
-                        {
-                            Name = "Bristol Airport"
-                        },
-                        new City
-                        {
-                            Name = "Castle Donington"
-                        },
-                        new City
-                        {
-                            Name = "Liverpool"
-                        },
-                        new City
-                        {
-                            Name = "London City Airport"
-                        },
-                        new City
-                        {
-                            Name = "London Luton"
-                        },
-                        new City
-                        {
-                            Name = "Manchester Airport"
-                        },
-                        new City
-                        {
-                            Name = "Norwich"
-                        },
-                        new City
-                        {
-                            Name = "Southampton"
-                        }
-                    }
-                },
-            };
-            this.Adults = 1;
-            this.Children = 0;
+                    arg.BorderColor = arg.Color;
+                    this.SelectedColor = arg;
+
+                    this.HighlightedValue = this.HighlightedValue.Substring(0, this.HighlightedValue.IndexOf(',') + 2) + arg.Name;
+                });
+            this.AcceptCommand = new Command(Accept);
+            this.CancelCommand = new Command(Cancel);
+
+            this.SelectSizeCommand.Execute(this.XS);
+            this.SelectColorCommand.Execute(this.Blue);
         }
 
-        public Country FromCountry
+        public ColorViewModel Blue { get; private set; }
+        public ColorViewModel Yellow { get; private set; }
+        public ColorViewModel Purple { get; private set; }
+        public ColorViewModel Orange { get; private set; }
+        public ColorViewModel LightGray { get; private set; }
+        public ColorViewModel DarkGray { get; private set; }
+        public ColorViewModel SelectedColor
         {
             get
             {
-                return this.fromCountry;
+                return this.selectedColor;
             }
             set
             {
-                if (value != this.fromCountry)
+                if (this.selectedColor != value)
                 {
-                    this.UpdateValue(ref this.fromCountry, value);
+                    this.selectedColor = value;
+                    this.OnPropertyChanged();
                 }
             }
         }
+        public ColorViewModel LastAcceptedColor { get; set; }
 
-        public Country DestinationCountry
+        public SizeViewModel XS { get; private set; }
+        public SizeViewModel S { get; private set; }
+        public SizeViewModel M { get; private set; }
+        public SizeViewModel L { get; private set; }
+        public SizeViewModel XL { get; private set; }
+        public SizeViewModel XXL { get; private set; }
+        public SizeViewModel SelectedSize
         {
             get
             {
-                return this.destinationCountry;
+                return this.selectedSize;
             }
             set
             {
-                if (value != this.destinationCountry)
+                if (this.selectedSize != value)
                 {
-                    this.UpdateValue(ref this.destinationCountry, value);
+                    this.selectedSize = value;
+                    this.OnPropertyChanged();
                 }
             }
         }
+        public SizeViewModel LastAcceptedSize { get; set; }
 
-        public City FromCity
+        public ICommand SelectColorCommand { get; set; }
+        public ICommand SelectSizeCommand { get; set; }
+        public ICommand AcceptCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
+
+        public string HighlightedValue
         {
             get
             {
-                return this.fromCity;
+                return this.highlightedValue;
             }
             set
             {
-                if (value != this.fromCity)
+                if (this.highlightedValue != value)
                 {
-                    this.UpdateValue(ref this.fromCity, value);
+                    this.highlightedValue = value;
+                    this.OnPropertyChanged();
                 }
             }
         }
-
-        public City DestinationCity
+        public string SelectedValue
         {
             get
             {
-                return this.destinationCity;
+                return this.selectedValue;
             }
             set
             {
-                if (value != this.destinationCity)
+                if (this.selectedValue != value)
                 {
-                    this.UpdateValue(ref this.destinationCity, value);
+                    this.selectedValue = value;
+                    this.OnPropertyChanged();
                 }
             }
         }
-
-        public int Adults
+        public bool IsSelectedValue
         {
             get
             {
-                return this.adults;
+                return this.isSelectedValue;
             }
             set
             {
-                if(this.adults != value)
+                if (this.isSelectedValue != value)
                 {
-                    this.adults = value;
+                    this.isSelectedValue = value;
                     this.OnPropertyChanged();
                 }
             }
         }
 
-        public int Children
+        private void Accept()
         {
-            get
+            if (!this.IsSelectedValue)
             {
-                return this.children;
+                this.IsSelectedValue = true;
             }
-            set
-            {
-                if(this.children != value)
-                {
-                    this.children = value;
-                    this.OnPropertyChanged();
-                }
-            }
+            this.SelectedValue = this.HighlightedValue;
+            this.LastAcceptedSize = this.SelectedSize;
+            this.LastAcceptedColor = this.SelectedColor;
         }
 
-        public ObservableCollection<Country> Countries { get; }
+        private void Cancel()
+        {
+            if (this.SelectedValue != string.Empty)
+            {
+                this.HighlightedValue = this.SelectedValue;
+                this.SelectSizeCommand.Execute(this.LastAcceptedSize);
+                this.SelectColorCommand.Execute(this.LastAcceptedColor);
+            }
+            else
+            {
+                this.SelectSizeCommand.Execute(this.XS);
+                this.SelectColorCommand.Execute(this.Blue);
+            }
+        }
     }
 }

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikNumericInput="clr-namespace:Telerik.XamarinForms.Input.NumericInput;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.ListPickerControl.CustomizationExample.CustomizationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#B73562</Color>
+            <Style x:Key="TitleLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="#CB1F4D" />
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+            <Style x:Key="DescriptionLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+            <Style x:Key="InputLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="PriceLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="#66A1DD" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="SubmitButtonStyle"
+                   TargetType="{x:Type telerikInput:RadButton}">
+                <Setter Property="HeightRequest" Value="36" />
+                <Setter Property="Padding" Value="18,0" />
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="BackgroundColor" Value="#B73562" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="BorderStyle"
+                   TargetType="{x:Type telerikPrimitives:RadBorder}">
+                <Setter Property="BorderColor" Value="#F0F0F0" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
+            </Style>
+            <Style x:Key="PickerStyle"
+                   TargetType="{x:Type telerikInput:RadListPicker}">
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="BorderColor" Value="#F0F0F0" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
+                <Setter Property="ItemLength" Value="40" />
+                <Setter Property="ItemSpacing" Value="0" />
+            </Style>
+            <Style x:Key="PickerLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="#6A6A6A" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="PickerSelectedLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="PickerItemStyle"
+                   TargetType="{x:Type telerikDataControls:SpinnerItemView}">
+                <Setter Property="TextColor" Value="#6A6A6A" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+            <Style x:Key="PickerSelectedItemStyle"
+                   TargetType="{x:Type telerikDataControls:SpinnerItemView}">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="PickerSelectionHighlightStyle"
+                   TargetType="{x:Type telerikPrimitives:RadBorder}">
+                <Setter Property="BorderColor" Value="#F0F0F0" />
+                <Setter Property="BorderThickness" Value="0,1" />
+            </Style>
+            <Style x:Key="PickerItemLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="#6A6A6A" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="PickerSelectedItemLabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="LargeCircleStyle"
+                   TargetType="{x:Type BoxView}">
+                <Setter Property="WidthRequest" Value="24" />
+                <Setter Property="HeightRequest" Value="24" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="SmallCircleStyle"
+                   TargetType="{x:Type BoxView}">
+                <Setter Property="WidthRequest" Value="16" />
+                <Setter Property="HeightRequest" Value="16" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="FrameBorderStyle"
+                   TargetType="{x:Type telerikPrimitives:RadBorder}">
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="BorderColor" Value="#F0F0F0" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
+            </Style>
+            <Style Class="NumericInputStyleClass"
+                   TargetType="{x:Type telerikNumericInput:NumericInputButton}">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="WidthRequest" Value="32" />
+                <Setter Property="HeightRequest" Value="32" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="BorderRadius" Value="16" />
+                <Setter Property="BorderColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style Class="NumericInputStyleClass"
+                   TargetType="{x:Type telerikNumericInput:NumericInputEntry}">
+                <Setter Property="BorderStyle">
+                    <Setter.Value>
+                        <telerikInput:BorderStyle BorderColor="Transparent"
+                                                  BorderThickness="0" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <ControlTemplate x:Key="MyNumericControlTemplate">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <telerikNumericInput:NumericInputButton Text="{TemplateBinding DecreaseButtonText}"
+                                      Command="{TemplateBinding DecreaseCommand}"
+                                      StyleClass="DefaultNumericInputButtonStyle"
+                                      telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
+                                      AutomationId="NumericDecreaseButton">
+                        <AutomationProperties.HelpText>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="UWP" Value="NumericDecreaseButton" />
+                                <On Platform="iOS" Value="NumericDecreaseButton" />
+                            </OnPlatform>
+                        </AutomationProperties.HelpText>
+                    </telerikNumericInput:NumericInputButton>
+                    <telerikNumericInput:NumericInputEntry Grid.Column="1"
+                                     x:Name="PART_Entry"
+                                     StyleClass="DefaultNumericInputEntryStyle"
+                                     Text="{TemplateBinding Value, Mode=OneWay}"
+                                     InputTransparent="{TemplateBinding IsReadOnly}"
+                                     telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
+                                     AutomationId="NumericEntry" />
+                    <telerikNumericInput:NumericInputButton Grid.Column="2"
+                                      Text="{TemplateBinding IncreaseButtonText}"
+                                      Command="{TemplateBinding IncreaseCommand}"
+                                      StyleClass="DefaultNumericInputButtonStyle"
+                                      telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
+                                      AutomationId="NumericIncreaseButton">
+                        <AutomationProperties.HelpText>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="NumericIncreaseButton" />
+                                <On Platform="UWP" Value="NumericIncreaseButton" />
+                            </OnPlatform>
+                        </AutomationProperties.HelpText>
+                    </telerikNumericInput:NumericInputButton>
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="16">
+                <Image HeightRequest="180"
+                       BackgroundColor="#6A98D3"
+                       Source="{Binding Product.Image, Converter={StaticResource ImageSourceConverter}}" />
+                <Label Margin="16,0"
+                       Style="{StaticResource TitleLabelStyle}"
+                       Text="{Binding Product.Name}" />
+                <Label Margin="16,0"
+                       Style="{StaticResource DescriptionLabelStyle}"
+                       Text="{Binding Product.Description}" />
+                <telerikInput:RadListPicker ItemsSource="{Binding Sizes}"
+                                            SelectedItem="{Binding Size, Mode=TwoWay}"
+                                            Style="{StaticResource PickerStyle}"
+                                            ItemStyle="{StaticResource PickerItemStyle}"
+                                            SelectedItemStyle="{StaticResource PickerSelectedItemStyle}"
+                                            SelectionHighlightStyle="{StaticResource PickerSelectionHighlightStyle}">
+                    <telerikInput:RadListPicker.DisplayTemplate>
+                        <ControlTemplate>
+                            <Grid Padding="16,0">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Label InputTransparent="True"
+                                       HorizontalOptions="Start"
+                                       Style="{StaticResource InputLabelStyle}"
+                                       Text="Size:" />
+                                <Label InputTransparent="True"
+                                       HorizontalOptions="End"
+                                       Style="{StaticResource PickerLabelStyle}"
+                                       Text="{Binding Size}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </telerikInput:RadListPicker.DisplayTemplate>
+                    <telerikInput:RadListPicker.SelectorSettings>
+                        <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Select size:"/>
+                    </telerikInput:RadListPicker.SelectorSettings>
+                </telerikInput:RadListPicker>
+                <telerikInput:RadListPicker ItemsSource="{Binding Colors}"
+                                            SelectedItem="{Binding Color, Mode=TwoWay}"
+                                            IsLooping="True"
+                                            Style="{StaticResource PickerStyle}"
+                                            ItemStyle="{StaticResource PickerItemStyle}"
+                                            SelectedItemStyle="{StaticResource PickerSelectedItemStyle}"
+                                            SelectionHighlightStyle="{StaticResource PickerSelectionHighlightStyle}">
+                    <telerikInput:RadListPicker.DisplayTemplate>
+                        <ControlTemplate>
+                            <Grid Padding="16,0">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Label InputTransparent="True"
+                                       HorizontalOptions="Start"
+                                       Style="{StaticResource InputLabelStyle}"
+                                       Text="Color:" />
+                                <BoxView InputTransparent="True"
+                                         HorizontalOptions="End"
+                                         Style="{StaticResource LargeCircleStyle}"
+                                         BackgroundColor="{Binding Color.Color}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </telerikInput:RadListPicker.DisplayTemplate>
+                    <telerikInput:RadListPicker.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Spacing="16"
+                                         WidthRequest="120">
+                                <BoxView Style="{StaticResource SmallCircleStyle}"
+                                         BackgroundColor="{Binding Color}" />
+                                <Label VerticalOptions="Center"
+                                       Style="{StaticResource PickerLabelStyle}"
+                                       Text="{Binding Name}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </telerikInput:RadListPicker.ItemTemplate>
+                    <telerikInput:RadListPicker.SelectedItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Spacing="16"
+                                         WidthRequest="120">
+                                <BoxView Style="{StaticResource SmallCircleStyle}"
+                                         BackgroundColor="{Binding Color}" />
+                                <Label Style="{StaticResource PickerSelectedLabelStyle}"
+                                       Text="{Binding Name}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </telerikInput:RadListPicker.SelectedItemTemplate>
+                    <telerikInput:RadListPicker.SelectorSettings>
+                        <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Select color:"/>
+                    </telerikInput:RadListPicker.SelectorSettings>
+                </telerikInput:RadListPicker>
+                <telerikPrimitives:RadBorder Style="{StaticResource FrameBorderStyle}">
+                    <Grid Padding="16,0">
+                        <Label HorizontalOptions="Start"
+                               Style="{StaticResource InputLabelStyle}"
+                               Text="Quantity:" />
+                        <telerikInput:RadNumericInput HorizontalOptions="End"
+                                                      IsReadOnly="True"
+                                                      WidthRequest="125"
+                                                      Maximum="9"
+                                                      Minimum="0"
+                                                      Value="{Binding Quantity, Mode=TwoWay}"
+                                                      StyleClass="NumericInputStyleClass"
+                                                      ControlTemplate="{StaticResource MyNumericControlTemplate}"/>
+                    </Grid>
+                </telerikPrimitives:RadBorder>
+            </StackLayout>
+        </ScrollView>
+        <Grid Padding="16" BackgroundColor="#F6FAFB" VerticalOptions="EndAndExpand">
+            <Label HorizontalOptions="Start" Style="{StaticResource PriceLabelStyle}" Text="{Binding Price, StringFormat='{0:C}'}" />
+            <telerikInput:RadButton HorizontalOptions="End"
+                                    Style="{StaticResource SubmitButtonStyle}"
+                                    Text="Add to cart"
+                                    Command="{Binding AddToCartCommand}" />
+        </Grid>
+    </StackLayout>
+</ContentView>

@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R1 2020</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R1 2020 SP1</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png</QSFAboutImageName>
@@ -16,7 +16,7 @@
       <Slide>
         <Title>Complete toolkit for building truly native, cross-platform mobile apps for any scenario</Title>
         <Icon>KeyFeature_1.png</Icon>
-        <Content>The Telerik controls for Xamarin.Forms enables developers to implement cross-platform native mobile apps, with profesionally designed UX, in no time</Content>
+        <Content>The Telerik controls for Xamarin.Forms enables developers to implement cross-platform native mobile apps, with professionally designed UX, in no time</Content>
       </Slide>
       <Slide>
         <Title>Key Features:</Title>
@@ -44,6 +44,7 @@
   <DocumentationURL>https://docs.telerik.com/devtools/xamarin</DocumentationURL>
   <ProductPageURL>https://www.telerik.com/xamarin-ui</ProductPageURL>
   <WhatsNewPageURL>https://www.telerik.com/support/whats-new/xamarin-ui</WhatsNewPageURL>
+  <PrivacyPolicyPageURL>https://www.telerik.com/about/privacy-policy</PrivacyPolicyPageURL>
   <Controls>
     <Control>
       <Name>Accordion</Name>
@@ -701,7 +702,7 @@
           <DisplayName>CRUD Operations</DisplayName>
           <Image>DataGrid_CRUD.png</Image>
           <DescriptionHeader>CRUD Operations</DescriptionHeader>
-          <Description>An example that shows the DataGrid's CRUD capabilities such as addition, deletion and editting.</Description>
+          <Description>An example that shows the DataGrid's CRUD capabilities such as addition, deletion and editing.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/CRUDOperationsExample</CodeURL>
@@ -1157,7 +1158,7 @@
       <Image>MaskedInput_FirstLook.png</Image>
       <DescriptionHeader>MaskedInput</DescriptionHeader>
       <ShortDescription>RadMaskedInput allows to control the data input within your Xamarin.Forms app. It enhances the functionality of the Entry control by adding input validation and custom masks.</ShortDescription>
-      <FullDescription>Telerik UI for Xamarin MaskedInput allows you to controll data input in your applications. They enhance the functionality of an Entry by adding input validation and masks, such as E-mail, IP Address, SSN, phone number, digits, letters and symbols.</FullDescription>
+      <FullDescription>Telerik UI for Xamarin MaskedInput allows you to control data input in your applications. They enhance the functionality of an Entry by adding input validation and masks, such as E-mail, IP Address, SSN, phone number, digits, letters and symbols.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/maskedinput/maskedinput-overview</DocumentationURL>
       <Latest>0</Latest>
       <Featured>0</Featured>
@@ -1227,14 +1228,25 @@
       <Examples>
         <Example>
           <Name>FirstLook</Name>
-          <DisplayName>First Look</DisplayName>
+          <DisplayName>FirstLook</DisplayName>
           <DescriptionHeader>First Look</DescriptionHeader>
+          <Image>Picker_TemplatedPicker_FirstLook.png</Image>
+          <Description>Demonstrates how you can utilize RadTemplatedPicker in a sample scenario for selecting t-shirt color and size. Through the custom selector template you can place any content inside the picker popup based on the scenario at hand.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <DisplayName>Customization</DisplayName>
+          <DescriptionHeader>Customization</DescriptionHeader>
           <Image>Picker_TemplatedPicker.png</Image>
           <Description>Demonstrates how you can utilize RadTemplatedPicker in a sample scenario for searching flights. Through the custom selector template you can place any content inside the picker popup based on the scenario at hand.</Description>
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/CustomizationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1257,12 +1269,23 @@
           <Name>FirstLook</Name>
           <DisplayName>First Look</DisplayName>
           <DescriptionHeader>First Look</DescriptionHeader>
+          <Image>Picker_ListPicker_FirstLook.png</Image>
+          <Description>RadListPicker can be useful in various scenarios when you'd like to give the app users a convenient way to choose a value from a list of items. This example presents a sample scenario for selecting a music genre.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <DisplayName>Customization</DisplayName>
+          <DescriptionHeader>First Look</DescriptionHeader>
           <Image>Picker_ListPicker.png</Image>
           <Description>RadListPicker can be useful in various scenarios when you'd like to give the app users a convenient way to choose a value from a list of items. This example presents a sample scenario for selecting a size and a color.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <IsNew>true</IsNew>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/CustomizationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1282,6 +1305,17 @@
       <IsUpdated>false</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <DisplayName>First Look</DisplayName>
+          <Image>Picker_DateTimePicker_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>Demonstrates how you can setup the DateTime Picker control.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/FirstLookExample</CodeURL>
+        </Example>
         <Example>
           <Name>DateTimePicker</Name>
           <DisplayName>DateTime Picker</DisplayName>

@@ -1,9 +1,9 @@
-﻿using System;
-using Telerik.XamarinForms.Common;
+﻿using QSF.ViewModels;
+using System;
 
 namespace QSF.Examples.DateTimePickerControl.DateTimePickerExample
 {
-    public class ViewModel : NotifyPropertyChangedBase
+    public class DateTimePickerViewModel : ExampleViewModel
     {
         private DateTime dropOffDate = DateTime.Now.AddDays(6);
         private DateTime pickUpDate = DateTime.Now;
@@ -40,7 +40,7 @@ namespace QSF.Examples.DateTimePickerControl.DateTimePickerExample
 
         public DateTime DropOffDate
         {
-            get 
+            get
             {
                 return this.dropOffDate;
             }

@@ -1,21 +1,23 @@
-﻿using System;
-using Telerik.XamarinForms.Common;
+﻿using QSF.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace QSF.Examples.DateTimePickerControl.DatePickerExample
 {
-    public class ViewModel : NotifyPropertyChangedBase
+    public class DatePickerViewModel : ExampleViewModel
     {
         private int guests;
         private DateTime checkInDate;
         private DateTime checkOutDate;
 
-        public ViewModel()
+        public DatePickerViewModel()
         {
             this.guests = 1;
             this.checkInDate = DateTime.Today;
             this.checkOutDate = DateTime.Today;
         }
-        
+
         public DateTime CheckInDate
         {
             get
@@ -32,7 +34,7 @@ namespace QSF.Examples.DateTimePickerControl.DatePickerExample
                 }
             }
         }
-        
+
         public DateTime CheckOutDate
         {
             get

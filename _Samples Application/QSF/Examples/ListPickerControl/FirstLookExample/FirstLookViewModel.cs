@@ -1,155 +1,88 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using QSF.Services.Toast;
+﻿using QSF.Services.Toast;
 using QSF.ViewModels;
+using System.Windows.Input;
+using Telerik.XamarinForms.Common;
 using Xamarin.Forms;
 
 namespace QSF.Examples.ListPickerControl.FirstLookExample
 {
     public class FirstLookViewModel : ExampleViewModel
     {
-        private ProductViewModel product;
-        private ColorViewModel color;
-        private double size;
-        private double quantity;
-        private double price;
+        private string genreKind;
 
         public FirstLookViewModel()
         {
-            this.Product = new ProductViewModel
+            this.Genres = new ObservableItemCollection<string>()
             {
-                Name = "Kuako Womens Trainers",
-                Description = "Comfort running shoes using air cushion design.",
-                Image = "Picker_Demo1_Header.png",
-                Price = 230
+                "Alternative Rock",
+                "New Wave",
+                "Jazz",
+                "Pop Rock",
+                "Punk Rock",
+                "Progressive House",
             };
 
-            this.Colors = new ObservableCollection<ColorViewModel>
+            this.RecentlyPlayed = new ObservableItemCollection<Music>()
             {
-                new ColorViewModel("Purple", "#AE3C63"),
-                new ColorViewModel("Black", "#000000"),
-                new ColorViewModel("Azure Blue", "#316FC8"),
-                new ColorViewModel("Grey", "#CCCCCC"),
-                new ColorViewModel("Light Blue", "#6FA2DC"),
-                new ColorViewModel("Light Green", "#9CCC65"),
-                new ColorViewModel("Blue", "#42A5F5"),
-                new ColorViewModel("Yellow", "#FFEE58"),
-                new ColorViewModel("Red", "#EE534F"),
-                new ColorViewModel("Orange", "#FFA726"),
-                new ColorViewModel("Brown", "#8D6E63"),
+                new Music("Nirvana","Smells Like Teen Spirit", Color.FromHex("#F3C163")),
+                new Music("Queen","I Want To Break Free", Color.FromHex("#007AFF")),
+                new Music("Depeche Mode","Personal Jesus", Color.FromHex("#CE3A6D")),
+                new Music("The Police","Personal Jesus", Color.FromHex("#CE3A6D")),
+                new Music("Green Day ","Basket Case", Color.FromHex("#F3C163")),
+                new Music("David Guetta ft. Ne-Yo, Akon","Play Hard", Color.FromHex("#CE3A6D")),
+                new Music("Louis Armstrong","What a wonderful world", Color.FromHex("#007AFF")),
+                new Music("Radiohead ","Creep", Color.FromHex("#F3C163")),
+                new Music("The Clash","Should I Stay or Should I Go ", Color.FromHex("#007AFF")),
+                new Music("Blondie","Call Me", Color.FromHex("#CE3A6D")),
+                new Music("Calvin Harris","Call Me", Color.FromHex("#CE3A6D")),
+                new Music("Ray Charles ","I got a woman", Color.FromHex("#007AFF")),
+                new Music("Red Hot Chili Peppers","Aeroplane", Color.FromHex("#F3C163")),
+                new Music("The Beatles","Help", Color.FromHex("#007AFF")),
             };
 
-            this.Sizes = new ObservableCollection<double>
-            {
-                5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10
-            };
-
-            this.Color = this.Colors[0];
-            this.Size = this.Sizes[7];
-            this.Quantity = 1;
-            this.Price = 230;
-
-            this.AddToCartCommand = new Command(this.OnAddToCartCommand);
+            this.PlayGenreCommand = new Command(this.PlayGenre, this.CanExecutePlayGenre);
+            ((Command)this.PlayGenreCommand).ChangeCanExecute();
         }
 
-        public ProductViewModel Product
+        public ObservableItemCollection<string> Genres { get; set; }
+
+        public ObservableItemCollection<Music> RecentlyPlayed { get; set; }
+
+        public string GenreKind
         {
             get
             {
-                return this.product;
+                return this.genreKind;
             }
             set
             {
-                if (this.product != value)
+                if (this.genreKind != value)
                 {
-                    this.product = value;
+                    this.genreKind = value;
+                    ((Command)this.PlayGenreCommand).ChangeCanExecute();
                     this.OnPropertyChanged();
                 }
             }
         }
 
-        public ColorViewModel Color
+        public ICommand PlayGenreCommand
         {
-            get
+            get;
+            set;
+        }
+
+        private void PlayGenre()
+        {
+            if (this.genreKind != null)
             {
-                return this.color;
-            }
-            set
-            {
-                if (this.color != value)
-                {
-                    this.color = value;
-                    this.OnPropertyChanged();
-                }
+                var toastService = DependencyService.Get<IToastMessageService>();
+                toastService.ShortAlert($"{this.GenreKind} playing");
             }
         }
 
-        public double Size
+        private bool CanExecutePlayGenre()
         {
-            get
-            {
-                return this.size;
-            }
-            set
-            {
-                if (this.size != value)
-                {
-                    this.size = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
-        public double Quantity
-        {
-            get
-            {
-                return this.quantity;
-            }
-            set
-            {
-                if (this.quantity != value)
-                {
-                    this.quantity = value;
-                    this.OnPropertyChanged();
-                    this.OnQuantityChanged();
-                }
-            }
-        }
-
-        public double Price
-        {
-            get
-            {
-                return this.price;
-            }
-            set
-            {
-                if (this.price != value)
-                {
-                    this.price = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
-        public ObservableCollection<ColorViewModel> Colors { get; }
-
-        public ObservableCollection<double> Sizes { get; }
-
-        public ICommand AddToCartCommand { get; set; }
-
-        private void OnQuantityChanged()
-        {
-            this.Price = this.Quantity * this.Product.Price;
-        }
-
-        private void OnAddToCartCommand()
-        {
-            var toastService = DependencyService.Get<IToastMessageService>();
-            var toastMessage = $"The product '{this.Product.Name}' added to cart.";
-
-            toastService.ShortAlert(toastMessage);
+            return this.genreKind != null;
         }
     }
 }

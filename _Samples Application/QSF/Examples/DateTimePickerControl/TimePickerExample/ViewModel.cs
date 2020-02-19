@@ -43,12 +43,14 @@ namespace QSF.Examples.DateTimePickerControl.TimePickerExample
         private void AddAlarm()
         {
             Alarm lastAlarm = this.Alarms[this.Alarms.Count - 1];
-            this.Alarms.Add(new Alarm()
+            var nAlarm = new Alarm()
             {
                 SelectedHour = lastAlarm.SelectedHour,
                 Name = lastAlarm.Name,
                 IsEnabled = lastAlarm.IsEnabled
-            });
+            };
+            this.Alarms.Add(nAlarm);
+            nAlarm.IsPickerOpened = true;
         }
     }
 }

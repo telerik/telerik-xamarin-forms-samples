@@ -32,6 +32,8 @@ namespace QSF.Services.Configuration
 
         public string WhatsNewPageURL { get; set; }
 
+        public string PrivacyPolicyPageURL { get; set; }
+
         public List<Control> Controls { get; set; }
 
         public List<Theme> Themes { get; set; }

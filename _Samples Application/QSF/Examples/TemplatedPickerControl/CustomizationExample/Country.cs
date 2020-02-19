@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Telerik.XamarinForms.Common;
 
-namespace QSF.Examples.TemplatedPickerControl.FirstLookExample
+namespace QSF.Examples.TemplatedPickerControl.CustomizationExample
 {
     public class Country : NotifyPropertyChangedBase
     {

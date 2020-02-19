@@ -27,16 +27,16 @@ namespace QSF.Droid.Services.FileViewer
                 }
 
                 var context = Android.App.Application.Context;
+                Java.IO.File externalFilesDir = context.GetExternalFilesDir(null);
                 Java.IO.File myDir;
 
-                if (Android.OS.Environment.IsExternalStorageEmulated)
+                if (externalFilesDir != null)
                 {
-                    myDir = new Java.IO.File(context.GetExternalFilesDir(null), "/Telerik");
+                    myDir = new Java.IO.File(externalFilesDir, "/Telerik");
                 }
                 else
                 {
-                    string root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-                    myDir = new Java.IO.File(root + "/Telerik");
+                    myDir = new Java.IO.File(context.FilesDir, "/TelerikFiles");
                 }
 
                 if (!myDir.Exists())
