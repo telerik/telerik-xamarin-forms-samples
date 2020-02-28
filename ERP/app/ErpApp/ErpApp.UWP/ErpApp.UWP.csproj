@@ -227,7 +227,7 @@
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
-    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Telerik.Core, Version=2019.3.1023.45, Culture=neutral, PublicKeyToken=54096b0481e00341, processorArchitecture=MSIL">

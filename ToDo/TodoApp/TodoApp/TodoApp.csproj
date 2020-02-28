@@ -20,7 +20,7 @@
   </ItemGroup>
   
   <PropertyGroup>
-    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
   </PropertyGroup>
   
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />

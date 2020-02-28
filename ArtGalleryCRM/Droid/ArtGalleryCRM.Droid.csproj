@@ -173,7 +173,7 @@
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
   </ItemGroup>
   <PropertyGroup>
-    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Telerik.Xamarin.Android.Chart">

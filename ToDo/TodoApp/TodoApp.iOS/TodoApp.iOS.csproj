@@ -180,7 +180,7 @@
     </ImageAsset>
   </ItemGroup>
   <PropertyGroup>
-    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Tests|iPhone'">
     <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;__TESTS__</DefineConstants>
