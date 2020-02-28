@@ -109,7 +109,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
   </ItemGroup>
   <PropertyGroup>
-    <TelerikInstallationBinariesPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R3 2019\Binaries</TelerikInstallationBinariesPath>
+    <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Telerik.Xamarin.iOS">
