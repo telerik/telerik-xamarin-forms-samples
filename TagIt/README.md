@@ -15,9 +15,9 @@ In order to be able to able to build the application:
 
 ### UI for Xamarin controls installation
 
-The stunning and high-performant UI of the application is built using the UI for Xamarin controls provided by Telerik. Before building the application an installation of the controls is needed. In the [official documentation](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/download-product-files) of Progress® Telerik® UI for Xamarin you can find a detailed information how to install the controls both on Windows or MacOS. Once the controls are installed the referenced by the solution binaries will automatically be resolved.
+The stunning and high-performant UI of the application is built using the UI for Xamarin controls provided by Telerik. Before building the application an installation of the controls is needed. In the [official documentation](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/download-product-files) of Progress® Telerik® UI for Xamarin you can find a detailed information how to install the controls both on Windows and MacOS. After the installation is finished the referenced by the solution binaries will automatically be resolved.
 
-If you prefer to use nuget package instead of binary references Telerik provides a nuget server. The UI for Xamarin nuget package could be installed from it. [Here](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server) you can find detailed information about the Telerik nuget server and how you can setup it. Please, be aware that in order to use the nuget server a [registration](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/download-product-files) is required.
+If you prefer to use nuget packages instead of binary references Telerik provides a nuget server. The UI for Xamarin nuget package could be installed from it. [Here](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server) you can find detailed information about the Telerik nuget server and how you can setup it. Please, be aware that in order to use the nuget server a [registration](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/download-product-files) is required.
 
 ### Microsoft Azure's Computer Vision
 
