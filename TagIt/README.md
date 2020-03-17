@@ -4,7 +4,7 @@ Telerik Tagit is a cross-platform native mobile application designed to turn the
 
 It uses the [Progress® Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-ui) for the front end, offering a stunning, high-performant UI, and [Microsoft Azure's Computer Vision](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) API on the back end to caption images and tag them with search keywords. The app is available for Android, iOS and UWP.
 
-| ![Telerik Tagit](https://lh3.googleusercontent.com/iATgRrRjwcUAyrmeHCGFpqKTl8M3_Z-cJzb8-Xi2ER516IpLcKR-v3awnlMg_Jvn_Mea=w300-h2544-rw) | ![Telerik Tagit](https://lh3.googleusercontent.com/T5UINOJW9oHoPxv-OKAcoDGu0hpb8SKvjsnjwS1TBpICHFwuUrwvtsll-9IcOsHRVeY=w300-h2544-rw) | ![Telerik Tagit](https://lh3.googleusercontent.com/wyM9EI1_ej7cymc31_HnR4fgd5bIMvMhWiUiBGSFwoapU2C8UHY-HeCgGe_TtnwBLCK2=w300-h1200-rw) 
+![Telerik Tagit](https://lh3.googleusercontent.com/iATgRrRjwcUAyrmeHCGFpqKTl8M3_Z-cJzb8-Xi2ER516IpLcKR-v3awnlMg_Jvn_Mea=w250-h2544-rw) ![Telerik Tagit](https://lh3.googleusercontent.com/T5UINOJW9oHoPxv-OKAcoDGu0hpb8SKvjsnjwS1TBpICHFwuUrwvtsll-9IcOsHRVeY=w250-h2544-rw) ![Telerik Tagit](https://lh3.googleusercontent.com/wyM9EI1_ej7cymc31_HnR4fgd5bIMvMhWiUiBGSFwoapU2C8UHY-HeCgGe_TtnwBLCK2=w250-h1200-rw) 
 
 ## Prerequisites before building the application
 
