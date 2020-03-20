@@ -53,10 +53,17 @@
                 <Setter Property="FontSize" Value="Medium"/>
             </Style>
             <ControlTemplate x:Key="MyNumericControlTemplate">
-                <Grid >
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition>
+                            <ColumnDefinition.Width>
+                                <OnPlatform x:TypeArguments="GridLength">
+                                    <On Platform="iOS, Android">50</On>
+                                    <On Platform="UWP">Auto</On>
+                                </OnPlatform>
+                            </ColumnDefinition.Width>
+                        </ColumnDefinition>
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <telerikNumericInput:NumericInputButton Text="{TemplateBinding DecreaseButtonText}"
@@ -77,7 +84,8 @@
                                      Text="{TemplateBinding Value, Mode=OneWay}"
                                      InputTransparent="{TemplateBinding IsReadOnly}"
                                      telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
-                                     AutomationId="NumericEntry" />
+                                     AutomationId="NumericEntry">
+                    </telerikNumericInput:NumericInputEntry>
                     <telerikNumericInput:NumericInputButton Grid.Column="2"
                                       Text="{TemplateBinding IncreaseButtonText}"
                                       Command="{TemplateBinding IncreaseCommand}"

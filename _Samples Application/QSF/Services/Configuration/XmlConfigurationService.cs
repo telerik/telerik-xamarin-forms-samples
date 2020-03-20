@@ -135,7 +135,14 @@ namespace QSF.Services
 
         public string GetQSFAboutContent()
         {
-            return this.configuration.QSFAboutContent;
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                return this.configuration.QSFAboutContentiOS;
+            }
+            else
+            {
+                return this.configuration.QSFAboutContent;
+            }
         }
 
         public string GetHomePageTitleIcon()

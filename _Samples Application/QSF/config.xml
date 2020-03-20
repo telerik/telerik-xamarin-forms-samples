@@ -3,12 +3,13 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R1 2020 SP1</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R1 2020</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png</QSFAboutImageName>
   <QSFAboutLinkText>Telerik® UI for Xamarin</QSFAboutLinkText>
   <QSFAboutContent>This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms such as Android and iOS, as well as UWP.</QSFAboutContent>
+  <QSFAboutContentiOS>This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms.</QSFAboutContentiOS>
   <SplashScreen>
     <Title>Telerik UI for Xamarin</Title>
     <Icon>Logo.png</Icon>
@@ -1228,7 +1229,7 @@
       <Examples>
         <Example>
           <Name>FirstLook</Name>
-          <DisplayName>FirstLook</DisplayName>
+          <DisplayName>First Look</DisplayName>
           <DescriptionHeader>First Look</DescriptionHeader>
           <Image>Picker_TemplatedPicker_FirstLook.png</Image>
           <Description>Demonstrates how you can utilize RadTemplatedPicker in a sample scenario for selecting t-shirt color and size. Through the custom selector template you can place any content inside the picker popup based on the scenario at hand.</Description>

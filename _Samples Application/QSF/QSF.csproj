@@ -113,7 +113,7 @@
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
   </ItemGroup>
   <ItemGroup Condition=" '$(UsePublicRepo)' == 'true' ">
-    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2020.1.218.1" />
+    <PackageReference Include="Telerik.UI.for.Xamarin.Trial" Version="2020.1.318.1" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

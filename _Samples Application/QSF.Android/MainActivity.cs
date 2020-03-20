@@ -43,7 +43,7 @@ namespace QSF.Droid
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            this.LoadApplication(new App());
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)

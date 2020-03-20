@@ -51,9 +51,15 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <StackLayout BackgroundColor="#EAEAEA">
-                    <Image Source="music.png"
-                           VerticalOptions="End" 
-                           HorizontalOptions="End" />
+                    <Image VerticalOptions="End" 
+                           HorizontalOptions="End">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS, Android">music.png</On>
+                                <On Platform="UWP">Assets/music.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
                 </StackLayout>
                 <StackLayout Grid.Row="1"
                              Margin="16, 40, 16, 0">
@@ -110,10 +116,13 @@
                                             <Label Text="{Binding Artist}" 
                                                    FontSize="12"
                                                    FontAttributes="Bold" 
+                                                   VerticalTextAlignment="Center"
                                                    TextColor="Black" />
-                                            <Label Text=" - " />
+                                            <Label Text=" - " 
+                                                   VerticalTextAlignment="Center" />
                                             <Label Text="{Binding Song}" 
                                                    FontSize="12" 
+                                                   VerticalTextAlignment="Center"
                                                    TextColor="#919191" />
                                         </StackLayout>
                                 </listView:ListViewTemplateCell.View>

@@ -60,7 +60,13 @@
                    TargetType="telerikPrimitives:RadBorder">
                 <Setter Property="WidthRequest" Value="26" />
                 <Setter Property="HeightRequest" Value="26" />
-                <Setter Property="CornerRadius" Value="13" />
+                <Setter Property="CornerRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS, Android">13</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="BorderColor" Value="Blue" />
                 <Setter Property="BorderThickness" Value="1" />
             </Style>
@@ -87,33 +93,28 @@
     <StackLayout>
         <ScrollView>
             <StackLayout>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                <Grid Margin="0, 0, 0, 30">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
-                    <StackLayout Grid.Column="0"
-                         Grid.ColumnSpan="3"
-                         VerticalOptions="Start"
-                         HeightRequest="60"
-                         BackgroundColor="#EFEFF4"
-                         Orientation="Horizontal" />
-                    <Image Grid.Column="2" 
-                           Aspect="Fill"
-                           Margin="0, 0, 16, 0"
-                           VerticalOptions="Start"
-                           HeightRequest="80">
-                        <Image.Source>
-                            <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="iOS,Android">hanger.png</On>
-                                <On Platform="UWP">Assets/hanger.png</On>
-                            </OnPlatform>
-                        </Image.Source>
-                    </Image>
+                    <StackLayout BackgroundColor="#EFEFF4">
+                        <Image Margin="0, 0, 16, 0"
+                               VerticalOptions="End"
+                               HorizontalOptions="End">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">hanger.png</On>
+                                    <On Platform="UWP">Assets/hanger.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                            <Image.Aspect>
+                                <OnPlatform x:TypeArguments="Aspect">
+                                    <On Platform="iOS, Android">Fill</On>
+                                    <On Platform="UWP">AspectFit</On>
+                                </OnPlatform>
+                            </Image.Aspect>
+                        </Image>
+                    </StackLayout>
                 </Grid>
                 <StackLayout Margin="16, 0, 20, 0">
                     <Label Text="Women's Tops, T-Shirts &amp; Blouses"

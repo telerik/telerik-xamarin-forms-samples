@@ -22,6 +22,8 @@ namespace QSF.Services.Configuration
 
         public string QSFAboutContent { get; set; }
 
+        public string QSFAboutContentiOS { get; set; }
+
         public SplashScreen SplashScreen { get; set; }
 
         public string SourceURL { get; set; }

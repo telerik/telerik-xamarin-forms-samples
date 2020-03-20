@@ -61,18 +61,18 @@ namespace QSF.Droid.Services.XmlDocumentReader
 
         async private Task EnsureDocumentIsReadyAsync(string filePath)
         {
-            if (doc == null)
+            if (this.doc == null)
             {
-                string xml = await ReadFileAsync(filePath);
-                doc = new XmlDocument();
-                doc.LoadXml(xml);
+                string xml = await this.ReadFileAsync(filePath);
+                this.doc = new XmlDocument();
+                this.doc.LoadXml(xml);
             }
         }
 
         private XmlElement NavigateToPath(string nodePathToReturn)
         {
             string[] splitPath = nodePathToReturn.Split(new string[] { @"\" }, StringSplitOptions.RemoveEmptyEntries);
-            XmlNode folder = doc.FirstChild;
+            XmlNode folder = this.doc.FirstChild;
             for (int i = 0; i < splitPath.Length; i++)
             {
                 var xpath = "Folder[@Name = \"" + splitPath[i] + "\"]";

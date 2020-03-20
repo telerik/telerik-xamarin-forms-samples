@@ -1,18 +1,14 @@
-﻿using Foundation;
+﻿using CoreGraphics;
+using Foundation;
 using QSF.iOS.Services.Toast;
 using QSF.Services.Toast;
-using System.Linq;
 using UIKit;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
 
 [assembly: Xamarin.Forms.Dependency(typeof(ToastMessageService))]
 namespace QSF.iOS.Services.Toast
 {
     public class ToastMessageService : IToastMessageService
     {
-        private const string DefaultBackgroundColor = "#1d1d1e";
-
         private const double LONG_DELAY = 3.5;
         private const double SHORT_DELAY = 2.0;
 
@@ -36,18 +32,23 @@ namespace QSF.iOS.Services.Toast
                 this.DismissMessage();
             });
 
-            this.alert = UIAlertController.Create(null, null, UIAlertControllerStyle.ActionSheet);
+            this.alert = UIAlertController.Create(null, message, UIAlertControllerStyle.ActionSheet);
 
-            var messageAttributes = new UIStringAttributes
+            var rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+            var popoverPresentationController = this.alert.PopoverPresentationController;
+
+            if (popoverPresentationController != null)
             {
-                ForegroundColor = UIColor.White,
-            };
+                var rootView = rootViewController.View;
+                var rootRect = rootViewController.View.Bounds;
+                var sourceRect = new CGRect(0, rootRect.Height, rootRect.Width, 0);
 
-            var subView = this.alert.View.Subviews.First().Subviews.First().Subviews.First();
-            subView.BackgroundColor = Color.FromHex(DefaultBackgroundColor).ToUIColor();
+                popoverPresentationController.SourceView = rootView;
+                popoverPresentationController.SourceRect = sourceRect;
+                popoverPresentationController.PermittedArrowDirections = 0;
+            }
 
-            alert.SetValueForKey(new NSAttributedString(message, messageAttributes), new NSString("attributedMessage"));
-            UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(this.alert, true, null);
+            rootViewController.PresentViewController(this.alert, true, null);
         }
 
         private void DismissMessage()

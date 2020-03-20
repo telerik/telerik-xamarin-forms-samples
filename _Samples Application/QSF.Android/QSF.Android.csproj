@@ -162,74 +162,74 @@
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Chart">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Chart.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Common">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Common.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Data">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Data.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Data.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Gauges">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Gauges.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Gauges.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Input">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Input.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.List">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.Xamarin.Android.List.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.Xamarin.Android.List.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Primitives">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Primitives.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.Xamarin.Android.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.Barcode.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.Barcode.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Chart">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.Chart.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Common">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.Common.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.Common.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataControls">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.DataControls.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.DataControls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataGrid">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.DataGrid.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.DataVisualization">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ImageEditor">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.ImageEditor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Input">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.Input.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.Input.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Map">
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.Map.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.Map.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Primitives">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.218.1\lib\MonoAndroid10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>..\packages\Telerik.UI.for.Xamarin.Trial.2020.1.318.1\lib\MonoAndroid10\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Zip">
       <HintPath>..\..\Binaries\Portable\Telerik.Zip.dll</HintPath>
