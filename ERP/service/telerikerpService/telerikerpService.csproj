@@ -161,21 +161,9 @@
     <Compile Include="DataObjects\Product.cs" />
     <Compile Include="DataObjects\Vendor.cs" />
     <Compile Include="ExpandPropertyAttribute.cs" />
-    <Compile Include="Migrations\201810220815435_InitialCreate.cs" />
-    <Compile Include="Migrations\201810220815435_InitialCreate.Designer.cs">
-      <DependentUpon>201810220815435_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812011113519_Order IsOnline and Status.cs" />
-    <Compile Include="Migrations\201812011113519_Order IsOnline and Status.Designer.cs">
-      <DependentUpon>201812011113519_Order IsOnline and Status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812030940016_images.cs" />
-    <Compile Include="Migrations\201812030940016_images.Designer.cs">
-      <DependentUpon>201812030940016_images.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901050422050_Vendor.LastOrderDate.cs" />
-    <Compile Include="Migrations\201901050422050_Vendor.LastOrderDate.Designer.cs">
-      <DependentUpon>201901050422050_Vendor.LastOrderDate.cs</DependentUpon>
+    <Compile Include="Migrations\202004031744542_InitialCreate.cs" />
+    <Compile Include="Migrations\202004031744542_InitialCreate.Designer.cs">
+      <DependentUpon>202004031744542_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\telerikerpContext.cs" />
@@ -198,17 +186,8 @@
     <None Include="Properties\PublishProfiles\TelerikErpApp - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810220815435_InitialCreate.resx">
-      <DependentUpon>201810220815435_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812011113519_Order IsOnline and Status.resx">
-      <DependentUpon>201812011113519_Order IsOnline and Status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812030940016_images.resx">
-      <DependentUpon>201812030940016_images.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901050422050_Vendor.LastOrderDate.resx">
-      <DependentUpon>201901050422050_Vendor.LastOrderDate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004031744542_InitialCreate.resx">
+      <DependentUpon>202004031744542_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
