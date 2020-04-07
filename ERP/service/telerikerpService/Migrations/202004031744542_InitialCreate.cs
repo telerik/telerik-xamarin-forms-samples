@@ -82,64 +82,10 @@ namespace telerikerpService.Migrations
                         Name = c.String(),
                         Email = c.String(),
                         Phone = c.String(),
-                        ImageID = c.String(maxLength: 128),
+                        Image = c.String(),
                         DefaultDiscount = c.Decimal(nullable: false, precision: 18, scale: 2),
                         CustomerSatisfaction = c.Decimal(nullable: false, precision: 18, scale: 2),
                         PreferredCommunicationChannel = c.String(),
-                        Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "ServiceTableColumn",
-                                    new AnnotationValues(oldValue: null, newValue: "Version")
-                                },
-                            }),
-                        CreatedAt = c.DateTimeOffset(nullable: false, precision: 7,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "ServiceTableColumn",
-                                    new AnnotationValues(oldValue: null, newValue: "CreatedAt")
-                                },
-                            }),
-                        UpdatedAt = c.DateTimeOffset(precision: 7,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "ServiceTableColumn",
-                                    new AnnotationValues(oldValue: null, newValue: "UpdatedAt")
-                                },
-                            }),
-                        Deleted = c.Boolean(nullable: false,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "ServiceTableColumn",
-                                    new AnnotationValues(oldValue: null, newValue: "Deleted")
-                                },
-                            }),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Images", t => t.ImageID)
-                .Index(t => t.ImageID)
-                .Index(t => t.CreatedAt, clustered: true);
-            
-            CreateTable(
-                "dbo.Images",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "ServiceTableColumn",
-                                    new AnnotationValues(oldValue: null, newValue: "Id")
-                                },
-                            }),
-                        Content = c.Binary(),
-                        Filename = c.String(),
-                        Width = c.Single(nullable: false),
-                        Height = c.Single(nullable: false),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
                             {
@@ -194,6 +140,8 @@ namespace telerikerpService.Migrations
                         OrderDate = c.DateTimeOffset(nullable: false, precision: 7),
                         DueDate = c.DateTimeOffset(nullable: false, precision: 7),
                         ShipMethod = c.String(),
+                        IsOnline = c.Boolean(nullable: false),
+                        Status = c.String(),
                         ShippingAddressModifiedDate = c.DateTimeOffset(precision: 7),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
@@ -307,7 +255,7 @@ namespace telerikerpService.Migrations
                         ProductNumber = c.String(),
                         Name = c.String(),
                         DateAdded = c.DateTimeOffset(nullable: false, precision: 7),
-                        ImageID = c.String(maxLength: 128),
+                        Image = c.String(),
                         Weight = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Location = c.String(),
@@ -347,8 +295,6 @@ namespace telerikerpService.Migrations
                             }),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Images", t => t.ImageID)
-                .Index(t => t.ImageID)
                 .Index(t => t.CreatedAt, clustered: true);
             
             CreateTable(
@@ -365,12 +311,13 @@ namespace telerikerpService.Migrations
                             }),
                         VendorNumber = c.String(),
                         Name = c.String(),
-                        ImageID = c.String(maxLength: 128),
+                        Image = c.String(),
                         Rating = c.Byte(nullable: false),
                         AnnualRevenue = c.Decimal(nullable: false, precision: 18, scale: 2),
                         SalesAmmount = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Phone = c.String(),
                         OrderFrequency = c.String(),
+                        LastOrderDate = c.DateTimeOffset(precision: 7),
                         Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion",
                             annotations: new Dictionary<string, AnnotationValues>
                             {
@@ -405,35 +352,26 @@ namespace telerikerpService.Migrations
                             }),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Images", t => t.ImageID)
-                .Index(t => t.ImageID)
                 .Index(t => t.CreatedAt, clustered: true);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Vendors", "ImageID", "dbo.Images");
             DropForeignKey("dbo.CustomerAddresses", "CustomerID", "dbo.Customers");
             DropForeignKey("dbo.Orders", "ShippingAddressID", "dbo.CustomerAddresses");
             DropForeignKey("dbo.OrderDetails", "ProductID", "dbo.Products");
-            DropForeignKey("dbo.Products", "ImageID", "dbo.Images");
             DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
             DropForeignKey("dbo.Orders", "CustomerID", "dbo.Customers");
-            DropForeignKey("dbo.Customers", "ImageID", "dbo.Images");
             DropIndex("dbo.Vendors", new[] { "CreatedAt" });
-            DropIndex("dbo.Vendors", new[] { "ImageID" });
             DropIndex("dbo.Products", new[] { "CreatedAt" });
-            DropIndex("dbo.Products", new[] { "ImageID" });
             DropIndex("dbo.OrderDetails", new[] { "CreatedAt" });
             DropIndex("dbo.OrderDetails", new[] { "ProductID" });
             DropIndex("dbo.OrderDetails", new[] { "OrderID" });
             DropIndex("dbo.Orders", new[] { "CreatedAt" });
             DropIndex("dbo.Orders", new[] { "ShippingAddressID" });
             DropIndex("dbo.Orders", new[] { "CustomerID" });
-            DropIndex("dbo.Images", new[] { "CreatedAt" });
             DropIndex("dbo.Customers", new[] { "CreatedAt" });
-            DropIndex("dbo.Customers", new[] { "ImageID" });
             DropIndex("dbo.CustomerAddresses", new[] { "CreatedAt" });
             DropIndex("dbo.CustomerAddresses", new[] { "CustomerID" });
             DropTable("dbo.Vendors",
@@ -554,45 +492,6 @@ namespace telerikerpService.Migrations
                     },
                 });
             DropTable("dbo.Orders",
-                removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
-                {
-                    {
-                        "CreatedAt",
-                        new Dictionary<string, object>
-                        {
-                            { "ServiceTableColumn", "CreatedAt" },
-                        }
-                    },
-                    {
-                        "Deleted",
-                        new Dictionary<string, object>
-                        {
-                            { "ServiceTableColumn", "Deleted" },
-                        }
-                    },
-                    {
-                        "Id",
-                        new Dictionary<string, object>
-                        {
-                            { "ServiceTableColumn", "Id" },
-                        }
-                    },
-                    {
-                        "UpdatedAt",
-                        new Dictionary<string, object>
-                        {
-                            { "ServiceTableColumn", "UpdatedAt" },
-                        }
-                    },
-                    {
-                        "Version",
-                        new Dictionary<string, object>
-                        {
-                            { "ServiceTableColumn", "Version" },
-                        }
-                    },
-                });
-            DropTable("dbo.Images",
                 removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
                 {
                     {

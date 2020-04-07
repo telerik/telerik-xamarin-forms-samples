@@ -296,3 +296,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 *.bak
+
+# MFractor
+.mfractor/

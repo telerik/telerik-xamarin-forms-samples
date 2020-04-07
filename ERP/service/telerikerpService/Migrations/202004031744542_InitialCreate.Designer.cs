@@ -7,13 +7,13 @@ namespace telerikerpService.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class OrderIsOnlineandStatus : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OrderIsOnlineandStatus));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812011113519_Order IsOnline and Status"; }
+            get { return "202004031744542_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
