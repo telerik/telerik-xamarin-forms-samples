@@ -25,7 +25,7 @@ When the build is complete, you can move on to publishing the web application.
 
 Right-click on the project in the Solution Explorer and select "**Publish...**". The publish target wizard will let you select an endpoint. App Service, Virtual Machine, IIS/FTP or Folder.
 
-In this walkthrough we're using Azure App Service, if you do not have a preexisting one, you can select "New" and then "Create Profile"
+In this walkthrough we're using Azure App Service, if you do not have a pre-existing one, you can select "New" and then "Create Profile"
 
 ![](images/part1-step3-1.jpg)
 
@@ -66,26 +66,26 @@ You only need to open Visual Studio **Package Manager Console** and run the `Upd
 ![](images/part1-step3-7.jpg)
 
 
-> If this does not work, double check the connectionstring in web.config is correct and the database is valid. The command and migrations only work if there is a valid connection to the SQL server and database. If you have experience with SSMS, you can also manually run the initial migration script if you prefer.
+> If this does not work, double check the connection string in web.config is correct and the database is valid. The command and migrations only work if there is a valid connection to the SQL server and database. If you have experience with SSMS, you can also manually run the initial migration script if you prefer.
 
 #### Step 4. Confirming Successful Deployment
 
 There are two things to check before moving on:
 
 ##### Confirmation 1
-Confirm the App service URL is loading in the browser. You'll see a blue Azure page stating the successful deployment
+Confirm the App service URL is loading in the browser, you'll see a blue Azure page stating the successful deployment
 
 ![](images/part1-step4-1.jpg)
 
-> Copy this URL somewhere for easy access later. You will need it Part 2 (below) for the Xamarin.Forms project
+> Copy this URL somewhere else for easy access later (e.g. Notepad), you will need it for the Xamarin.Forms project (Part 2 below).
 
 ##### Confirmation 2
-Confirm the `Update-Database` script ran successfully and the database has the sample data seeded. You should see several tables available, eahc populated with data.
+Confirm the `Update-Database` script ran successfully and the database has the sample data seeded. You should see several tables available, each populated with data.
 
 ![](images/part1-step4-2.jpg)
 
 
-If one of these is not working, revisit the previosu steps. For more information visit the Microsoft Documentation. [Here is a great tutorial](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase) that shows how to create an App Service and a SQL Database at the same time. This is identical to what you're doing with the ERP project, except using the demo's web app and code-first migrations to create the tables.
+If one of these is not working, revisit the previous steps. For more information, visit the Microsoft Documentation on Azure and SQL Databases. The [Create an App Service with SQL Database tutorial](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase) is an amazing resource that shows how to create an App Service and a SQL Database at the same time.
 
 ## Deploy the Xamarin.Forms Application
 
