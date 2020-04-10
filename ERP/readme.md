@@ -9,15 +9,14 @@ The ERP service application is an ASP.NET application that connects to a SQL ser
 
 #### Step 1. Opening the solution in Visual Studio
 
-After you've downloaded (or cloned) the repostiry, navigate to the `telerik-xamarin-forms-samples/ERP/service/` folder and open the **telerikerp.sln** file.
+After you've downloaded (or cloned) the repository, navigate to the `telerik-xamarin-forms-samples/ERP/service/` folder and open the **telerikerp.sln** file.
 
 ![](.images/part1-step1.jpg)
 
 #### Step 2. Restore the solution's NuGet packages.
 
-1. Right-click on the Solution (not the project)
-2. Select "Restore NuGet Packages"
-3. Rick-click on the solution and select Build
+1. Right-click on the Solution (not the project) and select **Restore NuGet Packages**
+3. Right-click on the Solution again and select **Build**
 
 When the build is complete, you can move on to publishing the web application.
 
