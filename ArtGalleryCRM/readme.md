@@ -252,6 +252,3 @@ It's showtime! Take the following steps to see the app running:
 3. Explore the app!
 
 ![](.images/part3-step5-3.jpg)
-
-
-
