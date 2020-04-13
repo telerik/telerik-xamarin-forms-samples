@@ -24,7 +24,7 @@ When the build is complete, you can move on to publishing the web application.
 
 Right-click on the project in the Solution Explorer and select "**Publish...**". The publish target wizard will let you select an endpoint. App Service, Virtual Machine, IIS/FTP or Folder.
 
-In this walkthrough we're using Azure App Service, if you do not have a pre-existing one, you can select "New" and then "Create Profile"
+In this walk-through we're using Azure App Service, if you do not have a pre-existing one, you can select "New" and then "Create Profile"
 
 ![](.images/part1-step3-1.jpg)
 
@@ -38,7 +38,9 @@ If you already have a SQL database setup, go ahead and click **Publish**. If you
 
 #### Extra 1 - SQL Server
 
-If you did not create a new SQL database in the previous step and need to add a conneciton string to your existing server. To update this, select the Edit button:
+If you did not create a new SQL database in the previous step and want to use a connection string to an existing SQL server, you can do this before publishing the application.
+
+Select the **Edit** button underneath the publish profiles dropdown:
 
 ![](.images/part1-step3-3.jpg)
 
@@ -120,7 +122,7 @@ If you're on a Mac or have an old version of UI for Xamarin installed on PC, you
 
 1. Close Visual Studio
 2. [Download the **PKG** installer file](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/download-product-files) from your account downloads
-3. Right click on the pkg file, expand "Open with..." anbd select "Installer" (*if you see a security warning, click "Open" in the popup*)
+3. Right click on the pkg file, expand "Open with..." and select "Installer" (*if you see a security warning, click "Open" in the popup*)
 4. See the [Manually Add Required Assemblies](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/mac/getting-started-mac#manually-add-required-assemblies) article for instructions on where to find the Binaries folder.
 5. Open the **ErpApp.sln** solution in Visual Studio again
 
@@ -140,7 +142,7 @@ Right-Click on the project head that you want to target and select "**Set as Sta
 
 ![](.images/part2-step3-1.jpg)
 
-For these first few builds, you'll want to choose Debug and a non-device option tp keep the build time short and simple. 
+For these first few builds, you'll want to choose Debug and a non-device option to keep the build time short and simple. 
 
 For iOS, choose **Debug - iPhone Simulator**:
 
