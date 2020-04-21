@@ -47,7 +47,7 @@ namespace tagit.iOS.Services
                     imageManager.RequestImageData(asset, requestOptions, (data, dataUti, orientation, info) =>
                     {
                         var fileURL = info?[(NSString)@"PHImageFileURLKey"] as NSUrl;
-                        name = fileURL?.FilePathUrl.LastPathComponent;
+                        name = fileURL?.FilePathUrl.LastPathComponent ?? asset.LocalIdentifier;
                         path = fileURL?.Path;
                         if (data != null)
                         {
@@ -141,8 +141,10 @@ namespace tagit.iOS.Services
 
                 uiImage.SaveToPhotosAlbum((image, error) =>
                 {
-
-                    Console.WriteLine("error:" + error);
+                    if (error != null)
+                    {
+                        Console.WriteLine("ImageService.SaveImageAsync SaveToPhotosAlbum for {0} failed with error: {1}", fileName, error);
+                    }
                 });
 
             }
