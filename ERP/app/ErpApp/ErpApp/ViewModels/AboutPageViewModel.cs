@@ -8,6 +8,8 @@ namespace ErpApp.ViewModels
 {
     public class AboutPageViewModel : MvxViewModel
     {
+        private static string ApplicationDescriptionMessage = @"This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms such as Android and iOS, as well as UWP.";
+        private static string ApplicationDescriptionMessageIOS = @"This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms.";
         public string HyperlinkText { get; }
         public string TrailingContent { get; }
         public string Header { get; }
@@ -20,7 +22,7 @@ namespace ErpApp.ViewModels
             this.LogoImage = "TelerikXamarin_Logo.png";
             this.Header = "Overview";
             this.HyperlinkText = @"Telerik® UI for Xamarin";
-            this.TrailingContent = @"This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms such as Android and iOS, as well as UWP.";
+            this.TrailingContent = Device.RuntimePlatform == Device.iOS ? ApplicationDescriptionMessageIOS : ApplicationDescriptionMessage;
             this.LinkTapped = new Command(OnLinkTapped);
         }
 

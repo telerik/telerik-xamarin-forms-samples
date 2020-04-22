@@ -9,6 +9,8 @@ namespace ArtGalleryCRM.Forms.ViewModels
 {
     public class AboutViewModel : PageViewModelBase
     {
+        private static string ApplicationDescriptionMessage = @"This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms such as Android and iOS, as well as UWP.";
+        private static string ApplicationDescriptionMessageIOS = @"This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms.";
         public AboutViewModel()
         {
             this.Title = "About";
@@ -54,7 +56,7 @@ namespace ArtGalleryCRM.Forms.ViewModels
 
         public string AppName => "Art Gallery CRM";
 
-        public string AppDescription => "This app uses Telerik UI for Xamarin, a collection of Xamarin.Forms controls and Xamarin bindings built on top of the native Telerik UI for Windows Universal Platform, Telerik UI for iOS and UI for Android suites, providing a common API that allows the developer to use the native Telerik components on all three mobile platforms (iOS / Android / Windows) using a single shared code base.\r\n\nIn addition you get access to the full set of controls in UI for Xamarin.IOS, Xamarin.Android and UI for UWP.";
+        public string AppDescription => Device.RuntimePlatform == Device.iOS ? ApplicationDescriptionMessageIOS : ApplicationDescriptionMessage;
 
         public ICommand OpenWebCommand { get; }
     }
