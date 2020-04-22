@@ -1,5 +1,11 @@
-﻿﻿
-# CRM Demo Deployment
+# Download
+
+If you want to check the application now without building it with your own resources, you can use the following links and install it from the stores: 
+* [**Google Play**](https://play.google.com/store/apps/details?id=com.telerik.ArtGalleryCRM)
+* [**Apple App Store**](https://apps.apple.com/us/app/art-gallery-crm/id1449462263?ls=1)
+* [**Microsoft Store**](https://www.microsoft.com/store/apps/9PBNQZ08R0C8)
+
+# Build and Deploy
 
 This readme will walk you through deploying the CRM example, which consists of three major parts: 
 
