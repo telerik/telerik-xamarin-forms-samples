@@ -26,6 +26,7 @@
             <Color x:Key="Tag3ColorLight">#FF0097DF</Color>
             <Color x:Key="IndicatorTextColor">#FF3C3C3C</Color>
             <Color x:Key="chartForeground">White</Color>
+          "Test"
             <Color x:Key="chartForegroundSemiTransparent">#88FFFFFF</Color>
         
             <Style TargetType="NavigationPage">
