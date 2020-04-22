@@ -32,6 +32,7 @@ namespace QSF
             DependencyService.Register<ISerializationService, SerializationService>();
             DependencyService.Register<IBackdoorService, BackdoorService>();
             DependencyService.Register<IMessageService, MessageService>();
+            "Веско  - не си прав!"
         }
 
         private Task InitNavigation()
