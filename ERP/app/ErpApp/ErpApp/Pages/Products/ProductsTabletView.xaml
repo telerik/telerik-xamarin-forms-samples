@@ -64,9 +64,9 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-
+                
                 <BoxView BackgroundColor="White" CornerRadius="4" Grid.RowSpan="4" Grid.ColumnSpan="4" />
-
+                
                 <Label Grid.Row="0" Margin="20" Text="{Binding ListDescription}" FontSize="20" FontAttributes="Bold" />
                 <telerikInput:RadButton Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center" Margin="130,0,0,0" Clicked="ShowPopup"
                                         BackgroundColor="Transparent" WidthRequest="30" BorderWidth="0"
@@ -97,12 +97,12 @@
                         </telerikPrimitives:RadPopup>
                     </telerikPrimitives:RadPopup.Popup>
                 </telerikInput:RadButton>
-
+                
                 <telerikInput:RadButton HorizontalOptions="End" VerticalOptions="Center" Grid.Row="0" Grid.ColumnSpan="4" Margin="0,0,30,0"
                                         FontFamily="{StaticResource IconsFont}" Text="{StaticResource icon-plus}"
                                         Command="{Binding CreateProductCommand}"
                                         Style="{StaticResource StretchedActionButton}" />
-
+                
                 <!--Linear view-->
                 <telerikDataGrid:RadDataGrid x:Name="dataGrid" Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding Products}" Margin="20,0,20,30"
                                              SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" UserEditMode="None"
@@ -145,16 +145,16 @@
                                 <DataTemplate>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                                         <Button Text="{StaticResource icon-pencil}" FontFamily="{StaticResource IconsFont}" Margin="0,0,30,0"
-                                                Command="{Binding BindingContext.EditProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
-                                        <Button Text="{StaticResource icon-cancel-3}" FontFamily="{StaticResource IconsFont}"
                                                 Command="{Binding BindingContext.DeleteProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
+                                        <Button Text="{StaticResource icon-cancel-3}" FontFamily="{StaticResource IconsFont}"
+                                                Command="{Binding BindingContext.EditProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
                                     </StackLayout>
                                 </DataTemplate>
                             </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                         </telerikDataGrid:DataGridTemplateColumn>
                     </telerikDataGrid:RadDataGrid.Columns>
                 </telerikDataGrid:RadDataGrid>
-
+                
                 <!--Grid view-->
                 <telerikDataControls:RadListView Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding Products}" Margin="20,0,20,30"
                                                  SelectedItem="{Binding SelectedProduct, Mode=TwoWay}">
@@ -185,7 +185,7 @@
                     <telerikDataControls:RadListView.ItemStyle>
                         <telerikListView:ListViewItemStyle BorderWidth="0" BorderLocation="None" BackgroundColor="Transparent" />
                     </telerikDataControls:RadListView.ItemStyle>
-
+                        
                     <telerikDataControls:RadListView.ItemTemplate>
                         <DataTemplate>
                             <telerikListView:ListViewTemplateCell>
@@ -220,7 +220,7 @@
                                                 Command="{Binding BindingContext.EditProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
                                         <Button Grid.Row="0" Grid.Column="1" Text="{StaticResource icon-cancel-3}" FontFamily="{StaticResource IconsFont}" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,40,0"
                                                 Command="{Binding BindingContext.DeleteProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
-
+                                        
                                         <Label Grid.Row="1" Grid.Column="0" Text="Product ID" TextColor="{StaticResource TitleLabelColor}" Margin="{StaticResource itemSpacingL}" FontSize="Small"/>
                                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ProductNumber}" Margin="{StaticResource itemSpacing}" />
 
@@ -347,7 +347,7 @@
                     </telerikChart:RadCartesianChart.VerticalAxis>
                 </telerikChart:RadCartesianChart>
             </Grid>
-
+            
             <controls:EmptySearchResultsView Grid.Row="1" BackgroundColor="White" Term="{Binding DraftSearchTerm}"
                                              Margin="10,20" IsVisible="{Binding IsSearchEmpty, Mode=OneWay}" />
 
