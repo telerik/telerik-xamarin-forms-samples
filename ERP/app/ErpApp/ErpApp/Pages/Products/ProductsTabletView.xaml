@@ -145,9 +145,9 @@
                                 <DataTemplate>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                                         <Button Text="{StaticResource icon-pencil}" FontFamily="{StaticResource IconsFont}" Margin="0,0,30,0"
-                                                Command="{Binding BindingContext.DeleteProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
-                                        <Button Text="{StaticResource icon-cancel-3}" FontFamily="{StaticResource IconsFont}"
                                                 Command="{Binding BindingContext.EditProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
+                                        <Button Text="{StaticResource icon-cancel-3}" FontFamily="{StaticResource IconsFont}"
+                                                Command="{Binding BindingContext.DeleteProductCommand, Source={x:Reference LayoutRoot}}" CommandParameter="{Binding}" />
                                     </StackLayout>
                                 </DataTemplate>
                             </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
