@@ -32,7 +32,9 @@
                                          AllDayAppointmentBackgroundColor="{StaticResource AccentTertiaryColor}"
                                          AllDayAreaBackgroundColor="{StaticResource GrayBackgroundColor}"
                                          TimelineLabelsTextColor="{StaticResource AccentDarkColor}"
-                                         TimelineBackgroundColor="{StaticResource LightBackgroundColor}" />
+                                         TimelineBackgroundColor="{StaticResource LightBackgroundColor}"
+                                         AppointmentFontSize="11"
+                                         AppointmentDetailsFontSize="10" />
             </input:RadCalendar.MultiDayViewStyle>
         </input:RadCalendar>
 
