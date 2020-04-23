@@ -114,8 +114,9 @@
                         <Label Text="{Binding Converter={StaticResource DateTimeToDateStringConverter}}"
                                TextColor="{StaticResource ExtraLightTextColor}"
                                FontAttributes="Bold"
-                               HorizontalOptions="Center"
+                               HorizontalOptions="FillAndExpand"
                                VerticalOptions="Center"
+                               HorizontalTextAlignment="Center"
                                FontSize="{OnPlatform Android='16', iOS='18', UWP='20'}" />
                     </Grid>
                 </DataTemplate>
