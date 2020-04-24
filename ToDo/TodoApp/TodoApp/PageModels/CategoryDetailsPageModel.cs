@@ -66,11 +66,8 @@ namespace TodoApp.PageModels
         {
             base.Init(initData);
 
-            if (initData is Category category)
-            {
-                Category = category;
-                Device.BeginInvokeOnMainThread(() => this.Tasks = category.Items);
-            }
+            this.Category = this.TodoService.GetCategories().SingleOrDefault(c => c.ID == (int)initData);
+            Device.BeginInvokeOnMainThread(() => this.Tasks = _category.Items);
         }
 
         protected override void ViewIsDisappearing(object sender, EventArgs e)

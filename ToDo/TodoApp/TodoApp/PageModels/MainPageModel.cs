@@ -233,7 +233,7 @@ namespace TodoApp.PageModels
             if (category.IsNew)
                 CreateNewCategory();
             else
-                await this.CoreMethods.PushPageModel<CategoryDetailsPageModel>(category);
+                await this.CoreMethods.PushPageModel<CategoryDetailsPageModel>(category.ID);
             this.SelectedCategory = null;
         }
 
