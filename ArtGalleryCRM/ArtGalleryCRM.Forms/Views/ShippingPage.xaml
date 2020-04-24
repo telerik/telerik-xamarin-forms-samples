@@ -14,9 +14,9 @@
 
     <Grid x:Name="rootGrid">
         <input:RadCalendar x:Name="radCalendar"
+                           ViewMode="MultiDay"
                            AppointmentsSource="{Binding ShippingAppointments}"
-                           DisplayDate="{Binding CalendarDisplayDate}"
-                           NativeControlLoaded="RadCalendar_OnNativeControlLoaded">
+                           DisplayDate="{Binding CalendarDisplayDate}">
             <input:RadCalendar.MultiDayViewSettings>
                 <input:MultiDayViewSettings VisibleDays="{OnPlatform Android='3', iOS='3', UWP='5'}"
                                             IsCurrentTimeIndicatorVisible="true"
@@ -32,7 +32,9 @@
                                          AllDayAppointmentBackgroundColor="{StaticResource AccentTertiaryColor}"
                                          AllDayAreaBackgroundColor="{StaticResource GrayBackgroundColor}"
                                          TimelineLabelsTextColor="{StaticResource AccentDarkColor}"
-                                         TimelineBackgroundColor="{StaticResource LightBackgroundColor}" />
+                                         TimelineBackgroundColor="{StaticResource LightBackgroundColor}"
+                                         AppointmentFontSize="11"
+                                         AppointmentDetailsFontSize="10" />
             </input:RadCalendar.MultiDayViewStyle>
         </input:RadCalendar>
 
