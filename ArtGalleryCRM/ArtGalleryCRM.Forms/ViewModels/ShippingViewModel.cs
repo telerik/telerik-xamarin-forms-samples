@@ -18,9 +18,24 @@ namespace ArtGalleryCRM.Forms.ViewModels
         {
             this.Title = "Shipping Calendar";
         }
-        
-        public ObservableCollection<ShippingAppointment> ShippingAppointments { get; } = new ObservableCollection<ShippingAppointment>();
-        
+
+
+        private ObservableCollection<ShippingAppointment> shippingAppointments = new ObservableCollection<ShippingAppointment>();
+
+        public ObservableCollection<ShippingAppointment> ShippingAppointments
+        {
+            get
+            {
+                return this.shippingAppointments;
+            }
+            set
+            {
+                this.shippingAppointments = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+
         public DateTime CalendarDisplayDate
         {
             get => this._calendarDisplayDate;
@@ -59,17 +74,9 @@ namespace ArtGalleryCRM.Forms.ViewModels
                         Color = (Color)Application.Current.Resources["AccentTertiaryColor"]
                     });
                 }
-                
-                if (this.ShippingAppointments.Any())
-                {
-                    this.ShippingAppointments.Clear();
-                }
 
-                foreach (var shippingAppointment in tempList)
-                {
-                    this.ShippingAppointments.Add(shippingAppointment);
-                }
-                
+                this.ShippingAppointments = new ObservableCollection<ShippingAppointment>(tempList);
+
                 this.CalendarDisplayDate = this.ShippingAppointments.Min(appointment => appointment.StartDate);
             }
             catch (Exception ex)
