@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using ArtGalleryCRM.Forms.Interfaces;
 using ArtGalleryCRM.Forms.Models;
 using Xamarin.Forms;
@@ -46,41 +47,47 @@ namespace ArtGalleryCRM.Forms.Views.OrderPages
         public void CommitChanges()
         {
             var hasErrors = false;
+            StringBuilder errors = new StringBuilder();
 
             if (Convert.ToInt32(this.QuantityNumericInput.Value) == 0)
             {
                 hasErrors = true;
-                Application.Current.MainPage.DisplayAlert("No Quantity", "You need to select a quantity greater than 0.", "OK");
+                errors.AppendLine("- Quantity");
             }
 
             if (string.IsNullOrEmpty(this.StreetEntry.Text))
             {
                 hasErrors = true;
-                Application.Current.MainPage.DisplayAlert("Missing Street", "You need to enter a value for Street.", "OK");
+                errors.AppendLine("- Street");
             }
 
             if (string.IsNullOrEmpty(this.CityEntry.Text))
             {
                 hasErrors = true;
-                Application.Current.MainPage.DisplayAlert("Missing City", "You need to enter a value for City.", "OK");
+                errors.AppendLine("- City");
             }
 
             if (string.IsNullOrEmpty(this.StateEntry.Text))
             {
                 hasErrors = true;
-                Application.Current.MainPage.DisplayAlert("Missing State", "You need to enter a value for State.", "OK");
+                errors.AppendLine("- State");
             }
 
             if (string.IsNullOrEmpty(this.ZipCodeEntry.Text))
             {
                 hasErrors = true;
-                Application.Current.MainPage.DisplayAlert("Missing ZIP Code", "You need to enter a value for ZIP Code.", "OK");
+                errors.AppendLine("- ZIP Code");
             }
 
             if (string.IsNullOrEmpty(this.CountryEntry.Text))
             {
                 hasErrors = true;
-                Application.Current.MainPage.DisplayAlert("Missing Country", "You need to enter a value for Country.", "OK");
+                errors.AppendLine("- Country");
+            }
+
+            if (hasErrors)
+            {
+                Application.Current.MainPage.DisplayAlert("Please fill in the following missing fields:", errors.ToString(), "OK");
             }
 
             this.ViewModel.IsReadyForSave = !hasErrors;

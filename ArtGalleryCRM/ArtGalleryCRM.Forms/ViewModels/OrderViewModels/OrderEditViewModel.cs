@@ -149,11 +149,6 @@ namespace ArtGalleryCRM.Forms.ViewModels.OrderViewModels
                             await this.NavigateBackAsync();
                         }
                     }
-                    else
-                    {
-                        // If validation failed, the different entries will have an error message in red
-                        await Application.Current.MainPage.DisplayAlert("Enter Correct Address", "One or more of the address fields are not valid. Check and try again.", "OK");
-                    }
                     break;
             }
         }
