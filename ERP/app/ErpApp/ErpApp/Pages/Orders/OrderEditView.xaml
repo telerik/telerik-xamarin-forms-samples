@@ -6,9 +6,15 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:numericInput="clr-namespace:Telerik.XamarinForms.Input.NumericInput;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls">
     <ContentView.Resources>
         <ResourceDictionary xmlns:themes="clr-namespace:ErpApp.Themes">
+            <Style TargetType="numericInput:NumericInputEntry">
+                <Setter Property="FontSize">
+                    <OnPlatform x:TypeArguments="x:Double" Default="13" iOS="12" Android="13" WinPhone="13"/>
+                </Setter>
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <themes:DashboardStyles />
             </ResourceDictionary.MergedDictionaries>
@@ -114,10 +120,10 @@
                                 <telerikDataGrid:RadDataGrid ItemsSource="{Binding AllProducts}" AutoGenerateColumns="False" UserEditMode="None" Style="{StaticResource DataGridStyle}" Margin="0,10,0,50">
                                     <telerikDataGrid:RadDataGrid.Columns>
                                         <telerikDataGrid:DataGridTextColumn HeaderText="Product" PropertyName="ProductName" HeaderStyle="{StaticResource cellHeaderStyle}" />
-                                        <telerikDataGrid:DataGridTemplateColumn HeaderText="Quantity" HeaderStyle="{StaticResource cellHeaderStyle}" Width="160" SizeMode="Fixed">
+                                        <telerikDataGrid:DataGridTemplateColumn HeaderText="Quantity" HeaderStyle="{StaticResource cellHeaderStyle}" Width="180" SizeMode="Fixed">
                                             <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                                                 <DataTemplate>
-                                                    <telerikInput:RadNumericInput Value="{Binding Quantity, Mode=TwoWay}" Step="1" Minimum="0" Margin="0,6" WidthRequest="160" HorizontalOptions="Center" VerticalOptions="Center" />
+                                                    <telerikInput:RadNumericInput Value="{Binding Quantity, Mode=TwoWay}" Step="1" Minimum="0" Maximum="9999" Margin="0,6" WidthRequest="180" HorizontalOptions="Center" VerticalOptions="Center" />
                                                 </DataTemplate>
                                             </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                                         </telerikDataGrid:DataGridTemplateColumn>
