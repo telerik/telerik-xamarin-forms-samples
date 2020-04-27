@@ -13,14 +13,19 @@ namespace ArtGalleryCRM.Forms.ViewModels
     public class ShippingViewModel : PageViewModelBase
     {
         private DateTime _calendarDisplayDate = DateTime.Now;
+        private ObservableCollection<ShippingAppointment> _shippingAppointments;
 
         public ShippingViewModel()
         {
             this.Title = "Shipping Calendar";
         }
-        
-        public ObservableCollection<ShippingAppointment> ShippingAppointments { get; } = new ObservableCollection<ShippingAppointment>();
-        
+
+        public ObservableCollection<ShippingAppointment> ShippingAppointments
+        {
+            get => this._shippingAppointments;
+            set => SetProperty(ref this._shippingAppointments, value);
+        }
+
         public DateTime CalendarDisplayDate
         {
             get => this._calendarDisplayDate;
@@ -59,17 +64,9 @@ namespace ArtGalleryCRM.Forms.ViewModels
                         Color = (Color)Application.Current.Resources["AccentTertiaryColor"]
                     });
                 }
-                
-                if (this.ShippingAppointments.Any())
-                {
-                    this.ShippingAppointments.Clear();
-                }
 
-                foreach (var shippingAppointment in tempList)
-                {
-                    this.ShippingAppointments.Add(shippingAppointment);
-                }
-                
+                this.ShippingAppointments = new ObservableCollection<ShippingAppointment>(tempList);
+
                 this.CalendarDisplayDate = this.ShippingAppointments.Min(appointment => appointment.StartDate);
             }
             catch (Exception ex)
