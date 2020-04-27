@@ -13,28 +13,18 @@ namespace ArtGalleryCRM.Forms.ViewModels
     public class ShippingViewModel : PageViewModelBase
     {
         private DateTime _calendarDisplayDate = DateTime.Now;
+        private ObservableCollection<ShippingAppointment> _shippingAppointments;
 
         public ShippingViewModel()
         {
             this.Title = "Shipping Calendar";
         }
 
-
-        private ObservableCollection<ShippingAppointment> shippingAppointments = new ObservableCollection<ShippingAppointment>();
-
         public ObservableCollection<ShippingAppointment> ShippingAppointments
         {
-            get
-            {
-                return this.shippingAppointments;
-            }
-            set
-            {
-                this.shippingAppointments = value;
-                this.OnPropertyChanged();
-            }
+            get => this._shippingAppointments;
+            set => SetProperty(ref this._shippingAppointments, value);
         }
-
 
         public DateTime CalendarDisplayDate
         {
