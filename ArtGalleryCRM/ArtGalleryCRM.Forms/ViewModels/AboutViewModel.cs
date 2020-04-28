@@ -54,7 +54,7 @@ namespace ArtGalleryCRM.Forms.ViewModels
             }
         }
 
-        public string AppName => "Art Gallery CRM";
+        public string AppName => "Telerik Art Gallery CRM";
 
         public string AppDescription => Device.RuntimePlatform == Device.iOS ? ApplicationDescriptionMessageIOS : ApplicationDescriptionMessage;
 
