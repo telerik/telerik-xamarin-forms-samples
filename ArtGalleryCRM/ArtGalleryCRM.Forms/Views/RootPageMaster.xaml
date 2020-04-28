@@ -24,7 +24,7 @@
             <Image Source="master_header_logo.png"
                    Margin="{OnPlatform Android='20', iOS='20,40,20,20', UWP='20'}" />
 
-            <Label Text="Art Gallery CRM"
+            <Label Text="Telerik Art Gallery CRM"
                    TextColor="{StaticResource ExtraLightTextColor}"
                    FontSize="Medium"
                    HorizontalOptions="Center"

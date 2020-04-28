@@ -32,6 +32,18 @@ namespace TodoApp.Pages
             return base.OnBackButtonPressed();
         }
 
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                // Workaround for UWP where the content of the drawer is not remeasured when the size of the window is changed.
+                var drawerContentSize = this.sd.DrawerContent.Measure(width, height);
+                this.sd.DrawerContent.Layout(new Rectangle(0, 0, width, drawerContentSize.Request.Height));
+            }
+        }
+
         private void UncheckCategories(PageModels.MainPageModel vm, Models.Category[] categories)
         {
             foreach (var item in categories)

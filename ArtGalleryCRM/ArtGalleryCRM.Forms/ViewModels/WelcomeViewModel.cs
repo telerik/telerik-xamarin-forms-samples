@@ -19,7 +19,7 @@ namespace ArtGalleryCRM.Forms.ViewModels
         {
             new WelcomeCard
             {
-                Title = "Art Gallery CRM",
+                Title = "Telerik Art Gallery CRM",
                 Subtitle = "This quick intro will familiarize you with the main features of the app, slide to the next item to continue.",
                 IconSource = ImageSource.FromFile("Welcome1.png")
             },
