@@ -123,7 +123,13 @@
                                         <telerikDataGrid:DataGridTemplateColumn HeaderText="Quantity" HeaderStyle="{StaticResource cellHeaderStyle}" Width="180" SizeMode="Fixed">
                                             <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                                                 <DataTemplate>
-                                                    <telerikInput:RadNumericInput Value="{Binding Quantity, Mode=TwoWay}" Step="1" Minimum="0" Maximum="9999" Margin="0,6" WidthRequest="180" HorizontalOptions="Center" VerticalOptions="Center" />
+                                                    <telerikInput:RadNumericInput Value="{Binding Quantity, Mode=TwoWay}" Step="1" Minimum="0" Maximum="9999" Margin="0,6" HorizontalOptions="Center" VerticalOptions="Center">
+                                                        <telerikInput:RadNumericInput.WidthRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double" Default="180">
+                                                                <On Platform="UWP" Value="200" />
+                                                            </OnPlatform>
+                                                        </telerikInput:RadNumericInput.WidthRequest>
+                                                    </telerikInput:RadNumericInput>
                                                 </DataTemplate>
                                             </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                                         </telerikDataGrid:DataGridTemplateColumn>
@@ -177,7 +183,13 @@
                                 <BoxView HeightRequest="1" BackgroundColor="#d7d7d7" Margin="0,6" />
                                 
                                 <Label Text="Due Date" TextColor="#bcbcbc" HorizontalOptions="Start" Margin="3,10,0,0" />
-                                <DatePicker Date="{Binding DraftOrder.DueDate, Mode=TwoWay}" HorizontalOptions="Start" WidthRequest="200" />
+                                <DatePicker Date="{Binding DraftOrder.DueDate, Mode=TwoWay}" HorizontalOptions="Start">
+                                    <DatePicker.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double" Default="200">
+                                            <On Platform="UWP" Value="300" />
+                                        </OnPlatform>
+                                    </DatePicker.WidthRequest>
+                                </DatePicker>
                                 
                                 <Label Text="Ship Method" TextColor="#bcbcbc" HorizontalOptions="Start" Margin="3,10,0,0" />
                                 <Picker ItemsSource="{x:Static models:Order.AvailableShipMethods}" SelectedItem="{Binding DraftOrder.ShipMethod, Mode=TwoWay}" HorizontalOptions="Start" WidthRequest="200" />
