@@ -1,6 +1,6 @@
 # Telerik Todo
 
-Telerik Todo is a cross-platform native mobile application designed to make it easy for your to organize notes, ideas and thoughts without losing your focus. Whether at work, at school, or at home, Telerik ToDo will help you increase your productivity and reduce your stress levels.
+Telerik Todo is a cross-platform native mobile application designed to make it easy for your to organize notes, ideas and thoughts without losing your focus. Whether at work, at school, or at home, Telerik Todo will help you increase your productivity and reduce your stress levels.
 
 It uses the [Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-ui) to provide a beautiful design and high-performant UI that enables you to create your simple daily workflows. The app is available for Android, iOS and UWP.
 
