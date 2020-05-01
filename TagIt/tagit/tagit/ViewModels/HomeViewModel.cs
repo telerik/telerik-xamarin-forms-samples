@@ -26,7 +26,7 @@ namespace tagit.ViewModels
             MenuSelectedCommand = new RelayCommand(MenuSelected);
             SearchSelectedCommand = new RelayCommand(SearchSelected);
         }
- 
+
         public RadSideDrawer Drawer { get; set; }
 
         public ICommand NavigateFromMenuCommand { get; }
@@ -38,7 +38,7 @@ namespace tagit.ViewModels
         private ObservableCollection<NavigationItem> _navigationItems;
 
         private string _pageTitle;
-        
+
         public string PageTitle
         {
             get => _pageTitle;
@@ -100,10 +100,10 @@ namespace tagit.ViewModels
                 else if (selectedPage != null)
                     App.NavigationService.NavigateToPage(this, selectedPage.PageType);
 
-               
+
             }
         }
-        
+
         internal void InitializeNavigation()
         {
             PageTitle = (App.ViewModel != null && App.ViewModel.Settings.IsFirstRun) ? "" : AppResources.WelcomeTitle;
@@ -151,9 +151,16 @@ namespace tagit.ViewModels
 
         internal async void ShowFirstRun()
         {
-            //Show the Getting Started view if it's
+            //Show the Getting Started view if it's 
             //the first time a user has opened the app           
-            await App.NavigationService.PushModalAsync(new GettingStartedPage());
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                await App.NavigationService.PushAsync(new GettingStartedPage());
+            }
+            else
+            {
+                await App.NavigationService.PushModalAsync(new GettingStartedPage());
+            }
         }
 
         internal void EnableMainMenu(IList<Xamarin.Forms.ToolbarItem> toolbarItems)
