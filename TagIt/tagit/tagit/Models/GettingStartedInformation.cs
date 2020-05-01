@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using tagit.Common;
+using Xamarin.Forms;
 
 namespace tagit.Models
 {
@@ -8,7 +9,14 @@ namespace tagit.Models
     {
         public GettingStartedInformation()
         {
-            GetStartedCommand = new RelayCommand(async () => { await GetStartedAsync(); });
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                GetStartedCommand = new RelayCommand(async () => { await App.NavigationService.PopAsync(); });
+            }
+            else
+            { 
+                GetStartedCommand = new RelayCommand(async () => { await App.NavigationService.PopModalAsync(); }); 
+            }
         }
 
         private string _image;
@@ -18,7 +26,7 @@ namespace tagit.Models
         private string _subtitle;
 
         private string _title;
-        
+
         public ICommand GetStartedCommand { get; }
 
         public string Title
@@ -43,11 +51,6 @@ namespace tagit.Models
         {
             get => _isFinalItem;
             set => SetProperty(ref _isFinalItem, value);
-        }
-
-        private async Task GetStartedAsync()
-        {
-            await App.NavigationService.PopModalAsync();
         }
     }
 }
