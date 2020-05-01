@@ -6,7 +6,7 @@ using Android.Support.V7.App;
 
 namespace ArtGalleryCRM.Droid
 {
-    [Activity(Theme = "@style/MyTheme.Splash", Icon = "@drawable/ic_launcher", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Theme = "@style/MyTheme.Splash", Icon = "@mipmap/icon", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
