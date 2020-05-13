@@ -24,8 +24,6 @@ namespace QSF.ViewModels
             this.SideDrawerHeaderIcon = configurationService.GetSideDrawerHeaderIcon();
 
             var controlsService = DependencyService.Get<IControlsService>();
-            var latest = controlsService.GetLatest();
-            this.Latest = new ObservableCollection<ControlViewModel>(this.ToViewModels(latest));
 
             var featured = controlsService.GetFeatured();
             this.Featured = new ObservableCollection<ControlViewModel>(this.ToViewModels(featured));
@@ -41,6 +39,9 @@ namespace QSF.ViewModels
             this.NavigateToDocumentationCommand = new Command(this.NavigateToDocumentation);
             this.NavigateToProductPageCommand = new Command(this.NavigateToProductPage);
             this.NavigateToWhatsNewPageCommand = new Command(this.NavigateToWhatsNewPage);
+            this.NavigateToPrivacyPolicyPageCommand = new Command(this.NavigateToPrivacyPolicyPage);
+            this.NavigateToSampleAppsPageCommand = new Command(this.NavigateToSampleAppsPage);
+            this.NavigateToSampleAppsText = configurationService.GetSampleAppsConfiguration().NavigateToSampleAppsText;
         }
 
         public string SideDrawerHeaderIcon { get; }
@@ -48,8 +49,6 @@ namespace QSF.ViewModels
         public string SideDrawerHeaderTitle { get; }
 
         public string SideDrawerSubHeaderTitle { get; }
-
-        public ObservableCollection<ControlViewModel> Latest { get; }
 
         public ObservableCollection<ControlViewModel> Featured { get; }
 
@@ -100,6 +99,12 @@ namespace QSF.ViewModels
 
         public ICommand NavigateToWhatsNewPageCommand { get; }
 
+        public ICommand NavigateToPrivacyPolicyPageCommand { get; }
+
+        public ICommand NavigateToSampleAppsPageCommand { get; }
+
+        public string NavigateToSampleAppsText { get; }
+
         private void ToggleIsSideDrawerOpen(object obj)
         {
             this.IsSideDrawerOpen = !this.IsSideDrawerOpen;
@@ -148,6 +153,18 @@ namespace QSF.ViewModels
             AnalyticsHelper.TraceNavigateToWhatsNewPage();
             var configurationService = DependencyService.Get<IConfigurationService>();
             Device.OpenUri(new Uri(configurationService.GetWhatsNewPageURL()));
+        }
+
+        private void NavigateToPrivacyPolicyPage(object obj)
+        {
+            AnalyticsHelper.TraceNavigateToWhatsNewPage();
+            var configurationService = DependencyService.Get<IConfigurationService>();
+            Device.OpenUri(new Uri(configurationService.GetPrivacyPolicyPageURL()));
+        }
+
+        private void NavigateToSampleAppsPage(object obj)
+        {
+            this.NavigationService.NavigateToAsync<SampleAppsViewModel>();
         }
 
         private void SlideViewTap(object obj)

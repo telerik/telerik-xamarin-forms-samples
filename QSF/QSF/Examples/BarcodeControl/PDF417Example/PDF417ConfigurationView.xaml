@@ -18,22 +18,22 @@
     <ScrollView Padding="20">
         <StackLayout>
             <Label Text="Country:" Style="{StaticResource LabelStyle}" />
-            <Picker ItemsSource="{Binding Path=CountrySource}" SelectedItem="{Binding Path=SelectedCountry}" />
+            <Picker AutomationId="CountryEntry" ItemsSource="{Binding Path=CountrySource}" SelectedItem="{Binding Path=SelectedCountry}" />
 
             <Label Text="City:" Style="{StaticResource LabelStyle}" />
-            <Entry Text="{Binding Path=City}"/>
+            <Entry AutomationId="CityEntry" Text="{Binding Path=City}"/>
 
             <Label Text="Address:" Style="{StaticResource LabelStyle}" />
-            <Entry Text="{Binding Path=Address}"/>
+            <Entry AutomationId="AddressEntry" Text="{Binding Path=Address}"/>
 
             <Label Text="Date:" Style="{StaticResource LabelStyle}" />
-            <DatePicker DateSelected="DatePicker_DateSelected"/>
+            <DatePicker AutomationId="DatePicker" DateSelected="DatePicker_DateSelected"/>
 
             <Label Text="Full Name:" Style="{StaticResource LabelStyle}" />
-            <Entry Text="{Binding Path=FullName}"/>
+            <Entry AutomationId="FullNameEntry" Text="{Binding Path=FullName}"/>
 
             <Label Text="Phone Number:" Style="{StaticResource LabelStyle}" />
-            <Entry Text="{Binding Path=PhoneNumber}"/>
+            <Entry AutomationId="PhoneNumberEntry" Text="{Binding Path=PhoneNumber}"/>
 
             <Label Text="Order Number:" Style="{StaticResource LabelStyle}" />
             <Entry Text="{Binding Path=OrderNumber}" IsEnabled="False"/>

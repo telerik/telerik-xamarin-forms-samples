@@ -3,12 +3,13 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R3 2019 SP1</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R2 2020</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png</QSFAboutImageName>
   <QSFAboutLinkText>Telerik® UI for Xamarin</QSFAboutLinkText>
   <QSFAboutContent>This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms such as Android and iOS, as well as UWP.</QSFAboutContent>
+  <QSFAboutContentiOS>This is a suite of professionally designed UI components for building modern, feature rich Xamarin.Forms apps from a single C# code base targeting the most popular mobile platforms.</QSFAboutContentiOS>
   <SplashScreen>
     <Title>Telerik UI for Xamarin</Title>
     <Icon>Logo.png</Icon>
@@ -16,7 +17,7 @@
       <Slide>
         <Title>Complete toolkit for building truly native, cross-platform mobile apps for any scenario</Title>
         <Icon>KeyFeature_1.png</Icon>
-        <Content>The Telerik controls for Xamarin.Forms enables developers to implement cross-platform native mobile apps, with profesionally designed UX, in no time</Content>
+        <Content>The Telerik controls for Xamarin.Forms enables developers to implement cross-platform native mobile apps, with professionally designed UX, in no time</Content>
       </Slide>
       <Slide>
         <Title>Key Features:</Title>
@@ -44,6 +45,7 @@
   <DocumentationURL>https://docs.telerik.com/devtools/xamarin</DocumentationURL>
   <ProductPageURL>https://www.telerik.com/xamarin-ui</ProductPageURL>
   <WhatsNewPageURL>https://www.telerik.com/support/whats-new/xamarin-ui</WhatsNewPageURL>
+  <PrivacyPolicyPageURL>https://www.telerik.com/about/privacy-policy</PrivacyPolicyPageURL>
   <Controls>
     <Control>
       <Name>Accordion</Name>
@@ -52,8 +54,6 @@
       <ShortDescription>RadAccordion for Xamarin is a collapsible content control that helps you save screen space and at the same time present the content in an easily accessible way.</ShortDescription>
       <FullDescription>Telerik Accordion for Xamarin is a vertically collapsible content panel that displays only one of its items at a time within the available space. RadAccordion helps you save screen space and at the same time present the content to the end user in an easily accessible way.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/accordion/accordion-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -96,8 +96,6 @@
       <ShortDescription>RadAutoCompleteView control can automatically complete user input string by comparing the text being entered to all strings in the associated data source.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin AutoCompleteView can automatically complete user input string by comparing the text being entered to all strings in the associated data source. The control has a number of advanced features such as different filtering options, tokens support and remote search, as well as full customization capabilities.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/autocompleteview/autocompleteview-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -145,8 +143,6 @@
       <ShortDescription>RadBarcode is a UI component used for creating and showing 1D and 2D barcodes.</ShortDescription>
       <FullDescription>Telerik RadBarcode for Xamarin is a control used for creating and showing barcodes. You can generate and visualize barcodes in a machine-readable format via the RadBarcode control by providing numeric or character data.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/barcode/barcode-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -205,8 +201,6 @@
       <ShortDescription>With Telerik RadBorder for Xamarin you will have full control over the look &amp; feel of the border that wraps around your Xamarin views.</ShortDescription>
       <FullDescription>With Telerik RadBorder for Xamarin you will have full control over the look &amp; feel of the border that wraps around your Xamarin views. You could surround any view such as Label, Image, so on and specify different border thickness and corner radius on each side.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/border/border-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -239,8 +233,6 @@
       <ShortDescription>RadBusyIndicator allows you to display a notification whenever a longer-running process is being handled by the application, thus making the user experience smoother.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin BusyIndicator enables you to display a notification whenever a longer-running process is being handled by the application. This makes the UI more informative and the user experience smoother.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/busyindicator/busyindicator-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -289,8 +281,6 @@
       <ShortDescription>RadButton is a button control which enhances the standard Xamarin.Forms Button, by providing you full control over its visual appearance.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Button is a button control which enhances the standard Xamarin Forms Button, by providing you full control over its visual appearance and adding support for our Theming mechanism. UI customization is possible through the provided themes, or you can add rotation, shapes, transparency, text, and backgrounds and images.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/button/button-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -315,8 +305,7 @@
       <ShortDescription>RadCalendar extends native UI functionality and supports various view modes, selection, appointments, styling customizations.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Calendar allows you to easily implement various calendar scenarios in your apps built with Xamarin or Xamarin.Forms. The control capitalizes on all the innate benefits of the native UI but exposes all objects and properties in C#, allowing for no-compromise customization and flexibility. It supports various view modes (year, month, week and more), selection, appointments, styling customizations.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/calendar/calendar-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>1</Featured>
+      <Featured>1400</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -339,8 +328,32 @@
           <DescriptionHeader>Appointment Template</DescriptionHeader>
           <Description>This example demonstrates how to create fully customized appointments and display them in Day &amp; MultiDay views. </Description>
           <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/AppointmentTemaplateExample</CodeURL>
-          <IsNew>true</IsNew>
+        </Example>
+        <Example>
+          <Name>AgendaViewConfiguration</Name>
+          <DisplayName>Agenda View Configuration</DisplayName>
+          <Image>Calendar_AgendaView_Configuration.png</Image>
+          <DescriptionHeader>Agenda View Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options such as different formats for the items you could utilize to make the AgendaView look the way you’d need.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <ExcludeFrom>UWP</ExcludeFrom>
+          <IsUpdated>true</IsUpdated>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/AgendaViewConfigurationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>AgendaViewCustomization</Name>
+          <DisplayName>Agenda View Customization</DisplayName>
+          <Image>Calendar_AgendaView_Customization.png</Image>
+          <DescriptionHeader>Agenda View Customization</DescriptionHeader>
+          <Description>Demonstrates how you could customize the visual appearance of the Agenda view through the AgendaItemStyleSelector.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <ExcludeFrom>UWP</ExcludeFrom>
+          <IsUpdated>true</IsUpdated>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/AgendaViewCustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>SpecialSlots</Name>
@@ -351,7 +364,6 @@
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/SpecialSlotsExample</CodeURL>
           <IsThemable>false</IsThemable>
-          <IsNew>true</IsNew>
         </Example>
         <Example>
           <Name>DayView</Name>
@@ -361,7 +373,6 @@
           <Description>Day view mode of RadCalendar with all day area, configurable time ruler and API allowing you to schedule appointments and achieve your scheduling functionality.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/DayViewExample</CodeURL>
-          <IsUpdated>true</IsUpdated>
         </Example>
         <Example>
           <Name>Scheduling</Name>
@@ -371,7 +382,8 @@
           <Description>This example demonstrates the scheduling capabilities and some of the built-in view modes of the control. The end-user could easily switch the modes using the toolbar or using the UI provided in the SideDrawer control.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/SchedulingExample</CodeURL>
-          <IsThemable>false</IsThemable>
+          <IsThemable>true</IsThemable>
+          <IsUpdated>true</IsUpdated>
           <ExcludeFrom>UWP</ExcludeFrom>
         </Example>
         <Example>
@@ -399,7 +411,7 @@
           <Description>This example presents various configuration options such as day start and end times, timeline settings and weekend display, you could utilize to make the MultiDay view look the way you’d need.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/MultiDayViewConfigurationExample</CodeURL>
-          </Example>
+        </Example>
         <Example>
           <Name>MultiDayViewAppointments</Name>
           <DisplayName>Add/Edit Appointments</DisplayName>
@@ -418,8 +430,7 @@
       <ShortDescription>RadChart is a feature-rich, intuitive and easy to use data visualization control which employs the Xamarin technology and allows you to build native iOS, Android and UWP apps in C#.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Chart is a feature-rich, intuitive and easy to use data visualization control which employs the Xamarin.Forms technology and allows you to build native apps in C#. It supports various chart types (bar, line, area, candlestick, scatter and more), various axes types (categorical, numeric, date-time and more), selection, annotations, trackball, pan and zoom.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/chart/chart-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>4</Featured>
+      <Featured>1700</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -508,8 +519,6 @@
       <ShortDescription>RadCheckBox for Xamarin is a checkbox control which enables users to make a choice between two mutually exclusive options.</ShortDescription>
       <FullDescription>Telerik RadCheckBox for Xamarin is a checkbox control which enables users to make a choice between two mutually exclusive options. In addition, RadCheckBox provides indeterminate state which indicates the control is neither checked nor unchecked. RadCheckBox exposes various Color properties you could use to customize its visual appearance, so that it matches the look &amp; feel of your app.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/checkbox/checkbox-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -533,8 +542,7 @@
       <ShortDescription>RadChat for Xamarin is a UI component that provides flexible API for achieving a variety of chat and chat-bot scenarios. </ShortDescription>
       <FullDescription>RadChat enables easy implementation of conversational UI in Xamarin applications, whether by utilizing certain chatbot framework, by following a predefined logical tree, or just for integrating P2P chat capabilities.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/chat/chat-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>5</Featured>
+      <Featured>1800</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -587,8 +595,6 @@
       <ShortDescription>RadDataForm is a customizable component that allows you to easily create a form for collecting data and provides different validation and commit modes.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin DataForm allows for easy building of a data fill-in form from a single shared codebase. The control detects the types of the data object’s properties and automatically displays the appropriate editors. It provides a set of built-in editors for the available primitive types such as numeric, string, Boolean and enumerations. You can also provide your own custom editor and implement it easily thanks to the rich API of the control.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/dataform/dataform-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>8</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -631,8 +637,6 @@
       <ShortDescription>RadDataGrid is a powerful and feature rich control that allows you to easily visualize and edit tabular represented data in your apps.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin DataGrid is a powerful and feature rich control that allows you to easily visualize and edit tabular represented data. The control provides the ability to easily perform operations like sorting, filtering, grouping and editing over the underlying data.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/datagrid/datagrid-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>7</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -677,10 +681,56 @@
           <DisplayName>CRUD Operations</DisplayName>
           <Image>DataGrid_CRUD.png</Image>
           <DescriptionHeader>CRUD Operations</DescriptionHeader>
-          <Description>An example that shows the DataGrid's CRUD capabilities such as addition, deletion and editting.</Description>
+          <Description>An example that shows the DataGrid's CRUD capabilities such as addition, deletion and editing.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/CRUDOperationsExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>DatePicker</Name>
+      <DisplayName>Date Picker</DisplayName>
+      <Image>Picker_DatePicker_FirstLook.png</Image>
+      <DescriptionHeader>Date Picker</DescriptionHeader>
+      <ShortDescription>RadDatePicker provides an easy way to pick a date. </ShortDescription>
+      <FullDescription>Telerik Date Picker for Xamarin allows the users to select a date. Its items are visualized inside a popup. Date Picker control has a number of features which allows you to set a date range, date format and fully customize the dialog appearance such as its header and footer.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/datepicker/date-picker-overview</DocumentationURL>
+      <Featured>1100</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>Picker_DatePicker_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>RadDatePicker provides the users an easy way to pick a date. The control allows you to define minimum and maximum date. This example demonstrates how you can setup the DatePicker control, so the app users can pick a date and send a request to work remotely.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>true</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DatePickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <Image>Picker_DatePicker.png</Image>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Description>This example demonstrates how to customize the visual appearance of RadDatePicker using the control's flexible styling API.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DatePickerControl/CustomizationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>Picker_DatePicker_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options that the RadDatePicker provides. You can change the Popup BackgroundColor, Accept and Cancel button text and color, etc.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DatePickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -692,8 +742,6 @@
       <ShortDescription>RadDockLayout is a layout that provides a mechanism for child elements to be docked to the left, right, top or bottom edge or to occupy the center area of the layout.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin DockLayout is a layout that provides a mechanism for child elements to be docked to the left, right, top or bottom edge of the layout. You could easily define the docking side of each element through a RadDockLayout.Dock attached property. In addition, you can determine whether the last child element inside the layout will occupy the remaining available space.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/docklayout/docklayout-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -716,8 +764,6 @@
       <ShortDescription>RadEntry is a text input control, which accepts string input from the users and provides means for customizing its look &amp; feel.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Entry is a text input control, which accepts string input from the users and provides consistent look and feel with the rest of the Telerik UI for Xamarin components through innovative theming mechanism, including customization of the borders of the Entry.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/entry/entry-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -741,8 +787,6 @@
       <ShortDescription>RadExpander for Xamarin helps you save screen space by presenting content in an expandable container that can be easily expanded/collapsed.</ShortDescription>
       <FullDescription>Telerik Expander for Xamarin helps you save screen space by presenting content in an expandable container that can be easily expanded/collapsed by tapping on the header of the control.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/expander/expander-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -784,8 +828,6 @@
       <ShortDescription>RadGauge serves as an instrument that indicates and gives a visual display of amount, level, or content of something. These values are presented via indicators (needles, arrows, and others).</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Gauge is an essential data visualization component that uses indicators to display numeric values, and uses ranges to give a context to the indicated values.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/gauge/gauge-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -842,12 +884,10 @@
       <ShortDescription>ImageEditor is a component that enables you to easily visualize and edit images in different file formats in your mobile application.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin ImageEditor is a component that enables you to easily visualize and edit images in different file formats in your mobile application. As an addition to the RadImageEditor control you can use an UI - RadImageEditorToolbar. This UI includes all editing capabilities of the control and it could be easily customized.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/imageeditor/imageeditor-overview</DocumentationURL>
-      <Latest>2</Latest>
-      <Featured>3</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -858,7 +898,6 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ImageEditorControl/FirstLookExample</CodeURL>
-          <IsUpdated>true</IsUpdated>
         </Example>
         <Example>
           <Name>CustomToolbar</Name>
@@ -868,7 +907,6 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ImageEditorControl/CustomToolbarExample</CodeURL>
-          <IsNew>true</IsNew>
           </Example>
       </Examples>
     </Control>
@@ -880,8 +918,7 @@
       <ShortDescription>RadListView is a virtualizing list component that provides the most popular features associated with scenarios where a list of items is used.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin ListView is a virtualized high-performance list component that provides the most popular features associated with scenarios where a list of items is used. All these features are embedded in one control with the idea to save developer time and provide better experience. The control's features include different layouts, pull-to-refresh, grouping, displaying actionable buttons on item swipe, changing the items order by a drag and drop operation.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/listview/listview-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>6</Featured>
+      <Featured>1600</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -942,12 +979,11 @@
       <ShortDescription>RadPdfViewer is a control that can visualize PDF documents straight into your application.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin PdfViewer is a control that can visualize PDF documents straight into your application. It has been made more than simple with the exposed commands that can be easily bound to and the full integration with the RadPdfViewerToolbar.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/pdfviewer/pdfviewer-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>2</Featured>
+      <Featured>1500</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -956,7 +992,7 @@
           <Description>An example that demonstrates how the PdfViewer can easily visualize an embedded into your application PDF document and the flawless integration with the PdfViewerToolbar.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/FirstLookExample</CodeURL>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -965,8 +1001,8 @@
           <Description>This example demonstrates how the look &amp; feel of the PdfViewer selection and toolbar can be easily customized by changing their color, alignment and items position.</Description>
           <IsThemable>false</IsThemable>
           <IsScenario>false</IsScenario>
+          <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/CustomizationExample</CodeURL>
-          <IsNew>true</IsNew>
         </Example>
         <Example>
           <Name>LargeFile</Name>
@@ -974,7 +1010,7 @@
           <DescriptionHeader>Large file</DescriptionHeader>
           <Description>A demonstration of the read-on-demand feature that allows to quickly open large files. This is done by not loading the whole document initially, but a page is loaded on demand, only when it enters the viewable area.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/LargeFileExample</CodeURL>
         </Example>
       </Examples>
@@ -987,8 +1023,6 @@
       <ShortDescription>RadPdfProcessing is a processing library that allows creation, import and export of PDF documents. </ShortDescription>
       <FullDescription>The API of RadPdfProcessing contains two different editors, enabling you to choose between editing in a flow-like manner, or using the much more powerful and flexible fixed document structure and drawing on the page.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview</DocumentationURL>
-      <Latest>4</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1013,8 +1047,6 @@
       <ShortDescription>With RadPopup you could easily add modal popups to your application in order to draw attention to important information or receive user input.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Popup lets you display content of your choice on top of existing view. You could define whether the Popup will be modal or not as well as control its position through various placement settings.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/popup/popup-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1050,6 +1082,102 @@
       </Examples>
     </Control>
     <Control>
+      <Name>TimePicker</Name>
+      <DisplayName>Time Picker</DisplayName>
+      <Image>Picker_TimePicker_FirstLook.png</Image>
+      <DescriptionHeader>Time Picker</DescriptionHeader>
+      <ShortDescription>RadTimePicker provides a convenient way for the app users to select a time.</ShortDescription>
+      <FullDescription>Telerik Time Picker for Xamarin provides a convenient way for the app users to select a time. Its items are visualized inside a popup. Time Picker control has a number of features which allows you to set a time range, time format and fully customize the dialog appearance such as its header and footer.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/timepicker/time-picker-overview</DocumentationURL>
+      <Featured>1200</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>Picker_TimePicker_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>RadTimePicker provides the users an easy way to pick a time. The control allows you to define minimum and maximum time. This example demonstrates how you can setup the TimePicker control, so the app users can book a time for cleaning service.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>true</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimePickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <DisplayName>Customization</DisplayName>
+          <Image>Picker_TimePicker.png</Image>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Description>This example demonstrates how to customize the visual appearance of RadTimePicker using the control's flexible styling API.</Description>
+          <IsThemable>false</IsThemable>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimePickerControl/CustomizationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>Picker_TimePicker_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options that the RadTimePicker provides.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimePickerControl/ConfigurationExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>TimeSpanPicker</Name>
+      <DisplayName>TimeSpan Picker</DisplayName>
+      <Image>Picker_TimeSpan_FirstLook.png</Image>
+      <DescriptionHeader>TimeSpan Picker</DescriptionHeader>
+      <ShortDescription>RadTimeSpanPicker  provides an easy way to select a time duration.</ShortDescription>
+      <FullDescription>Telerik TimeSpan Picker for Xamarin provides an easy way to select a time duration. TimeSpan control represents a time interval and allows you to set a time range between two times measured in numbers of days, hours, minutes and seconds.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/timespanpicker/timespan-picker-overview</DocumentationURL>
+      <Featured>1300</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>Picker_TimeSpan_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>RadTimeSpanPicker provides the users an easy way to select a time interval. The control allows you to define minimum and maximum time. This example demonstrates how you can setup the TimeSpanPicker control, so the app users can select a maximum flight duration.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>true</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimeSpanPickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <DisplayName>Customization</DisplayName>
+          <Image>Picker_TimeSpan_Customization.png</Image>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Description>This example demonstrates how the TimeSpanPicker visual appearance could be customized using the flexible styling API and control's templates.</Description>
+          <IsThemable>false</IsThemable>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimeSpanPickerControl/CustomizationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>Picker_TimeSpan_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options that the RadTimeSpanPicker provides.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimeSpanPickerControl/ConfigurationExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
       <Name>TreeView</Name>
       <DisplayName>TreeView</DisplayName>
       <Image>TreeView_FirstLook.png</Image>
@@ -1057,8 +1185,6 @@
       <ShortDescription>RadTreeView facilitates display, management, and navigation of hierarchical data structures. The product offers many advanced features like commands mechanism, data binding, checkbox support. </ShortDescription>
       <FullDescription>RadTreeView facilitates display, management, and navigation of hierarchical data structures. The product offers many advanced features like commands mechanism, data binding, checkbox support. RadTreeView allows you to achieve complex behavior and nicely blends into the interface of your application.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/treeview/treeview-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1101,8 +1227,6 @@
       <ShortDescription>RadMap is a control that can visualize stunning map overlays through ESRI Shapefiles straight into your application.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Map lets you display stunning map overlays using ESRI Shapefiles. The control provides support for labels, multiple, single selection and powerful customization APIs.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/map/map-overview</DocumentationURL>
-      <Latest>3</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1133,10 +1257,8 @@
       <Image>MaskedInput_FirstLook.png</Image>
       <DescriptionHeader>MaskedInput</DescriptionHeader>
       <ShortDescription>RadMaskedInput allows to control the data input within your Xamarin.Forms app. It enhances the functionality of the Entry control by adding input validation and custom masks.</ShortDescription>
-      <FullDescription>Telerik UI for Xamarin MaskedInput allows you to controll data input in your applications. They enhance the functionality of an Entry by adding input validation and masks, such as E-mail, IP Address, SSN, phone number, digits, letters and symbols.</FullDescription>
+      <FullDescription>Telerik UI for Xamarin MaskedInput allows you to control data input in your applications. They enhance the functionality of an Entry by adding input validation and masks, such as E-mail, IP Address, SSN, phone number, digits, letters and symbols.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/maskedinput/maskedinput-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1168,8 +1290,6 @@
       <ShortDescription>RadNumericInput is a customizable input control for numeric data. It allows the user to edit a number using the decrease and increase buttons or directly enter it in the input.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin NumericInput is a highly customizable input control for numeric data. It allows the user to set/edit a number using the decrease and increase buttons or directly enter it in the input field.  RadNumericInput also provides consistent look with the rest of the controls from the Telerik UI for Xamarin suite.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/numericinput/numericinput-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1181,7 +1301,168 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Demonstrates how you could use RadNumericInput to enable the end users easily enter numeric data and to achieve slick design across all platforms.</Description>
           <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/NumericInputControl/FirstLookExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>TemplatedPicker</Name>
+      <Image>Picker_TemplatedPicker.png</Image>
+      <DescriptionHeader>Templated Picker</DescriptionHeader>
+      <ShortDescription>RadTemplatedPicker is a fully customizable picker control that covers a wide range of item selection scenarios for mobile applications.</ShortDescription>
+      <FullDescription>Telerik UI for Xamarin Templated Picker is a control designed to support the need for a tailored item selection based on various potential end-user scenarios (e.g. pick a country and city for a travel app). The Templated Picker enables you to define your custom template for an item selection and customize it to ensure user experience consistency across your application.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/templatedpicker/templated-picker-overview</DocumentationURL>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <DisplayName>First Look</DisplayName>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Image>Picker_TemplatedPicker_FirstLook.png</Image>
+          <Description>Demonstrates how you can utilize RadTemplatedPicker in a sample scenario for selecting t-shirt color and size. Through the custom selector template you can place any content inside the picker popup based on the scenario at hand.</Description>
+          <IsScenario>false</IsScenario>
+          <IsUpdated>true</IsUpdated>
+          <IsThemable>true</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <DisplayName>Customization</DisplayName>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Image>Picker_TemplatedPicker.png</Image>
+          <Description>Demonstrates how you can utilize RadTemplatedPicker in a sample scenario for searching flights. Through the custom selector template you can place any content inside the picker popup based on the scenario at hand.</Description>
+          <IsScenario>false</IsScenario>
+          <IsUpdated>true</IsUpdated>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/CustomizationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>Picker_TemplatedPicker_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options you can apply to the RadTemplatedPicker control.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/ConfigurationExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>ListPicker</Name>
+      <Image>Picker_ListPicker.png</Image>
+      <DescriptionHeader>List Picker</DescriptionHeader>
+      <ShortDescription>RadListPicker allows you to select an item from a list, visualized inside a popup. The control can be setup to loop its items infinitely while scrolling.</ShortDescription>
+      <FullDescription>Telerik UI for Xamarin List Picker provides an elegant UI experience for end users who need to pick an item from a pre-defined list. The List Picker component loops its listed items infinitely while scrolling and is flexible to various customizations to ensure consistent user experience across the mobile applications. Developers can easily customize the dialog appearance, style the listed and selected items and define a placeholder text when an item is not selected. </FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/listpicker/list-picker-overview</DocumentationURL>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <DisplayName>First Look</DisplayName>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Image>Picker_ListPicker_FirstLook.png</Image>
+          <Description>RadListPicker can be useful in various scenarios when you'd like to give the app users a convenient way to choose a value from a list of items. This example presents a sample scenario for selecting a music genre.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>true</IsThemable>
+          <IsUpdated>true</IsUpdated>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <DisplayName>Customization</DisplayName>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Image>Picker_ListPicker.png</Image>
+          <Description>RadListPicker allows you to customize its look in a way you want using the flexible styling API. This example presents a sample scenario for selecting a size and a color.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsUpdated>true</IsUpdated>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/CustomizationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>Picker_ListPicker_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options you can apply to the RadListPicker control.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <IsThemable>true</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/ConfigurationExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>DateTimePicker</Name>
+      <DisplayName>DateTime Picker</DisplayName>
+      <Image>Picker_DateTimePicker.png</Image>
+      <DescriptionHeader>DateTime Picker</DescriptionHeader>
+      <ShortDescription>RadDateTimePicker provides an easy way to pick a date, time or date and time depending on the used format string.</ShortDescription>
+      <FullDescription>Telerik UI for Xamarin DateTimePicker enables users to easily pick a date, time or both from a pre-defined set of values. The DateTimePicker control has several features which allow you to set a date range, date and time format and fully customize the dialog appearance.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/datetimepicker/datetime-picker-overview</DocumentationURL>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <DisplayName>First Look</DisplayName>
+          <Image>Picker_DateTimePicker_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>This example demonstrates how you can setup the DateTime Picker control and choose date and time in the same UI.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>true</IsThemable>
+          <IsUpdated>true</IsUpdated>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <DisplayName>Customization</DisplayName>
+          <Image>Picker_DateTimePicker.png</Image>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Description>This example demonstrates how the DateTime Picker visual appearance could be customized using the control's flexible styling API.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/CustomizationExample</CodeURL>
+          <IsUpdated>true</IsUpdated>
+        </Example>
+        <Example>
+          <Name>TimeMode</Name>
+          <DisplayName>TimeMode</DisplayName>
+          <Image>Picker_DateTimePicker_Time.png</Image>
+          <DescriptionHeader>TimeMode</DescriptionHeader>
+          <Description>This example demonstrates how you can setup the DateTime Picker control, so that the app users can choose a time.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/TimeModeExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>DateMode</Name>
+          <DisplayName>DateMode</DisplayName>
+          <Image>Picker_DateTimePicker_Date.png</Image>
+          <DescriptionHeader>DateMode</DescriptionHeader>
+          <Description>This example demonstrates how you can setup the DateTime Picker control, so that the app users can choose a date.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/DateModeExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>Picker_DateTime_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options that the RadDateTimePicker provides. </Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1192,8 +1473,6 @@
       <ShortDescription>RadPath is a control which can be used to draw complex shapes that are composed of different geometries like arcs, ellipses, lines and rectangles.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Path is a control which can be used to draw complex shapes that can be composed of different geometries like arcs, ellipses, lines and rectangles.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/path/path-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1205,6 +1484,7 @@
           <DescriptionHeader>Figures</DescriptionHeader>
           <Description>Demonstrates RadPath elements with different figures.</Description>
           <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PathControl/FiguresExample</CodeURL>
         </Example>
       </Examples>
@@ -1216,8 +1496,6 @@
       <ShortDescription>RadRating is UI component that allows users to intuitively rate by selecting number of items [stars] from a predefined number of items.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Rating is a flexible UI component that allows users to intuitively rate by making a selection.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/rating/rating-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1249,8 +1527,6 @@
       <ShortDescription>RadSegmentedControl allows you to display a list of horizontally aligned, mutually exclusive options, which can be selected by the user. Each option can be presented with a text or an image.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Segmented control enables you to display several options in a convenient picker and select value with a single tap.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/segmentedcontrol/segmentedcontrol-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1262,6 +1538,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Demonstrates the most important set of features of SegmentedControl.</Description>
           <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SegmentedControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
@@ -1282,8 +1559,6 @@
       <ShortDescription>RadSideDrawer component is designed to enable users to visualize a hidden view in their applications. That view can host navigation UI, common setting or any other UI typical for a View.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin SideDrawer extends the popular slide-out design pattern which is mainly associated with navigational purposes. The control allows developers to embed any content inside the sliding panel from text and icons to sliders and filters. The control is highly customizable and slides in from all four sides of the screen. Various effects and transition modes come out of the box, including Push, Reveal, Reverse Slide Out, Slide Along, Slide In On Top, Scale Up, Fade In.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/sidedrawer/sidedrawer-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1316,8 +1591,6 @@
       <ShortDescription>RadSlideView is a flexible navigation control that allows you to slide between different views, thus providing an interactive navigation.</ShortDescription>
       <FullDescription>From stock tickers and news scrollers, to product spotlights, the Telerik UI for Xamarin SlideView control delivers high interactivity and user involvement. It allows extensive customizations in terms of functionality and appearance.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/slideview/slideview-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1342,6 +1615,47 @@
       </Examples>
     </Control>
     <Control>
+      <Name>SpreadProcessing</Name>
+      <DisplayName>SpreadProcessing</DisplayName>
+      <Image>SpreadProcessing_FirstLook.png</Image>
+      <DescriptionHeader>SpreadProcessing</DescriptionHeader>
+      <ShortDescription>This library enables you to work with spreadsheet documents – create and modify documents or convert between the most common spreadsheet formats.</ShortDescription>
+      <FullDescription>This library enables you to work with spreadsheet documents – create ones from scratch, modify existing documents or convert between the most common spreadsheet formats.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/spreadprocessing/overview</DocumentationURL>
+      <IsNew>false</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <IsThemable>false</IsThemable>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>SpreadProcessing_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>Telerik SpreadProcessing library provides easy to use API to create, modify, and convert spreadsheet documents. This example demonstrates how to create a document.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SpreadProcessingControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Convert</Name>
+          <Image>SpreadProcessing_Convert.png</Image>
+          <DescriptionHeader>Convert</DescriptionHeader>
+          <Description>An example that demonstrates how to import documents and convert to different formats.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SpreadProcessingControl/ConvertExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>FindAndReplace</Name>
+          <DisplayName>Find &amp; Replace</DisplayName>
+          <Image>SpreadProcessing_FindReplace.png</Image>
+          <DescriptionHeader>Find &amp; Replace</DescriptionHeader>
+          <Description>A demonstration of the built-in Find and Replace functionality in the SpreadProcessing library.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SpreadProcessingControl/FindAndReplaceExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
       <Name>SpreadStreamProcessing</Name>
       <DisplayName>SpreadStreamProcessing</DisplayName>
       <Image>SpreadStreamProcessing.png</Image>
@@ -1349,8 +1663,6 @@
       <ShortDescription>RadSpreadStreamProcessing is a document processing paradigm that allows you to create big spreadsheet documents with great performance and minimal memory footprint.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin SpreadStreamProcessing is a document processing library which allows you to create big spreadsheet documents with great performance and minimal memory footprint.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/spreadstreamprocessing/overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1375,8 +1687,6 @@
       <ShortDescription>RadTabView is a flexible navigation control that allows you to build tabbed interfaces. Each tabview item has an associated content displayed on selection.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin TabView is a flexible navigation control that allows you to build tabbed interfaces. Each tabview item has an associated content displayed on selection.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/tabview/tabview-overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1409,9 +1719,7 @@
       <ShortDescription>RadWordsProcessing is a processing library that allows creation, import and export of DOCX documents. </ShortDescription>
       <FullDescription>Telerik RadWordsProcessing is a processing library that allows code-only generation of documents. Through the API you can create a document from scratch and export it to one of the supported formats – Docx, Rtf, Html, PDF and Txt.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/wordsprocessing/overview</DocumentationURL>
-      <Latest>1</Latest>
-      <Featured>0</Featured>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -1424,7 +1732,7 @@
           <Description>Telerik RadWordProcessing provides easy to use API which allows code-only generation of DOCX documents. This example demonstrates how to create a document containing images, text and shapes and export it to DOCX, RTF, HTML, TXT.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/WordsProcessingControl/FirstLookExample</CodeURL>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
         </Example>
         <Example>
           <Name>Export</Name>
@@ -1433,7 +1741,7 @@
           <Description>This example demonstrates export of flow documents to PDF, RTF, HTML and TXT using RadWordsProcessing. You can use the imported Word(docx) sample and convert it to PDF, RTF, HTML, TXT.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/WordsProcessingControl/ExportExample</CodeURL>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
         </Example>
         <Example>
           <Name>FindAndReplace</Name>
@@ -1443,7 +1751,7 @@
           <Description>This example illustrates the Replace functionality in RadWordsProcessing. You can replace or highlight text in the sample document, using regular expressions or strings and then export the document to view the result.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/WordsProcessingControl/FindAndReplaceExample</CodeURL>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
         </Example>
       </Examples>
     </Control>
@@ -1455,8 +1763,6 @@
       <ShortDescription>RadZipLibrary allows you to compress data like images, docx or pdf files and send them over the wire, thus achieving fast and secure transactions.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin ZipLibrary provides easy-to-use API to both create and load zip files as well as browse the contents of a zip file previously created. The API supports password protection and different compression levels. You can also create ZIP files in memory or add data to ZIP file from stream.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/ziplibrary/overview</DocumentationURL>
-      <Latest>0</Latest>
-      <Featured>0</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -1489,4 +1795,35 @@
       <Color3>#5EBAF9</Color3>
     </Theme>
   </Themes>
+  <SampleApps>
+    <SampleAppsPageTitle>Sample Apps</SampleAppsPageTitle>
+    <NavigateToSampleAppsText>Sample Apps</NavigateToSampleAppsText>
+    <DescriptionHeader>Overview</DescriptionHeader>
+    <Apps>
+      <SampleApp>
+        <Title>Telerik To-Do</Title>
+        <Icon>ToDo_App_Logo.png</Icon>
+        <Description>A cross-platform native mobile application designed to make it easy for your to organize notes, ideas and thoughts without losing your focus.</Description>
+        <AppStoreId>com.telerik.TodoApp ; telerik-to-do/id1475654512 ; 9ns4dbcsdzh6</AppStoreId>
+      </SampleApp>
+      <SampleApp>
+        <Title>Telerik ERP</Title>
+        <Icon>ERP_App_Logo.png</Icon>
+        <Description>An Enterprise Resource Planning application that allows you to get and modify data using an Azure App Service.</Description>
+        <AppStoreId>com.telerik.ErpApp ; telerik-erp/id1450527259 ; 9nmk4g533qlh</AppStoreId>
+      </SampleApp>
+      <SampleApp>
+        <Title>Telerik CRM</Title>
+        <Icon>CRM_App_Logo.png</Icon>
+        <Description>An implementation of a Customer Relationship Management application that utilizes an Azure Web App Bot.</Description>
+        <AppStoreId>com.telerik.ArtGalleryCRM ; telerik-crm/id1449462263 ; 9pbnqz08r0c8</AppStoreId>
+      </SampleApp>
+      <SampleApp>
+        <Title>Telerik Tagit</Title>
+        <Icon>Tagit_App_Logo.png</Icon>
+        <Description>Designed to turn your photo collection into a database that you can search and sort by the content contained in the individual images.</Description>
+        <AppStoreId>com.telerik.tagit ; telerik-tagit/id1310584457 ; 9pb07plrwpfs</AppStoreId>
+      </SampleApp>      
+    </Apps>
+  </SampleApps>
 </QSFConfiguration>

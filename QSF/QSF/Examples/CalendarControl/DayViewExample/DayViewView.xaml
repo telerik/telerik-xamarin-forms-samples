@@ -31,7 +31,8 @@
                 <telerikInput:CalendarAppointmentsStyle DisplayMode="None" />
             </telerikInput:RadCalendar.AppointmentsStyle>
             <telerikInput:RadCalendar.DayViewSettings>
-                <telerikInput:DayViewSettings SpecialSlotsSource="{Binding NonWorkingHours}"/>
+                <telerikInput:DayViewSettings WorkStartTime="08:00" 
+                                              WorkEndTime="18:00"/>
             </telerikInput:RadCalendar.DayViewSettings>
         </telerikInput:RadCalendar>
         <!-- toolbar -->

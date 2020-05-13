@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input" 
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.TimePickerControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DefaultSubtitleLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style x:Key="DefaultRadBorderStyle"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="CornerRadius" Value="5" />
+            </Style>
+            <Style x:Key="DefaultCardLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="DefaultPlaceholderLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="#919191" />
+            </Style>
+            <Style x:Key="DefaultImageCardStyle"
+                   TargetType="Image">
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android, iOS">0, 24, 0, 10</On>
+                        <On Platform="UWP">0, 14, 0, 10</On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout BackgroundColor="#EFEFF4">
+                    <Image VerticalOptions="End"
+                           HorizontalOptions="End">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS,Android">TimePicker_HeaderImage.png</On>
+                                <On Platform="UWP">Assets/TimePicker_HeaderImage.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+                <StackLayout Grid.Row="1"
+                             Margin="17, 40, 15, 0">
+                    <Label Text="Cleaning Service"
+                           TextColor="#007AFF"
+                           FontSize="Title"
+                           Margin="0, 0, 0, 24" />
+                    <Label Text="Please Specify Date:"
+                           Style="{StaticResource DefaultSubtitleLabelStyle}" />
+                    <telerikInput:RadDatePicker x:Name="datePicker"
+                                                views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                Placeholder="Select Date"
+                                                PlaceholderLabelStyle="{StaticResource DefaultPlaceholderLabelStyle}"
+                                                DefaultHighlightedDate="{Static sys:DateTime.Now}"
+                                                BackgroundColor="#F7F7F7"
+                                                BorderColor="#007AFF"
+                                                BorderThickness="0, 0, 0, 1"
+                                                SpinnerFormat="MMMM dd yyyy"
+                                                Date="{Binding SelectedDate}"
+                                                HeightRequest="44">
+                        <telerikInput:RadDatePicker.SelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Select date" />
+                        </telerikInput:RadDatePicker.SelectorSettings>
+                    </telerikInput:RadDatePicker>
+                    <Label Text="Please Specify Time:"
+                           Style="{StaticResource DefaultSubtitleLabelStyle}"
+                           Margin="0, 26, 0, 0" />
+                    <telerikInput:RadTimePicker Placeholder="Select Time"
+                                                views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                PlaceholderLabelStyle="{StaticResource DefaultPlaceholderLabelStyle}"
+                                                DefaultHighlightedTime="{Binding Source={x:Reference datePicker}, Path=DefaultHighlightedDate.TimeOfDay}"
+                                                BackgroundColor="#F7F7F7"
+                                                BorderColor="#007AFF"
+                                                BorderThickness="0, 0, 0, 1"
+                                                Time="{Binding SelectedTime}"
+                                                HeightRequest="44">
+                        <telerikInput:RadTimePicker.SelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Select Time" />
+                        </telerikInput:RadTimePicker.SelectorSettings>
+                    </telerikInput:RadTimePicker>
+                    <Label Text="Services Choosen:"
+                           Style="{StaticResource DefaultSubtitleLabelStyle}"
+                           TextColor="#919191"
+                           Margin="0, 26, 0, 25" />
+                    <Grid HeightRequest="140"
+                          WidthRequest="336"
+                          Margin="0, 0, 0, 60">
+                        <Grid.HorizontalOptions>
+                            <OnPlatform x:TypeArguments="LayoutOptions">
+                                <On Platform="Android, iOS">Fill</On>
+                                <On Platform="UWP">Start</On>
+                            </OnPlatform>
+                        </Grid.HorizontalOptions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <telerikPrimitives:RadBorder Style="{StaticResource DefaultRadBorderStyle}"
+                                                     BorderColor="#B5DAFB"
+                                                     HorizontalOptions="Start">
+                            <StackLayout WidthRequest="96"
+                                         BackgroundColor="#ECF6FE">
+                                <Image Style="{StaticResource DefaultImageCardStyle}">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource">
+                                            <On Platform="iOS,Android">Cleaning.png</On>
+                                            <On Platform="UWP">Assets/Cleaning.png</On>
+                                        </OnPlatform>
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="Cleaning"
+                                       TextColor="#0E88F2"
+                                       Style="{StaticResource DefaultCardLabelStyle}" />
+                            </StackLayout>
+                        </telerikPrimitives:RadBorder>
+                        <telerikPrimitives:RadBorder Grid.Column="1"
+                                                     Style="{StaticResource DefaultRadBorderStyle}"
+                                                     HorizontalOptions="Center"
+                                                     BorderColor="#FEE5E3">
+                            <StackLayout WidthRequest="96"
+                                         BackgroundColor="#FEF2F1">
+                                <Image Style="{StaticResource DefaultImageCardStyle}">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource">
+                                            <On Platform="iOS,Android">Carpet_Cleaning.png</On>
+                                            <On Platform="UWP">Assets/Carpet_Cleaning.png</On>
+                                        </OnPlatform>
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="Carpet Cleaning"
+                                       TextColor="#F85446" 
+                                       Style="{StaticResource DefaultCardLabelStyle}" />
+                            </StackLayout>
+                        </telerikPrimitives:RadBorder>
+                        <telerikPrimitives:RadBorder Grid.Column="2"
+                                                     Style="{StaticResource DefaultRadBorderStyle}"
+                                                     HorizontalOptions="End"
+                                                     BorderColor="#FFE9D8">
+                            <StackLayout WidthRequest="96"
+                                         BackgroundColor="#FFF4EB">
+                                <Image Style="{StaticResource DefaultImageCardStyle}">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource">
+                                            <On Platform="iOS,Android">Home_Painting.png</On>
+                                            <On Platform="UWP">Assets/Home_Painting.png</On>
+                                        </OnPlatform>
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="Home  Painting"
+                                       TextColor="#FFAC3E"                                      
+                                       Style="{StaticResource DefaultCardLabelStyle}" />
+                            </StackLayout>
+                        </telerikPrimitives:RadBorder>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+        <StackLayout Grid.Row="1"
+                     BackgroundColor="#F7F7F7" 
+                     HeightRequest="65">
+            <telerikInput:RadButton Text="Make an Order" 
+                                    CornerRadius="20" 
+                                    Padding="10,5,10,5"
+                                    BorderWidth="2"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    TextColor="#0E88F2"
+                                    BorderColor="#0E88F2"
+                                    WidthRequest="240"
+                                    HeightRequest="40"
+                                    FontSize="15"
+                                    Command="{Binding SendOrderCommand}"
+                                    BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonGroups">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Focused" />
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#7DBFF8" />
+                                <Setter Property="BorderColor" Value="#7DBFF8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+        </StackLayout>
+    </Grid>
+</ContentView>

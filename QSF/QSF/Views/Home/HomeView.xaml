@@ -48,6 +48,14 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource Key=LightBackgroundColor}" />
             </Style>
 
+            <Style x:Key="RoundButtonStyle" TargetType="{x:Type telerikInput:RadButton}">
+                <Setter Property="BackgroundColor" Value="#2063C6" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="18" />
+                <Setter Property="HeightRequest" Value="36" />
+            </Style>
+            
             <OnPlatform x:Key="Margin" x:TypeArguments="Thickness">
                 <On Platform="Android" Value="6, 6, 6, 12" />
                 <On Platform="iOS" Value="0, 6, 0, 12" />
@@ -93,19 +101,14 @@
                                             <On Platform="UWP" Value="10, 6, 10, 6" />
                                         </OnPlatform>
                                     </StackLayout.Margin>
-                                    <Label Text="Latest" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
-
-                                    <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Latest}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
-                                                    Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}"
-                                                    AutomationId="LatestSlideView" />
-
-                                    <Label Text="Featured" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}" />
+                                    
+                                    <Label Text="Featured Controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}" />
 
                                     <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Featured}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
                                                     Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}"
                                                     AutomationId="FeaturedSlideView"/>
 
-                                    <Label Text="All controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
+                                    <Label Text="All Controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
                                 </StackLayout>
                             </DataTemplate>
                         </telerikDataControls:RadListView.HeaderTemplate>
@@ -153,11 +156,24 @@
                             </DataTemplate>
                         </telerikDataControls:RadListView.ItemTemplate>
                     </telerikDataControls:RadListView>
+                    <Grid Margin="12"
+                          Grid.Row="1"
+                          HorizontalOptions="End"
+                          VerticalOptions="Start">
+                        <telerikInput:RadButton Command="{Binding NavigateToSampleAppsPageCommand}"
+                                                Style="{StaticResource RoundButtonStyle}" />
+                        <Label Text="{Binding NavigateToSampleAppsText}"
+                               TextColor="White"
+                               InputTransparent="True"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="12, 0, 12, 0" />
+                    </Grid>
                 </Grid>
             </telerikPrimitives:RadSideDrawer.MainContent>
             <telerikPrimitives:RadSideDrawer.DrawerContent>
                 <ScrollView>
-                    <StackLayout Spacing="10" BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                    <StackLayout Spacing="6" BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
                         <StackLayout BackgroundColor="{StaticResource Key=HeaderBackgroundsColor}" >
                             <ffimageloading:CachedImage HorizontalOptions="Center" Source="{Binding Path=SideDrawerHeaderIcon, Converter={StaticResource ImageSourceConverter}}" Margin="0, 60, 0, 25" />
 
@@ -222,6 +238,20 @@
                                 </telerikInput:RadButton.Effects>
                             </telerikInput:RadButton>
 
+                            <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
+                        </Grid>
+
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Privacy Policy" Command="{Binding Path=NavigateToPrivacyPolicyPageCommand}">
+                                <telerikInput:RadButton.Effects>
+                                    <effects:NoAllCapsButtonEffect />
+                                </telerikInput:RadButton.Effects>
+                            </telerikInput:RadButton>
                             <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
                         </Grid>
 

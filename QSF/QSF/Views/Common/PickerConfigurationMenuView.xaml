@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             mc:Ignorable="d"
+             x:Class="QSF.Views.Common.PickerConfigurationMenuView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
+                <On Platform="iOS">telerikfontexamples</On>
+                <On Platform="Android">Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+                <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+            </OnPlatform>
+            <Style x:Key="DefaultLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="#4B4C4C" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="Margin" Value="0, 0, 0, 20" />
+            </Style>
+            <Style x:Key="DefaultListPickerStyle"
+                   TargetType="telerikInput:RadListPicker">
+                <Setter Property="Margin" Value="0, 0, 0, 25" />
+            </Style>
+            <Style x:Key="PopupItemsStyle"
+                   TargetType="telerikDataControls:SpinnerItemView">
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+            </Style>
+            <Style x:Key="DefaultDisplayedLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <StackLayout Margin="16, 24, 16, 0">
+            <Label Text="Is Header Visible:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker SelectedItem="{Binding IsHeaderVisible}"
+                                        Style="{StaticResource DefaultListPickerStyle}">
+                <telerikInput:RadListPicker.ItemsSource>
+                    <x:Array Type="{x:Type x:Boolean}">
+                        <x:Boolean>True</x:Boolean>
+                        <x:Boolean>False</x:Boolean>
+                    </x:Array>
+                </telerikInput:RadListPicker.ItemsSource>
+            </telerikInput:RadListPicker>
+            <Label Text="Popup Header Background Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding PopupHeaderBackgroundColors}"
+                                        SelectedItem="{Binding PopupHeaderBackgroundColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+            <Label Text="Popup Header Text Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding PopupHeaderFontColors}"
+                                        SelectedItem="{Binding PopupHeaderFontColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+            <Label Text="Confirmation Button text:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding ConfirmationButtonTexts}"
+                                        SelectedItem="{Binding ConfirmationButtonText}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        ItemStyle="{StaticResource PopupItemsStyle}"
+                                        DisplayLabelStyle="{StaticResource DefaultDisplayedLabelStyle}"
+                                        SelectedItemStyle="{StaticResource PopupItemsStyle}" />
+            <Label Text="Cancellation Button text:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding CancellationButtonTexts}"
+                                        SelectedItem="{Binding CancellationButtonText}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        ItemStyle="{StaticResource PopupItemsStyle}"
+                                        DisplayLabelStyle="{StaticResource DefaultDisplayedLabelStyle}"
+                                        SelectedItemStyle="{StaticResource PopupItemsStyle}" />
+            <Label Text="Selected Item Text Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding SelectedItemFontColors}"
+                                        SelectedItem="{Binding SelectedItemFontColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+            <Label Text="Selected Item Font Size:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding SelectedItemFontSizes}"
+                                        SelectedItem="{Binding SelectedItemFontSize}"
+                                        Style="{StaticResource DefaultListPickerStyle}" />
+            <Label Text="Selected Item Font Attribute:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding ItemFontAttributes}"
+                                        SelectedItem="{Binding SelectedItemFontAttribute}"
+                                        Style="{StaticResource DefaultListPickerStyle}" />
+            <Label Text="Selected Item Background Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding SelectedItemBackgroundColors}"
+                                        SelectedItem="{Binding SelectedItemBackgroundColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+            <Label Text="Spinner Item Text Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding SpinnerItemFontColors}"
+                                        SelectedItem="{Binding SpinnerItemFontColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+            <Label Text="Spinner Item Font Size:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding SpinnerItemFontSizes}"
+                                        SelectedItem="{Binding SpinnerItemFontSize}"
+                                        Style="{StaticResource DefaultListPickerStyle}" />
+            <Label Text="Spinner Item Font Attribute:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding ItemFontAttributes}"
+                                        SelectedItem="{Binding SpinnerItemFontAttribute}"
+                                        Style="{StaticResource DefaultListPickerStyle}" />
+            <Label Text="Spinner Item Background Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding SpinnerItemBackgroundColors}"
+                                        SelectedItem="{Binding SpinnerItemBackgroundColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+            <Label Text="Confirmation Button Background Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding ConfirmationButtonBackgroundColors}"
+                                        SelectedItem="{Binding ConfirmationButtonBackgroundColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+            <Label Text="Cancellation Button Background Color:"
+                   Style="{StaticResource DefaultLabelStyle}" />
+            <telerikInput:RadListPicker ItemsSource="{Binding CancellationButtonBackgroundColors}"
+                                        SelectedItem="{Binding CancellationButtonBackgroundColor}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        DisplayMemberPath="Name" />
+        </StackLayout>
+    </ScrollView>
+</ContentView>

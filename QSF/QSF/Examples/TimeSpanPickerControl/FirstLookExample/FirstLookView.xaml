@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.TimeSpanPickerControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
+            <Style x:Key="DefaultSubtitleLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style x:Key="IconLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="Margin" Value="0, 0, 12, 0" />
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS">25</On>
+                        <On Platform="UWP">20</On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style x:Key="DefaultBorderStyle"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderColor" Value="#80CCCCCC" />
+                <Setter Property="HeightRequest" Value="106" />
+            </Style>
+            <Style x:Key="DefaultStackLayoutStyle"
+                   TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style x:Key="DefaultTitleLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize" Value="Title" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0, 24, 0, 0" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="DefaultInfoSubtitleLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="#919191" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="DefaultImageBorderStyle"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderColor" Value="#EAEAEA" />
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+                <Setter Property="Margin" Value="0, 9, 0, 0" />
+            </Style>
+            <Style x:Key="DefaultImageStyle"
+                   TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Aspect" Value="Fill" />
+                <Setter Property="Margin" Value="0, 0, 0, 12" />
+            </Style>
+            <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
+                <On Platform="iOS">telerikfontexamples</On>
+                <On Platform="Android">Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+                <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="#EFEFF4">
+                <Image VerticalOptions="End"
+                       HorizontalOptions="End">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">TimeSpanPicker_HeaderImage.png</On>
+                            <On Platform="UWP">Assets/TimeSpanPicker_HeaderImage.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+                         Margin="17, 40, 15, 0">
+            <Label Text="Flight Search - SOF &#xE873; KTM"
+                   FontFamily="{StaticResource IconsFont}"
+                   TextColor="#007AFF"
+                   FontSize="Large"
+                   Margin="0, 0, 0, 24" />
+            <Label Text="Specify Max Flight Duration:"
+                   Style="{StaticResource DefaultSubtitleLabelStyle}" />
+            <telerikInput:RadTimeSpanPicker BackgroundColor="#F7F7F7"
+                                            views:ThemesBehavior.StyleClass="TelerikTheme"
+                                            BorderColor="#007AFF"
+                                            BorderThickness="0, 0, 0, 1"
+                                            HeightRequest="44"
+                                            Time="{Binding FlightDuration}"
+                                            MaximumTime="{Binding MaximumFlightTime}"
+                                            SpinnerFormat="dd\.hh\:mm"
+                                            DisplayStringFormat="d\ \D\a\y\s\,\ h\ \H\o\u\r\s\,\ m\ \M\i\n\u\t\e\s"
+                                            Margin="0, 8, 0, 0">
+                <telerikInput:RadTimeSpanPicker.SpinnerHeaderStyle>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="Medium" />
+                    </Style>
+                </telerikInput:RadTimeSpanPicker.SpinnerHeaderStyle>
+                    <telerikInput:RadTimeSpanPicker.DisplayTemplate>
+                        <ControlTemplate>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                                </StackLayout.GestureRecognizers>
+                                <Label Text="{TemplateBinding DisplayString}"
+                                       VerticalOptions="Center"
+                                       Margin="4, 0, 0, 0" />
+                                <Label Text="&#xE878;"
+                                       Style="{StaticResource IconLabelStyle}" />
+                            </StackLayout>
+                        </ControlTemplate>
+                    </telerikInput:RadTimeSpanPicker.DisplayTemplate>
+                    <telerikInput:RadTimeSpanPicker.PlaceholderTemplate>
+                    <ControlTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="Maximum Flight Duration" 
+                                   VerticalOptions="Center"
+                                   Margin="4, 0, 0, 0" />
+                            <Label Text="&#xE878;" 
+                                   Style="{StaticResource IconLabelStyle}" />
+                        </StackLayout>
+                    </ControlTemplate>
+                </telerikInput:RadTimeSpanPicker.PlaceholderTemplate>
+                <telerikInput:RadTimeSpanPicker.SelectorSettings>
+                        <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Max Flight Duration" />
+                </telerikInput:RadTimeSpanPicker.SelectorSettings>
+            </telerikInput:RadTimeSpanPicker>
+            </StackLayout>
+            <Grid Grid.Row="2"
+                  BackgroundColor="#F7F7F7"
+                  Margin="0, 18, 0, 0"
+                  IsVisible="{Binding IsFlightInfoVisible}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <telerikPrimitives:RadBorder Style="{StaticResource DefaultBorderStyle}"
+                                             Margin="16, 22, 0, 0">
+                    <StackLayout Style="{StaticResource DefaultStackLayoutStyle}">
+                        <Label Text="SOF"
+                               Style="{StaticResource DefaultTitleLabelStyle}" />
+                        <Label Text="Sofia, Bulgaria"
+                               Style="{StaticResource DefaultInfoSubtitleLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:RadBorder>
+                <telerikPrimitives:RadBorder Grid.Column="2"
+                                             Style="{StaticResource DefaultBorderStyle}"
+                                             Margin="0, 22, 16, 0">
+                    <StackLayout Style="{StaticResource DefaultStackLayoutStyle}">
+                        <Label Text="KTM"
+                               Style="{StaticResource DefaultTitleLabelStyle}" />
+                        <Label Text="Kathmandu, Nepal"
+                               Style="{StaticResource DefaultInfoSubtitleLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:RadBorder>
+                <Image Grid.ColumnSpan="3"
+                       HeightRequest="50"
+                       WidthRequest="40"
+                       Margin="0, 22, 0, 0"
+                       VerticalOptions="Center">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">Arrows.png</On>
+                            <On Platform="UWP">Assets/Arrows.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+                <telerikPrimitives:RadBorder Grid.Row="1"
+                                             Grid.ColumnSpan="3"
+                                             BorderColor="#80CCCCCC"
+                                             Margin="16, 8, 16, 0">
+                    <StackLayout BackgroundColor="White">
+                        <Label Text="25 Apr - 2 May, 1 traveller"
+                               FontSize="Medium"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Economy Class"
+                               Style="{StaticResource DefaultInfoSubtitleLabelStyle}" 
+                               Margin="0, 0, 0, 2" />
+                    </StackLayout>
+                </telerikPrimitives:RadBorder>
+            </Grid>
+            <StackLayout Grid.Row="2"
+                         Margin="22, 18, 22, 0"
+                         IsVisible="{Binding IsFlightListVisible}">
+                <Label Text="Flights Results:"
+                       TextColor="Black"
+                       FontAttributes="Bold" />
+                <ScrollView>
+                    <StackLayout BindableLayout.ItemsSource="{Binding Flights}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <telerikPrimitives:RadBorder Style="{StaticResource DefaultImageBorderStyle}">
+                                    <Image Style="{StaticResource DefaultImageStyle}"
+                                           Source="{Binding TicketImage, Converter={StaticResource ImageSourceConverter}}" />
+                                </telerikPrimitives:RadBorder>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout Grid.Row="2"
+                         Margin="22, 18, 22, 0"
+                         IsVisible="{Binding IsFlightEmptyVisible}">
+                <Label Text="No flights found."
+                       TextColor="Black"
+                       FontAttributes="Bold" />
+            </StackLayout>
+        </Grid>
+        <StackLayout Grid.Row="1" 
+                     BackgroundColor="#F6FAFB"
+                     Orientation="Horizontal">
+            <telerikInput:RadButton Text="Show Flights" 
+                                    CornerRadius="20" 
+                                    Padding="10,5,10,5"
+                                    BorderWidth="2"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    TextColor="#007AFF"
+                                    BorderColor="#007AFF"
+                                    WidthRequest="240"
+                                    HeightRequest="40"
+                                    FontSize="15"
+                                    Command="{Binding ShowFlightsCommand}"
+                                    BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonGroups">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Focused" />
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#7DBFF8" />
+                                <Setter Property="BorderColor" Value="#7DBFF8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+        </StackLayout>
+    </Grid>
+</ContentView>

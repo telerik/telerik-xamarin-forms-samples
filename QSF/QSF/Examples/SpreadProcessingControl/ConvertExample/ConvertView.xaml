@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:local="clr-namespace:QSF.Effects"
+             x:Class="QSF.Examples.SpreadProcessingControl.ConvertExample.ConvertView">
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout Margin="0, 0, 0, 16">
+                <primitives:RadBorder Margin="0, 43, 0, 36" 
+                                      BorderColor="#CCCCCC" 
+                                      BorderThickness="1"
+                                      HorizontalOptions="Center"
+                                      >
+                    <Image VerticalOptions="FillAndExpand">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS,Android">SpreadProcessing_Convert_Cue</On>
+                                <On Platform="UWP">Assets\SpreadProcessing_Convert_Cue.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </primitives:RadBorder>
+                <Label HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="File: " TextColor="#000000" FontAttributes="Bold" />
+                            <Span Text="SpreadProcessingDocument1.xlsx" TextColor="#000000" />
+                            <Span Text="{x:Static system:Environment.NewLine}" />
+                            <Span Text="6KB" TextColor="#919191" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Format:"
+                       TextColor="#000000"
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center"
+                       FontSize="Medium"
+                       Margin="0, 10, 0, 8"
+                       />
+                <Grid HeightRequest="44" 
+                      Margin="37, 0, 37, 50"
+                      HorizontalOptions="CenterAndExpand"
+                      WidthRequest="300"
+                      >
+                    <Label Text="&#xE80D;" 
+                           FontFamily="{StaticResource IconsFont}" 
+                           TextColor="#919191"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Center"
+                           Margin="0, 0, 10, 0"
+                           >
+                        <Label.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="UWP">false</On>
+                                <On Platform="Android, iOS">true</On>
+                            </OnPlatform>
+                        </Label.IsVisible>
+                    </Label>
+                    <BoxView Color="#CCCCCC" 
+                             WidthRequest="300"
+                             HeightRequest="1"
+                             VerticalOptions="End" 
+                             HorizontalOptions="CenterAndExpand"
+                             >
+                        <BoxView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="Android, UWP">false</On>
+                                <On Platform="iOS">true</On>
+                            </OnPlatform>
+                        </BoxView.IsVisible>
+                    </BoxView>
+                    <Picker HorizontalOptions="CenterAndExpand"
+                        WidthRequest="300"
+                        TextColor="#919191"
+                        FontSize="Small"
+                        ItemsSource="{Binding ExportFormats}"
+                        SelectedItem="{Binding SelectedExportFormat, Mode=TwoWay}"
+                        >
+                        <Picker.Effects>
+                            <local:PickerEffect/>
+                        </Picker.Effects>
+                    </Picker>
+                </Grid>
+                
+                <input:RadButton BackgroundColor="#A1BF3D" 
+                                 Text="{Binding Text}" 
+                                 TextColor="#FFFFFF"
+                                 FontSize="Small"
+                                 FontAttributes="Bold"
+                                 Command="{Binding Path=GenerateCommand}" 
+                                 HeightRequest="44"
+                                 WidthRequest="160"
+                                 VerticalOptions="EndAndExpand"
+                                 HorizontalOptions="Center"
+                                 Margin="0, 0, 0, 10"
+                                 >
+                    <input:RadButton.CornerRadius>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="Android, iOS">22</On>
+                            <On Platform="UWP">0</On>
+                        </OnPlatform>
+                    </input:RadButton.CornerRadius>
+                </input:RadButton>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

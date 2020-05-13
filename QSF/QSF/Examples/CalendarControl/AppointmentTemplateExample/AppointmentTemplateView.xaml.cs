@@ -22,19 +22,7 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
         private void Calendar_ViewChanged(object sender, ValueChangedEventArgs<CalendarViewMode> e)
         {
             this.calendar.DisplayDate = DateTime.Today;
-            // Workaround for a limitation with ScrollToTime on Android
-            if (Device.RuntimePlatform == Device.Android)
-            {
-                this.calendar.ScrollTimeIntoView(TimeSpan.FromHours(10));
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    this.calendar.ScrollTimeIntoView(TimeSpan.FromHours(12));
-                });
-            }
-            else
-            {
-                this.calendar.ScrollTimeIntoView(TimeSpan.FromHours(12));
-            }
+            this.calendar.ScrollTimeIntoView(TimeSpan.FromHours(12));
         }
     }
 }

@@ -15,13 +15,6 @@ namespace QSF.Services
             return controls;
         }
 
-        public IEnumerable<Control> GetLatest()
-        {
-            var controls = this.GetAllControls();
-
-            return controls.Where(p => p.Latest > 0).OrderBy(p => p.Latest);
-        }
-
         public IEnumerable<Control> GetFeatured()
         {
             var controls = this.GetAllControls();

@@ -8,7 +8,6 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="TextColor">#4A4E52</Color>
-            <Color x:Key="LinkTextColor">#2296F3</Color>
             <Color x:Key="DarkBackgroundColor">#F5F6F7</Color>
             <Color x:Key="LightBackgroundColor">White</Color>
             <converters:EnumToStringConverter x:Key="enumToStringConverter" />
@@ -46,7 +45,7 @@
                     </Grid.RowDefinitions>
                     <Image Margin="-24, 24, 0, 24" Source="{Binding LogoImage, Converter={StaticResource ImageSourceConverter}}" HorizontalOptions="StartAndExpand" VerticalOptions="Start" IsVisible="{Binding LogoImage, Converter={StaticResource NullToBoolConverter}}"/>
                     <StackLayout Grid.Row="1" IsVisible="{Binding HyperlinkText, Converter={StaticResource NullToBoolConverter}}">
-                        <Label Style="{StaticResource Key=BodyLabelStyle}" Text="{Binding Path=HyperlinkText}" TextColor="{StaticResource LinkTextColor}" HorizontalOptions="Start">
+                        <Label Style="{StaticResource Key=BodyLabelStyle}" Text="{Binding Path=HyperlinkText}" TextColor="{StaticResource HyperlinkTextColor}" HorizontalOptions="Start">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding LinkTapped}" CommandParameter="https://www.telerik.com/xamarin-ui"/>
                             </Label.GestureRecognizers>

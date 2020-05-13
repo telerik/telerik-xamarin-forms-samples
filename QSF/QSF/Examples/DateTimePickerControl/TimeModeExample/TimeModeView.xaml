@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.DateTimePickerControl.TimeModeExample.TimeModeView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentButtonColor">#007AFF</Color>
+            <Style x:Key="DefaultPopUpButtonStyle"
+                   TargetType="Button">
+                <Setter Property="TextColor" Value="#007AFF" />
+            </Style>
+            <Style x:Key="DefaultPickerStyle"
+                   TargetType="telerikInput:RadDateTimePicker">
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="BackgroundColor" Value="#F7F7F7" />
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+                <Setter Property="BorderColor" Value="#0E88F2" />
+                <Setter Property="SpinnerFormat" Value="t" />
+                <Setter Property="DisplayStringFormat" Value="h:mm tt" />
+                <Setter Property="SelectorSettings">
+                    <Setter.Value>
+                        <telerikInput:PickerPopupSelectorSettings AcceptButtonStyle="{StaticResource DefaultPopUpButtonStyle}" 
+                                                                  CancelButtonStyle="{StaticResource DefaultPopUpButtonStyle}"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="DefaultPlaceholderStyle"
+                   TargetType="Label">
+                <Setter Property="Margin" Value="4, 0, 0, 0" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="DefaultLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="DefaultTabStripItemStyle" 
+                   TargetType="telerikInput:DateTimeSelectorTabStripItem">
+                <Setter Property="SelectedColor" Value="Black"/>
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            <Style x:Key="DefaultTabStripStyle"
+                   TargetType="telerikPrimitives:TabViewHeader">
+                <Setter Property="BackgroundColor" Value="#F8F8F8" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <StackLayout Margin="17, 24, 15, 58">
+                <Label Text="Living Room Heater"
+                       TextColor="#0E88F2"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"/>
+                <Grid HeightRequest="210">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="1">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS,Android">DateTimePicker_Time.png</On>
+                                <On Platform="UWP">Assets/DateTimePicker_Time.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Repeat heating Time"
+                           TextColor="#919191"
+                           FontSize="Large"
+                           Margin="0, 0, 0, 24" />
+                    <Switch IsToggled="True" 
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Start">
+                        <Switch.OnColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="iOS">#FFDCC3</On>
+                            </OnPlatform>
+                        </Switch.OnColor>
+                    </Switch>
+                </StackLayout>
+                <Label Text="Start Heating Time:"
+                       Style="{StaticResource DefaultLabelStyle}" />
+                <telerikInput:RadDateTimePicker Placeholder="Select Start Time"
+                                                Date="{Binding StartTime}"
+                                                Style="{StaticResource DefaultPickerStyle}"
+                                                PlaceholderLabelStyle="{StaticResource DefaultPlaceholderStyle}"
+                                                TabStripStyle="{StaticResource DefaultTabStripStyle}"
+                                                TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}"
+                                                Margin="0, 0, 0, 24" />
+                <Label Text="End Heating Time:"
+                       Style="{StaticResource DefaultLabelStyle}" />
+                <telerikInput:RadDateTimePicker Placeholder="Select End Time"
+                                                Date="{Binding EndTime}"
+                                                Style="{StaticResource DefaultPickerStyle}"
+                                                PlaceholderLabelStyle="{StaticResource DefaultPlaceholderStyle}"
+                                                TabStripStyle="{StaticResource DefaultTabStripStyle}"
+                                                TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}"
+                                                Margin="0, 0, 0, 58" />
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Grid.Row="1"
+                     BackgroundColor="#F7F7F7" 
+                     HeightRequest="65">
+            <telerikInput:RadButton Text="Set Heating Time" 
+                                    CornerRadius="20" 
+                                    Padding="10,5,10,5"
+                                    BorderWidth="2"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    TextColor="#0E88F2"
+                                    BorderColor="#0E88F2"
+                                    WidthRequest="240"
+                                    HeightRequest="40"
+                                    FontSize="15"
+                                    Command="{Binding SetHeatingTimeCommand}"
+                                    BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonGroups">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Focused" />
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#7DBFF8" />
+                                <Setter Property="BorderColor" Value="#7DBFF8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+        </StackLayout>
+    </Grid>
+</ContentView>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:QSF.Controls"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="QSF.Views.SampleAppsView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="HeaderLabelMargin">12</Thickness>
+            <OnPlatform x:Key="ListViewMargin" x:TypeArguments="Thickness">
+                <On Platform="Android" Value="6, 0" />
+                <On Platform="iOS" Value="12, 0" />
+                <On Platform="UWP" Value="10, 0" />
+            </OnPlatform>
+            <OnPlatform x:Key="OpenInStoreText" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Get it on Google Store" />
+                <On Platform="iOS" Value="Download on the App Store" />
+                <On Platform="UWP" Value="Download from Microsoft Store" />
+            </OnPlatform>
+            <DataTemplate x:Key="SampleAppTemplate">
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <Grid BackgroundColor="{StaticResource Key=LightBackgroundColor}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <ffImageLoading:CachedImage Source="{Binding Icon, Converter={StaticResource ImageSourceConverter}}" 
+                                                        WidthRequest="130"
+                                                        HeightRequest="130"
+                                                        VerticalOptions="Start"
+                                                        Margin="15" />
+                            <StackLayout Grid.Column="1"
+                                         Margin="0, 15, 5, 15">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Title}"
+                                           Style="{StaticResource SampleAppTitleStyle}" />
+                                    <Label FontFamily="{StaticResource IconsFont}" 
+                                           Text="{StaticResource ExternalLinkIcon}"
+                                           TextColor="{StaticResource ExternalLinkIconColor}" />
+                                </StackLayout>
+                                <Label Text="{Binding Description}"
+                                        Style="{StaticResource BodyLabelStyle}" />
+                                <Label Text="{StaticResource OpenInStoreText}"
+                                        TextColor="{StaticResource HyperlinkTextColor}"
+                                        Style="{StaticResource BodyLabelStyle}" />
+                            </StackLayout>
+                        </Grid>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+            <converters:ItemTapEventArgsToItem x:Key="ItemTapEventArgsToItem" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <controls:AppBar Title="{Binding Title}"
+                         TitleHorizontalOptions="Start"
+                         LeftButtonText="{StaticResource BackButtonIcon}"
+                         LeftButtonCommand="{Binding AppBarLeftButtonCommand}"
+                         IsMiddleButtonEnabled="False"
+                         IsMiddleButtonVisible="False"
+                         RightButtonText="{StaticResource SearchButtonIcon}"
+                         RightButtonCommand="{Binding AppBarRightButtonCommand}" />
+        <Label Text="{Binding DescriptionHeader}"
+               Grid.Row="1"
+               Style="{StaticResource HeaderLabelStyle}"
+               Margin="{StaticResource HeaderLabelMargin}" />        
+        <telerikDataControls:RadListView x:Name="sampleAppsListView"
+                                         ItemTemplate="{StaticResource SampleAppTemplate}"
+                                         ItemsSource="{Binding SampleApps}"
+                                         SelectionMode="None"
+                                         Grid.Row="2"
+                                         Margin="{StaticResource ListViewMargin}"
+                                         AutomationId="sampleAppsListView">
+            <telerikDataControls:RadListView.LayoutDefinition>
+                <telerikListView:ListViewLinearLayout VerticalItemSpacing="6" />
+            </telerikDataControls:RadListView.LayoutDefinition>
+            <telerikDataControls:RadListView.Behaviors>
+                <telerikCommon:RadEventToCommandBehavior EventName="ItemTapped" 
+                                                         Command="{Binding OpenInStoreCommand}" 
+                                                         EventArgsConverter="{StaticResource ItemTapEventArgsToItem}" />
+            </telerikDataControls:RadListView.Behaviors>
+        </telerikDataControls:RadListView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.DateTimePickerControl.DateModeExample.DateModeView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentTextButtonColor">#007AFF</Color>
+            <Style x:Key="DefaultLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <StackLayout Margin="17, 24, 15, 58">
+                <Label Text="My Schedule"
+                       TextColor="#0E88F2"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       Margin="0, 0, 0, 28" />
+                <Image HeightRequest="180"
+                       WidthRequest="180"
+                       Margin="0, 0, 0, 47">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">DateTimePicker_Date.png</On>
+                            <On Platform="UWP">Assets/DateTimePicker_Date.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+                <Label Text="Please Specify Sessions Date:"
+                       Style="{StaticResource DefaultLabelStyle}" />
+                <telerikInput:RadDateTimePicker Placeholder="Sessions Date"
+                                                Date="{Binding SelectedDate}"
+                                                DefaultHighlightedDate="{Static sys:DateTime.Now}"
+                                                HeightRequest="44"
+                                                BackgroundColor="#F7F7F7"
+                                                BorderThickness="0, 0, 0, 1"
+                                                BorderColor="#0E88F2"
+                                                SpinnerFormat="MMM d yyyy"
+                                                DisplayStringFormat="{Binding FormatMask}"
+                                                Margin="0, 0, 0, 52">
+                    <telerikInput:RadDateTimePicker.PlaceholderLabelStyle>
+                        <Style TargetType="Label">
+                            <Setter Property="Margin" Value="4, 0, 0, 0" />
+                            <Setter Property="VerticalTextAlignment" Value="Center" />
+                        </Style>
+                    </telerikInput:RadDateTimePicker.PlaceholderLabelStyle>
+                    <telerikInput:RadDateTimePicker.TabStripStyle>
+                        <Style TargetType="telerikPrimitives:TabViewHeader">
+                            <Setter Property="BackgroundColor" Value="#F8F8F8" />
+                        </Style>
+                    </telerikInput:RadDateTimePicker.TabStripStyle>
+                    <telerikInput:RadDateTimePicker.TabStripItemStyle>
+                        <Style TargetType="telerikInput:DateTimeSelectorTabStripItem">
+                            <Setter Property="SelectedColor" Value="Black" />
+                            <Setter Property="BorderThickness" Value="0" />
+                        </Style>
+                    </telerikInput:RadDateTimePicker.TabStripItemStyle>
+                    <telerikInput:RadDateTimePicker.SelectorSettings>
+                        <telerikInput:PickerPopupSelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                                <Style TargetType="Button">
+                                    <Setter Property="TextColor" Value="{StaticResource AccentTextButtonColor}" />
+                                </Style>
+                            </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                            <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                                <Style TargetType="Button">
+                                    <Setter Property="TextColor" Value="{StaticResource AccentTextButtonColor}" />
+                                </Style>
+                            </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                        </telerikInput:PickerPopupSelectorSettings>
+                    </telerikInput:RadDateTimePicker.SelectorSettings>
+                </telerikInput:RadDateTimePicker>
+                <Label Text="{Binding DisplaySessionsDate}"
+                       Style="{StaticResource DefaultLabelStyle}" />
+                <telerikDataControls:RadListView ItemsSource="{Binding Sessions}"
+                                                 SelectionMode="None">
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <telerikListView:ListViewTemplateCell>
+                                <telerikListView:ListViewTemplateCell.View>
+                                    <telerikPrimitives:RadBorder BorderColor="#EAEAEA"
+                                                                 BorderThickness="0, 0, 0, 1">
+                                        <Grid HeightRequest="56">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView BackgroundColor="{Binding IndicatorColor}"
+                                                     CornerRadius="5"
+                                                     WidthRequest="10"
+                                                     HeightRequest="10" 
+                                                     VerticalOptions="Center"
+                                                     Margin="0, 0, 9, 0" />
+                                            <Label Grid.Column="1" 
+                                                   FormattedText="{Binding Text}"
+                                                   VerticalOptions="Center" />
+                                        </Grid>
+                                    </telerikPrimitives:RadBorder>
+                                </telerikListView:ListViewTemplateCell.View>
+                            </telerikListView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                </telerikDataControls:RadListView>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Grid.Row="1"
+                     BackgroundColor="#F7F7F7">
+            <telerikInput:RadButton Text="Show Sessions" 
+                                    CornerRadius="20" 
+                                    Padding="10,5,10,5"
+                                    BorderWidth="2"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    TextColor="#0E88F2"
+                                    BorderColor="#0E88F2"
+                                    WidthRequest="240"
+                                    HeightRequest="40"
+                                    FontSize="15"
+                                    Command="{Binding ShowSessionsCommand}"
+                                    BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonGroups">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Focused" />
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#7DBFF8" />
+                                <Setter Property="BorderColor" Value="#7DBFF8" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+        </StackLayout>
+    </Grid>
+</ContentView>

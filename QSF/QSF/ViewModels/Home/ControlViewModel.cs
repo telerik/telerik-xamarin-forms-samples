@@ -12,7 +12,6 @@ namespace QSF.ViewModels
             this.ShortDescription = control.ShortDescription;
             this.FullDescription = control.FullDescription;
             this.DocumentationURL = control.DocumentationURL;
-            this.IsLatest = control.Latest > 0;
             this.IsFeatured = control.Featured > 0;
             this.IsNew = control.IsNew;
             this.IsCTP = control.IsCTP;
@@ -31,8 +30,6 @@ namespace QSF.ViewModels
         public string FullDescription { get; }
 
         public string DocumentationURL { get; }
-
-        public bool IsLatest { get; }
 
         public bool IsFeatured { get; }
 

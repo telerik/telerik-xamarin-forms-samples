@@ -28,6 +28,7 @@
                                  IsAnimationEnabled="{Binding Path=IsAnimationEnabled}"
                                  AnimationDuration="{Binding Path=AnimationDuration}"
                                  AnimationEasing="{Binding Path=AnimationEasing}"
+                                 CanCollapseAllItems="{Binding Path=CanCollapseAllItems}"
                                  AutomationId="Accordion">
             
             <primitives:AccordionItem IsExpanded="True"
