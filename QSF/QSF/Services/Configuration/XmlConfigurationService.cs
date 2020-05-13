@@ -135,7 +135,14 @@ namespace QSF.Services
 
         public string GetQSFAboutContent()
         {
-            return this.configuration.QSFAboutContent;
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                return this.configuration.QSFAboutContentiOS;
+            }
+            else
+            {
+                return this.configuration.QSFAboutContent;
+            }
         }
 
         public string GetHomePageTitleIcon()
@@ -168,9 +175,19 @@ namespace QSF.Services
             return this.configuration.WhatsNewPageURL;
         }
 
+        public string GetPrivacyPolicyPageURL()
+        {
+            return this.configuration.PrivacyPolicyPageURL;
+        }
+
         public IEnumerable<Theme> GetThemes()
         {
             return this.configuration.Themes;
+        }
+
+        public SampleApps GetSampleAppsConfiguration()
+        {
+            return this.configuration.SampleApps;
         }
     }
 }

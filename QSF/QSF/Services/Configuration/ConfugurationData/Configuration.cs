@@ -22,6 +22,8 @@ namespace QSF.Services.Configuration
 
         public string QSFAboutContent { get; set; }
 
+        public string QSFAboutContentiOS { get; set; }
+
         public SplashScreen SplashScreen { get; set; }
 
         public string SourceURL { get; set; }
@@ -32,8 +34,12 @@ namespace QSF.Services.Configuration
 
         public string WhatsNewPageURL { get; set; }
 
+        public string PrivacyPolicyPageURL { get; set; }
+
         public List<Control> Controls { get; set; }
 
         public List<Theme> Themes { get; set; }
+
+        public SampleApps SampleApps { get; set; }
     }
 }

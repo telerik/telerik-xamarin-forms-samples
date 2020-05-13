@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.TemplatedPickerControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainColor">#007AFF</Color>
+            <Style x:Key="DescriptionLabelsStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Caption" />
+            </Style>
+            <Style x:Key="SubtitlesStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Subtitle" />
+                <Setter Property="Margin" Value="0, 24, 0, 0" />
+            </Style>
+            <Style x:Key="DefaultRadDateTimePickerEnabledStyle" 
+                   TargetType="telerikInput:RadTemplatedPicker">
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+                <Setter Property="BorderColor" Value="#B7B7BA" />
+                <Setter Property="HeightRequest" Value="44" />
+            </Style>
+            <Style x:Key="SmallCircleStyle"
+                   TargetType="{x:Type BoxView}">
+                <Setter Property="WidthRequest" Value="26" />
+                <Setter Property="HeightRequest" Value="26" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="2" />
+            </Style>
+            <Style x:Key="SizeCircleStyle"
+                   TargetType="Frame">
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Margin" Value="12, 16, 12, 16" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
+            <Style x:Key="DefaltSizeLabelStyle"
+                   TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="DefaultFrameStyle" 
+                   TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
+            <Style x:Key="DefaultBoxViewBorderStyle"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="WidthRequest" Value="26" />
+                <Setter Property="HeightRequest" Value="26" />
+                <Setter Property="CornerRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS, Android">13</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BorderColor" Value="Blue" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+            <Style x:Key="DefaultFlexLayoutStyle"
+                   TargetType="FlexLayout">
+                <Setter Property="Wrap" Value="Wrap" />
+                <Setter Property="Margin" Value="5, 0, 0, 0" />
+            </Style>
+            <Style x:Key="DefaultHeaderLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize">
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS, Android">Large</On>
+                        <On Platform="UWP">Medium</On>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Grid Margin="0, 0, 0, 30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                    </Grid.RowDefinitions>
+                    <StackLayout BackgroundColor="#EFEFF4">
+                        <Image Margin="0, 0, 16, 0"
+                               VerticalOptions="End"
+                               HorizontalOptions="End">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">hanger.png</On>
+                                    <On Platform="UWP">Assets/hanger.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                            <Image.Aspect>
+                                <OnPlatform x:TypeArguments="Aspect">
+                                    <On Platform="iOS, Android">Fill</On>
+                                    <On Platform="UWP">AspectFit</On>
+                                </OnPlatform>
+                            </Image.Aspect>
+                        </Image>
+                    </StackLayout>
+                </Grid>
+                <StackLayout Margin="16, 0, 20, 0">
+                    <Label Text="Women's Tops, T-Shirts &amp; Blouses"
+                           TextColor="{StaticResource MainColor}"
+                           FontSize="Large" />
+                    <Label Text="Women's Short Sleeve Sports Top"
+                           Style="{StaticResource SubtitlesStyle}" />
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0, 20, 0, 0">
+                        <Image Aspect="AspectFit"
+                               VerticalOptions="Start">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">t_shirt.png</On>
+                                    <On Platform="UWP">Assets/t_shirt.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                        <StackLayout Margin="16, 0, 0, 0">
+                            <Label Text="Raglen sleeve" 
+                                   Style="{StaticResource DescriptionLabelsStyle}" />
+                            <Label Text="60% Polyamide, 40% Polyester" 
+                                   Style="{StaticResource DescriptionLabelsStyle}" />
+                            <Label Text="Machine Wash - Cold (30&#186; max)" 
+                                   Style="{StaticResource DescriptionLabelsStyle}" />
+                            <Label Text="Collar Style: Round neck" 
+                                   Style="{StaticResource DescriptionLabelsStyle}" />
+                            <Label Text="Slim Fit" 
+                                   Style="{StaticResource DescriptionLabelsStyle}" />
+                            <Label Text="Short Sleeve" 
+                                   Style="{StaticResource DescriptionLabelsStyle}" />
+
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0, 20, 0, 0">
+                        <Label Text="Avaiable Colors: "
+                               Style="{StaticResource DescriptionLabelsStyle}" />
+                        <Image Aspect="AspectFit"
+                               VerticalOptions="Start">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">colors.png</On>
+                                    <On Platform="UWP">Assets/colors.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                    </StackLayout>
+                    <Label Text="Select Size &amp; Color:"
+                           Style="{StaticResource SubtitlesStyle}" />
+                    <telerikInput:RadTemplatedPicker Placeholder="Choose Your Size and Color" 
+                                                     Style="{StaticResource DefaultRadDateTimePickerEnabledStyle}"
+                                                     SelectedValue="{Binding SelectedValue}"
+                                                     views:ThemesBehavior.StyleClass="TelerikTheme">
+                        <telerikInput:RadTemplatedPicker.SelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings AcceptCommand="{Binding AcceptCommand}" 
+                                                                      CancelCommand="{Binding CancelCommand}">
+                                <telerikInput:PickerPopupSelectorSettings.HeaderTemplate>
+                                    <ControlTemplate>
+                                        <StackLayout BackgroundColor="#F8F8F8">
+                                            <Label Text="Select Size &amp; Color" 
+                                                   Style="{StaticResource DefaultHeaderLabelStyle}">
+                                            </Label>
+                                        </StackLayout>
+                                    </ControlTemplate>
+                                </telerikInput:PickerPopupSelectorSettings.HeaderTemplate>
+                                <telerikInput:PickerPopupSelectorSettings.HeaderStyle>
+                                    <Style TargetType="telerikInput:PickerPopupHeaderView">
+                                        <Setter Property="HeightRequest" Value="56" />
+                                    </Style>
+                                </telerikInput:PickerPopupSelectorSettings.HeaderStyle>
+                            </telerikInput:PickerPopupSelectorSettings>
+                        </telerikInput:RadTemplatedPicker.SelectorSettings>
+                        <telerikInput:RadTemplatedPicker.SelectorTemplate>
+                            <ControlTemplate>
+                                <ScrollView>
+                                    <StackLayout>
+                                        <FlexLayout Style="{StaticResource DefaultFlexLayoutStyle}" 
+                                                    HorizontalOptions="Start">
+                                            <Frame Style="{StaticResource SizeCircleStyle}"
+                                                   BackgroundColor="{Binding XS.BackgroundColor}">
+                                                <Label Text="{Binding XS.Name}"
+                                                       Style="{StaticResource DefaltSizeLabelStyle}" 
+                                                       TextColor="{Binding XS.TextColor}" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding SelectSizeCommand}"
+                                                                          CommandParameter="{Binding XS}" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                            <Frame Style="{StaticResource SizeCircleStyle}"
+                                                   BackgroundColor="{Binding S.BackgroundColor}">
+                                                <Label Text="{Binding S.Name}"                                      
+                                                       Style="{StaticResource DefaltSizeLabelStyle}" 
+                                                       TextColor="{Binding S.TextColor}" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding SelectSizeCommand}"
+                                                                          CommandParameter="{Binding S}" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                            <Frame Style="{StaticResource SizeCircleStyle}"
+                                                   BackgroundColor="{Binding M.BackgroundColor}">
+                                                <Label Text="{Binding M.Name}"                                      
+                                                       Style="{StaticResource DefaltSizeLabelStyle}" 
+                                                       TextColor="{Binding M.TextColor}" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding SelectSizeCommand}"
+                                                                          CommandParameter="{Binding M}" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                            <Frame Style="{StaticResource SizeCircleStyle}"
+                                                   BackgroundColor="{Binding L.BackgroundColor}">
+                                                <Label Text="{Binding L.Name}"                                      
+                                                       Style="{StaticResource DefaltSizeLabelStyle}"
+                                                       TextColor="{Binding L.TextColor}" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding SelectSizeCommand}"
+                                                                          CommandParameter="{Binding L}" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                            <Frame Style="{StaticResource SizeCircleStyle}"
+                                                   BackgroundColor="{Binding XL.BackgroundColor}">
+                                                <Label Text="{Binding XL.Name}"                                     
+                                                       Style="{StaticResource DefaltSizeLabelStyle}"
+                                                       TextColor="{Binding XL.TextColor}" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding SelectSizeCommand}"
+                                                                          CommandParameter="{Binding XL}" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                            <Frame Style="{StaticResource SizeCircleStyle}"
+                                                   BackgroundColor="{Binding XXL.BackgroundColor}">
+                                                <Label Text="{Binding XXL.Name}"                                    
+                                                       Style="{StaticResource DefaltSizeLabelStyle}"
+                                                       TextColor="{Binding XXL.TextColor}" />
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding SelectSizeCommand}"
+                                                                          CommandParameter="{Binding XXL}" />
+                                                </Frame.GestureRecognizers>
+                                            </Frame>
+                                        </FlexLayout>
+                                        <BoxView HeightRequest="1"
+                                                 HorizontalOptions="Fill"
+                                                 Margin="20, 0, 20, 0"
+                                                 BackgroundColor="#EAEAEA" />
+                                        <FlexLayout Style="{StaticResource DefaultFlexLayoutStyle}">
+                                            <Frame Style="{StaticResource DefaultFrameStyle}">
+                                                <telerikPrimitives:RadBorder BorderColor="{Binding Blue.BorderColor}" 
+                                                                             Style="{StaticResource DefaultBoxViewBorderStyle}">
+                                                    <BoxView BackgroundColor="{Binding Blue.Color}"
+                                                             Style="{StaticResource SmallCircleStyle}" >
+                                                        <BoxView.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding SelectColorCommand}"
+                                                                                  CommandParameter="{Binding Blue}" />
+                                                        </BoxView.GestureRecognizers>
+                                                    </BoxView>
+                                                </telerikPrimitives:RadBorder>
+                                            </Frame>
+                                            <Frame Style="{StaticResource DefaultFrameStyle}">
+                                                <telerikPrimitives:RadBorder BorderColor="{Binding Yellow.BorderColor}"
+                                                                             Style="{StaticResource DefaultBoxViewBorderStyle}">
+                                                    <BoxView BackgroundColor="{Binding Yellow.Color}"
+                                                             Style="{StaticResource SmallCircleStyle}">
+                                                        <BoxView.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding SelectColorCommand}"
+                                                                                  CommandParameter="{Binding Yellow}" />
+                                                        </BoxView.GestureRecognizers>
+                                                    </BoxView>
+                                                </telerikPrimitives:RadBorder>
+                                            </Frame>
+                                            <Frame Style="{StaticResource DefaultFrameStyle}">
+                                                <telerikPrimitives:RadBorder BorderColor="{Binding Purple.BorderColor}"
+                                                                             Style="{StaticResource DefaultBoxViewBorderStyle}">
+                                                    <BoxView BackgroundColor="{Binding Purple.Color}"
+                                                             Style="{StaticResource SmallCircleStyle}">
+                                                        <BoxView.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding SelectColorCommand}" 
+                                                                                  CommandParameter="{Binding Purple}" />
+                                                        </BoxView.GestureRecognizers>
+                                                    </BoxView>
+                                                </telerikPrimitives:RadBorder>
+                                            </Frame>
+                                            <Frame Style="{StaticResource DefaultFrameStyle}">
+                                                <telerikPrimitives:RadBorder BorderColor="{Binding Orange.BorderColor}"
+                                                                             Style="{StaticResource DefaultBoxViewBorderStyle}">
+                                                    <BoxView BackgroundColor="{Binding Orange.Color}"
+                                                             Style="{StaticResource SmallCircleStyle}">
+                                                        <BoxView.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding SelectColorCommand}" 
+                                                                                  CommandParameter="{Binding Orange}" />
+                                                        </BoxView.GestureRecognizers>
+                                                    </BoxView>
+                                                </telerikPrimitives:RadBorder>
+                                            </Frame>
+                                            <Frame Style="{StaticResource DefaultFrameStyle}">
+                                                <telerikPrimitives:RadBorder BorderColor="{Binding LightGray.BorderColor}"
+                                                                             Style="{StaticResource DefaultBoxViewBorderStyle}">
+                                                    <BoxView BackgroundColor="{Binding LightGray.Color}"
+                                                             Style="{StaticResource SmallCircleStyle}">
+                                                        <BoxView.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding SelectColorCommand}" 
+                                                                                  CommandParameter="{Binding LightGray}" />
+                                                        </BoxView.GestureRecognizers>
+                                                    </BoxView>
+                                                </telerikPrimitives:RadBorder>
+                                            </Frame>
+                                            <Frame Style="{StaticResource DefaultFrameStyle}">
+                                                <telerikPrimitives:RadBorder BorderColor="{Binding DarkGray.BorderColor}"
+                                                                             Style="{StaticResource DefaultBoxViewBorderStyle}">
+                                                    <BoxView BackgroundColor="{Binding DarkGray.Color}"
+                                                             Style="{StaticResource SmallCircleStyle}">
+                                                        <BoxView.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding SelectColorCommand}"
+                                                                                  CommandParameter="{Binding DarkGray}" />
+                                                        </BoxView.GestureRecognizers>
+                                                    </BoxView>
+                                                </telerikPrimitives:RadBorder>
+                                            </Frame>
+                                        </FlexLayout>
+                                    </StackLayout>
+                                </ScrollView>
+                            </ControlTemplate>
+                        </telerikInput:RadTemplatedPicker.SelectorTemplate>
+                    </telerikInput:RadTemplatedPicker>
+                    <Label Text="Featured Categories"
+                       Style="{StaticResource SubtitlesStyle}"
+                       TextColor="#919191" />
+                    <telerikPrimitives:RadBorder BorderColor="#EAEAEA"
+                                                 BorderThickness="0, 0, 0, 1">
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="EndAndExpand"
+                                     Margin="0, 23, 0, 8">
+                            <BoxView BackgroundColor="#007AFF"
+                                     WidthRequest="8"
+                                     HeightRequest="8" 
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Margin="0, 0, 0, 0" />
+                            <Label Text="Blouses &amp; Shirts" 
+                                   Style="{StaticResource DescriptionLabelsStyle}"
+                                   TextColor="#919191"
+                                   VerticalOptions="EndAndExpand" />
+                        </StackLayout>
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder BorderColor="#EAEAEA"
+                                                 BorderThickness="0, 0, 0, 1">
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="EndAndExpand"
+                                     Margin="0, 23, 0, 8">
+                            <BoxView BackgroundColor="#CE3A6D"
+                                     WidthRequest="8"
+                                     HeightRequest="8" 
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Margin="0, 0, 0, 0" />
+                            <Label Text="Bodysuits" 
+                                   Style="{StaticResource DescriptionLabelsStyle}"
+                                   TextColor="#919191"
+                                   VerticalOptions="EndAndExpand" />
+                        </StackLayout>
+                    </telerikPrimitives:RadBorder>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout VerticalOptions="EndAndExpand"
+                     HeightRequest="65"
+                     BackgroundColor="#EAEAEA"
+                     Orientation="Horizontal">
+            <telerikInput:RadButton Text="Add to Basket"
+                                    BackgroundColor="Transparent" 
+                                    BorderColor="{StaticResource MainColor}"
+                                    TextColor="{StaticResource MainColor}"
+                                    Margin="88, 0, 88, 0"
+                                    CornerRadius="20"
+                                    BorderWidth="2"
+                                    HeightRequest="40"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Center" 
+                                    IsEnabled="{Binding IsSelectedValue}"
+                                    Clicked="AddToBasketClicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentView>

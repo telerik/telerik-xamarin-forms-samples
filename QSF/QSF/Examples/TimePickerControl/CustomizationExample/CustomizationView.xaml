@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:local="clr-namespace:QSF.Examples.TimePickerControl.CustomizationExample"
+             xmlns:behaviors="clr-namespace:QSF.Behaviors"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.TimePickerControl.CustomizationExample.CustomizationView">
+    <ContentView.BindingContext>
+        <local:ViewModel x:Name="viewModel"/>
+    </ContentView.BindingContext>
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#B73562</Color>
+            <Style x:Key="DefaultTimePickerStyle"
+                   TargetType="telerikInput:RadTimePicker">
+                <Setter Property="DisplayStringFormat" Value="hh:mm tt" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image Aspect="Fill">
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS,Android">Picker_Demo4_Header.png</On>
+                    <On Platform="UWP">Assets/Picker_Demo4_Header.png</On>
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <Label Grid.Row="1"
+               Text="Alarms" 
+               TextColor="#CB1F4D" 
+               FontSize="Large"
+               Margin="16, 18, 0, 0"
+               HorizontalOptions="Start" />
+        <telerikDataControls:RadListView x:Name="listView"
+                                         Grid.Row="2"
+                                         SelectionMode="None"
+                                         ItemsSource="{Binding Alarms}">
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <StackLayout Orientation="Horizontal"
+                                         HeightRequest="50"
+                                         Margin="16, 0, 16, 0">
+                                <telerikInput:RadTimePicker SpinnerFormat="t"
+                                                            Time="{Binding SelectedHour, Mode=TwoWay}"
+                                                            Style="{StaticResource DefaultTimePickerStyle}">
+                                    <telerikInput:RadTimePicker.Behaviors>
+                                        <behaviors:OpenPopupBehavior IsPickerOpened="{Binding IsPickerOpened}"/>
+                                    </telerikInput:RadTimePicker.Behaviors>
+                                    <telerikInput:RadTimePicker.DisplayLabelStyle>
+                                        <Style TargetType="Label">
+                                            <Setter Property="VerticalOptions" Value="Center" />
+                                            <Setter Property="TextColor" Value="{Binding PickerTextColor}" />
+                                        </Style>
+                                    </telerikInput:RadTimePicker.DisplayLabelStyle>
+                                    <telerikInput:RadTimePicker.SelectorSettings>
+                                        <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Set Alarm"
+                                                                                  CancelCommand="{Binding AlarmEditCanceled, Source={x:Reference viewModel}}"
+                                                                                  AcceptCommand="{Binding AlarmAccepted, Source={x:Reference viewModel}}">
+                                            <telerikInput:PickerPopupSelectorSettings.HeaderLabelStyle>
+                                                <Style TargetType="Label">
+                                                    <Setter Property="TextColor" Value="White" />
+                                                </Style>
+                                            </telerikInput:PickerPopupSelectorSettings.HeaderLabelStyle>
+                                            <telerikInput:PickerPopupSelectorSettings.HeaderStyle>
+                                                <Style TargetType="telerikInput:PickerPopupHeaderView">
+                                                    <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}" />
+                                                </Style>
+                                            </telerikInput:PickerPopupSelectorSettings.HeaderStyle>
+                                            <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                                                <Style TargetType="Button" >
+                                                    <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                                                </Style>
+                                            </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                                            <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                                                <Style TargetType="Button" >
+                                                    <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                                                </Style>
+                                            </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                                        </telerikInput:PickerPopupSelectorSettings>
+                                    </telerikInput:RadTimePicker.SelectorSettings>
+                                </telerikInput:RadTimePicker>
+                                <Label Text="{Binding Name}"
+                                       HorizontalOptions="CenterAndExpand"
+                                       TextColor="{Binding NameTextColor, Mode=TwoWay}"
+                                       VerticalOptions="Center" />
+                                <Switch IsToggled="{Binding IsEnabled, Mode=TwoWay}" 
+                                        OnColor="{OnPlatform Android=Default, iOS={StaticResource AccentColor}}" 
+                                        HorizontalOptions="EndAndExpand"
+                                        VerticalOptions="Center" />
+                            </StackLayout>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+            <telerikDataControls:RadListView.ItemStyle>
+                <telerikListView:ListViewItemStyle BorderColor="#B7B7BA" 
+                                                   BorderLocation="Bottom"
+                                                   BorderWidth="1" />
+            </telerikDataControls:RadListView.ItemStyle>
+        </telerikDataControls:RadListView>
+        <StackLayout Grid.Row="3" 
+                     HeightRequest="65"
+                     BackgroundColor="#F6FAFB"
+                     Orientation="Horizontal">
+            <telerikInput:RadButton Text="Set New Alarm"
+                                    BackgroundColor="{StaticResource AccentColor}" 
+                                    TextColor="White"
+                                    Margin="28, 0, 28, 0"
+                                    CornerRadius="20"
+                                    HeightRequest="40"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Center" 
+                                    Command="{Binding AddAlarmCommand}" 
+                                    Clicked="ScrollItemIntoViewClicked" />
+        </StackLayout>
+    </Grid>
+</ContentView>

@@ -5,8 +5,6 @@ namespace QSF.Services
 {
     public interface IControlsService
     {
-        IEnumerable<Control> GetLatest();
-
         IEnumerable<Control> GetFeatured();
 
         IEnumerable<Control> GetAllControls();

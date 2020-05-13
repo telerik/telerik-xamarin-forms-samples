@@ -9,12 +9,10 @@ namespace QSF.Examples.CalendarControl.DayViewExample
     public class DayViewViewModel : ExampleViewModel
     {
         public ObservableCollection<Appointment> Appointments { get; }
-        public ObservableCollection<Input.SpecialSlot> NonWorkingHours { get; }
 
         public DayViewViewModel()
         {
             this.Appointments = this.CreateAppointments();
-            this.NonWorkingHours = this.CreateNonWorkingHours();
         }
 
         private ObservableCollection<Appointment> CreateAppointments()
@@ -185,44 +183,6 @@ namespace QSF.Examples.CalendarControl.DayViewExample
                     "@Sam",
                     party)
             };
-        }
-
-        private ObservableCollection<Input.SpecialSlot> CreateNonWorkingHours()
-        {
-            var nonWorkingHours = new ObservableCollection<Input.SpecialSlot>();
-
-            DateTime start = new DateTime(2014, 1, 1, 8, 0, 0);
-            DateTime end = new DateTime(2014, 1, 1, 18, 0, 0);
-            DateTime lastReccurence = new DateTime(2048, 1, 1);
-
-            var weeklyPattern = new Input.RecurrencePattern()
-            {
-                Frequency = Input.RecurrenceFrequency.Weekly,
-                DaysOfWeekMask = Input.RecurrenceDays.WeekDays,
-                RecursUntil = lastReccurence
-            };
-
-            nonWorkingHours.Add(new Input.SpecialSlot(start.Date, start)
-            {
-                RecurrencePattern = weeklyPattern
-            });
-
-            nonWorkingHours.Add(new Input.SpecialSlot(end, end.AddHours(6).AddSeconds(-1))
-            {
-                RecurrencePattern = weeklyPattern
-            });
-
-            nonWorkingHours.Add(new Input.SpecialSlot(start.Date, start.Date.AddHours(24).AddSeconds(-1))
-            {
-                RecurrencePattern = new Input.RecurrencePattern()
-                {
-                    Frequency = Input.RecurrenceFrequency.Weekly,
-                    DaysOfWeekMask = Input.RecurrenceDays.WeekendDays,
-                    RecursUntil = lastReccurence
-                }
-            });
-
-            return nonWorkingHours;
         }
     }
 }

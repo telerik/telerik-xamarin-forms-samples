@@ -131,6 +131,9 @@
                                 </telerikListView:ListViewTemplateCell>
                             </DataTemplate>
                         </telerikDataControls:RadListView.ItemTemplate>
+                        <telerikDataControls:RadListView.FilterDescriptors>
+                            <telerikListView:DelegateFilterDescriptor Filter="{Binding FilterCondition}" />
+                        </telerikDataControls:RadListView.FilterDescriptors>
                     </telerikDataControls:RadListView>
                 </Grid>
             </telerikPrimitives:RadSideDrawer.MainContent>

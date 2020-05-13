@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.DateTimePickerControl.ConfigurationExample.ConfigurationView"
+             x:Name="pageContent">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
+                <On Platform="iOS">telerikfontexamples</On>
+                <On Platform="Android">Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+                <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+            </OnPlatform>
+            <Color x:Key="AccentColor">#B73562</Color>
+            <Style x:Key="DefaultLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="0, 16, 0, 4" />
+            </Style>
+            <Style x:Key="DefaultDisabledLabelStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource DefaultLabelStyle}">
+                <Setter Property="TextColor" Value="#B7B7BA" />
+            </Style>
+            <Style x:Key="DefaultDateTimePickerStyle"
+                   TargetType="telerikInput:RadDateTimePicker">
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="BorderColor" Value="#B7B7BA" />
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+            </Style>
+            <Style x:Key="PickerPopupFooterButtons_BaseStyle"
+                   TargetType="Button">
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0, 0, 20, 0</On>
+                        <On Platform="Android">0, 0, 5, 0</On>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="PickerPopupFooterAcceptButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{Binding BindingContext.ConfirmationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+            </Style>
+            <Style x:Key="PickerPopupFooterCancelButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{Binding BindingContext.CancellationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+            </Style>
+            <Style x:Key="DefaultTabStripItemStyle" 
+                   TargetType="telerikInput:DateTimeSelectorTabStripItem">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="{Binding BindingContext.PopupHeaderFontColor, Source={x:Reference pageContent}}" />
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="SelectedColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <Style TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderColor" Value="#DCDCDC"/>
+                <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            </Style>
+            <Style x:Key="PickerPopupHeaderStyle" 
+                   TargetType="telerikInput:PickerPopupHeaderView">
+                <Setter Property="BackgroundColor" Value="{Binding BindingContext.PopupHeaderBackgroundColor, Source={x:Reference pageContent}}" />
+            </Style>
+            <Style x:Key="PickerPopupHeaderLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="{Binding BindingContext.PopupHeaderFontColor, Source={x:Reference pageContent}}" />
+            </Style>
+            <Style x:Key="DefaultSpinnerStyle" 
+                   TargetType="telerikDataControls:RadSpinner">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="ItemStyle">
+                    <Setter.Value>
+                        <Style TargetType="telerikDataControls:SpinnerItemView">
+                            <Setter Property="TextColor" Value="{Binding BindingContext.SpinnerItemFontColor, Source={x:Reference pageContent}}" />
+                            <Setter Property="FontSize" Value="{Binding BindingContext.SpinnerItemFontSize, Source={x:Reference pageContent}}" />
+                            <Setter Property="FontAttributes" Value="{Binding BindingContext.SpinnerItemFontAttribute, Source={x:Reference pageContent}}" />
+                            <Setter Property="BackgroundColor" Value="{Binding BindingContext.SpinnerItemBackgroundColor, Source={x:Reference pageContent}}" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="SelectedItemStyle">
+                    <Setter.Value>
+                        <Style TargetType="telerikDataControls:SpinnerItemView">
+                            <Setter Property="TextColor" Value="{Binding BindingContext.SelectedItemFontColor, Source={x:Reference pageContent}}" />
+                            <Setter Property="FontSize" Value="{Binding BindingContext.SelectedItemFontSize, Source={x:Reference pageContent}}" />
+                            <Setter Property="FontAttributes" Value="{Binding BindingContext.SelectedItemFontAttribute, Source={x:Reference pageContent}}" />
+                            <Setter Property="BackgroundColor" Value="{Binding BindingContext.SelectedItemBackgroundColor, Source={x:Reference pageContent}}" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="TabViewHeaderStyle" 
+                   TargetType="telerikPrimitives:TabViewHeader">
+                <Setter Property="ItemSpacing" Value="0"/>
+                <Setter Property="BackgroundColor" Value="{Binding BindingContext.PopupHeaderBackgroundColor, Source={x:Reference pageContent}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Image Aspect="Fill"
+                       HeightRequest="200">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS, Android">Picker_Demo3_Header.png</On>
+                            <On Platform="UWP">Assets/Picker_Demo3_Header.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+                <StackLayout Margin="16, 23, 16, 0">
+                    <Label Text="Search Rental Car Deals" FontSize="Large" TextColor="{StaticResource AccentColor}" />
+                    <Label Text="Pick-up date &amp; time" Style="{StaticResource DefaultLabelStyle}" />
+                    <telerikInput:RadDateTimePicker MinimumDate="{Binding StartDate}"
+                                                    MaximumDate="{Binding EndDate}"
+                                                    Date="{Binding PickUpDate, Mode=TwoWay}"
+                                                    Style="{StaticResource DefaultDateTimePickerStyle}"
+                                                    TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}"
+                                                    TabStripStyle="{StaticResource TabViewHeaderStyle}"
+                                                    SpinnerStyle="{StaticResource DefaultSpinnerStyle}">
+                        <telerikInput:RadDateTimePicker.SelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings AcceptButtonStyle="{StaticResource PickerPopupFooterAcceptButton_Style}"
+                                                                      CancelButtonStyle="{StaticResource PickerPopupFooterCancelButton_Style}"
+                                                                      IsHeaderVisible="{Binding BindingContext.IsHeaderVisible, Source={x:Reference pageContent}}"
+                                                                      AcceptButtonText="{Binding BindingContext.ConfirmationButtonText, Source={x:Reference pageContent}}"
+                                                                      CancelButtonText="{Binding BindingContext.CancellationButtonText, Source={x:Reference pageContent}}" 
+                                                                      HeaderStyle="{StaticResource PickerPopupHeaderStyle}"
+                                                                      HeaderLabelStyle="{StaticResource PickerPopupHeaderLabelStyle}" />
+                        </telerikInput:RadDateTimePicker.SelectorSettings>
+                    </telerikInput:RadDateTimePicker>
+                    <Label Text="Drop-off date &amp; time"
+                           Style="{StaticResource DefaultLabelStyle}" />
+                    <telerikInput:RadDateTimePicker MinimumDate="{Binding StartDate}"
+                                                    MaximumDate="{Binding EndDate}"
+                                                    Date="{Binding DropOffDate, Mode=TwoWay}"
+                                                    Style="{StaticResource DefaultDateTimePickerStyle}"
+                                                    TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}"
+                                                    TabStripStyle="{StaticResource TabViewHeaderStyle}"
+                                                    SpinnerStyle="{StaticResource DefaultSpinnerStyle}">
+                        <telerikInput:RadDateTimePicker.SelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings AcceptButtonStyle="{StaticResource PickerPopupFooterAcceptButton_Style}"
+                                                                      CancelButtonStyle="{StaticResource PickerPopupFooterCancelButton_Style}"
+                                                                      IsHeaderVisible="{Binding BindingContext.IsHeaderVisible, Source={x:Reference pageContent}}"
+                                                                      AcceptButtonText="{Binding BindingContext.ConfirmationButtonText, Source={x:Reference pageContent}}"
+                                                                      CancelButtonText="{Binding BindingContext.CancellationButtonText, Source={x:Reference pageContent}}" 
+                                                                      HeaderStyle="{StaticResource PickerPopupHeaderStyle}"
+                                                                      HeaderLabelStyle="{StaticResource PickerPopupHeaderLabelStyle}" />
+                        </telerikInput:RadDateTimePicker.SelectorSettings>
+                    </telerikInput:RadDateTimePicker>
+                    <Label Text="Picking up" Style="{StaticResource DefaultDisabledLabelStyle}" />
+                    <telerikPrimitives:RadBorder HeightRequest="40">
+                        <Label Text="London, (LHR-Heatrow)" VerticalOptions="Center"  IsEnabled="False" TextColor="#DCDCDC"/>
+                    </telerikPrimitives:RadBorder>
+                    <Label Text="Dropping off" Style="{StaticResource DefaultDisabledLabelStyle}" />
+                    <telerikPrimitives:RadBorder HeightRequest="40">
+                        <Label Text="London, (LHR-Heatrow)" VerticalOptions="Center" IsEnabled="False" TextColor="#DCDCDC"/>
+                    </telerikPrimitives:RadBorder>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout BackgroundColor="#F6FAFB" Margin="0, 20, 0, 0" VerticalOptions="EndAndExpand">
+            <telerikInput:RadButton Text="Find Car"
+                                    BackgroundColor="Transparent"
+                                    Margin="28, 13, 28, 13"
+                                    TextColor="{StaticResource AccentColor}"
+                                    BorderColor="{StaticResource AccentColor}"
+                                    BorderWidth="2"
+                                    CornerRadius="20"
+                                    HeightRequest="40"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="FillAndExpand"
+                                    Command="{Binding SelectDateCommand}">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonGroups">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Focused" />
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#D892AA" />
+                                <Setter Property="BorderColor" Value="#D892AA" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+        </StackLayout>
+    </StackLayout>
+</ContentView>

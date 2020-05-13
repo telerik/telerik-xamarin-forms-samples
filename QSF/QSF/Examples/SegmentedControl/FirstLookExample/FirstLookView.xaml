@@ -51,6 +51,9 @@
                         <telerikDataControls:RadListView.LayoutDefinition>
                             <telerikListView:ListViewLinearLayout ItemLength="32" />
                         </telerikDataControls:RadListView.LayoutDefinition>
+                        <telerikDataControls:RadListView.FilterDescriptors>
+                            <telerikListView:DelegateFilterDescriptor Filter="{Binding FilterCondition}" />
+                        </telerikDataControls:RadListView.FilterDescriptors>
                     </telerikDataControls:RadListView>
                 </StackLayout>
                 <Label Grid.Row="1"

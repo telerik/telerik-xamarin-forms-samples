@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.TimeSpanPickerControl.CustomizationExample.CustomizationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DefaultBackgroundColor">#F7F7F7</Color>
+            <Style x:Key="DisplayLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="#C72262" />
+                <Setter Property="Margin" Value="4, 0, 0, 0" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontAttributes" Value="Bold, Italic" />
+            </Style>
+            <Style x:Key="IconLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="Margin" Value="0, 0, 12, 0" />
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="DefaultPopupButtonsStyle"
+                   TargetType="telerikInput:RadButton">
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="90" />
+                <Setter Property="Margin" Value="0, 0, 5, 0" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+            </Style>
+            <Style x:Key="DefaultMovieSeparatorStyle"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderColor" Value="#DBDBDB" />
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+                <Setter Property="Margin" Value="0, 2, 31, 0" />
+            </Style>
+            <Style x:Key="DefaultMovieBorder"
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderThickness" Value="2, 0, 0, 0" />
+                <Setter Property="Margin" Value="0, 0, 0, 10" />
+                <Setter Property="Padding" Value="9, 0, 0, 0" />
+            </Style>
+            <Style x:Key="DefaultMovieTitleStyle"
+                   TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="DefaultMovieDescriptionStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize" Value="Caption" />
+                <Setter Property="TextColor" Value="#919191" />
+            </Style>
+            <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
+                <On Platform="iOS">telerikfontexamples</On>
+                <On Platform="Android">Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+                <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="#EFEFF4">
+            <Image VerticalOptions="End"
+                   HorizontalOptions="End">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS,Android">TimeSpan_HeaderImage_Customization.png</On>
+                        <On Platform="UWP">Assets/TimeSpan_HeaderImage_Customization.png</On>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+        </StackLayout>
+        <StackLayout Grid.Row="1"
+                     Margin="17, 40, 15, 19">
+            <Label TextColor="#B73562"
+                   FontSize="Title"
+                   Margin="0, 0, 0, 24" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Cinema Program for " />
+                        <Span Text="{Binding TodayCinemaProgram}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="Find Movies Playing After:"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="Medium" />
+            <telerikInput:RadTimeSpanPicker BorderThickness="0, 0, 0, 1"
+                                            BorderColor="#B73562"
+                                            BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                                            HeightRequest="44"
+                                            MaximumTime="{Binding MaximumTime}"
+                                            Time="{Binding SelectedTime}"
+                                            SpinnerFormat="h\:mm"
+                                            DisplayStringFormat="h\h\ mm\ \m\i\n"
+                                            MinuteStep="15">
+                <telerikInput:RadTimeSpanPicker.SpinnerStyle>
+                    <Style TargetType="telerikDataControls:RadSpinner">
+                        <Setter Property="SelectedItemStyle">
+                            <Setter.Value>
+                                <Style TargetType="telerikDataControls:SpinnerItemView">
+                                    <Setter Property="TextColor" Value="#B73562" />
+                                </Style>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </telerikInput:RadTimeSpanPicker.SpinnerStyle>
+                <telerikInput:RadTimeSpanPicker.DisplayTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Label InputTransparent="True"
+                                   Text="{TemplateBinding DisplayString}"
+                                   Style="{StaticResource DisplayLabelStyle}" />
+                            <Label Text="&#xE874;"
+                                   InputTransparent="True"
+                                   Style="{StaticResource IconLabelStyle}" />
+                            <BoxView>
+                                <BoxView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                                </BoxView.GestureRecognizers>
+                            </BoxView>
+                        </Grid>
+                    </ControlTemplate>
+                </telerikInput:RadTimeSpanPicker.DisplayTemplate>
+                <telerikInput:RadTimeSpanPicker.PlaceholderTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Label Text="ex. 1 hour" 
+                                   InputTransparent="True"
+                                   VerticalOptions="Center"
+                                   Margin="4, 0, 0, 0" />
+                            <Label Text="&#xE874;"
+                                   InputTransparent="True"
+                                   Style="{StaticResource IconLabelStyle}" />
+                            <BoxView>
+                                <BoxView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                                </BoxView.GestureRecognizers>
+                            </BoxView>
+                        </Grid>
+                    </ControlTemplate>
+                </telerikInput:RadTimeSpanPicker.PlaceholderTemplate>
+                <telerikInput:RadTimeSpanPicker.SpinnerHeaderStyle>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="Medium" />
+                    </Style>
+                </telerikInput:RadTimeSpanPicker.SpinnerHeaderStyle>
+                <telerikInput:RadTimeSpanPicker.SelectorSettings>
+                    <telerikInput:PickerPopupSelectorSettings HeaderLabelText="&#xE878; Playing After:"
+                                                              AcceptButtonText="&#xE876;"
+                                                              CancelButtonText="&#xE877;">
+                        <telerikInput:PickerPopupSelectorSettings.HeaderLabelStyle>
+                            <Style TargetType="Label">
+                                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                                <Setter Property="TextColor" Value="White" />
+                            </Style>
+                        </telerikInput:PickerPopupSelectorSettings.HeaderLabelStyle>
+                        <telerikInput:PickerPopupSelectorSettings.HeaderStyle>
+                            <Style TargetType="telerikInput:PickerPopupHeaderView">
+                                <Setter Property="BackgroundColor" Value="#C72262" />
+                            </Style>
+                        </telerikInput:PickerPopupSelectorSettings.HeaderStyle>
+                        <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                            <Style TargetType="telerikInput:RadButton"
+                                   BasedOn="{StaticResource DefaultPopupButtonsStyle}">
+                                <Setter Property="BackgroundColor" Value="#0F3CB735" />
+                                <Setter Property="TextColor" Value="#3CB735" />
+                            </Style>
+                        </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
+                        <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                            <Style TargetType="telerikInput:RadButton"
+                                   BasedOn="{StaticResource DefaultPopupButtonsStyle}">
+                                <Setter Property="BackgroundColor" Value="#1FB73562" />
+                                <Setter Property="TextColor" Value="#CCB73562" />
+                            </Style>
+                        </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                    </telerikInput:PickerPopupSelectorSettings>
+                </telerikInput:RadTimeSpanPicker.SelectorSettings>
+            </telerikInput:RadTimeSpanPicker>
+        </StackLayout>
+        <StackLayout Grid.Row="2"
+                     BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                     Padding="16, 0, 0, 0">
+            <Label Text="{Binding SearchLabelText}"
+                   TextColor="Black"
+                   FontAttributes="Bold" 
+                   FontSize="Medium"
+                   Margin="0, 22, 0, 24" />
+        </StackLayout>
+        <telerikDataControls:RadListView Grid.Row="3"
+                                         ItemsSource="{Binding Movies}"
+                                         BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                                         SelectionMode="None">
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <telerikPrimitives:RadBorder IsVisible="{Binding IsVisible}" 
+                                                         Style="{StaticResource DefaultMovieSeparatorStyle}"
+                                                         Margin="16, 10, 40, 0">
+                                <telerikPrimitives:RadBorder Style="{StaticResource DefaultMovieBorder}"
+                                                             BorderColor="{Binding Genre.Color}">
+                                    <StackLayout>
+                                        <Label Text="{Binding Title}" 
+                                               Style="{StaticResource DefaultMovieTitleStyle}" />
+                                        <Label Text="{Binding Actors}" />
+                                        <Label Text="{Binding Description}" 
+                                                Style="{StaticResource DefaultMovieDescriptionStyle}" />
+                                    </StackLayout>
+                                </telerikPrimitives:RadBorder>
+                            </telerikPrimitives:RadBorder>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+        </telerikDataControls:RadListView>
+        <StackLayout Grid.Row="4" 
+                     BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                     Orientation="Horizontal">
+            <telerikInput:RadButton Text="Find Movies" 
+                                    CornerRadius="20" 
+                                    Padding="10,5,10,5"
+                                    BorderWidth="2"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    TextColor="#B73562"
+                                    BorderColor="#B73562"
+                                    WidthRequest="240"
+                                    HeightRequest="40"
+                                    FontSize="15"
+                                    Command="{Binding FindMoviesCommand}"
+                                    BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonGroups">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Focused" />
+                        <VisualState x:Name="Pressed" />
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#66B73562" />
+                                <Setter Property="BorderColor" Value="#66B73562" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+        </StackLayout>
+    </Grid>
+</ContentView>

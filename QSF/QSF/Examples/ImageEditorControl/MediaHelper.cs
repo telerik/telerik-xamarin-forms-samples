@@ -2,6 +2,7 @@
 using Plugin.Media.Abstractions;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
+using QSF.Helpers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -44,7 +45,7 @@ namespace QSF.Examples.ImageEditorControl
                 return null;
             }
 
-            if (!await RequestPermissionsAsync(Permission.Camera, Permission.Storage))
+            if (!await PermissionsHelper.RequestPermissionsAsync(Permission.Camera, Permission.Storage))
             {
                 return null;
             }
@@ -63,7 +64,7 @@ namespace QSF.Examples.ImageEditorControl
                 return null;
             }
 
-            if (!await RequestPermissionsAsync(Permission.Photos, Permission.Storage))
+            if (!await PermissionsHelper.RequestPermissionsAsync(Permission.Photos, Permission.Storage))
             {
                 return null;
             }
@@ -73,43 +74,6 @@ namespace QSF.Examples.ImageEditorControl
             var mediaFile = await mediaPlugin.PickPhotoAsync(mediaOptions);
 
             return mediaFile?.Path;
-        }
-
-        private static async Task<bool> RequestPermissionsAsync(params Permission[] permissions)
-        {
-            var permissionsPlugin = CrossPermissions.Current;
-            var missingPermissions = new List<Permission>();
-
-            foreach (var permission in permissions)
-            {
-                var permissionStatus = await permissionsPlugin.CheckPermissionStatusAsync(permission);
-
-                if (permissionStatus != PermissionStatus.Granted)
-                {
-                    if (await permissionsPlugin.ShouldShowRequestPermissionRationaleAsync(permission))
-                    {
-                        return false;
-                    }
-
-                    missingPermissions.Add(permission);
-                }
-            }
-
-            if (missingPermissions.Count > 0)
-            {
-                var requestedPermissions = missingPermissions.ToArray();
-                var permissionStatuses = await permissionsPlugin.RequestPermissionsAsync(requestedPermissions);
-
-                foreach (var permissionStatus in permissionStatuses.Values)
-                {
-                    if (permissionStatus != PermissionStatus.Granted)
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
         }
     }
 }

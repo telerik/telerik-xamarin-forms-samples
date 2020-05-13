@@ -41,6 +41,9 @@
             <Color x:Key="CTPTextColor">#979797</Color>
             <Color x:Key="LightTextColor">White</Color>
             <Color x:Key="GalleryHeaderUnderlineColor">#E0E9FC</Color>
+            <Color x:Key="SampleAppTitleColor">#202223</Color>
+            <Color x:Key="ExternalLinkIconColor">#B4B4B5</Color>
+            <Color x:Key="HyperlinkTextColor">#2296F3</Color>
 
             <x:String x:Key="BackButtonIcon">&#xE80E;</x:String>
             <x:String x:Key="InfoButtonIcon">&#xE815;</x:String>
@@ -105,6 +108,7 @@
             <x:String x:Key="CropOriginalIcon">&#xE86C;</x:String>
             <x:String x:Key="CropSquareIcon">&#xE86D;</x:String>
             <x:String x:Key="CropCircleIcon">&#xE86E;</x:String>
+            <x:String x:Key="ExternalLinkIcon">&#xF08E;</x:String>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">telerikfontexamples</On>
@@ -170,6 +174,12 @@
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
                 <Setter Property="TextColor" Value="{StaticResource TextColor}" />
                 <Setter Property="Margin" Value="0, 10" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="SampleAppTitleStyle">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+                <Setter Property="TextColor" Value="{StaticResource SampleAppTitleColor}" />
             </Style>
 
             <Style TargetType="Label" x:Key="TagLabelStyle">

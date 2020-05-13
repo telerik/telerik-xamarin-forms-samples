@@ -22,7 +22,7 @@ namespace QSF.Droid.Effects
         {
             try
             {
-                if (Control != null)
+                if (this.Control != null)
                 {
                     (this.Control as EditText).Gravity = GravityFlags.CenterHorizontal;
                 }

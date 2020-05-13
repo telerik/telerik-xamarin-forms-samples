@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using QSF.ViewModels;
@@ -8,9 +8,9 @@ namespace QSF.Examples.SegmentedControl.FirstLookExample
 {
     public class FirstLookViewModel : ExampleViewModel
     {
-        private readonly IList<MenuItem> menuItems;
         private int selectedIndex;
         private string selectedCategory;
+        private Func<object, bool> filterCondition;
 
         public int SelectedIndex
         {
@@ -46,6 +46,22 @@ namespace QSF.Examples.SegmentedControl.FirstLookExample
             }
         }
 
+        public Func<object, bool> FilterCondition
+        {
+            get
+            {
+                return this.filterCondition;
+            }
+            private set
+            {
+                if (this.filterCondition != value)
+                {
+                    this.filterCondition = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         public ObservableCollection<string> Categories { get; private set; }
         public ObservableCollection<MenuItem> MenuItems { get; private set; }
         public ObservableCollection<ImageSource> LargeImages { get; private set; }
@@ -53,7 +69,7 @@ namespace QSF.Examples.SegmentedControl.FirstLookExample
 
         public FirstLookViewModel()
         {
-            this.menuItems = new[]
+            this.MenuItems = new ObservableCollection<MenuItem>
             {
                 new MenuItem("Dinner", "Filet Mignon", 26),
                 new MenuItem("Dinner", "Sirloin Steak", 28),
@@ -65,7 +81,6 @@ namespace QSF.Examples.SegmentedControl.FirstLookExample
                 new MenuItem("Snacks", "Cheese Burger", 12),
                 new MenuItem("Snacks", "Energy Bar", 5)
             };
-            this.MenuItems = new ObservableCollection<MenuItem>();
             this.Categories = new ObservableCollection<string>
             {
                 "Dinner",
@@ -94,15 +109,14 @@ namespace QSF.Examples.SegmentedControl.FirstLookExample
 
         private void OnCategoryChanged()
         {
-            var selectedItems = this.menuItems.Where(menuItem =>
-                menuItem.Category == this.SelectedCategory);
+            var filterCategory = this.selectedCategory;
 
-            this.MenuItems.Clear();
-
-            foreach (var menuItem in selectedItems)
+            this.FilterCondition = value =>
             {
-                this.MenuItems.Add(menuItem);
-            }
+                var menuItem = (MenuItem)value;
+
+                return menuItem.Category == filterCategory;
+            };
         }
 
         private static ImageSource CreateImage(string name)

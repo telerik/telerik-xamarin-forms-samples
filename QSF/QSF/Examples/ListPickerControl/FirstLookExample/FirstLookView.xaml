@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.ListPickerControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="placeholderLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="#919191" />
+            </Style>
+            <Style x:Key="displayLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="HeaderLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="21" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="HeaderStyle"
+                   TargetType="telerikInput:PickerPopupHeaderView">
+                <Setter Property="BackgroundColor" Value="#F8F8F8" />
+                <Setter Property="HeightRequest" Value="64" />
+            </Style>
+            <Style x:Key="SelectionHighlightStyle" 
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderColor" Value="LightGray" />
+                <Setter Property="CornerRadius" Value="2" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout BackgroundColor="#EAEAEA">
+                    <Image VerticalOptions="End" 
+                           HorizontalOptions="End">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS, Android">music.png</On>
+                                <On Platform="UWP">Assets/music.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+                <StackLayout Grid.Row="1"
+                             Margin="16, 40, 16, 0">
+                    <Label Text="Listen to Top Music Genres" 
+                           TextColor="#007AFF"
+                           FontSize="22" 
+                           Margin="0,0,0,24" />
+                    <Label Text="Music Genre:" 
+                           TextColor="Black" 
+                           FontSize="15" 
+                           FontAttributes="Bold" 
+                           Margin="0, 0, 0, 21" />
+                    <telerikInput:RadListPicker x:Name="genrePicker" 
+                                                views:ThemesBehavior.StyleClass="TelerikTheme"
+                                                Placeholder="Select Music Genre to listen" 
+                                                ItemsSource="{Binding Genres}" 
+                                                SelectedItem="{Binding GenreKind, Mode=TwoWay}"
+                                                IsLooping="True"
+                                                SelectionHighlightStyle="{StaticResource SelectionHighlightStyle}"
+                                                DisplayStringFormat="Your choice is: {0}"
+                                                DisplayLabelStyle="{StaticResource displayLabelStyle}"
+                                                PlaceholderLabelStyle="{StaticResource placeholderLabelStyle}">
+                        <telerikInput:RadListPicker.SelectorSettings>
+                            <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Genre"
+                                                                      HeaderStyle="{StaticResource HeaderStyle}"
+                                                                      HeaderLabelStyle="{StaticResource HeaderLabelStyle}"/>
+                        </telerikInput:RadListPicker.SelectorSettings>
+                    </telerikInput:RadListPicker>
+
+                    <Label Text="Recently Played:"
+                           TextColor="#919191" 
+                           FontAttributes="Bold" 
+                           FontSize="15" 
+                           Margin="0, 25, 0, 0" />
+                </StackLayout>
+
+                <telerikDataControls:RadListView Grid.Row="2" 
+                                                 SelectionMode="None"
+                                                 ItemsSource="{Binding RecentlyPlayed}">
+                    <telerikDataControls:RadListView.ItemTemplate>
+                        <DataTemplate>
+                            <listView:ListViewTemplateCell>
+                                <listView:ListViewTemplateCell.View>
+                                    <StackLayout Orientation="Horizontal"
+                                                 Margin="10, 15, 10, 15" 
+                                                 VerticalOptions="Center"
+                                                 HorizontalOptions="Start">
+                                            <telerikPrimitives:RadBorder BorderColor="{Binding IconColor}" 
+                                                                         BorderThickness="3"
+                                                                         BackgroundColor="{Binding IconColor}" 
+                                                                         WidthRequest="5" 
+                                                                         HeightRequest="5" />
+                                            <Label Text="{Binding Artist}" 
+                                                   FontSize="12"
+                                                   FontAttributes="Bold" 
+                                                   VerticalTextAlignment="Center"
+                                                   TextColor="Black" />
+                                            <Label Text=" - " 
+                                                   VerticalTextAlignment="Center" />
+                                            <Label Text="{Binding Song}" 
+                                                   FontSize="12" 
+                                                   VerticalTextAlignment="Center"
+                                                   TextColor="#919191" />
+                                        </StackLayout>
+                                </listView:ListViewTemplateCell.View>
+                            </listView:ListViewTemplateCell>
+                        </DataTemplate>
+                    </telerikDataControls:RadListView.ItemTemplate>
+                </telerikDataControls:RadListView>
+            </Grid>
+       
+        </ScrollView>
+        <StackLayout Grid.Row="1" 
+                     BackgroundColor="#EAEAEA"
+                     HeightRequest="65">
+            <Button Text="Play Music" 
+                    CornerRadius="20" 
+                    WidthRequest="200"
+                    HeightRequest="40"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Padding="10,5,10,5"
+                    BorderColor="#007AFF" 
+                    BorderWidth="1"
+                    TextColor="#007AFF" 
+                    FontSize="15"
+                    Command="{Binding PlayGenreCommand}"
+                    BackgroundColor="Transparent" />
+        </StackLayout>
+    </Grid>
+</ContentView>

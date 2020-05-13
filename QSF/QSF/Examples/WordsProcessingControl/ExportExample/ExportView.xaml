@@ -9,114 +9,117 @@
              mc:Ignorable="d"
              x:Class="QSF.Examples.WordsProcessingControl.ExportExample.ExportView">
     <ContentView.Content>
-        <StackLayout Margin="0, 0, 0, 16">
-            <primitives:RadBorder Margin="0, 43, 0, 36" 
-                                  BorderColor="#CCCCCC" 
-                                  BorderThickness="1"
-                                  HorizontalOptions="Center"
-                                  >
-                <Image VerticalOptions="FillAndExpand">
-                    <Image.Source>
-                        <OnPlatform x:TypeArguments="ImageSource">
-                            <On Platform="iOS,Android">WordsProcessing_Export_Example</On>
-                            <On Platform="UWP">Assets\WordsProcessing_Export_Example.png</On>
-                        </OnPlatform>
-                    </Image.Source>
-                </Image>
-            </primitives:RadBorder>
+        <ScrollView>
+            <StackLayout Margin="0, 0, 0, 16">
+                <primitives:RadBorder Margin="0, 43, 0, 36" 
+                                      BorderColor="#CCCCCC" 
+                                      BorderThickness="1"
+                                      HorizontalOptions="Center"
+                                      >
+                    <Image VerticalOptions="FillAndExpand">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS,Android">WordsProcessing_Export_Example</On>
+                                <On Platform="UWP">Assets\WordsProcessing_Export_Example.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </primitives:RadBorder>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="File:" 
-                       TextColor="Black"
-                       FontSize="Small"
-                       FontAttributes="Bold" 
-                       />
-                
-                <Label Text="JohnGrisham.docx"
-                       TextColor="Black"
-                       FontSize="Small"
-                       />
-            </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="File:" 
+                           TextColor="Black"
+                           FontSize="Small"
+                           FontAttributes="Bold" 
+                           />
+                    
+                    <Label Text="JohnGrisham.docx"
+                           TextColor="Black"
+                           FontSize="Small"
+                           />
+                </StackLayout>
 
-            <Label Text="32.52 KB" 
-                   TextColor="#919191"
-                   FontSize="Micro"
-                   HorizontalOptions="Center"
-                   Margin="0, 0, 0, 26"
-                   />
-
-            <Label Text="Export to:"
-                   TextColor="Black"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   Margin="0, 0, 0, 20"
-                   />
-
-            <Grid HeightRequest="44" 
-                  Margin="37, 0, 37, 50"
-                  WidthRequest="300"
-                  >
-
-                <Label Text="&#xE80D;" 
-                       FontFamily="{StaticResource IconsFont}" 
+                <Label Text="32.52 KB" 
                        TextColor="#919191"
-                       HorizontalOptions="End"
-                       VerticalOptions="Center"
-                       Margin="0, 0, 30, 0"
-                       >
-                    <Label.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean">
-                            <On Platform="Android, iOS">true</On>
-                            <On Platform="UWP">false</On>
-                        </OnPlatform>
-                    </Label.IsVisible>
-                </Label>
-                
-                <BoxView Color="#CCCCCC" 
-                         WidthRequest="300"
-                         HeightRequest="1"
-                         VerticalOptions="End" 
-                         HorizontalOptions="CenterAndExpand"
-                         >
-                    <BoxView.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean">
-                            <On Platform="Android, UWP">false</On>
-                            <On Platform="iOS">true</On>
-                        </OnPlatform>
-                    </BoxView.IsVisible>
-                </BoxView>
-                
-                <Picker HorizontalOptions="CenterAndExpand"
-                        WidthRequest="300"
-                        TextColor="#919191"
-                        FontSize="Small"
-                        ItemsSource="{Binding ExportFormats}"
-                        SelectedItem="{Binding SelectedExportFormat, Mode=TwoWay}"
-                        >
-                    <Picker.Effects>
-                        <local:PickerEffect/>
-                    </Picker.Effects>
-                </Picker>
-            </Grid>
-            
-            <input:RadButton BackgroundColor="#A1BF3D" 
-                             Text="Export" 
-                             TextColor="White"
-                             FontSize="Medium"
-                             FontAttributes="Bold"
-                             Command="{Binding ExportCommand}" 
-                             HeightRequest="44"
-                             WidthRequest="160"
-                             VerticalOptions="EndAndExpand"
-                             HorizontalOptions="Center"
+                       FontSize="Micro"
+                       HorizontalOptions="Center"
+                       Margin="0, 0, 0, 26"
+                       />
+
+                <Label Text="Export to:"
+                       TextColor="Black"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Margin="0, 0, 0, 20"
+                       />
+
+                <Grid HeightRequest="44" 
+                      Margin="37, 0, 37, 50"
+                      WidthRequest="300"
+                      >
+
+                    <Label Text="&#xE80D;" 
+                           FontFamily="{StaticResource IconsFont}" 
+                           TextColor="#919191"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           Margin="0, 0, 30, 0"
+                           >
+                        <Label.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="Android, iOS">true</On>
+                                <On Platform="UWP">false</On>
+                            </OnPlatform>
+                        </Label.IsVisible>
+                    </Label>
+                    
+                    <BoxView Color="#CCCCCC" 
+                             WidthRequest="300"
+                             HeightRequest="1"
+                             VerticalOptions="End" 
+                             HorizontalOptions="CenterAndExpand"
                              >
-                <input:RadButton.CornerRadius>
-                    <OnPlatform x:TypeArguments="x:Int32">
-                        <On Platform="Android, iOS">22</On>
-                    </OnPlatform>
-                </input:RadButton.CornerRadius> 
-            </input:RadButton>
-        </StackLayout>
+                        <BoxView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="Android, UWP">false</On>
+                                <On Platform="iOS">true</On>
+                            </OnPlatform>
+                        </BoxView.IsVisible>
+                    </BoxView>
+                    
+                    <Picker HorizontalOptions="CenterAndExpand"
+                            WidthRequest="300"
+                            TextColor="#919191"
+                            FontSize="Small"
+                            ItemsSource="{Binding ExportFormats}"
+                            SelectedItem="{Binding SelectedExportFormat, Mode=TwoWay}"
+                            >
+                        <Picker.Effects>
+                            <local:PickerEffect/>
+                        </Picker.Effects>
+                    </Picker>
+                </Grid>
+                
+                <input:RadButton BackgroundColor="#A1BF3D" 
+                                 Text="Export" 
+                                 TextColor="White"
+                                 FontSize="Medium"
+                                 FontAttributes="Bold"
+                                 Command="{Binding ExportCommand}" 
+                                 HeightRequest="44"
+                                 WidthRequest="160"
+                                 VerticalOptions="EndAndExpand"
+                                 HorizontalOptions="Center"
+                                 Margin="0, 0, 0, 10"
+                                 >
+                    <input:RadButton.CornerRadius>
+                        <OnPlatform x:TypeArguments="x:Int32">
+                            <On Platform="Android, iOS">22</On>
+                        </OnPlatform>
+                    </input:RadButton.CornerRadius> 
+                </input:RadButton>
+            </StackLayout>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>

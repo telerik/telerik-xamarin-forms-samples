@@ -170,7 +170,8 @@
                                                     ConverterParameter={StaticResource ButtonIconColorConverterParameter}}"
                                 VerticalOptions="Center"
                                 Grid.Column="3"
-                                WidthRequest="46">
+                                WidthRequest="46"
+                                AutomationId="HorizontalDotsBtn">
                             <telerikPrimitives:RadPopup.Popup>
                                 <telerikPrimitives:RadPopup IsOpen="{Binding Item.IsPopupOpen}" HorizontalOffset="-14" ContentTemplate="{StaticResource popupContent}" />
                             </telerikPrimitives:RadPopup.Popup>

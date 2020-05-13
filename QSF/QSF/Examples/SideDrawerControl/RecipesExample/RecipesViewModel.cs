@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using QSF.ViewModels;
+using Telerik.XamarinForms.DataControls.ListView;
 
 namespace QSF.Examples.SideDrawerControl.RecipesExample
 {
     public class RecipesViewModel : ExampleViewModel
     {
-        private readonly IList<Recipe> recipes;
         private string selectedCategory;
+        private Func<object, bool> filterCondition;
 
         public string SelectedCategory
         {
@@ -27,12 +29,29 @@ namespace QSF.Examples.SideDrawerControl.RecipesExample
             }
         }
 
+        public Func<object, bool> FilterCondition
+        {
+            get
+            {
+                return this.filterCondition;
+            }
+            private set
+            {
+                if (this.filterCondition != value)
+                {
+                    this.filterCondition = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         public ObservableCollection<string> Categories { get; private set; }
+
         public ObservableCollection<Recipe> Recipes { get; private set; }
 
         public RecipesViewModel()
         {
-            this.recipes = new[]
+            this.Recipes = new ObservableCollection<Recipe>
             {
                 new Recipe("Breakfast0.png", "Breakfast", "kkendra", "Breakfast"),
                 new Recipe("Breakfast1.png", "Breakfast", "diddo", "Breakfast"),
@@ -54,8 +73,7 @@ namespace QSF.Examples.SideDrawerControl.RecipesExample
                 new Recipe("Cocktails3.png", "Cocktail", "by diddo", "Cocktails"),
                 new Recipe("Cocktails1.png", "Cocktail", "by diddo", "Cocktails")
             };
-            this.Recipes = new ObservableCollection<Recipe>();
-            this.Categories = new ObservableCollection<string>()
+            this.Categories = new ObservableCollection<string>
             {
                 "Breakfast",
                 "Sandwiches",
@@ -68,15 +86,14 @@ namespace QSF.Examples.SideDrawerControl.RecipesExample
 
         private void OnCategoryChanged()
         {
-            var selectedRecipes = this.recipes.Where(recipe =>
-                recipe.Category == this.SelectedCategory);
+            var filterCategory = this.selectedCategory;
 
-            this.Recipes.Clear();
-
-            foreach (var recipe in selectedRecipes)
+            this.FilterCondition = value =>
             {
-                this.Recipes.Add(recipe);
-            }
+                var recipe = (Recipe)value;
+
+                return recipe.Category == filterCategory;
+            };
         }
     }
 }

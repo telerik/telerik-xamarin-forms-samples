@@ -4,7 +4,6 @@ using Android.OS;
 using Java.Interop;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
-using QSF.Droid.Permissions;
 using QSF.Services.BackdoorService;
 using Xamarin.Forms;
 
@@ -38,15 +37,13 @@ namespace QSF.Droid
             base.OnCreate(bundle);
 
             CrossCurrentActivity.Current.Init(this, bundle);
-            PermissionsHelper.Activity = this;
 
             this.SetTheme(Resource.Style.Theme_Design_Light);
 
-            //CachedImageRenderer.Init(false);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            this.LoadApplication(new App());
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)

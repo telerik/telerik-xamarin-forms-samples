@@ -23,8 +23,6 @@ namespace QSF.Services.Configuration
 
         public string DocumentationURL { get; set; }
 
-        public int Latest { get; set; }
-
         public int Featured { get; set; }
 
         public bool IsNew { get; set; }

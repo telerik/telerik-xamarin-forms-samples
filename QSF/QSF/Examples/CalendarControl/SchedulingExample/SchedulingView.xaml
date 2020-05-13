@@ -6,6 +6,7 @@
              xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:views="clr-namespace:QSF.Views"
              xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="QSF.Examples.CalendarControl.SchedulingExample.SchedulingView">
     <ContentView.Resources>
@@ -27,12 +28,16 @@
         <primitives:RadSideDrawer.MainContent>
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="{Binding IsAgendaVisible, Converter={StaticResource VisibilityToGridLengthConverter}}"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <input:RadCalendar ViewMode="{Binding SelectedMode.CalendarMode}"
+                <input:RadCalendar Grid.Row="1"
+                                   views:ThemesBehavior.StyleClass="TelerikTheme"
+                                   ViewMode="{Binding SelectedMode.CalendarMode}"
                                    DisplayDate="{Binding DisplayDate, Mode=TwoWay}"
+                                   IsAddAppointmentButtonVisible="{Binding IsAddAppointmentButtonVisible}"
                                    AppointmentsSource="{Binding Appointments}"
                                    SchedulingUiEnabled="True">
                     <input:RadCalendar.BackgroundColor>
@@ -128,7 +133,9 @@
                         </input:CalendarCellStyle>
                     </input:RadCalendar.DayCellStyle>
                     <input:RadCalendar.MultiDayViewSettings>
-                        <input:MultiDayViewSettings IsCurrentTimeIndicatorVisible="True"/>
+                        <input:MultiDayViewSettings IsCurrentTimeIndicatorVisible="True"
+                                                    WorkStartTime="09:00"
+                                                    WorkEndTime="18:00"/>
                     </input:RadCalendar.MultiDayViewSettings>
                     <input:RadCalendar.MultiDayViewStyle>
                         <input:MultiDayViewStyle AppointmentTextColor="Black"
@@ -154,6 +161,10 @@
                             </input:MultiDayViewStyle.AllDayAreaBackgroundColor>
                         </input:MultiDayViewStyle>
                     </input:RadCalendar.MultiDayViewStyle>
+                    <input:RadCalendar.DayViewSettings>
+                        <input:DayViewSettings WorkStartTime="09:00"
+                                               WorkEndTime="18:00"/>
+                    </input:RadCalendar.DayViewSettings>
                     <input:RadCalendar.DayViewStyle>
                         <input:DayViewStyle AppointmentTextColor="Black"
                                             AppointmentFontSize="12"
@@ -176,7 +187,7 @@
                         </input:DayViewStyle>
                     </input:RadCalendar.DayViewStyle>
                 </input:RadCalendar>
-                <telerikDataControls:RadListView Grid.Row="1"
+                <telerikDataControls:RadListView Grid.Row="2"
                                                  ItemsSource="{Binding WeekEvents}"
                                                  IsVisible="{Binding IsAgendaVisible}"
                                                  BackgroundColor="White"
@@ -240,7 +251,7 @@
                         </DataTemplate>
                     </telerikDataControls:RadListView.ItemTemplate>
                 </telerikDataControls:RadListView>
-                <primitives:RadBorder Grid.Row="2"
+                <primitives:RadBorder Grid.Row="3"
                                       BorderThickness="0, 1, 0, 1"
                                       BorderColor="#B9C0C4"
                                       BackgroundColor="#F7F7F7">
@@ -295,8 +306,8 @@
                 <Label FontFamily="{StaticResource IconsFont}"
                        FontSize="26"
                        Text="&#xe808;"
-                       WidthRequest="50"
-                       HeightRequest="50"
+                       WidthRequest="44"
+                       HeightRequest="44"
                        HorizontalOptions="Start"
                        VerticalOptions="Start"
                        HorizontalTextAlignment="Center"

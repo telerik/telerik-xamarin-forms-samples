@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QSF.Examples.CalendarControl.AgendaViewConfigurationExample.ConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PropertyNameLabelStyle" TargetType="Label" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="Margin" Value="2, 20, 0, -5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <StackLayout Padding="16">
+            <Label Text="MonthItem Format" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Entry Text="{Binding MonthItemFormat}"/>
+            <Label Text="WeekItem StartDate Format" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Entry Text="{Binding WeekItemStartDateFormat}"/>
+            <Label Text="WeekItem EndDate Format" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Entry Text="{Binding WeekItemEndDateFormat}"/>
+            <Label Text="DayItem Format" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Entry Text="{Binding DayItemFormat}"/>
+            <Label Text="AppointmentItem Start Date Format" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Entry Text="{Binding AppointmentItemStartDateFormat}"/>
+            <Label Text="AppointmentItem End Date Format" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Entry Text="{Binding AppointmentItemEndDateFormat}"/>
+            <Label Text="AppointmentItem Time Format" Style="{StaticResource PropertyNameLabelStyle}" />
+            <Entry Text="{Binding AppointmentItemTimeFormat}"/>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

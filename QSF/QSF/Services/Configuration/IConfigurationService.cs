@@ -36,8 +36,12 @@ namespace QSF.Services
 
         string GetWhatsNewPageURL();
 
+        string GetPrivacyPolicyPageURL();
+
         IEnumerable<Control> GetControlsConfiguration();
 
         IEnumerable<Theme> GetThemes();
+
+        SampleApps GetSampleAppsConfiguration();
     }
 }
