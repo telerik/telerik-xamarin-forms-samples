@@ -66,7 +66,7 @@
           <Description>This example demonstrates basic setup of RadAccordion for presenting content in collapsible sections. The control is designed in such a way that opening one section automatically closes the previously displayed content.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AccordionControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/AccordionControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -75,7 +75,7 @@
           <Description>This example demonstrates how you could customize the visual appearance of RadAccordion by predefining the Accordion item header template.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AccordionControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/AccordionControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -84,7 +84,7 @@
           <Description>This example presents various configuration options you could use to make the Accordion control look and animate per your choice.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AccordionControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/AccordionControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -108,7 +108,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>An example demonstrating how the AutoCompleteView control works with Tokens.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AutoCompleteViewControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/AutoCompleteViewControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>RemoteSearch</Name>
@@ -116,7 +116,7 @@
           <DescriptionHeader>Remote Search</DescriptionHeader>
           <Description>Telerik UI for Xamarin RadAutoCompleteView can set its ItemsSourse at a later stage after the end user starts typing in the search field and text is changed.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AutoCompleteViewControl/RemoteSearchExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/AutoCompleteViewControl/RemoteSearchExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -124,7 +124,7 @@
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the AutoCompleteView control provides.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AutoCompleteViewControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/AutoCompleteViewControl/ConfigurationExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -132,7 +132,7 @@
           <DescriptionHeader>Customization</DescriptionHeader>
           <Description>This example presents how the AutoCompleteView control templates could be customized.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/AutoCompleteViewControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/AutoCompleteViewControl/CustomizationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -155,7 +155,7 @@
           <DescriptionHeader>Boarding Pass</DescriptionHeader>
           <Description>Telerik UI for Xamarin Barcode can generate a variety of 1D and 2D barcodes. This example demonstrates how RadBarcode can be used to display a 2D QR code inside a sample boarding pass page of an application.  The QR code system has become popular due to its fast readability and great storage capacity.  QR codes are often used in applications to encode links, map locations, contact cards and other data.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BarcodeControl/BoardingPassExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BarcodeControl/BoardingPassExample</CodeURL>
         </Example>
         <Example>
           <Name>SpecialOffer</Name>
@@ -163,7 +163,7 @@
           <DescriptionHeader>Special Offer</DescriptionHeader>
           <Description>In this example RadBarcode for Xamarin is used to generate a linear (1D) barcode in order to identify a discount coupon. With RadBarcode you can choose between several types of 1D and 2D barcode symbologies and have also control over the visual appearance and sizing of your barcodes. </Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BarcodeControl/SpecialOfferExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BarcodeControl/SpecialOfferExample</CodeURL>
         </Example>
         <Example>
           <Name>QRCode</Name>
@@ -172,7 +172,7 @@
           <DescriptionHeader>QR Code</DescriptionHeader>
           <Description>With RadBarcode you could generate the popular QRCode. This example demonstrates the available settings of the QRCode symbology.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BarcodeControl/QRCodeExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BarcodeControl/QRCodeExample</CodeURL>
         </Example>
         <Example>
           <Name>PDF417</Name>
@@ -181,7 +181,7 @@
           <DescriptionHeader>PDF417</DescriptionHeader>
           <Description>An example demonstrating the available settings of the PDF417 code symbology.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BarcodeControl/PDF417Example</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BarcodeControl/PDF417Example</CodeURL>
         </Example>
         <Example>
           <Name>Barcode1DGallery</Name>
@@ -190,7 +190,7 @@
           <DescriptionHeader>1D Barcode Gallery</DescriptionHeader>
           <Description>This example demonstrates all the linear (1D) barcodes the RadBarcode could generate including the most popular ones such as EAN13, EAN8, UPC-A, UPC-E and Code39.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BarcodeControl/Barcode1DGalleryExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BarcodeControl/Barcode1DGalleryExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -213,7 +213,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>This example shows how you could wrap RadBorder around different Views, such as Label and Image. In the case of the Image you could benefit from RadBorder's clipping functionality and have circular images and in the case of the Label you have different corner radius on the four angles.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BorderControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BorderControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -221,7 +221,7 @@
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>RadBorder provides a few useful properties for configuring its color, thickness and corner radius. This example lets you play with these properties and see the result right away.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BorderControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BorderControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -244,7 +244,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>An example demonstrating the Blue Theme of the BusyIndicator.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BusyIndicatorControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BusyIndicatorControl/ThemingExample</CodeURL>
         </Example>
         <Example>
           <Name>Gallery</Name>
@@ -252,7 +252,7 @@
           <DescriptionHeader>Gallery</DescriptionHeader>
           <Description>An example demonstrating the BusyIndicator.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BusyIndicatorControl/GalleryExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BusyIndicatorControl/GalleryExample</CodeURL>
         </Example>
         <Example>
           <Name>CustomIndicator</Name>
@@ -261,7 +261,7 @@
           <Description>An example demonstrating custom BusyIndicator.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BusyIndicatorControl/CustomIndicatorExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BusyIndicatorControl/CustomIndicatorExample</CodeURL>
         </Example>
         <Example>
           <Name>CustomBusyContent</Name>
@@ -270,7 +270,7 @@
           <Description>An example demonstrating a BusyIndicator with custom busy content and a custom busy content template.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/BusyIndicatorControl/CustomBusyContentExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BusyIndicatorControl/CustomBusyContentExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -293,7 +293,7 @@
           <DescriptionHeader>Recipes</DescriptionHeader>
           <Description>An example demonstrating the Button.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ButtonControl/RecipesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ButtonControl/RecipesExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -318,7 +318,7 @@
           <DescriptionHeader>Month View</DescriptionHeader>
           <Description>The example demonstrates how the Calendar control displays dates of a month, showing how events information can be integrated in the Calendar cell's content. You can control the selection mode from the SideDrawer to show different events in the Agenda View</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/MonthViewExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MonthViewExample</CodeURL>
           <IsThemable>false</IsThemable>
         </Example>
         <Example>
@@ -329,7 +329,7 @@
           <Description>This example demonstrates how to create fully customized appointments and display them in Day &amp; MultiDay views. </Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/AppointmentTemaplateExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AppointmentTemaplateExample</CodeURL>
         </Example>
         <Example>
           <Name>AgendaViewConfiguration</Name>
@@ -341,7 +341,7 @@
           <IsThemable>false</IsThemable>
           <ExcludeFrom>UWP</ExcludeFrom>
           <IsUpdated>true</IsUpdated>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/AgendaViewConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AgendaViewConfigurationExample</CodeURL>
         </Example>
         <Example>
           <Name>AgendaViewCustomization</Name>
@@ -353,7 +353,7 @@
           <IsThemable>false</IsThemable>
           <ExcludeFrom>UWP</ExcludeFrom>
           <IsUpdated>true</IsUpdated>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/AgendaViewCustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AgendaViewCustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>SpecialSlots</Name>
@@ -362,7 +362,7 @@
           <DescriptionHeader>Special Slots</DescriptionHeader>
           <Description>This example demonstrates how specific slots of the Calendar could be visualized as special using the SpecialSlotsSource functionality. The SpecialSlotStyleSelector allows you to apply different look for the slots.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/SpecialSlotsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/SpecialSlotsExample</CodeURL>
           <IsThemable>false</IsThemable>
         </Example>
         <Example>
@@ -372,7 +372,7 @@
           <DescriptionHeader>Day View</DescriptionHeader>
           <Description>Day view mode of RadCalendar with all day area, configurable time ruler and API allowing you to schedule appointments and achieve your scheduling functionality.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/DayViewExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/DayViewExample</CodeURL>
         </Example>
         <Example>
           <Name>Scheduling</Name>
@@ -381,7 +381,7 @@
           <DescriptionHeader>Scheduling</DescriptionHeader>
           <Description>This example demonstrates the scheduling capabilities and some of the built-in view modes of the control. The end-user could easily switch the modes using the toolbar or using the UI provided in the SideDrawer control.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/SchedulingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/SchedulingExample</CodeURL>
           <IsThemable>true</IsThemable>
           <IsUpdated>true</IsUpdated>
           <ExcludeFrom>UWP</ExcludeFrom>
@@ -392,7 +392,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>This example demonstrates the Blue theme, which is available for styling the control.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/ThemingExample</CodeURL>
         </Example>
         <Example>
           <Name>MultiDayViewPeople</Name>
@@ -401,7 +401,7 @@
           <DescriptionHeader>MultiDay View</DescriptionHeader>
           <Description>Demonstrates displaying the appointments of several people in multi-day view mode. The appointments are styled in such a way to help users quickly distinguish the person they refer to.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/MultiDayViewPeopleExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MultiDayViewPeopleExample</CodeURL>
         </Example>
         <Example>
           <Name>MultiDayViewConfiguration</Name>
@@ -410,7 +410,7 @@
           <DescriptionHeader>MultiDay View Configuration</DescriptionHeader>
           <Description>This example presents various configuration options such as day start and end times, timeline settings and weekend display, you could utilize to make the MultiDay view look the way you’d need.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/MultiDayViewConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MultiDayViewConfigurationExample</CodeURL>
         </Example>
         <Example>
           <Name>MultiDayViewAppointments</Name>
@@ -419,7 +419,7 @@
           <DescriptionHeader>Add/Edit Appointments</DescriptionHeader>
           <Description>This example demonstrates display and management of appointments in MultiDay view. The end-user could easily add and edit appointments by tapping on the timeslot/appointment respectively. Delete option is also available from the appointment edit page.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CalendarControl/MultiDayViewAppointmentsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MultiDayViewAppointmentsExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -442,7 +442,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates the theming capabilities of the chart.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/ThemingExample</CodeURL>
         </Example>
         <Example>
           <Name>BarSeries</Name>
@@ -450,7 +450,7 @@
           <DescriptionHeader>Bar Series</DescriptionHeader>
           <Description>Bar chart is one of the most common type of graphs used to display data. Sometimes known as 'column charts' depending on the orientation, bar charts are used to visualize data points as bar blocks where the width/height of each bar denotes the magnitude of its value.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/BarSeriesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/BarSeriesExample</CodeURL>
         </Example>
         <Example>
           <Name>LineSeries</Name>
@@ -458,7 +458,7 @@
           <DescriptionHeader>Line Series</DescriptionHeader>
           <Description>Line charts are often used to plot changes in data over time, such as monthly temperature changes or daily changes in stock market prices. If you are plotting changes in data over time, time is plotted along the horizontal axis and your other data is plotted as individual points along the vertical axis.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/LineSeriesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/LineSeriesExample</CodeURL>
         </Example>
         <Example>
           <Name>AreaSeries</Name>
@@ -466,7 +466,7 @@
           <DescriptionHeader>Area Series</DescriptionHeader>
           <Description>Area charts are much like line charts, but they display different colors in the areas below the lines. This colorful and visual display distinguishes the data more clearly. The Area charts support Stack, Stack100 and standard plotting modes.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/AreaSeriesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/AreaSeriesExample</CodeURL>
         </Example>
         <Example>
           <Name>ScatterSeries</Name>
@@ -474,7 +474,7 @@
           <DescriptionHeader>Scatter Series</DescriptionHeader>
           <Description>A scatter chart is a two-dimensional graphical representation of a set of data where each x/y variable is represented on the graph as a dot. This type of chart can be used in to visually describe relationships between two numerical parameters or to represent distributions.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/ScatterSeriesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/ScatterSeriesExample</CodeURL>
         </Example>
         <Example>
           <Name>PieDonutSeries</Name>
@@ -483,7 +483,7 @@
           <DescriptionHeader>Pie Donut Series</DescriptionHeader>
           <Description>The pie chart visualizes its data in the shape of a pie. Each data item is visually represented by a pie/donut slice. The ratio between the space consumed by each slice and the space consumed by the whole chart is the same as the ratio between the value of the data point that it represents and the total value of all data points in the series.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/PieDonutSeriesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/PieDonutSeriesExample</CodeURL>
         </Example>
         <Example>
           <Name>FinancialSeries</Name>
@@ -491,7 +491,7 @@
           <DescriptionHeader>Financial Series</DescriptionHeader>
           <Description>The financial series are represented by the OhlcSeries and CandlestickSeries classes. They only differ in the way they visualize the data point. OHLC stands for Open, High, Low and Close.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/FinancialSeriesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/FinancialSeriesExample</CodeURL>
         </Example>
         <Example>
           <Name>FinancialIndicators</Name>
@@ -499,7 +499,7 @@
           <DescriptionHeader>Financial Indicators</DescriptionHeader>
           <Description>The financial indicators are a collection of DataPoints (calculated with different algorithms using the series data) visualized using Line Shape.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/FinancialIndicatorsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/FinancialIndicatorsExample</CodeURL>
         </Example>
         <Example>
           <Name>NullValues</Name>
@@ -507,7 +507,7 @@
           <DescriptionHeader>Null Values</DescriptionHeader>
           <Description>Line charts and area charts can visualize null values as gaps in the chart.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ChartControl/NullValuesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ChartControl/NullValuesExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -530,7 +530,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>This example demonstrates how you could use a series of RadCheckBox controls, so that the end user may select several of the provided choices.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/CheckBoxControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CheckBoxControl/FirstLookExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -555,7 +555,7 @@
           <DescriptionHeader>Travel Assistance</DescriptionHeader>
           <Description>This example demonstrates a possible implementation of the RadChat control for a travel agency by integrating it with the Microsoft Bot Framework via Azure Bot Service.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ConversationalUIControl/TravelAssistanceExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/TravelAssistanceExample</CodeURL>
         </Example>
         <Example>
           <Name>InsuranceAssistance</Name>
@@ -564,7 +564,7 @@
           <DescriptionHeader>Insurance Assistance</DescriptionHeader>
           <Description>This example demonstrates a possible implementation of the RadChat control for a car insurance company by integrating it with Google’s DialogFlow framework.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ConversationalUIControl/InsuranceAssistanceExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/InsuranceAssistanceExample</CodeURL>
         </Example>
         <Example>
           <Name>HealthCareAssistance</Name>
@@ -573,7 +573,7 @@
           <DescriptionHeader>Healthcare Assistance</DescriptionHeader>
           <Description>This example demonstrates a possible implementation of the RadChat control for a health insurance company by integrating it with the Microsoft Bot Framework via Azure Bot Service.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ConversationalUIControl/HealthCareAssistanceExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/HealthCareAssistanceExample</CodeURL>
         </Example>
         <Example>
           <Name>ChatRoom</Name>
@@ -583,7 +583,7 @@
           <Description>This example demonstrates one way to go about implementing a chat room with multiple participants. Some of the features that are demonstrated are: typing indicator, timebreaks, color customization, MVVM support.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ConversationalUIControl/ChatRoomExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/ChatRoomExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -607,7 +607,7 @@
           <Description>Demonstrates the most important set of features in DataForm.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataFormControl/ReservationsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataFormControl/ReservationsExample</CodeURL>
           <ExcludeFrom>UWP</ExcludeFrom>
         </Example>
         <Example>
@@ -616,7 +616,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates the theming of the DataForm.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataFormControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataFormControl/ThemingExample</CodeURL>
         </Example>
         <Example>
           <Name>Globalization</Name>
@@ -625,7 +625,7 @@
           <DescriptionHeader>Localization &amp; Globalization</DescriptionHeader>
           <Description>Demonstrates how to set up the globalization of the DataForm.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataFormControl/GlobalizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataFormControl/GlobalizationExample</CodeURL>
           </Example>
       </Examples>
     </Control>
@@ -648,7 +648,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Demonstrates how you can easily configure the DataGrid to display data and perform selection and editing on it.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -656,7 +656,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates how the DataGrid could easily be styled using the built-in Blue theme.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/ThemingExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -665,7 +665,7 @@
           <Description>Demonstrates how you could customize the visual appearance of the DataGrid control through various Style and StyleSelector properties such as RowBackgroundStyle, AlternateRowBackgroundStyle, SelectionStyle, GroupHeaderStyleSelector, etc.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>LoadOnDemand</Name>
@@ -674,7 +674,7 @@
           <Description>Loading a large data set on a mobile device has its challenges. One of the most popular approaches is using incremental data loading in the moment the items need to be visualized. This example demonstrates how you could utilize the LoadOnDemand feature of RadDataGrid to load the data items when the "Load More" button is activated. Additionally, RadDataGrid offers automatic LoadOnDemand mode in which the items are loaded once you scroll near to the last available record.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/LoadOnDemandExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/LoadOnDemandExample</CodeURL>
         </Example>
         <Example>
           <Name>CRUDOperations</Name>
@@ -684,7 +684,7 @@
           <Description>An example that shows the DataGrid's CRUD capabilities such as addition, deletion and editing.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DataGridControl/CRUDOperationsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/CRUDOperationsExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -710,7 +710,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DatePickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DatePickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -720,7 +720,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DatePickerControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DatePickerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -730,7 +730,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DatePickerControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DatePickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -753,7 +753,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Demonstrates how you can easily configure the DockLayout.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DockLayoutControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DockLayoutControl/FirstLookExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -776,7 +776,7 @@
           <Description>Demonstrates how you could utilize the key features of RadEntry such as watermark support and border styling to achieve slick design across all platforms.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/EntryControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/EntryControl/FirstLookExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -799,7 +799,7 @@
           <Description>Demonstrates basic setup of RadExpander for presenting content in an expandable container.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ExpanderControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ExpanderControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -808,7 +808,7 @@
           <Description>Demonstrates how you could customize the RadExpander to achieve slick design across all platforms.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ExpanderControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ExpanderControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -817,7 +817,7 @@
           <Description>This example presents various configuration options you could use to make the Expander control look and animate per your choice.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ExpanderControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ExpanderControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -840,7 +840,7 @@
           <DescriptionHeader>Customization</DescriptionHeader>
           <Description>Demonstrates the customization of the Gauge.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/GaugeControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/GaugeControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>ActivityDashboard</Name>
@@ -848,7 +848,7 @@
           <DescriptionHeader>Activity Dashboard</DescriptionHeader>
           <Description>Demonstrates the Gauge and some of the built-in indicators.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/GaugeControl/ActivityDashboardExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/GaugeControl/ActivityDashboardExample</CodeURL>
         </Example>
         <Example>
           <Name>RadialGaugeGallery</Name>
@@ -856,7 +856,7 @@
           <DescriptionHeader>Radial Gauge Gallery</DescriptionHeader>
           <Description>Demonstrates some of the built-in features of the gauge.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/GaugeControl/RadialGaugeGalleryExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/GaugeControl/RadialGaugeGalleryExample</CodeURL>
         </Example>
         <Example>
           <Name>VerticalGaugeGallery</Name>
@@ -864,7 +864,7 @@
           <DescriptionHeader>Vertical Gauge Gallery</DescriptionHeader>
           <Description>Demonstrates some of the built-in features of the gauge.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/GaugeControl/VerticalGaugeGalleryExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/GaugeControl/VerticalGaugeGalleryExample</CodeURL>
         </Example>
         <Example>
           <Name>HorizontalGaugeGallery</Name>
@@ -872,7 +872,7 @@
           <DescriptionHeader>Horizontal Gauge Gallery</DescriptionHeader>
           <Description>Demonstrates some of the built-in features of the gauge.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/GaugeControl/HorizontalGaugeGalleryExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/GaugeControl/HorizontalGaugeGalleryExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -897,7 +897,7 @@
           <Description>Demonstrates the built-in image editing capabilities of the ImageEditor component.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ImageEditorControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ImageEditorControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>CustomToolbar</Name>
@@ -906,7 +906,7 @@
           <Description>Demonstrates the customization capabilities of the built-in toolbar for the ImageEditor component.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ImageEditorControl/CustomToolbarExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ImageEditorControl/CustomToolbarExample</CodeURL>
           </Example>
       </Examples>
     </Control>
@@ -931,7 +931,7 @@
           <Description>The ListView selection feature allows the end-user to select one or multiple items. The items can also be swiped left or right which reveals actionable buttons which the end-user can tap to execute some tasks.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListViewControl/SelectionExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListViewControl/SelectionExample</CodeURL>
         </Example>
         <Example>
           <Name>Layouts</Name>
@@ -940,7 +940,7 @@
           <Description>Demonstrates the different layouts that the ListView supports - linear layout where there is one item per row and grid layout where you define how many items there should be per row.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListViewControl/LayoutsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListViewControl/LayoutsExample</CodeURL>
         </Example>
         <Example>
           <Name>Reorder</Name>
@@ -949,7 +949,7 @@
           <Description>Demonstrates how the end-user can reorder items by a drag and drop operation.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListViewControl/ReorderExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListViewControl/ReorderExample</CodeURL>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -957,7 +957,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates the Blue theme, which is available for styling the control.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListViewControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListViewControl/ThemingExample</CodeURL>
         </Example>
         <Example>
           <Name>HeaderFooter</Name>
@@ -967,7 +967,7 @@
           <Description>Demonstrates a ListView with header and footer templates. Scroll down to reveal the footer.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListViewControl/HeaderFooterExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListViewControl/HeaderFooterExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -991,7 +991,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>An example that demonstrates how the PdfViewer can easily visualize an embedded into your application PDF document and the flawless integration with the PdfViewerToolbar.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/FirstLookExample</CodeURL>
           <IsUpdated>false</IsUpdated>
         </Example>
         <Example>
@@ -1002,7 +1002,7 @@
           <IsThemable>false</IsThemable>
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>LargeFile</Name>
@@ -1011,7 +1011,7 @@
           <Description>A demonstration of the read-on-demand feature that allows to quickly open large files. This is done by not loading the whole document initially, but a page is loaded on demand, only when it enters the viewable area.</Description>
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfViewerControl/LargeFileExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/LargeFileExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1035,7 +1035,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Telerik RadPdfProcessing provides easy to use API which allows code-only generation of PDF documents. This example demonstrates how to create a document containing images, text and shapes and export it to PDF.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PdfProcessingControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/FirstLookExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1059,7 +1059,7 @@
           <Description>This example demonstrates how you could use RadPopup control as a context menu - you can host any content inside the Popup and easily position it according to the target element.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PopupControl/ContextMenuExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PopupControl/ContextMenuExample</CodeURL>
         </Example>
         <Example>
           <Name>Modal</Name>
@@ -1068,7 +1068,7 @@
           <Description>This example demonstrates how you could use RadPopup as a modal, so that the UI behind it gets inactive and cannot be used until the Popup is closed.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PopupControl/ModalExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PopupControl/ModalExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -1077,7 +1077,7 @@
           <Description>This example presents various configuration options that the Popup control provides.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PopupControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PopupControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1103,7 +1103,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimePickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimePickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -1115,7 +1115,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimePickerControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimePickerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -1125,7 +1125,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimePickerControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimePickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1151,7 +1151,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimeSpanPickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimeSpanPickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -1163,7 +1163,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimeSpanPickerControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimeSpanPickerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -1173,7 +1173,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TimeSpanPickerControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimeSpanPickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1197,7 +1197,7 @@
           <Description>Demonstrates how the RadTreeView component can be used within your application.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TreeViewControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TreeViewControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -1206,7 +1206,7 @@
           <Description>This example demonstrates how to modify the look &amp; feel of RadTreeView items by defining separate ItemTemplates for different item types.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TreeViewControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TreeViewControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>LoadOnDemand</Name>
@@ -1215,7 +1215,7 @@
           <Description>Demonstrates how you could utilize Load On Demand feature in order to delay the population of RadTreeView and load subitems only when they’re requested, thus improving the performance of your app.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TreeViewControl/LoadOnDemandExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TreeViewControl/LoadOnDemandExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1239,7 +1239,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>An example that demonstrates how the Map can easily visualize an embedded into your application ESRI Shapefile.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/MapControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/MapControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>HotelFloorPlan</Name>
@@ -1247,7 +1247,7 @@
           <DescriptionHeader>Hotel Floor Plan</DescriptionHeader>
           <Description>This example demonstrates the usage of custom shapefile to represent hotel floor plan and allows you to interact with it.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/MapControl/HotelFloorPlanExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/MapControl/HotelFloorPlanExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1270,7 +1270,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Demonstrates the RadMaskedInput.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/MaskedInputControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/MaskedInputControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -1278,7 +1278,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates the theming of the RadMaskedInput.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/MaskedInputControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/MaskedInputControl/ThemingExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1302,7 +1302,7 @@
           <Description>Demonstrates how you could use RadNumericInput to enable the end users easily enter numeric data and to achieve slick design across all platforms.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/NumericInputControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/NumericInputControl/FirstLookExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1327,7 +1327,7 @@
           <IsScenario>false</IsScenario>
           <IsUpdated>true</IsUpdated>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TemplatedPickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -1338,7 +1338,7 @@
           <IsScenario>false</IsScenario>
           <IsUpdated>true</IsUpdated>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TemplatedPickerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -1348,7 +1348,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <IsNew>true</IsNew>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TemplatedPickerControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TemplatedPickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1373,7 +1373,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
           <IsUpdated>true</IsUpdated>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListPickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -1384,7 +1384,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <IsUpdated>true</IsUpdated>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListPickerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -1394,7 +1394,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
           <IsThemable>true</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ListPickerControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListPickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1420,7 +1420,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
           <IsUpdated>true</IsUpdated>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -1430,7 +1430,7 @@
           <Description>This example demonstrates how the DateTime Picker visual appearance could be customized using the control's flexible styling API.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/CustomizationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/CustomizationExample</CodeURL>
           <IsUpdated>true</IsUpdated>
         </Example>
         <Example>
@@ -1442,7 +1442,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <IsNew>true</IsNew>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/TimeModeExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/TimeModeExample</CodeURL>
         </Example>
         <Example>
           <Name>DateMode</Name>
@@ -1453,7 +1453,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <IsNew>true</IsNew>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/DateModeExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/DateModeExample</CodeURL>
         </Example>
         <Example>
           <Name>Configuration</Name>
@@ -1462,7 +1462,7 @@
           <Description>This example presents various configuration options that the RadDateTimePicker provides. </Description>
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/DateTimePickerControl/ConfigurationExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1485,7 +1485,7 @@
           <Description>Demonstrates RadPath elements with different figures.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/PathControl/FiguresExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PathControl/FiguresExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1508,7 +1508,7 @@
           <Description>Demonstrates integration between RadRating and RadGauge components.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/RatingControl/RestaurantReviewExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RatingControl/RestaurantReviewExample</CodeURL>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -1516,7 +1516,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates Blue theme applied on RadRating.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/RatingControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RatingControl/ThemingExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1539,7 +1539,7 @@
           <Description>Demonstrates the most important set of features of SegmentedControl.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SegmentedControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SegmentedControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -1547,7 +1547,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates Blue theme applied on SegmentedControl.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SegmentedControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SegmentedControl/ThemingExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1571,7 +1571,7 @@
           <DescriptionHeader>Recipes</DescriptionHeader>
           <Description>Demonstrates a real-world scenario where the SideDrawer control can come in handy. Thanks to the flexible API you can customize the SideDrawer to match the look and feel of your application.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SideDrawerControl/RecipesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SideDrawerControl/RecipesExample</CodeURL>
         </Example>
         <Example>
           <Name>Settings</Name>
@@ -1579,7 +1579,7 @@
           <DescriptionHeader>Settings</DescriptionHeader>
           <Description>The Telerik SideDrawer can display any type of content and can be opened from any edge of the screen. Further customization can be achieved through the predefined open/close animations.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SideDrawerControl/SettingsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SideDrawerControl/SettingsExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1602,7 +1602,7 @@
           <DescriptionHeader>Sliding Images</DescriptionHeader>
           <Description>From stock tickers and news scrollers, to product spotlights, the SlideView control delivers high interactivity and user involvement. It allows extensive customizations in terms of functionality and appearance.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SlideViewControl/SlidingImagesExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SlideViewControl/SlidingImagesExample</CodeURL>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -1610,7 +1610,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates the theming of the SlideView.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SlideViewControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SlideViewControl/ThemingExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1634,7 +1634,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Telerik SpreadProcessing library provides easy to use API to create, modify, and convert spreadsheet documents. This example demonstrates how to create a document.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SpreadProcessingControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SpreadProcessingControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
           <Name>Convert</Name>
@@ -1642,7 +1642,7 @@
           <DescriptionHeader>Convert</DescriptionHeader>
           <Description>An example that demonstrates how to import documents and convert to different formats.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SpreadProcessingControl/ConvertExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SpreadProcessingControl/ConvertExample</CodeURL>
         </Example>
         <Example>
           <Name>FindAndReplace</Name>
@@ -1651,7 +1651,7 @@
           <DescriptionHeader>Find &amp; Replace</DescriptionHeader>
           <Description>A demonstration of the built-in Find and Replace functionality in the SpreadProcessing library.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SpreadProcessingControl/FindAndReplaceExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SpreadProcessingControl/FindAndReplaceExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1675,7 +1675,7 @@
           <DescriptionHeader>Generate Spreadsheet</DescriptionHeader>
           <Description>An example demonstrating generating spreadsheet document using SpreadStreamProcessing library.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/SpreadStreamProcessingControl/GenerateSpreadsheetExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SpreadStreamProcessingControl/GenerateSpreadsheetExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1699,7 +1699,7 @@
           <Description>Demonstrates the main functionality of the TabView.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TabViewControl/RestaurantMenuExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TabViewControl/RestaurantMenuExample</CodeURL>
         </Example>
         <Example>
           <Name>Theming</Name>
@@ -1707,7 +1707,7 @@
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates the theming of the TabView.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/TabViewControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TabViewControl/ThemingExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1731,7 +1731,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Telerik RadWordProcessing provides easy to use API which allows code-only generation of DOCX documents. This example demonstrates how to create a document containing images, text and shapes and export it to DOCX, RTF, HTML, TXT.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/WordsProcessingControl/FirstLookExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/FirstLookExample</CodeURL>
           <IsNew>false</IsNew>
         </Example>
         <Example>
@@ -1740,7 +1740,7 @@
           <DescriptionHeader>Export</DescriptionHeader>
           <Description>This example demonstrates export of flow documents to PDF, RTF, HTML and TXT using RadWordsProcessing. You can use the imported Word(docx) sample and convert it to PDF, RTF, HTML, TXT.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/WordsProcessingControl/ExportExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/ExportExample</CodeURL>
           <IsNew>false</IsNew>
         </Example>
         <Example>
@@ -1750,7 +1750,7 @@
           <DescriptionHeader>Find &amp; Replace</DescriptionHeader>
           <Description>This example illustrates the Replace functionality in RadWordsProcessing. You can replace or highlight text in the sample document, using regular expressions or strings and then export the document to view the result.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/WordsProcessingControl/FindAndReplaceExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/FindAndReplaceExample</CodeURL>
           <IsNew>false</IsNew>
         </Example>
       </Examples>
@@ -1775,7 +1775,7 @@
           <DescriptionHeader>Create Archive</DescriptionHeader>
           <Description>An example demonstrating creating zip archive using ZipLibrary.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/_Samples%20Application/QSF/Examples/ZipLibraryControl/CreateArchiveExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ZipLibraryControl/CreateArchiveExample</CodeURL>
         </Example>
       </Examples>
     </Control>
