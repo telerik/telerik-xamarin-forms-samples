@@ -209,7 +209,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.DataGrid.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.DataVisualizationL">
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
