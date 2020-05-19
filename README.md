@@ -27,7 +27,7 @@ The Telerik UI for Xamarin Samples application demonstrates the variety of contr
 To take advantage of the controls and to be able to work with the demos, download free 30 day trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui)
 
 Please visit the following links to download the samples on your devices
-* [Telerik UI for Xamarin Samples Application on AppStore](https://itunes.apple.com/dm/app/telerik-ui-for-xamarin-examples/id1083924868?mt=8)
+* [Telerik UI for Xamarin Samples Application on AppStore](https://itunes.apple.com/us/app/telerik-ui-for-xamarin-examples/id1083924868?mt=8)
 * [Telerik UI for Xamarin Samples Application on Google Play](https://play.google.com/store/apps/details?id=com.telerik.xamarin&hl=en)
 * [Telerik UI for Xamarin Samples Application on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-ui-for-xamarin-examples/9pld1kn2tcxs)
 
@@ -48,9 +48,19 @@ Telerik ERP is a showcase software that demonstrates how you can view and proces
 
 The application is created with the powerful Telerik UI for Xamarin controls and demonstrates how one can architecture real-world line of business application. It uses the most popular Telerik UI for Xamarin controls such as Charts, Data Grid, ListView, Inputs, BusyIndicator and also features MVVM utilizing the MVVM Cross framework.
 
+To download the finished application, use the following links. 
+* [Telerik ERP on AppStore](https://apps.apple.com/us/app/telerik-erp/id1450527259)
+* [Telerik ERP on Google Play](https://play.google.com/store/apps/details?id=com.telerik.ErpApp&hl=en)
+* [Telerik ERP on Windows Store](https://www.microsoft.com/en-us/p/telerik-erp/9nmk4g533qlh)
+
 Telerik CRM Demo Application
 -------
 A CRM application using Telerik UI for Xamarin, leveraging a back-end powered by Azure and Cognitive Services custom language understanding where you can explore the Employees, Customers, Products and Orders of the Art Gallery.
+
+To download the finished application, use the following links. 
+* [Telerik CRM on AppStore](https://apps.apple.com/us/app/telerik-crm/id1449462263)
+* [Telerik CRM on Google Play](https://play.google.com/store/apps/details?id=com.telerik.ArtGalleryCRM&hl=en)
+* [Telerik CRM on Windows Store](https://www.microsoft.com/en-us/p/telerik-crm/9pbnqz08r0c8)
 
 Telerik To-Do Demo Application
 -------
@@ -62,6 +72,11 @@ The app scenario is about organizing notes, ideas, thoughts without losing focus
 - Organize notes into categories.
 - View your notes in card and linear view.
 - Search notes.
+
+To download the finished application, use the following links. 
+* [Telerik To-Do on AppStore](https://apps.apple.com/us/app/telerik-to-do/id1475654512)
+* [Telerik To-Do on Google Play](https://play.google.com/store/apps/details?id=com.telerik.TodoApp&hl=en)
+* [Telerik To-Do on Windows Store](https://www.microsoft.com/en-us/p/telerik-to-do/9ns4dbcsdzh6)
 
 ## How to build the solutions
 In order to build the solutions you will need an active trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui). Once you get it, simply open the solution and add the Telerik Nuget server as described in [this article](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server). 
