@@ -42,6 +42,27 @@ To download the finished application, use the following links.
 * [Telerik Tagit on Google Play](https://play.google.com/store/apps/details?id=com.telerik.tagit)
 * [Telerik Tagit on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-tagit/9pb07plrwpfs)
 
+Telerik ERP Demo Application
+-------
+Telerik ERP is a showcase software that demonstrates how you can view and process different financial transactions and processes. From clients to orders and vendors, this application provides a quick and efficient way to manage your business.
+
+The application is created with the powerful Telerik UI for Xamarin controls and demonstrates how one can architecture real-world line of business application. It uses the most popular Telerik UI for Xamarin controls such as Charts, Data Grid, ListView, Inputs, BusyIndicator and also features MVVM utilizing the MVVM Cross framework.
+
+Telerik CRM Demo Application
+-------
+A CRM application using Telerik UI for Xamarin, leveraging a back-end powered by Azure and Cognitive Services custom language understanding where you can explore the Employees, Customers, Products and Orders of the Art Gallery.
+
+Telerik To-Do Demo Application
+-------
+The Telerik To-Do application is a showcase app demonstrating real-world usage of the Telerik UI for Xamarin components. It features some of the most popular controls such as ListView, DataForm, SideDrawer, TreeView, SlideView and many more. Learn how to make the architecture of your app together with the power of the FreshMVVM framework.
+
+The app scenario is about organizing notes, ideas, thoughts without losing focus.
+
+- Create notes.
+- Organize notes into categories.
+- View your notes in card and linear view.
+- Search notes.
+
 ## How to build the solutions
 In order to build the solutions you will need an active trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui). Once you get it, simply open the solution and add the Telerik Nuget server as described in [this article](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server). 
 
