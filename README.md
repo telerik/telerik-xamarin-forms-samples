@@ -28,9 +28,9 @@ The Telerik UI for Xamarin Samples application demonstrates the variety of contr
 To take advantage of the controls and to be able to work with the demos, download free 30 day trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui)
 
 Please visit the following links to download the samples on your devices
-* [Telerik UI for Xamarin Samples Application on AppStore](https://itunes.apple.com/us/app/telerik-ui-for-xamarin-examples/id1083924868?mt=8)
-* [Telerik UI for Xamarin Samples Application on Google Play](https://play.google.com/store/apps/details?id=com.telerik.xamarin&hl=en)
-* [Telerik UI for Xamarin Samples Application on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-ui-for-xamarin-examples/9pld1kn2tcxs)
+* [Telerik UI for Xamarin Samples Application on AppStore](https://itunes.apple.com/us/app/telerik-ui-for-xamarin-examples/id1083924868)
+* [Telerik UI for Xamarin Samples Application on Google Play](https://play.google.com/store/apps/details?id=com.telerik.xamarin)
+* [Telerik UI for Xamarin Samples Application on Windows Store](https://www.microsoft.com/store/apps/9pld1kn2tcxs)
 
 Telerik Tagit Demo Application
 -------
@@ -41,7 +41,7 @@ For more information on the application and a walk through of how it was built, 
 To download the finished application, use the following links. 
 * [Telerik Tagit on AppStore](https://apps.apple.com/us/app/telerik-tagit/id1310584457)
 * [Telerik Tagit on Google Play](https://play.google.com/store/apps/details?id=com.telerik.tagit)
-* [Telerik Tagit on Windows Store](https://www.microsoft.com/en-us/store/p/telerik-tagit/9pb07plrwpfs)
+* [Telerik Tagit on Windows Store](https://www.microsoft.com/store/apps/9PB07PLRWPFS)
 
 Telerik ERP Demo Application
 -------
@@ -51,8 +51,8 @@ The application is created with the powerful Telerik UI for Xamarin controls and
 
 To download the finished application, use the following links. 
 * [Telerik ERP on AppStore](https://apps.apple.com/us/app/telerik-erp/id1450527259)
-* [Telerik ERP on Google Play](https://play.google.com/store/apps/details?id=com.telerik.ErpApp&hl=en)
-* [Telerik ERP on Windows Store](https://www.microsoft.com/en-us/p/telerik-erp/9nmk4g533qlh)
+* [Telerik ERP on Google Play](https://play.google.com/store/apps/details?id=com.telerik.ErpApp)
+* [Telerik ERP on Windows Store](https://www.microsoft.com/store/apps/9NMK4G533QLH)
 
 Telerik CRM Demo Application
 -------
@@ -60,8 +60,8 @@ A CRM application using Telerik UI for Xamarin, leveraging a back-end powered by
 
 To download the finished application, use the following links. 
 * [Telerik CRM on AppStore](https://apps.apple.com/us/app/telerik-crm/id1449462263)
-* [Telerik CRM on Google Play](https://play.google.com/store/apps/details?id=com.telerik.ArtGalleryCRM&hl=en)
-* [Telerik CRM on Windows Store](https://www.microsoft.com/en-us/p/telerik-crm/9pbnqz08r0c8)
+* [Telerik CRM on Google Play](https://play.google.com/store/apps/details?id=com.telerik.ArtGalleryCRM)
+* [Telerik CRM on Windows Store](https://www.microsoft.com/store/apps/9PBNQZ08R0C8)
 
 Telerik To-Do Demo Application
 -------
@@ -76,8 +76,8 @@ The app scenario is about organizing notes, ideas, thoughts without losing focus
 
 To download the finished application, use the following links. 
 * [Telerik To-Do on AppStore](https://apps.apple.com/us/app/telerik-to-do/id1475654512)
-* [Telerik To-Do on Google Play](https://play.google.com/store/apps/details?id=com.telerik.TodoApp&hl=en)
-* [Telerik To-Do on Windows Store](https://www.microsoft.com/en-us/p/telerik-to-do/9ns4dbcsdzh6)
+* [Telerik To-Do on Google Play](https://play.google.com/store/apps/details?id=com.telerik.TodoApp)
+* [Telerik To-Do on Windows Store](https://www.microsoft.com/store/apps/9NS4DBCSDZH6)
 
 ## How to build the solutions
 In order to build the solutions you will need an active trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui). Once you get it, simply open the solution and add the Telerik Nuget server as described in [this article](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server). 
