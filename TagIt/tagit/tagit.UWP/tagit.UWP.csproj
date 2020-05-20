@@ -24,7 +24,6 @@
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
-    <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +47,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -71,6 +71,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -94,6 +95,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -181,7 +183,7 @@
     <Content Include="ic_start_all_dark.png" />
     <Content Include="ic_sync.png" />
     <Content Include="optimizing.png" />
-    <None Include="Package.StoreAssociation.xml" />
+    <None Condition="'$(Configuration)' == 'Release'" Include="Package.StoreAssociation.xml" />
     <Content Include="progress_brand.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="tagit_header.png" />
