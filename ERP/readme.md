@@ -1,4 +1,9 @@
 ﻿
+# Getting Started with Telerik ERP Sample Application
+To get you started with Telerik ERP, our Xamarin.Forms sample application for enterprise resource management, ensure you have completed the following steps:
+Step #1: Install Telerik UI for Xamarin controls
+Step #2: Download the GitHub repository
+
 # ERP Deployment
 
 The ERP demo has two major parts; Web application and Xamarin.Forms applications. This readme will take you through deploying them in your environment.
