@@ -6,9 +6,10 @@ It uses the [Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-
 
 ![Telerik Todo](https://lh3.googleusercontent.com/Nkv7Zux_8bzP_Gyw1CvmwG3aK1KH_Xgjg5BHNFM3j7PoVDrzbobxdrQNmy4g3lYcimZA=w250-h2544-rw) ![Telerik Todo](https://lh3.googleusercontent.com/yfL3_-T5zIKrGsLNm0oCGmBW6k4DKZPxY_gAEZt1wfMS_Tq64iSW7cyu51nVMi_nw-Wu=w250-h2544-rw) ![Telerik Todo](https://lh3.googleusercontent.com/Q34WQAVwO-0Bruy4-LnOvzg7QLouDIdgcxonKJHE4d-icRqT3JNssseJdITLIy7bNlz2=w250-h2544-rw) 
 
-## Prerequisites before building the application
-
-In order to be able to able to build the application the [Progress® Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-ui) need to be installed.
+## Getting started with Telerik ToDo Sample Application 
+Before building the application, the following prerequisites must be met:
+Step #1: Install [Progress® Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-ui) 
+Step #2: Get the source code of the application 
 
 ### UI for Xamarin controls installation
 
