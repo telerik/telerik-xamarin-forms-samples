@@ -1,3 +1,12 @@
+# Getting started with Telerik ArtGalleryCRM Sample Application
+
+To get you started with Telerik ArtGalleryCRM, our Xamarin.Forms sample application, first you need to complete the following steps:
+
+Step #1: Install [Progress® Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-ui) 
+Step #2: Get the source code of the application 
+
+
+
 # Download
 
 If you want to check the application now without building it with your own resources, you can use the following links and install it from the stores: 
