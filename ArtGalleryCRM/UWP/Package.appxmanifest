@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="Telerik.ArtGalleryCRM" Publisher="CN=A6114CDA-C037-48BD-B8B6-9F8020555726" Version="2019.710.1.0" />
+  <Identity Name="Telerik.ArtGalleryCRM" Publisher="CN=A6114CDA-C037-48BD-B8B6-9F8020555726" Version="2.0.1.0" />
   <mp:PhoneIdentity PhoneProductId="2d97579f-a666-41bf-bada-3d38372396bc" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Art Gallery CRM</DisplayName>
+    <DisplayName>Telerik CRM</DisplayName>
     <PublisherDisplayName>Telerik</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ArtGalleryCRM.Uwp.App">
-      <uap:VisualElements DisplayName="Art Gallery CRM" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="A demo CRM application to illustrate the elegance and beauty of Telerik UI for Xamarin." BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Telerik CRM" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="A demo CRM application to illustrate the elegance and beauty of Telerik UI for Xamarin." BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
