@@ -1,3 +1,11 @@
+# Getting Started with Telerik ToDo Sample Application
+
+To get you started with Telerik ToDo, our Xamarin.Forms task management sample application, first you need to complete the following steps:
+
+Step #1: Install [Progress® Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-ui) 
+
+Step #2: Get the source code of the application 
+
 # Telerik Todo
 
 Telerik Todo is a cross-platform native mobile application designed to make it easy for your to organize notes, ideas and thoughts without losing your focus. Whether at work, at school, or at home, Telerik Todo will help you increase your productivity and reduce your stress levels.
