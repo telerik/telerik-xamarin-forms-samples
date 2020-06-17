@@ -1,3 +1,11 @@
+# Getting Started with Telerik TagIt Sample Application
+
+To get you started with Telerik TagIt, our Xamarin.Forms sample application for content management, first you need to complete the following steps:
+
+Step #1: Install [Progress® Telerik® UI for Xamarin controls](https://www.telerik.com/xamarin-ui) 
+
+Step #2: Get the source code of the application 
+
 # Telerik Tagit
 
 Telerik Tagit is a cross-platform native mobile application designed to turn the photo collection on your phone into a database that you can search and sort by the content contained in the individual images.
