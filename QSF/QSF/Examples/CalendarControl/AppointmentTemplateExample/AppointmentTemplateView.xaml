@@ -64,25 +64,8 @@
                             <StackLayout Grid.Column="1"
                                          VerticalOptions="Center"
                                          Margin="0, 5, 0, 5">
-                                <Label Style="{StaticResource TitleLabel}">
-                                    <Label.Text>
-                                        <Binding Path="Title">
-                                            <Binding.Mode>
-                                                <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                            </Binding.Mode>
-                                        </Binding>
-                                    </Label.Text>
-                                </Label>
-
-                                <Label Style="{StaticResource DetailLabel}">
-                                    <Label.Text>
-                                        <Binding Path="Detail">
-                                            <Binding.Mode>
-                                                <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                            </Binding.Mode>
-                                        </Binding>
-                                    </Label.Text>
-                                </Label>
+                                <Label Text="{Binding Title}" Style="{StaticResource TitleLabel}" />
+                                <Label Text="{Binding Detail}" Style="{StaticResource DetailLabel}" />
                             </StackLayout>
                         </Grid>
                     </DataTemplate>
@@ -95,24 +78,8 @@
                                 <ColumnDefinition Width="120" />
                             </Grid.ColumnDefinitions>
                             <StackLayout Margin="10, 10, 0, 10">
-                                <Label Style="{StaticResource TitleLabel}">
-                                    <Label.Text>
-                                        <Binding Path="Title">
-                                            <Binding.Mode>
-                                                <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                            </Binding.Mode>
-                                        </Binding>
-                                    </Label.Text>
-                                </Label>
-                                <Label Style="{StaticResource DetailLabel}">
-                                    <Label.Text>
-                                        <Binding Path="Detail">
-                                            <Binding.Mode>
-                                                <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                            </Binding.Mode>
-                                        </Binding>
-                                    </Label.Text>
-                                </Label>
+                                <Label Text="{Binding Title}" Style="{StaticResource TitleLabel}" />
+                                <Label Text="{Binding Detail}" Style="{StaticResource DetailLabel}" />
                             </StackLayout>
 
                             <Image Grid.Column="1"
@@ -125,27 +92,13 @@
                 <local:AppointmentTemplateSelector.AppointmentTemplate>
                     <DataTemplate>
                         <StackLayout Style="{StaticResource AppointmentStacklayoutMargin}">
-                            <Label TextColor="{Binding TitleTextColor}"
-                                   Style="{StaticResource TitleLabel}">
-                                <Label.Text>
-                                    <Binding Path="Title">
-                                        <Binding.Mode>
-                                            <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                        </Binding.Mode>
-                                    </Binding>
-                                </Label.Text>
-                            </Label>
-                            <Label TextColor="{Binding DetailTextColor}"
+                            <Label Text="{Binding Title}"
+                                   TextColor="{Binding TitleTextColor}"
+                                   Style="{StaticResource TitleLabel}" />
+                            <Label Text="{Binding Detail}"
+                                   TextColor="{Binding DetailTextColor}"
                                    Style="{StaticResource DetailLabel}"
-                                   Margin="0, 0, 10, 0">
-                                <Label.Text>
-                                    <Binding Path="Detail">
-                                        <Binding.Mode>
-                                            <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                        </Binding.Mode>
-                                    </Binding>
-                                </Label.Text>
-                            </Label>
+                                   Margin="0, 0, 10, 0"/>
                         </StackLayout>
                     </DataTemplate>
                 </local:AppointmentTemplateSelector.AppointmentTemplate>
@@ -157,26 +110,12 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <StackLayout Style="{StaticResource AppointmentStacklayoutMargin}">
-                                <Label TextColor="{Binding TitleTextColor}"
-                                       Style="{StaticResource TitleLabel}">
-                                    <Label.Text>
-                                        <Binding Path="Title">
-                                            <Binding.Mode>
-                                                <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                            </Binding.Mode>
-                                        </Binding>
-                                    </Label.Text>
-                                </Label>
-                                <Label TextColor="{Binding DetailTextColor}"
-                                       Style="{StaticResource DetailLabel}">
-                                    <Label.Text>
-                                        <Binding Path="Detail">
-                                            <Binding.Mode>
-                                                <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                            </Binding.Mode>
-                                        </Binding>
-                                    </Label.Text>
-                                </Label>
+                                <Label Text="{Binding Title}"
+                                       TextColor="{Binding TitleTextColor}"
+                                       Style="{StaticResource TitleLabel}"/>
+                                <Label Text="{Binding Detail}"
+                                       TextColor="{Binding DetailTextColor}"
+                                       Style="{StaticResource DetailLabel}"/>
                             </StackLayout>
                             <telerikPrimitives:RadBorder Grid.Column="1"
                                                          Style="{StaticResource IconsBorder}">
@@ -201,17 +140,10 @@
                                    WidthRequest="25"
                                    Margin="0, 0, 0, 10" />
                             <Label Grid.Row="1"
+                                   Text="{Binding Title}"
                                    TextColor="{Binding TitleTextColor}"
                                    Style="{StaticResource MultiDayTitleLabel}"
-                                   Margin="0, 0, 0, 4">
-                                <Label.Text>
-                                    <Binding Path="Title">
-                                        <Binding.Mode>
-                                            <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                        </Binding.Mode>
-                                    </Binding>
-                                </Label.Text>
-                            </Label>
+                                   Margin="0, 0, 0, 4"/>
                         </Grid>
                     </DataTemplate>
                 </local:AppointmentTemplateSelector.ImageTemplate>
@@ -232,29 +164,15 @@
                                        FontSize="Small" />
                             </telerikPrimitives:RadBorder>
                             <Label Grid.Row="1"
+                                   Text="{Binding Title}"
                                    TextColor="{Binding TitleTextColor}"
                                    Style="{StaticResource MultiDayTitleLabel}"
-                                   Margin="0, 0, 0, 3">
-                                <Label.Text>
-                                    <Binding Path="Title">
-                                        <Binding.Mode>
-                                            <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                        </Binding.Mode>
-                                    </Binding>
-                                </Label.Text>
-                            </Label>
+                                   Margin="0, 0, 0, 3"/>
                             <Label Grid.Row="2"
+                                   Text="{Binding Detail}"
                                    TextColor="{Binding DetailTextColor}"
                                    Style="{StaticResource MultiDayDetailLabel}"
-                                   FontSize="8">
-                                <Label.Text>
-                                    <Binding Path="Detail">
-                                        <Binding.Mode>
-                                            <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                        </Binding.Mode>
-                                    </Binding>
-                                </Label.Text>
-                            </Label>
+                                   FontSize="8"/>
                         </Grid>
                     </DataTemplate>
                 </local:AppointmentTemplateSelector.IconTemplate>
@@ -265,30 +183,16 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Label TextColor="{Binding TitleTextColor}"
+                            <Label Text="{Binding Title}"
+                                   TextColor="{Binding TitleTextColor}"
                                    Style="{StaticResource TitleLabel}"
                                    FontSize="10"
                                    VerticalTextAlignment="Center"
-                                   HorizontalOptions="Start">
-                                <Label.Text>
-                                    <Binding Path="Title">
-                                        <Binding.Mode>
-                                            <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                        </Binding.Mode>
-                                    </Binding>
-                                </Label.Text>
-                            </Label>
+                                   HorizontalOptions="Start" />
                             <Label Grid.Row="1"
+                                   Text="{Binding Detail}"
                                    Style="{StaticResource MultiDayDetailLabel}"
-                                   FontSize="9">
-                                <Label.Text>
-                                    <Binding Path="Detail">
-                                        <Binding.Mode>
-                                            <OnPlatform x:DataType="BindingMode" Android="OneTime"/>
-                                        </Binding.Mode>
-                                    </Binding>
-                                </Label.Text>
-                            </Label>
+                                   FontSize="9" />
                         </Grid>
                     </DataTemplate>
                 </local:AppointmentTemplateSelector.AppointmentTemplate>

@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R2 2020</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R2 2020 SP</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png</QSFAboutImageName>
@@ -329,7 +329,7 @@
           <Description>This example demonstrates how to create fully customized appointments and display them in Day &amp; MultiDay views. </Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AppointmentTemaplateExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AppointmentTemplateExample</CodeURL>
         </Example>
         <Example>
           <Name>AgendaViewConfiguration</Name>

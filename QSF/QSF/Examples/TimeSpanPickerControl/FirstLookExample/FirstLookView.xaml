@@ -139,8 +139,10 @@
                             </StackLayout.GestureRecognizers>
                             <Label Text="Maximum Flight Duration" 
                                    VerticalOptions="Center"
+                                   TextColor="#919191"
                                    Margin="4, 0, 0, 0" />
-                            <Label Text="&#xE878;" 
+                            <Label Text="&#xE878;"
+                                   Opacity="0.54"
                                    Style="{StaticResource IconLabelStyle}" />
                         </StackLayout>
                     </ControlTemplate>
