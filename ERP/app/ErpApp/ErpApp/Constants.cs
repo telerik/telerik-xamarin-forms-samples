@@ -5,7 +5,7 @@ namespace ErpApp
     public static class Constants
     {
         // TODO: Replace with your Azure Mobile App endpoint
-        public static string ApplicationURL = "";
+        public static string ApplicationURL = "https://telerikerpapp.azurewebsites.net";
         // TODO: Provide image URL for the avatar of the customer
         public static readonly Uri EmptyCustomerImage = null;
         // TODO: Provide image URL for the avatar of the product

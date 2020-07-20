@@ -10,6 +10,7 @@ using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
 using Xamarin.Forms;
+using PresentationMode = ErpApp.Models.PresentationMode;
 
 namespace ErpApp.ViewModels
 {
