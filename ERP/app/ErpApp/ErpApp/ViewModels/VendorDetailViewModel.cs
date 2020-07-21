@@ -6,7 +6,6 @@ using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using Xamarin.Forms;
-using PresentationMode = ErpApp.Models.PresentationMode;
 
 namespace ErpApp.ViewModels
 {
