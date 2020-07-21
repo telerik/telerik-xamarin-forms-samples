@@ -200,7 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross.Forms">
-      <Version>6.4.1</Version>
+      <Version>6.4.2</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp">
       <Version>1.68.0</Version>
@@ -217,8 +217,8 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.10" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ErpApp\ErpApp.csproj">
