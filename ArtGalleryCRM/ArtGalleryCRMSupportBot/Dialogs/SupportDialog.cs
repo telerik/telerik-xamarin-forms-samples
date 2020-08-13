@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using ArtGalleryCRMSupportBot.Models;
 using ArtGalleryCRMSupportBot.Services;
@@ -11,6 +10,7 @@ using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime;
 using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using Newtonsoft.Json.Linq;
 
 namespace ArtGalleryCRMSupportBot.Dialogs
@@ -104,23 +104,23 @@ namespace ArtGalleryCRMSupportBot.Dialogs
             {
                 luisClient.Endpoint = SubscriptionKeys.LuisEndpoint;
 
-                // Create prediction client
-                var prediction = new Prediction(luisClient);
+                // Prepare a prediction request
+                var predictionRequest = new PredictionRequest
+                {
+                    Query = query
+                };
 
-                // get prediction from LUIS using spell correction and Sentiment enabled (Sentiment is enabled in the LUIS portal Manage -> PublishSettings)
-                var luisResult = await prediction.ResolveAsync(
-                    appId: SubscriptionKeys.LuisAppId,
-                    query: query,
-                    timezoneOffset: null,
+                // Request a prediction, returns a PredictionResponse
+                var predictionResponse = await luisClient.Prediction.GetSlotPredictionAsync(
+                    Guid.Parse(SubscriptionKeys.LuisAppId),
+                    "production",
+                    predictionRequest,
                     verbose: true,
-                    staging: false,
-                    spellCheck: true,
-                    bingSpellCheckSubscriptionKey: SubscriptionKeys.BingSpellCheckKey,
-                    log: false,
-                    cancellationToken: CancellationToken.None);
+                    showAllIntents: true,
+                    log: true);
 
                 // You will get a full list of intents. For the purposes of this demo, we'll just use the highest scoring intent.
-                var topScoringIntent = luisResult?.TopScoringIntent.Intent;
+                var topScoringIntent = predictionResponse.Prediction.TopIntent;
 
                 // Respond to the user depending on the detected intent of their query
                 var respondedToQuery = await RespondWithEnglishAsync(context, topScoringIntent, languageCode);
@@ -128,18 +128,14 @@ namespace ArtGalleryCRMSupportBot.Dialogs
 
                 // ******************************* Cognitive Services - Sentiment Analysis  ******************************* //
 
-                // You can get the user's sentiment by:
-                // 1. Make a separate call to Cognitive Services using "await textAnalyticsClient.SentimentAsync()"
-                // or
-                // 2. Enable Sentiment in the LUIS portal (Manage -> PublishSettings -> 'Use sentiment analysis')
-
-                // The 2nd option saves you a round trip because sentiment will already be in the LuisResult object!
-
                 // Only evaluate sentiment if we've given a meaningful reply (and not connection or service error messages).
                 if (respondedToQuery)
                 {
-                    // Use the sentiment score, the range is 0 (angriest) to 1 (happiest)
-                    await EvaluateAndRespondToSentimentAsync(context, luisResult?.SentimentAnalysis, languageCode);
+                    // Use Text Analytics Sentiment analysis
+                    var sentimentResult = await textAnalyticsClient.SentimentAsync(query);
+
+                    // Use the sentiment score to determine if we need to react, the range is 0 (angriest) to 1 (happiest)
+                    await EvaluateAndRespondToSentimentAsync(context, sentimentResult, languageCode);
                 }
             }
             
@@ -240,7 +236,7 @@ namespace ArtGalleryCRMSupportBot.Dialogs
             return false;
         }
 
-        private static async Task EvaluateAndRespondToSentimentAsync(IBotToUser context, Sentiment sentiment, string languageCode)
+        private static async Task EvaluateAndRespondToSentimentAsync(IBotToUser context, SentimentResult sentiment, string languageCode)
         {
             // If there's no Sentiment object or score value, quit now.
             if (sentiment?.Score == null)
