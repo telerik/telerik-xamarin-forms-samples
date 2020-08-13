@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -7,7 +6,6 @@ using System.Threading.Tasks;
 using ArtGalleryCRMSupportBot.Models;
 using ArtGalleryCRMSupportBot.Services;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
@@ -48,22 +46,16 @@ namespace ArtGalleryCRMSupportBot.Dialogs
             };
 
             // Detect what language is being used
-            var langResult = await textAnalyticsClient.DetectLanguageAsync(new BatchInput(new List<Input>
-            {
-                new Input("1", message.Text)
-            }));
+            var langResult = await textAnalyticsClient.DetectLanguageAsync(message.Text);
 
             var languageCode = string.Empty;
 
-            foreach (var document in langResult.Documents)
-            {
-                // Pick the language with the highest score
-                var bestLanguage = document.DetectedLanguages?.OrderByDescending(l => l.Score).FirstOrDefault();
+            // Pick the language with the highest score
+            var bestLanguage = langResult.DetectedLanguages?.OrderByDescending(l => l.Score).FirstOrDefault();
 
-                if (string.IsNullOrEmpty(languageCode) && bestLanguage != null)
-                {
-                    languageCode = bestLanguage.Iso6391Name.ToLower();
-                }
+            if (string.IsNullOrEmpty(languageCode) && bestLanguage != null)
+            {
+                languageCode = bestLanguage.Iso6391Name.ToLower();
             }
 
             // If we couldn't detect language
