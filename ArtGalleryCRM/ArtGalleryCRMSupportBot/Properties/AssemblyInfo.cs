@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Art Gallery Support Bot")]
+[assembly: AssemblyTitle("Telerik Xamarin CRM Support Bot")]
 [assembly: AssemblyDescription("A bot for the employees of Art Gallery CRM to use for app support.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Progress Software Corporation")]
 [assembly: AssemblyProduct("Telerik UI for Xamarin SupportBot")]
-[assembly: AssemblyCopyright("Copyright © 2019 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved")]
+[assembly: AssemblyCopyright("Copyright © 2020 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved")]
 [assembly: AssemblyTrademark("Progress® Telerik® UI for Xamarin")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2020.2.813.0")]
+[assembly: AssemblyFileVersion("2020.2.813.0")]
