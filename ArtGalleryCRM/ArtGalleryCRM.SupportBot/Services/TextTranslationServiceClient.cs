@@ -4,10 +4,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using ArtGalleryCRMSupportBot.Models;
+using ArtGalleryCRM.SupportBot.Models;
 using Newtonsoft.Json;
 
-namespace ArtGalleryCRMSupportBot.Services
+namespace ArtGalleryCRM.SupportBot.Services
 {
     public class TextTranslationServiceClient : IDisposable
     {

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Rest;
 
-namespace ArtGalleryCRMSupportBot.Services
+namespace ArtGalleryCRM.SupportBot.Services
 {
     public class TextAnalysisServiceClientCredentials : ServiceClientCredentials
     {

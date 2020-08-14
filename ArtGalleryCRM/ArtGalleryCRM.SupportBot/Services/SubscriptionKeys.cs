@@ -1,4 +1,4 @@
-﻿namespace ArtGalleryCRMSupportBot.Services
+﻿namespace ArtGalleryCRM.SupportBot.Services
 {
     public static class SubscriptionKeys
     {
