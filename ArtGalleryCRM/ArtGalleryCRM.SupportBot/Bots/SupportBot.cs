@@ -4,54 +4,49 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using ArtGalleryCRMSupportBot.Models;
-using ArtGalleryCRMSupportBot.Services;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.Dialogs.Internals;
-using Microsoft.Bot.Connector;
+using ArtGalleryCRM.SupportBot.Models;
+using ArtGalleryCRM.SupportBot.Services;
 using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime;
 using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.TraceExtensions;
+using Microsoft.Bot.Schema;
 using Newtonsoft.Json.Linq;
 
-namespace ArtGalleryCRMSupportBot.Dialogs
+namespace ArtGalleryCRM.SupportBot.Bots
 {
-    [Serializable]
-    public class SupportDialog : IDialog<object>
+    public class SupportBot : ActivityHandler
     {
-        public async Task StartAsync(IDialogContext context)
+        protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> context, CancellationToken cancellationToken)
         {
-            context.Wait(MessageReceivedAsync);
-        }
-
-        public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
-        {
-            var message = await argument;
+            var message = context.Activity;
 
             // To quickly test the bot after deploy to ensure the version we want is available.
-            if (message.Text.ToLower().Contains("bot version"))
+            if (message.Text.ToLower().Equals("bot version"))
             {
-                var version = typeof(SupportDialog).Assembly.GetName().Version;
+                var version = typeof(SupportBot).Assembly.GetName().Version;
 
-                await context.PostAsync($"Art Gallery Support Assistant v{version.Major}.{version.Minor}.{version.Build}.{version.Revision}");
+                var replyText = $"Art Gallery Support Assistant v{version?.Major}.{version?.Minor}.{version?.Build}.{version?.Revision}";
+                await context.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
 
                 return;
             }
 
-
             // ******************************* Cognitive Services - Text Analysis API ******************************* //
-            
-            var textAnalyticsClient = new TextAnalyticsClient(new TextAnalysisServiceClientCredentials(SubscriptionKeys.TextAnalysisServiceKey))
+
+            using var textAnalyticsClient = new TextAnalyticsClient(new TextAnalysisServiceClientCredentials(SubscriptionKeys.TextAnalysisServiceKey))
             {
                 Endpoint = "https://eastus.api.cognitive.microsoft.com/"
             };
 
-            // Detect what language is being used
-            var langResult = await textAnalyticsClient.DetectLanguageAsync(new BatchInput(new List<Input>
+            var langResult = await textAnalyticsClient.DetectLanguageAsync(false, new LanguageBatchInput(new List<LanguageInput>
             {
-                new Input("1", message.Text)
-            }));
+                new LanguageInput(id: "1", text: message.Text)
+            }), cancellationToken: cancellationToken);
+
+            await context.TraceActivityAsync("OnMessageActivity Trace", langResult, "LanguageResult", cancellationToken: cancellationToken);
 
             var languageCode = string.Empty;
 
@@ -63,13 +58,15 @@ namespace ArtGalleryCRMSupportBot.Dialogs
                 if (string.IsNullOrEmpty(languageCode) && bestLanguage != null)
                 {
                     languageCode = bestLanguage.Iso6391Name.ToLower();
+                    await context.TraceActivityAsync("OnMessageActivity Trace", languageCode, "string", cancellationToken: cancellationToken);
                 }
             }
 
             // If we couldn't detect language
             if (string.IsNullOrEmpty(languageCode))
             {
-                await context.PostAsync("We could not determine what language you're using. Please try again.");
+                var replyText = "We could not determine what language you're using. Please try again.";
+                await context.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
                 return;
             }
 
@@ -83,21 +80,21 @@ namespace ArtGalleryCRMSupportBot.Dialogs
             {
                 try
                 {
-                    using (var translationClient = new TextTranslationServiceClient(SubscriptionKeys.TextTranslationServiceKey))
+                    using var translationClient = new TextTranslationServiceClient(SubscriptionKeys.TextTranslationServiceKey);
+
+                    var result = await translationClient.TranslateAsync(message.Text, "en");
+
+                    var translatedQuery = result?.Translations?.FirstOrDefault()?.Text;
+
+                    if (!string.IsNullOrEmpty(translatedQuery))
                     {
-                        var result = await translationClient.TranslateAsync(message.Text, "en");
-
-                        var translatedQuery = result?.Translations?.FirstOrDefault()?.Text;
-
-                        if (!string.IsNullOrEmpty(translatedQuery))
-                        {
-                            query = translatedQuery;
-                        }
+                        query = translatedQuery;
                     }
                 }
                 catch (Exception ex)
                 {
-                    await context.PostAsync($"RespondWithTranslatedReply Exception: {ex.Message}");
+                    var replyText = $"RespondWithTranslatedReply Exception: {ex.Message}";
+                    await context.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
                 }
             }
             else
@@ -108,53 +105,61 @@ namespace ArtGalleryCRMSupportBot.Dialogs
 
             // ******************************* Cognitive Services - LUIS (Natural Language Understanding) API ******************************* //
 
-            using (var luisClient = new LUISRuntimeClient(new ApiKeyServiceClientCredentials(SubscriptionKeys.LuisPredictionKey)))
+            using var luisClient = new LUISRuntimeClient(new ApiKeyServiceClientCredentials(SubscriptionKeys.LuisPredictionKey));
+
+            luisClient.Endpoint = SubscriptionKeys.LuisEndpoint;
+
+            // Prepare a prediction request
+            var predictionRequest = new PredictionRequest
             {
-                luisClient.Endpoint = SubscriptionKeys.LuisEndpoint;
+                Query = query
+            };
 
-                // Create prediction client
-                var prediction = new Prediction(luisClient);
+            // Request a prediction, returns a PredictionResponse
+            var predictionResponse = await luisClient.Prediction.GetSlotPredictionAsync(
+                Guid.Parse(SubscriptionKeys.LuisAppId),
+                "production",
+                predictionRequest,
+                verbose: true,
+                showAllIntents: true,
+                log: true,
+                cancellationToken: cancellationToken);
 
-                // get prediction from LUIS using spell correction and Sentiment enabled (Sentiment is enabled in the LUIS portal Manage -> PublishSettings)
-                var luisResult = await prediction.ResolveAsync(
-                    appId: SubscriptionKeys.LuisAppId,
-                    query: query,
-                    timezoneOffset: null,
-                    verbose: true,
-                    staging: false,
-                    spellCheck: true,
-                    bingSpellCheckSubscriptionKey: SubscriptionKeys.BingSpellCheckKey,
-                    log: false,
-                    cancellationToken: CancellationToken.None);
+            // You will get a full list of intents. For the purposes of this demo, we'll just use the highest scoring intent.
+            var topScoringIntent = predictionResponse.Prediction.TopIntent;
 
-                // You will get a full list of intents. For the purposes of this demo, we'll just use the highest scoring intent.
-                var topScoringIntent = luisResult?.TopScoringIntent.Intent;
-
-                // Respond to the user depending on the detected intent of their query
-                var respondedToQuery = await RespondWithEnglishAsync(context, topScoringIntent, languageCode);
+            // Respond to the user depending on the detected intent of their query
+            var respondedToQuery = await RespondWithEnglishAsync(context, topScoringIntent, languageCode, cancellationToken);
 
 
-                // ******************************* Cognitive Services - Sentiment Analysis  ******************************* //
+            // ******************************* Cognitive Services - Sentiment Analysis  ******************************* //
 
-                // You can get the user's sentiment by:
-                // 1. Make a separate call to Cognitive Services using "await textAnalyticsClient.SentimentAsync()"
-                // or
-                // 2. Enable Sentiment in the LUIS portal (Manage -> PublishSettings -> 'Use sentiment analysis')
+            // Only evaluate sentiment if we've given a meaningful reply (and not connection or service error messages).
+            if (respondedToQuery)
+            {
+                // Use Text Analytics Sentiment analysis
+                var sentimentResult = await textAnalyticsClient.SentimentAsync(
+                    multiLanguageBatchInput: new MultiLanguageBatchInput(new List<MultiLanguageInput>
+                    {
+                        new MultiLanguageInput(id:"1", text:query, language:languageCode)
+                    }),
+                    cancellationToken: cancellationToken);
 
-                // The 2nd option saves you a round trip because sentiment will already be in the LuisResult object!
-
-                // Only evaluate sentiment if we've given a meaningful reply (and not connection or service error messages).
-                if (respondedToQuery)
+               
+                if (sentimentResult?.Documents?.Count > 0)
                 {
-                    // Use the sentiment score, the range is 0 (angriest) to 1 (happiest)
-                    await EvaluateAndRespondToSentimentAsync(context, luisResult?.SentimentAnalysis, languageCode);
+                    await context.TraceActivityAsync("SentimentAsync Trace", sentimentResult.Documents[0], "SentimentBatchResultItem", cancellationToken: cancellationToken);
+
+                    SentimentBatchResultItem sentimentItem = sentimentResult.Documents[0];
+
+                    // Use the sentiment score to determine if we need to react, the range is 0 (angriest) to 1 (happiest)
+                    await EvaluateAndRespondToSentimentAsync(context, sentimentItem, languageCode, cancellationToken);
                 }
             }
-            
-            context.Wait(MessageReceivedAsync);
         }
 
-        private static async Task<bool> RespondWithEnglishAsync(IBotToUser context, string intent, string languageCode)
+
+        private static async Task<bool> RespondWithEnglishAsync(ITurnContext<IMessageActivity> context, string intent, string languageCode, CancellationToken cancellationToken)
         {
             var responseText = string.Empty;
 
@@ -213,8 +218,8 @@ namespace ArtGalleryCRMSupportBot.Dialogs
                     }
                 }
 
-                responseText = string.IsNullOrEmpty(joke) 
-                    ? "My funny bone doesn't appear to be working right now. Try again later :D" 
+                responseText = string.IsNullOrEmpty(joke)
+                    ? "My funny bone doesn't appear to be working right now. Try again later :D"
                     : joke;
             }
 
@@ -239,16 +244,17 @@ namespace ArtGalleryCRMSupportBot.Dialogs
 
             if (!string.IsNullOrEmpty(responseText))
             {
-                await context.PostAsync(responseText);
+                await context.SendActivityAsync(MessageFactory.Text(responseText, responseText), cancellationToken);
                 return true;
             }
 
-            await context.PostAsync("I'm sorry, I wasn't able to understand or locate what you're looking for. Try again with specific questions about employees, customers, products or orders.");
+            var replyText = $"I'm sorry, I wasn't able to understand or locate what you're looking for. Try again with specific questions about employees, customers, products or orders.";
+            await context.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
 
             return false;
         }
 
-        private static async Task EvaluateAndRespondToSentimentAsync(IBotToUser context, Sentiment sentiment, string languageCode)
+        private static async Task EvaluateAndRespondToSentimentAsync(ITurnContext<IMessageActivity> context, SentimentBatchResultItem sentiment, string languageCode, CancellationToken cancellationToken)
         {
             // If there's no Sentiment object or score value, quit now.
             if (sentiment?.Score == null)
@@ -277,7 +283,7 @@ namespace ArtGalleryCRMSupportBot.Dialogs
                 {
                     return;
                 }
-                
+
                 // Check to see if we need to translate the response.
                 if (languageCode != "en")
                 {
@@ -299,12 +305,14 @@ namespace ArtGalleryCRMSupportBot.Dialogs
                 }
 
                 // Reply with the sentiment response.
-                await context.PostAsync(sentimentResponse);
+                await context.SendActivityAsync(MessageFactory.Text(sentimentResponse, sentimentResponse), cancellationToken);
             }
             catch (Exception ex)
             {
-                await context.PostAsync($"EvaluateAndRespondToSentimentAsync Exception: {ex.Message}");
+                var replyText = $"EvaluateAndRespondToSentimentAsync Exception: {ex.Message}";
+                await context.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
             }
         }
+
     }
 }
