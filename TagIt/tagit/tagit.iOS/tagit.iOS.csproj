@@ -92,6 +92,7 @@
     <CodesignProvision>iOS Distribution TelerikTagit</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />

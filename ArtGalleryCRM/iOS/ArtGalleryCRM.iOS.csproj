@@ -45,6 +45,7 @@
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <CodesignProvision>UI for Xamarin CRM Demo Distribution Profile</CodesignProvision>
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
