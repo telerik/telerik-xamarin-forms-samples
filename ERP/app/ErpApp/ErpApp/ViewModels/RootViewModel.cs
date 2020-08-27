@@ -13,6 +13,7 @@ namespace ErpApp.ViewModels
             this.navigationService = navigationService;
         }
 
+        private bool isNavigationInitialized;
         private IMvxNavigationService navigationService;
 
         public override void ViewAppearing()
@@ -24,6 +25,9 @@ namespace ErpApp.ViewModels
 
         private async Task InitializeViewModels()
         {
+            if (this.isNavigationInitialized) { return; }
+            this.isNavigationInitialized = true;
+
             await navigationService.Navigate<DashboardPageViewModel>();
             if (Device.Idiom == TargetIdiom.Phone)
             {
