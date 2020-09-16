@@ -97,6 +97,8 @@ namespace QSF.Examples.DatePickerControl.ConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public Command BookHotelRoomCommand { get; }
 
         public bool IsHeaderVisible

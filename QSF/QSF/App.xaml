@@ -12,6 +12,7 @@
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:telerikConversationalUI="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
              xmlns:telerikPdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
+             xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor"
              xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
              xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:effects="clr-namespace:QSF.Effects"
@@ -28,6 +29,7 @@
                 <ResourceDictionary MergedWith="dataGrid:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="telerikConversationalUI:TelerikThemeStyles"/>
                 <ResourceDictionary MergedWith="telerikPdfViewer:TelerikThemeStyles"/>
+                <ResourceDictionary MergedWith="telerikRichTextEditor:TelerikThemeStyles"/>
             </ResourceDictionary.MergedDictionaries>
 
             <Color x:Key="HeaderBackgroundsColor">#4A4E52</Color>
@@ -109,6 +111,10 @@
             <x:String x:Key="CropSquareIcon">&#xE86D;</x:String>
             <x:String x:Key="CropCircleIcon">&#xE86E;</x:String>
             <x:String x:Key="ExternalLinkIcon">&#xF08E;</x:String>
+            <x:String x:Key="CheckIcon">&#xe876;</x:String>
+            <x:String x:Key="OpenIcon">&#xe829;</x:String>
+            <x:String x:Key="SaveIcon">&#xe87B;</x:String>
+            <x:String x:Key="ShareIcon">&#xe87C;</x:String>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">telerikfontexamples</On>
@@ -245,6 +251,7 @@
                                              RightButtonText="{StaticResource Key=ContextMenuButtonIcon}"
                                              LeftButtonCommand="{TemplateBinding Path=BindingContext.AppBarLeftButtonCommand}"
                                              MiddleButtonCommand="{TemplateBinding Path=BindingContext.AppBarMiddleButtonCommand}"
+                                             IsHintOpen="{TemplateBinding Path=BindingContext.IsPopupHintOpen}"
                                              RightButtonCommand="{TemplateBinding Path=BindingContext.AppBarRightButtonCommand}"/>
 
                             <ContentPresenter Grid.Row="1" />
@@ -260,7 +267,7 @@
                                         <effects:NoAllCapsButtonEffect />
                                     </telerikInput:RadButton.Effects>
                                 </telerikInput:RadButton>
-                                
+
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Change Theme" FontSize="13"
                                                     IsVisible="{TemplateBinding Path=BindingContext.CanChangeTheme}"
                                                     Command="{TemplateBinding Path=BindingContext.NavigateToThemesCommand}" HorizontalOptions="Fill">
@@ -330,7 +337,7 @@
 
                     <slideView:SlideViewIndicators Owner="{TemplateBinding}" Spacing="{TemplateBinding Path=IndicatorsSpacing}"
                                                    SelectedIndicatorTemplate="{TemplateBinding SelectedIndicatorTemplate}" IndicatorTemplate="{TemplateBinding IndicatorTemplate}"
-                                                   IsVisible="{TemplateBinding ShowIndicators}" VerticalOptions="End" HorizontalOptions="Center" InputTransparent="True" Margin="0, 0, 0, 10"/>
+                                                   IsVisible="{TemplateBinding ShowIndicators}" VerticalOptions="End" HorizontalOptions="Center" InputTransparent="True"/>
                 </Grid>
             </ControlTemplate>
         </ResourceDictionary>

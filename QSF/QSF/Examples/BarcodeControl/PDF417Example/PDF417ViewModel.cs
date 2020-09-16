@@ -21,6 +21,8 @@ namespace QSF.Examples.BarcodeControl.PDF417Example
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public string Value
         {
             get

@@ -8,8 +8,6 @@ namespace QSF.Examples.BarcodeControl.QRCodeExample
 {
     public class QRCodeViewModel : ExampleViewModel
     {
-        private const string ConfigurationMessage = "To configure the QR Code please use the icon in the navigation bar";
-
         private QRCodeConfigurationViewModel configurationViewModel;
         private string value;
         private int version;
@@ -20,14 +18,11 @@ namespace QSF.Examples.BarcodeControl.QRCodeExample
         private string applicationIndicator;
         private bool isValid;
         private string errorMessage;
-        private bool showErrorMessage;
-        private string messageText;
 
         public QRCodeViewModel()
         {
             this.configurationViewModel = new QRCodeConfigurationViewModel();
             this.ECL = ErrorCorrectionLevel.H;
-            this.MessageText = ConfigurationMessage;
         }
 
         public override bool HasConfiguration
@@ -37,6 +32,8 @@ namespace QSF.Examples.BarcodeControl.QRCodeExample
                 return true;
             }
         }
+
+        public override bool IsPopupHintOpen => true;
 
         public string Value
         {
@@ -183,42 +180,8 @@ namespace QSF.Examples.BarcodeControl.QRCodeExample
             }
         }
 
-        public bool ShowErrorMessage
-        {
-            get
-            {
-                return this.showErrorMessage;
-            }
-            set
-            {
-                if (this.showErrorMessage != value)
-                {
-                    this.showErrorMessage = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
-        public string MessageText
-        {
-            get
-            {
-                return this.messageText;
-            }
-            set
-            {
-                if (this.messageText != value)
-                {
-                    this.messageText = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
         protected override Task NavigateToConfigurationOverride()
         {
-            this.ShowErrorMessage = false;
-            this.MessageText = ConfigurationMessage;
             return this.NavigationService.NavigateToConfigurationAsync(this.configurationViewModel);
         }
 
@@ -316,8 +279,6 @@ namespace QSF.Examples.BarcodeControl.QRCodeExample
         {
             if (!this.IsValid)
             {
-                this.MessageText = this.ErrorMessage;
-                this.ShowErrorMessage = true;
                 var oldConfiguration = this.configurationViewModel;
 
                 this.configurationViewModel = new QRCodeConfigurationViewModel();

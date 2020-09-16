@@ -38,9 +38,6 @@ namespace QSF.Examples.CalendarControl.SpecialSlotsExample
                 {
                     if (value == null)
                     {
-                        var oldSelectedItem = this.selectedMode;
-                        this.selectedMode = value;
-                        this.SelectedMode = oldSelectedItem;
                         return;
                     }
 

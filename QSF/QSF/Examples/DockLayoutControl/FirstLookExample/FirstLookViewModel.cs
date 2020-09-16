@@ -65,6 +65,8 @@ namespace QSF.Examples.DockLayoutControl.FirstLookExample
 
         public override bool HasConfiguration => true;
 
+        public override bool IsPopupHintOpen => true;
+
         protected override Task NavigateToConfigurationOverride()
         {
             return this.NavigationService.NavigateToConfigurationAsync(this.configurationViewModel);

@@ -82,23 +82,13 @@
                 </primitives:RadBorder>
             </DataTemplate>
 
-            <converters:ConditionalValueConverterParameter x:Key="MessageBackgroundColorParameter" FalseValue="{StaticResource DarkBackgroundColor}" TrueValue="{StaticResource ErrorBackgroundColor}" />
-            <converters:ConditionalValueConverterParameter x:Key="MessageErrorColorParameter" FalseValue="{StaticResource AccentColor}" TrueValue="{StaticResource ErrorColor}" />
-            <converters:ConditionalValueConverterParameter x:Key="MessageHeaderTextParameter" FalseValue="Configuration" TrueValue="Error" />
-            <converters:ConditionalValueConverterParameter x:Key="MessageIconParameter" FalseValue="{StaticResource EmptyGearIcon}" TrueValue="{StaticResource ExclamationMarkIcon}" />
-
             <Style TargetType="primitives:AccordionItemHeader">
                 <Setter Property="IndicatorMargin" Value="10" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
+    <Grid>
         <Button CornerRadius="8"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
@@ -120,30 +110,5 @@
                                      AnimationType="{Binding Path=AnimationType}"/>
             </primitives:RadPopup.Popup>
         </Button>
-
-        <primitives:RadBorder BackgroundColor="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageBackgroundColorParameter}}"
-                              CornerRadius="5" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Center" x:Name="border">
-            <primitives:RadBorder.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Path=AppBarMiddleButtonCommand}" />
-            </primitives:RadBorder.GestureRecognizers>
-            <Grid Margin="20, 30">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-
-                <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageIconParameter}}" 
-                       FontFamily="{StaticResource IconsFont}"
-                       TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageErrorColorParameter}}"
-                       HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
-
-                <StackLayout Grid.Column="1" VerticalOptions="Center">
-                    <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageHeaderTextParameter}}" 
-                           TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource ConditionalValueConveter}, ConverterParameter={StaticResource MessageErrorColorParameter}}"
-                           Style="{StaticResource HeaderLabelStyle}" Margin="0"/>
-                    <Label Text="{Binding Path=MessageText}" LineBreakMode="WordWrap" Style="{StaticResource BodyLabelStyle}" />
-                </StackLayout>
-            </Grid>
-        </primitives:RadBorder>
     </Grid>
 </ContentView>

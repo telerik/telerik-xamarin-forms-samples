@@ -12,6 +12,7 @@
         <ResourceDictionary>
             <Color x:Key="MainColor">#FC5173</Color>
             <Color x:Key="MainColorTranslucent">#4DFD8BA2</Color>
+            <Color x:Key="MainSearchResultFillColor">#AAFC5173</Color>
             <Style TargetType="telerikPrimitives:RadBusyIndicator">
                 <Setter Property="AnimationContentColor" Value="{StaticResource MainColor}" />
             </Style>
@@ -35,12 +36,24 @@
                     <telerikPdfViewer:SelectionSettings SelectionIndicatorColor="{StaticResource MainColor}"
                                                         SelectionFill="{StaticResource MainColorTranslucent}" />
                 </telerikPdfViewer:RadPdfViewer.SelectionSettings>
+                <telerikPdfViewer:RadPdfViewer.SearchSettings>
+                    <telerikPdfViewer:SearchSettings MainSearchResultFill="{StaticResource MainSearchResultFillColor}"
+                                                     SearchResultsFill="{StaticResource MainColorTranslucent}" />
+                </telerikPdfViewer:RadPdfViewer.SearchSettings>
             </telerikPdfViewer:RadPdfViewer>
             <telerikPdfViewer:RadPdfViewerToolbar PdfViewer="{Binding Source={x:Reference pdfViewer}}" 
+                                                  IsScrollable="True"
                                                   Grid.Row="1">
                 <telerikPdfViewer:NavigateToPreviousPageToolbarItem />
                 <telerikPdfViewer:NavigateToNextPageToolbarItem />
-                <telerikPdfViewer:ToggleLayoutModeToolbarItem  />
+                <telerikPdfViewer:ToggleLayoutModeToolbarItem />
+                <telerikPdfViewer:SearchToolbarItem TextSearchTrigger="TextChanged">
+                    <telerikPdfViewer:SearchToolbarItem.ToastStyle>
+                        <Style TargetType="telerikPdfViewer:SearchToast">
+                            <Setter Property="Fill" Value="{StaticResource MainColor}" />
+                        </Style>
+                    </telerikPdfViewer:SearchToolbarItem.ToastStyle>
+                </telerikPdfViewer:SearchToolbarItem>
                 <telerikPdfViewer:NavigateToPageToolbarItem HorizontalOptions="End" />
             </telerikPdfViewer:RadPdfViewerToolbar>
         </Grid>

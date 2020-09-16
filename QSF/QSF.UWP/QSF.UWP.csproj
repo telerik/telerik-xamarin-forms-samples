@@ -11,7 +11,7 @@
     <AssemblyName>QSF.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -226,6 +226,9 @@
     <Reference Include="Telerik.XamarinForms.Primitives">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.RichTextEditor">
+      <HintPath>..\..\Binaries\UWP\Telerik.XamarinForms.RichTextEditor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
       <SpecificVersion>False</SpecificVersion>
@@ -1144,6 +1147,41 @@
     <Content Include="Assets\colors.scale-150.png" />
     <Content Include="Assets\colors.scale-200.png" />
     <Content Include="Assets\colors.scale-400.png" />
+    <Content Include="Assets\ComboBox_Configuration.scale-100.png" />
+    <Content Include="Assets\ComboBox_Configuration.scale-125.png" />
+    <Content Include="Assets\ComboBox_Configuration.scale-150.png" />
+    <Content Include="Assets\ComboBox_Configuration.scale-200.png" />
+    <Content Include="Assets\ComboBox_Configuration.scale-400.png" />
+    <Content Include="Assets\ComboBox_Configuration_HeaderImage.scale-100.png" />
+    <Content Include="Assets\ComboBox_Configuration_HeaderImage.scale-125.png" />
+    <Content Include="Assets\ComboBox_Configuration_HeaderImage.scale-150.png" />
+    <Content Include="Assets\ComboBox_Configuration_HeaderImage.scale-200.png" />
+    <Content Include="Assets\ComboBox_Configuration_HeaderImage.scale-400.png" />
+    <Content Include="Assets\ComboBox_Customization.scale-100.png" />
+    <Content Include="Assets\ComboBox_Customization.scale-125.png" />
+    <Content Include="Assets\ComboBox_Customization.scale-150.png" />
+    <Content Include="Assets\ComboBox_Customization.scale-200.png" />
+    <Content Include="Assets\ComboBox_Customization.scale-400.png" />
+    <Content Include="Assets\ComboBox_Customization_HeaderImage.scale-100.png" />
+    <Content Include="Assets\ComboBox_Customization_HeaderImage.scale-125.png" />
+    <Content Include="Assets\ComboBox_Customization_HeaderImage.scale-150.png" />
+    <Content Include="Assets\ComboBox_Customization_HeaderImage.scale-200.png" />
+    <Content Include="Assets\ComboBox_Customization_HeaderImage.scale-400.png" />
+    <Content Include="Assets\ComboBox_FirstLook.scale-100.png" />
+    <Content Include="Assets\ComboBox_FirstLook.scale-125.png" />
+    <Content Include="Assets\ComboBox_FirstLook.scale-150.png" />
+    <Content Include="Assets\ComboBox_FirstLook.scale-200.png" />
+    <Content Include="Assets\ComboBox_FirstLook.scale-400.png" />
+    <Content Include="Assets\ComboBox_FirstLook_HeaderImage.scale-100.png" />
+    <Content Include="Assets\ComboBox_FirstLook_HeaderImage.scale-125.png" />
+    <Content Include="Assets\ComboBox_FirstLook_HeaderImage.scale-150.png" />
+    <Content Include="Assets\ComboBox_FirstLook_HeaderImage.scale-200.png" />
+    <Content Include="Assets\ComboBox_FirstLook_HeaderImage.scale-400.png" />
+    <Content Include="Assets\Config_Text.scale-100.png" />
+    <Content Include="Assets\Config_Text.scale-125.png" />
+    <Content Include="Assets\Config_Text.scale-150.png" />
+    <Content Include="Assets\Config_Text.scale-200.png" />
+    <Content Include="Assets\Config_Text.scale-400.png" />
     <Content Include="Assets\CRM_App_Logo.scale-100.png" />
     <Content Include="Assets\CRM_App_Logo.scale-125.png" />
     <Content Include="Assets\CRM_App_Logo.scale-150.png" />
@@ -1666,6 +1704,21 @@
     <Content Include="Assets\Popup_Modal.scale-150.png" />
     <Content Include="Assets\Popup_Modal.scale-200.png" />
     <Content Include="Assets\Popup_Modal.scale-400.png" />
+    <Content Include="Assets\RichTextEditor_Customization.scale-100.png" />
+    <Content Include="Assets\RichTextEditor_Customization.scale-125.png" />
+    <Content Include="Assets\RichTextEditor_Customization.scale-150.png" />
+    <Content Include="Assets\RichTextEditor_Customization.scale-200.png" />
+    <Content Include="Assets\RichTextEditor_Customization.scale-400.png" />
+    <Content Include="Assets\RichTextEditor_FirstLook.scale-100.png" />
+    <Content Include="Assets\RichTextEditor_FirstLook.scale-125.png" />
+    <Content Include="Assets\RichTextEditor_FirstLook.scale-150.png" />
+    <Content Include="Assets\RichTextEditor_FirstLook.scale-200.png" />
+    <Content Include="Assets\RichTextEditor_FirstLook.scale-400.png" />
+    <Content Include="Assets\RichTextEditor_ImportExport.scale-100.png" />
+    <Content Include="Assets\RichTextEditor_ImportExport.scale-125.png" />
+    <Content Include="Assets\RichTextEditor_ImportExport.scale-150.png" />
+    <Content Include="Assets\RichTextEditor_ImportExport.scale-200.png" />
+    <Content Include="Assets\RichTextEditor_ImportExport.scale-400.png" />
     <Content Include="Assets\Scheduler_Configuration.scale-100.png" />
     <Content Include="Assets\Scheduler_Configuration.scale-125.png" />
     <Content Include="Assets\Scheduler_Configuration.scale-150.png" />
@@ -1693,6 +1746,11 @@
     <Content Include="Assets\Scheduler_Appointments.scale-400.png" />
     <Content Include="Assets\selected_item.scale-125.png" />
     <Content Include="Assets\selected_item.scale-150.png" />
+    <Content Include="Assets\Scheduler_Customization.scale-100.png" />
+    <Content Include="Assets\Scheduler_Customization.scale-125.png" />
+    <Content Include="Assets\Scheduler_Customization.scale-150.png" />
+    <Content Include="Assets\Scheduler_Customization.scale-200.png" />
+    <Content Include="Assets\Scheduler_Customization.scale-400.png" />
     <Content Include="Assets\SideDrawer_Menu.png" />
     <Content Include="Assets\docx_file.scale-100.png" />
     <Content Include="Assets\docx_file.scale-200.png" />
@@ -2225,7 +2283,7 @@
       <Version>1.6.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.1.5</Version>
+      <Version>6.2.9</Version>
     </PackageReference>
     <PackageReference Include="NETStandard.Library">
       <Version>2.0.3</Version>
@@ -2234,7 +2292,7 @@
       <Version>11.0.2</Version>
     </PackageReference>
     <PackageReference Include="Plugin.Permissions">
-      <Version>3.0.0.12</Version>
+      <Version>6.0.1</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp">
       <Version>1.68.0</Version>
@@ -2243,7 +2301,7 @@
       <Version>1.68.0</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
-      <Version>4.0.1.5</Version>
+      <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
@@ -2258,7 +2316,10 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.1.0.581479</Version>
+      <Version>4.6.0.726</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Plugin.FilePicker">
+      <Version>2.1.41</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

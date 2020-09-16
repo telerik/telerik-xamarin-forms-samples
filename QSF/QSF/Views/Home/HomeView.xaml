@@ -23,8 +23,28 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}" Aspect="Fill" BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
-                           HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="160" HeightRequest="160" Margin="10" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}"
+                                                    Aspect="Fill"
+                                                    BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
+                                                    HorizontalOptions="Start"
+                                                    VerticalOptions="Start"
+                                                    WidthRequest="160"
+                                                    HeightRequest="160"
+                                                    Margin="10" />
+                        <StackLayout Grid.Row="1"
+                                     Orientation="Horizontal"
+                                     Spacing="0"
+                                     Margin="10, 0, 0, 10">
+                            <Label Text="NEW" IsVisible="{Binding Path=IsNew}" Style="{StaticResource TagLabelStyle}" />
+                            <Label Text="BETA" IsVisible="{Binding Path=IsBeta}" Style="{StaticResource TagLabelStyle}" />
+                            <Label Text="CTP" IsVisible="{Binding Path=IsCTP}" Style="{StaticResource TagLabelStyle}" TextColor="{StaticResource Key=CTPTextColor}" />
+                        </StackLayout>
+                    </Grid>
 
                     <Grid Grid.Column="1" Margin="0, 0, 10, 10">
                         <Grid.RowDefinitions>
@@ -55,7 +75,7 @@
                 <Setter Property="BorderRadius" Value="18" />
                 <Setter Property="HeightRequest" Value="36" />
             </Style>
-            
+
             <OnPlatform x:Key="Margin" x:TypeArguments="Thickness">
                 <On Platform="Android" Value="6, 6, 6, 12" />
                 <On Platform="iOS" Value="0, 6, 0, 12" />
@@ -101,7 +121,7 @@
                                             <On Platform="UWP" Value="10, 6, 10, 6" />
                                         </OnPlatform>
                                     </StackLayout.Margin>
-                                    
+
                                     <Label Text="Featured Controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}" />
 
                                     <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Featured}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
@@ -148,7 +168,7 @@
                                                 <Label Text="CTP" IsVisible="{Binding Path=IsCTP}" Style="{StaticResource TagLabelStyle}" TextColor="{StaticResource Key=CTPTextColor}" />
                                                 <Label Text="NEW" IsVisible="{Binding Path=IsNew}" Style="{StaticResource TagLabelStyle}" />
                                             </StackLayout>
-                                            
+
                                             <Label Text="UPDATED" IsVisible="{Binding Path=IsUpdated}" Style="{StaticResource TagLabelStyle}" />
                                         </StackLayout>
                                     </telerikListView:ListViewTemplateCell.View>

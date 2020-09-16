@@ -4,6 +4,8 @@ using QSF.Services.Toast;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using QSF.Services.DeviceInfo;
+using Android.Graphics;
+using Color = Xamarin.Forms.Color;
 
 [assembly: Dependency(typeof(ToastMessageService))]
 namespace QSF.Droid.Services.Toast
@@ -16,7 +18,17 @@ namespace QSF.Droid.Services.Toast
         {
             var toast = Android.Widget.Toast.MakeText(Android.App.Application.Context, message, ToastLength.Long);
 
-            toast.View.Background.SetColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Q)
+            {
+                toast.View.Background.SetColorFilter(new BlendModeColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), BlendMode.SrcIn));
+            }
+            else
+            {
+#pragma warning disable CS0618 // Type or member is obsolete
+                toast.View.Background.SetColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
+#pragma warning restore CS0618 // Type or member is obsolete
+            }
+
 
             var textView = toast.View.FindViewById<TextView>(Android.Resource.Id.Message);
             textView.SetTextColor(Color.White.ToAndroid());
@@ -33,7 +45,16 @@ namespace QSF.Droid.Services.Toast
         {
             var toast = Android.Widget.Toast.MakeText(Android.App.Application.Context, message, ToastLength.Short);
 
-            toast.View.Background.SetColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Q)
+            {
+                toast.View.Background.SetColorFilter(new BlendModeColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), BlendMode.SrcIn));
+            }
+            else
+            {
+#pragma warning disable CS0618 // Type or member is obsolete
+                toast.View.Background.SetColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
+#pragma warning restore CS0618 // Type or member is obsolete
+            }
 
             var textView = toast.View.FindViewById<TextView>(Android.Resource.Id.Message);
             textView.SetTextColor(Color.White.ToAndroid());

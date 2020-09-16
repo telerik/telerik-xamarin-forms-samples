@@ -32,6 +32,9 @@ namespace QSF
             DependencyService.Register<ISerializationService, SerializationService>();
             DependencyService.Register<IBackdoorService, BackdoorService>();
             DependencyService.Register<IMessageService, MessageService>();
+            DependencyService.Register<IDocumentService, DocumentService>();
+            DependencyService.Register<IFilePickerService, FilePickerService>();
+            DependencyService.Register<IFileShareService, FileShareService>();
         }
 
         private Task InitNavigation()

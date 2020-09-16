@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local="clr-namespace:QSF.Examples.CalendarControl.SchedulingUICustomizationExample"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.CalendarControl.SchedulingUICustomizationExample.SchedulingUICustomizationView">
+    <ContentView.Resources>
+        <local:PriorityToColorConverter x:Key="PriorityToColorConverter" />
+        <local:PriorityToIconConverter x:Key="PriorityToIconConverter" />
+
+        <Style TargetType="Label" x:Key="RoomLabelStyle">
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="Small" />
+        </Style>
+
+        <Style TargetType="BoxView" x:Key="RoomAdornerStyle">
+            <Setter Property="HeightRequest" Value="4" />
+            <Setter Property="CornerRadius" Value="2" />
+        </Style>
+
+        <local:AppointmentTemplateSelector x:Key="AppointmentTemplateSelector">
+            <local:AppointmentTemplateSelector.DefaultTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="Transparent"
+                          Padding="5, 6, 17, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Spacing="0">
+                            <Label Text="{Binding Title}"
+                                   LineBreakMode="WordWrap"
+                                   FontAttributes="None"
+                                   FontSize="Small"/>
+
+                            <Label Text="{Binding Location.Number}" 
+                                   TextColor="{OnPlatform Default='#50000000', Android='#CCFFFFFF'}" 
+                                   FontSize="Small"
+                                   FontAttributes="Italic"/>
+                        </StackLayout>
+                        <primitives:RadBorder Grid.Column="1"
+                                              WidthRequest="32" 
+                                              VerticalOptions="Center"
+                                              HorizontalOptions="End"
+                                              BackgroundColor="White"
+                                              CornerRadius="16"
+                                              HeightRequest="32">
+
+                            <Label Text="{Binding Priority, Converter={StaticResource PriorityToIconConverter}}"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontFamily="{StaticResource IconsFont}"
+                                   TextColor="{Binding Priority, Converter={StaticResource PriorityToColorConverter}}"/>
+
+                        </primitives:RadBorder>
+                    </Grid>
+                </DataTemplate>
+            </local:AppointmentTemplateSelector.DefaultTemplate>
+        </local:AppointmentTemplateSelector>
+    </ContentView.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="44"/>
+        </Grid.RowDefinitions>
+
+        <input:RadCalendar x:Name="calendar"
+                           ViewMode="Day"
+                           IsAddAppointmentButtonVisible="True"
+                           AppointmentsSource="{Binding AppointmentsSource}"
+                           SchedulingUiEnabled="True"
+                           ViewChanged="Calendar_ViewChanged">
+            <input:RadCalendar.DayViewSettings>
+                <input:DayViewSettings AppointmentContentTemplate="{StaticResource AppointmentTemplateSelector}"/>
+            </input:RadCalendar.DayViewSettings>
+        </input:RadCalendar>
+
+        <Grid Grid.Row="1"
+              BackgroundColor="#F7F7F7"
+              Padding="44, 0, 27, 0">
+
+            <StackLayout Orientation="Horizontal"
+                         Spacing="0">
+
+                <CheckBox Color="#0E88F2" 
+                          IsChecked="{Binding IsRoom201Checked}"/>
+
+                <StackLayout VerticalOptions="Center" 
+                             Spacing="0">
+                    <Label Text="201"
+                           Style="{StaticResource RoomLabelStyle}" />
+                    <BoxView Style="{StaticResource RoomAdornerStyle}"
+                             Color="#0E88F2"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                         Spacing="0"
+                         Grid.Column="1">
+
+                <CheckBox Color="#0E88F2"
+                          IsChecked="{Binding IsRoom301Checked}" />
+
+                <StackLayout VerticalOptions="Center" 
+                             Spacing="0">
+                    <Label Text="301"
+                           Style="{StaticResource RoomLabelStyle}" />
+                    <BoxView Style="{StaticResource RoomAdornerStyle}"
+                             Color="#FF6F00" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                         Spacing="0"
+                         Grid.Column="2">
+
+                <CheckBox Color="#0E88F2" 
+                          IsChecked="{Binding IsRoom302Checked}" />
+
+                <StackLayout VerticalOptions="Center" 
+                             Spacing="0">
+                    <Label Text="302"
+                           Style="{StaticResource RoomLabelStyle}" />
+                    <BoxView Style="{StaticResource RoomAdornerStyle}"
+                             Color="#FFAC3E" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentView>

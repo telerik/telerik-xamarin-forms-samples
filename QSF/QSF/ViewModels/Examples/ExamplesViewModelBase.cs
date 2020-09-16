@@ -135,6 +135,14 @@ namespace QSF.ViewModels
             }
         }
 
+        public virtual bool IsPopupHintOpen
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         public bool CanChangeTheme
         {
             get

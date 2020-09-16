@@ -177,6 +177,8 @@ namespace QSF.Examples.CalendarControl.MultiDayViewConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public ICommand AppointmentTappedCommand { get; private set; }
         public ICommand TimeSlotTappedCommand { get; private set; }
 

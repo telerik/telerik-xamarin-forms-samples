@@ -2,6 +2,7 @@
 using QSF.Services.Configuration;
 using System;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels
@@ -43,7 +44,7 @@ namespace QSF.ViewModels
         {
             AnalyticsHelper.TraceNavigateToCode(this.ExampleInfo.ControlName, this.ExampleInfo.ExampleName);
 
-            Device.OpenUri(new Uri(this.Example.CodeURL));
+            Launcher.OpenAsync(this.Example.CodeURL);
 
             return Task.FromResult(false);
         }

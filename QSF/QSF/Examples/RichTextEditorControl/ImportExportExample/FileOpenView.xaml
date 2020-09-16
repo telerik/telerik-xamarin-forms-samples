@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             x:Class="QSF.Examples.RichTextEditorControl.ImportExportExample.FileOpenView">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout Margin="16, 24"
+                     Spacing="24">
+            <Label Text="Recent Files"
+                   FontSize="18"
+                   TextColor="Black" />
+            <telerikDataControls:RadListView ItemsSource="{Binding FileEntries}"
+                                             SelectedItem="{Binding FileEntry, Mode=TwoWay}">
+                <telerikDataControls:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <telerikListView:ListViewTemplateCell>
+                            <Grid ColumnSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                       Text="{Binding FileName}"
+                                       TextColor="Black"
+                                       FontSize="16"
+                                       VerticalOptions="Center" />
+                                <Label Grid.Column="1"
+                                       IsVisible="{Binding IsSelected}"
+                                       Text="{StaticResource CheckIcon}"
+                                       FontFamily="{StaticResource IconsFont}"
+                                       TextColor="Accent"
+                                       FontSize="16"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </telerikListView:ListViewTemplateCell>
+                    </DataTemplate>
+                </telerikDataControls:RadListView.ItemTemplate>
+                <telerikDataControls:RadListView.LayoutDefinition>
+                    <telerikListView:ListViewLinearLayout ItemLength="44" />
+                </telerikDataControls:RadListView.LayoutDefinition>
+                <telerikDataControls:RadListView.ItemStyle>
+                    <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                       BorderLocation="Bottom"
+                                                       BorderColor="LightGray"
+                                                       BorderWidth="1" />
+                </telerikDataControls:RadListView.ItemStyle>
+                <telerikDataControls:RadListView.PressedItemStyle>
+                    <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                       BorderLocation="Bottom"
+                                                       BorderColor="LightGray"
+                                                       BorderWidth="1" />
+                </telerikDataControls:RadListView.PressedItemStyle>
+                <telerikDataControls:RadListView.SelectedItemStyle>
+                    <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
+                                                       BorderLocation="Bottom"
+                                                       BorderColor="LightGray"
+                                                       BorderWidth="1" />
+                </telerikDataControls:RadListView.SelectedItemStyle>
+            </telerikDataControls:RadListView>
+        </StackLayout>
+        <telerikPrimitives:RadBusyIndicator IsVisible="{Binding IsBusy}"
+                                            IsBusy="{Binding IsBusy}" />
+        <telerikPrimitives:RadBorder Grid.Row="1"
+                                     BackgroundColor="WhiteSmoke"
+                                     BorderColor="LightGray"
+                                     BorderThickness="0, 1, 0, 0">
+            <Grid ColumnSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <telerikInput:RadButton Grid.Column="0"
+                                        Text="Cancel"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding CancelCommand}" />
+                <telerikInput:RadButton Grid.Column="1"
+                                        Text="Open"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding OpenCommand}" />
+            </Grid>
+        </telerikPrimitives:RadBorder>
+    </Grid>
+</ContentPage>

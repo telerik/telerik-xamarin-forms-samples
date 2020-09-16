@@ -10,8 +10,6 @@ namespace QSF.Examples.PopupControl.ConfigurationExample
 {
     public class ConfigurationViewModel : ExampleViewModel
     {
-        private const string ConfigurationMessage = "To configure the Popup please use the icon in the navigation bar";
-
         private PlacementMode placement;
         private double horizontalOffset;
         private double verticalOffset;
@@ -21,8 +19,6 @@ namespace QSF.Examples.PopupControl.ConfigurationExample
         private Easing animationEasing = Easing.Linear;
         private PopupAnimationType animationType = PopupAnimationType.Fade;
         private PopupConfigurationViewModel configurationViewModel;
-        private bool showErrorMessage;
-        private string messageText;
         private bool isFirstStart = true;
 
         public event EventHandler<EventArgs> OpenPopup;
@@ -31,7 +27,6 @@ namespace QSF.Examples.PopupControl.ConfigurationExample
         public ConfigurationViewModel()
         {
             this.configurationViewModel = new PopupConfigurationViewModel();
-            this.MessageText = ConfigurationMessage;
             this.ShowPopupCommand = new Command(p => this.OpenPopup?.Invoke(this, EventArgs.Empty));
             this.ClosePopupCommand = new Command(p => this.ClosePopup?.Invoke(this, EventArgs.Empty));
         }
@@ -44,37 +39,7 @@ namespace QSF.Examples.PopupControl.ConfigurationExample
             }
         }
 
-        public bool ShowErrorMessage
-        {
-            get
-            {
-                return this.showErrorMessage;
-            }
-            set
-            {
-                if (this.showErrorMessage != value)
-                {
-                    this.showErrorMessage = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
-        public string MessageText
-        {
-            get
-            {
-                return this.messageText;
-            }
-            set
-            {
-                if (this.messageText != value)
-                {
-                    this.messageText = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
+        public override bool IsPopupHintOpen => true;
 
         public ICommand ShowPopupCommand { get; private set; }
 
@@ -236,8 +201,6 @@ namespace QSF.Examples.PopupControl.ConfigurationExample
 
         protected override Task NavigateToConfigurationOverride()
         {
-            this.ShowErrorMessage = false;
-            this.MessageText = ConfigurationMessage;
             return this.NavigationService.NavigateToConfigurationAsync(this.configurationViewModel);
         }
     }

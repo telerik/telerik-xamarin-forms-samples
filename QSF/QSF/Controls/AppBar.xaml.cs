@@ -1,4 +1,6 @@
 ﻿using System.Windows.Input;
+using Telerik.XamarinForms.Input;
+using Telerik.XamarinForms.Primitives;
 using Xamarin.Forms;
 
 namespace QSF.Controls
@@ -50,9 +52,22 @@ namespace QSF.Controls
         public static readonly BindableProperty IsRightButtonEnabledProperty =
             BindableProperty.Create(nameof(IsRightButtonEnabled), typeof(bool), typeof(AppBar), true);
 
+        public static readonly BindableProperty IsHintOpenProperty =
+           BindableProperty.Create(nameof(IsHintOpen), typeof(bool), typeof(AppBar), false,
+               propertyChanged: (b, o, n) => ((AppBar)b).IsHintOpenPropertyChanged((bool)n));
+
+        private RadPopup hintPopup;
+        private RadButton appBarMiddleButton;
+
         public AppBar()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            this.appBarMiddleButton = (RadButton)GetTemplateChild("PART_AppBarMiddleButton");
         }
 
         public string Title
@@ -143,6 +158,82 @@ namespace QSF.Controls
         {
             get { return (bool)this.GetValue(IsRightButtonEnabledProperty); }
             set { this.SetValue(IsRightButtonEnabledProperty, value); }
+        }
+
+        public bool IsHintOpen
+        {
+            get { return (bool)this.GetValue(IsHintOpenProperty); }
+            set { this.SetValue(IsHintOpenProperty, value); }
+        }
+
+        private void IsHintOpenPropertyChanged(bool isHintOpen)
+        {
+            if (isHintOpen)
+            {
+                this.InitializeHintPopup();
+                return;
+            }
+
+            if (this.hintPopup != null)
+            {
+                this.hintPopup.IsOpen = false;
+            }
+        }
+
+        private void InitializeHintPopup()
+        {
+            this.hintPopup = new RadPopup();
+            this.hintPopup.IsModal = false;
+            this.hintPopup.OutsideBackgroundColor = Color.FromHex("#BF4B4C4C");
+            this.hintPopup.PlacementTarget = this.appBarMiddleButton;
+            this.hintPopup.PropertyChanged += this.OnHintPopupPropertyChanged;
+
+            var hintImage = new Image();
+            hintImage.Margin = new Thickness(0, 0, 30, 0);
+            hintImage.HorizontalOptions = LayoutOptions.End;
+            hintImage.VerticalOptions = LayoutOptions.Start;
+
+            hintImage.Source = Device.RuntimePlatform == Device.UWP
+                ? new FileImageSource() { File = @"Assets\Config_Text.png" }
+                : new FileImageSource() { File = "Config_Text.png" };
+
+            var imageTapGestureRecognizer = new TapGestureRecognizer();
+            imageTapGestureRecognizer.Command = new Command(() => this.SetValueCore(AppBar.IsHintOpenProperty, false));
+            hintImage.GestureRecognizers.Add(imageTapGestureRecognizer);
+
+            var popupContent = new Grid();
+            popupContent.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Star });
+
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                popupContent.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(2, GridUnitType.Star), });
+            }
+
+            popupContent.Children.Add(hintImage);
+            Grid.SetRow(hintImage, 0);
+
+            this.hintPopup.Content = popupContent;
+            this.hintPopup.IsOpen = true;
+        }
+
+        private void DismissPopup()
+        {
+            if (this.hintPopup == null)
+            {
+                return;
+            }
+
+            this.hintPopup.PlacementTarget = null;
+            this.hintPopup.PropertyChanged -= this.OnHintPopupPropertyChanged;
+            this.hintPopup = null;
+        }
+
+        private void OnHintPopupPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "IsOpen" && !this.hintPopup.IsOpen)
+            {
+                this.DismissPopup();
+            }
         }
     }
 }

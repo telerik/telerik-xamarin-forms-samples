@@ -45,7 +45,12 @@ namespace QSF.Examples.ImageEditorControl
                 return null;
             }
 
-            if (!await PermissionsHelper.RequestPermissionsAsync(Permission.Camera, Permission.Storage))
+            if(!await PermissionsHelper.RequestCameraAccess())
+            {
+                return null;
+            }
+
+            if (!await PermissionsHelper.RequestStorrageAccess())
             {
                 return null;
             }
@@ -64,7 +69,12 @@ namespace QSF.Examples.ImageEditorControl
                 return null;
             }
 
-            if (!await PermissionsHelper.RequestPermissionsAsync(Permission.Photos, Permission.Storage))
+            if (!await PermissionsHelper.RequestPhotosAccess())
+            {
+                return null;
+            }
+
+            if (!await PermissionsHelper.RequestStorrageAccess())
             {
                 return null;
             }

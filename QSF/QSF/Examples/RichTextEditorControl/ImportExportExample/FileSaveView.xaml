@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.RichTextEditorControl.ImportExportExample.FileSaveView">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout Margin="16, 24"
+                     Spacing="24">
+            <Label Text="Save As"
+                   FontSize="18"
+                   TextColor="Black" />
+            <Grid ColumnSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <telerikInput:RadEntry Grid.Column="0"
+                                       Text="{Binding FileName}" />
+                <telerikInput:RadComboBox Grid.Column="1"
+                                          WidthRequest="140"
+                                          DropDownHeight="240"
+                                          VerticalOptions="End"
+                                          IsClearButtonVisible="False"
+                                          ItemsSource="{Binding FileTypes}"
+                                          SelectedItem="{Binding FileType, Mode=TwoWay}"
+                                          DisplayMemberPath="DisplayName" />
+            </Grid>
+        </StackLayout>
+        <telerikPrimitives:RadBusyIndicator IsVisible="{Binding IsBusy}"
+                                            IsBusy="{Binding IsBusy}" />
+        <telerikPrimitives:RadBorder Grid.Row="1"
+                                     BackgroundColor="WhiteSmoke"
+                                     BorderColor="LightGray"
+                                     BorderThickness="0, 1, 0, 0">
+            <Grid ColumnSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <telerikInput:RadButton Grid.Column="0"
+                                        Text="Cancel"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding CancelCommand}" />
+                <telerikInput:RadButton Grid.Column="1"
+                                        Text="Save"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding SaveCommand}" />
+            </Grid>
+        </telerikPrimitives:RadBorder>
+    </Grid>
+</ContentPage>

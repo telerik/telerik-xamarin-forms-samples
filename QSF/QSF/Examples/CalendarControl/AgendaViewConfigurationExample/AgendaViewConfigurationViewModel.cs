@@ -194,6 +194,8 @@ namespace QSF.Examples.CalendarControl.AgendaViewConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         private ObservableCollection<IAppointment> GenerateAppointments()
         {
             var appointments = new ObservableCollection<IAppointment>()

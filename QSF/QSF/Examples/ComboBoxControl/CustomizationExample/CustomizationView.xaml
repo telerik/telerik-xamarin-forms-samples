@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:example="clr-namespace:QSF.Examples.ComboBoxControl.CustomizationExample"
+             x:Class="QSF.Examples.ComboBoxControl.CustomizationExample.CustomizationView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--In UWP the Editable ComboBox should be placed inside ScrollView because of an issue in Xamarin.Forms: https://github.com/xamarin/Xamarin.Forms/issues/10420-->
+        <OnPlatform x:TypeArguments="ContentView">
+            <On Platform="UWP">
+                <example:CustomizationExampleContent/>
+            </On>
+            <On Platform="iOS, Android">
+                <ContentView>
+                    <ScrollView>
+                        <example:CustomizationExampleContent/>
+                    </ScrollView>
+                </ContentView>
+            </On>
+        </OnPlatform>
+
+        <telerikPrimitives:RadBorder Grid.Row="1"
+                                     BackgroundColor="#F8F8F8">
+            <telerikInput:RadButton Command="{Binding SearcAvailabilityhButtonCommand}"
+                                    Text="Show Availability"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    BorderColor="#0E88F2"
+                                    TextColor="#0E88F2"
+                                    Margin="0, 13"
+                                    Padding="56, 11"
+                                    FontSize="16"
+                                    CornerRadius="20"
+                                    BorderWidth="2"
+                                    BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor" Value="#260E88F2" />
+                                <Setter Property="TextColor" Value="#260E88F2" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+            <telerikPrimitives:RadPopup.Popup>
+                <telerikPrimitives:RadPopup IsOpen="{Binding IsAvailabilityNotificationOpen}"
+                                            Placement="Center"
+                                            VerticalOffset="-50">
+                    <telerikPrimitives:RadBorder CornerRadius="4"
+                                                 BackgroundColor="#5C5D60">
+                        <Label Text="{Binding AvailabilityText}"
+                               TextColor="White"
+                               Padding="33, 7"
+                               FontSize="12"/>
+                    </telerikPrimitives:RadBorder>
+                </telerikPrimitives:RadPopup>
+            </telerikPrimitives:RadPopup.Popup>
+        </telerikPrimitives:RadBorder>
+    </Grid>
+</ContentView>

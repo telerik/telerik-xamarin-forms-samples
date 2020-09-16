@@ -131,6 +131,8 @@ namespace QSF.Examples.TimeSpanPickerControl.ConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public bool IsHeaderVisible
         {
             get

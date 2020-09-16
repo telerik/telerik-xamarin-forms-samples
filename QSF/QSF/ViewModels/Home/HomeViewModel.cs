@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels
@@ -131,35 +132,35 @@ namespace QSF.ViewModels
         {
             AnalyticsHelper.TraceNavigateToCode();
             var configurationService = DependencyService.Get<IConfigurationService>();
-            Device.OpenUri(new Uri(configurationService.GetSourceURL()));
+            Launcher.OpenAsync(configurationService.GetSourceURL());
         }
 
         private void NavigateToDocumentation(object obj)
         {
             AnalyticsHelper.TraceNavigateToDocumentation();
             var configurationService = DependencyService.Get<IConfigurationService>();
-            Device.OpenUri(new Uri(configurationService.GetDocumentationURL()));
+            Launcher.OpenAsync(configurationService.GetDocumentationURL());
         }
 
         private void NavigateToProductPage(object obj)
         {
             AnalyticsHelper.TraceNavigateToProductPage();
             var configurationService = DependencyService.Get<IConfigurationService>();
-            Device.OpenUri(new Uri(configurationService.GetProductPageURL()));
+            Launcher.OpenAsync(configurationService.GetProductPageURL());
         }
 
         private void NavigateToWhatsNewPage(object obj)
         {
             AnalyticsHelper.TraceNavigateToWhatsNewPage();
             var configurationService = DependencyService.Get<IConfigurationService>();
-            Device.OpenUri(new Uri(configurationService.GetWhatsNewPageURL()));
+            Launcher.OpenAsync(configurationService.GetWhatsNewPageURL());
         }
 
         private void NavigateToPrivacyPolicyPage(object obj)
         {
             AnalyticsHelper.TraceNavigateToWhatsNewPage();
             var configurationService = DependencyService.Get<IConfigurationService>();
-            Device.OpenUri(new Uri(configurationService.GetPrivacyPolicyPageURL()));
+            Launcher.OpenAsync(configurationService.GetPrivacyPolicyPageURL());
         }
 
         private void NavigateToSampleAppsPage(object obj)

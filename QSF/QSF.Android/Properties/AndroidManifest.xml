@@ -1,16 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="5" android:versionName="2.7" package="com.telerik.xamarin" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<application android:label="Telerik UI for Xamarin">
-		<provider android:name="android.support.v4.content.FileProvider"
-				  android:authorities="${applicationId}.fileprovider"
-				  android:exported="false"
-				  android:grantUriPermissions="true">
-			<meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-					   android:resource="@xml/file_paths" />
+		<provider android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
 		</provider>
 	</application>
 </manifest>

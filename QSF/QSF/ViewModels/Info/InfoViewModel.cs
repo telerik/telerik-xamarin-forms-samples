@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels
@@ -133,7 +134,7 @@ namespace QSF.ViewModels
 
         private void OnLinkTapped(object obj)
         {
-            Device.OpenUri(new Uri(obj.ToString()));
+            Launcher.OpenAsync(obj.ToString());
         }
     }
 }

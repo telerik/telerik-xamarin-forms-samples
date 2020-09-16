@@ -6,38 +6,15 @@
              xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:qsf="clr-namespace:QSF"
              x:Class="QSF.Examples.BarcodeControl.PDF417Example.PDF417View">
-    <Grid Margin="20" x:Name="grid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
-        <barcode:RadBarcode Value="{Binding Path=Value}" x:Name="barcode" VerticalOptions="Center">
+        <barcode:RadBarcode Value="{Binding Path=Value}" 
+                            x:Name="barcode"
+                            VerticalOptions="Center"
+                            Margin="20">
             <barcode:RadBarcode.Symbology>
                 <barcode:PDF417 SizingMode="Stretch"
-                                    Rows="30"
-                                    ECLevel="5"/>
+                                Rows="30"
+                                ECLevel="5"/>
             </barcode:RadBarcode.Symbology>
         </barcode:RadBarcode>
-
-        <primitives:RadBorder BackgroundColor="{StaticResource DarkBackgroundColor}" CornerRadius="5" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Center" x:Name="border">
-            <primitives:RadBorder.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Path=AppBarMiddleButtonCommand}" />
-            </primitives:RadBorder.GestureRecognizers>
-            <Grid Margin="20, 30">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-
-                <Label Text="{StaticResource EmptyGearIcon}" FontFamily="{StaticResource IconsFont}" TextColor="{StaticResource AccentColor}"
-                       HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
-
-                <StackLayout Grid.Column="1" VerticalOptions="Center">
-                    <Label Text="Configuration" TextColor="{StaticResource AccentColor}" Style="{StaticResource HeaderLabelStyle}" Margin="0"/>
-                    <Label Text="To configure the PDF417 Code please use the icon in the navigation bar" LineBreakMode="WordWrap" Style="{StaticResource BodyLabelStyle}" />
-                </StackLayout>
-            </Grid>
-        </primitives:RadBorder>
-    </Grid>
 </ContentView>

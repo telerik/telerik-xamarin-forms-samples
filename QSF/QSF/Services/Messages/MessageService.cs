@@ -14,5 +14,15 @@ namespace QSF.Services
         {
             return Application.Current.MainPage.DisplayAlert(caption, message, button);
         }
+
+        public Task<bool> ShowQuestion(string caption, string message)
+        {
+            return this.ShowQuestion(caption, message, "OK", "Cancel");
+        }
+
+        public Task<bool> ShowQuestion(string caption, string message, string accept, string cancel)
+        {
+            return Application.Current.MainPage.DisplayAlert(caption, message, accept, cancel);
+        }
     }
 }

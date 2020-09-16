@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.RichTextEditorControl.FirstLookExample.FirstLookView">
+    <ContentView.Content>
+        <StackLayout>
+            <Grid Margin="16, 24, 16, 0"
+                  VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <telerikPrimitives:RadBorder BorderThickness="0, 0, 0, 1"
+                                         BorderColor="#DBDBDB">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="To:" 
+                           TextColor="Black" 
+                           VerticalTextAlignment="Center"
+                           FontSize="Medium" />
+                        <telerikInput:RadAutoCompleteView x:Name="recipientsAutoComplete"
+                                                          ItemsSource="{Binding RecipientsItemSource}"
+                                                          CompletionMode="Contains"
+                                                          DisplayMode="Tokens" 
+                                                          IsClearButtonVisible="False"
+                                                          VerticalOptions="Center"
+                                                          HorizontalOptions="FillAndExpand" 
+                                                          BorderThickness="0" 
+                                                          IsEnabled="False"/>
+                        <Button Text="&#xE82D;"
+                                FontFamily="{StaticResource IconsFont}"
+                                TextColor="White"
+                                BackgroundColor="#727272"
+                                HeightRequest="40"
+                                WidthRequest="40"
+                                CornerRadius="20"
+                                Padding="4, 0, 0, 0"
+                                Margin="0, 0, 0, 5"
+                                Command="{Binding SendEmailCommand}" />
+                    </StackLayout>
+                </telerikPrimitives:RadBorder>
+                <telerikPrimitives:RadBorder Grid.Row="1" BorderThickness="0, 0, 0, 1"
+                                         BorderColor="#DBDBDB">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Subject:" 
+                           TextColor="Black" 
+                           VerticalTextAlignment="Center"
+                           FontSize="Medium" />
+                        <telerikInput:RadEntry HorizontalOptions="FillAndExpand" Text="RE: Pick your holiday">
+                            <telerikInput:RadEntry.BorderStyle>
+                                <telerikInput:BorderStyle BorderThickness="0" />
+                            </telerikInput:RadEntry.BorderStyle>
+                        </telerikInput:RadEntry>
+                    </StackLayout>
+                </telerikPrimitives:RadBorder>
+                <telerikRichTextEditor:RadRichTextEditor Grid.Row="2"
+                                                         x:Name="richTextEditor" 
+                                                         Source="{Binding Source}" />
+            </Grid>
+            <telerikRichTextEditor:RadRichTextEditorToolbar x:Name="richTextToolbar" 
+                                                            RichTextEditor="{x:Reference richTextEditor}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

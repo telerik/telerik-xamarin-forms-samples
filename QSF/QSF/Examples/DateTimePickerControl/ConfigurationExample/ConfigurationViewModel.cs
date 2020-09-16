@@ -93,6 +93,8 @@ namespace QSF.Examples.DateTimePickerControl.ConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public bool IsHeaderVisible
         {
             get

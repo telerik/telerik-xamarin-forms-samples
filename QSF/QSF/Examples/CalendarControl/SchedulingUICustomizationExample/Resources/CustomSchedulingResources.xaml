@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary  xmlns="http://xamarin.com/schemas/2014/forms"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:local="clr-namespace:QSF.Examples.CalendarControl.SchedulingUICustomizationExample"
+                     xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+                     xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+                     xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+                     x:Class="QSF.Examples.CalendarControl.SchedulingUICustomizationExample.CustomSchedulingResources">
+
+    <telerikCommon:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+    <local:SourceProvider x:Key="SourceProvider" />
+    <local:AlertToTextConverter x:Key="AlertToTextConverter" />
+    <local:PriorityToColorConverter x:Key="PriorityToColorConverter" />
+    <local:PriorityToTextConverter x:Key="PriorityToTextConverter" />
+    <local:PriorityToIconConverter x:Key="PriorityToIconConverter" />
+    <local:AppointmentToCommandConverter x:Key="AppointmentToCommandConverter" />
+
+    <Style TargetType="telerikInput:RepeatAppointmentView">
+        <Setter Property="ButtonTextColor" Value="{Binding Appointment.Color}" />
+    </Style>
+
+    <Style TargetType="telerikInput:EndRepeatAppointmentView">
+        <Setter Property="SelectionSymbolColor" Value="{Binding Appointment.Color}" />
+        <Setter Property="ButtonTextColor" Value="{Binding Appointment.Color}" />
+    </Style>
+
+    <Style TargetType="telerikInput:CustomRecurrenceView">
+        <Setter Property="ButtonTextColor" Value="{Binding Appointment.Color}" />
+    </Style>
+
+    <Style TargetType="telerikInput:AppointmentSummaryView">
+        <Setter Property="ButtonTextColor" Value="{Binding Appointment.Color}" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="PickerLabelStyle">
+        <Setter Property="FontSize" Value="13"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="ButtonStyle">
+        <Setter Property="TextColor" Value="{Binding Appointment.Color}" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="HeaderLabelStyle">
+        <Setter Property="TextColor" Value="{Binding Appointment.Color}" />
+    </Style>
+
+    <Style TargetType="Button" x:Key="DropDownButtonStyle">
+        <Setter Property="TextColor" Value="{Binding Appointment.Color}" />
+    </Style>
+
+    <Style x:Key="EditorTitleLabelStyle" TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="TextColor" Value="{TemplateBinding EditorTextColor}" />
+    </Style>
+
+    <Style x:Key="EditorSeparatorStyle" TargetType="telerikPrimitives:RadBorder">
+        <Setter Property="BorderColor" Value="{TemplateBinding SeparatorColor}" />
+        <Setter Property="BorderThickness" Value="{TemplateBinding SeparatorThickness}" />
+    </Style>
+
+    <Style x:Key="EditorGridStyle" TargetType="Grid">
+        <Setter Property="HeightRequest" Value="{OnPlatform iOS=44, Default=48}" />
+    </Style>
+
+    <Style x:Key="DefaultButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="BackgroundColor" Value="{TemplateBinding ButtonBackgroundColor}" />
+        <Setter Property="TextColor" Value="{TemplateBinding ButtonTextColor}" />
+        <Setter Property="HeightRequest" Value="44" />
+    </Style>
+
+    <Style TargetType="telerikPrimitives:RadBorder" x:Key="ComboBoxBorderStyle">
+        <Setter Property="BorderThickness" Value="0, 0, 0, 1"/>
+        <Setter Property="HeightRequest" Value="{OnPlatform iOS=44, Default=48}"/>
+        <Setter Property="BorderColor" Value="#8E8E93"/>
+    </Style>
+
+    <Style TargetType="telerikInput:RadComboBox" x:Key="ComboBoxStyle">
+        <Setter Property="DropDownButtonStyle" Value="{StaticResource DropDownButtonStyle}"/>
+        <Setter Property="IsClearButtonVisible" Value="False"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+        <Setter Property="BorderThickness" Value="0, 0, 0, 1"/>
+        <Setter Property="WidthRequest" Value="140"/>
+        <Setter Property="FocusedBorderColor" Value="White"/>
+        <Setter Property="BorderColor" Value="White"/>
+    </Style>
+
+    <telerikInput:PickerPopupSelectorSettings x:Key="TimePickerPopupSelectorSettings" 
+                                              HeaderLabelStyle="{StaticResource HeaderLabelStyle}"
+                                              AcceptButtonStyle="{StaticResource ButtonStyle}"
+                                              CancelButtonStyle="{StaticResource ButtonStyle}"/>
+
+    <telerikInput:PickerPopupSelectorSettings x:Key="DatePickerPopupSelectorSettings" 
+                                              HeaderLabelStyle="{StaticResource HeaderLabelStyle}"
+                                              AcceptButtonStyle="{StaticResource ButtonStyle}"
+                                              CancelButtonStyle="{StaticResource ButtonStyle}"
+                                              HeaderLabelText="Select Date"/>
+
+    <DataTemplate x:Key="LocationComboBoxItemTemplate">
+        <telerikPrimitives:RadBorder Style="{StaticResource ComboBoxBorderStyle}">
+            <Label Text="{Binding FullName}"
+                   Padding="2, 14, 14, 0"
+                   FontSize="13"/>
+        </telerikPrimitives:RadBorder>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LocationComboBoxSelectedItemTemplate">
+        <telerikPrimitives:RadBorder Style="{StaticResource ComboBoxBorderStyle}"
+                                     BackgroundColor="#F8F8F8">
+            <Label Text="{Binding FullName}"
+                   Padding="2, 14, 14, 0"
+                   FontSize="13"/>
+        </telerikPrimitives:RadBorder>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AlertComboBoxItemTemplate">
+        <telerikPrimitives:RadBorder Style="{StaticResource ComboBoxBorderStyle}"
+                                     Padding="5,0">
+            <Label Text="{Binding ., Converter={StaticResource AlertToTextConverter}}"
+                   VerticalTextAlignment="Center"
+                   LineBreakMode="TailTruncation"
+                   FontSize="13"/>
+        </telerikPrimitives:RadBorder>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AlertComboBoxSelectedItemTemplate">
+        <telerikPrimitives:RadBorder Style="{StaticResource ComboBoxBorderStyle}"
+                                     Padding="5,0">
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="{Binding ., Converter={StaticResource AlertToTextConverter}}" 
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="13"/>
+                <Label HorizontalOptions="End"
+                       FontFamily="{StaticResource IconsFont}"
+                       VerticalTextAlignment="Center"
+                       FontSize="13"
+                       TextColor="{TemplateBinding BindingContext.Appointment.Color}"
+                       Text="{StaticResource CheckIcon}" />
+            </StackLayout>
+        </telerikPrimitives:RadBorder>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PriorityComboBoxItemTemplate">
+        <telerikPrimitives:RadBorder Style="{StaticResource ComboBoxBorderStyle}">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <StackLayout  HorizontalOptions="StartAndExpand" 
+                              Orientation="Horizontal">
+                    <Label Text="{Binding ., Converter={StaticResource PriorityToIconConverter}}"
+                           TextColor="{Binding ., Converter={StaticResource PriorityToColorConverter}}"
+                           FontFamily="{StaticResource IconsFont}"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"/>
+                    <Label Text="{Binding ., Converter={StaticResource PriorityToTextConverter}}" 
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="13"/>
+                </StackLayout>
+            </StackLayout>
+        </telerikPrimitives:RadBorder>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PriorityComboBoxSelectedItemTemplate">
+        <telerikPrimitives:RadBorder Style="{StaticResource ComboBoxBorderStyle}">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <StackLayout  HorizontalOptions="StartAndExpand" 
+                              Orientation="Horizontal">
+                    <Label Text="{Binding ., Converter={StaticResource PriorityToIconConverter}}"
+                           TextColor="{Binding ., Converter={StaticResource PriorityToColorConverter}}"
+                           FontFamily="{StaticResource IconsFont}"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"/>
+                    <Label Text="{Binding ., Converter={StaticResource PriorityToTextConverter}}" 
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="13"/>
+                </StackLayout>
+                <Label HorizontalOptions="End"
+                       FontFamily="{StaticResource IconsFont}"
+                       VerticalTextAlignment="Center"
+                       FontSize="13"
+                       TextColor="{TemplateBinding BindingContext.Appointment.Color}"
+                       Text="{StaticResource CheckIcon}" />
+            </StackLayout>
+        </telerikPrimitives:RadBorder>
+    </DataTemplate>
+
+    <ControlTemplate x:Key="AddAppointmentViewControlTemplate">
+        <Grid RowSpacing="0" 
+              BackgroundColor="{TemplateBinding BackgroundColor}"
+              BindingContext="{TemplateBinding BindingContext}">
+            <telerikPrimitives:RadPopup.Popup>
+                <telerikPrimitives:RadPopup IsOpen="{Binding IsPopupOpen}"
+                                            Content="{Binding PopupContent}"
+                                            VerticalOffset="{Binding PopupVerticalOffset}"
+                                            Placement="Center"
+                                            AnimationType="Fade"
+                                            OutsideBackgroundColor="#6F000000">
+                </telerikPrimitives:RadPopup>
+            </telerikPrimitives:RadPopup.Popup>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollView>
+                <StackLayout Padding="16, 20, 16, 0"
+                             Spacing="0">
+
+                    <telerikPrimitives:RadBorder Margin="-16, -20, -16, 0" 
+                                                 BackgroundColor="#F8F8F8"
+                                                 Padding="16, 20, 16, 0">
+                        <StackLayout>
+
+                            <!--Screen Title-->
+                            <Label Text="{telerikCommon:Localize Calendar_AppointmentEventTitle}"
+                                   FontAttributes="Bold"
+                                   FontSize="{TemplateBinding TitleFontSize}"
+                                   TextColor="{Binding Appointment.Color}"
+                                   HorizontalOptions="Start" />
+
+                            <!--Appointment Title-->
+                            <telerikPrimitives:RadBorder BorderColor="{TemplateBinding SeparatorColor}"
+                                                         Margin="{OnPlatform iOS='0, 23, 0, 20', Default='0, 23, 0, 14'}"
+                                                         BorderThickness="{OnPlatform iOS=1, Default=0}"
+                                                         CornerRadius="{OnPlatform iOS=10}">
+
+                                <Entry AutomationId="AppointmentTitleEntry"
+                                       Text="{Binding Appointment.Title, Mode=TwoWay}" 
+                                       FontSize="Medium"
+                                       TextColor="{TemplateBinding EditorTextColor}"
+                                       Placeholder="Title *">
+                                </Entry>
+
+                            </telerikPrimitives:RadBorder>
+                        </StackLayout>
+                    </telerikPrimitives:RadBorder>
+
+                    <!--Appointment AllDay-->
+                    <Grid Style="{StaticResource EditorGridStyle}">
+                        <Label Text="{telerikCommon:Localize Calendar_AppointmentAllDay}"
+                               Style="{StaticResource EditorTitleLabelStyle}" />
+
+                        <CheckBox IsChecked="{Binding Appointment.IsAllDay}"
+                                  Color="{Binding Appointment.Color}"
+                                  Margin="0, 0, -10, 0"
+                                  HorizontalOptions="End"/>
+                    </Grid>
+
+                    <!--Appointment Start Date and Start Time-->
+                    <Grid Style="{StaticResource EditorGridStyle}">
+                        <Label Text="{telerikCommon:Localize Calendar_AppointmentStarts}" 
+                               Style="{StaticResource EditorTitleLabelStyle}" />
+
+                        <StackLayout Orientation="Horizontal" 
+                                     Spacing="0"
+                                     HorizontalOptions="End" 
+                                     VerticalOptions="Center">
+
+                            <telerikInput:RadDatePicker Date="{Binding StartDate}"
+                                                        BorderThickness="0"
+                                                        DisplayLabelStyle="{StaticResource PickerLabelStyle}"
+                                                        SelectorSettings="{StaticResource DatePickerPopupSelectorSettings}"
+                                                        DisplayStringFormat="dd MMM yyyy"/>
+
+                            <telerikInput:RadTimePicker Time="{Binding StartTime}"
+                                                        IsVisible="{Binding Appointment.IsAllDay, Converter={StaticResource InvertedBooleanConverter}}"
+                                                        DisplayStringFormat="HH:mm"
+                                                        SelectorSettings="{StaticResource TimePickerPopupSelectorSettings}"
+                                                        DisplayLabelStyle="{StaticResource PickerLabelStyle}"
+                                                        BorderThickness="0"/>
+
+                        </StackLayout>
+                    </Grid>
+
+                    <!--Appointment End Date and End Time-->
+                    <Grid Style="{StaticResource EditorGridStyle}">
+                        <Label Text="{telerikCommon:Localize Calendar_AppointmentEnds}"
+                               Style="{StaticResource EditorTitleLabelStyle}" />
+
+                        <StackLayout Orientation="Horizontal" 
+                                     Spacing="0"
+                                     HorizontalOptions="End" 
+                                     VerticalOptions="Center">
+
+                            <telerikInput:RadDatePicker Date="{Binding EndDate}"
+                                                        BorderThickness="0"
+                                                        SelectorSettings="{StaticResource DatePickerPopupSelectorSettings}"
+                                                        DisplayLabelStyle="{StaticResource PickerLabelStyle}"
+                                                        DisplayStringFormat="dd MMM yyyy"/>
+
+                            <telerikInput:RadTimePicker Time="{Binding EndTime}"
+                                                        IsVisible="{Binding Appointment.IsAllDay, Converter={StaticResource InvertedBooleanConverter}}"
+                                                        DisplayStringFormat="HH:mm"
+                                                        SelectorSettings="{StaticResource TimePickerPopupSelectorSettings}"
+                                                        DisplayLabelStyle="{StaticResource PickerLabelStyle}"
+                                                        BorderThickness="0"/>
+
+
+                        </StackLayout>
+                    </Grid>
+
+                    <!--Appointment Location-->
+                    <Grid Style="{StaticResource EditorGridStyle}">
+                        <StackLayout Spacing="0" Orientation="Horizontal">
+                            <Label Text="Location" 
+                                   Style="{StaticResource EditorTitleLabelStyle}" />
+                            <Label Text="*"
+                                   Padding="4, 0, 0, 0"
+                                   FontSize="16" 
+                                   VerticalTextAlignment="Center" 
+                                   TextColor="{Binding Appointment.Color}"/>
+                        </StackLayout>
+
+                        <telerikInput:RadComboBox SelectedItem="{Binding Appointment.Location, Mode=TwoWay}"
+                                                  ItemsSource="{Binding Locations, Source={StaticResource SourceProvider}}"
+                                                  DisplayMemberPath="Number"
+                                                  FontSize="13"
+                                                  VerticalOptions="Center"
+                                                  Placeholder="Choose Room"
+                                                  DropDownHeight="{OnPlatform Default=132, Android=144}"
+                                                  SelectedItemTemplate="{StaticResource LocationComboBoxSelectedItemTemplate}"
+                                                  ItemTemplate="{StaticResource LocationComboBoxItemTemplate}"
+                                                  Style="{StaticResource ComboBoxStyle}" />
+                    </Grid>
+
+                    <!--Appointment Recurrence-->
+                    <telerikPrimitives:RadBorder IsVisible="{Binding IsAppointmentException, Converter={StaticResource InvertedBooleanConverter}}" 
+                                                 Style="{StaticResource EditorSeparatorStyle}">
+                        <Grid Style="{StaticResource EditorGridStyle}">
+                            <Label Text="{telerikCommon:Localize Calendar_AppointmentRepeats}"
+                                   Style="{StaticResource EditorTitleLabelStyle}" />
+
+                            <StackLayout HorizontalOptions="EndAndExpand"
+                                         Spacing="10"
+                                         Orientation="Horizontal">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ShowStartRepeatOptionsViewCommand}" />
+                                </StackLayout.GestureRecognizers>
+
+                                <!--Open Repeats Options-->
+                                <Label AutomationId="RepeatOptionLabel"
+                                       VerticalOptions="Center"
+                                       FontSize="{TemplateBinding EditorFontSize}"
+                                       TextColor="{TemplateBinding EditorTextColor}"
+                                       Text="{Binding RepeatOptionText}"
+                                       HorizontalOptions="EndAndExpand">
+                                </Label>
+                                <Label telerikCommon:TelerikFont.UseEmbeddedFont="True"
+                                       VerticalOptions="Center"
+                                       FontSize="{TemplateBinding EditorFontSize}"
+                                       TextColor="{Binding Appointment.Color}"
+                                       Margin="2, 0, 10, 0"
+                                       Text="&#xe805;" />
+                            </StackLayout>
+                        </Grid>
+                    </telerikPrimitives:RadBorder>
+
+                    <!--Appointment Recurrence End-->
+                    <telerikPrimitives:RadBorder Style="{StaticResource EditorSeparatorStyle}" 
+                                                 IsVisible="{Binding IsEndRepeatOptionVisible}">
+                        <Grid Style="{StaticResource EditorGridStyle}">
+                            <Label Text="{telerikCommon:Localize Calendar_AppointmentEndRepeats}"
+                                   Style="{StaticResource EditorTitleLabelStyle}" />
+                            <StackLayout HorizontalOptions="EndAndExpand" 
+                                         Orientation="Horizontal" 
+                                         Spacing="12">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ShowEndRepeatOptionsViewCommand}" />
+                                </StackLayout.GestureRecognizers>
+
+                                <!--Open End Repeats Options-->
+                                <Label  VerticalOptions="Center"
+                                        HorizontalOptions="EndAndExpand"
+                                        FontSize="{TemplateBinding EditorFontSize}"
+                                        TextColor="{TemplateBinding EditorTextColor}"
+                                        Text="{Binding EndRepeatOptionText}">
+                                </Label>
+
+                                <Label telerikCommon:TelerikFont.UseEmbeddedFont="True"
+                                       VerticalOptions="Center"
+                                       FontSize="{TemplateBinding EditorFontSize}"
+                                       TextColor="{Binding Appointment.Color}"
+                                       Margin="2, 0, 10, 0"
+                                       Text="&#xe805;" />
+                            </StackLayout>
+                        </Grid>
+                    </telerikPrimitives:RadBorder>
+
+                    <!--Appointment Alert-->
+                    <Grid Style="{StaticResource EditorGridStyle}">
+                        <Label Text="Alert"
+                               Style="{StaticResource EditorTitleLabelStyle}" />
+
+                        <telerikInput:RadComboBox SelectedItem="{Binding Appointment.Alert, Mode=TwoWay}"
+                                                  ItemsSource="{Binding Alerts, Source={StaticResource SourceProvider}}"
+                                                  ItemTemplate="{StaticResource AlertComboBoxItemTemplate}"
+                                                  SelectedItemTemplate="{StaticResource AlertComboBoxSelectedItemTemplate}"
+                                                  Style="{StaticResource ComboBoxStyle}"/>
+                    </Grid>
+
+                    <!--Appointment Priority-->
+                    <Grid Style="{StaticResource EditorGridStyle}">
+                        <Label Text="Priority"
+                               Style="{StaticResource EditorTitleLabelStyle}" />
+
+                        <telerikInput:RadComboBox SelectedItem="{Binding Appointment.Priority, Mode=TwoWay}"
+                                                  ItemsSource="{Binding Priorities, Source={StaticResource SourceProvider}}"
+                                                  Style="{StaticResource ComboBoxStyle}"
+                                                  DropDownHeight="150"
+                                                  ItemTemplate="{StaticResource PriorityComboBoxItemTemplate}"
+                                                  SelectedItemTemplate="{StaticResource PriorityComboBoxSelectedItemTemplate}"/>
+                    </Grid>
+
+                    <!--Appointment Details-->
+                    <Editor AutomationId="AppointmentDetailsEditor"
+                            Text="{Binding Appointment.Detail}"
+                            FontSize="{TemplateBinding EditorFontSize}"
+                            TextColor="{TemplateBinding EditorTextColor}"
+                            AutoSize="TextChanges"
+                            Margin="{OnPlatform iOS='0, 23, 0, 20', Default='0, 23, 0, 14'}"
+                            Placeholder="Event Description">
+                        <Editor.Effects>
+                            <telerikCommon:NoTextOffsetEffect />
+                        </Editor.Effects>
+                    </Editor>
+                </StackLayout>
+            </ScrollView>
+
+            <telerikPrimitives:RadBorder BorderColor="#C8C7CC"
+                                         BorderThickness="0, 1, 0, 0" 
+                                         Grid.Row="1">
+                <Grid ColumnSpacing="0">
+                    <Button Grid.Column="0"
+                            Command="{Binding CancelCommand}"
+                            Style="{StaticResource DefaultButtonStyle}"
+                            Text="{telerikCommon:Localize Calendar_AppointmentCancelButton}" />
+
+                    <Button Grid.Column="1"
+                            Style="{StaticResource DefaultButtonStyle}"
+                            Command="{Binding Appointment, Converter={StaticResource AppointmentToCommandConverter}, Mode=TwoWay}"
+                            CommandParameter="{Binding SaveAppointmentCommand}"
+                            Text="{telerikCommon:Localize Calendar_AppointmentOKButton}" />
+                </Grid>
+            </telerikPrimitives:RadBorder>
+        </Grid>
+    </ControlTemplate>
+
+    <Style TargetType="telerikInput:AddAppointmentView">
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="TitleFontSize" Value="22" />
+        <Setter Property="EditorFontSize" Value="13" />
+        <Setter Property="ButtonTextColor" Value="{Binding Appointment.Color}" />
+        <Setter Property="SeparatorThickness" Value="0" />
+        <Setter Property="ControlTemplate" Value="{StaticResource AddAppointmentViewControlTemplate}" />
+    </Style>
+</ResourceDictionary>

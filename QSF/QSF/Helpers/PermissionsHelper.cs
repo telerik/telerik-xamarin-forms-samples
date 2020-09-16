@@ -3,51 +3,50 @@ using System.Threading.Tasks;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 
-
 namespace QSF.Helpers
 {
     internal static class PermissionsHelper
     {
         internal static async Task<bool> RequestStorrageAccess()
         {
-            return await RequestPermissionsAsync(Permission.Storage);
+            var currentStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
+            if (currentStatus != PermissionStatus.Granted)
+            {
+                var status = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+                return status == PermissionStatus.Granted;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        internal static async Task<bool> RequestPermissionsAsync(params Permission[] permissions)
+        internal static async Task<bool> RequestCameraAccess()
         {
-            var permissionsPlugin = CrossPermissions.Current;
-            var missingPermissions = new List<Permission>();
-
-            foreach (var permission in permissions)
+            var currentStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
+            if (currentStatus != PermissionStatus.Granted)
             {
-                var permissionStatus = await permissionsPlugin.CheckPermissionStatusAsync(permission);
-
-                if (permissionStatus != PermissionStatus.Granted)
-                {
-                    if (await permissionsPlugin.ShouldShowRequestPermissionRationaleAsync(permission))
-                    {
-                        return false;
-                    }
-
-                    missingPermissions.Add(permission);
-                }
+                var status = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
+                return status == PermissionStatus.Granted;
             }
-
-            if (missingPermissions.Count > 0)
+            else
             {
-                var requestedPermissions = missingPermissions.ToArray();
-                var permissionStatuses = await permissionsPlugin.RequestPermissionsAsync(requestedPermissions);
-
-                foreach (var permissionStatus in permissionStatuses.Values)
-                {
-                    if (permissionStatus != PermissionStatus.Granted)
-                    {
-                        return false;
-                    }
-                }
+                return true;
             }
+        }
 
-            return true;
+        internal static async Task<bool> RequestPhotosAccess()
+        {
+            var currentStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
+            if (currentStatus != PermissionStatus.Granted)
+            {
+                var status = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
+                return status == PermissionStatus.Granted;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

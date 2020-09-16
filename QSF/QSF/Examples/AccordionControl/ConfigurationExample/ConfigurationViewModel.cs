@@ -8,11 +8,7 @@ namespace QSF.Examples.AccordionControl.ConfigurationExample
 {
     public class ConfigurationViewModel : ExampleViewModel
     {
-        private const string ConfigurationMessage = "To configure the Accordion please use the icon in the navigation bar";
-
         private AccordionConfigurationViewModel configurationViewModel;
-        private bool showErrorMessage;
-        private string messageText;
         private Color borderColor = NameToColorConverter.LightGray;
         private double borderThickness = 1;
         private bool isAnimationEnabled = true;
@@ -29,7 +25,6 @@ namespace QSF.Examples.AccordionControl.ConfigurationExample
         public ConfigurationViewModel()
         {
             this.configurationViewModel = new AccordionConfigurationViewModel();
-            this.MessageText = ConfigurationMessage;
         }
 
         public override bool HasConfiguration
@@ -40,38 +35,8 @@ namespace QSF.Examples.AccordionControl.ConfigurationExample
             }
         }
 
-        public bool ShowErrorMessage
-        {
-            get
-            {
-                return this.showErrorMessage;
-            }
-            set
-            {
-                if (this.showErrorMessage != value)
-                {
-                    this.showErrorMessage = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
-        public string MessageText
-        {
-            get
-            {
-                return this.messageText;
-            }
-            set
-            {
-                if (this.messageText != value)
-                {
-                    this.messageText = value;
-                    this.OnPropertyChanged();
-                }
-            }
-        }
-
+        public override bool IsPopupHintOpen => true;
+        
         public Color BorderColor
         {
             get
@@ -284,8 +249,6 @@ namespace QSF.Examples.AccordionControl.ConfigurationExample
 
         protected override Task NavigateToConfigurationOverride()
         {
-            this.ShowErrorMessage = false;
-            this.MessageText = ConfigurationMessage;
             return this.NavigationService.NavigateToConfigurationAsync(this.configurationViewModel);
         }
     }

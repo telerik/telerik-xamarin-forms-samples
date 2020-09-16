@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.ComboBoxControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ComboBoxTitleStyle" TargetType="Label">
+                <Setter Property="Padding" Value="20, 24, 0, 8"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <StackLayout>
+                <telerikPrimitives:RadBorder BackgroundColor="#F8F8F8">
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Margin="0, 16">
+                        <Label Text="Job Search"
+                               FontSize="22"
+                               TextColor="#0E88F2"
+                               Padding="0, 0, 0, 13"/>
+                        <Image>
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS,Android">ComboBox_FirstLook_HeaderImage.png</On>
+                                    <On Platform="UWP">Assets/ComboBox_FirstLook_HeaderImage.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                    </StackLayout>
+                </telerikPrimitives:RadBorder>
+                <Label Text="Skills:"
+                       Style="{StaticResource ComboBoxTitleStyle}"/>
+                <telerikInput:RadComboBox ItemsSource="{Binding Skills}"
+                                          SelectedIndex="{Binding SelectedSkillIndex, Mode=TwoWay}"
+                                          Placeholder="Select Skills"
+                                          SelectionMode="Multiple"
+                                          IsDropDownClosedOnSelection="False"
+                                          Margin="16, 0"
+                                          views:ThemesBehavior.StyleClass="TelerikTheme">
+                    <!--In UWP IsEditable should be false because of an issue in the ScrollView: https://github.com/xamarin/Xamarin.Forms/issues/10420-->
+                    <telerikInput:RadComboBox.IsEditable>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS,Android">True</On>
+                            <On Platform="UWP">False</On>
+                        </OnPlatform>
+                    </telerikInput:RadComboBox.IsEditable>
+                </telerikInput:RadComboBox>
+                <Label Text="Job Types:"
+                       Style="{StaticResource ComboBoxTitleStyle}"/>
+                <telerikInput:RadComboBox ItemsSource="{Binding JobTypes}"
+                                          SelectedIndex="{Binding SelectedJobTypeIndex, Mode=TwoWay}"
+                                          Placeholder="Select Type"
+                                          SelectionMode="Multiple"
+                                          IsDropDownClosedOnSelection="False"
+                                          DropDownHeight="130"
+                                          Margin="16, 0"
+                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                <Label Text="Time Posted:"
+                       Style="{StaticResource ComboBoxTitleStyle}"/>
+                <telerikInput:RadComboBox ItemsSource="{Binding Times}"
+                                          SelectedIndex="{Binding SelectedTimeIndex, Mode=TwoWay}"
+                                          Placeholder="Select Time"
+                                          DropDownHeight="130"
+                                          Margin="16, 0, 16, 18"
+                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
+            </StackLayout>
+        </ScrollView>
+        <telerikPrimitives:RadBorder Grid.Row="1"
+                                     BackgroundColor="#F8F8F8">
+            <telerikInput:RadButton Command="{Binding SearchJobButtonCommand}"
+                                    Text="Find Jobs"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    BorderColor="#0E88F2"
+                                    TextColor="#0E88F2"
+                                    Margin="0, 13"
+                                    Padding="56, 11"
+                                    FontSize="16"
+                                    CornerRadius="20"
+                                    BorderWidth="2"
+                                    BackgroundColor="Transparent">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor" Value="#260E88F2" />
+                                <Setter Property="TextColor" Value="#260E88F2" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerikInput:RadButton>
+            <telerikPrimitives:RadPopup.Popup>
+                <telerikPrimitives:RadPopup IsOpen="{Binding IsJobSearchNotificationOpen}"
+                                            Placement="Center"
+                                            VerticalOffset="-50">
+                    <telerikPrimitives:RadBorder CornerRadius="4"
+                                                 BackgroundColor="#5C5D60">
+                        <Label Text="Job Search started"
+                               TextColor="White"
+                               Padding="33, 7"
+                               FontSize="12"/>
+                    </telerikPrimitives:RadBorder>
+                </telerikPrimitives:RadPopup>
+            </telerikPrimitives:RadPopup.Popup>
+        </telerikPrimitives:RadBorder>
+    </Grid>
+</ContentView>

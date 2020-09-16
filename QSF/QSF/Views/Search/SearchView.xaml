@@ -102,6 +102,7 @@
                    AutomationId="SearchBar">
             <SearchBar.Effects>
                 <effects:BorderEffect />
+                <effects:SearchBarIconColorEffect />
             </SearchBar.Effects>
         </SearchBar>
 

@@ -1,6 +1,6 @@
 ﻿using Android.Content;
 using Android.OS;
-using Android.Support.V4.Content;
+using AndroidX.Core.Content;
 using Java.IO;
 using QSF.Droid.Services.FileViewer;
 using QSF.Helpers;

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor"
+             x:Class="QSF.Examples.RichTextEditorControl.CustomizationExample.CustomizationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ToolbarColor">#FE6078</Color>
+            <Style TargetType="telerikRichTextEditor:RichTextEditorToolbarItem" x:Key="RichTextEditorToolbarItemStyle">
+                <Setter Property="TextColor" Value="{StaticResource ToolbarColor}"/>
+                <Setter Property="SelectedBackgroundColor" Value="{StaticResource ToolbarColor}"/>
+                <Setter Property="SelectedColor" Value="White"/>
+                <Setter Property="CheckedBackgroundColor" Value="{StaticResource ToolbarColor}"/>
+                <Setter Property="CheckedColor" Value="White"/>
+            </Style>
+            <Style TargetType="telerikRichTextEditor:PickerToolbarItem" BasedOn="{StaticResource RichTextEditorToolbarItemStyle}" ApplyToDerivedTypes="True">
+                <Setter Property="ItemStyle">
+                    <Setter.Value>
+                        <Style TargetType="dataControls:NonVirtualizedItemsControlItemContainer">
+                            <Setter Property="TextColor" Value="{StaticResource ToolbarColor}" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="telerikRichTextEditor:RichTextEditorToolbarItem" BasedOn="{StaticResource RichTextEditorToolbarItemStyle}" ApplyToDerivedTypes="True"/>
+            <Style TargetType="telerikRichTextEditor:RadRichTextEditorToolbar">
+                <Setter Property="OverflowButtonTextColor" Value="{StaticResource ToolbarColor}"/>
+                <Setter Property="OpenOverflowButtonTextColor" Value="White"/>
+                <Setter Property="OpenOverflowButtonBackgroundColor" Value="{StaticResource ToolbarColor}"/>
+                <Setter Property="OverflowButtonFontFamily" Value="{StaticResource IconsFont}"/>
+                <Setter Property="OverflowButtonText" Value="&#xe87d;"/>
+                <Setter Property="BackButtonTextColor" Value="{StaticResource ToolbarColor}"/>
+            </Style>
+            <Style TargetType="Button" x:Key="HyperlinkPopupContentViewButtonStyle">
+                <Setter Property="TextColor" Value="{StaticResource ToolbarColor}"/>
+            </Style>
+            <Style TargetType="telerikRichTextEditor:HyperlinkPopupContentView" x:Key="HyperlinkPopupContentViewStyle">
+                <Setter Property="OkButtonStyle" Value="{StaticResource HyperlinkPopupContentViewButtonStyle}"/>
+                <Setter Property="CancelButtonStyle" Value="{StaticResource HyperlinkPopupContentViewButtonStyle}"/>
+            </Style>
+            <Style TargetType="telerikRichTextEditor:InsertHyperlinkToolbarItem" BasedOn="{StaticResource RichTextEditorToolbarItemStyle}" ApplyToDerivedTypes="True">
+                <Setter Property="PopupContentStyle" Value="{StaticResource HyperlinkPopupContentViewStyle}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <telerikRichTextEditor:RadRichTextEditor x:Name="richTextEditor" Source="{Binding Source}"/>
+            <telerikRichTextEditor:RadRichTextEditorToolbar  Grid.Row="1"
+                                                             RichTextEditor="{x:Reference richTextEditor}" 
+                                                             AutoGenerateItems="False">
+                <telerikRichTextEditor:FontFamilyToolbarItem />
+                <telerikRichTextEditor:FontSizeToolbarItem />
+                <telerikRichTextEditor:BoldToolbarItem />
+                <telerikRichTextEditor:AlignLeftToolbarItem />
+                <telerikRichTextEditor:TextColorToolbarItem />
+                <telerikRichTextEditor:HighlightTextColorToolbarItem />
+                <telerikRichTextEditor:BulletingToolbarItem />
+                <telerikRichTextEditor:NumberingToolbarItem />
+                <telerikRichTextEditor:IndentToolbarItem />
+                <telerikRichTextEditor:OutdentToolbarItem />
+                <telerikRichTextEditor:TextFormattingToolbarItem />
+                <telerikRichTextEditor:ClearFormattingToolbarItem />
+                <telerikRichTextEditor:UndоToolbarItem />
+                <telerikRichTextEditor:RedоToolbarItem />
+                <telerikRichTextEditor:RichTextEditorToolbarItem IsOverflowItem="true" Text="{Binding MoreTextFormattingText}" Description="More Text Formatting">
+                    <telerikRichTextEditor:RichTextEditorToolbarItem.Items>
+                        <telerikRichTextEditor:BoldToolbarItem HorizontalOptions="Start"/>
+                        <telerikRichTextEditor:ItalicToolbarItem HorizontalOptions="Start" />
+                        <telerikRichTextEditor:UnderlineToolbarItem HorizontalOptions="Start" />
+                        <telerikRichTextEditor:SubscriptToolbarItem HorizontalOptions="Start" />
+                        <telerikRichTextEditor:SuperscriptToolbarItem HorizontalOptions="Start" />
+                        <telerikRichTextEditor:StrikethroughToolbarItem HorizontalOptions="Start" />
+                    </telerikRichTextEditor:RichTextEditorToolbarItem.Items>
+                </telerikRichTextEditor:RichTextEditorToolbarItem>
+                <telerikRichTextEditor:RichTextEditorToolbarItem IsOverflowItem="true" Text="{Binding MoreParagraphFormattingText}" Description="More Paragraph Formatting">
+                    <telerikRichTextEditor:RichTextEditorToolbarItem.Items>
+                        <telerikRichTextEditor:AlignLeftToolbarItem HorizontalOptions="Start"/>
+                        <telerikRichTextEditor:AlignCenterToolbarItem HorizontalOptions="Start" />
+                        <telerikRichTextEditor:AlignRightToolbarItem HorizontalOptions="Start" />
+                        <telerikRichTextEditor:AlignJustifyToolbarItem HorizontalOptions="Start" />
+                    </telerikRichTextEditor:RichTextEditorToolbarItem.Items>
+                </telerikRichTextEditor:RichTextEditorToolbarItem>
+                <telerikRichTextEditor:AddHyperlinkToolbarItem IsOverflowItem="True"/>
+            </telerikRichTextEditor:RadRichTextEditorToolbar>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

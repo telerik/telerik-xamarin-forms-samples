@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R2 2020 SP</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R3 2020</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png</QSFAboutImageName>
@@ -312,57 +312,25 @@
       <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
-          <Name>MonthView</Name>
-          <DisplayName>Month View</DisplayName>
-          <Image>Calendar_Appointments.png</Image>
-          <DescriptionHeader>Month View</DescriptionHeader>
-          <Description>The example demonstrates how the Calendar control displays dates of a month, showing how events information can be integrated in the Calendar cell's content. You can control the selection mode from the SideDrawer to show different events in the Agenda View</Description>
+          <Name>Scheduling</Name>
+          <DisplayName>Scheduling</DisplayName>
+          <Image>Calendar_AllViews.png</Image>
+          <DescriptionHeader>Scheduling</DescriptionHeader>
+          <Description>This example demonstrates the scheduling capabilities and some of the built-in view modes of the control. The end-user could easily switch the modes using the toolbar or using the UI provided in the SideDrawer control.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MonthViewExample</CodeURL>
-          <IsThemable>false</IsThemable>
-        </Example>
-        <Example>
-          <Name>AppointmentTemplate</Name>
-          <DisplayName>Appointment Template</DisplayName>
-          <Image>Calendar_app_template.png</Image>
-          <DescriptionHeader>Appointment Template</DescriptionHeader>
-          <Description>This example demonstrates how to create fully customized appointments and display them in Day &amp; MultiDay views. </Description>
-          <IsScenario>false</IsScenario>
-          <IsThemable>false</IsThemable>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AppointmentTemplateExample</CodeURL>
-        </Example>
-        <Example>
-          <Name>AgendaViewConfiguration</Name>
-          <DisplayName>Agenda View Configuration</DisplayName>
-          <Image>Calendar_AgendaView_Configuration.png</Image>
-          <DescriptionHeader>Agenda View Configuration</DescriptionHeader>
-          <Description>This example presents various configuration options such as different formats for the items you could utilize to make the AgendaView look the way you’d need.</Description>
-          <IsScenario>false</IsScenario>
-          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/SchedulingExample</CodeURL>
+          <IsThemable>true</IsThemable>
           <ExcludeFrom>UWP</ExcludeFrom>
-          <IsUpdated>true</IsUpdated>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AgendaViewConfigurationExample</CodeURL>
         </Example>
         <Example>
-          <Name>AgendaViewCustomization</Name>
-          <DisplayName>Agenda View Customization</DisplayName>
-          <Image>Calendar_AgendaView_Customization.png</Image>
-          <DescriptionHeader>Agenda View Customization</DescriptionHeader>
-          <Description>Demonstrates how you could customize the visual appearance of the Agenda view through the AgendaItemStyleSelector.</Description>
+          <Name>SchedulingUICustomization</Name>
+          <DisplayName>Scheduling UI Customization</DisplayName>
+          <Image>Scheduler_Customization.png</Image>
+          <DescriptionHeader>Scheduling UI Customization</DescriptionHeader>
+          <Description>This example demonstrates how to modify the appearance of the Scheduling UI screens used within the RadCalendar control.</Description>
           <IsScenario>false</IsScenario>
-          <IsThemable>false</IsThemable>
-          <ExcludeFrom>UWP</ExcludeFrom>
-          <IsUpdated>true</IsUpdated>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AgendaViewCustomizationExample</CodeURL>
-        </Example>
-        <Example>
-          <Name>SpecialSlots</Name>
-          <DisplayName>Special Slots</DisplayName>
-          <Image>Calendar_SpecialSlots.png</Image>
-          <DescriptionHeader>Special Slots</DescriptionHeader>
-          <Description>This example demonstrates how specific slots of the Calendar could be visualized as special using the SpecialSlotsSource functionality. The SpecialSlotStyleSelector allows you to apply different look for the slots.</Description>
-          <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/SpecialSlotsExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/SchedulingUICustomizationExample</CodeURL>
+          <IsNew>true</IsNew>
           <IsThemable>false</IsThemable>
         </Example>
         <Example>
@@ -375,24 +343,14 @@
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/DayViewExample</CodeURL>
         </Example>
         <Example>
-          <Name>Scheduling</Name>
-          <DisplayName>Scheduling</DisplayName>
-          <Image>Calendar_AllViews.png</Image>
-          <DescriptionHeader>Scheduling</DescriptionHeader>
-          <Description>This example demonstrates the scheduling capabilities and some of the built-in view modes of the control. The end-user could easily switch the modes using the toolbar or using the UI provided in the SideDrawer control.</Description>
+          <Name>MonthView</Name>
+          <DisplayName>Month View</DisplayName>
+          <Image>Calendar_Appointments.png</Image>
+          <DescriptionHeader>Month View</DescriptionHeader>
+          <Description>The example demonstrates how the Calendar control displays dates of a month, showing how events information can be integrated in the Calendar cell's content. You can control the selection mode from the SideDrawer to show different events in the Agenda View</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/SchedulingExample</CodeURL>
-          <IsThemable>true</IsThemable>
-          <IsUpdated>true</IsUpdated>
-          <ExcludeFrom>UWP</ExcludeFrom>
-        </Example>
-        <Example>
-          <Name>Theming</Name>
-          <Image>Calendar_Theming.png</Image>
-          <DescriptionHeader>Theming</DescriptionHeader>
-          <Description>This example demonstrates the Blue theme, which is available for styling the control.</Description>
-          <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/ThemingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MonthViewExample</CodeURL>
+          <IsThemable>false</IsThemable>
         </Example>
         <Example>
           <Name>MultiDayViewPeople</Name>
@@ -404,13 +362,15 @@
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MultiDayViewPeopleExample</CodeURL>
         </Example>
         <Example>
-          <Name>MultiDayViewConfiguration</Name>
-          <DisplayName>MultiDay View Configuration</DisplayName>
-          <Image>Scheduler_Configuration.png</Image>
-          <DescriptionHeader>MultiDay View Configuration</DescriptionHeader>
-          <Description>This example presents various configuration options such as day start and end times, timeline settings and weekend display, you could utilize to make the MultiDay view look the way you’d need.</Description>
+          <Name>AgendaViewConfiguration</Name>
+          <DisplayName>Agenda View Configuration</DisplayName>
+          <Image>Calendar_AgendaView_Configuration.png</Image>
+          <DescriptionHeader>Agenda View Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options such as different formats for the items you could utilize to make the AgendaView look the way you’d need.</Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MultiDayViewConfigurationExample</CodeURL>
+          <IsThemable>false</IsThemable>
+          <ExcludeFrom>UWP</ExcludeFrom>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AgendaViewConfigurationExample</CodeURL>
         </Example>
         <Example>
           <Name>MultiDayViewAppointments</Name>
@@ -420,6 +380,54 @@
           <Description>This example demonstrates display and management of appointments in MultiDay view. The end-user could easily add and edit appointments by tapping on the timeslot/appointment respectively. Delete option is also available from the appointment edit page.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MultiDayViewAppointmentsExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>AppointmentTemplate</Name>
+          <DisplayName>Appointment Template</DisplayName>
+          <Image>Calendar_app_template.png</Image>
+          <DescriptionHeader>Appointment Template</DescriptionHeader>
+          <Description>This example demonstrates how to create fully customized appointments and display them in Day &amp; MultiDay views. </Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AppointmentTemplateExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>SpecialSlots</Name>
+          <DisplayName>Special Slots</DisplayName>
+          <Image>Calendar_SpecialSlots.png</Image>
+          <DescriptionHeader>Special Slots</DescriptionHeader>
+          <Description>This example demonstrates how specific slots of the Calendar could be visualized as special using the SpecialSlotsSource functionality. The SpecialSlotStyleSelector allows you to apply different look for the slots.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/SpecialSlotsExample</CodeURL>
+          <IsThemable>false</IsThemable>
+        </Example>
+        <Example>
+          <Name>MultiDayViewConfiguration</Name>
+          <DisplayName>MultiDay View Configuration</DisplayName>
+          <Image>Scheduler_Configuration.png</Image>
+          <DescriptionHeader>MultiDay View Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options such as day start and end times, timeline settings and weekend display, you could utilize to make the MultiDay view look the way you’d need.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/MultiDayViewConfigurationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>AgendaViewCustomization</Name>
+          <DisplayName>Agenda View Customization</DisplayName>
+          <Image>Calendar_AgendaView_Customization.png</Image>
+          <DescriptionHeader>Agenda View Customization</DescriptionHeader>
+          <Description>Demonstrates how you could customize the visual appearance of the Agenda view through the AgendaItemStyleSelector.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <ExcludeFrom>UWP</ExcludeFrom>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/AgendaViewCustomizationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Theming</Name>
+          <Image>Calendar_Theming.png</Image>
+          <DescriptionHeader>Theming</DescriptionHeader>
+          <Description>This example demonstrates the Blue theme, which is available for styling the control.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CalendarControl/ThemingExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -531,6 +539,51 @@
           <Description>This example demonstrates how you could use a series of RadCheckBox controls, so that the end user may select several of the provided choices.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/CheckBoxControl/FirstLookExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>ComboBox</Name>
+      <DisplayName>ComboBox</DisplayName>
+      <Image>ComboBox_FirstLook.png</Image>
+      <DescriptionHeader>ComboBox</DescriptionHeader>
+      <ShortDescription>RadComboBox for Xamarin allows users to select item/items from a drop-down list of items.</ShortDescription>
+      <FullDescription>Telerik ComboBox for Xamarin allows users to select item/items from a drop-down list of items. The control has a number of features such as editing, searching, single and multiple selection, flexible styling API, dropdown customizations and more.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/combobox/combobox-overview</DocumentationURL>
+      <Featured>1200</Featured>
+      <IsNew>true</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>false</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>ComboBox_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>The example demonstrates the ComboBox main features - searching, selection - both Single and Multiple, editing and how they can be used in a job search scenario.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ComboBoxControl/FirstLookExample</CodeURL>
+          <IsNew>true</IsNew>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <Image>ComboBox_Customization.png</Image>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Description>This example demonstrates how the ComboBox control can be customized. It showcases how to customize the default ItemTemplate, add HeaderTemplate inside the drop-down list and how to select all items from the drop-down.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ComboBoxControl/CustomizationExample</CodeURL>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Image>ComboBox_Configuration.png</Image>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options that the ComboBox control provides. You can change the control's editable state, selection mode, whether the clear button will be visible, etc.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ComboBoxControl/ConfigurationExample</CodeURL>
+          <IsNew>true</IsNew>
+          <IsThemable>false</IsThemable>
         </Example>
       </Examples>
     </Control>
@@ -696,8 +749,7 @@
       <ShortDescription>RadDatePicker provides an easy way to pick a date. </ShortDescription>
       <FullDescription>Telerik Date Picker for Xamarin allows the users to select a date. Its items are visualized inside a popup. Date Picker control has a number of features which allows you to set a date range, date format and fully customize the dialog appearance such as its header and footer.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/datepicker/date-picker-overview</DocumentationURL>
-      <Featured>1100</Featured>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -708,7 +760,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>RadDatePicker provides the users an easy way to pick a date. The control allows you to define minimum and maximum date. This example demonstrates how you can setup the DatePicker control, so the app users can pick a date and send a request to work remotely.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>true</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DatePickerControl/FirstLookExample</CodeURL>
         </Example>
@@ -718,7 +770,7 @@
           <DescriptionHeader>Customization</DescriptionHeader>
           <Description>This example demonstrates how to customize the visual appearance of RadDatePicker using the control's flexible styling API.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DatePickerControl/CustomizationExample</CodeURL>
         </Example>
@@ -728,7 +780,7 @@
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the RadDatePicker provides. You can change the Popup BackgroundColor, Accept and Cancel button text and color, etc.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DatePickerControl/ConfigurationExample</CodeURL>
         </Example>
@@ -983,7 +1035,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -992,7 +1044,7 @@
           <Description>An example that demonstrates how the PdfViewer can easily visualize an embedded into your application PDF document and the flawless integration with the PdfViewerToolbar.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/FirstLookExample</CodeURL>
-          <IsUpdated>false</IsUpdated>
+          <IsUpdated>true</IsUpdated>
         </Example>
         <Example>
           <Name>Customization</Name>
@@ -1003,6 +1055,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/CustomizationExample</CodeURL>
+          <IsUpdated>true</IsUpdated>
         </Example>
         <Example>
           <Name>LargeFile</Name>
@@ -1012,6 +1065,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/LargeFileExample</CodeURL>
+          <IsUpdated>true</IsUpdated>
         </Example>
       </Examples>
     </Control>
@@ -1089,8 +1143,7 @@
       <ShortDescription>RadTimePicker provides a convenient way for the app users to select a time.</ShortDescription>
       <FullDescription>Telerik Time Picker for Xamarin provides a convenient way for the app users to select a time. Its items are visualized inside a popup. Time Picker control has a number of features which allows you to set a time range, time format and fully customize the dialog appearance such as its header and footer.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/timepicker/time-picker-overview</DocumentationURL>
-      <Featured>1200</Featured>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -1101,7 +1154,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>RadTimePicker provides the users an easy way to pick a time. The control allows you to define minimum and maximum time. This example demonstrates how you can setup the TimePicker control, so the app users can book a time for cleaning service.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>true</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimePickerControl/FirstLookExample</CodeURL>
         </Example>
@@ -1113,7 +1166,7 @@
           <Description>This example demonstrates how to customize the visual appearance of RadTimePicker using the control's flexible styling API.</Description>
           <IsThemable>false</IsThemable>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimePickerControl/CustomizationExample</CodeURL>
         </Example>
@@ -1123,7 +1176,7 @@
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the RadTimePicker provides.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimePickerControl/ConfigurationExample</CodeURL>
         </Example>
@@ -1137,8 +1190,7 @@
       <ShortDescription>RadTimeSpanPicker  provides an easy way to select a time duration.</ShortDescription>
       <FullDescription>Telerik TimeSpan Picker for Xamarin provides an easy way to select a time duration. TimeSpan control represents a time interval and allows you to set a time range between two times measured in numbers of days, hours, minutes and seconds.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/timespanpicker/timespan-picker-overview</DocumentationURL>
-      <Featured>1300</Featured>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -1149,7 +1201,7 @@
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>RadTimeSpanPicker provides the users an easy way to select a time interval. The control allows you to define minimum and maximum time. This example demonstrates how you can setup the TimeSpanPicker control, so the app users can select a maximum flight duration.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>true</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimeSpanPickerControl/FirstLookExample</CodeURL>
         </Example>
@@ -1161,7 +1213,7 @@
           <Description>This example demonstrates how the TimeSpanPicker visual appearance could be customized using the flexible styling API and control's templates.</Description>
           <IsThemable>false</IsThemable>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimeSpanPickerControl/CustomizationExample</CodeURL>
         </Example>
@@ -1171,7 +1223,7 @@
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the RadTimeSpanPicker provides.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TimeSpanPickerControl/ConfigurationExample</CodeURL>
         </Example>
@@ -1313,7 +1365,7 @@
       <ShortDescription>RadTemplatedPicker is a fully customizable picker control that covers a wide range of item selection scenarios for mobile applications.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Templated Picker is a control designed to support the need for a tailored item selection based on various potential end-user scenarios (e.g. pick a country and city for a travel app). The Templated Picker enables you to define your custom template for an item selection and customize it to ensure user experience consistency across your application.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/templatedpicker/templated-picker-overview</DocumentationURL>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -1325,7 +1377,7 @@
           <Image>Picker_TemplatedPicker_FirstLook.png</Image>
           <Description>Demonstrates how you can utilize RadTemplatedPicker in a sample scenario for selecting t-shirt color and size. Through the custom selector template you can place any content inside the picker popup based on the scenario at hand.</Description>
           <IsScenario>false</IsScenario>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <IsThemable>true</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TemplatedPickerControl/FirstLookExample</CodeURL>
         </Example>
@@ -1336,7 +1388,7 @@
           <Image>Picker_TemplatedPicker.png</Image>
           <Description>Demonstrates how you can utilize RadTemplatedPicker in a sample scenario for searching flights. Through the custom selector template you can place any content inside the picker popup based on the scenario at hand.</Description>
           <IsScenario>false</IsScenario>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TemplatedPickerControl/CustomizationExample</CodeURL>
         </Example>
@@ -1347,7 +1399,7 @@
           <Description>This example presents various configuration options you can apply to the RadTemplatedPicker control.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/TemplatedPickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
@@ -1359,7 +1411,8 @@
       <ShortDescription>RadListPicker allows you to select an item from a list, visualized inside a popup. The control can be setup to loop its items infinitely while scrolling.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin List Picker provides an elegant UI experience for end users who need to pick an item from a pre-defined list. The List Picker component loops its listed items infinitely while scrolling and is flexible to various customizations to ensure consistent user experience across the mobile applications. Developers can easily customize the dialog appearance, style the listed and selected items and define a placeholder text when an item is not selected. </FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/listpicker/list-picker-overview</DocumentationURL>
-      <IsNew>true</IsNew>
+      <Featured>1300</Featured>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -1372,7 +1425,7 @@
           <Description>RadListPicker can be useful in various scenarios when you'd like to give the app users a convenient way to choose a value from a list of items. This example presents a sample scenario for selecting a music genre.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListPickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
@@ -1383,7 +1436,7 @@
           <Description>RadListPicker allows you to customize its look in a way you want using the flexible styling API. This example presents a sample scenario for selecting a size and a color.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListPickerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
@@ -1392,7 +1445,7 @@
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options you can apply to the RadListPicker control.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsThemable>true</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListPickerControl/ConfigurationExample</CodeURL>
         </Example>
@@ -1406,7 +1459,7 @@
       <ShortDescription>RadDateTimePicker provides an easy way to pick a date, time or date and time depending on the used format string.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin DateTimePicker enables users to easily pick a date, time or both from a pre-defined set of values. The DateTimePicker control has several features which allow you to set a date range, date and time format and fully customize the dialog appearance.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/datetimepicker/datetime-picker-overview</DocumentationURL>
-      <IsNew>true</IsNew>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -1419,7 +1472,7 @@
           <Description>This example demonstrates how you can setup the DateTime Picker control and choose date and time in the same UI.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
@@ -1431,7 +1484,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/CustomizationExample</CodeURL>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
         </Example>
         <Example>
           <Name>TimeMode</Name>
@@ -1441,7 +1494,7 @@
           <Description>This example demonstrates how you can setup the DateTime Picker control, so that the app users can choose a time.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/TimeModeExample</CodeURL>
         </Example>
         <Example>
@@ -1452,7 +1505,7 @@
           <Description>This example demonstrates how you can setup the DateTime Picker control, so that the app users can choose a date.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/DateModeExample</CodeURL>
         </Example>
         <Example>
@@ -1461,7 +1514,7 @@
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the RadDateTimePicker provides. </Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DateTimePickerControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
@@ -1517,6 +1570,52 @@
           <Description>Demonstrates Blue theme applied on RadRating.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RatingControl/ThemingExample</CodeURL>
+        </Example>
+      </Examples>
+    </Control>
+    <Control>
+      <Name>RichTextEditor</Name>
+      <Image>RichTextEditor_FirstLook.png</Image>
+      <DescriptionHeader>RichTextEditor</DescriptionHeader>
+      <ShortDescription>RadRichTextEditor is a WYSIWYG control that can display and edit HTML content.</ShortDescription>
+      <FullDescription>Telerik UI for Xamarin RadRichTextEditor is a WYSIWYG control that can display and edit HTML content.</FullDescription>
+      <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/richtexteditor/richtexteditor-overview</DocumentationURL>
+      <Featured>1100</Featured>
+      <IsNew>false</IsNew>
+      <IsCTP>false</IsCTP>
+      <IsBeta>true</IsBeta>
+      <IsUpdated>false</IsUpdated>
+      <Examples>
+        <Example>
+          <Name>FirstLook</Name>
+          <Image>RichTextEditor_FirstLook.png</Image>
+          <DescriptionHeader>First Look</DescriptionHeader>
+          <Description>This example demonstrates how to setup RadRichTextEditor and RadRichTextEditorToolbar to visualize and edit html content.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RichTextEditorControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>ImportExport</Name>
+		  <DisplayName>Import and Export</DisplayName>
+          <Image>RichTextEditor_ImportExport.png</Image>
+          <DescriptionHeader>Import and Export</DescriptionHeader>
+          <Description>This example demonstrates how to import and export the content of the RichTextEditor component to various formats, such as html, docx, rtf and txt. The example also showcases how to share files edited with the RichTextEditor component to another application.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>true</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RichTextEditorControl/FileSharingExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Customization</Name>
+          <Image>RichTextEditor_Customization.png</Image>
+          <DescriptionHeader>Customization</DescriptionHeader>
+          <Description>This example demonstrates how to customize RadRichTextEditor and RadRichTextEditorToolbar. It showcases how to create custom RichTextEditorToolbarItems and setup the RadRichTextEditorToolbar in a different way than the default one. Furthermore, the example demonstrates how to style RadRichTextEditor toolbar using custom styles.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RichTextEditorControl/CustomizationExample</CodeURL>
         </Example>
       </Examples>
     </Control>

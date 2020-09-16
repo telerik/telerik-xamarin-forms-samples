@@ -65,7 +65,8 @@
                                FontFamily="{StaticResource Key=RegularFont}" FontSize="20"/>
                     </Grid>
 
-                    <input:RadButton Text="{TemplateBinding Path=MiddleButtonText}"
+                    <input:RadButton x:Name="PART_AppBarMiddleButton"
+                                     Text="{TemplateBinding Path=MiddleButtonText}"
                                      Command="{TemplateBinding Path=MiddleButtonCommand}"
                                      IsVisible="{TemplateBinding Path=IsMiddleButtonVisible}"
                                      IsEnabled="{TemplateBinding Path=IsMiddleButtonEnabled}"

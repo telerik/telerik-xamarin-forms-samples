@@ -618,6 +618,8 @@ namespace QSF.Examples.TemplatedPickerControl.ConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public bool IsHeaderVisible
         {
             get

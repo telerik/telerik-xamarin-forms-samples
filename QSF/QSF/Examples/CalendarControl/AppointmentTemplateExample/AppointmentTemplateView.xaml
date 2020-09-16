@@ -223,9 +223,9 @@
                                          BorderColor="#B9C0C4"
                                          BackgroundColor="#F7F7F7">
                 <telerikDataControls:RadListView ItemsSource="{Binding CalendarViewModes}"
-                                                                SelectedItem="{Binding SelectedMode, Mode=TwoWay}"
-                                                                HorizontalOptions="CenterAndExpand"
-                                                                HeightRequest="50">
+                                                 SelectedItem="{Binding SelectedMode, Mode=TwoWay}"
+                                                 HorizontalOptions="CenterAndExpand"
+                                                 HeightRequest="50">
                     <telerikDataControls:RadListView.IsVisible>
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <On Platform="iOS, Android">true</On>

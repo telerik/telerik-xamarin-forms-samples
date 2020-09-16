@@ -35,6 +35,7 @@
     <None Remove="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <None Remove="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
     <None Remove="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
+    <None Remove="Examples\RichTextEditorControl\FirstLookExample\RichTextEditorFirstLook.html" />
     <None Remove="Examples\SpreadProcessingControl\ConvertExample\SpreadProcessingDocument1.xlsx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\DocToBeProcessed.docx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\JohnGrisham.docx" />
@@ -42,6 +43,10 @@
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\JohnGrisham.docx" />
     <None Remove="Resources\banner.jpg" />
     <None Remove="Resources\ImageEditor\ProfilePicture\ProfilePicture.png" />
+    <None Remove="Resources\RichTextEditor\RichTextEditor_Overview.docx" />
+    <None Remove="Resources\RichTextEditor\RichTextEditor_Overview.html" />
+    <None Remove="Resources\RichTextEditor\RichTextEditor_Overview.rtf" />
+    <None Remove="Resources\RichTextEditor\RichTextEditor_Overview.txt" />
     <None Remove="Resources\SampleImage1.jpg" />
     <None Remove="Resources\SampleImage2.jpg" />
     <None Remove="Resources\SampleImage3.jpg" />
@@ -66,6 +71,8 @@
     <EmbeddedResource Include="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditorOverview.html" />
+    <EmbeddedResource Include="Resources\RichTextEditor\PickYourHoliday.html" />
     <EmbeddedResource Include="Examples\SpreadProcessingControl\ConvertExample\SpreadProcessingDocument1.xlsx" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\AccountDataSource.xml" />
     <EmbeddedResource Include="Examples\TreeViewControl\Resources\AgenciesDataSource.xml" />
@@ -96,6 +103,10 @@
     <EmbeddedResource Include="Resources\ImageEditor\FirstLook\SampleImage5.jpg" />
     <EmbeddedResource Include="Resources\ImageEditor\FirstLook\SampleImage6.jpg" />
     <EmbeddedResource Include="Resources\ImageEditor\ProfilePicture\ProfilePicture.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditor_Overview.html" />
+    <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditor_Overview.rtf" />
+    <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditor_Overview.txt" />
+    <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditor_Overview.docx" />
     <EmbeddedResource Include="Resources\telerikLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -103,13 +114,14 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.6.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
-    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
   </ItemGroup>
   <PropertyGroup>
     <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>
@@ -175,6 +187,9 @@
     <Reference Include="Telerik.XamarinForms.Primitives">
       <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.XamarinForms.RichTextEditor">
+      <HintPath>..\..\Binaries\Portable\Telerik.XamarinForms.RichTextEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
       <HintPath>$(TelerikInstallationBinariesPath)\Portable\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
@@ -183,6 +198,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Examples\CalendarControl\SchedulingUICustomizationExample\SchedulingUICustomizationView.xaml.cs">
+      <DependentUpon>SchedulingUICustomizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\CalendarControl\SchedulingUICustomizationExample\Resources\CustomSchedulingResources.xaml.cs">
+      <DependentUpon>CustomSchedulingResources.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Examples\DateTimePickerControl\CustomizationExample\CustomizationView.xaml.cs">
       <DependentUpon>CustomizationView.xaml</DependentUpon>
     </Compile>
@@ -191,6 +212,9 @@
     </Compile>
     <Compile Update="Examples\ListPickerControl\FirstLookExample\FirstLookView.xaml.cs">
       <DependentUpon>FirstLookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\RichTextEditorControl\ImportExportExample\ImportExportView.xaml.cs">
+      <DependentUpon>ImportExportView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Examples\SpreadProcessingControl\ConvertExample\ConvertView.xaml.cs">
       <DependentUpon>ConvertView.xaml</DependentUpon>
@@ -282,6 +306,12 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Examples\ButtonControl\RecipesExample\RecipesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\CustomAppointmentsExample\CustomAppointmentResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Examples\CalendarControl\CustomAppointmentsExample\CustomAppointmentsView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Examples\CalendarControl\DayViewExample\DayViewView.xaml">
@@ -562,6 +592,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Examples\CalendarControl\SchedulingUICustomizationExample\SchedulingUICustomizationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Examples\DatePickerControl\ConfigurationExample\ConfigurationView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -608,6 +641,18 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\ListPickerControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\RichTextEditorControl\ImportExportExample\FileOpenView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\RichTextEditorControl\ImportExportExample\FileSaveView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\RichTextEditorControl\ImportExportExample\ImportExportView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\RichTextEditorControl\FirstLookExample\FirstLookView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\TemplatedPickerControl\ConfigurationExample\ConfigurationView.xaml">

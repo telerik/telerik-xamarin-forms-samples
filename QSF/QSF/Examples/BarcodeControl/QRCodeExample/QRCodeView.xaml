@@ -7,57 +7,16 @@
              xmlns:converters="clr-namespace:QSF.Converters"
              xmlns:qsf="clr-namespace:QSF"
              x:Class="QSF.Examples.BarcodeControl.QRCodeExample.QRCodeView">
-    <ContentView.Resources>
-        <ResourceDictionary>
-            <converters:ConditionalValueConverter x:Key="conditionalValueConverter" />
-            <converters:ConditionalValueConverterParameter x:Key="messageBackgroundColorParameter" FalseValue="{StaticResource DarkBackgroundColor}" TrueValue="{StaticResource ErrorBackgroundColor}" />
-            <converters:ConditionalValueConverterParameter x:Key="messageErrorColorParameter" FalseValue="{StaticResource AccentColor}" TrueValue="{StaticResource ErrorColor}" />
-            <converters:ConditionalValueConverterParameter x:Key="messageHeaderTextParameter" FalseValue="Configuration" TrueValue="Error" />
-            <converters:ConditionalValueConverterParameter x:Key="messageIconParameter" FalseValue="{StaticResource EmptyGearIcon}" TrueValue="{StaticResource ExclamationMarkIcon}" />
-        </ResourceDictionary>
-    </ContentView.Resources>
 
-    <Grid Margin="20" x:Name="grid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*" />
-            <RowDefinition Height="2*" />
-        </Grid.RowDefinitions>
-
-        <barcode:RadBarcode Value="{Binding Path=Value}" x:Name="barcode" IsValid="{Binding Path=IsValid}" ErrorMessage="{Binding Path=ErrorMessage}">
-            <barcode:RadBarcode.Symbology>
-                <barcode:QRCode SizingMode="Stretch"
-                                    Version="{Binding Path=Version}"
-                                    CodeMode="{Binding Path=CodeMode}"
-                                    ErrorCorrectionLevel="{Binding Path=ECL}"
-                                    ECIMode="{Binding Path=ECIMode}"
-                                    FNC1Mode="{Binding Path=FNC1Mode}"
-                                    ApplicationIndicator="{Binding Path=ApplicationIndicator}"/>
-            </barcode:RadBarcode.Symbology>
-        </barcode:RadBarcode>
-
-        <primitives:RadBorder BackgroundColor="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageBackgroundColorParameter}}"
-                              CornerRadius="5" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Center" x:Name="border">
-            <primitives:RadBorder.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Path=AppBarMiddleButtonCommand}" />
-            </primitives:RadBorder.GestureRecognizers>
-            <Grid Margin="20, 30">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-
-                <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageIconParameter}}" 
-                       FontFamily="{StaticResource IconsFont}"
-                       TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageErrorColorParameter}}"
-                       HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
-
-                <StackLayout Grid.Column="1" VerticalOptions="Center">
-                    <Label Text="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageHeaderTextParameter}}" 
-                           TextColor="{Binding Path=ShowErrorMessage, Converter={StaticResource conditionalValueConverter}, ConverterParameter={StaticResource messageErrorColorParameter}}"
-                           Style="{StaticResource HeaderLabelStyle}" Margin="0"/>
-                    <Label Text="{Binding Path=MessageText}" LineBreakMode="WordWrap" Style="{StaticResource BodyLabelStyle}" />
-                </StackLayout>
-            </Grid>
-        </primitives:RadBorder>
-    </Grid>
+    <barcode:RadBarcode Value="{Binding Path=Value}" x:Name="barcode" IsValid="{Binding Path=IsValid}" ErrorMessage="{Binding Path=ErrorMessage}">
+        <barcode:RadBarcode.Symbology>
+            <barcode:QRCode SizingMode="Stretch"
+                            Version="{Binding Path=Version}"
+                            CodeMode="{Binding Path=CodeMode}"
+                            ErrorCorrectionLevel="{Binding Path=ECL}"
+                            ECIMode="{Binding Path=ECIMode}"
+                            FNC1Mode="{Binding Path=FNC1Mode}"
+                            ApplicationIndicator="{Binding Path=ApplicationIndicator}"/>
+        </barcode:RadBarcode.Symbology>
+    </barcode:RadBarcode>
 </ContentView>

@@ -2,8 +2,8 @@
 using Android.Content.PM;
 using Android.OS;
 using Java.Interop;
-using Plugin.CurrentActivity;
 using Plugin.Permissions;
+using Plugin.CurrentActivity;
 using QSF.Services.BackdoorService;
 using Xamarin.Forms;
 
@@ -36,6 +36,7 @@ namespace QSF.Droid
 
             base.OnCreate(bundle);
 
+            Xamarin.Essentials.Platform.Init(this, bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
 
             this.SetTheme(Resource.Style.Theme_Design_Light);
@@ -48,6 +49,7 @@ namespace QSF.Droid
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }

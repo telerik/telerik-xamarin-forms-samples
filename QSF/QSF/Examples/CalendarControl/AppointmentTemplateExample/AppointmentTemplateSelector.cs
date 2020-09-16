@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Telerik.XamarinForms.Input;
+using Xamarin.Forms;
 
 namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
 {
@@ -12,6 +13,12 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
+            var appointment = item as IAppointment;
+            if (appointment.IsAllDay)
+            {
+                return null;
+            }
+
             if (item is IconAppointment)
             {
                 return this.IconTemplate;

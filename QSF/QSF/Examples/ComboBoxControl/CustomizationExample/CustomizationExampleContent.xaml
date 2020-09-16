@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             x:Class="QSF.Examples.ComboBoxControl.CustomizationExample.CustomizationExampleContent">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ComboBoxTitleStyle" TargetType="Label">
+                <Setter Property="Padding" Value="20, 24, 0, 8"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Color x:Key="ComboBoxBackgroundColor">#F8F8F8</Color>
+            <Style x:Key="ComboBoxStyle" TargetType="telerikInput:RadComboBox">
+                <Setter Property="CornerRadius" Value="12, 12, 0, 0"/>
+                <Setter Property="DropDownBackgroundColor" Value="#F8F8F8"/>
+                <Setter Property="DropDownBorderThickness" Value="0, 0, 0, 1"/>
+                <Setter Property="DropDownBorderColor" Value="#D9D9D9"/>
+                <Setter Property="BorderColor" Value="#D9D9D9"/>
+                <Setter Property="FocusedBorderColor" Value="#D9D9D9"/>
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1"/>
+            </Style>
+            <Style x:Key="ComboBoxButtonStyle" TargetType="Button">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="UWP, Android">50</On>
+                            <On Platform="iOS">34</On>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ComboBoxDropDownButtonStyle" TargetType="Button" BasedOn="{StaticResource ComboBoxButtonStyle}">
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+                <Setter Property="Text" Value="&#xE816;"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <StackLayout>
+        <telerikPrimitives:RadBorder BackgroundColor="#F8F8F8">
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Margin="0, 16">
+                <Image Margin="0, 0, 0, 16">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">ComboBox_Customization_HeaderImage.png</On>
+                            <On Platform="UWP">Assets/ComboBox_Customization_HeaderImage.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+                <Label Text="Women's Short Sleeve Top"
+                       FontSize="22"
+                       TextColor="#0E88F2"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="Product available offline only"
+                       FontSize="14"
+                       TextColor="#919191"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </telerikPrimitives:RadBorder>
+        <Label Text="Color:"
+               Style="{StaticResource ComboBoxTitleStyle}"/>
+        <telerikInput:RadComboBox ItemsSource="{Binding Colors}"
+                                  SelectedIndex="{Binding SelectedColorIndex, Mode=TwoWay}"
+                                  BackgroundColor="{StaticResource ComboBoxBackgroundColor}"
+                                  Style="{StaticResource ComboBoxStyle}"
+                                  ClearButtonStyle="{StaticResource ComboBoxButtonStyle}"
+                                  DropDownButtonStyle="{StaticResource ComboBoxDropDownButtonStyle}"
+                                  Placeholder="Select Color"
+                                  Margin="16, 0">
+            <telerikInput:RadComboBox.DropDownHeight>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS">235</On>
+                    <On Platform="Android, UWP">244</On>
+                </OnPlatform>
+            </telerikInput:RadComboBox.DropDownHeight>
+            <telerikInput:RadComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="16, 15, 0, 15"
+                                 Orientation="Horizontal"
+                                 BackgroundColor="#F8F8F8">
+                        <telerikPrimitives:RadBorder BackgroundColor="{Binding .}"
+                                                     HorizontalOptions="Center"
+                                                     VerticalOptions="Center"
+                                                     HeightRequest="14"
+                                                     WidthRequest="14"
+                                                     CornerRadius="7"
+                                                     Margin="0, 0, 10, 0"/>
+                        <Label Text="{Binding .}"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               TextColor="Black"/>
+                    </StackLayout>
+                </DataTemplate>
+            </telerikInput:RadComboBox.ItemTemplate>
+            <telerikInput:RadComboBox.SelectedItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="16, 15, 0, 15"
+                                 Orientation="Horizontal"
+                                 BackgroundColor="#E5E5E5">
+                        <telerikPrimitives:RadBorder VerticalOptions="Center"
+                                                     HorizontalOptions="Center"
+                                                     Margin="0, 0, 10, 0"
+                                                     HeightRequest="18" 
+                                                     WidthRequest="18"
+                                                     CornerRadius="9"
+                                                     BorderThickness="1"
+                                                     BackgroundColor="Transparent"
+                                                     BorderColor="{Binding .}">
+                            <telerikPrimitives:RadBorder VerticalOptions="Center"
+                                                         HorizontalOptions="Center"
+                                                         HeightRequest="14"
+                                                         WidthRequest="14"
+                                                         CornerRadius="7"
+                                                         BackgroundColor="{Binding .}"/>
+                        </telerikPrimitives:RadBorder>
+                        <Label Text="{Binding .}"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               TextColor="Black"/>
+                    </StackLayout>
+                </DataTemplate>
+            </telerikInput:RadComboBox.SelectedItemTemplate>
+        </telerikInput:RadComboBox>
+        <Label Text="Size:"
+               Style="{StaticResource ComboBoxTitleStyle}"/>
+        <telerikInput:RadComboBox ItemsSource="{Binding Sizes}"
+                                  SelectedIndex="{Binding SelectedSizeIndex, Mode=TwoWay}"
+                                  BackgroundColor="{StaticResource ComboBoxBackgroundColor}"
+                                  Style="{StaticResource ComboBoxStyle}"
+                                  ClearButtonStyle="{StaticResource ComboBoxButtonStyle}"
+                                  DropDownButtonStyle="{StaticResource ComboBoxDropDownButtonStyle}"
+                                  Placeholder="Select Size"
+                                  Margin="16, 0">
+            <telerikInput:RadComboBox.DropDownHeight>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS">140</On>
+                    <On Platform="Android, UWP">145</On>
+                </OnPlatform>
+            </telerikInput:RadComboBox.DropDownHeight>
+            <telerikInput:RadComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding .}"
+                           Padding="8, 15, 0, 15"
+                           FontSize="14"
+                           TextColor="Black"
+                           BackgroundColor="#F8F8F8"/>
+                </DataTemplate>
+            </telerikInput:RadComboBox.ItemTemplate>
+            <telerikInput:RadComboBox.SelectedItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding .}"
+                           Padding="8, 15, 0, 15"
+                           FontSize="14"
+                           BackgroundColor="#E5E5E5"
+                           TextColor="Black"/>
+                </DataTemplate>
+            </telerikInput:RadComboBox.SelectedItemTemplate>
+        </telerikInput:RadComboBox>
+        <Label Text="Show Availability in stores:"
+               Style="{StaticResource ComboBoxTitleStyle}"/>
+        <telerikInput:RadComboBox x:Name="StoresCombo"
+                                  ItemsSource="{Binding Stores}"
+                                  SelectedItems="{Binding SelectedStores}"
+                                  SelectedIndex="{Binding SelectedStoreIndex, Mode=TwoWay}"
+                                  BackgroundColor="{StaticResource ComboBoxBackgroundColor}"
+                                  Style="{StaticResource ComboBoxStyle}"
+                                  ClearButtonStyle="{StaticResource ComboBoxButtonStyle}"
+                                  DropDownButtonStyle="{StaticResource ComboBoxDropDownButtonStyle}"
+                                  Placeholder="Find Store"
+                                  SelectionMode="Multiple"
+                                  DisplayMemberPath="Street"
+                                  IsDropDownClosedOnSelection="False"
+                                  IsEditable="True"
+                                  SearchTextPath="City"
+                                  Margin="16, 0, 16, 18">
+            <telerikInput:RadComboBox.DropDownHeight>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS">238</On>
+                    <On Platform="UWP">244</On>
+                    <On Platform="Android">248</On>
+                </OnPlatform>
+            </telerikInput:RadComboBox.DropDownHeight>
+            <telerikInput:RadComboBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="11, 20, 0, 20"
+                                 BackgroundColor="#DADADA">
+                        <telerikPrimitives:RadCheckBox IsChecked="{Binding SelectAllChecked}"
+                                                       Margin="0, 0, 6, 0"
+                                                       CheckedColor="#0E88F2"
+                                                       IndeterminateColor="#0E88F2"
+                                                       InputTransparent="True"
+                                                       VerticalOptions="Center"/>
+                        <Label Text="Select All Stores"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               VerticalTextAlignment="Center"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectAllCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </telerikInput:RadComboBox.HeaderTemplate>
+            <telerikInput:RadComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="11, 8, 0, 8"
+                                 BackgroundColor="#F8F8F8">
+                        <telerikPrimitives:RadCheckBox Margin="0, 0, 6, 0"
+                                                       CheckedColor="#0E88F2"
+                                                       IndeterminateColor="#0E88F2"
+                                                       InputTransparent="True"
+                                                       IsChecked="False"
+                                                       VerticalOptions="Center"/>
+                        <StackLayout Spacing="0">
+                            <telerikPrimitives:RadHighlightLabel UnformattedText="{Binding City}"
+                                                                 HighlightText="{Binding Source={x:Reference StoresCombo}, Path=SearchText, Mode=OneWay}"
+                                                                 TextColor="Black"
+                                                                 HighlightTextColor="{Binding Source={x:Reference StoresCombo}, Path=HighlightTextColor}"
+                                                                 FontAttributes="Bold"
+                                                                 FontSize="16"/>
+                            <Label Text="{Binding Street}"
+                                   TextColor="#8A000000"
+                                   FontSize="14"/>
+                            <Label Text="{Binding Code}"
+                                   TextColor="#8A000000"
+                                   FontSize="14"/>
+                            <Label Text="{Binding WorkHours}"
+                                   TextColor="#8A000000"
+                                   FontSize="12"/>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </telerikInput:RadComboBox.ItemTemplate>
+            <telerikInput:RadComboBox.SelectedItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="11, 8, 0, 8"
+                                 BackgroundColor="#E5E5E5">
+                        <telerikPrimitives:RadCheckBox Margin="0, 0, 6, 0"
+                                                       IsChecked="True"
+                                                       CheckedColor="#0E88F2"
+                                                       IndeterminateColor="#0E88F2"
+                                                       InputTransparent="True"
+                                                       VerticalOptions="Center"/>
+                        <StackLayout Spacing="0">
+                            <telerikPrimitives:RadHighlightLabel UnformattedText="{Binding City}"
+                                                                 HighlightText="{Binding Source={x:Reference StoresCombo}, Path=SearchText}"
+                                                                 TextColor="Black"
+                                                                 HighlightTextColor="{Binding Source={x:Reference StoresCombo}, Path=HighlightTextColor}"
+                                                                 FontAttributes="Bold"
+                                                                 FontSize="16"/>
+                            <Label Text="{Binding Street}"
+                                   TextColor="#8A000000"
+                                   FontSize="14"/>
+                            <Label Text="{Binding Code}"
+                                   TextColor="#8A000000"
+                                   FontSize="14"/>
+                            <Label Text="{Binding WorkHours}"
+                                   TextColor="#8A000000"
+                                   FontSize="12"/>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </telerikInput:RadComboBox.SelectedItemTemplate>
+            <telerikInput:RadComboBox.TokenTemplate>
+                <DataTemplate>
+                    <telerikPrimitives:RadBorder BackgroundColor="#D8EBFF"
+                                                 Margin="1"
+                                                 BorderThickness="0"
+                                                 VerticalOptions="Center">
+                        <telerikPrimitives:RadBorder.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10, 13"/>
+                                <On Platform="Android" Value="10, 12"/>
+                                <On Platform="UWP" Value="10, 12"/>
+                            </OnPlatform>
+                        </telerikPrimitives:RadBorder.Padding>
+                        <telerikPrimitives:RadBorder.CornerRadius>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="15"/>
+                                <On Platform="Android" Value="18"/>
+                                <On Platform="UWP" Value="13"/>
+                            </OnPlatform>
+                        </telerikPrimitives:RadBorder.CornerRadius>
+                        <telerikCommon:RadDockLayout>
+                            <Label telerikCommon:RadDockLayout.Dock="Right"
+                                   FontFamily="{Static telerikCommon:TelerikFont.FontFamily}"
+                                   Text="{Static telerikCommon:TelerikFont.IconCancel2}"
+                                   VerticalOptions="Center"
+                                   TextColor="#FF8E8E93">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference StoresCombo}, Path=BindingContext.RemoveTokenCommand}"
+                                                          CommandParameter="{Binding .}"/>
+                                </Label.GestureRecognizers>
+                                <Label.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="Android, iOS" Value="6, 0, 0, 0"/>
+                                        <On Platform="UWP" Value="6, 1, 0, 1"/>
+                                    </OnPlatform>
+                                </Label.Margin>
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="View"
+                                                 Binding="{Binding Source={x:Reference StoresCombo}, Path=IsFocused}"
+                                                 Value="False">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Label VerticalOptions="Center"
+                                   Text="{Binding Street}"
+                                   FontSize="14"
+                                   TextColor="#007AFF"/>
+                        </telerikCommon:RadDockLayout>
+                    </telerikPrimitives:RadBorder>
+                </DataTemplate>
+            </telerikInput:RadComboBox.TokenTemplate>
+            <telerikInput:RadComboBox.ShowMoreTemplate>
+                <DataTemplate>
+                    <telerikPrimitives:RadBorder BackgroundColor="#D8EBFF"
+                                                 Margin="1"
+                                                 BorderThickness="0">
+                        <telerikPrimitives:RadBorder.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10, 13"/>
+                                <On Platform="Android" Value="10, 12"/>
+                                <On Platform="UWP" Value="10, 4"/>
+                            </OnPlatform>
+                        </telerikPrimitives:RadBorder.Padding>
+                        <telerikPrimitives:RadBorder.CornerRadius>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="15"/>
+                                <On Platform="Android" Value="18"/>
+                                <On Platform="UWP" Value="13"/>
+                            </OnPlatform>
+                        </telerikPrimitives:RadBorder.CornerRadius>
+                        <Label VerticalOptions="Center"
+                               FontSize="14"
+                               TextColor="#007AFF"
+                               Text="{Binding ., StringFormat='+{0}'}"/>
+                    </telerikPrimitives:RadBorder>
+                </DataTemplate>
+            </telerikInput:RadComboBox.ShowMoreTemplate>
+        </telerikInput:RadComboBox>
+    </StackLayout>
+</ContentView>

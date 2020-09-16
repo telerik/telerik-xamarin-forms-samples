@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Telerik.XamarinForms.DataControls.ListView;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels
@@ -145,7 +146,7 @@ namespace QSF.ViewModels
         protected override Task NavigateToDocumentationOverride()
         {
             AnalyticsHelper.TraceNavigateToDocumentation(this.control.Name);
-            Device.OpenUri(new Uri(this.control.DocumentationURL));
+            Launcher.OpenAsync(this.control.DocumentationURL);
 
             return Task.FromResult(false);
         }

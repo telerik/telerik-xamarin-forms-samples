@@ -168,6 +168,8 @@ namespace QSF.Examples.ListPickerControl.ConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public bool IsHeaderVisible
         {
             get

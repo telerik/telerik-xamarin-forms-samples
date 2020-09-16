@@ -67,6 +67,8 @@ namespace QSF.Examples.TimePickerControl.ConfigurationExample
             }
         }
 
+        public override bool IsPopupHintOpen => true;
+
         public bool IsHeaderVisible
         {
             get

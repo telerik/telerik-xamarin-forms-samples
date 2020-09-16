@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QSF.Examples.RichTextEditorControl.ImportExportExample.ImportExportView"
+             xmlns:views="clr-namespace:QSF.Views"
+             xmlns:example="clr-namespace:QSF.Examples.RichTextEditorControl"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor">
+    <ContentView.Resources>
+        <example:RichTextContext x:Key="richTextContext" RichTextEditor="{x:Reference richTextEditor}" />
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <telerikRichTextEditor:RadRichTextEditorToolbar x:Name="menuToolbar"
+                                                        Grid.Row="0"
+                                                        AutoGenerateItems="False"
+                                                        RichTextEditor="{x:Reference richTextEditor}"
+                                                        views:ThemesBehavior.StyleClass="TelerikTheme">
+            <telerikRichTextEditor:PickerToolbarItem x:Name="openToolbarItem"
+                                                     FontFamily="{StaticResource IconsFont}"
+                                                     Text="{StaticResource OpenIcon}"
+                                                     ItemsSource="{Binding OpenItems}"
+                                                     PickerPopupPlacement="Bottom"
+                                                     HorizontalOptions="Start">
+                <telerikRichTextEditor:PickerToolbarItem.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnOpenItemTapped"
+                                                      Command="{Binding Command}"
+                                                      CommandParameter="{StaticResource richTextContext}" />
+                            </Grid.GestureRecognizers>
+                            <Label Margin="10"
+                                   Text="{Binding Text}" />
+                        </Grid>
+                    </DataTemplate>
+                </telerikRichTextEditor:PickerToolbarItem.ItemTemplate>
+            </telerikRichTextEditor:PickerToolbarItem>
+            <telerikRichTextEditor:UndоToolbarItem HorizontalOptions="Center" />
+            <telerikRichTextEditor:RedоToolbarItem HorizontalOptions="Center" />
+            <telerikRichTextEditor:RichTextEditorToolbarItem FontFamily="{StaticResource IconsFont}"
+                                                             Text="{StaticResource ShareIcon}"
+                                                             Command="{Binding ShareCommand}" 
+                                                             CommandParameter="{StaticResource richTextContext}"
+                                                             HorizontalOptions="End" />
+            <telerikRichTextEditor:PickerToolbarItem x:Name="saveToolbarItem"
+                                                     FontFamily="{StaticResource IconsFont}"
+                                                     Text="{StaticResource SaveIcon}"
+                                                     ItemsSource="{Binding SaveItems}"
+                                                     PickerPopupPlacement="Bottom"
+                                                     HorizontalOptions="End">
+                <telerikRichTextEditor:PickerToolbarItem.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnSaveItemTapped"
+                                                      Command="{Binding Command}"
+                                                      CommandParameter="{StaticResource richTextContext}" />
+                            </Grid.GestureRecognizers>
+                            <Label Margin="10"
+                                   Text="{Binding Text}" />
+                        </Grid>
+                    </DataTemplate>
+                </telerikRichTextEditor:PickerToolbarItem.ItemTemplate>
+            </telerikRichTextEditor:PickerToolbarItem>
+        </telerikRichTextEditor:RadRichTextEditorToolbar>
+        <telerikRichTextEditor:RadRichTextEditor x:Name="richTextEditor"
+                                                 Grid.Row="1"
+                                                 Source="{Binding HtmlText}" />
+        <telerikPrimitives:RadBusyIndicator Grid.Row="1"
+                                            IsVisible="{Binding IsBusy}"
+                                            IsBusy="{Binding IsBusy}" />
+        <telerikRichTextEditor:RadRichTextEditorToolbar x:Name="editToolbar"
+                                                        Grid.Row="2"
+                                                        RichTextEditor="{x:Reference richTextEditor}"
+                                                        views:ThemesBehavior.StyleClass="TelerikTheme" />
+    </Grid>
+</ContentView>
