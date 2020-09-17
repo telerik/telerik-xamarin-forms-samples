@@ -228,7 +228,7 @@
       <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.RichTextEditor">
-      <HintPath>..\..\Binaries\UWP\Telerik.XamarinForms.RichTextEditor.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\UWP\Telerik.XamarinForms.RichTextEditor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
       <SpecificVersion>False</SpecificVersion>

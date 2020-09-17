@@ -357,7 +357,7 @@
       <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.RichTextEditor">
-      <HintPath>..\..\Binaries\iOS\Telerik.XamarinForms.RichTextEditor.dll</HintPath>
+      <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.RichTextEditor.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
       <HintPath>$(TelerikInstallationBinariesPath)\iOS\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
