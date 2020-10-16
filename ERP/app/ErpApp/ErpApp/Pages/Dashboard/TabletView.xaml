@@ -12,7 +12,7 @@
                     <Setter.Value>
                         <ControlTemplate>
                             <Grid>
-                                <BoxView CornerRadius="4" BackgroundColor="White" />
+                                <telerikBusyIndicator:RadBorder CornerRadius="4" BackgroundColor="White" />
                                 <ContentPresenter Margin="20" />
                             </Grid>
                         </ControlTemplate>
