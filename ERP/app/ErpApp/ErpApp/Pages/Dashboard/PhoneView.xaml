@@ -2,7 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ErpApp.Pages.Dashboard.PhoneView"
-             xmlns:telerikBusyIndicator="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:cards="clr-namespace:ErpApp.Pages.Dashboard">
     <Grid>
         <ScrollView>
@@ -13,7 +13,7 @@
                             <Setter.Value>
                                 <ControlTemplate>
                                     <Grid>
-                                        <telerikBusyIndicator:RadBorder CornerRadius="4" BackgroundColor="White" />
+                                        <telerikPrimitives:RadBorder CornerRadius="4" BackgroundColor="White" />
                                         <ContentPresenter Margin="20" />
                                     </Grid>
                                 </ControlTemplate>
@@ -31,6 +31,6 @@
                 <cards:OrderStatusCard HeightRequest="200" Margin="0,0,0,10" Style="{StaticResource cardStyle}" />
             </StackLayout>
         </ScrollView>
-        <telerikBusyIndicator:RadBusyIndicator AnimationType="Animation3" IsBusy="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="#E6FFFFFF" IsVisible="{Binding IsBusy}" AnimationContentColor="#2196F3" AnimationContentWidthRequest="60" AnimationContentHeightRequest="60"/>
+        <telerikPrimitives:RadBusyIndicator AnimationType="Animation3" IsBusy="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="#E6FFFFFF" IsVisible="{Binding IsBusy}" AnimationContentColor="#2196F3" AnimationContentWidthRequest="60" AnimationContentHeightRequest="60"/>
     </Grid>
 </ContentView>
