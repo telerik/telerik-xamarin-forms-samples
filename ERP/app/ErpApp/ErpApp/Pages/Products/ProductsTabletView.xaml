@@ -239,8 +239,8 @@
                                         <Label Grid.Row="6" Grid.Column="0" Text="Color" TextColor="{StaticResource TitleLabelColor}" Margin="40,0,0,5"  FontSize="Small"/>
                                         <telerikPrimitives:RadPath Grid.Row="6" Grid.Column="1" WidthRequest="12" HeightRequest="12" HorizontalOptions="Start" VerticalOptions="Center" Geometry="{x:Static telerikInput:Geometries.Circle}" Fill="{Binding Path=Brush, Mode=OneWay}" Margin="{StaticResource itemSpacing}" />
 
-                                        <BoxView Grid.Row="6" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BackgroundColor="{StaticResource LineColor}" />
-                                        <BoxView Grid.RowSpan="7" Grid.Column="1" WidthRequest="1" HorizontalOptions="End" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource LineColor}" IsVisible="{Binding Index, Converter={StaticResource isEventCon}}" />
+                                        <telerikPrimitives:RadBorder Grid.Row="6" Grid.ColumnSpan="2" HeightRequest="1" VerticalOptions="End" BorderColor="{StaticResource LineColor}" />
+                                        <telerikPrimitives:RadBorder Grid.RowSpan="7" Grid.Column="1" WidthRequest="1" HorizontalOptions="End" VerticalOptions="FillAndExpand" BorderColor="{StaticResource LineColor}" IsVisible="{Binding Index, Converter={StaticResource isEventCon}}" />
                                     </Grid>
                                 </telerikListView:ListViewTemplateCell.View>
                             </telerikListView:ListViewTemplateCell>
