@@ -40,10 +40,6 @@ namespace ErpApp.UWP
         public override IEnumerable<Assembly> GetViewAssemblies()
         {
             var assemblies = (List<Assembly>)base.GetViewAssemblies();
-            assemblies.Add(typeof(FFImageLoading.Forms.CachedImage).GetTypeInfo().Assembly);
-            assemblies.Add(typeof(FFImageLoading.Forms.Platform.CachedImageRenderer).GetTypeInfo().Assembly);
-            assemblies.Add(typeof(Xamarin.Forms.Image).GetTypeInfo().Assembly);
-            assemblies.Add(typeof(Xamarin.Forms.Platform.UWP.BoxViewBorderRenderer).GetTypeInfo().Assembly);
             assemblies.Add(typeof(Telerik.XamarinForms.Input.RadButton).GetTypeInfo().Assembly);
             assemblies.Add(typeof(Telerik.XamarinForms.InputRenderer.UWP.ButtonRenderer).GetTypeInfo().Assembly);
             assemblies.Add(typeof(Telerik.XamarinForms.Primitives.RadBorder).GetTypeInfo().Assembly);
