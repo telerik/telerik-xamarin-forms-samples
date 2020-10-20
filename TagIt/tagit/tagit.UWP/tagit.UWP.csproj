@@ -48,6 +48,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -72,6 +73,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -96,6 +98,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
