@@ -23,12 +23,19 @@
                                        Text="{Binding FileName}" />
                 <telerikInput:RadComboBox Grid.Column="1"
                                           WidthRequest="140"
-                                          DropDownHeight="240"
                                           VerticalOptions="End"
                                           IsClearButtonVisible="False"
                                           ItemsSource="{Binding FileTypes}"
                                           SelectedItem="{Binding FileType, Mode=TwoWay}"
-                                          DisplayMemberPath="DisplayName" />
+                                          DisplayMemberPath="DisplayName">
+                    <telerikInput:RadComboBox.DropDownHeight>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">190</On>
+                            <On Platform="iOS">190</On>
+                            <On Platform="UWP">130</On>
+                        </OnPlatform>
+                    </telerikInput:RadComboBox.DropDownHeight>
+                </telerikInput:RadComboBox>
             </Grid>
         </StackLayout>
         <telerikPrimitives:RadBusyIndicator IsVisible="{Binding IsBusy}"

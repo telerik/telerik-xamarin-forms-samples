@@ -214,6 +214,9 @@
                     <telerikInput:RadListPicker.DisplayTemplate>
                         <ControlTemplate>
                             <Grid Padding="16,0">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                                </Grid.GestureRecognizers>
                                 <Label InputTransparent="True"
                                        HorizontalOptions="Start"
                                        Style="{StaticResource InputLabelStyle}"
@@ -222,11 +225,6 @@
                                        HorizontalOptions="End"
                                        Style="{StaticResource PickerLabelStyle}"
                                        Text="{Binding Size}" />
-                                <BoxView>
-                                    <BoxView.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
-                                    </BoxView.GestureRecognizers>
-                                </BoxView>
                             </Grid>
                         </ControlTemplate>
                     </telerikInput:RadListPicker.DisplayTemplate>
@@ -244,6 +242,9 @@
                     <telerikInput:RadListPicker.DisplayTemplate>
                         <ControlTemplate>
                             <Grid Padding="16,0">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
+                                </Grid.GestureRecognizers>
                                 <Label InputTransparent="True"
                                        HorizontalOptions="Start"
                                        Style="{StaticResource InputLabelStyle}"
@@ -252,11 +253,6 @@
                                          HorizontalOptions="End"
                                          Style="{StaticResource LargeCircleStyle}"
                                          BackgroundColor="{Binding Color.Color}" />
-                                <BoxView>
-                                    <BoxView.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
-                                    </BoxView.GestureRecognizers>
-                                </BoxView>
                             </Grid>
                         </ControlTemplate>
                     </telerikInput:RadListPicker.DisplayTemplate>

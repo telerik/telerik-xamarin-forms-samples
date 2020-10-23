@@ -41,11 +41,7 @@ namespace QSF.Examples.CalendarControl.SchedulingUICustomizationExample
 
                 if (Device.RuntimePlatform == Device.UWP)
                 {
-                    Device.StartTimer(TimeSpan.FromMilliseconds(300), () =>
-                    {
-                        this.calendar.ScrollTimeIntoView(TimeSpan.FromHours(12));
-                        return false;
-                    });
+                    this.calendar.ScrollTimeIntoView(TimeSpan.FromHours(12));
                 }
             }
         }
