@@ -41,6 +41,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateKeyFile>ErpApp.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppStore|ARM'">
     <OutputPath>bin\ARM\AppStore\</OutputPath>
@@ -54,6 +55,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateKeyFile>ErpApp.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -78,6 +80,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateKeyFile>ErpApp.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppStore|x64'">
     <OutputPath>bin\x64\AppStore\</OutputPath>
@@ -91,6 +94,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateKeyFile>ErpApp.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -115,6 +119,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateKeyFile>ErpApp.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppStore|x86'">
     <OutputPath>bin\x86\AppStore\</OutputPath>
@@ -128,6 +133,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
     <PackageCertificateKeyFile>ErpApp.UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
