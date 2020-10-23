@@ -1,4 +1,4 @@
-﻿namespace ArtGalleryCRMSupportBot.Models
+﻿namespace ArtGalleryCRM.SupportBot.Models
 {
     public static class LuisIntents
     {

@@ -37,17 +37,17 @@
 	<string>LaunchScreen</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Tagit App needs Contacts Access</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Tagit App needs Photo Library Access</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Tagit App needs Camera Access</string>
 	<key>CFBundleName</key>
 	<string>Telerik Tagit</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.2</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Tagit App needs Callendar Access</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Tagit App needs Photo Library Access to allow users to tag existing photos on their device.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Tagit App needs Camera Access to allow users to take new picture and tag it afterwards.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Tagit App needs Calendar Access</string>
 </dict>
 </plist>

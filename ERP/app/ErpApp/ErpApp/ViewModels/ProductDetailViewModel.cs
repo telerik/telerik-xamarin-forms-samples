@@ -8,6 +8,7 @@ using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using Telerik.XamarinForms.Common;
 using Xamarin.Forms;
+using PresentationMode = ErpApp.Models.PresentationMode;
 
 namespace ErpApp.ViewModels
 {

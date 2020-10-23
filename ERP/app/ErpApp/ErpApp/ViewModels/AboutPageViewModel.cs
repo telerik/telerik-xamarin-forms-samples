@@ -30,7 +30,7 @@ namespace ErpApp.ViewModels
 
         private void OnLinkTapped(object obj)
         {
-            Device.OpenUri(new Uri(obj.ToString()));
+            Xamarin.Essentials.Launcher.OpenAsync(obj.ToString());
         }
     }
 }

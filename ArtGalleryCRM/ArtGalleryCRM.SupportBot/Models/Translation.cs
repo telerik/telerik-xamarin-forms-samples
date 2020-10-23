@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ArtGalleryCRMSupportBot.Models
+namespace ArtGalleryCRM.SupportBot.Models
 {
     public class Translation
     {

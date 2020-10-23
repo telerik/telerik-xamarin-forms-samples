@@ -2,6 +2,8 @@
 using MvvmCross.Forms.Platforms.Uap.Views;
 using MvvmCross.Forms.Presenters;
 using System;
+using System.Collections.Generic;
+using System.Reflection;
 using Windows.ApplicationModel.Activation;
 
 namespace ErpApp.UWP
@@ -33,6 +35,17 @@ namespace ErpApp.UWP
         protected override IMvxFormsPagePresenter CreateFormsPagePresenter(IMvxFormsViewPresenter viewPresenter)
         {
             return new AppPagePresenter(viewPresenter);
+        }
+
+        public override IEnumerable<Assembly> GetViewAssemblies()
+        {
+            var assemblies = (List<Assembly>)base.GetViewAssemblies();
+            assemblies.Add(typeof(Telerik.XamarinForms.Input.RadButton).GetTypeInfo().Assembly);
+            assemblies.Add(typeof(Telerik.XamarinForms.InputRenderer.UWP.ButtonRenderer).GetTypeInfo().Assembly);
+            assemblies.Add(typeof(Telerik.XamarinForms.Primitives.RadBorder).GetTypeInfo().Assembly);
+            assemblies.Add(typeof(Telerik.XamarinForms.PrimitivesRenderer.UWP.BorderRenderer).GetTypeInfo().Assembly);
+
+            return assemblies;
         }
     }
 }
