@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -134,7 +134,7 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.6.0.726</Version>
+      <Version>4.8.0.1269</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.2.0.1" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.2.0.1" />
