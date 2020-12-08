@@ -130,7 +130,7 @@
                             <Label Text="&#xE874;"
                                    InputTransparent="True"
                                    Style="{StaticResource IconLabelStyle}" />
-                            <BoxView>
+                            <BoxView BackgroundColor="Transparent">
                                 <BoxView.GestureRecognizers>
                                     <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
                                 </BoxView.GestureRecognizers>
@@ -148,7 +148,7 @@
                             <Label Text="&#xE874;"
                                    InputTransparent="True"
                                    Style="{StaticResource IconLabelStyle}" />
-                            <BoxView>
+                            <BoxView BackgroundColor="Transparent">
                                 <BoxView.GestureRecognizers>
                                     <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
                                 </BoxView.GestureRecognizers>
