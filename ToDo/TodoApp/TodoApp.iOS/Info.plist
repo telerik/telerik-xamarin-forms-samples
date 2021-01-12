@@ -44,5 +44,7 @@
 	<string>Telerik To-Do Would Like to Access Your Calendar.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

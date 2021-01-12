@@ -44,5 +44,7 @@
 	<string>Progress Telerik UI for Xamarin Examples Would Like to Access Your Calendar.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
