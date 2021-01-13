@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using AndroidX.AppCompat.App;
 using FFImageLoading.Forms.Platform;
 
 namespace tagit.Droid
@@ -14,8 +15,9 @@ namespace tagit.Droid
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            
+
             base.OnCreate(bundle);
+            AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
 
             CachedImageRenderer.Init(true);
             global::Xamarin.Forms.Forms.Init(this, bundle);
