@@ -18,82 +18,26 @@ namespace tagit.Droid.Services
     /// Contains methods for accessing local images on the file system
     public class ImageService : IImageService
     {
-        public async Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation, byte[] image)
+        private WeakReference<Context> context;
+
+        public ImageService()
         {
-            if (!await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
+            this.context = new WeakReference<Context>(Android.App.Application.Context);
+        }
+
+        public Context Context
+        {
+            get
             {
-                return string.Empty;
-            }
-
-            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
-
-            var imagesPath = imagesFolder.AbsolutePath;
-
-            var taggedFolder = Path.Combine(imagesPath, "Tagged");
-
-            var filePath = Path.Combine(taggedFolder, fileName);
-
-            try
-            {
-                var imageData = await GetTaggedImageFromUriAsync(taggingInformation, image);
-
-                if (!Directory.Exists(taggedFolder))
+                if (this.context.TryGetTarget(out Context target))
                 {
-                    Directory.CreateDirectory(taggedFolder);
+                    return target;
                 }
 
-                File.WriteAllBytes(filePath, imageData);
-
-                var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-
-                mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
-
-                Forms.Context.SendBroadcast(mediaScanIntent);
+                return null;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"ImageService.SaveTaggedImageAsync Exception: {ex}");
-            }
-
-            return string.Empty;
         }
 
-        public async Task<List<string>> GetImageFileNamesAsync(IEnumerable<string> existingFileNames)
-        {
-            var tcs = new TaskCompletionSource<List<string>>();
-
-            if (!await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
-            {
-                tcs.SetResult(new List<string>());
-
-                return await tcs.Task;
-            }
-
-            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
-
-            var imagesPath = Path.Combine(imagesFolder.AbsolutePath, "Camera");
-
-            if (!Directory.Exists(imagesPath))
-            {
-                Directory.CreateDirectory(imagesPath);
-            }
-
-            var files = Directory.GetFiles(imagesPath).ToList();
-
-            List<string> fileNames = new List<string>();
-
-            foreach (var file in files)
-            {
-                string fileName = file.Split("/\\".ToCharArray()).LastOrDefault();
-
-                if (!existingFileNames.ToList().Contains(fileName)) fileNames.Add(fileName);
-            }
-
-            tcs.SetResult(fileNames);
-
-            return await tcs.Task;
-        }
-        
         public async Task SaveImageAsync(string fileName, string url)
         {
             var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
@@ -112,14 +56,13 @@ namespace tagit.Droid.Services
 
                 mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
 
-                Forms.Context.SendBroadcast(mediaScanIntent);
+                this.Context?.SendBroadcast(mediaScanIntent);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"ImageService.SaveImageAsync Exception: {ex}");
             }
         }
-
 
         public async Task<List<LocalFileInformation>> GetImagesAsync(IEnumerable<string> existingFileNames)
         {
@@ -137,7 +80,6 @@ namespace tagit.Droid.Services
             var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
 
             var imagesPath = Path.Combine(imagesFolder.AbsolutePath, "Camera");
-
             if (!Directory.Exists(imagesPath))
             {
                 Directory.CreateDirectory(imagesPath);

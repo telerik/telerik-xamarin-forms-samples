@@ -10,8 +10,6 @@ namespace tagit.Services
     public interface IImageService
     {
         Task SaveImageAsync(string fileName, string url);
-        Task<List<string>> GetImageFileNamesAsync(IEnumerable<string> existingFileNames);
         Task<List<LocalFileInformation>> GetImagesAsync(IEnumerable<string> existingFileNames);
-        Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation, byte[] image);
     }
 }
