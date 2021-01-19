@@ -43,7 +43,7 @@ namespace tagit.Common
             throw new NotImplementedException();
         }
     }
-     
+
     public class CanDownloadSampleImagesOpacityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -73,7 +73,7 @@ namespace tagit.Common
     public class FavoriteIconConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {    
+        {
             return ((bool)value) ? FileImageSource.FromFile("ic_action_unfavorite.png") : FileImageSource.FromFile("ic_action_favorite_border.png");
         }
 
@@ -156,23 +156,10 @@ namespace tagit.Common
 
             if (image != null)
             {
-                if (Device.RuntimePlatform == Device.UWP || Device.RuntimePlatform == Device.iOS)
-                {
-                    return (!(image.File is byte[] file))
-                        ? null
-                        : ImageSource.FromStream(() => new System.IO.MemoryStream(file));
-                }
-                else
-                {
-                    return image.Url;
-                }
+                return (!(image.File is byte[] file)) ? null : ImageSource.FromStream(() => new System.IO.MemoryStream(file));
             }
-            else
-            {
-                return null;
-            }
-           
-            
+
+            return null;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -180,7 +167,7 @@ namespace tagit.Common
             throw new NotImplementedException();
         }
     }
-    
+
     public class UpperCaseConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

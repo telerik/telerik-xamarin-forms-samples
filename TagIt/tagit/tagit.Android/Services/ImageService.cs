@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Android.Content;
-using Newtonsoft.Json;
-using tagit.Common;
+using Android.Provider;
 using tagit.Droid.Services;
 using tagit.Services;
+using Telerik.XamarinForms.Common.Android;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ImageService))]
@@ -40,27 +39,42 @@ namespace tagit.Droid.Services
 
         public async Task SaveImageAsync(string fileName, string url)
         {
-            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
-
-            var imagesPath = imagesFolder.AbsolutePath;
-
-            var filePath = Path.Combine(imagesPath, "Camera", fileName);
-
-            try
+            ContentResolver resolver = this.Context?.ContentResolver;
+            if (resolver != null)
             {
-                var imageData = await GetImageFromUriAsync(url);
+                Android.Net.Uri imagesCollection;
+                if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Q)
+                {
+                    imagesCollection = MediaStore.Images.Media.GetContentUri(MediaStore.VolumeExternalPrimary);
+                }
+                else
+                {
+                    imagesCollection = MediaStore.Images.Media.ExternalContentUri;
+                }
 
-                File.WriteAllBytes(filePath, imageData);
+                try
+                {
+                    var imageData = await GetImageFromUriAsync(url);
 
-                var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+                    ContentValues image = new ContentValues();
+                    var imageName = fileName.Split('.').First();
+                    image.Put(MediaStore.Images.ImageColumns.DisplayName, string.Join(string.Empty, imageName.Split('_')));
+                    image.Put(MediaStore.Images.ImageColumns.MimeType, "image/jpeg");
 
-                mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
+                    Android.Net.Uri savedImageUri = resolver.Insert(imagesCollection, image);
 
-                this.Context?.SendBroadcast(mediaScanIntent);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"ImageService.SaveImageAsync Exception: {ex}");
+                    using (Android.Graphics.Bitmap bitmap = Android.Graphics.BitmapFactory.DecodeByteArray(imageData, 0, imageData.Length))
+                    {
+                        using (Stream stream = resolver.OpenOutputStream(savedImageUri))
+                        {
+                            bitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 100, stream);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"ImageService.SaveImageAsync Exception: {ex}");
+                }
             }
         }
 
@@ -77,42 +91,66 @@ namespace tagit.Droid.Services
                 return await tcs.Task;
             }
 
-            var imagesFolder = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDcim);
-
-            var imagesPath = Path.Combine(imagesFolder.AbsolutePath, "Camera");
-            if (!Directory.Exists(imagesPath))
+            Android.Net.Uri collection;
+            if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Q)
             {
-                Directory.CreateDirectory(imagesPath);
+                collection = MediaStore.Images.Media.GetContentUri(MediaStore.VolumeExternal);
+            }
+            else
+            {
+                collection = MediaStore.Images.Media.ExternalContentUri;
             }
 
-            var files = Directory.GetFiles(imagesPath).ToList();
-
-            var filteredFiles = files.Where(w => !existingFileNames.Contains(w.Split("/\\d".ToCharArray()).LastOrDefault())).OrderByDescending(p => File.GetLastWriteTime(p));
-
-            foreach (var file in filteredFiles.Take(Common.CoreConstants.ImageCountLimit))
+            var projection = new string[]
             {
-                var fileSize = new FileInfo(file).Length;
+                MediaStore.Images.ImageColumns.Id,
+                MediaStore.Images.ImageColumns.DisplayName,
+                MediaStore.Images.ImageColumns.DateTaken,
+            };
 
-                try
+            var sortOrder = MediaStore.Images.ImageColumns.DateAdded + " DESC";
+
+            var context = this.Context;
+            if (context != null)
+            {
+                using (var cursor = context.ContentResolver.Query(collection, projection, null, null, sortOrder))
                 {
-                    byte[] imageBytes = null;
+                    int idColumn = cursor.GetColumnIndexOrThrow(MediaStore.Images.ImageColumns.Id);
+                    int nameColumn = cursor.GetColumnIndexOrThrow(MediaStore.Images.ImageColumns.DisplayName);
+                    int dateTakenColumn = cursor.GetColumnIndexOrThrow(MediaStore.Images.ImageColumns.DateTaken);
 
-                    imageBytes = File.ReadAllBytes(file);
-
-                    if (imageBytes.Length < (int)Common.CoreConstants.ImageSizeLimit)
+                    var imageCountLimit = Common.CoreConstants.ImageCountLimit;
+                    int currentCountLimit = 0;
+                    while (cursor.MoveToNext())
                     {
-                        images.Add(new LocalFileInformation
+                        string name = cursor.GetString(nameColumn);
+                        if (existingFileNames.Contains(name))
                         {
-                            FileName = file.Split('\\').LastOrDefault(),
-                            Url = file,
-                            File = imageBytes,
-                            CreatedDate = File.GetLastWriteTime(file)
-                        });
+                            continue;
+                        }
+
+                        long id = cursor.GetLong(idColumn);
+                        Android.Net.Uri contentUri = ContentUris.WithAppendedId(MediaStore.Images.Media.ExternalContentUri, id);
+
+                        byte[] imageBytes = ReadBytesFromUri(contentUri, context);
+                        if (imageBytes != null)
+                        {
+                            images.Add(new LocalFileInformation
+                            {
+                                FileName = name,
+                                Url = contentUri.Path,
+                                File = imageBytes,
+                                CreatedDate = cursor.GetLong(dateTakenColumn).ToDateTime().ToLocalTime(),
+                            });
+
+                            currentCountLimit++;
+                        }
+
+                        if (currentCountLimit >= imageCountLimit)
+                        {
+                            break;
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"ImageService.SaveImageAsync Exception: {ex}");
                 }
             }
 
@@ -121,30 +159,26 @@ namespace tagit.Droid.Services
             return await tcs.Task;
         }
 
-        private async Task<byte[]> GetTaggedImageFromUriAsync(FileTaggingInformation taggingInformation, byte[] image)
+        private static byte[] ReadBytesFromUri(Android.Net.Uri uri, Context context)
         {
-            var client = new HttpClient();
+            var stream = context.ContentResolver.OpenInputStream(uri);
+            var byteArrayStream = new Java.IO.ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
 
-            var url = $"{CoreConstants.TaggingServiceUrl}";
+            int i = Java.Lang.Integer.MaxValue;
+            while ((i = stream.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                byteArrayStream.Write(buffer, 0, i);
+            }
 
-            var content = new MultipartContent();
+            var bytes = byteArrayStream.ToByteArray();
 
-            var payload = JsonConvert.SerializeObject(taggingInformation);
+            if (bytes.Length > (int)Common.CoreConstants.ImageSizeLimit)
+            {
+                return null;
+            }
 
-            var stringContent = new StringContent(payload);
-            stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            var byteContent = new ByteArrayContent(image);
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
-
-            content.Add(stringContent);
-            content.Add(byteContent);
-
-            var response = await client.PostAsync(url, content);
-
-            var result = await response.Content.ReadAsByteArrayAsync();
-
-            return result;
+            return bytes;
         }
 
         private async Task<byte[]> GetImageFromUriAsync(string uri)

@@ -3,5 +3,5 @@
     <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <application android:label="tagit.Android" android:requestLegacyExternalStorage="true" />
+    <application android:label="tagit.Android" />
 </manifest>
