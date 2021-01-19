@@ -24,6 +24,7 @@ namespace ErpApp.Droid
             AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
 
             Xamarin.Essentials.Platform.Init(this, bundle);
+            Xamarin.Forms.Forms.Init(this, bundle);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
