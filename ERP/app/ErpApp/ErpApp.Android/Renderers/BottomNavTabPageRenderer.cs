@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Android.Content;
-using Android.Support.Design.Internal;
-using Android.Support.Design.Widget;
 using Android.Views;
+using Google.Android.Material.BottomNavigation;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;

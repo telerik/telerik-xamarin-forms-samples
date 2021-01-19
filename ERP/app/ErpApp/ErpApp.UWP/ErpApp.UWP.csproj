@@ -206,7 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross.Forms">
-      <Version>6.4.2</Version>
+      <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp">
       <Version>1.68.0</Version>
