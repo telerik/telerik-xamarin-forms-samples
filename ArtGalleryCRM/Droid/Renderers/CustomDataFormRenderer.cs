@@ -1,6 +1,6 @@
 ﻿using Android.Content;
 using Android.Runtime;
-using AndroidX.AppCompat.Widget;
+using Android.Support.V7.Widget;
 using Com.Telerik.Widget.Dataform.Visualization.Core;
 using Com.Telerik.Widget.Dataform.Visualization.Editors;
 using Telerik.XamarinForms.InputRenderer.Android;
