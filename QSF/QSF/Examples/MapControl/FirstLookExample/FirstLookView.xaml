@@ -34,9 +34,15 @@
                     <map:MapShapeStyle StrokeColor="White" FillColor="#95D3E8"/>
                 </local:DensityShapeStyleSelector.LowestDensityStyle>
             </local:DensityShapeStyleSelector>
+            <Color x:Key="HeaderTitleTextColorLight">#4B4C4C</Color>
+            <Color x:Key="HeaderTitleTextColorDark">#FFFFFF</Color>
+            <Color x:Key="FooterTitleTextColorLight">#4B4C4C</Color>
+            <Color x:Key="FooterTitleTextColorDark">#FFFFFF</Color>
+            <Color x:Key="FooterDetailTextColorLight">#8E8E93</Color>
+            <Color x:Key="FooterDetailTextColorDark">#99FFFFFF</Color>
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid>
+    <Grid BackgroundColor="{AppThemeBinding Light=Default, Dark=#121212}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -45,7 +51,7 @@
         <Label Text="Population density (2019)"
                FontSize="19"
                Margin="24, 26, 0, 26"
-               TextColor="#4B4C4C"/>
+               TextColor="{AppThemeBinding Light={StaticResource HeaderTitleTextColorLight}, Dark={StaticResource HeaderTitleTextColorDark}}" />
         <map:RadMap x:Name="map"
                     Grid.Row="1">
             <map:RadMap.Layers>
@@ -68,7 +74,7 @@
             <Label Text="Population per square mile by state. 2019 census figures."
                    FontSize="14"
                    Margin="0, 0, 26, 0"
-                   TextColor="#4B4C4C"/>
+                   TextColor="{AppThemeBinding Light={StaticResource HeaderTitleTextColorLight}, Dark={StaticResource HeaderTitleTextColorDark}}" />
             <datacontrols:RadListView ItemsSource="{Binding Densities}" 
                                       SelectionMode="None">
                 <datacontrols:RadListView.ItemTemplate>
@@ -82,7 +88,7 @@
                                              VerticalOptions="CenterAndExpand"
                                              Margin="0, 0, 8, 0"/>
                                     <Label Text="{Binding Density}" 
-                                           TextColor="#8E8E93"
+                                           TextColor="{AppThemeBinding Light={StaticResource FooterDetailTextColorLight}, Dark={StaticResource FooterDetailTextColorDark}}"
                                            VerticalTextAlignment="Center"
                                            FontSize="12"/>
                                 </StackLayout>

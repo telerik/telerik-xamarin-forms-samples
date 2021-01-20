@@ -54,6 +54,8 @@
     <None Remove="Resources\SampleImage5.jpg" />
     <None Remove="Resources\SampleImage6.jpg" />
     <None Remove="Resources\telerikLogo.jpg" />
+    <None Remove="Resources\Brush-DarkTheme.svg" />
+    <None Remove="Resources\Brush-LightTheme.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="config.xml" />
@@ -108,6 +110,8 @@
     <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditor_Overview.txt" />
     <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditor_Overview.docx" />
     <EmbeddedResource Include="Resources\telerikLogo.jpg" />
+    <EmbeddedResource Include="Resources\Brush-DarkTheme.svg" />
+    <EmbeddedResource Include="Resources\Brush-LightTheme.svg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter" Version="1.6.0" />
@@ -120,8 +124,9 @@
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
     <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
   </ItemGroup>
   <PropertyGroup>
     <TelerikInstallationBinariesPath>$(TelerikXamarinDir)Binaries</TelerikInstallationBinariesPath>

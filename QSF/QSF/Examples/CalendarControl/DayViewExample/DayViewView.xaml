@@ -36,13 +36,23 @@
             </telerikInput:RadCalendar.DayViewSettings>
         </telerikInput:RadCalendar>
         <!-- toolbar -->
-        <Grid ColumnSpacing="0"
-          BackgroundColor="White">
+        <Grid ColumnSpacing="0">
             <Grid.BackgroundColor>
-                <OnPlatform x:TypeArguments="Color">
-                    <On Platform="Android">White</On>
-                    <On Platform="iOS, UWP">Transparent</On>
-                </OnPlatform>
+                <AppThemeBinding>
+                    <AppThemeBinding.Light>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android">White</On>
+                            <On Platform="iOS, UWP">Transparent</On>
+                        </OnPlatform>
+                    </AppThemeBinding.Light>
+                    <AppThemeBinding.Dark>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android">#686869</On>
+                            <On Platform="UWP">Transparent</On>
+                            <On Platform="iOS">#686869</On>
+                        </OnPlatform>
+                    </AppThemeBinding.Dark>
+                </AppThemeBinding>
             </Grid.BackgroundColor>
             <Grid.Padding>
                 <OnPlatform x:TypeArguments="Thickness">
@@ -58,7 +68,7 @@
             <!-- today -->
             <Label x:Name="todayLabel"
                    Text="Today"
-                   TextColor="#B7403F"
+                   TextColor="{AppThemeBinding Light=#B7403F, Dark=#e83110}"
                    BackgroundColor="Transparent"
                    Grid.Column="{StaticResource todayColumn}">
                 <Label.FontSize>
@@ -73,7 +83,7 @@
                    BindingContext="{x:Reference Name=calendar}"
                    Grid.Column="1"
                    VerticalOptions="Center"
-                   TextColor="Black">
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}">
                 <Label.HorizontalOptions>
                     <OnPlatform x:TypeArguments="LayoutOptions">
                         <On Platform="Android">Start</On>

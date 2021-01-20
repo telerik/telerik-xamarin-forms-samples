@@ -6,6 +6,8 @@ namespace QSF.Services.DeviceInfo
     {
         double PixelDensity { get; }
 
+        double OSVersion { get; }
+
         Size GetScreenSize();
     }
 }

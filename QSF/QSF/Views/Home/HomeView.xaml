@@ -9,12 +9,13 @@
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Name="page"
              x:Class="QSF.Views.HomeView">
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="SlideViewItemTemplate">
-                <Grid BackgroundColor="Transparent">
+                <Grid>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Path=BindingContext.TapCommand, Source={x:Reference Name=page}}" CommandParameter="{Binding}" />
                     </Grid.GestureRecognizers>
@@ -28,14 +29,19 @@
                             <RowDefinition/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}"
-                                                    Aspect="Fill"
-                                                    BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
-                                                    HorizontalOptions="Start"
-                                                    VerticalOptions="Start"
-                                                    WidthRequest="160"
-                                                    HeightRequest="160"
-                                                    Margin="10" />
+                        <Grid HorizontalOptions="Start"
+                              VerticalOptions="Start"
+                              BackgroundColor="{Binding Icon.ThemeColor, Converter={StaticResource ColorAlphaConverter}}"
+                              Margin="10"
+                              WidthRequest="130"
+                              HeightRequest="130">
+                            <Label FontFamily="{StaticResource TelerikQSFIconFont}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   FontSize="60"
+                                   TextColor="{Binding Icon.ThemeColor}"
+                                   Text="{Binding Icon.Text}"/>
+                        </Grid>
                         <StackLayout Grid.Row="1"
                                      Orientation="Horizontal"
                                      Spacing="0"
@@ -53,7 +59,7 @@
                         </Grid.RowDefinitions>
                         <Label Text="{Binding Path=DisplayName}" Style="{StaticResource Key=ControlExampleNameLabelStyle}" />
                         <Label Text="{Binding Path=ShortDescription}" LineBreakMode="WordWrap"
-                               Style="{StaticResource Key=BodyLabelStyle}" Grid.Row="1" />
+                               Style="{StaticResource Key=ShortDescriptionTextStyle}" Grid.Row="1" />
                     </Grid>
                 </Grid>
             </DataTemplate>
@@ -61,25 +67,52 @@
             <Style TargetType="telerikPrimitives:RadSlideView" x:Key="ControlsSlideViewStyle">
                 <Setter Property="ShowButtons" Value="False" />
                 <Setter Property="IsInfiniteScrollingEnabled" Value="True" />
-                <Setter Property="HeightRequest" Value="205" />
+                <Setter Property="HeightRequest" Value="185" />
                 <Setter Property="Margin" Value="0, 10, 0, 0" />
                 <Setter Property="HorizontalContentOptions" Value="Start" />
                 <Setter Property="VerticalContentOptions" Value="Start" />
-                <Setter Property="BackgroundColor" Value="{StaticResource Key=LightBackgroundColor}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}" />
             </Style>
 
-            <Style x:Key="RoundButtonStyle" TargetType="{x:Type telerikInput:RadButton}">
-                <Setter Property="BackgroundColor" Value="#2063C6" />
+            <Style x:Key="DefaultRoundButtonStyle" TargetType="{x:Type telerikInput:RadButton}">
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="TextColor" Value="White" />
                 <Setter Property="BorderRadius" Value="18" />
                 <Setter Property="HeightRequest" Value="36" />
+                <Setter Property="WidthRequest" Value="125" />
             </Style>
 
+            <Style x:Key="SampleAppsRoundButtonStyle" BasedOn="{StaticResource DefaultRoundButtonStyle}" TargetType="{x:Type telerikInput:RadButton}">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#2063C6, Dark=#42A5F5}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="RoundButtonTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="InputTransparent" Value="True"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="12, 0, 12, 0"/>
+            </Style>
+
+            <Style x:Key="ShortDescriptionTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#919191, Dark=#99FFFFFF}"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+                <Setter Property="Margin" Value="0, 6, 0, 6"/>
+            </Style>
+
+            <Thickness x:Key="UWPMargin">12, 6, 12, 1</Thickness>
             <OnPlatform x:Key="Margin" x:TypeArguments="Thickness">
                 <On Platform="Android" Value="6, 6, 6, 12" />
                 <On Platform="iOS" Value="0, 6, 0, 12" />
-                <On Platform="UWP" Value="12, 6, 12, 12" />
+                <On Platform="UWP" Value="{StaticResource UWPMargin}" />
+            </OnPlatform>
+
+            <Thickness x:Key="UWPHeaderMargin">10, 6, 10, 6</Thickness>
+            <OnPlatform x:Key="HeaderMargin" x:TypeArguments="Thickness">
+                <On Platform="Android" Value="0, 6, 0, 6" />
+                <On Platform="iOS" Value="0, 6, 0, 12" />
+                <On Platform="UWP" Value="{StaticResource UWPHeaderMargin}" />
             </OnPlatform>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -87,8 +120,9 @@
     <Grid>
         <telerikPrimitives:RadSideDrawer IsOpen="{Binding Path=IsSideDrawerOpen, Mode=TwoWay}" DrawerLength="270" DrawerTransitionType="SlideInOnTop">
             <telerikPrimitives:RadSideDrawer.MainContent>
-                <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+                <Grid BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -110,23 +144,19 @@
                     </controls:AppBar>
 
                     <telerikDataControls:RadListView ItemsSource="{Binding Path=AllControls}" SelectedItem="{Binding Path=SelectedControl, Mode=TwoWay}"
-                                                     x:Name="examplesList" Grid.Row="1" AutomationId="ControlsListView">
+                                                     x:Name="examplesList" Grid.Row="2" AutomationId="ControlsListView">
                         <telerikDataControls:RadListView.HeaderTemplate>
                             <DataTemplate>
-                                <StackLayout>
-                                    <StackLayout.Margin>
-                                        <OnPlatform x:TypeArguments="Thickness">
-                                            <On Platform="Android" Value="0, 6, 0, 6" />
-                                            <On Platform="iOS" Value="0, 6, 0, 12" />
-                                            <On Platform="UWP" Value="10, 6, 10, 6" />
-                                        </OnPlatform>
-                                    </StackLayout.Margin>
-
+                                <StackLayout Margin="{StaticResource Key=HeaderMargin}">
                                     <Label Text="Featured Controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}" />
 
-                                    <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Featured}" ItemTemplate="{StaticResource Key=SlideViewItemTemplate}" Margin="{StaticResource Key=Margin}"
-                                                    Style="{StaticResource Key=ControlsSlideViewStyle}" ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}"
-                                                    AutomationId="FeaturedSlideView"/>
+                                    <telerikPrimitives:RadSlideView ItemsSource="{Binding Path=Featured}"
+                                                                    ItemTemplate="{StaticResource Key=SlideViewItemTemplate}"
+                                                                    Margin="{StaticResource Key=Margin}"
+                                                                    Style="{StaticResource Key=ControlsSlideViewStyle}"
+                                                                    ControlTemplate="{StaticResource Key=RadSlideViewControlTemplate}"
+                                                                    SlidedToIndex="FeaturedSlideViewSlidedToIndex"
+                                                                    AutomationId="FeaturedSlideView"/>
 
                                     <Label Text="All Controls" Style="{StaticResource Key=HeaderLabelStyle}" Margin="{StaticResource Key=Margin}"/>
                                 </StackLayout>
@@ -136,41 +166,72 @@
                             <effects:ListViewSizeToContentEffect />
                         </telerikDataControls:RadListView.Effects>
                         <telerikDataControls:RadListView.Margin>
-                            <OnPlatform x:TypeArguments="Thickness">
+                            <OnPlatform x:TypeArguments="Thickness" Default="0">
                                 <On Platform="Android" Value="6, 0" />
                                 <On Platform="iOS" Value="12, 0" />
-                                <On Platform="UWP" Value="-10, 0" />
                             </OnPlatform>
                         </telerikDataControls:RadListView.Margin>
+                        <telerikDataControls:RadListView.SelectedItemStyle>
+                            <telerikListView:ListViewItemStyle BackgroundColor="Transparent" BorderColor="Transparent" BorderWidth="0"/>
+                        </telerikDataControls:RadListView.SelectedItemStyle>
                         <telerikDataControls:RadListView.LayoutDefinition>
-                            <telerikListView:ListViewGridLayout HorizontalItemSpacing="12" VerticalItemSpacing="12">
-                                <telerikListView:ListViewGridLayout.ItemLength>
-                                    <OnPlatform x:TypeArguments="x:Double">
-                                        <On Platform="iOS, Android" Value="245" />
-                                        <On Platform="UWP" Value="280" />
-                                    </OnPlatform>
-                                </telerikListView:ListViewGridLayout.ItemLength>
-                            </telerikListView:ListViewGridLayout>
+                            <telerikListView:ListViewLinearLayout ItemLength="92"/>
                         </telerikDataControls:RadListView.LayoutDefinition>
                         <telerikDataControls:RadListView.ItemTemplate>
                             <DataTemplate>
                                 <telerikListView:ListViewTemplateCell>
                                     <telerikListView:ListViewTemplateCell.View>
-                                        <StackLayout BackgroundColor="{StaticResource Key=LightBackgroundColor}" Padding="10">
-                                            <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}" HeightRequest="160">
-                                                <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}" Aspect="AspectFit"
-                                                        WidthRequest="160" HeightRequest="160" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <telerikPrimitives:RadBorder BorderColor="{AppThemeBinding Light=#E3E4E5, Dark=#373737}"
+                                                                     BorderThickness="0, 0, 0, 1">
+                                            <telerikPrimitives:RadBorder.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Default="0">
+                                                    <On Platform="UWP" Value="10, 0" />
+                                                </OnPlatform>
+                                            </telerikPrimitives:RadBorder.Margin>
+                                            <Grid x:Name="grid"
+                                                  BackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid HeightRequest="40"
+                                                      WidthRequest="44"
+                                                      BackgroundColor="{Binding Icon.ThemeColor, Converter={StaticResource ColorAlphaConverter}}"
+                                                      Margin="12, 12, 0, 12">
+                                                    <Label FontFamily="{StaticResource TelerikQSFIconFont}"
+                                                           HorizontalOptions="Center"
+                                                           VerticalOptions="Center"
+                                                           TextColor="{Binding Icon.ThemeColor}"
+                                                           Text="{Binding Icon.Text}"
+                                                           FontSize="28"/>
+                                                </Grid>
+                                                <StackLayout Grid.Column="1"
+                                                             Spacing="0"
+                                                             Margin="16, 0, 16, 0"
+                                                             VerticalOptions="CenterAndExpand">
+                                                    <Label Text="{Binding Path=DisplayName}"
+                                                           Margin="0"
+                                                           Style="{StaticResource Key=ControlExampleNameLabelStyle}"/>
+                                                    <Label Text="{Binding Path=ShortDescription}"
+                                                           Style="{StaticResource ShortDescriptionTextStyle}"
+                                                           MaxLines="2"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="BETA"
+                                                               IsVisible="{Binding Path=IsBeta}"
+                                                               Style="{StaticResource TagLabelStyle}"/>
+                                                        <Label Text="CTP" IsVisible="{Binding Path=IsCTP}"
+                                                               Style="{StaticResource TagLabelStyle}"
+                                                               TextColor="{StaticResource Key=CTPTextColor}"/>
+                                                        <Label Text="NEW"
+                                                               IsVisible="{Binding Path=IsNew}"
+                                                               Style="{StaticResource TagLabelStyle}"/>
+                                                    </StackLayout>
+                                                    <Label Text="UPDATED"
+                                                           IsVisible="{Binding Path=IsUpdated}"
+                                                           Style="{StaticResource TagLabelStyle}" />
+                                                </StackLayout>
                                             </Grid>
-                                            <Label Text="{Binding Path=DisplayName}" Style="{StaticResource Key=ControlExampleNameLabelStyle}"/>
-
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="BETA" IsVisible="{Binding Path=IsBeta}" Style="{StaticResource TagLabelStyle}" />
-                                                <Label Text="CTP" IsVisible="{Binding Path=IsCTP}" Style="{StaticResource TagLabelStyle}" TextColor="{StaticResource Key=CTPTextColor}" />
-                                                <Label Text="NEW" IsVisible="{Binding Path=IsNew}" Style="{StaticResource TagLabelStyle}" />
-                                            </StackLayout>
-
-                                            <Label Text="UPDATED" IsVisible="{Binding Path=IsUpdated}" Style="{StaticResource TagLabelStyle}" />
-                                        </StackLayout>
+                                        </telerikPrimitives:RadBorder>
                                     </telerikListView:ListViewTemplateCell.View>
                                 </telerikListView:ListViewTemplateCell>
                             </DataTemplate>
@@ -179,22 +240,50 @@
                     <Grid Margin="12"
                           Grid.Row="1"
                           HorizontalOptions="End"
-                          VerticalOptions="Start">
-                        <telerikInput:RadButton Command="{Binding NavigateToSampleAppsPageCommand}"
-                                                Style="{StaticResource RoundButtonStyle}" />
-                        <Label Text="{Binding NavigateToSampleAppsText}"
-                               TextColor="White"
-                               InputTransparent="True"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               Margin="12, 0, 12, 0" />
+                          VerticalOptions="Start"
+                          ColumnSpacing="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <telerikPrimitives:RadBorder BorderColor="{AppThemeBinding Light=#919191, Dark=#C0BFC0}"
+                                                     IsVisible="{Binding IsDarkModeSupported}"
+                                                     BorderThickness="1"
+                                                     BackgroundColor="Transparent"
+                                                     CornerRadius="18"
+                                                     HeightRequest="36"
+                                                     WidthRequest="125">
+                            <telerikPrimitives:RadBorder.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChangeAppThemeModeCommand}"/>
+                            </telerikPrimitives:RadBorder.GestureRecognizers>
+                        </telerikPrimitives:RadBorder>
+                        <ffimageloadingsvg:SvgCachedImage WidthRequest="24"
+                                                          HeightRequest="24"
+                                                          InputTransparent="True"
+                                                          HorizontalOptions="StartAndExpand"
+                                                          VerticalOptions="CenterAndExpand"
+                                                          Margin="8, 0, 0, 4"
+                                                          IsVisible="{Binding IsDarkModeSupported}"
+                                                          Source="{AppThemeBinding Light=resource://QSF.Resources.Brush-DarkTheme.svg, Dark=resource://QSF.Resources.Brush-LightTheme.svg}"/>
+                        <Label TextColor="{AppThemeBinding Light=#919191, Dark=#C0BFC0}"
+                               Text="{Binding CurrentAppThemeModeText, Mode=TwoWay}"
+                               Style="{StaticResource RoundButtonTextStyle}"
+                               IsVisible="{Binding IsDarkModeSupported}"
+                               Margin="18, 0, 0, 0"/>
+                        <telerikInput:RadButton Grid.Column="1"
+                                                Command="{Binding NavigateToSampleAppsPageCommand}"
+                                                Style="{StaticResource SampleAppsRoundButtonStyle}" />
+                        <Label Grid.Column="1"
+                               Text="{Binding NavigateToSampleAppsText}"
+                               TextColor="{AppThemeBinding Light=White, Dark=#121212}"
+                               Style="{StaticResource RoundButtonTextStyle}"/>
                     </Grid>
                 </Grid>
             </telerikPrimitives:RadSideDrawer.MainContent>
             <telerikPrimitives:RadSideDrawer.DrawerContent>
                 <ScrollView>
-                    <StackLayout Spacing="6" BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
-                        <StackLayout BackgroundColor="{StaticResource Key=HeaderBackgroundsColor}" >
+                    <StackLayout Spacing="6" BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource HeaderBackgroundsColorDark}}">
+                        <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource Key=HeaderBackgroundsColorLight}, Dark={StaticResource Key=DarkBackgroundColorDark}}" >
                             <ffimageloading:CachedImage HorizontalOptions="Center" Source="{Binding Path=SideDrawerHeaderIcon, Converter={StaticResource ImageSourceConverter}}" Margin="0, 60, 0, 25" />
 
                             <Label Text="{Binding Path=SideDrawerHeaderTitle}" Style="{StaticResource Key=HeaderLabelStyle}" TextColor="{StaticResource Key=LightTextColor}" HorizontalOptions="Center" Margin="0, 0, 0, 5" />

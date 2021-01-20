@@ -11,7 +11,6 @@
              x:Class="QSF.Examples.TimeSpanPickerControl.CustomizationExample.CustomizationView">
     <ContentView.Resources>
         <ResourceDictionary>
-            <Color x:Key="DefaultBackgroundColor">#F7F7F7</Color>
             <Style x:Key="DisplayLabelStyle"
                    TargetType="Label">
                 <Setter Property="TextColor" Value="#C72262" />
@@ -52,7 +51,7 @@
                    TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
             </Style>
             <Style x:Key="DefaultMovieDescriptionStyle"
                    TargetType="Label">
@@ -74,7 +73,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="65" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="#EFEFF4">
+        <StackLayout BackgroundColor="{AppThemeBinding Dark=Black, Light=#EFEFF4}">
             <Image VerticalOptions="End"
                    HorizontalOptions="End">
                 <Image.Source>
@@ -98,12 +97,12 @@
                 </Label.FormattedText>
             </Label>
             <Label Text="Find Movies Playing After:"
-                   TextColor="Black"
+                   TextColor="{AppThemeBinding Dark=White, Light=Black}"
                    FontAttributes="Bold"
                    FontSize="Medium" />
             <telerikInput:RadTimeSpanPicker BorderThickness="0, 0, 0, 1"
                                             BorderColor="#B73562"
-                                            BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                                            BackgroundColor="{AppThemeBinding Dark=Transparent, Light=#F7F7F7}"
                                             HeightRequest="44"
                                             MaximumTime="{Binding MaximumTime}"
                                             Time="{Binding SelectedTime}"
@@ -141,7 +140,8 @@
                 <telerikInput:RadTimeSpanPicker.PlaceholderTemplate>
                     <ControlTemplate>
                         <Grid>
-                            <Label Text="ex. 1 hour" 
+                            <Label Text="ex. 1 hour"
+                                   TextColor="{AppThemeBinding Light=Default, Dark=#99FFFFFF}"
                                    InputTransparent="True"
                                    VerticalOptions="Center"
                                    Margin="4, 0, 0, 0" />
@@ -195,17 +195,17 @@
             </telerikInput:RadTimeSpanPicker>
         </StackLayout>
         <StackLayout Grid.Row="2"
-                     BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                     BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}"
                      Padding="16, 0, 0, 0">
             <Label Text="{Binding SearchLabelText}"
-                   TextColor="Black"
+                   TextColor="{AppThemeBinding Dark=White, Light=Black}"
                    FontAttributes="Bold" 
                    FontSize="Medium"
                    Margin="0, 22, 0, 24" />
         </StackLayout>
         <telerikDataControls:RadListView Grid.Row="3"
                                          ItemsSource="{Binding Movies}"
-                                         BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                                         BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}"
                                          SelectionMode="None">
             <telerikDataControls:RadListView.ItemTemplate>
                 <DataTemplate>
@@ -231,7 +231,7 @@
             </telerikDataControls:RadListView.ItemTemplate>
         </telerikDataControls:RadListView>
         <StackLayout Grid.Row="4" 
-                     BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                     BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}"
                      Orientation="Horizontal">
             <telerikInput:RadButton Text="Find Movies" 
                                     CornerRadius="20" 

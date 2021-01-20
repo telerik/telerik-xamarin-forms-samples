@@ -4,18 +4,29 @@
              xmlns:local="clr-namespace:QSF.Examples.DataFormControl.ThemingExample"
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.DataFormControl.ThemingExample.ThemingView"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light=White, Dark=Orange}">
+    <ContentView.BackgroundColor>
+        <AppThemeBinding Light="White">
+            <AppThemeBinding.Dark>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS">Black</On>
+                    <On Platform="Android">Default</On>
+                    <On Platform="UWP">Default</On>
+                </OnPlatform>
+            </AppThemeBinding.Dark>
+        </AppThemeBinding>
+    </ContentView.BackgroundColor>
     <ContentView.BindingContext>
         <local:ThemingExampleViewModel />
     </ContentView.BindingContext>
-    
-        <ScrollView>
-            <local:ThemingDataForm x:Name="dataForm"
-                                   Margin="16, 0"
-                                   Source="{Binding}"
-                                   CommitMode="Manual"
-                                   views:ThemesBehavior.StyleClass="TelerikTheme"
-                                   ValidationMode="Manual">
-            </local:ThemingDataForm>
-        </ScrollView>
+
+    <ScrollView>
+        <local:ThemingDataForm x:Name="dataForm"
+                               Margin="16, 0"
+                               Source="{Binding}"
+                               CommitMode="Manual"
+                               views:ThemesBehavior.StyleClass="TelerikTheme"
+                               ValidationMode="Manual">
+        </local:ThemingDataForm>
+    </ScrollView>
 </ContentView>

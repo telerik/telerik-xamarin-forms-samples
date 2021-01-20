@@ -27,12 +27,22 @@
                                    Source="{Binding}">
             <telerikInput:RadDataForm.EditorStyle>
                 <dataform:DataFormEditorStyle  HeaderFontSize="12" 
-                                               HeaderForeground="Black"/>
+                                               HeaderForeground="{AppThemeBinding Light=Black, Dark=White}"/>
             </telerikInput:RadDataForm.EditorStyle>
             <telerikInput:RadDataForm.GroupHeaderStyle>
-                <dataform:DataFormGroupHeaderStyle Background="#f2f2f2" 
-                                                   Padding="5"
-                                                   Foreground="#4280f4" />
+                <AppThemeBinding>
+                    <AppThemeBinding.Light>
+                        <dataform:DataFormGroupHeaderStyle Background="#f2f2f2" 
+                                                           Padding="5"
+                                                           Foreground="#4280f4" />
+                    </AppThemeBinding.Light>
+                    <AppThemeBinding.Dark>
+                        <dataform:DataFormGroupHeaderStyle Background="#686869" 
+                                                           Padding="5"
+                                                           Foreground="#2196F3" />
+                    </AppThemeBinding.Dark>
+                </AppThemeBinding>
+
             </telerikInput:RadDataForm.GroupHeaderStyle>
         </telerikInput:RadDataForm>
     </Grid>

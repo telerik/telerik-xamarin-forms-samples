@@ -20,19 +20,19 @@
                                          x:Name="listView"
                                          SelectionChanged="RadListView_SelectionChanged"
                                          HeightRequest="50"
-                                         BackgroundColor="{StaticResource Key=AccentColor}"
+                                         BackgroundColor="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}"
                                          AutomationId="GalleryListView">
             <telerikDataControls:RadListView.LayoutDefinition>
                 <listView:ListViewLinearLayout Orientation="Horizontal" ItemLength="60" />
             </telerikDataControls:RadListView.LayoutDefinition>
             <telerikDataControls:RadListView.ItemStyle>
-                <listView:ListViewItemStyle BackgroundColor="{StaticResource Key=AccentColor}" BorderWidth="0" />
+                <listView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}" BorderWidth="0" />
             </telerikDataControls:RadListView.ItemStyle>
             <telerikDataControls:RadListView.PressedItemStyle>
-                <listView:ListViewItemStyle BackgroundColor="{StaticResource Key=AccentColor}" BorderWidth="0" />
+                <listView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}" BorderWidth="0" />
             </telerikDataControls:RadListView.PressedItemStyle>
             <telerikDataControls:RadListView.SelectedItemStyle>
-                <listView:ListViewItemStyle BackgroundColor="{StaticResource Key=AccentColor}" BorderWidth="0" />
+                <listView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}" BorderWidth="0" />
             </telerikDataControls:RadListView.SelectedItemStyle>
             <telerikDataControls:RadListView.ItemTemplate>
                 <DataTemplate>
@@ -52,7 +52,7 @@
 
                                 <BoxView HeightRequest="4" WidthRequest="40"
                                          HorizontalOptions="Center" VerticalOptions="End"
-                                         IsVisible="{Binding Path=IsSelected}" Color="{StaticResource Key=GalleryHeaderUnderlineColor}" Margin="0, 0, 0, -1" />
+                                         IsVisible="{Binding Path=IsSelected}" Color="{AppThemeBinding Light={StaticResource GalleryHeaderUnderlineColorLight}, Dark={StaticResource GalleryHeaderUnderlineColorDark}}" Margin="0, 0, 0, -1" />
                             </Grid>
                         </listView:ListViewTemplateCell.View>
                     </listView:ListViewTemplateCell>

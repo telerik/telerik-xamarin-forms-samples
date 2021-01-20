@@ -13,14 +13,14 @@
         <ResourceDictionary>
             <Style x:Key="DefaultSubtitleLabelStyle" 
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
             <Style x:Key="DefaultDatePickerStyle"
                    TargetType="telerikInput:RadDatePicker">
                 <Setter Property="HeightRequest" Value="44" />
-                <Setter Property="BackgroundColor" Value="#F7F7F7" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F7F7F7, Dark=#373737}" />
                 <Setter Property="BorderColor" Value="#007AFF" />
                 <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
             </Style>
@@ -56,7 +56,7 @@
                     <RowDefinition Height="60" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <StackLayout BackgroundColor="#EFEFF4">
+                <StackLayout BackgroundColor="{AppThemeBinding Light=#EFEFF4, Dark=#121212}">
                     <Image VerticalOptions="End"
                            HorizontalOptions="End">
                         <Image.Source>
@@ -82,7 +82,7 @@
                                                 Style="{StaticResource DefaultDatePickerStyle}">
                         <telerikInput:RadDatePicker.PlaceholderLabelStyle>
                             <Style TargetType="Label">
-                                <Setter Property="TextColor" Value="#919191" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light=#919191, Dark=Default}" />
                                 <Setter Property="VerticalTextAlignment" Value="Center" />
                                 <Setter Property="Margin" Value="4, 0, 0, 0" />
                             </Style>
@@ -101,7 +101,7 @@
                                                 Style="{StaticResource DefaultDatePickerStyle}">
                         <telerikInput:RadDatePicker.PlaceholderLabelStyle>
                             <Style TargetType="Label">
-                                <Setter Property="TextColor" Value="#919191" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light=#919191, Dark=Default}" />
                                 <Setter Property="VerticalTextAlignment" Value="Center" />
                                 <Setter Property="Margin" Value="4, 0, 0, 0" />
                             </Style>
@@ -189,7 +189,7 @@
             </Grid>
         </ScrollView>
         <StackLayout Grid.Row="1"
-                     BackgroundColor="#F7F7F7" 
+                     BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#121212}" 
                      HeightRequest="65">
             <telerikInput:RadButton Text="Submit Request" 
                                     CornerRadius="20" 

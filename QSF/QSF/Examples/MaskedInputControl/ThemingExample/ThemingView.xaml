@@ -5,7 +5,13 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikMaskedInput="clr-namespace:Telerik.XamarinForms.Input.MaskedInput;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.MaskedInputControl.ThemingExample.ThemingView">
-    <Grid BackgroundColor="White">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainBackgroundColorLight">White</Color>
+            <Color x:Key="MainBackgroundColorDark">Black</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
         <StackLayout Margin="16, 16, 16, 0">
             <Label Text="Phone Number" FontSize="Medium"/>
             <telerikInput:RadMaskedInput WatermarkText="(657) 12345 - 12345"

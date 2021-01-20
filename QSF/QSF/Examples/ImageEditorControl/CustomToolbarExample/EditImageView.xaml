@@ -11,7 +11,7 @@
             <Style TargetType="{x:Type telerikImageEditor:ImageEditorToolbarItem}"
                    ApplyToDerivedTypes="True">
                 <Setter Property="TextColor"
-                        Value="Black" />
+                        Value="{AppThemeBinding Light=Black, Dark=White}" />
                 <Setter Property="SelectedColor"
                         Value="#FE6078" />
                 <Setter Property="SelectedBackgroundColor"
@@ -54,13 +54,13 @@
                    TargetType="{x:Type Label}"
                    BasedOn="{StaticResource toolbarTextStyle}">
                 <Setter Property="TextColor"
-                        Value="Black" />
+                        Value="{AppThemeBinding Light=Black, Dark=White}" />
             </Style>
             <Style x:Key="normalIconStyle"
                    TargetType="{x:Type Label}"
                    BasedOn="{StaticResource toolbarIconStyle}">
                 <Setter Property="TextColor"
-                        Value="Black" />
+                        Value="{AppThemeBinding Light=Black, Dark=White}" />
             </Style>
             <Style x:Key="selectedTextStyle"
                    TargetType="{x:Type Label}"
@@ -90,7 +90,7 @@
         </Grid.RowDefinitions>
         <telerikImageEditor:RadImageEditorToolbar Grid.Row="0"
                                                   Padding="8, 0"
-                                                  BackgroundColor="#F7F7F7"
+                                                  BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#1E1E1E}"
                                                   ImageEditor="{x:Reference imageEditor}"
                                                   AutoGenerateItems="False">
             <telerikImageEditor:CommandToolbarItem Text="Discard"
@@ -109,10 +109,10 @@
         <telerikImageEditor:RadImageEditor x:Name="imageEditor"
                                            Grid.Row="1"
                                            Padding="4"
-                                           BackgroundColor="#C9C9C9"
+                                           BackgroundColor="{AppThemeBinding Light=#C9C9C9, Dark=#121212}"
                                            Source="{Binding Image}"/>
         <telerikImageEditor:RadImageEditorToolbar Grid.Row="2"
-                                                  BackgroundColor="#F7F7F7"
+                                                  BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#1E1E1E}"
                                                   ImageEditor="{x:Reference imageEditor}"
                                                   AutoGenerateItems="False"
                                                   IsMultiLine="True">

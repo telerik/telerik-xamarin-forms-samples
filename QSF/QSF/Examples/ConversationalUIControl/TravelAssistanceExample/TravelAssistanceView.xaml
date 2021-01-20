@@ -15,9 +15,13 @@
             <Style TargetType="telerikConversationalUI:ChatListView">
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#F0F0F0" />
-                        </OnPlatform>
+                        <AppThemeBinding Dark="#121212">
+                            <AppThemeBinding.Light>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="Android">#F0F0F0</On>
+                                </OnPlatform>
+                            </AppThemeBinding.Light>
+                        </AppThemeBinding>
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -85,7 +89,7 @@
                                                          Margin="45, 0, 45, 2"
                                                          BorderThickness="2"
                                                          HorizontalOptions="Center"
-                                                         BackgroundColor="White">
+                                                         BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
@@ -96,7 +100,7 @@
                                                               HeightRequest="164"
                                                               SelectionMode="None">
                                         <dataControls:RadListView.LayoutDefinition>
-                                            <telerikListView:ListViewLinearLayout ItemLength="80">
+                                            <telerikListView:ListViewLinearLayout>
                                                 <telerikListView:ListViewLinearLayout.VerticalItemSpacing>
                                                     <OnPlatform  x:TypeArguments="x:Double" Android="3" iOS="3" WinPhone="1"/>
                                                 </telerikListView:ListViewLinearLayout.VerticalItemSpacing>
@@ -111,8 +115,7 @@
                                                     <telerikListView:ListViewTemplateCell.View>
                                                         <telerikPrimitives:RadBorder BorderThickness="0, 0, 0, 2"
                                                                                      BorderColor="#FFD3D3D3"
-                                                                                     HorizontalOptions="Center"
-                                                                                     WidthRequest="300">
+                                                                                     HorizontalOptions="Center">
                                                             <Grid Margin="0, 5, 0, 8">
                                                                 <Grid.ColumnDefinitions>
                                                                     <ColumnDefinition/>
@@ -166,7 +169,7 @@
                                                          CornerRadius="10"
                                                          BorderThickness="2"
                                                          HorizontalOptions="Center"
-                                                         BackgroundColor="White">
+                                                         BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
                                 <StackLayout>
                                     <Image Source="{Binding Data.Image}"/>
                                     <telerikPrimitives:RadBorder BorderThickness="0, 0, 0, 2"
@@ -238,7 +241,7 @@
         <telerikConversationalUI:RadChat Grid.Row="1"
                                          PropertyChanged="OnChatPropertyChanged"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"
-                                         BackgroundColor="#FFF6F8FB"
+                                         BackgroundColor="{AppThemeBinding Light=#FFF6F8FB, Dark=#121212}"
                                          ItemsSource="{Binding Items}"
                                          Author="{Binding Me}"
                                          ItemConverter="{StaticResource ChatItemConverter}"
@@ -266,7 +269,7 @@
         </telerikConversationalUI:RadChat>
         <telerikConversationalUI:RadChatPicker Grid.Row="1"
                                                views:ThemesBehavior.StyleClass="TelerikTheme"
-                                               BackgroundColor="White"
+                                               BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
                                                IsVisible="{Binding IsChatPickerVisible}"
                                                OkCommand="{Binding OkPickerCommand}"
                                                IsCancelButtonVisible="False"
@@ -276,7 +279,7 @@
         </telerikConversationalUI:RadChatPicker>
         <telerikPrimitives:RadBusyIndicator AnimationContentHeightRequest="50"
                                             AnimationContentWidthRequest="50"
-                                            BackgroundColor="White"
+                                            BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
                                             IsBusy="{Binding IsBusy}"
                                             IsVisible="{Binding IsBusy}"
                                             views:ThemesBehavior.StyleClass="TelerikTheme"

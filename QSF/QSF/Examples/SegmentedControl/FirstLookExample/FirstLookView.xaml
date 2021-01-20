@@ -13,11 +13,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="1">
-            <StackLayout BackgroundColor="#F0F0F0">
-                <StackLayout BackgroundColor="White"
+            <StackLayout BackgroundColor="{AppThemeBinding Dark=Default, Light=#F0F0F0}">
+                <StackLayout BackgroundColor="{AppThemeBinding Dark=Default, Light=White}"
                              Padding="16">
                     <telerikInput:RadSegmentedControl HeightRequest="85"
-                                                      SegmentBackgroundColor="White"
+                                                      SegmentBackgroundColor="{AppThemeBinding Dark=Default, Light=White}"
                                                       SelectedSegmentBackgroundColor="#0A90D0"
                                                       ItemsSource="{Binding LargeImages}"
                                                       SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
@@ -33,7 +33,7 @@
                                     <telerikListView:ListViewTemplateCell.View>
                                         <StackLayout Orientation="Horizontal">
                                             <Label FontSize="16"
-                                                   TextColor="Black"
+                                                   TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                                                    HorizontalOptions="StartAndExpand"
                                                    Text="{Binding Name}" />
                                             <Label FontSize="16"
@@ -65,7 +65,7 @@
                 <Frame Grid.Row="2"
                        Margin="8,0,8,0"
                        Padding="44,12,44,16"
-                       BackgroundColor="White"
+                       BackgroundColor="{AppThemeBinding Dark=#333333, Light=White}"
                        CornerRadius="6"
                        HasShadow="False">
                     <StackLayout>
@@ -75,7 +75,7 @@
                                TextColor="Gray"
                                FontSize="12" />
                         <telerikInput:RadSegmentedControl HeightRequest="60"
-                                                          SegmentBackgroundColor="White"
+                                                          SegmentBackgroundColor="{AppThemeBinding Dark=Default, Light=White}"
                                                           SelectedSegmentBackgroundColor="#0A90D0"
                                                           ItemsSource="{Binding SmallImages}"
                                                           SelectedIndex="0" 
@@ -91,7 +91,7 @@
                             TextColor="Gray"
                             FontSize="12" />
                     <telerikInput:RadSegmentedControl SegmentTextColor="#FBB03B"
-                                                      SegmentBackgroundColor="White"
+                                                      SegmentBackgroundColor="{AppThemeBinding Dark=Default, Light=White}"
                                                       SelectedSegmentTextColor="#FBB03B"
                                                       SelectedSegmentBackgroundColor="#0A90D0"
                                                       ItemsSource="{Binding Categories}"
@@ -110,7 +110,7 @@
                                                       Grid.Row="4"
                                                       VerticalOptions="Center"
                                                       SegmentTextColor="#FBB03B"
-                                                      SegmentBackgroundColor="White"
+                                                      SegmentBackgroundColor="{AppThemeBinding Dark=Default, Light=White}"
                                                       SelectedSegmentTextColor="#FBB03B"
                                                       SelectedSegmentBackgroundColor="#0A90D0"
                                                       DisabledSegmentTextColor="#D6CB90"

@@ -5,13 +5,21 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              x:Class="QSF.Examples.PathControl.FiguresExample.FiguresView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainBackgroundColorLight">White</Color>
+            <Color x:Key="MainBackgroundColorDark">Black</Color>
+            <Color x:Key="PathBackgroundColorLight">WhiteSmoke</Color>
+            <Color x:Key="PathBackgroundColorDark">#121212</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0"
-          BackgroundColor="White">
+          BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
         <Grid.Resources>
             <ResourceDictionary>
                 <Style TargetType="telerikPrimitives:RadPath">
-                    <Setter Property="BackgroundColor" Value="WhiteSmoke"/>
+                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource PathBackgroundColorLight}, Dark={StaticResource PathBackgroundColorDark}}" />
                 </Style>
             </ResourceDictionary>
         </Grid.Resources>

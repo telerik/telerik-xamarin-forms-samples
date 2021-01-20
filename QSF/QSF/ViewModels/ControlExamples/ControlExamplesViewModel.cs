@@ -1,9 +1,9 @@
-﻿using QSF.Services;
-using QSF.Services.Configuration;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using QSF.Services;
+using QSF.Services.Configuration;
 using Telerik.XamarinForms.DataControls.ListView;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -87,6 +87,11 @@ namespace QSF.ViewModels
         public ControlExamplesViewModel()
         {
             this.GroupHeaderTapCommand = new Command<GroupHeaderContext>(this.OnGroupHeaderTap);
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                Application.Current.RequestedThemeChanged += this.ApplicationRequestedThemeChanged;
+            }
         }
 
         private void OnGroupHeaderTap(GroupHeaderContext context)
@@ -105,7 +110,7 @@ namespace QSF.ViewModels
             this.control = controlsService.GetControlByName(controlName);
 
             this.Title = this.control.DisplayName;
-            this.CanChangeTheme = this.control.IsThemable;
+            this.CanChangeTheme = this.control.IsThemable && Application.Current.RequestedTheme != OSAppTheme.Dark;
 
             this.Examples = new ObservableCollection<ExampleInfoViewModel>(this.control.Examples.Select(p => new ExampleInfoViewModel(p)));
             this.CanCollapseGroups = this.Examples.Select(example => example.GroupName).Distinct().Count() > 1;
@@ -135,6 +140,17 @@ namespace QSF.ViewModels
         private Task NavigateToExample(ExampleInfoViewModel selectedExample)
         {
             return this.NavigationService.NavigateToExampleAsync(new ExampleInfo(this.control.Name, selectedExample.Example.Name));
+        }
+
+        private void ApplicationRequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        {
+            var applicationStateService = DependencyService.Get<IApplicationStateService>();
+            if (!applicationStateService.IsApplicationActive)
+            {
+                return;
+            }
+
+            this.CanChangeTheme = this.control.IsThemable && Xamarin.Forms.Application.Current.RequestedTheme != OSAppTheme.Dark;
         }
 
         protected override Task NavigateToInfoOverride()

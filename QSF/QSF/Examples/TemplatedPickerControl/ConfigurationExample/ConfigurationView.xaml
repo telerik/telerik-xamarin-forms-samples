@@ -19,7 +19,6 @@
                 <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
             </OnPlatform>
             <Color x:Key="AccentColor">#B73562</Color>
-            <Color x:Key="SecondaryBackgroundColor">#F6FAFB</Color>
             <Style x:Key="ItemStyle" TargetType="{x:Type dataControls:SpinnerItemView}">
                 <Setter Property="TextColor" Value="{Binding BindingContext.SpinnerItemFontColor, Source={x:Reference pageContent}}" />
                 <Setter Property="FontSize" Value="{Binding BindingContext.SpinnerItemFontSize, Source={x:Reference pageContent}}" />
@@ -40,8 +39,8 @@
             </Style>
             <Style x:Key="PickerPopupFooterButtonsStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#F7F7F7"/>
-                <Setter Property="CornerRadius" Value="30" />
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="22" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
                 <Setter Property="Margin">
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS">0, 0, 20, 0</On>
@@ -54,11 +53,13 @@
                    TargetType="Button"
                    BasedOn="{StaticResource PickerPopupFooterButtonsStyle}">
                 <Setter Property="BackgroundColor" Value="{Binding BindingContext.ConfirmationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=#FFFFFF, Light=Black}" />
             </Style>
             <Style x:Key="PickerPopupCancelButtonStyle" 
                    TargetType="Button"
                    BasedOn="{StaticResource PickerPopupFooterButtonsStyle}">
                 <Setter Property="BackgroundColor" Value="{Binding BindingContext.CancellationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=#FFFFFF, Light=Black}" />
             </Style>
             <Style x:Key="DefaultPlaceholderLabelStyle" TargetType="Label">
                 <Setter Property="VerticalTextAlignment" Value="End"/>
@@ -67,7 +68,7 @@
             </Style>
             <Style x:Key="DefaultDisplayLabelStyle" TargetType="Label">
                 <Setter Property="VerticalTextAlignment" Value="End"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
                 <Setter Property="HeightRequest" Value="44"/>
             </Style>
             <Style Class="NumericInputStyleClass" TargetType="{x:Type telerikNumericInput:NumericInputButton}">
@@ -91,7 +92,7 @@
                     </Setter.Value>
                 </Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
@@ -142,14 +143,14 @@
                 <Setter Property="HeightRequest" Value="44" />
             </Style>
             <Style x:Key="DefaultLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="Margin" Value="0, 39, 0, 0" />
             </Style>
             <Style x:Key="DefaultRadBorderStyle" TargetType="telerikPrimitives:RadBorder">
                 <Setter Property="HeightRequest" Value="44" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="BorderColor" Value="#D9D9D9" />
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=#D9D9D9, Dark=#777777}" />
                 <Setter Property="BorderThickness" Value="0, 1" />
             </Style>
             <Style TargetType="telerikPrimitives:RadBorder">
@@ -321,7 +322,7 @@
                         </telerikInput:RadTemplatedPicker>
                     </StackLayout >
                 </Grid>
-                <Grid Grid.Row="3" BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+                <Grid Grid.Row="3" BackgroundColor="{AppThemeBinding Dark=Black, Light=#F6FAFB}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
@@ -354,7 +355,7 @@
                 </Grid>
             </Grid>
         </ScrollView>
-        <Grid BackgroundColor="{StaticResource SecondaryBackgroundColor}" Padding="0,8">
+        <Grid BackgroundColor="{AppThemeBinding Dark=Black, Light=#F6FAFB}" Padding="0,8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

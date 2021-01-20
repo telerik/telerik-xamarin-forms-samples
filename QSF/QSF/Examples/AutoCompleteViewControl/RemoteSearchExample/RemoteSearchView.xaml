@@ -40,7 +40,7 @@
                                     </OnPlatform>
                                 </telerikPrimitives:RadBorder.Margin>
                             </telerikPrimitives:RadBorder>
-                            <autoCompleteView:SuggestionItemLabel TextColor="#000000" FontSize="14" VerticalTextAlignment="Center"
+                            <autoCompleteView:SuggestionItemLabel TextColor="{AppThemeBinding Light=Black, Dark=White}" FontSize="14" VerticalTextAlignment="Center"
                                                                   HorizontalOptions="Center" UnformattedText="{Binding Title}"
                                                                   HighlightText="{Binding Source={x:Reference autocompleteRemoteSearch}, Path=Text}"
                                                                   HighlightTextColor="{Binding Source={x:Reference autocompleteRemoteSearch}, Path=SuggestionItemTextColor}"/>
@@ -51,7 +51,7 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <ScrollView>
-        <Grid Margin="16, 0, 16, 0" RowSpacing="0" BackgroundColor="White">
+        <Grid Margin="16, 0, 16, 0" RowSpacing="0" BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="53"/>
                 <RowDefinition Height="Auto"/>
@@ -59,7 +59,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Text="The Best Movies of All Time" TextColor="#4B4C4C" Font="Bold,20" HeightRequest="25" VerticalOptions="Center"/>
+            <Label Grid.Row="0" Text="The Best Movies of All Time" TextColor="{AppThemeBinding Light=#4B4C4C, Dark=White}" Font="Bold,20" HeightRequest="25" VerticalOptions="Center"/>
             <telerik:RadAutoCompleteView x:Name="autocompleteRemoteSearch" 
                                          Watermark="Search by Movie Title" 
                                          WatermarkTextColor="#8E8E93" 
@@ -70,7 +70,7 @@
                                          TextChanged="OnTextChanged"
                                          SuggestionViewHeight="250"
                                          TextSearchPath="Title"
-                                         SuggestionViewBackgroundColor="#FFFFFF"
+                                         SuggestionViewBackgroundColor="{AppThemeBinding Light=White, Dark=Default}"
                                          LoadingTemplate="{StaticResource LoadingMoviesTemplate}"
                                          SuggestionItemTemplate="{StaticResource SuggestionMoviesTemplate}" 
                                          SuggestionItemSelected="OnSuggestionItemSelected"/>
@@ -85,7 +85,7 @@
                          Spacing="0"
                          Margin="0, 0, 0, 6">
                 <Label Text="Legend:"
-                       TextColor="#4B4C4C"
+                       TextColor="{AppThemeBinding Light=#4B4C4C, Dark=White}"
                        Font="Bold,15" 
                        Margin="0, 0, 0, 12"
                        FontAttributes="Bold" FontSize="17"/>

@@ -7,7 +7,7 @@ namespace QSF.ViewModels
         public ExampleInfoViewModel(Example example)
         {
             this.GroupName = example.IsScenario ? "Scenarios" : "Features";
-            this.Image = example.Image;
+            this.Icon = example.Icon;
             this.Name = example.DisplayName;
             this.Description = example.Description;
             this.Example = example;
@@ -17,7 +17,7 @@ namespace QSF.ViewModels
 
         public string GroupName { get; }
 
-        public string Image { get; }
+        public Icon Icon { get; }
 
         public string Name { get; }
 

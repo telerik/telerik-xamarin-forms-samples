@@ -14,9 +14,13 @@
             <Style TargetType="telerikConversationalUI:ChatListView">
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#F0F0F0" />
-                        </OnPlatform>
+                        <AppThemeBinding Dark="#121212">
+                            <AppThemeBinding.Light>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="Android">#F0F0F0</On>
+                                </OnPlatform>
+                            </AppThemeBinding.Light>
+                        </AppThemeBinding>
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -72,16 +76,16 @@
                         <StackLayout Margin="0, 2, 0, 10">
                             <telerikPrimitives:RadBorder CornerRadius="15"
                                                          Margin="40, 0, 50, 0"
-                                                         BackgroundColor="#FFFFFF"
+                                                         BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#121212}"
                                                          HorizontalOptions="Start">
                                 <StackLayout Margin="15, 7, 15, 10">
                                     <Label Text="{Binding Data.Title}" FontSize="17"
-                                           TextColor="Black"/>
+                                           TextColor="{AppThemeBinding Light=Black, Dark=Default}"/>
                                     <Label Text="{Binding Data.Description}" FontSize="14"/>
                                     <telerikPrimitives:RadBorder BorderThickness="0, 2, 0, 0" BorderColor="#FFD4D4D4">
                                         <Label Text="{Binding Data.TotalValue}" FontSize="18"
                                                Margin="0, 10, 0, 0"
-                                               TextColor="Black"/>
+                                               TextColor="{AppThemeBinding Light=Black, Dark=Default}"/>
                                     </telerikPrimitives:RadBorder>
                                 </StackLayout>
                             </telerikPrimitives:RadBorder>
@@ -111,15 +115,16 @@
                    FontSize="18"
                    VerticalTextAlignment="Center"/>
         </StackLayout>
-        <telerikConversationalUI:RadChat x:Name="chat" Grid.Row="1"
-                                                 views:ThemesBehavior.StyleClass="TelerikTheme"
-                                                 PropertyChanged="OnChatPropertyChanged"
-                                                 ItemTemplateSelector="{StaticResource CustomChatItemTemplateSelector}">
+        <telerikConversationalUI:RadChat x:Name="chat" 
+                                         Grid.Row="1"
+                                         views:ThemesBehavior.StyleClass="TelerikTheme"
+                                         PropertyChanged="OnChatPropertyChanged"
+                                         ItemTemplateSelector="{StaticResource CustomChatItemTemplateSelector}">
             <telerikConversationalUI:RadChat.Picker>
                 <telerikConversationalUI:RadChatPicker x:Name="picker"
-                                                               IsOkButtonVisible="False"
-                                                               IsCancelButtonVisible="False"
-                                                               BackgroundColor="LightGray" />
+                                                       IsOkButtonVisible="False"
+                                                       IsCancelButtonVisible="False"
+                                                       BackgroundColor="{AppThemeBinding Light=LightGray, Dark=#121212}" />
             </telerikConversationalUI:RadChat.Picker>
             <telerikConversationalUI:RadChat.Resources>
                 <ResourceDictionary>
@@ -133,7 +138,7 @@
         <telerikPrimitives:RadBusyIndicator x:Name="busyIndicator"
                                             Grid.RowSpan="2"
                                             AnimationContentHeightRequest="50"
-                                            BackgroundColor="White"
+                                            BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
                                             views:ThemesBehavior.StyleClass="TelerikTheme"
                                             AnimationContentWidthRequest="50"
                                             IsBusy="{Binding IsBusy}">

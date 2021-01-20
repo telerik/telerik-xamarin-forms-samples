@@ -9,7 +9,7 @@ namespace QSF.Views
 
         public ExamplesViewBase()
         {
-            this.BackgroundColor = (Color)App.Current.Resources["LightBackgroundColor"];
+            this.SetAppThemeColor(ContentPage.BackgroundColorProperty, (Color)App.Current.Resources["LightBackgroundColorLight"], (Color)App.Current.Resources["LightBackgroundColorDark"]);
 
             var controlTemplate = (ControlTemplate)App.Current.Resources["ExamplesViewBase"];
 

@@ -27,7 +27,7 @@
             </Style>
             <Style x:Key="DefaultSpinnerStyle" 
                    TargetType="telerikDataControls:RadSpinner">
-                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=Default}" />
                 <Setter Property="ItemStyle">
                     <Setter.Value>
                         <Style TargetType="telerikDataControls:SpinnerItemView">
@@ -113,14 +113,14 @@
                                             </telerikInput:PickerPopupSelectorSettings.HeaderStyle>
                                             <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
                                                 <Style TargetType="Button" >
-                                                    <Setter Property="TextColor" Value="Black" />
+                                                    <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
                                                     <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
                                                     <Setter Property="BackgroundColor" Value="{Binding BindingContext.ConfirmationButtonBackgroundColor, Source={x:Reference pageContent}}" />
                                                 </Style>
                                             </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
                                         <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
                                                 <Style TargetType="Button" >
-                                                    <Setter Property="TextColor" Value="Black" />
+                                                    <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
                                                     <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
                                                     <Setter Property="BackgroundColor" Value="{Binding BindingContext.CancellationButtonBackgroundColor, Source={x:Reference pageContent}}" />
                                                 </Style>
@@ -149,7 +149,7 @@
         </telerikDataControls:RadListView>
         <StackLayout Grid.Row="3" 
                      HeightRequest="65"
-                     BackgroundColor="#F6FAFB"
+                     BackgroundColor="{AppThemeBinding Light=#F6FAFB, Dark=#373737}"
                      Orientation="Horizontal">
             <telerikInput:RadButton Text="Set New Alarm"
                                     BackgroundColor="{StaticResource AccentColor}" 

@@ -7,10 +7,21 @@
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0">
         <Grid.BackgroundColor>
-            <OnPlatform x:TypeArguments="Color">
-                <On Platform="iOS, Android">White</On>
-                <On Platform="UWP">#2E2422</On>
-            </OnPlatform>
+            <AppThemeBinding>
+                <AppThemeBinding.Light>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS, Android">White</On>
+                        <On Platform="UWP">#2E2422</On>
+                    </OnPlatform>
+                </AppThemeBinding.Light>
+                <AppThemeBinding.Dark>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS, Android">#121212</On>
+                        <On Platform="UWP">#2E2422</On>
+                    </OnPlatform>
+                </AppThemeBinding.Dark>
+            </AppThemeBinding>
+
         </Grid.BackgroundColor>
         <Grid Grid.ColumnSpacing="0"
               Grid.RowSpacing="0">
@@ -299,7 +310,6 @@
                                            Grid.Column="1"
                                            AutomationId="ReservationHolder"
                                            Text="{Binding ReservationHolder}"
-                                           TextColor="#2C2220"
                                            VerticalOptions="End">
                                         <Label.Margin>
                                             <OnPlatform x:TypeArguments="Thickness">
@@ -308,11 +318,22 @@
                                             </OnPlatform>
                                         </Label.Margin>
                                         <Label.TextColor>
-                                            <OnPlatform x:TypeArguments="Color">
-                                                <On Platform="iOS">#2E2422</On>
-                                                <On Platform="Android">#2E2422</On>
-                                                <On Platform="UWP">White</On>
-                                            </OnPlatform>
+                                            <AppThemeBinding>
+                                                <AppThemeBinding.Light>
+                                                    <OnPlatform x:TypeArguments="Color">
+                                                        <On Platform="iOS">#2E2422</On>
+                                                        <On Platform="Android">#2E2422</On>
+                                                        <On Platform="UWP">White</On>
+                                                    </OnPlatform>
+                                                </AppThemeBinding.Light>
+                                                <AppThemeBinding.Dark>
+                                                    <OnPlatform x:TypeArguments="Color">
+                                                        <On Platform="iOS">Default</On>
+                                                        <On Platform="Android">Default</On>
+                                                        <On Platform="UWP">White</On>
+                                                    </OnPlatform>
+                                                </AppThemeBinding.Dark>
+                                            </AppThemeBinding>
                                         </Label.TextColor>
                                     </Label>
                                     <StackLayout Grid.Row="1"
@@ -357,15 +378,24 @@
                                            Grid.Column="2"
                                            Grid.RowSpan="2"
                                            HorizontalOptions="End"
-                                           TextColor="#6A6564"
                                            AutomationId="HolderPhoneNumber"
                                            Text="{Binding HolderPhoneNumber}"
                                            VerticalOptions="Center">
                                         <Label.TextColor>
-                                            <OnPlatform x:TypeArguments="Color">
-                                                <On Platform="iOS,Android">#2E2422</On>
-                                                <On Platform="UWP">#8C746E</On>
-                                            </OnPlatform>
+                                            <AppThemeBinding>
+                                                <AppThemeBinding.Light>
+                                                    <OnPlatform x:TypeArguments="Color">
+                                                        <On Platform="iOS,Android">#2E2422</On>
+                                                        <On Platform="UWP">#8C746E</On>
+                                                    </OnPlatform>
+                                                </AppThemeBinding.Light>
+                                                <AppThemeBinding.Dark>
+                                                    <OnPlatform x:TypeArguments="Color">
+                                                        <On Platform="iOS,Android">Default</On>
+                                                        <On Platform="UWP">#8C746E</On>
+                                                    </OnPlatform>
+                                                </AppThemeBinding.Dark>
+                                            </AppThemeBinding>
                                         </Label.TextColor>
                                     </Label>
                                 </Grid>

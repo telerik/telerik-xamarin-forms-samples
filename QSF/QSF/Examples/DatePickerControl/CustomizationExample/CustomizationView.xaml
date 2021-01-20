@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input" 
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives" 
              xmlns:telerikNumericInput="clr-namespace:Telerik.XamarinForms.Input.NumericInput;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
@@ -31,7 +32,7 @@
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="HeightRequest" Value="40" />
                 <Setter Property="WidthRequest" Value="111" />
-                <Setter Property="BackgroundColor" Value="#e8e9ed" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#e8e9ed, Dark=#373737}" />
                 <Setter Property="Margin">
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS">0, 0, 20, 0</On>
@@ -110,13 +111,13 @@
                     </Setter.Value>
                 </Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
             <Style x:Key="DefaultLabelStyle"
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
                 <Setter Property="Margin" Value="16, 32, 16, 10" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>
@@ -125,8 +126,8 @@
                 <Setter Property="ItemStyle">
                     <Setter.Value>
                         <Style TargetType="telerikDataControls:SpinnerItemView">
-                            <Setter Property="TextColor" Value="#797979" />
-                            <Setter Property="BackgroundColor" Value="#F2F2F2" />
+                            <Setter Property="TextColor" Value="{AppThemeBinding Light=#797979, Dark=White}" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F2F2F2, Dark=#686869}" />
                             <Setter Property="CornerRadius" Value="10" />
                             <Setter Property="Margin" Value="6, 4" />
                         </Style>
@@ -136,7 +137,7 @@
                     <Setter.Value>
                         <Style TargetType="telerikDataControls:SpinnerItemView">
                             <Setter Property="TextColor" Value="#B73562" />
-                            <Setter Property="BackgroundColor" Value="#FAF2F5" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#FAF2F5, Dark=#1AB73562}" />
                             <Setter Property="CornerRadius" Value="10" />
                             <Setter Property="Margin" Value="6, 4" />
                         </Style>
@@ -207,7 +208,7 @@
                     <Label Grid.Row="3"
                            Grid.ColumnSpan="3"
                            Text="Situated in the heart of Los Angeles' Financial District, our upscale hotel features a prime location near the     Staples Center."
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light=Black, Dark=Default}"
                            FontSize="Small"
                            Margin="16, 10, 16, 0"
                            HorizontalOptions="Start" />
@@ -222,7 +223,7 @@
                         <telerikInput:RadDatePicker.PlaceholderLabelStyle>
                             <Style TargetType="Label">
                                 <Setter Property="FontAttributes" Value="Bold" />
-                                <Setter Property="TextColor" Value="#6A6A6A" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light=#6A6A6A, Dark=Default}" />
                             </Style>
                         </telerikInput:RadDatePicker.PlaceholderLabelStyle>
                         <telerikInput:RadDatePicker.SpinnerStyle>
@@ -241,7 +242,7 @@
                                 </telerikInput:PickerPopupSelectorSettings.HeaderStyle>
                                 <telerikInput:PickerPopupSelectorSettings.FooterStyle>
                                     <Style TargetType="telerikInput:PickerPopupFooterView">
-                                        <Setter Property="BackgroundColor" Value="#F7F7F7" />
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F7F7F7, Dark=#1E1E1E}" />
                                     </Style>
                                 </telerikInput:PickerPopupSelectorSettings.FooterStyle>
                                 <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
@@ -264,11 +265,10 @@
                            Text="Check out"
                            Style="{StaticResource DefaultLabelStyle}" />
                     <telerikInput:RadDatePicker Grid.Row="5"
-                                                    Grid.Column="2"
-                                                    Date="{Binding CheckOutDate, Mode=TwoWay}"
-                                                    Placeholder="Select Date"
-                                                    
-                                                    Style="{StaticResource DefaultDatePickerStyle}">
+                                                Grid.Column="2"
+                                                Date="{Binding CheckOutDate, Mode=TwoWay}"
+                                                Placeholder="Select Date"
+                                                Style="{StaticResource DefaultDatePickerStyle}">
                         <telerikInput:RadDatePicker.SpinnerStyle>
                             <Style TargetType="telerikDataControls:RadSpinner" 
                                    BasedOn="{StaticResource DefaultSpinnerStyle}" />
@@ -276,7 +276,7 @@
                         <telerikInput:RadDatePicker.PlaceholderLabelStyle>
                             <Style TargetType="Label">
                                 <Setter Property="FontAttributes" Value="Bold" />
-                                <Setter Property="TextColor" Value="#6A6A6A" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light=#6A6A6A, Dark=Default}" />
                             </Style>
                         </telerikInput:RadDatePicker.PlaceholderLabelStyle>
                         <telerikInput:RadDatePicker.SelectorSettings>
@@ -291,7 +291,7 @@
                                 </telerikInput:PickerPopupSelectorSettings.HeaderStyle>
                                 <telerikInput:PickerPopupSelectorSettings.FooterStyle>
                                     <Style TargetType="telerikInput:PickerPopupFooterView">
-                                        <Setter Property="BackgroundColor" Value="#F7F7F7" />
+                                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F7F7F7, Dark=#1E1E1E}" />
                                     </Style>
                                 </telerikInput:PickerPopupSelectorSettings.FooterStyle>
                                 <telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
@@ -324,7 +324,7 @@
             </StackLayout>
         </ScrollView>
         <StackLayout Grid.Row="1"
-                     BackgroundColor="#F6FAFB" 
+                     BackgroundColor="{AppThemeBinding Light=#F6FAFB, Dark=#121212}" 
                      HeightRequest="65">
             <telerikInput:RadButton Text="Book" 
                                     CornerRadius="20" 

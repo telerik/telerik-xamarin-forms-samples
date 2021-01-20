@@ -9,7 +9,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <local:GridStyleSelector x:Key="StyleSelector">
-                <local:GridStyleSelector.OuterGroupStyle>
+                <local:GridStyleSelector.OuterGroupStyleLight>
                     <telerikDataGrid:DataGridGroupHeaderStyle
                         BorderThickness="1, 1, 1, 1"
                         TextMargin="20, 0, 0, 0"
@@ -18,8 +18,18 @@
                         ButtonTextColor="White"
                         TextColor="White"
                         BackgroundColor="#ADADB2" />
-                </local:GridStyleSelector.OuterGroupStyle>
-                <local:GridStyleSelector.InnerGroupStyle>
+                </local:GridStyleSelector.OuterGroupStyleLight>
+                <local:GridStyleSelector.OuterGroupStyleDark>
+                    <telerikDataGrid:DataGridGroupHeaderStyle
+                        BorderThickness="1, 1, 1, 1"
+                        TextMargin="20, 0, 0, 0"
+                        ButtonMargin="20, 25, 0, 25"
+                        BorderColor="#121212"
+                        ButtonTextColor="White"
+                        TextColor="White"
+                        BackgroundColor="#373737" />
+                </local:GridStyleSelector.OuterGroupStyleDark>
+                <local:GridStyleSelector.InnerGroupStyleLight>
                     <telerikDataGrid:DataGridGroupHeaderStyle
                         BorderThickness="1, 1, 1, 1"
                         TextMargin="20, 0, 0, 0"
@@ -28,7 +38,17 @@
                         ButtonTextColor="White"
                         TextColor="White"
                         BackgroundColor="#CACACF" />
-                </local:GridStyleSelector.InnerGroupStyle>
+                </local:GridStyleSelector.InnerGroupStyleLight>
+                <local:GridStyleSelector.InnerGroupStyleDark>
+                    <telerikDataGrid:DataGridGroupHeaderStyle
+                        BorderThickness="1, 1, 1, 1"
+                        TextMargin="20, 0, 0, 0"
+                        ButtonMargin="20, 25, 0, 25"
+                        BorderColor="#121212"
+                        ButtonTextColor="White"
+                        TextColor="White"
+                        BackgroundColor="#686869" />
+                </local:GridStyleSelector.InnerGroupStyleDark>
             </local:GridStyleSelector>
             <telerikDataGrid:DataGridColumnHeaderStyle x:Key="CustomDataGridColumnHeaderStyle"
                                                        BackgroundColor="#D4392A" 
@@ -57,13 +77,27 @@
                                  AutoGenerateColumns="false"
                                  DataOperationIndicationMode="Universal"
                                  GroupHeaderStyleSelector="{StaticResource StyleSelector}"
-                                 GridLinesColor="#DDE0E3"
+                                 GridLinesColor="{AppThemeBinding Light=#DDE0E3, Dark=#686869}"
                                  GridLinesVisibility="Both">
         <telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
-            <telerikDataGrid:DataGridBorderStyle BackgroundColor="White" />
+            <AppThemeBinding>
+                <AppThemeBinding.Light>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="White" />
+                </AppThemeBinding.Light>
+                <AppThemeBinding.Dark>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="#1E1E1E" />
+                </AppThemeBinding.Dark>
+            </AppThemeBinding>
         </telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
         <telerikDataGrid:RadDataGrid.RowBackgroundStyle>
-            <telerikDataGrid:DataGridBorderStyle BackgroundColor="#F9F9FA" />
+            <AppThemeBinding>
+                <AppThemeBinding.Light>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="#F9F9FA" />
+                </AppThemeBinding.Light>
+                <AppThemeBinding.Dark>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="#121212" />
+                </AppThemeBinding.Dark>
+            </AppThemeBinding>
         </telerikDataGrid:RadDataGrid.RowBackgroundStyle>
         <telerikDataGrid:RadDataGrid.GroupDescriptors>
             <common:PropertyGroupDescriptor PropertyName="CountryName"/>
@@ -82,8 +116,7 @@
                         TextMargin="7, 25, 7, 25"
                         IndicatorColor="White"
                         IndicatorFontSize="15"
-                        OptionsButtonMargin="9, 14, 13, 14"
-                        OptionsButtonTextColor="White"/>
+                        IsOptionsButtonVisible="False"/>
                 </telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
                 <telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
                     <DataTemplate>
@@ -95,7 +128,7 @@
                                            WidthRequest="40" 
                                            HeightRequest="40"/>
 
-                            <Label Text="{Binding FullName}" VerticalOptions="Center" TextColor="#4A4949" />
+                            <Label Text="{Binding FullName}" VerticalOptions="Center" TextColor="{AppThemeBinding Light=#4A4949, Dark=Default}" />
                         </StackLayout>
                     </DataTemplate>
                 </telerikDataGrid:DataGridTemplateColumn.CellContentTemplate>
@@ -103,12 +136,26 @@
             <telerikDataGrid:DataGridNumericalColumn PropertyName="Sales" HeaderText="Sales ($)" CellContentFormat="$ {0}"
                                                      HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}">
                 <telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                    <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="#4A4949" />
+                    <AppThemeBinding>
+                        <AppThemeBinding.Light>
+                            <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="#4A4949" />
+                        </AppThemeBinding.Light>
+                        <AppThemeBinding.Dark>
+                            <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="Default" />
+                        </AppThemeBinding.Dark>
+                    </AppThemeBinding>
                 </telerikDataGrid:DataGridTextColumn.CellContentStyle>
             </telerikDataGrid:DataGridNumericalColumn>
             <telerikDataGrid:DataGridTextColumn PropertyName="City" HeaderText="City" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}">
                 <telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                    <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="#4A4949" />
+                    <AppThemeBinding>
+                        <AppThemeBinding.Light>
+                            <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="#4A4949" />
+                        </AppThemeBinding.Light>
+                        <AppThemeBinding.Dark>
+                            <telerikDataGrid:DataGridTextCellStyle SelectedTextColor="Default" />
+                        </AppThemeBinding.Dark>
+                    </AppThemeBinding>
                 </telerikDataGrid:DataGridTextColumn.CellContentStyle>
             </telerikDataGrid:DataGridTextColumn>
             <telerikDataGrid:DataGridTextColumn PropertyName="CountryName" IsVisible="False" HeaderStyle="{StaticResource CustomDataGridColumnHeaderStyle}"/>

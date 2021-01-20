@@ -6,7 +6,7 @@
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              x:Class="QSF.Examples.RichTextEditorControl.ImportExportExample.FileOpenView">
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
@@ -15,7 +15,7 @@
                      Spacing="24">
             <Label Text="Recent Files"
                    FontSize="18"
-                   TextColor="Black" />
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}" />
             <telerikDataControls:RadListView ItemsSource="{Binding FileEntries}"
                                              SelectedItem="{Binding FileEntry, Mode=TwoWay}">
                 <telerikDataControls:RadListView.ItemTemplate>
@@ -28,7 +28,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0"
                                        Text="{Binding FileName}"
-                                       TextColor="Black"
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                        FontSize="16"
                                        VerticalOptions="Center" />
                                 <Label Grid.Column="1"
@@ -48,19 +48,19 @@
                 <telerikDataControls:RadListView.ItemStyle>
                     <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
                                                        BorderLocation="Bottom"
-                                                       BorderColor="LightGray"
+                                                       BorderColor="{AppThemeBinding Light=LightGray, Dark=#373737}"
                                                        BorderWidth="1" />
                 </telerikDataControls:RadListView.ItemStyle>
                 <telerikDataControls:RadListView.PressedItemStyle>
                     <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
                                                        BorderLocation="Bottom"
-                                                       BorderColor="LightGray"
+                                                       BorderColor="{AppThemeBinding Light=LightGray, Dark=#373737}"
                                                        BorderWidth="1" />
                 </telerikDataControls:RadListView.PressedItemStyle>
                 <telerikDataControls:RadListView.SelectedItemStyle>
                     <telerikListView:ListViewItemStyle BackgroundColor="Transparent"
                                                        BorderLocation="Bottom"
-                                                       BorderColor="LightGray"
+                                                       BorderColor="{AppThemeBinding Light=LightGray,Dark=#686869}"
                                                        BorderWidth="1" />
                 </telerikDataControls:RadListView.SelectedItemStyle>
             </telerikDataControls:RadListView>
@@ -68,8 +68,8 @@
         <telerikPrimitives:RadBusyIndicator IsVisible="{Binding IsBusy}"
                                             IsBusy="{Binding IsBusy}" />
         <telerikPrimitives:RadBorder Grid.Row="1"
-                                     BackgroundColor="WhiteSmoke"
-                                     BorderColor="LightGray"
+                                     BackgroundColor="{AppThemeBinding Light=WhiteSmoke, Dark=#373737}"
+                                     BorderColor="{AppThemeBinding Light=LightGray,Dark=#686869}"
                                      BorderThickness="0, 1, 0, 0">
             <Grid ColumnSpacing="8">
                 <Grid.ColumnDefinitions>

@@ -25,7 +25,7 @@
 
             <Style x:Key="DefaultLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="16" />
-                <Setter Property="TextColor" Value="#4b4c4c" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#4b4c4c, Dark=Default}" />
             </Style>
 
             <Style x:Key="SliderMinMaxLabelStyle" TargetType="Label">

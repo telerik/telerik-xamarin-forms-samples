@@ -37,7 +37,19 @@ namespace QSF.iOS.Effects
                     var textField = subview1 as UITextField;
                     if (textField != null)
                     {
-                        textField.BackgroundColor = ((Color)App.Current.Resources["DarkBackgroundColor"]).ToUIColor();
+                        if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+                        {
+                            textField.BackgroundColor = UIColor.FromDynamicProvider((traitCollection) =>
+                            {
+                                return traitCollection.UserInterfaceStyle == UIUserInterfaceStyle.Dark
+                                ? ((Color)App.Current.Resources["DarkBackgroundColorDark"]).ToUIColor()
+                                : ((Color)App.Current.Resources["DarkBackgroundColorLight"]).ToUIColor();
+                            });
+                        }
+                        else
+                        {
+                            textField.BackgroundColor = ((Color)App.Current.Resources["DarkBackgroundColorLight"]).ToUIColor();
+                        }
                     }
                 }
             }

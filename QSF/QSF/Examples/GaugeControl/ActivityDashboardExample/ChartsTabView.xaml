@@ -15,7 +15,7 @@
                              HeightRequest="2"
                              Margin="1, 0, 1, 0" />
                     <Label Text="{TemplateBinding Text}"
-                           TextColor="{StaticResource chartForeground}"
+                           TextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                            BackgroundColor="{StaticResource moveColor}"
                            HorizontalTextAlignment="Center"
                            Margin="1, 0, 1, 2" />
@@ -29,7 +29,7 @@
                              HeightRequest="2"
                              Margin="1, 0, 1, 0" />
                     <Label Text="{TemplateBinding Text}"
-                           TextColor="{StaticResource chartForeground}"
+                           TextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                            BackgroundColor="{StaticResource exerciseColor}"
                            HorizontalTextAlignment="Center"
                            Margin="1, 0, 1, 2" />
@@ -43,7 +43,7 @@
                              HeightRequest="2"
                              Margin="1, 0, 1, 0" />
                     <Label Text="{TemplateBinding Text}"
-                           TextColor="{StaticResource chartForeground}"
+                           TextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                            BackgroundColor="{StaticResource standColor}"
                            HorizontalTextAlignment="Center"
                            Margin="1, 0, 1, 2" />
@@ -68,8 +68,8 @@
                             </Grid.RowDefinitions>
                             <telerikChart:RadCartesianChart Margin="-7, 35, 0, 0" BackgroundColor="{StaticResource moveColor}" Grid.RowSpan="2">
                                 <telerikChart:RadCartesianChart.HorizontalAxis>
-                                    <telerikChart:CategoricalAxis LineColor="{StaticResource chartForegroundSemiTransparent}"
-                                                                  LabelTextColor="{StaticResource chartForeground}"
+                                    <telerikChart:CategoricalAxis LineColor="{AppThemeBinding Light={StaticResource chartForegroundSemiTransparent}, Dark={StaticResource chartForegroundSemiTransparentDark}}"
+                                                                  LabelTextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                                                                   MajorTickThickness="0" />
                                 </telerikChart:RadCartesianChart.HorizontalAxis>
                                 <telerikChart:RadCartesianChart.VerticalAxis>
@@ -81,17 +81,17 @@
                                 <telerikChart:RadCartesianChart.Grid>
                                     <telerikChart:CartesianChartGrid MajorLinesVisibility="Y"
                                                                      MajorLineThickness="1"
-                                                                     MajorLineColor="{StaticResource chartForegroundSemiTransparent}" />
+                                                                     MajorLineColor="{AppThemeBinding Light={StaticResource chartForegroundSemiTransparent}, Dark={StaticResource chartForegroundSemiTransparentDark}}" />
                                 </telerikChart:RadCartesianChart.Grid>
                                 <telerikChart:RadCartesianChart.Series>
                                     <telerikChart:LineSeries CategoryBinding="Day"
                                                              ValueBinding="ActivityIndex"
                                                              ItemsSource="{Binding MoveData}"
-                                                             Stroke="{StaticResource chartForeground}" />
+                                                             Stroke="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}" />
                                 </telerikChart:RadCartesianChart.Series>
                             </telerikChart:RadCartesianChart>
                             <Label Text="Daily Measurements"
-                                   TextColor="{StaticResource chartForeground}"
+                                   TextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                                    HorizontalTextAlignment="Center"
                                    VerticalOptions="Start"
                                    Margin="0, 4, 0, 0"
@@ -111,8 +111,8 @@
                             <telerikChart:RadCartesianChart Margin="-7, 35, 0, 0"
                                                             BackgroundColor="{StaticResource exerciseColor}">
                                 <telerikChart:RadCartesianChart.HorizontalAxis>
-                                    <telerikChart:CategoricalAxis LineColor="{StaticResource chartForegroundSemiTransparent}"
-                                                                  LabelTextColor="{StaticResource chartForeground}"
+                                    <telerikChart:CategoricalAxis LineColor="{AppThemeBinding Light={StaticResource chartForegroundSemiTransparent}, Dark={StaticResource chartForegroundSemiTransparentDark}}"
+                                                                  LabelTextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                                                                   MajorTickThickness="0" />
                                 </telerikChart:RadCartesianChart.HorizontalAxis>
                                 <telerikChart:RadCartesianChart.VerticalAxis>
@@ -124,17 +124,17 @@
                                 <telerikChart:RadCartesianChart.Grid>
                                     <telerikChart:CartesianChartGrid MajorLinesVisibility="Y"
                                                                      MajorLineThickness="1"
-                                                                     MajorLineColor="{StaticResource chartForegroundSemiTransparent}" />
+                                                                     MajorLineColor="{AppThemeBinding Light={StaticResource chartForegroundSemiTransparent}, Dark={StaticResource chartForegroundSemiTransparentDark}}" />
                                 </telerikChart:RadCartesianChart.Grid>
                                 <telerikChart:RadCartesianChart.Series>
                                     <telerikChart:LineSeries CategoryBinding="Day"
                                                              ValueBinding="ActivityIndex"
                                                              ItemsSource="{Binding ExerciseData}"
-                                                             Stroke="{StaticResource chartForeground}" />
+                                                             Stroke="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}" />
                                 </telerikChart:RadCartesianChart.Series>
                             </telerikChart:RadCartesianChart>
                             <Label Text="Daily Measurements"
-                                   TextColor="{StaticResource chartForeground}"
+                                   TextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                                    HorizontalTextAlignment="Center"
                                    VerticalOptions="Start"
                                    Margin="0, 4, 0, 0"
@@ -153,8 +153,8 @@
                             <telerikChart:RadCartesianChart Margin="-7, 35, 0, 0"
                                                             BackgroundColor="{StaticResource standColor}">
                                 <telerikChart:RadCartesianChart.HorizontalAxis>
-                                    <telerikChart:CategoricalAxis LineColor="{StaticResource chartForegroundSemiTransparent}"
-                                                                  LabelTextColor="{StaticResource chartForeground}"
+                                    <telerikChart:CategoricalAxis LineColor="{AppThemeBinding Light={StaticResource chartForegroundSemiTransparent}, Dark={StaticResource chartForegroundSemiTransparentDark}}"
+                                                                  LabelTextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                                                                   MajorTickThickness="0" />
                                 </telerikChart:RadCartesianChart.HorizontalAxis>
                                 <telerikChart:RadCartesianChart.VerticalAxis>
@@ -166,17 +166,17 @@
                                 <telerikChart:RadCartesianChart.Grid>
                                     <telerikChart:CartesianChartGrid MajorLinesVisibility="Y"
                                                                      MajorLineThickness="1"
-                                                                     MajorLineColor="{StaticResource chartForegroundSemiTransparent}" />
+                                                                     MajorLineColor="{AppThemeBinding Light={StaticResource chartForegroundSemiTransparent}, Dark={StaticResource chartForegroundSemiTransparentDark}}" />
                                 </telerikChart:RadCartesianChart.Grid>
                                 <telerikChart:RadCartesianChart.Series>
                                     <telerikChart:LineSeries CategoryBinding="Day"
                                                              ValueBinding="ActivityIndex"
                                                              ItemsSource="{Binding StandData}"
-                                                             Stroke="{StaticResource chartForeground}" />
+                                                             Stroke="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}" />
                                 </telerikChart:RadCartesianChart.Series>
                             </telerikChart:RadCartesianChart>
                             <Label Text="Daily Measurements"
-                                   TextColor="{StaticResource chartForeground}"
+                                   TextColor="{AppThemeBinding Light={StaticResource chartForeground}, Dark={StaticResource chartForegroundDark}}"
                                    HorizontalTextAlignment="Center"
                                    VerticalOptions="Start"
                                    Margin="0, 4, 0, 0"

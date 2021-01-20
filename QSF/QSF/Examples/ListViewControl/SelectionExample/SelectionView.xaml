@@ -6,6 +6,18 @@
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.ListViewControl.SelectionExample.SelectionView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="HeaderBackgroundColorLight">#FFF2ED</Color>
+            <Color x:Key="HeaderBackgroundColorDark">Black</Color>
+            <Color x:Key="HeaderTextColorLight">#5D5653</Color>
+            <Color x:Key="HeaderTextColorDark">#99FFFFFF</Color>
+            <Color x:Key="ListViewBackgroundColorLight">White</Color>
+            <Color x:Key="ListViewBackgroundColorDark">Black</Color>
+            <Color x:Key="EditButtonBackgroundColorLight">#FFF2ED</Color>
+            <Color x:Key="EditButtonBackgroundColorDark">Black</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0">
         <Grid Grid.ColumnSpacing="0"
@@ -18,7 +30,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.ColumnSpacing="0"
                   Grid.RowSpacing="0"
-                  BackgroundColor="#FFF2ED">
+                  BackgroundColor="{AppThemeBinding Light={StaticResource HeaderBackgroundColorLight}, Dark={StaticResource HeaderBackgroundColorDark}}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="16"/>
                     <ColumnDefinition Width="48"/>
@@ -39,7 +51,7 @@
                        Grid.ColumnSpan="4"
                        Text="Reading List"
                        FontSize="18"
-                       TextColor="#5D5653"
+                       TextColor="{AppThemeBinding Light={StaticResource HeaderTextColorLight}, Dark={StaticResource HeaderTextColorDark}}"
                        HorizontalOptions="Start"
                        VerticalOptions="Center"
                        IsVisible="{Binding IsReadMode}">
@@ -87,7 +99,7 @@
                     </Label.FontFamily>
                 </Label>
                 <Grid Grid.ColumnSpacing="0"
-                      BackgroundColor="#FFF2ED"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource EditButtonBackgroundColorLight}, Dark={StaticResource EditButtonBackgroundColorDark}}"
                       Grid.RowSpacing="0"
                       Grid.Column="4"
                       HorizontalOptions="End"
@@ -209,9 +221,8 @@
                             <telerikListView:ListViewTemplateCell>
                                 <telerikListView:ListViewTemplateCell.View>
                                     <Grid HorizontalOptions="Center"
-                                          VerticalOptions="FillAndExpand"
-                                          BackgroundColor="Transparent"
-                                          Padding="0, 15, 0, 14">
+                                          VerticalOptions="Center"
+                                          BackgroundColor="Transparent">
                                         <Label Text="{Binding}"
                                                TextColor="White"
                                                FontSize="14"
@@ -230,7 +241,7 @@
                                              Grid.Row="2"
                                              SwipeOffset="80, 0"
                                              SwipeThreshold="10"
-                                             BackgroundColor="White"
+                                             BackgroundColor="{AppThemeBinding Light={StaticResource ListViewBackgroundColorLight}, Dark={StaticResource ListViewBackgroundColorDark}}"
                                              SelectionMode="None"
                                              IsItemSwipeEnabled="{Binding IsReadMode}"
                                              ItemsSource="{Binding Items}"

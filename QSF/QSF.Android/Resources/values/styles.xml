@@ -4,4 +4,8 @@
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowBackground">@drawable/splash_screen</item>
   </style>
+  <style name="MainTheme" parent="Theme.AppCompat.DayNight">
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+  </style>
 </resources>

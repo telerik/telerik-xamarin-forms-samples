@@ -26,12 +26,12 @@
             </Style>
             <Style x:Key="DescriptionLabelStyle"
                    TargetType="{x:Type Label}">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontSize" Value="14" />
             </Style>
             <Style x:Key="InputLabelStyle"
                    TargetType="{x:Type Label}">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="Center" />
@@ -99,7 +99,7 @@
             </Style>
             <Style x:Key="PickerSelectionHighlightStyle"
                    TargetType="{x:Type telerikPrimitives:RadBorder}">
-                <Setter Property="BorderColor" Value="#F0F0F0" />
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=#F0F0F0, Dark=#4DCCCCCC}" />
                 <Setter Property="BorderThickness" Value="0,1" />
             </Style>
             <Style x:Key="PickerItemLabelStyle"
@@ -110,7 +110,7 @@
             </Style>
             <Style x:Key="PickerSelectedItemLabelStyle"
                    TargetType="{x:Type Label}">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="Center" />
@@ -158,7 +158,7 @@
                     </Setter.Value>
                 </Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
@@ -184,6 +184,7 @@
                     <telerikNumericInput:NumericInputEntry Grid.Column="1"
                                      x:Name="PART_Entry"
                                      StyleClass="DefaultNumericInputEntryStyle"
+                                     TextColor="{AppThemeBinding Dark=White, Light=Black}"
                                      Text="{TemplateBinding Value, Mode=OneWay}"
                                      InputTransparent="{TemplateBinding IsReadOnly}"
                                      telerikCommon:StyleManager.InheritedStyleClass="{TemplateBinding ActualStyleClass}"
@@ -206,7 +207,7 @@
             <Style x:Key="DefaultButtonStyle"
                    TargetType="Button">
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
@@ -375,7 +376,7 @@
                 </telerikPrimitives:RadBorder>
             </StackLayout>
         </ScrollView>
-        <Grid Padding="16" BackgroundColor="#F6FAFB" VerticalOptions="EndAndExpand">
+        <Grid Padding="16" BackgroundColor="{AppThemeBinding Dark=#333333, Light=#F6FAFB}" VerticalOptions="EndAndExpand">
             <Label HorizontalOptions="Start" Style="{StaticResource PriceLabelStyle}" Text="{Binding Price, StringFormat='{0:C}'}" />
             <telerikInput:RadButton HorizontalOptions="End"
                                     Style="{StaticResource SubmitButtonStyle}"

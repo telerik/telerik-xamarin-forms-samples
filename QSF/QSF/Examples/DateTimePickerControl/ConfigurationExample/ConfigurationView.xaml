@@ -19,7 +19,7 @@
             <Color x:Key="AccentColor">#B73562</Color>
             <Style x:Key="DefaultLabelStyle"
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="Margin" Value="0, 16, 0, 4" />
             </Style>
@@ -45,15 +45,17 @@
                     </OnPlatform>
                 </Setter>
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
             </Style>
             <Style x:Key="PickerPopupFooterAcceptButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
                    TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{Binding BindingContext.ConfirmationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
             </Style>
             <Style x:Key="PickerPopupFooterCancelButton_Style" BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}"
                    TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{Binding BindingContext.CancellationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
             </Style>
             <Style x:Key="DefaultTabStripItemStyle" 
                    TargetType="telerikInput:DateTimeSelectorTabStripItem">
@@ -79,7 +81,7 @@
             </Style>
             <Style x:Key="DefaultSpinnerStyle" 
                    TargetType="telerikDataControls:RadSpinner">
-                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=Default}" />
                 <Setter Property="ItemStyle">
                     <Setter.Value>
                         <Style TargetType="telerikDataControls:SpinnerItemView">
@@ -170,7 +172,7 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-        <StackLayout BackgroundColor="#F6FAFB" Margin="0, 20, 0, 0" VerticalOptions="EndAndExpand">
+        <StackLayout BackgroundColor="{AppThemeBinding Light=#F6FAFB, Dark=#121212}" Margin="0, 20, 0, 0" VerticalOptions="EndAndExpand">
             <telerikInput:RadButton Text="Find Car"
                                     BackgroundColor="Transparent"
                                     Margin="28, 13, 28, 13"

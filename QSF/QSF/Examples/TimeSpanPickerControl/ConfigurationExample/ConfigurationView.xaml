@@ -12,7 +12,6 @@
              x:Name="pageContent">
     <ContentView.Resources>
         <ResourceDictionary>
-            <Color x:Key="DefaultBackgroundColor">#F7F7F7</Color>
             <Style x:Key="DisplayLabelStyle"
                    TargetType="Label">
                 <Setter Property="TextColor" Value="#C72262" />
@@ -34,7 +33,7 @@
                 <Setter Property="HeightRequest" Value="40" />
                 <Setter Property="WidthRequest" Value="110" />
                 <Setter Property="Margin" Value="0, 0, 5, 0" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
             </Style>
             <Style x:Key="DefaultMovieSeparatorStyle"
@@ -53,7 +52,7 @@
                    TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
             </Style>
             <Style x:Key="DefaultMovieDescriptionStyle"
                    TargetType="Label">
@@ -75,7 +74,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="65" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="#EFEFF4">
+        <StackLayout BackgroundColor="{AppThemeBinding Dark=Black, Light=#EFEFF4}">
             <Image VerticalOptions="End"
                    HorizontalOptions="End">
                 <Image.Source>
@@ -99,12 +98,12 @@
                 </Label.FormattedText>
             </Label>
             <Label Text="Find Movies Playing After:"
-                   TextColor="Black"
+                   TextColor="{AppThemeBinding Dark=White, Light=Black}"
                    FontAttributes="Bold"
                    FontSize="Medium" />
             <telerikInput:RadTimeSpanPicker BorderThickness="0, 0, 0, 1"
                                             BorderColor="#B73562"
-                                            BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                                            BackgroundColor="{AppThemeBinding Dark=Transparent, Light=#F7F7F7}"
                                             HeightRequest="44"
                                             MaximumTime="{Binding MaximumTime}"
                                             Time="{Binding SelectedTime}"
@@ -113,7 +112,7 @@
                                             MinuteStep="15">
                 <telerikInput:RadTimeSpanPicker.SpinnerStyle>
                     <Style TargetType="telerikDataControls:RadSpinner">
-                        <Setter Property="BackgroundColor" Value="White" />
+                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#1E1E1E}" />
                         <Setter Property="ItemStyle">
                             <Setter.Value>
                                 <Style TargetType="telerikDataControls:SpinnerItemView">
@@ -196,12 +195,14 @@
                             <Style TargetType="telerikInput:RadButton"
                                    BasedOn="{StaticResource DefaultPopupButtonsStyle}">
                                 <Setter Property="BackgroundColor" Value="{Binding BindingContext.ConfirmationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light=Gray, Dark=White}"/>
                             </Style>
                         </telerikInput:PickerPopupSelectorSettings.AcceptButtonStyle>
                         <telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
                             <Style TargetType="telerikInput:RadButton"
                                    BasedOn="{StaticResource DefaultPopupButtonsStyle}">
                                 <Setter Property="BackgroundColor" Value="{Binding BindingContext.CancellationButtonBackgroundColor, Source={x:Reference pageContent}}" />
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light=Gray, Dark=White}"/>
                             </Style>
                         </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
                     </telerikInput:PickerPopupSelectorSettings>
@@ -209,17 +210,17 @@
             </telerikInput:RadTimeSpanPicker>
         </StackLayout>
         <StackLayout Grid.Row="2"
-                     BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                     BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}"
                      Padding="16, 0, 0, 0">
             <Label Text="{Binding SearchLabelText}"
-                   TextColor="Black"
+                   TextColor="{AppThemeBinding Dark=White, Light=Black}"
                    FontAttributes="Bold" 
                    FontSize="Medium"
                    Margin="0, 22, 0, 24" />
         </StackLayout>
         <telerikDataControls:RadListView Grid.Row="3"
                                          ItemsSource="{Binding Movies}"
-                                         BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                                         BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}"
                                          SelectionMode="None">
             <telerikDataControls:RadListView.ItemTemplate>
                 <DataTemplate>
@@ -245,7 +246,7 @@
             </telerikDataControls:RadListView.ItemTemplate>
         </telerikDataControls:RadListView>
         <StackLayout Grid.Row="4" 
-                     BackgroundColor="{StaticResource DefaultBackgroundColor}"
+                     BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}"
                      Orientation="Horizontal">
             <telerikInput:RadButton Text="Find Movies" 
                                     CornerRadius="20" 

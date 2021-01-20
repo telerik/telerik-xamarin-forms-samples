@@ -28,17 +28,17 @@
                                 </OnPlatform>
                             </telerikPrimitives:RadBorder.Margin>
                             <Label Text="{Binding Name, Converter={StaticResource NameToAbbreviationConverter}}" 
-                                   TextColor="#FFFFFF"
+                                   TextColor="{AppThemeBinding Light=White, Dark=Black}"
                                    FontAttributes="Bold"
                                    VerticalTextAlignment="Center"
                                    HorizontalTextAlignment="Center"/>
                         </telerikPrimitives:RadBorder>
                         <StackLayout Orientation="Vertical" Margin="0, 10, 0, 10" Spacing="0">
                             <Label Text="{Binding Name}"
-                                   TextColor="Black" 
+                                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                    FontSize="12"/>
                             <Label Text="{Binding Email}"
-                                   TextColor="Black" 
+                                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                    FontSize="10"/>
                         </StackLayout>
                     </StackLayout>
@@ -72,13 +72,13 @@
         </ResourceDictionary>
     </ContentView.Resources>
 
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="#F0F0F0" Orientation="Horizontal">
+        <StackLayout BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#121212}" Orientation="Horizontal">
             <telerikInput:RadButton x:Name="cancelMail" 
                                     Text="Cancel"
                                     HorizontalOptions="StartAndExpand"
@@ -110,7 +110,7 @@
                 </telerikInput:RadButton.Margin>
             </telerikInput:RadButton>
         </StackLayout>
-            
+
         <StackLayout Margin="16, 25, 16, 0" Grid.Row="1">
             <telerikInput:RadAutoCompleteView x:Name="toContact"
                                               DisplayMode="Tokens"
@@ -123,10 +123,11 @@
                                               SuggestionViewHeight="100"
                                               SuggestionItemTemplate="{StaticResource ContactSuggestionItemTemplate}"
                                               ShowMoreTemplate="{StaticResource ContactShowMoreTemplate}"
-                                              SuggestionViewBackgroundColor="#FFFFFF"
+                                              SuggestionViewBackgroundColor="{AppThemeBinding Light=White, Dark=Default}"
+                                              BorderColor="{AppThemeBinding Dark=#373737}"
                                               AutomationId="toContactAutoCompleteView"
                                               />
-            
+
             <telerikInput:RadAutoCompleteView x:Name="ccBccContact"
                                               Margin="0, 5, 0, 0"
                                               DisplayMode="Tokens"
@@ -138,21 +139,23 @@
                                               SuggestionItemTemplate="{StaticResource ContactSuggestionItemTemplate}"
                                               ShowMoreTemplate="{StaticResource ContactShowMoreTemplate}"
                                               TextSearchPath="Name"
+                                              BorderColor="{AppThemeBinding Dark=#373737}"
                                               AutomationId="ccBccContactAutoCompleteView"
                                               />
 
             <StackLayout Margin="0, 16, 0, 0" Orientation="Horizontal">
-                <Label Margin="3, 0, 0, 0" Text="Subject:" TextColor="#4B4C4C" VerticalOptions="Center" />
-                <Label VerticalOptions="Center" Text="Tools to speed up your workflow" TextColor="#000000"/>
+                <Label Margin="3, 0, 0, 0" Text="Subject:" TextColor="{AppThemeBinding Light=#4B4C4C, Dark=White}" VerticalOptions="Center" />
+                <Label VerticalOptions="Center" Text="Tools to speed up your workflow" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
             </StackLayout>
-            <BoxView HeightRequest="1" Margin="0, 7, 0, 0" Color="#DBDBDB"/>
+            <BoxView HeightRequest="1" Margin="0, 7, 0, 0" Color="{AppThemeBinding Light=#DBDBDB, Dark=#373737}" />
         </StackLayout>
 
         <StackLayout Margin="16, 37, 16, 0" Grid.Row="2">
-            <Label Text="The right cross platform tools can streamline your workflow, helping you work smarter – rather than harder – and more efficiently. After all, you want to invest your energy in solving problems, delighting users and creating beautiful apps." TextColor="#000000"/>
-            <Label Text="Please give us your Feedback" TextColor="#000000"/>
-            <Label Text="Regards," Margin="0, 25, 0, 0" TextColor="#000000"/>
-            <Label Text="Telerik UI for Xamarin Team" TextColor="#000000"/>
+            <Label Text="The right cross platform tools can streamline your workflow, helping you work smarter – rather than harder – and more efficiently. After all, you want to invest your energy in solving problems, delighting users and creating beautiful apps." 
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            <Label Text="Please give us your Feedback" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            <Label Text="Regards," Margin="0, 25, 0, 0" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            <Label Text="Telerik UI for Xamarin Team" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
         </StackLayout>
         <telerikPrimitives:RadBorder x:Name="emailSent" 
                                      BackgroundColor="Accent"
@@ -164,7 +167,7 @@
                                      VerticalOptions="End" 
                                      HeightRequest="36" 
                                      WidthRequest="160">
-            <Label Text="Email sent." TextColor="#FFFFFF" Margin="0, 9, 0, 8" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Label Text="Email sent." TextColor="{AppThemeBinding Light=White, Dark=Black}" Margin="0, 9, 0, 8" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         </telerikPrimitives:RadBorder>
     </Grid>
 </ContentView>

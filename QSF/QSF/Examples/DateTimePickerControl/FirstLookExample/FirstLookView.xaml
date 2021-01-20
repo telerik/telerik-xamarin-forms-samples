@@ -20,7 +20,7 @@
             </Style>
             <Style x:Key="ListViewLabelStyle"
                    TargetType="Label">
-                <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
                 <Setter Property="FontSize" Value="12" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Start" />
@@ -40,7 +40,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <StackLayout BackgroundColor="#EAEAEA">
+                    <StackLayout BackgroundColor="{AppThemeBinding Light=#EAEAEA, Dark=#121212}">
                         <Image VerticalOptions="End"
                                HorizontalOptions="End">
                             <Image.Source>
@@ -58,7 +58,7 @@
                                FontSize="22" 
                                Margin="0,0,0,24" />
                         <Label Text="Schedule a Trip:"
-                               TextColor="Black" 
+                               TextColor="{AppThemeBinding Light=Black, Dark=Default}" 
                                FontSize="15" 
                                FontAttributes="Bold" 
                                Margin="0, 0, 0, 21" />
@@ -99,7 +99,7 @@
                                                        Style="{StaticResource ListViewLabelStyle}" />
                                                 <Label Text=" | " 
                                                        FontAttributes="Bold" 
-                                                       TextColor="Black" 
+                                                       TextColor="{AppThemeBinding Light=Black, Dark=Default}" 
                                                        Margin="0,0,0,2" />
                                                 <Label Text="{Binding Time, StringFormat='{0: hh:mm tt}'}" 
                                                        Style="{StaticResource ListViewLabelStyle}" />
@@ -127,7 +127,7 @@
                 </Grid>
             </ScrollView>
             <StackLayout Grid.Row="1" 
-                         BackgroundColor="#EAEAEA" 
+                         BackgroundColor="{AppThemeBinding Light=#EAEAEA, Dark=#121212}" 
                          HeightRequest="65">
                 <telerikInput:RadButton Text="Request a Car" 
                                         CornerRadius="20" 

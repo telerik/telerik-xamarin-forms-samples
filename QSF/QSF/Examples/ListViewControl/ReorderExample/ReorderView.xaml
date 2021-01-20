@@ -8,9 +8,13 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <converters:BoolToTextDecorationsConverter x:Key="TextDecorationsConverter" />
+            <Color x:Key="MainBackgroundColorLight">White</Color>
+            <Color x:Key="MainBackgroundColorDark">Black</Color>
+            <Color x:Key="ItemBorderColorLight">White</Color>
+            <Color x:Key="ItemBorderColorDark">Black</Color>
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
         <Grid Grid.RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition>
@@ -68,19 +72,19 @@
                 <telerikDataControls:RadListView.ItemStyle>
                     <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
                                                        BorderWidth="1"
-                                                       BorderColor="White"
+                                                       BorderColor="{AppThemeBinding Light={StaticResource ItemBorderColorLight}, Dark={StaticResource ItemBorderColorDark}}"
                                                        BorderLocation="Bottom"/>
                 </telerikDataControls:RadListView.ItemStyle>
                 <telerikDataControls:RadListView.SelectedItemStyle>
                     <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
                                                        BorderWidth="1"
-                                                       BorderColor="White"
+                                                       BorderColor="{AppThemeBinding Light={StaticResource ItemBorderColorLight}, Dark={StaticResource ItemBorderColorDark}}"
                                                        BorderLocation="Bottom"/>
                 </telerikDataControls:RadListView.SelectedItemStyle>
                 <telerikDataControls:RadListView.PressedItemStyle>
                     <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
                                                        BorderWidth="1"
-                                                       BorderColor="White"
+                                                       BorderColor="{AppThemeBinding Light={StaticResource ItemBorderColorLight}, Dark={StaticResource ItemBorderColorDark}}"
                                                        BorderLocation="Bottom"/>
                 </telerikDataControls:RadListView.PressedItemStyle>
                 <telerikDataControls:RadListView.ItemTemplate>

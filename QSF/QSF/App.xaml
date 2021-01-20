@@ -32,20 +32,29 @@
                 <ResourceDictionary MergedWith="telerikRichTextEditor:TelerikThemeStyles"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <Color x:Key="HeaderBackgroundsColor">#4A4E52</Color>
-            <Color x:Key="DarkBackgroundColor">#F5F6F7</Color>
-            <Color x:Key="ErrorBackgroundColor">#FEF8F8</Color>
-            <Color x:Key="LightBackgroundColor">White</Color>
-            <Color x:Key="AccentColor">#2548D8</Color>
-            <Color x:Key="TextColor">#4A4E52</Color>
+            <Color x:Key="HeaderBackgroundsColorDark">#373737</Color>
+            <Color x:Key="HeaderBackgroundsColorLight">#4A4E52</Color>
+            <Color x:Key="DarkBackgroundColorDark">#121212</Color>
+            <Color x:Key="DarkBackgroundColorLight">#F5F6F7</Color>
+            <Color x:Key="ErrorBackgroundColorDark">#373737</Color>
+            <Color x:Key="ErrorBackgroundColorLight">#FEF8F8</Color>
+            <Color x:Key="LightBackgroundColorDark">#1E1E1E</Color>
+            <Color x:Key="LightBackgroundColorLight">White</Color>
+            <Color x:Key="AccentColorDark">#2196F3</Color>
+            <Color x:Key="AccentColorLight">#2548D8</Color>
+            <Color x:Key="TextColorDark">White</Color>
+            <Color x:Key="TextColorLight">#4A4E52</Color>
             <Color x:Key="ErrorColor">#DC3D4D</Color>
             <Color x:Key="SubHeaderTextColor">#BFBFBF</Color>
             <Color x:Key="CTPTextColor">#979797</Color>
             <Color x:Key="LightTextColor">White</Color>
-            <Color x:Key="GalleryHeaderUnderlineColor">#E0E9FC</Color>
-            <Color x:Key="SampleAppTitleColor">#202223</Color>
+            <Color x:Key="GalleryHeaderUnderlineColorDark">White</Color>
+            <Color x:Key="GalleryHeaderUnderlineColorLight">#E0E9FC</Color>
+            <Color x:Key="SampleAppTitleColorDark">White</Color>
+            <Color x:Key="SampleAppTitleColorLight">#202223</Color>
             <Color x:Key="ExternalLinkIconColor">#B4B4B5</Color>
-            <Color x:Key="HyperlinkTextColor">#2296F3</Color>
+            <Color x:Key="HyperlinkTextColorDark">#2196F3</Color>
+            <Color x:Key="HyperlinkTextColorLight">#2296F3</Color>
 
             <x:String x:Key="BackButtonIcon">&#xE80E;</x:String>
             <x:String x:Key="InfoButtonIcon">&#xE815;</x:String>
@@ -122,6 +131,12 @@
                 <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
             </OnPlatform>
 
+            <OnPlatform x:TypeArguments="x:String" x:Key="TelerikQSFIconFont">
+                <On Platform="iOS">telerikqsficonsfont</On>
+                <On Platform="Android">Fonts/telerikqsficonsfont.ttf#telerikqsficonsfont</On>
+                <On Platform="UWP">/Assets/Fonts/telerikqsficonsfont.ttf#telerikqsficonsfont</On>
+            </OnPlatform>
+
             <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
                 <On Platform="iOS">SFProText-Regular</On>
                 <On Platform="Android">Fonts/Roboto-Regular.ttf#Roboto</On>
@@ -143,11 +158,12 @@
             <converters:ConditionalValueConverterParameter x:Key="ConfigurationAndInfoIconsParameter"
                                                            FalseValue="{StaticResource Key=InfoButtonIcon}"
                                                            TrueValue="{StaticResource Key=GearIcon}" />
+            <converters:ColorAlphaConverter x:Key="ColorAlphaConverter" Alpha="0.1"/>
 
             <Style TargetType="Label" x:Key="IconLabelStyle">
                 <Setter Property="FontSize" Value="18" />
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="0, 12, 0, 0" />
             </Style>
 
@@ -158,7 +174,7 @@
             <Style TargetType="Label" x:Key="HeaderLabelStyle">
                 <Setter Property="FontSize" Value="18" />
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="0, 10, 0, 0" />
             </Style>
 
@@ -172,24 +188,24 @@
             <Style TargetType="Label" x:Key="BodyLabelStyle">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
             </Style>
 
             <Style TargetType="Label" x:Key="ControlExampleNameLabelStyle">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="0, 10" />
             </Style>
 
             <Style TargetType="Label" x:Key="SampleAppTitleStyle">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
-                <Setter Property="TextColor" Value="{StaticResource SampleAppTitleColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource SampleAppTitleColorLight}, Dark={StaticResource SampleAppTitleColorDark}}" />
             </Style>
 
             <Style TargetType="Label" x:Key="TagLabelStyle">
-                <Setter Property="TextColor" Value="{StaticResource AccentColor}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}"/>
                 <Setter Property="FontFamily" Value="{StaticResource Key=RegularFont}"/>
                 <Setter Property="FontSize" Value="10"/>
             </Style>
@@ -197,7 +213,7 @@
             <Style TargetType="Label" x:Key="HyperlinkIconLabelStyle">
                 <Setter Property="Text" Value="{StaticResource HyperlinkButtonIcon}" />
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="4, 0, 0, 0" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
@@ -206,7 +222,7 @@
                 <Setter Property="Padding" Value="4"/>
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
             </Style>
 
@@ -225,9 +241,9 @@
                 <Setter Property="SelectedIndicatorFontFamily" Value="{StaticResource IconsFont}" />
                 <Setter Property="IndicatorFontFamily" Value="{StaticResource IconsFont}" />
                 <Setter Property="IndicatorsSpacing" Value="5" />
-                <Setter Property="IndicatorColor" Value="{StaticResource DarkBackgroundColor}" />
+                <Setter Property="IndicatorColor" Value="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark=#686869}" />
                 <Setter Property="IndicatorFontSize" Value="{StaticResource SlideViewIndicatorsFontSize}" />
-                <Setter Property="SelectedIndicatorColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}" />
                 <Setter Property="SelectedIndicatorFontSize" Value="{StaticResource SlideViewIndicatorsFontSize}" />
             </Style>
 
@@ -258,7 +274,7 @@
                         </Grid>
                     </primitives:RadSideDrawer.MainContent>
                     <primitives:RadSideDrawer.DrawerContent>
-                        <Grid BackgroundColor="#FFFFFF">
+                        <Grid BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkBackgroundColorDark}}">
                             <StackLayout Spacing="10" Padding="10" VerticalOptions="Center">
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Example information" FontSize="13"
                                                     IsVisible="{TemplateBinding Path=BindingContext.HasConfiguration}"

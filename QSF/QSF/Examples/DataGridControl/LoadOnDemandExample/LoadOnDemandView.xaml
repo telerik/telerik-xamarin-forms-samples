@@ -2,9 +2,6 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
-             xmlns:common="clr-namespace:Telerik.XamarinForms.Common.Data;assembly=Telerik.XamarinForms.Common"
-             xmlns:converters="clr-namespace:QSF.Converters"
-             xmlns:local="clr-namespace:QSF.Examples.DataGridControl.LoadOnDemandExample"
              x:Class="QSF.Examples.DataGridControl.LoadOnDemandExample.LoadOnDemandView">
     <telerikDataGrid:RadDataGrid x:Name="dataGrid"
                                  ItemsSource="{Binding Items}"
@@ -20,25 +17,46 @@
                 BackgroundColor="#0B98EE" 
                 IndicatorAnimationType="Animation9" 
                 OverlayOpacity="0.85">
-                
+
             </telerikDataGrid:DataGridLoadOnDemandRowStyle>
         </telerikDataGrid:RadDataGrid.LoadOnDemandRowStyle>
 
-        
+
         <telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
-            <telerikDataGrid:DataGridBorderStyle BackgroundColor="White" BorderColor="#C3C3C5" />
+            <AppThemeBinding>
+                <AppThemeBinding.Light>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="White" BorderColor="#C3C3C5" />
+                </AppThemeBinding.Light>
+                <AppThemeBinding.Dark>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="#121212" BorderColor="#373737" />
+                </AppThemeBinding.Dark>
+            </AppThemeBinding>
         </telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
         <telerikDataGrid:RadDataGrid.RowBackgroundStyle>
-            <telerikDataGrid:DataGridBorderStyle BackgroundColor="#F5FAFD" BorderColor="#C3C3C5" />
+            <AppThemeBinding>
+                <AppThemeBinding.Light>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="#F5FAFD" BorderColor="#C3C3C5" />
+                </AppThemeBinding.Light>
+                <AppThemeBinding.Dark>
+                    <telerikDataGrid:DataGridBorderStyle BackgroundColor="#1E1E1E" BorderColor="#373737" />
+                </AppThemeBinding.Dark>
+            </AppThemeBinding>
         </telerikDataGrid:RadDataGrid.RowBackgroundStyle>
 
         <telerikDataGrid:RadDataGrid.Columns>
             <telerikDataGrid:DataGridTextColumn PropertyName="FullName" HeaderText="Sales Person">
-                
+
                 <telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                    <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                    <AppThemeBinding>
+                        <AppThemeBinding.Light>
+                            <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                        </AppThemeBinding.Light>
+                        <AppThemeBinding.Dark>
+                            <telerikDataGrid:DataGridTextCellStyle TextColor="Default" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                        </AppThemeBinding.Dark>
+                    </AppThemeBinding>
                 </telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                
+
                 <telerikDataGrid:DataGridTextColumn.HeaderStyle>
                     <telerikDataGrid:DataGridColumnHeaderStyle BackgroundColor="#D4392A" 
                         TextColor="White"
@@ -52,9 +70,16 @@
             <telerikDataGrid:DataGridNumericalColumn PropertyName="Sales" HeaderText="Sales ($)" CellContentFormat="$ {0}">
 
                 <telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                    <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                    <AppThemeBinding>
+                        <AppThemeBinding.Light>
+                            <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                        </AppThemeBinding.Light>
+                        <AppThemeBinding.Dark>
+                            <telerikDataGrid:DataGridTextCellStyle TextColor="Default" TextMargin="10, 10, 7, 10" FontAttributes="Bold" />
+                        </AppThemeBinding.Dark>
+                    </AppThemeBinding>
                 </telerikDataGrid:DataGridTextColumn.CellContentStyle>
-                
+
                 <telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
                     <telerikDataGrid:DataGridColumnHeaderStyle BackgroundColor="#D4392A" 
                         TextColor="White"
@@ -66,7 +91,7 @@
                 </telerikDataGrid:DataGridNumericalColumn.HeaderStyle>
             </telerikDataGrid:DataGridNumericalColumn>
         </telerikDataGrid:RadDataGrid.Columns>
-        
+
     </telerikDataGrid:RadDataGrid>
 
 </ContentView>

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:converters="clr-namespace:QSF.Converters"
-             xmlns:local="clr-namespace:QSF.Examples.SlideViewControl.SlidingImagesExample"
-             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:views="clr-namespace:QSF.Views"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="QSF.Examples.SlideViewControl.SlidingImagesExample.SlidingImagesView">
-    <Grid BackgroundColor="White"
+    <Grid BackgroundColor="{AppThemeBinding Dark=Default, Light=White}"
           Grid.ColumnSpacing="0"
           Grid.RowSpacing="0">
         <Grid.RowDefinitions>
@@ -14,13 +12,20 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <telerikPrimitives:RadSlideView SelectedIndicatorColor="#3148CA"
+                                        IndicatorColor="{AppThemeBinding Dark=#666666, Light=Black}"
                                         IsInfiniteScrollingEnabled="True"
                                         ItemsSource="{Binding Images}"
                                         views:ThemesBehavior.StyleClass="TelerikTheme"
                                         AutomationId="slideView">
             <telerikPrimitives:RadSlideView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding Converter={StaticResource ImageSourceConverter}}" />
+                    <StackLayout>
+                        <Image Source="{Binding Converter={StaticResource ImageSourceConverter}}" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
                 </DataTemplate>
             </telerikPrimitives:RadSlideView.ItemTemplate>
         </telerikPrimitives:RadSlideView>

@@ -8,9 +8,13 @@
              x:Class="QSF.Examples.DataGridControl.ThemingExample.ThemingView">
     <Grid>
         <Grid.BackgroundColor>
-            <OnPlatform x:TypeArguments="Color">
-                <On Platform="Android">White</On>
-            </OnPlatform>
+            <AppThemeBinding Default="Default">
+                <AppThemeBinding.Light>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="Android">White</On>
+                    </OnPlatform>
+                </AppThemeBinding.Light>
+            </AppThemeBinding>
         </Grid.BackgroundColor>
         <telerikDataGrid:RadDataGrid ItemsSource="{Binding OrderDetails}"
                                      views:ThemesBehavior.StyleClass="TelerikTheme"
@@ -18,7 +22,14 @@
                                      SelectionMode="Multiple" 
                                      UserEditMode="Cell">
             <telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
-                <telerikDataGrid:DataGridBorderStyle BackgroundColor="#D9D9D9"/>
+                <AppThemeBinding>
+                    <AppThemeBinding.Light>
+                        <telerikDataGrid:DataGridBorderStyle BackgroundColor="#D9D9D9"/>
+                    </AppThemeBinding.Light>
+                    <AppThemeBinding.Dark>
+                        <telerikDataGrid:DataGridBorderStyle BackgroundColor="#434343"/>
+                    </AppThemeBinding.Dark>
+                </AppThemeBinding>
             </telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
             <telerikDataGrid:RadDataGrid.GroupDescriptors>
                 <common:PropertyGroupDescriptor PropertyName="ShipName"/>

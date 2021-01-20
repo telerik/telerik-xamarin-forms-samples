@@ -22,8 +22,8 @@
                             </Size>
                         </telerikChart:RadLegend.LegendItemIconSize>
                     </telerikChart:RadLegend>
-                    
-                    <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+
+                    <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" views:ThemesBehavior.StyleClass="TelerikTheme">
                         <telerikChart:RadPieChart.ChartBehaviors>
                             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
                         </telerikChart:RadPieChart.ChartBehaviors>
@@ -54,7 +54,7 @@
                         </telerikChart:RadLegend.LegendItemIconSize>
                     </telerikChart:RadLegend>
 
-                    <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                    <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" views:ThemesBehavior.StyleClass="TelerikTheme">
                         <telerikChart:RadPieChart.ChartBehaviors>
                             <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
                         </telerikChart:RadPieChart.ChartBehaviors>
@@ -65,36 +65,36 @@
                 </Grid>
             </DataTemplate>
             <DataTemplate x:Key="Donut">
-            <Grid>
-              <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-              </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-              <telerikChart:RadLegend Margin="0, 10, 0, 0" LegendProvider="{x:Reference chart}" HeightRequest="50" Orientation="Horizontal" views:ThemesBehavior.StyleClass="TelerikTheme">
-                <telerikChart:RadLegend.LegendItemFontSize>
-                  <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="iOS">10</On>
-                  </OnPlatform>
-                </telerikChart:RadLegend.LegendItemFontSize>
-                <telerikChart:RadLegend.LegendItemIconSize>
-                  <Size>
-                    <Size.Width>10</Size.Width>
-                    <Size.Height>20</Size.Height>
-                  </Size>
-                </telerikChart:RadLegend.LegendItemIconSize>
-              </telerikChart:RadLegend>
+                    <telerikChart:RadLegend Margin="0, 10, 0, 0" LegendProvider="{x:Reference chart}" HeightRequest="50" Orientation="Horizontal" views:ThemesBehavior.StyleClass="TelerikTheme">
+                        <telerikChart:RadLegend.LegendItemFontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="iOS">10</On>
+                            </OnPlatform>
+                        </telerikChart:RadLegend.LegendItemFontSize>
+                        <telerikChart:RadLegend.LegendItemIconSize>
+                            <Size>
+                                <Size.Width>10</Size.Width>
+                                <Size.Height>20</Size.Height>
+                            </Size>
+                        </telerikChart:RadLegend.LegendItemIconSize>
+                    </telerikChart:RadLegend>
 
-              <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
-                <telerikChart:RadPieChart.ChartBehaviors>
-                  <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
-                </telerikChart:RadPieChart.ChartBehaviors>
-                <telerikChart:RadPieChart.Series>
-                  <telerikChart:DonutSeries ValueBinding="Value" ItemsSource="{Binding SeriesData}" RadiusFactor="0.9" InnerRadiusFactor="0.4" LegendTitleBinding="Category" />
-                </telerikChart:RadPieChart.Series>
-              </telerikChart:RadPieChart>
-            </Grid>
-          </DataTemplate>
+                    <telerikChart:RadPieChart Grid.Row="1" x:Name="chart" BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" views:ThemesBehavior.StyleClass="TelerikTheme">
+                        <telerikChart:RadPieChart.ChartBehaviors>
+                            <telerikChart:ChartSelectionBehavior DataPointSelectionMode="Single" SeriesSelectionMode="None"/>
+                        </telerikChart:RadPieChart.ChartBehaviors>
+                        <telerikChart:RadPieChart.Series>
+                            <telerikChart:DonutSeries ValueBinding="Value" ItemsSource="{Binding SeriesData}" RadiusFactor="0.9" InnerRadiusFactor="0.4" LegendTitleBinding="Category" />
+                        </telerikChart:RadPieChart.Series>
+                    </telerikChart:RadPieChart>
+                </Grid>
+            </DataTemplate>
         </ResourceDictionary>
     </views:GalleryExampleViewBase.Resources>
     <views:GalleryExampleViewBase.HeaderContent>

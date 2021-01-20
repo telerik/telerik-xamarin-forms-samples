@@ -52,7 +52,7 @@
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    <StackLayout Padding="20" Spacing="10" BackgroundColor="White">
+    <StackLayout Padding="20" Spacing="10" BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
         <Label Style="{StaticResource TitleTextStyle}" Text="Choose a category that represents what you want to see:" />
         <layouts:WrapLayout>
             <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Cakes"

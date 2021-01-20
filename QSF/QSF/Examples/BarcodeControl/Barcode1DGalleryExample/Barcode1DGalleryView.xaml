@@ -11,7 +11,7 @@
 
             <Style TargetType="Label" x:Key="IconHeaderStyle" BasedOn="{StaticResource IconLabelStyle}">
                 <Setter Property="FontSize" Value="22" />
-                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}" />
                 <Setter Property="Margin" Value="0, 0, 5, 0" />
             </Style>
 

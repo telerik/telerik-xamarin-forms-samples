@@ -1,15 +1,16 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using AndroidX.AppCompat.App;
 using Java.Interop;
-using Plugin.Permissions;
 using Plugin.CurrentActivity;
+using Plugin.Permissions;
 using QSF.Services.BackdoorService;
 using Xamarin.Forms;
 
 namespace QSF.Droid
 {
-    [Activity(Label = "QSF", Theme = "@style/Theme.AppCompat.NoActionBar", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "QSF", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -39,12 +40,12 @@ namespace QSF.Droid
             Xamarin.Essentials.Platform.Init(this, bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
 
-            this.SetTheme(Resource.Style.Theme_Design_Light);
-
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(false);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             this.LoadApplication(new App());
+
+            Xamarin.Forms.Application.Current.RequestedThemeChanged += this.OnRequestedThemeChanged;
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
@@ -66,6 +67,21 @@ namespace QSF.Droid
         {
             IBackdoorService backdoorService = DependencyService.Get<IBackdoorService>();
             backdoorService.NavigateToHome();
+        }
+
+        private void OnRequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        {
+            Xamarin.Forms.Application.Current.RequestedThemeChanged -= this.OnRequestedThemeChanged;
+
+            var theme = Xamarin.Forms.Application.Current.UserAppTheme;
+            if (theme == OSAppTheme.Unspecified)
+            {
+                AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightUnspecified;
+            }
+            else
+            {
+                AppCompatDelegate.DefaultNightMode = theme == OSAppTheme.Dark ? AppCompatDelegate.ModeNightYes : AppCompatDelegate.ModeNightNo;
+            }
         }
     }
 }

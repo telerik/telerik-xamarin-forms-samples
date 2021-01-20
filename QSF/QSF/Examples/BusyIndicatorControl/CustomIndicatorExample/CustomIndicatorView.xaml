@@ -4,7 +4,7 @@
              xmlns:common="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:controls="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="QSF.Examples.BusyIndicatorControl.CustomIndicatorExample.CustomIndicatorView">
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
         <controls:RadBusyIndicator AnimationContentHeightRequest="200"
                                    AnimationContentWidthRequest="200"
                                    AnimationType="Custom"

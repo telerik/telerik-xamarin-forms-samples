@@ -1,5 +1,6 @@
 ﻿using System;
 using Telerik.XamarinForms.Input;
+using Xamarin.Forms;
 
 namespace QSF.Examples.CalendarControl.AgendaViewCustomizationExample
 {
@@ -8,7 +9,8 @@ namespace QSF.Examples.CalendarControl.AgendaViewCustomizationExample
         public AgendaTextItemStyle MonthItemStyle { get; set; }
         public AgendaTextItemStyle WeekItemStyle { get; set; }
         public AgendaTextItemStyle DayItemStyle { get; set; }
-        public AgendaAppointmentItemStyle AppointmentItemStyle { get; set; }
+        public AgendaAppointmentItemStyle AppointmentItemStyleLight { get; set; }
+        public AgendaAppointmentItemStyle AppointmentItemStyleDark { get; set; }
         public AgendaTextItemStyle TodayStyle { get; set; }
 
         public override AgendaTextItemStyle SelectMonthItemStyle(AgendaMonthItem item)
@@ -33,7 +35,12 @@ namespace QSF.Examples.CalendarControl.AgendaViewCustomizationExample
 
         public override AgendaAppointmentItemStyle SelectAppointmentItemStyle(AgendaAppointmentItem item)
         {
-            return this.AppointmentItemStyle;
+            if (Application.Current.RequestedTheme != OSAppTheme.Dark)
+            {
+                return this.AppointmentItemStyleLight;
+            }
+
+            return this.AppointmentItemStyleDark;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using QSF.iOS.Services.DeviceInfo;
+﻿using System;
+using QSF.iOS.Services.DeviceInfo;
 using QSF.Services.DeviceInfo;
 using UIKit;
 using Xamarin.Forms;
@@ -14,6 +15,25 @@ namespace QSF.iOS.Services.DeviceInfo
         }
 
         public double PixelDensity { get; }
+
+        public double OSVersion
+        {
+            get
+            {
+                var os = UIDevice.CurrentDevice.SystemVersion;
+                if (Version.TryParse(os, out var version))
+                {
+                    return double.Parse(string.Format("{0}.{1}", version.Major, version.Minor));
+                }
+
+                if (int.TryParse(os, out var major))
+                {
+                    return major;
+                }
+
+                throw new Exception("Version could not be parsed.");
+            }
+        }
 
         public Size GetScreenSize()
         {

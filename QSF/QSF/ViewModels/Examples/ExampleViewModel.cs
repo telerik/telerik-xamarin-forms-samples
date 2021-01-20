@@ -1,7 +1,7 @@
-﻿using QSF.Services;
-using QSF.Services.Configuration;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using QSF.Services;
+using QSF.Services.Configuration;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -10,6 +10,14 @@ namespace QSF.ViewModels
     public class ExampleViewModel : ExamplesViewModelBase
     {
         private Example example;
+
+        public ExampleViewModel()
+        {
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                Application.Current.RequestedThemeChanged += this.ApplicationRequestedThemeChanged;
+            }
+        }
 
         public ExampleInfo ExampleInfo { get; private set; }
 
@@ -34,7 +42,7 @@ namespace QSF.ViewModels
             if (this.ExampleInfo != null)
             {
                 this.Title = this.Example.DisplayName;
-                this.CanChangeTheme = this.Example.IsThemable;
+                this.CanChangeTheme = this.Example.IsThemable && Application.Current.RequestedTheme != OSAppTheme.Dark;
             }
 
             return Task.FromResult(false);
@@ -59,6 +67,17 @@ namespace QSF.ViewModels
         protected override Task NavigateToDocumentationOverride()
         {
             throw new InvalidOperationException("This view is not expected to have documentation to show.");
+        }
+
+        private void ApplicationRequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        {
+            var applicationStateService = DependencyService.Get<IApplicationStateService>();
+            if (!applicationStateService.IsApplicationActive)
+            {
+                return;
+            }
+
+            this.CanChangeTheme = this.Example.IsThemable && Xamarin.Forms.Application.Current.RequestedTheme != OSAppTheme.Dark;
         }
     }
 }

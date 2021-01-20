@@ -18,7 +18,7 @@
             <exampleConverters:SelectionToBackgroundColorConverter x:Key="SelectionToBackgroundColorConverter" />
 
             <ControlTemplate x:Key="PopupTemplate">
-                <telerikPrimitives:RadBorder CornerRadius="8" BackgroundColor="White" WidthRequest="280">
+                <telerikPrimitives:RadBorder CornerRadius="8" BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}" WidthRequest="280">
                     <Grid Margin="20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -79,7 +79,7 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
-        <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="#F2F2F2">
+        <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="{AppThemeBinding Light=#F2F2F2, Dark=#121212}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -90,7 +90,7 @@
 
             <telerikDataControls:RadListView x:Name="list" ItemsSource="{Binding Contacts}"
                                              SelectionMode="None" Grid.Row="1"
-                                             BackgroundColor="White">
+                                             BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
                 <telerikDataControls:RadListView.Behaviors>
                     <local:ListViewItemTappedBehavior Command="{Binding Path=ItemTapCommand}" />
                 </telerikDataControls:RadListView.Behaviors>
@@ -114,7 +114,11 @@
                                         </ffImageLoading:CachedImage.Transformations>
                                     </ffImageLoading:CachedImage>
 
-                                    <Label Text="{Binding Name}" FontSize="16" TextColor="Black" Grid.Column="1" VerticalOptions="Center" />
+                                    <Label Text="{Binding Name}" 
+                                           FontSize="16" 
+                                           TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                                           Grid.Column="1" 
+                                           VerticalOptions="Center" />
 
                                     <Image IsVisible="{Binding Path=IsSelected}" Aspect="AspectFit" Grid.Column="2"
                                            VerticalOptions="Center" HorizontalOptions="End" Margin="16" HeightRequest="20">

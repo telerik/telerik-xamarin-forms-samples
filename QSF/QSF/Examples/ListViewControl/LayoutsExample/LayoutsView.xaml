@@ -6,9 +6,25 @@
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="QSF.Examples.ListViewControl.LayoutsExample.LayoutsView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainBackgroundColorLight">White</Color>
+            <Color x:Key="MainBackgroundColorDark">Black</Color> 
+            <Color x:Key="GroupStyleBackgroundColorLight">White</Color>
+            <Color x:Key="GroupStyleBackgroundColorDark">#333333</Color>
+            <Color x:Key="GroupStyleTextColorLight">#5D4037</Color>
+            <Color x:Key="GroupStyleTextColorDark">#BD806D</Color>
+            <Color x:Key="ItemBackgroundColorLight">White</Color>
+            <Color x:Key="ItemBackgroundColorDark">#555555</Color>
+            <Color x:Key="ItemTitleTextColorLight">#362F2D</Color>
+            <Color x:Key="ItemTitleTextColorDark">#DBBBB2</Color>
+            <Color x:Key="ItemDetailTextColorLight">#534741</Color>
+            <Color x:Key="ItemDetailTextColorDark">#C4A697</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0"
-          BackgroundColor="White">
+          BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
         <Grid Grid.ColumnSpacing="0"
               Grid.RowSpacing="0">
             <Grid.RowDefinitions>
@@ -130,7 +146,7 @@
                     <telerikListView:PropertyGroupDescriptor PropertyName="Group" />
                 </telerikDataControls:RadListView.GroupDescriptors>
                 <telerikDataControls:RadListView.GroupHeaderStyle>
-                    <telerikListView:ListViewGroupStyle BackgroundColor="White" />
+                    <telerikListView:ListViewGroupStyle BackgroundColor="{AppThemeBinding Light={StaticResource GroupStyleBackgroundColorLight}, Dark={StaticResource GroupStyleBackgroundColorDark}}" />
                 </telerikDataControls:RadListView.GroupHeaderStyle>
                 <telerikDataControls:RadListView.ItemTemplate>
                     <DataTemplate>
@@ -145,7 +161,7 @@
                                           HeightRequest="60"
                                           HorizontalOptions="FillAndExpand"
                                           VerticalOptions="End"
-                                          BackgroundColor="White"
+                                          BackgroundColor="{AppThemeBinding Light={StaticResource ItemBackgroundColorLight}, Dark={StaticResource ItemBackgroundColorDark}}"
                                           Opacity="0.5"/>
                                     <Grid Grid.ColumnSpacing="0"
                                           Grid.RowSpacing="0"
@@ -153,11 +169,11 @@
                                         <StackLayout HorizontalOptions="Start"
                                                      VerticalOptions="End">
                                             <Label Text="{Binding Title}"
-                                                   TextColor="#362F2D"
+                                                   TextColor="{AppThemeBinding Light={StaticResource ItemTitleTextColorLight}, Dark={StaticResource ItemTitleTextColorDark}}"
                                                    FontAttributes="Italic"
                                                    FontSize="16" />
                                             <Label Text="{Binding Author}"
-                                                   TextColor="#534741"
+                                                   TextColor="{AppThemeBinding Light={StaticResource ItemDetailTextColorLight}, Dark={StaticResource ItemDetailTextColorDark}}"
                                                    FontSize="12" />
                                         </StackLayout>
                                     </Grid>
@@ -197,7 +213,7 @@
                                    VerticalOptions="Center"
                                    FontAttributes="Bold"
                                    FontSize="14"
-                                   TextColor="#5D4037" />
+                                   TextColor="{AppThemeBinding Light={StaticResource GroupStyleTextColorLight}, Dark={StaticResource GroupStyleTextColorDark}}" />
                         </Grid>
                     </DataTemplate>
                 </telerikDataControls:RadListView.GroupHeaderTemplate>

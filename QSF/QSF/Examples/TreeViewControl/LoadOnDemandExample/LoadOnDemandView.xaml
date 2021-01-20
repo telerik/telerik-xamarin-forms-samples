@@ -14,7 +14,7 @@
             <treeView:LevelToMarginConverter x:Key="levelToMarginConverter" />
             <DataTemplate x:Key="FolderItemTemplate">
                 <Grid>
-                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End"/>
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="{AppThemeBinding Light=#D9D9D9, Dark=#373737}" VerticalOptions="End"/>
                     <StackLayout Orientation="Horizontal"
                                  HeightRequest="44"
                                  Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
@@ -83,7 +83,7 @@
 
             <DataTemplate x:Key="FileItemTemplate">
                 <Grid>
-                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D9D9D9" VerticalOptions="End"/>
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="{AppThemeBinding Light=#D9D9D9, Dark=#373737}" VerticalOptions="End"/>
                     <StackLayout Orientation="Horizontal"
                                  HeightRequest="44"
                                  Margin="{Binding Path=Level, Converter={StaticResource levelToMarginConverter}}">
@@ -139,7 +139,7 @@
                     </OnPlatform>
                 </Image.Source>
             </Image>
-            <Label Text="My Drive" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+            <Label Text="My Drive" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
         </StackLayout>
         <telerikDataControls:RadTreeView Grid.Row="1" ItemsSource="{Binding Source}">
             <telerikDataControls:RadTreeView.Commands>

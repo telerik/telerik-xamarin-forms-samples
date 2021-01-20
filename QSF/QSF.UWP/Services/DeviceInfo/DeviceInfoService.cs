@@ -1,5 +1,6 @@
 ﻿using QSF.Services.DeviceInfo;
 using QSF.UWP.Services.DeviceInfo;
+using System;
 using Windows.Foundation;
 using Windows.System.Profile;
 
@@ -14,6 +15,21 @@ namespace QSF.UWP.Services.DeviceInfo
         }
 
         public double PixelDensity { get; }
+
+        public double OSVersion
+        {
+            get
+            {
+                var version = AnalyticsInfo.VersionInfo.DeviceFamilyVersion;
+                if (ulong.TryParse(version, out var v))
+                {
+                    var buildVersion = (v & 0x00000000FFFF0000L) >> 16;
+                    return buildVersion;
+                }
+
+                throw new Exception("Version could not be provided.");
+            }
+        }
 
         public Xamarin.Forms.Size GetScreenSize()
         {

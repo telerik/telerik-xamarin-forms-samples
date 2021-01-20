@@ -12,16 +12,16 @@
                 <Setter Property="Margin"
                         Value="30, 0" />
                 <Setter Property="BorderColor"
-                        Value="#F8F8F8" />
+                        Value="{AppThemeBinding Light=#F8F8F8, Dark=#373737}" />
                 <Setter Property="BorderThickness"
                         Value="0, 0, 0, 1" />
             </Style>
             <Style x:Key="darkBorderStyle"
                    TargetType="{x:Type telerikPrimitives:RadBorder}">
                 <Setter Property="BackgroundColor"
-                        Value="#F8F8F8" />
+                        Value="{AppThemeBinding Light=#F8F8F8, Dark=#121212}" />
                 <Setter Property="BorderColor"
-                        Value="#8E8E93" />
+                        Value="{AppThemeBinding Light=#8E8E93, Dark=#373737}" />
                 <Setter Property="BorderThickness"
                         Value="0, 0, 0, 1" />
             </Style>
@@ -35,7 +35,7 @@
             <Style x:Key="titleLabelStyle"
                    TargetType="{x:Type Label}">
                 <Setter Property="TextColor"
-                        Value="Black" />
+                        Value="{AppThemeBinding Light=Black, Dark=White}" />
                 <Setter Property="FontSize"
                         Value="17" />
                 <Setter Property="FontAttributes"
@@ -51,7 +51,7 @@
             <Style x:Key="darkLabelStyle"
                    TargetType="{x:Type Label}">
                 <Setter Property="TextColor"
-                        Value="Black" />
+                        Value="{AppThemeBinding Light=Black, Dark=White}" />
                 <Setter Property="FontSize"
                         Value="13" />
                 <Setter Property="FontAttributes"
@@ -89,7 +89,7 @@
             <StackLayout>
                 <Grid Padding="20"
                       RowSpacing="20"
-                      BackgroundColor="#F8F8F8">
+                      BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition Height="Auto" />
@@ -128,7 +128,7 @@
                                Style="{StaticResource darkLabelStyle}" />
                     </StackLayout>
                 </telerikPrimitives:RadBorder>
-            <telerikPrimitives:RadBorder Style="{StaticResource lightBorderStyle}">
+                <telerikPrimitives:RadBorder Style="{StaticResource lightBorderStyle}">
                     <StackLayout Style="{StaticResource infoLayoutStyle}">
                         <Label Text="E-mail:"
                                Style="{StaticResource lightLabelStyle}" />

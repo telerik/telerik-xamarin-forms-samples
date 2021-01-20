@@ -11,11 +11,11 @@
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}"/>
                 <Setter Property="FontSize" Value="Medium" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="Margin" Value="0,12"/>
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
             </Style>
-            
+
             <Style TargetType="telerikPrimitives:RadCheckBox">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
@@ -26,21 +26,21 @@
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="FontSize" Value="Small" />
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    
+
     <ContentView.Content>
         <ScrollView>
-            <Grid BackgroundColor="White">
+            <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="90"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="90"/>
                 </Grid.RowDefinitions>
-                
+
                 <StackLayout BackgroundColor="#1957B2"
                              Spacing="10"
                              Orientation="Horizontal"
@@ -100,7 +100,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        
+
                         <telerikPrimitives:RadCheckBox Grid.Column="0" 
                                                        views:ThemesBehavior.StyleClass="TelerikTheme" 
                                                        />
@@ -120,8 +120,8 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
-                        </Grid.ColumnDefinitions>   
-                        
+                        </Grid.ColumnDefinitions>
+
                         <telerikPrimitives:RadCheckBox Grid.Column="0"                                                      
                                                        views:ThemesBehavior.StyleClass="TelerikTheme"
                                                        />
@@ -146,7 +146,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        
+
                         <telerikPrimitives:RadCheckBox Grid.Column="0" 
                                                        views:ThemesBehavior.StyleClass="TelerikTheme" 
                                                        />
@@ -167,7 +167,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        
+
                         <telerikPrimitives:RadCheckBox Grid.Column="0"                                                    
                                                        views:ThemesBehavior.StyleClass="TelerikTheme"
                                                        />
@@ -212,7 +212,7 @@
                     </RelativeLayout.Resources>
 
                     <telerikPrimitives:RadBorder CornerRadius="20" 
-                                                 BackgroundColor="#DDDDDD"
+                                                 BackgroundColor="{AppThemeBinding Light=#DDDDDD, Dark=#121212}"
                                                  RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant={StaticResource XConstraint}}" 
                                                  RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.75}"
                                                  >
@@ -222,7 +222,7 @@
                                 <On Platform="Android, iOS">300</On>
                             </OnPlatform>
                         </telerikPrimitives:RadBorder.WidthRequest>
-                        
+
                         <Label Text="Your Profile has been updated." HorizontalTextAlignment="Center"/>
                     </telerikPrimitives:RadBorder>
                 </RelativeLayout>

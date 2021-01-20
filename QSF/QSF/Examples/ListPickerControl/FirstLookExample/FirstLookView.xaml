@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:views="clr-namespace:QSF.Views"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -11,16 +11,16 @@
         <ResourceDictionary>
             <Style x:Key="placeholderLabelStyle" 
                    TargetType="Label">
-                <Setter Property="TextColor" Value="#919191" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=#99FFFFFF, Light=#919191}" />
             </Style>
             <Style x:Key="displayLabelStyle"
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>
             <Style x:Key="HeaderLabelStyle"
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="21" />
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -28,17 +28,17 @@
             </Style>
             <Style x:Key="HeaderStyle"
                    TargetType="telerikInput:PickerPopupHeaderView">
-                <Setter Property="BackgroundColor" Value="#F8F8F8" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=#373737}" />
                 <Setter Property="HeightRequest" Value="64" />
             </Style>
             <Style x:Key="SelectionHighlightStyle" 
                    TargetType="telerikPrimitives:RadBorder">
-                <Setter Property="BorderColor" Value="LightGray" />
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=LightGray, Dark=#373737}" />
                 <Setter Property="CornerRadius" Value="2" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -51,7 +51,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <StackLayout BackgroundColor="#EAEAEA">
+                <StackLayout BackgroundColor="{AppThemeBinding Dark=Black, Light=#EAEAEA}">
                     <Image VerticalOptions="End" 
                            HorizontalOptions="End">
                         <Image.Source>
@@ -69,7 +69,7 @@
                            FontSize="22" 
                            Margin="0,0,0,24" />
                     <Label Text="Music Genre:" 
-                           TextColor="Black" 
+                           TextColor="{AppThemeBinding Dark=White, Light=Black}" 
                            FontSize="15" 
                            FontAttributes="Bold" 
                            Margin="0, 0, 0, 21" />
@@ -91,7 +91,7 @@
                     </telerikInput:RadListPicker>
 
                     <Label Text="Recently Played:"
-                           TextColor="#919191" 
+                           TextColor="{AppThemeBinding Dark=White, Light=#919191}" 
                            FontAttributes="Bold" 
                            FontSize="15" 
                            Margin="0, 25, 0, 0" />
@@ -108,33 +108,33 @@
                                                  Margin="10, 15, 10, 15" 
                                                  VerticalOptions="Center"
                                                  HorizontalOptions="Start">
-                                            <telerikPrimitives:RadBorder BorderColor="{Binding IconColor}" 
+                                        <telerikPrimitives:RadBorder BorderColor="{Binding IconColor}" 
                                                                          BorderThickness="3"
                                                                          BackgroundColor="{Binding IconColor}" 
                                                                          WidthRequest="5" 
                                                                          HeightRequest="5" />
-                                            <Label Text="{Binding Artist}" 
+                                        <Label Text="{Binding Artist}" 
                                                    FontSize="12"
                                                    FontAttributes="Bold" 
                                                    VerticalTextAlignment="Center"
-                                                   TextColor="Black" />
-                                            <Label Text=" - " 
+                                                   TextColor="{AppThemeBinding Dark=White, Light=Black}" />
+                                        <Label Text=" - " 
                                                    VerticalTextAlignment="Center" />
-                                            <Label Text="{Binding Song}" 
+                                        <Label Text="{Binding Song}" 
                                                    FontSize="12" 
                                                    VerticalTextAlignment="Center"
-                                                   TextColor="#919191" />
-                                        </StackLayout>
+                                                   TextColor="{AppThemeBinding Dark=White, Light=#919191}" />
+                                    </StackLayout>
                                 </listView:ListViewTemplateCell.View>
                             </listView:ListViewTemplateCell>
                         </DataTemplate>
                     </telerikDataControls:RadListView.ItemTemplate>
                 </telerikDataControls:RadListView>
             </Grid>
-       
+
         </ScrollView>
         <StackLayout Grid.Row="1" 
-                     BackgroundColor="#EAEAEA"
+                     BackgroundColor="{AppThemeBinding Dark=Black, Light=#EAEAEA}"
                      HeightRequest="65">
             <Button Text="Play Music" 
                     CornerRadius="20" 

@@ -4,7 +4,19 @@
              xmlns:telerikControls="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
              x:Class="QSF.Examples.RatingControl.RestaurantReviewExample.RestaurantReviewView">
-    <Grid BackgroundColor="White">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainAccentColorLight">#97979C</Color>
+            <Color x:Key="MainAccentColorDark">#99FFFFFF</Color>
+            <Color x:Key="MainTextColorLight">Black</Color>
+            <Color x:Key="MainTextColorDark">White</Color>
+            <Color x:Key="PrimaryGaugeFillLight">#97979C</Color>
+            <Color x:Key="PrimaryGaugeFillDark">White</Color>
+            <Color x:Key="SecondaryGaugeFillLight">#EDEDED</Color>
+            <Color x:Key="SecondaryGaugeFillDark">#99FFFFFF</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="220" />
@@ -48,13 +60,13 @@
                                FontSize="24"
                                HorizontalOptions="End"
                                Text="3.9"
-                               TextColor="Black" />
+                               TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}" />
                         <StackLayout HorizontalOptions="End"
                                      Orientation="Horizontal">
                             <telerikControls:RadShapeRating Margin="0,3,0,0"
                                                             HeightRequest="10"
                                                             IsReadOnly="True"
-                                                            ItemFill="White"
+                                                            ItemFill="{AppThemeBinding Light=White, Dark=Black}"
                                                             ItemStroke="#FF9500"
                                                             ItemStrokeThickness="1"
                                                             ItemsSpacing="0"
@@ -67,15 +79,15 @@
                         <Label FontSize="12"
                                HorizontalOptions="End"
                                Text="Food 3.9"
-                               TextColor="#97979C" />
+                               TextColor="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}" />
                         <Label FontSize="12"
                                HorizontalOptions="End"
                                Text="Ambience 3.7"
-                               TextColor="#97979C" />
+                               TextColor="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}" />
                         <Label FontSize="12"
                                HorizontalOptions="End"
                                Text="Service 3.8"
-                               TextColor="#97979C" />
+                               TextColor="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}" />
                     </StackLayout>
                     <BoxView Grid.Column="1"
                              Margin="0,8,0,16"
@@ -94,7 +106,7 @@
                                          Orientation="Horizontal">
                                 <telerikControls:RadShapeRating Margin="0,0,8,0"
                                                                 IsReadOnly="True"
-                                                                ItemFill="#97979C"
+                                                                ItemFill="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}"
                                                                 ItemStrokeThickness="0"
                                                                 ItemsSpacing="0"
                                                                 SelectedItemFill="#EDEDED"
@@ -111,14 +123,14 @@
                                     <telerikGauges:RadGaugeBase.Indicators>
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#EDEDED"
+                                                                         Fill="{AppThemeBinding Light={StaticResource SecondaryGaugeFillLight}, Dark={StaticResource SecondaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
                                                                          Value="100" />
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#97979C"
+                                                                         Fill="{AppThemeBinding Light={StaticResource PrimaryGaugeFillLight}, Dark={StaticResource PrimaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
@@ -130,7 +142,7 @@
                                          Orientation="Horizontal">
                                 <telerikControls:RadShapeRating Margin="0,0,8,0"
                                                                 IsReadOnly="True"
-                                                                ItemFill="#97979C"
+                                                                ItemFill="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}"
                                                                 ItemStrokeThickness="0"
                                                                 ItemsSpacing="0"
                                                                 SelectedItemFill="#EDEDED"
@@ -148,14 +160,14 @@
                                     <telerikGauges:RadGaugeBase.Indicators>
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#EDEDED"
+                                                                         Fill="{AppThemeBinding Light={StaticResource SecondaryGaugeFillLight}, Dark={StaticResource SecondaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
                                                                          Value="100" />
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#97979C"
+                                                                         Fill="{AppThemeBinding Light={StaticResource PrimaryGaugeFillLight}, Dark={StaticResource PrimaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
@@ -167,7 +179,7 @@
                                          Orientation="Horizontal">
                                 <telerikControls:RadShapeRating Margin="0,0,8,0"
                                                                 IsReadOnly="True"
-                                                                ItemFill="#97979C"
+                                                                ItemFill="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}"
                                                                 ItemStrokeThickness="0"
                                                                 ItemsSpacing="0"
                                                                 SelectedItemFill="#EDEDED"
@@ -185,14 +197,14 @@
                                     <telerikGauges:RadGaugeBase.Indicators>
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#EDEDED"
+                                                                         Fill="{AppThemeBinding Light={StaticResource SecondaryGaugeFillLight}, Dark={StaticResource SecondaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
                                                                          Value="100" />
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#97979C"
+                                                                         Fill="{AppThemeBinding Light={StaticResource PrimaryGaugeFillLight}, Dark={StaticResource PrimaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
@@ -203,7 +215,7 @@
                             <StackLayout HeightRequest="10" Orientation="Horizontal">
                                 <telerikControls:RadShapeRating Margin="0,0,8,0"
                                                                 IsReadOnly="True"
-                                                                ItemFill="#97979C"
+                                                                ItemFill="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}"
                                                                 ItemStrokeThickness="0"
                                                                 ItemsSpacing="0"
                                                                 SelectedItemFill="#EDEDED"
@@ -221,7 +233,7 @@
                                     <telerikGauges:RadGaugeBase.Indicators>
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#EDEDED"
+                                                                         Fill="{AppThemeBinding Light={StaticResource SecondaryGaugeFillLight}, Dark={StaticResource SecondaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
@@ -234,7 +246,7 @@
                                          Orientation="Horizontal">
                                 <telerikControls:RadShapeRating Margin="0,0,8,0"
                                                                 IsReadOnly="True"
-                                                                ItemFill="#97979C"
+                                                                ItemFill="{AppThemeBinding Light={StaticResource MainAccentColorLight}, Dark={StaticResource MainAccentColorDark}}"
                                                                 ItemStrokeThickness="0"
                                                                 ItemsSpacing="0"
                                                                 SelectedItemFill="#EDEDED"
@@ -252,14 +264,14 @@
                                     <telerikGauges:RadGaugeBase.Indicators>
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#EDEDED"
+                                                                         Fill="{AppThemeBinding Light={StaticResource SecondaryGaugeFillLight}, Dark={StaticResource SecondaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
                                                                          Value="100" />
                                         <telerikGauges:GaugeBarIndicator EndCap="Oval"
                                                                          EndThickness="3"
-                                                                         Fill="#97979C"
+                                                                         Fill="{AppThemeBinding Light={StaticResource PrimaryGaugeFillLight}, Dark={StaticResource PrimaryGaugeFillDark}}"
                                                                          StartCap="Oval"
                                                                          StartThickness="3"
                                                                          Offset="0"
@@ -297,7 +309,7 @@
                     <StackLayout Spacing="3">
                         <Label FontSize="20"
                                Text="1. Always excellent food and service"
-                               TextColor="Black">
+                               TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}">
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double">
                                     <On Platform="iOS">14</On>
@@ -350,12 +362,12 @@
                             <StackLayout Spacing="5">
                                 <Label FontSize="16"
                                        Text="by Daniela Kamenova, Feb 18, 2016"
-                                       TextColor="Black" />
+                                       TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}" />
                                 <Label>
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <FormattedString.Spans>
-                                                <Span ForegroundColor="#929292"
+                                                <Span ForegroundColor="{AppThemeBinding Light=#929292, Dark=#99FFFFFF}"
                                                       Text="it was really nice dinner. The service was good and the quality of the pasta is awsome. Good list of ..." />
                                                 <Span ForegroundColor="#CB212E"
                                                       Text=" more" />

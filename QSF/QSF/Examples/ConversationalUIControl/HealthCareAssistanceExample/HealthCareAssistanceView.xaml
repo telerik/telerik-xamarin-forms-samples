@@ -11,9 +11,13 @@
             <Style TargetType="telerikConversationalUI:ChatListView">
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="Color">
-                            <On Platform="Android" Value="#F0F0F0" />
-                        </OnPlatform>
+                        <AppThemeBinding Dark="#121212">
+                            <AppThemeBinding.Light>
+                                <OnPlatform x:TypeArguments="Color">
+                                    <On Platform="Android">#F0F0F0</On>
+                                </OnPlatform>
+                            </AppThemeBinding.Light>
+                        </AppThemeBinding>
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -21,7 +25,7 @@
                 <local:CustomChatItemTemplateSelector.SummaryTemplate>
                     <DataTemplate>
                         <Grid HorizontalOptions="Center" WidthRequest="300">
-                            <telerikPrimitives:RadBorder BackgroundColor="White"
+                            <telerikPrimitives:RadBorder BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
                                                          BorderThickness="2"
                                                          CornerRadius="10"
                                                          Margin="45, 0, 45, 0">
@@ -127,14 +131,14 @@
                                                        IsCancelButtonVisible="False"
                                                        HeaderBackgroundColor="#FFE0E2E5"
                                                        IsVisible="False"
-                                                       BackgroundColor="White" />
+                                                       BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}" />
             </telerikConversationalUI:RadChat.Picker>
         </telerikConversationalUI:RadChat>
         <telerikConversationalUI:RadChatPicker x:Name="outerChatPicker" 
                                                views:ThemesBehavior.StyleClass="TelerikTheme"
                                                Resources="{StaticResource outerChatPickerResources}"
                                                VerticalOptions="End"
-                                               BackgroundColor="White"
+                                               BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
                                                IsVisible="False"
                                                Grid.Row="1"
                                                IsCancelButtonVisible="False"
@@ -142,7 +146,7 @@
         <telerikPrimitives:RadBusyIndicator x:Name="busyIndicator"
                                             Grid.RowSpan="2"
                                             views:ThemesBehavior.StyleClass="TelerikTheme"
-                                            BackgroundColor="White"
+                                            BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
                                             AnimationContentHeightRequest="50"
                                             AnimationContentWidthRequest="50">
             <telerikPrimitives:RadBusyIndicator.BusyContent>

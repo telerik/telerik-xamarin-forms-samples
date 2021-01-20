@@ -117,7 +117,7 @@
         </telerikDataControls:RadListView>
         <StackLayout Grid.Row="3" 
                      HeightRequest="65"
-                     BackgroundColor="#F6FAFB"
+                     BackgroundColor="{AppThemeBinding Light=#F6FAFB, Dark=#373737}"
                      Orientation="Horizontal">
             <telerikInput:RadButton Text="Set New Alarm"
                                     BackgroundColor="{StaticResource AccentColor}" 
