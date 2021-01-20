@@ -2,7 +2,7 @@
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using AndroidX.AppCompat.App;
+using Android.Support.V7.App;
 
 namespace ErpApp.Droid
 {
