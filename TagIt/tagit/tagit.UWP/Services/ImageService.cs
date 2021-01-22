@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Windows.Storage;
-using Newtonsoft.Json;
-using tagit.Common;
 using tagit.Services;
 using tagit.UWP.Services;
-using Xamarin.Forms;
+using Windows.Storage;
 using Windows.Storage.FileProperties;
+using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ImageService))]
 namespace tagit.UWP.Services
@@ -58,37 +55,6 @@ namespace tagit.UWP.Services
             return images;
         }
 
-        public async Task<List<string>> GetImageFileNamesAsync(IEnumerable<string> existingFileNames)
-        {
-            return new List<string>();
-        }
-        
-        public async Task<string> SaveTaggedImageAsync(string fileName, FileTaggingInformation taggingInformation, byte[] image)
-        {
-            var filePath = string.Empty;
-
-            try
-            {
-                var imageData = await GetTaggedImageFromUriAsync(taggingInformation, image);
-
-                var imagesFolder = KnownFolders.PicturesLibrary;
-
-                var taggedFolder = await imagesFolder.CreateFolderAsync("Tagged", CreationCollisionOption.OpenIfExists);
-
-                var file = await taggedFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-
-                await FileIO.WriteBytesAsync(file, imageData);
-
-                filePath = file.Path;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"ImageService.SaveTaggedImageAsync Exception: {ex}");
-            }
-
-            return filePath;
-        }
-
         public async Task SaveImageAsync(string fileName, string url)
         {
             try
@@ -105,34 +71,6 @@ namespace tagit.UWP.Services
             }
             catch
             {
-            }
-        }
-
-        private async Task<byte[]> GetTaggedImageFromUriAsync(FileTaggingInformation taggingInformation, byte[] image)
-        {
-            using(var client = new HttpClient())
-            {
-                var url = $"{CoreConstants.TaggingServiceUrl}";
-
-                var content = new MultipartContent();
-
-                var payload = JsonConvert.SerializeObject(taggingInformation);
-
-                var stringContent = new StringContent(payload);
-                stringContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                var byteContent = new ByteArrayContent(image);
-                byteContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
-
-                content.Add(stringContent);
-                content.Add(byteContent);
-
-                using(var response = await client.PostAsync(url, content))
-                {
-                    var result = await response.Content.ReadAsByteArrayAsync();
-
-                    return result;
-                }
             }
         }
 
