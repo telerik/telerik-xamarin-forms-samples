@@ -18,6 +18,7 @@ namespace tagit.Droid.Services
     public class ImageService : IImageService
     {
         private WeakReference<Context> context;
+        private static string[] FoldersToExclude = new string[] { "viber", "viber images", "whatsapp", "messenger", "facebook", "twitter", "instagram" };
 
         public ImageService()
         {
@@ -106,6 +107,7 @@ namespace tagit.Droid.Services
                 MediaStore.Images.ImageColumns.Id,
                 MediaStore.Images.ImageColumns.DisplayName,
                 MediaStore.Images.ImageColumns.DateTaken,
+                MediaStore.Images.ImageColumns.BucketDisplayName
             };
 
             var sortOrder = MediaStore.Images.ImageColumns.DateAdded + " DESC";
@@ -118,13 +120,15 @@ namespace tagit.Droid.Services
                     int idColumn = cursor.GetColumnIndexOrThrow(MediaStore.Images.ImageColumns.Id);
                     int nameColumn = cursor.GetColumnIndexOrThrow(MediaStore.Images.ImageColumns.DisplayName);
                     int dateTakenColumn = cursor.GetColumnIndexOrThrow(MediaStore.Images.ImageColumns.DateTaken);
+                    int folderNameColumn = cursor.GetColumnIndexOrThrow(MediaStore.Images.ImageColumns.BucketDisplayName);
 
                     var imageCountLimit = Common.CoreConstants.ImageCountLimit;
                     int currentCountLimit = 0;
                     while (cursor.MoveToNext())
                     {
                         string name = cursor.GetString(nameColumn);
-                        if (existingFileNames.Contains(name))
+                        string folderName = cursor.GetString(folderNameColumn);
+                        if (existingFileNames.Contains(name) || FoldersToExclude.Contains(folderName.ToLower()))
                         {
                             continue;
                         }
