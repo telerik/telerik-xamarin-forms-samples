@@ -18,7 +18,7 @@ namespace tagit.Droid.Services
     public class ImageService : IImageService
     {
         private WeakReference<Context> context;
-        private static string[] FoldersToExclude = new string[] { "viber", "viber images", "whatsapp", "messenger", "facebook", "twitter", "instagram" };
+        private static string[] FoldersToExclude = new string[] { "viber", "viber images", "whatsapp", "whatsapp images", "messenger", "facebook", "twitter", "instagram" };
 
         public ImageService()
         {
@@ -85,7 +85,7 @@ namespace tagit.Droid.Services
 
             var images = new List<LocalFileInformation>();
 
-            if (!await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
+            if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.LollipopMr1 && !await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
             {
                 tcs.SetResult(images);
 
