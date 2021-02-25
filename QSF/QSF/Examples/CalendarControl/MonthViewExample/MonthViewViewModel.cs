@@ -21,7 +21,7 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
             var recurrencePattern = new RecurrencePattern(new int[] { }, RecurrenceDays.WeekDays, RecurrenceFrequency.Daily, 1, null, null) { MaxOccurrences = 37 };
             var dailyRecurrenceRule = new RecurrenceRule(recurrencePattern);
 
-            var backgroundColor = Application.Current.UserAppTheme != OSAppTheme.Dark ? Color.White : Color.FromHex("#686869");
+            var backgroundColor = Application.Current.RequestedTheme != OSAppTheme.Dark ? Color.White : Color.FromHex("#686869");
 
             this.OpenDrawerCommand = new Command(this.OnOpenDrawerCommandExecute);
             this.Events = new ObservableCollection<EventData>()

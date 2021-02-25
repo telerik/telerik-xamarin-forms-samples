@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using QSF.iOS.Services.DeviceInfo;
 using QSF.Services.DeviceInfo;
 using UIKit;
@@ -23,7 +24,7 @@ namespace QSF.iOS.Services.DeviceInfo
                 var os = UIDevice.CurrentDevice.SystemVersion;
                 if (Version.TryParse(os, out var version))
                 {
-                    return double.Parse(string.Format("{0}.{1}", version.Major, version.Minor));
+                    return double.Parse(string.Format("{0}.{1}", version.Major, version.Minor), CultureInfo.InvariantCulture);
                 }
 
                 if (int.TryParse(os, out var major))

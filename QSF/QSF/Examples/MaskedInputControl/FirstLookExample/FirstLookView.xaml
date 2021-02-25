@@ -14,15 +14,18 @@
         <StackLayout Margin="16,16,16,0">
             <Label Text="Phone Number" />
             <telerikInput:RadMaskedInput WatermarkText="Phone Number"
+                                         Keyboard="Numeric"
                                          Mask="(000) 00000 - 00000"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
             <Label Text="Zip Code"/>
             <telerikInput:RadMaskedInput WatermarkText="Zip Code"
                                          Mask="0000 - 000"
+                                         Keyboard="Numeric"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
             <Label Text="Social Security Number"/>
             <telerikInput:RadMaskedInput WatermarkText="SSN"
                                          Mask="0000 - 00 - 0000"
+                                         Keyboard="Numeric"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
         </StackLayout>
     </Grid>

@@ -11,14 +11,6 @@ namespace QSF.ViewModels
     {
         private Example example;
 
-        public ExampleViewModel()
-        {
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                Application.Current.RequestedThemeChanged += this.ApplicationRequestedThemeChanged;
-            }
-        }
-
         public ExampleInfo ExampleInfo { get; private set; }
 
         private Example Example
@@ -32,6 +24,16 @@ namespace QSF.ViewModels
                 }
 
                 return this.example;
+            }
+        }
+
+        internal override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                this.CanChangeTheme = this.Example.IsThemable && Xamarin.Forms.Application.Current.RequestedTheme != OSAppTheme.Dark;
             }
         }
 
@@ -67,17 +69,6 @@ namespace QSF.ViewModels
         protected override Task NavigateToDocumentationOverride()
         {
             throw new InvalidOperationException("This view is not expected to have documentation to show.");
-        }
-
-        private void ApplicationRequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
-        {
-            var applicationStateService = DependencyService.Get<IApplicationStateService>();
-            if (!applicationStateService.IsApplicationActive)
-            {
-                return;
-            }
-
-            this.CanChangeTheme = this.Example.IsThemable && Xamarin.Forms.Application.Current.RequestedTheme != OSAppTheme.Dark;
         }
     }
 }

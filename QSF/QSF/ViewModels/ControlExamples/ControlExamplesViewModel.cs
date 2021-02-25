@@ -87,10 +87,15 @@ namespace QSF.ViewModels
         public ControlExamplesViewModel()
         {
             this.GroupHeaderTapCommand = new Command<GroupHeaderContext>(this.OnGroupHeaderTap);
+        }
+
+        internal override void OnAppearing()
+        {
+            base.OnAppearing();
 
             if (Device.RuntimePlatform == Device.iOS)
             {
-                Application.Current.RequestedThemeChanged += this.ApplicationRequestedThemeChanged;
+                this.CanChangeTheme = this.control.IsThemable && Xamarin.Forms.Application.Current.RequestedTheme != OSAppTheme.Dark;
             }
         }
 
@@ -140,17 +145,6 @@ namespace QSF.ViewModels
         private Task NavigateToExample(ExampleInfoViewModel selectedExample)
         {
             return this.NavigationService.NavigateToExampleAsync(new ExampleInfo(this.control.Name, selectedExample.Example.Name));
-        }
-
-        private void ApplicationRequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
-        {
-            var applicationStateService = DependencyService.Get<IApplicationStateService>();
-            if (!applicationStateService.IsApplicationActive)
-            {
-                return;
-            }
-
-            this.CanChangeTheme = this.control.IsThemable && Xamarin.Forms.Application.Current.RequestedTheme != OSAppTheme.Dark;
         }
 
         protected override Task NavigateToInfoOverride()

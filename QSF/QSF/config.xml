@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R1 2021</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R1 2021 SP</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png ; TelerikXamarin_Logo_DarkMode.png</QSFAboutImageName>
@@ -1121,7 +1121,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1135,6 +1135,20 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/EntryControl/FirstLookExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>Configuration</Name>
+          <Icon>
+            <Text>&#xe812;</Text>
+            <LightColor>#FFAC3E</LightColor>
+            <DarkColor>#FFA726</DarkColor>
+          </Icon>
+          <DescriptionHeader>Configuration</DescriptionHeader>
+          <Description>This example presents various configuration options that the Entry control provides.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/EntryControl/ConfigurationExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1798,7 +1812,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1807,6 +1821,7 @@
             <LightColor>#42A5F5</LightColor>
             <DarkColor>#42A5F5</DarkColor>
           </Icon>
+          <IsUpdated>true</IsUpdated>
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>Demonstrates the RadMaskedInput.</Description>
           <IsScenario>false</IsScenario>
@@ -1819,6 +1834,7 @@
             <LightColor>#42A5F5</LightColor>
             <DarkColor>#42A5F5</DarkColor>
           </Icon>
+          <IsUpdated>true</IsUpdated>
           <DescriptionHeader>Theming</DescriptionHeader>
           <Description>Demonstrates the theming of the RadMaskedInput.</Description>
           <IsScenario>false</IsScenario>

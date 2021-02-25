@@ -618,6 +618,9 @@
     <EmbeddedResource Update="Examples\DateTimePickerControl\DateModeExample\DateModeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Examples\EntryControl\ConfigurationExample\ConfigurationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Examples\ImageEditorControl\CustomToolbarExample\CustomToolbarView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

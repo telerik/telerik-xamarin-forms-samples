@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels
@@ -122,6 +123,14 @@ namespace QSF.ViewModels
             this.HasResults = results.Count > 0;
 
             this.SearchResults = new ObservableCollection<ControlNameSearchResultViewModel>(results);
+
+            if (!string.IsNullOrEmpty(this.SearchText)
+                && this.SearchText.Contains(';')
+                && this.SearchText.EndsWith("#")
+                && this.SearchResults.Count() == 1)
+            {
+                this.SelectedSearchResult = this.SearchResults.First();
+            }
         }
 
         private async void OnSelectedSearchResultChanged()

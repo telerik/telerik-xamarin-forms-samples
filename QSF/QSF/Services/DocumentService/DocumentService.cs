@@ -68,25 +68,6 @@ namespace QSF.Services
             var exportProvider = new HtmlFormatProvider();
             var flowDocument = importProvider.Import(inputStream);
 
-            //// Remove large left and hanging indentations of paragraphs in lists when importing from RTF
-            foreach (Paragraph paragraph in flowDocument.EnumerateChildrenOfType<Paragraph>())
-            {
-                if (paragraph.ListId > -1)
-                {
-                    Telerik.Windows.Documents.Flow.Model.Lists.List list = flowDocument.Lists.GetList(paragraph.ListId);
-                    if (paragraph.Indentation.HangingIndent == list.Levels[0].ParagraphProperties.HangingIndent.LocalValue)
-                    {
-                        paragraph.Indentation.HangingIndent = Paragraph.HangingIndentPropertyDefinition.DefaultValue.Value;
-                        paragraph.Indentation.LeftIndent = Paragraph.LeftIndentPropertyDefinition.DefaultValue.Value;
-                    }
-
-                    if (paragraph.Indentation.FirstLineIndent == list.Levels[0].ParagraphProperties.FirstLineIndent.LocalValue)
-                    {
-                        paragraph.Indentation.FirstLineIndent = Paragraph.FirstLineIndentPropertyDefinition.DefaultValue.Value;
-                    }
-                }
-            }
-
             return exportProvider.Export(flowDocument);
         }
 
