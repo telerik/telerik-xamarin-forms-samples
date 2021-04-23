@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dark="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Dark"
-             xmlns:light="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light"
              xmlns:converters="clr-namespace:tagit.Common"
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"            
              x:Class="tagit.App">
     <Application.Resources>
-        <ResourceDictionary MergedWith="light:LightThemeResources" >
+        <ResourceDictionary>
             <Color x:Key="AppBaseColor">#003366</Color>
             <Color x:Key="AppAccentColor">#0097DF</Color>
             <Color x:Key="AppSecondaryAccentColor">#96C912</Color>

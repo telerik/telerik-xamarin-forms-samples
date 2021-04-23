@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace TodoApp.PageModels
@@ -26,7 +27,7 @@ namespace TodoApp.PageModels
 
         private void OnLinkTapped(object obj)
         {
-            Device.OpenUri(new Uri(obj.ToString()));
+            Launcher.OpenAsync(new Uri(obj.ToString()));
         }
     }
 }

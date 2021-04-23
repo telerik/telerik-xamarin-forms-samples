@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace ArtGalleryCRM.Forms.Views
 {
-    public partial class RootPage : MasterDetailPage
+    public partial class RootPage : FlyoutPage
     {
         public RootPage()
         {

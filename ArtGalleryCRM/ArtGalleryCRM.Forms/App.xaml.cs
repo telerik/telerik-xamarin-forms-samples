@@ -13,7 +13,7 @@ namespace ArtGalleryCRM.Forms
     {
         public static MobileServiceClient MobileService { get; set; }
 
-        internal static MasterDetailPage RootPage { get; set; }
+        internal static FlyoutPage RootPage { get; set; }
 
         public App()
         {

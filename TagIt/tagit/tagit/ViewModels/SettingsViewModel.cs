@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using tagit.Common;
 using tagit.Helpers;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Themes;
 
@@ -32,6 +33,8 @@ namespace tagit.ViewModels
 
         private bool _canDownloadSampleImages;
 
+        private ResourceDictionary theme;
+
         public ICommand LoadSampleImagesCommand { get; }
         public ICommand ShowDocumentationCommand { get; }
 
@@ -40,7 +43,7 @@ namespace tagit.ViewModels
             get => _isDarkThemeEnabled;
             set
             {
-                if (_isDarkThemeEnabled != value)
+                if (_isDarkThemeEnabled != value || theme == null)
                     ToggleAppTheme(value);
 
                 SetProperty(ref _isDarkThemeEnabled, value);
@@ -73,8 +76,22 @@ namespace tagit.ViewModels
             {
                 try
                 {
-                    Application.Current.Resources.MergedWith =
-                        isDarkEnabled ? typeof(DarkThemeResources) : typeof(LightThemeResources);
+                    if (this.theme != null)
+                    {
+                        Application.Current.Resources.MergedDictionaries.Remove(this.theme);
+                    }
+
+                    if (isDarkEnabled)
+                    {
+                        this.theme = new DarkThemeResources();
+                    }
+                    else
+                    {
+                        this.theme = new LightThemeResources();
+                    }
+
+                    Application.Current.Resources.MergedDictionaries.Add(this.theme);
+
                     Application.Current.Resources["AppTextColor"] =
                         (Color) Application.Current.Resources["AppLightColor"];
 
@@ -114,8 +131,7 @@ namespace tagit.ViewModels
 
         private void ShowDocumentationAsync()
         {
-            //await App.NavigationService.PushAsync(new DocumentationPage());
-            Device.OpenUri(new Uri("http://www.telerik.com/xamarin-ui"));
+            Launcher.OpenAsync(new Uri("http://www.telerik.com/xamarin-ui"));
         }
     }
 }
