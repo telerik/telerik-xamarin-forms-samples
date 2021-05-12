@@ -29,6 +29,7 @@
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Start"/>
             </Style>
             <Style x:Key="PriceLabelStyle"
                    TargetType="{x:Type Label}">
@@ -103,6 +104,54 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
+            <Style x:Key="DefaultHeaderStyle" 
+                   TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BackgroundColor" Value="#B73562"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="HeightRequest" Value="64"/>
+            </Style>
+            <Style x:Key="DefaultHeaderLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="5,0,0,0"/>
+            </Style>
+            <Style x:Key="PaintBucketIconStyle" 
+                   TargetType="Label">
+                <Setter Property="Text" Value="{StaticResource PaintBucketIcon}"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+                <Setter Property="TextColor" Value="#80FFFFFF"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="PickerPopupFooterButtons_BaseStyle"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="90" />
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+            </Style>
+            <Style x:Key="PickerPopupFooterAcceptButton_Style" 
+                   BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}" 
+                   TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#0F3CB735"/>
+                <Setter Property="TextColor" Value="#3CB735" />
+            </Style>
+            <Style x:Key="PickerPopupFooterCancelButton_Style" 
+                   BasedOn="{StaticResource PickerPopupFooterButtons_BaseStyle}" 
+                   TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#1FB73562"/>
+                <Setter Property="TextColor" Value="#B73562" />
+                <Setter Property="Margin" Value="0,0,8,0"/>
+            </Style>
+            <x:String x:Key="AcceptButtonIcon">&#xE876;</x:String>
+            <x:String x:Key="CancelButtonIcon">&#xE877;</x:String>
             <Style x:Key="LargeCircleStyle"
                    TargetType="{x:Type BoxView}">
                 <Setter Property="WidthRequest" Value="24" />
@@ -219,7 +268,6 @@
                                     <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
                                 </Grid.GestureRecognizers>
                                 <Label InputTransparent="True"
-                                       HorizontalOptions="Start"
                                        Style="{StaticResource InputLabelStyle}"
                                        Text="Size:" />
                                 <Label InputTransparent="True"
@@ -230,7 +278,22 @@
                         </ControlTemplate>
                     </telerikInput:RadListPicker.DisplayTemplate>
                     <telerikInput:RadListPicker.SelectorSettings>
-                        <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Select size:"/>
+                        <telerikInput:PickerPopupSelectorSettings AcceptButtonText="{StaticResource AcceptButtonIcon}"
+                                                                  CancelButtonText="{StaticResource CancelButtonIcon}"
+                                                                  AcceptButtonStyle="{StaticResource PickerPopupFooterAcceptButton_Style}"
+                                                                  CancelButtonStyle="{StaticResource PickerPopupFooterCancelButton_Style}">
+                            <telerikInput:PickerPopupSelectorSettings.HeaderTemplate>
+                                <ControlTemplate>
+                                    <telerikPrimitives:RadBorder Style="{StaticResource DefaultHeaderStyle}">
+                                        <StackLayout Orientation="Horizontal" 
+                                                     HorizontalOptions="Center">
+                                            <Label Style="{StaticResource DefaultHeaderLabelStyle}" 
+                                                   Text="Select Size:"/>
+                                        </StackLayout>
+                                    </telerikPrimitives:RadBorder>
+                                </ControlTemplate>
+                            </telerikInput:PickerPopupSelectorSettings.HeaderTemplate>
+                        </telerikInput:PickerPopupSelectorSettings>
                     </telerikInput:RadListPicker.SelectorSettings>
                 </telerikInput:RadListPicker>
                 <telerikInput:RadListPicker ItemsSource="{Binding Colors}"
@@ -247,7 +310,6 @@
                                     <TapGestureRecognizer Command="{TemplateBinding ToggleCommand}" />
                                 </Grid.GestureRecognizers>
                                 <Label InputTransparent="True"
-                                       HorizontalOptions="Start"
                                        Style="{StaticResource InputLabelStyle}"
                                        Text="Color:" />
                                 <BoxView InputTransparent="True"
@@ -287,13 +349,28 @@
                         </DataTemplate>
                     </telerikInput:RadListPicker.SelectedItemTemplate>
                     <telerikInput:RadListPicker.SelectorSettings>
-                        <telerikInput:PickerPopupSelectorSettings HeaderLabelText="Select color:"/>
+                        <telerikInput:PickerPopupSelectorSettings AcceptButtonText="{StaticResource AcceptButtonIcon}"
+                                                                  CancelButtonText="{StaticResource CancelButtonIcon}"
+                                                                  AcceptButtonStyle="{StaticResource PickerPopupFooterAcceptButton_Style}"
+                                                                  CancelButtonStyle="{StaticResource PickerPopupFooterCancelButton_Style}">
+                            <telerikInput:PickerPopupSelectorSettings.HeaderTemplate>
+                                <ControlTemplate>
+                                    <telerikPrimitives:RadBorder Style="{StaticResource DefaultHeaderStyle}" >
+                                        <StackLayout Orientation="Horizontal" 
+                                                     HorizontalOptions="Center">
+                                            <Label Style="{StaticResource PaintBucketIconStyle}"/>
+                                            <Label Style="{StaticResource DefaultHeaderLabelStyle}" 
+                                                   Text="Select Color:"/>
+                                        </StackLayout>
+                                    </telerikPrimitives:RadBorder>
+                                </ControlTemplate>
+                            </telerikInput:PickerPopupSelectorSettings.HeaderTemplate>
+                        </telerikInput:PickerPopupSelectorSettings>
                     </telerikInput:RadListPicker.SelectorSettings>
                 </telerikInput:RadListPicker>
                 <telerikPrimitives:RadBorder Style="{StaticResource FrameBorderStyle}">
                     <Grid Padding="16,0">
-                        <Label HorizontalOptions="Start"
-                               Style="{StaticResource InputLabelStyle}"
+                        <Label Style="{StaticResource InputLabelStyle}"
                                Text="Quantity:" />
                         <telerikInput:RadNumericInput HorizontalOptions="End"
                                                       IsReadOnly="True"

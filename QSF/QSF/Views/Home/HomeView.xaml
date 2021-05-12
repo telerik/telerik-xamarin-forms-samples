@@ -129,6 +129,7 @@
 
                     <controls:AppBar LeftButtonText="{StaticResource Key=BurgerButtonIcon}"
                                      Title="{Binding Path=Title}"
+                                     LeftButtonFontSize="24"
                                      TitleHorizontalOptions="Center"
                                      LeftButtonCommand="{Binding Path=AppBarLeftButtonCommand}"
                                      IsMiddleButtonEnabled="False"
@@ -296,11 +297,7 @@
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
 
-                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="What's New" Command="{Binding Path=NavigateToWhatsNewPageCommand}">
-                                <telerikInput:RadButton.Effects>
-                                    <effects:NoAllCapsButtonEffect />
-                                </telerikInput:RadButton.Effects>
-                            </telerikInput:RadButton>
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="What's New" Command="{Binding Path=NavigateToWhatsNewPageCommand}"/>
 
                             <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
                         </Grid>
@@ -311,11 +308,7 @@
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
 
-                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Product Page" Command="{Binding Path=NavigateToProductPageCommand}">
-                                <telerikInput:RadButton.Effects>
-                                    <effects:NoAllCapsButtonEffect />
-                                </telerikInput:RadButton.Effects>
-                            </telerikInput:RadButton>
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Product Page" Command="{Binding Path=NavigateToProductPageCommand}"/>
 
                             <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
                         </Grid>
@@ -326,11 +319,7 @@
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
 
-                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Documentation" Command="{Binding Path=NavigateToDocumentationCommand}">
-                                <telerikInput:RadButton.Effects>
-                                    <effects:NoAllCapsButtonEffect />
-                                </telerikInput:RadButton.Effects>
-                            </telerikInput:RadButton>
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Documentation" Command="{Binding Path=NavigateToDocumentationCommand}"/>
 
                             <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
                         </Grid>
@@ -341,11 +330,7 @@
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
 
-                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Source" Command="{Binding Path=NavigateToSourceCommand}">
-                                <telerikInput:RadButton.Effects>
-                                    <effects:NoAllCapsButtonEffect />
-                                </telerikInput:RadButton.Effects>
-                            </telerikInput:RadButton>
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Source" Command="{Binding Path=NavigateToSourceCommand}"/>
 
                             <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
                         </Grid>
@@ -356,11 +341,7 @@
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
 
-                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Privacy Policy" Command="{Binding Path=NavigateToPrivacyPolicyPageCommand}">
-                                <telerikInput:RadButton.Effects>
-                                    <effects:NoAllCapsButtonEffect />
-                                </telerikInput:RadButton.Effects>
-                            </telerikInput:RadButton>
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Privacy Policy" Command="{Binding Path=NavigateToPrivacyPolicyPageCommand}"/>
                             <Label Grid.Column="1" Style="{StaticResource Key=HyperlinkIconLabelStyle}" />
                         </Grid>
 
@@ -370,11 +351,7 @@
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
 
-                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="About" Command="{Binding Path=NavigateToAboutCommand}">
-                                <telerikInput:RadButton.Effects>
-                                    <effects:NoAllCapsButtonEffect />
-                                </telerikInput:RadButton.Effects>
-                            </telerikInput:RadButton>
+                            <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="About" Command="{Binding Path=NavigateToAboutCommand}"/>
                         </Grid>
 
                     </StackLayout>

@@ -98,7 +98,11 @@
                          IsMiddleButtonVisible="False" 
                          IsRightButtonVisible="False"/>
 
-        <SearchBar Text="{Binding Path=SearchText}" HorizontalOptions="Fill" Margin="50, 0, 18, 0" VerticalOptions="Center"
+        <SearchBar Text="{Binding Path=SearchText}"
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                   HorizontalOptions="Fill"
+                   Margin="50, 0, 18, 0"
+                   VerticalOptions="Center"
                    AutomationId="SearchBar">
             <SearchBar.Effects>
                 <effects:BorderEffect />

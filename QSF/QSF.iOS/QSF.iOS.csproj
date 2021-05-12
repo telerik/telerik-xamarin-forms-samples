@@ -169,10 +169,6 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard">
       <SubType>Designer</SubType>
     </InterfaceDefinition>
-    <BundleResource Include="Resources\Entry_Envelope.png" />
-    <BundleResource Include="Resources\Entry_Envelope%401,5x.png" />
-    <BundleResource Include="Resources\Entry_Envelope%402x.png" />
-    <BundleResource Include="Resources\Entry_Envelope%403x.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_1.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_1%401,5x.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_1%402x.png" />
@@ -245,6 +241,22 @@
     <BundleResource Include="Resources\Fonts\telerikqsficonsfont.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\American_Pancakes.png" />
+    <BundleResource Include="Resources\American_Pancakes%401,5x.png" />
+    <BundleResource Include="Resources\American_Pancakes%402x.png" />
+    <BundleResource Include="Resources\American_Pancakes%403x.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate%401,5x.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate%402x.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate%403x.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle%401,5x.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle%402x.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle%403x.png" />
+    <BundleResource Include="Resources\Tiramisu.png" />
+    <BundleResource Include="Resources\Tiramisu%401,5x.png" />
+    <BundleResource Include="Resources\Tiramisu%402x.png" />
+    <BundleResource Include="Resources\Tiramisu%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK-1.0" />
@@ -2026,24 +2038,6 @@
     <BundleResource Include="Resources\ListView_LinearLayout.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Done.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Done%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Delete%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Delete%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Done%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ListView_Selection_Delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3668,13 +3662,13 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1269</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.1.41</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.TestCloud.Agent">
-      <Version>0.21.9</Version>
+      <Version>0.22.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
       <Version>2.4.11.982</Version>
@@ -3703,6 +3697,18 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TelerikXamarin_Logo_DarkMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Person_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Person_9%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Person_9%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Person_9%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

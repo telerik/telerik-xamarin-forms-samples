@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives" 
+             xmlns:firstlookexample="clr-namespace:QSF.Examples.BadgeViewControl.IntegrationExample"
+             x:Class="QSF.Examples.BadgeViewControl.IntegrationExample.ListViewIntegrationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="SecondaryTextColorLight">#99000000</Color>
+            <Color x:Key="SecondaryTextColorDark">#99FFFFFF</Color>
+            <Color x:Key="HighLightedColorLight">#0E88F2</Color>
+            <Color x:Key="HighLightedColorDark">#42A5F5</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.BindingContext>
+        <firstlookexample:ListViewIntegrationViewModel />
+    </ContentView.BindingContext>
+    <telerikDataControls:RadListView ItemsSource="{Binding Users}"
+                                     SelectionMode="None"
+                                     VerticalOptions="StartAndExpand">
+        <telerikDataControls:RadListView.ItemTemplate>
+            <DataTemplate>
+                <telerikListView:ListViewTemplateCell>
+                    <telerikListView:ListViewTemplateCell.View>
+                        <StackLayout Orientation="Horizontal"
+                                     Padding="16, 8">
+                            <telerikPrimitives:RadBadgeView BadgeType="{Binding ActivityStatus}"
+                                                                BadgeTextColor="{AppThemeBinding Light=White, Dark=Black}"
+                                                                BadgeVerticalPosition="End"
+                                                                BadgeHorizontalAlignment="End"
+                                                                BadgeVerticalAlignment="End"
+                                                                Margin="0, 0, 16, 0">
+                                <telerikPrimitives:RadBadgeView.Content>
+                                    <Image Source="{Binding ImageSourcePath, Converter={StaticResource ImageSourceConverter}}" 
+                                               WidthRequest="46"
+                                               HeightRequest="46" />
+                                </telerikPrimitives:RadBadgeView.Content>
+                            </telerikPrimitives:RadBadgeView>
+                            <StackLayout Spacing="2"
+                                             VerticalOptions="Center">
+                                <Label Text="{Binding Name}" 
+                                           FontAttributes="{Binding MessageFontAttributes}"
+                                           VerticalTextAlignment="End" />
+                                <Label Text="{Binding LastMessageReceived}"
+                                           TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColorLight}, Dark={StaticResource SecondaryTextColorDark}}"
+                                           FontSize="Micro"
+                                           FontAttributes="{Binding MessageFontAttributes}" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label Text="{Binding LastMessageReceivedDate}"
+                                           TextColor="{Binding LastMessageReceivedDateColor}"
+                                           FontSize="Small"
+                                           VerticalOptions="CenterAndExpand" />
+                                <telerikPrimitives:Badge BackgroundColor="{AppThemeBinding Light={StaticResource HighLightedColorLight}, Dark={StaticResource HighLightedColorDark}}"
+                                                         Text="{Binding UnreadMessagesText}"
+                                                         HorizontalOptions="End"
+                                                         IsVisible="{Binding IsVisibleUnreadMessages}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </telerikListView:ListViewTemplateCell.View>
+                </telerikListView:ListViewTemplateCell>
+            </DataTemplate>
+        </telerikDataControls:RadListView.ItemTemplate>
+    </telerikDataControls:RadListView>
+</ContentView>

@@ -15,12 +15,12 @@ namespace QSF.Examples.ListViewControl.ReorderExample
             this.Items = new ObservableCollection<ListItem>()
             {
                 new ListItem("Check weather for London"),
-                new ListItem("Call Brian Ingram for the Hotel reservations"),
-                new ListItem("Check the childrens' documents"),
-                new ListItem("Check if Johan will take care of the dog"),
-                new ListItem("Airplane tickets reschedule for the morning plane"),
-                new ListItem("Check the trains schedule London - Paris"),
-                new ListItem("Bills due: Alissa's ballet class free tomorrow"),
+                new ListItem("Call Brian Ingram"),
+                new ListItem("Check the children’s documents"),
+                new ListItem("Check if Joahn will take care of the dog"),
+                new ListItem("Airplane tickets rescheduling"),
+                new ListItem("Check the trains schedule"),
+                new ListItem("Bills due: Alissa's ballet class"),
                 new ListItem("Weekly organic basket")
             };
             this.DeleteCommand = new Command<ListItem>(this.OnDelete);

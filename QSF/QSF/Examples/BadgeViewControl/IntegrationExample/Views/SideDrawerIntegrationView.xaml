@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:integrationexample="clr-namespace:QSF.Examples.BadgeViewControl.IntegrationExample"
+             x:Class="QSF.Examples.BadgeViewControl.IntegrationExample.SideDrawerIntegrationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="HighlightedColorLight">#0E88F2</Color>
+            <Color x:Key="HighlightedColorDark">#42A5F5</Color>
+            <Color x:Key="DefaultTextColorLight">#99000000</Color>
+            <Color x:Key="DefaultTextColorDark">#FFFFFF</Color>
+            <Style x:Key="DefaultDrawerContentBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BorderThickness" Value="0, 0, 0, 1" />
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=#DFDFDF, Dark=#373737}" />
+                <Setter Property="HeightRequest" Value="44" />
+            </Style>
+            <Style x:Key="InboxItemStyle" TargetType="telerikPrimitives:RadBorder"
+                   BasedOn="{StaticResource DefaultDrawerContentBorderStyle}">
+                <Setter Property="Padding" Value="48, 0, 21, 0" />
+            </Style>
+            <Style x:Key="NonInboxItemStyle" TargetType="telerikPrimitives:RadBorder"
+                   BasedOn="{StaticResource DefaultDrawerContentBorderStyle}">
+                <Setter Property="Padding" Value="16, 0, 21, 0" />
+            </Style>
+            <Style x:Key="DefaultInboxItemBadgeStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="BadgeFontSize" Value="10" />
+                <Setter Property="BadgeBackgroundColor" Value="{AppThemeBinding Light={StaticResource HighlightedColorLight}, Dark={StaticResource HighlightedColorDark}}" />
+                <Setter Property="BadgeVerticalPosition" Value="Center" />
+            </Style>
+            <Style x:Key="DrawerBadgeStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="BadgeType" Value="Dot"/>
+                <Setter Property="BadgeBackgroundColor" Value="{AppThemeBinding Light={StaticResource HighlightedColorLight}, Dark={StaticResource HighlightedColorDark}}"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="BadgeOffsetX">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <OnPlatform.Platforms>
+                            <On Platform="Android, iOS" Value="-14" />
+                            <On Platform="UWP" Value="-10" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="BadgeOffsetY">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="Android, iOS" Value="14" />
+                                <On Platform="UWP" Value="12" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.BindingContext>
+        <integrationexample:SideDrawerViewModel />
+    </ContentView.BindingContext>
+    <Grid Margin="0, 16, 0, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Orientation="Horizontal"
+                     BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}"
+                     VerticalOptions="Start"
+                     HeightRequest="44">
+            <telerikPrimitives:RadBadgeView Style="{StaticResource DrawerBadgeStyle}">
+                <telerikPrimitives:RadBadgeView.Content>
+                    <telerikInput:RadButton Text="&#xE808;"
+                                            TextColor="{AppThemeBinding Light={StaticResource DefaultTextColorLight}, Dark={StaticResource DefaultTextColorDark}}"
+                                            FontFamily="{StaticResource IconsFont}"
+                                            FontSize="Large"
+                                            WidthRequest="44"
+                                            HeightRequest="44"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding OpenDrawerCommand}"/>
+                </telerikPrimitives:RadBadgeView.Content>
+            </telerikPrimitives:RadBadgeView>
+            <Label Text="Inbox" 
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   VerticalTextAlignment="Center" />
+        </StackLayout>
+        <telerikPrimitives:RadSideDrawer Grid.Row="1"
+                                         IsOpen="{Binding IsDrawerOpen}">
+            <telerikPrimitives:RadSideDrawer.MainContent>
+                <StackLayout VerticalOptions="Fill">
+                    <telerikDataControls:RadListView ItemsSource="{Binding Inbox}"
+                                                     VerticalOptions="FillAndExpand">
+                        <telerikDataControls:RadListView.ItemTemplate>
+                            <DataTemplate>
+                                <telerikListView:ListViewTemplateCell>
+                                    <telerikListView:ListViewTemplateCell.View>
+                                        <StackLayout Padding="9, 12, 12, 6">
+                                            <telerikPrimitives:RadBadgeView BadgeType="Dot" 
+                                                                            BadgeVisibility="{Binding BadgeVisibility}"
+                                                                            BadgeHorizontalPosition="Start"
+                                                                            BadgeVerticalPosition="Center"
+                                                                            BadgeHorizontalAlignment="End"
+                                                                            BadgeBackgroundColor="{AppThemeBinding Light={StaticResource HighlightedColorLight}, Dark={StaticResource HighlightedColorDark}}">
+                                                <telerikPrimitives:RadBadgeView.Content>
+                                                    <StackLayout HeightRequest="104"
+                                                                 Padding="7, 0, 0, 0">
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Label Text="{Binding Sender}"
+                                                                   FontAttributes="Bold" />
+                                                            <Label Text="{Binding TimeSended}" 
+                                                                   TextColor="{AppThemeBinding Light={StaticResource DefaultTextColorLight}, Dark={StaticResource DefaultTextColorDark}}"
+                                                                   FontSize="Small"
+                                                                   FontAttributes="{Binding HighlightedText}"
+                                                                   HorizontalOptions="EndAndExpand" />
+                                                        </StackLayout>
+                                                        <Label Text="{Binding Title}"
+                                                               FontSize="Small" 
+                                                               FontAttributes="{Binding HighlightedText}" />
+                                                        <Label Text="{Binding Content}"
+                                                               TextColor="{AppThemeBinding Light={StaticResource DefaultTextColorLight}, Dark={StaticResource DefaultTextColorDark}}"
+                                                               FontSize="Micro"
+                                                               FontAttributes="{Binding HighlightedText}" />
+                                                    </StackLayout>
+                                                </telerikPrimitives:RadBadgeView.Content>
+                                            </telerikPrimitives:RadBadgeView>
+                                        </StackLayout>
+                                    </telerikListView:ListViewTemplateCell.View>
+                                </telerikListView:ListViewTemplateCell>
+                            </DataTemplate>
+                        </telerikDataControls:RadListView.ItemTemplate>
+                    </telerikDataControls:RadListView>
+                </StackLayout>
+            </telerikPrimitives:RadSideDrawer.MainContent>
+            <telerikPrimitives:RadSideDrawer.DrawerContent>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#373737}"
+                                 HeightRequest="62"
+                                 Padding="8, 0, 0, 0">
+                        <Image WidthRequest="46"
+                               HeightRequest="46"
+                               VerticalOptions="Center">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="DataGrid_SalesPerson_1.png" />
+                                        <On Platform="UWP" Value="Assets\DataGrid_SalesPerson_1.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                        <Label Text="abbie.hunter@progress.com"
+                               FontSize="Small"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                    <telerikPrimitives:RadBorder Style="{StaticResource NonInboxItemStyle}">
+                        <telerikPrimitives:RadBadgeView BadgeText="23"
+                                                        Style="{StaticResource DefaultInboxItemBadgeStyle}">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="Inbox" 
+                                       VerticalOptions="Center" />
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource InboxItemStyle}">
+                        <telerikPrimitives:RadBadgeView BadgeText="3"
+                                                        Style="{StaticResource DefaultInboxItemBadgeStyle}">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="Xamarin" 
+                                       VerticalOptions="Center" />
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource InboxItemStyle}">
+                        <telerikPrimitives:RadBadgeView BadgeText="2"
+                                                        Style="{StaticResource DefaultInboxItemBadgeStyle}">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="UWP" 
+                                       VerticalOptions="Center" />
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource InboxItemStyle}">
+                        <telerikPrimitives:RadBadgeView BadgeText="6"
+                                                        Style="{StaticResource DefaultInboxItemBadgeStyle}">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="WinForms" 
+                                       VerticalOptions="Center" />
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource InboxItemStyle}">
+                        <telerikPrimitives:RadBadgeView BadgeText="12"
+                                                        Style="{StaticResource DefaultInboxItemBadgeStyle}">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="Unite UX" 
+                                       VerticalOptions="Center" />
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource NonInboxItemStyle}">
+                        <Label Text="Sent" 
+                               VerticalOptions="Center" />
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource NonInboxItemStyle}">
+                        <Label Text="Drafts" 
+                               VerticalOptions="Center" />
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource NonInboxItemStyle}">
+                        <Label Text="Archive" 
+                               VerticalOptions="Center" />
+                    </telerikPrimitives:RadBorder>
+                    <telerikPrimitives:RadBorder Style="{StaticResource NonInboxItemStyle}">
+                        <Label Text="Deleted Items" 
+                               VerticalOptions="Center" />
+                    </telerikPrimitives:RadBorder>
+                </StackLayout>
+            </telerikPrimitives:RadSideDrawer.DrawerContent>
+            <telerikPrimitives:RadSideDrawer.DrawerLength>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="300" />
+                </OnPlatform>
+            </telerikPrimitives:RadSideDrawer.DrawerLength>
+        </telerikPrimitives:RadSideDrawer>
+    </Grid>
+</ContentView>

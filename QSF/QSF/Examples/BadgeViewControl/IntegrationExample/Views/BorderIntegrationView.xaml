@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BadgeViewControl.IntegrationExample.BorderIntegrationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ImageBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="WidthRequest" Value="36" />
+                <Setter Property="HeightRequest" Value="36" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="Margin" Value="10, 4, 0, 4" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="BorderThickness" Value="3" />
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=White, Dark=#373737}" />
+            </Style>
+            <Style x:Key="DefaultBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=#373737}" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="CornerRadius" Value="0, 20, 20, 20" />
+                <Setter Property="Padding" Value="10" />
+            </Style>
+            <Style x:Key="DefaultBadgeStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="BadgeHorizontalPosition" Value="End" />
+                <Setter Property="BadgeVerticalPosition" Value="End" />
+                <Setter Property="BadgeHorizontalAlignment" Value="End" />
+                <Setter Property="BadgeOffsetX" Value="-10" />
+                <Setter Property="Margin" Value="0, 0, 31, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <telerikPrimitives:RadBadgeView BadgeType="DoNotDisturb"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        BadgeHorizontalPosition="Center"
+                                        BadgeVerticalPosition="Center"
+                                        BadgeOffsetX="30"
+                                        BadgeOffsetY="30"
+                                        Margin="0, 40, 0, 60">
+                <telerikPrimitives:RadBadgeView.Content>
+                    <telerikPrimitives:RadBorder WidthRequest="91"
+                                             HeightRequest="91"
+                                             HorizontalOptions="Center"
+                                             BorderThickness="9"
+                                             BorderColor="{AppThemeBinding Light=#DFDFDF, Dark=#373737}"
+                                             CornerRadius="46">
+                        <Image>
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Border_User.png" />
+                                        <On Platform="UWP" Value="Assets\Border_User.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                    </telerikPrimitives:RadBorder>
+                </telerikPrimitives:RadBadgeView.Content>
+            </telerikPrimitives:RadBadgeView>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="56" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <telerikPrimitives:RadBorder Style="{StaticResource ImageBorderStyle}">
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Border_Person_1.png" />
+                                    <On Platform="UWP" Value="Assets\Border_Person_1.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </telerikPrimitives:RadBorder>
+                <telerikPrimitives:RadBadgeView Grid.Column="1"
+                                            BadgeText="!"
+                                            Style="{StaticResource DefaultBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.BadgeOffsetX>
+                        <OnPlatform x:TypeArguments="x:Double" Default="-10">
+                            <On Platform="UWP" Value="-50" />
+                        </OnPlatform>
+                    </telerikPrimitives:RadBadgeView.BadgeOffsetX>
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikPrimitives:RadBorder Style="{StaticResource DefaultBorderStyle}">
+                            <Label Text="Dayana is a great and reliable developer! She is very responsive to her tasks, delivers in scope, and provides timely execution. She is professional…"
+                               FontSize="15" />
+                        </telerikPrimitives:RadBorder>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+                <telerikPrimitives:RadBorder Grid.Row="2"
+                                         Style="{StaticResource ImageBorderStyle}">
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Border_Person_1.png" />
+                                    <On Platform="UWP" Value="Assets\Border_Person_1.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </telerikPrimitives:RadBorder>
+                <telerikPrimitives:RadBadgeView Grid.Row="2"
+                                            Grid.Column="1"
+                                            BadgeText="&#xE87E; 39"
+                                            BadgeFontFamily="{StaticResource IconsFont}"
+                                            BadgeBackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"
+                                            Style="{StaticResource DefaultBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikPrimitives:RadBorder Style="{StaticResource DefaultBorderStyle}">
+                            <Label Text="Our success as a business rests on the back of the foundation Dayana built with our projects. Her fearless problem solving make her a model for others." 
+                               FontSize="15" />
+                        </telerikPrimitives:RadBorder>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentView>

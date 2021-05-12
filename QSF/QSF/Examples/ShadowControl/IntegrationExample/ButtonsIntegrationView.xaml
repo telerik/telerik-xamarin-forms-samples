@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    x:Class="QSF.Examples.ShadowControl.IntegrationExample.ButtonsIntegrationView"
+    BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="input:RadButton" x:Key="BaseButtonStyle">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextTransform" Value="None"/>
+            </Style>
+            <Style TargetType="primitives:RadShadow" x:Key="BaseShadowStyle">
+                <Setter Property="OffsetY" Value="4"/>
+                <Setter Property="BlurRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="2" />
+                                <On Platform="Android" Value="6" />
+                                <On Platform="UWP" Value="6" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ShadowOpacity" Value="0.17"/>
+            </Style>
+            <Style TargetType="input:RadButton" x:Key="RoundedImageButton" BasedOn="{StaticResource BaseButtonStyle}">
+                <Setter Property="CornerRadius" Value="17"/>
+                <Setter Property="Padding" Value="12, 0, 0, 0"/>
+            </Style>
+            <Style TargetType="input:RadButton" x:Key="RoundedBackgroundImageButton" BasedOn="{StaticResource BaseButtonStyle}">
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+            <Style TargetType="primitives:RadShadow" x:Key="RoundedShadow" BasedOn="{StaticResource BaseShadowStyle}">
+                <Setter Property="WidthRequest" Value="105"/>
+                <Setter Property="HeightRequest" Value="34"/>
+                <Setter Property="CornerRadius" Value="17"/>
+            </Style>
+            <Style TargetType="primitives:RadShadow" x:Key="RoundedBackgroundImageShadow" BasedOn="{StaticResource BaseShadowStyle}">
+                <Setter Property="WidthRequest" Value="90"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <StackLayout Spacing="40"
+                     Margin="0, 40, 0, 40">
+            <primitives:RadShadow WidthRequest="92"
+                                  HorizontalOptions="Center"
+                                  Style="{StaticResource BaseShadowStyle}"
+                                  CornerRadius="20">
+                <input:RadButton Text="Button"
+                                 Style="{StaticResource BaseButtonStyle}"
+                                 CornerRadius="20"
+                                 BackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"/>
+            </primitives:RadShadow>
+            <primitives:RadShadow WidthRequest="103"
+                                  HorizontalOptions="Center"
+                                  Style="{StaticResource BaseShadowStyle}"
+                                  CornerRadius="2">
+                <input:RadButton Text="Button"
+                                 TextColor="White"
+                                 CornerRadius="2"
+                                 TextTransform="Uppercase"
+                                 BackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"/>
+            </primitives:RadShadow>
+            <primitives:RadShadow WidthRequest="56"
+                                  HeightRequest="56"
+                                  Style="{StaticResource BaseShadowStyle}"
+                                  CornerRadius="28"
+                                  HorizontalOptions="Center">
+                <input:RadButton Text="+"
+                                 FontSize="24"
+                                 Style="{StaticResource BaseButtonStyle}"
+                                 CornerRadius="28"
+                                 TextTransform="Uppercase"
+                                 BackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"/>
+            </primitives:RadShadow>
+            <StackLayout Orientation="Horizontal"
+                         Margin="70, 0"
+                         HorizontalOptions="Center">
+                <primitives:RadShadow Style="{StaticResource RoundedShadow}">
+                    <input:RadButton BackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"
+                                     Text="Fish"
+                                     Style="{StaticResource RoundedImageButton}">
+                        <input:RadButton.Image>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Button_Recipes_Fish.png" />
+                                    <On Platform="UWP" Value="Assets\Button_Recipes_Fish.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </input:RadButton.Image>
+                    </input:RadButton>
+                </primitives:RadShadow>
+                <primitives:RadShadow Style="{StaticResource RoundedShadow}"
+                                      Margin="8, 0, 0, 0">
+                    <input:RadButton BackgroundColor="{AppThemeBinding Light=#FFAC3E, Dark=#FFA726}"
+                                     Text="Chicken"
+                                     Style="{StaticResource RoundedImageButton}">
+                        <input:RadButton.Image>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Button_Recipes_Chicken.png" />
+                                    <On Platform="UWP" Value="Assets\Button_Recipes_Chicken.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </input:RadButton.Image>
+                    </input:RadButton>
+                </primitives:RadShadow>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Margin="40, 0"
+                         HorizontalOptions="Center">
+                <primitives:RadShadow Style="{StaticResource RoundedShadow}">
+                    <input:RadButton BackgroundColor="{AppThemeBinding Light=#FF6F00, Dark=#FF7043}"
+                                     Text="Pasta"
+                                     Style="{StaticResource RoundedImageButton}">
+                        <input:RadButton.Image>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Button_Recipes_Pasta.png" />
+                                    <On Platform="UWP" Value="Assets\Button_Recipes_Pasta.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </input:RadButton.Image>
+                    </input:RadButton>
+                </primitives:RadShadow>
+                <primitives:RadShadow Style="{StaticResource RoundedShadow}"
+                                      Margin="8, 0, 0, 0">
+                    <input:RadButton BackgroundColor="{AppThemeBinding Light=#F85446, Dark=#E53935}"
+                                     Text="Pork"
+                                     Style="{StaticResource RoundedImageButton}">
+                        <input:RadButton.Image>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Button_Recipes_Pork.png" />
+                                    <On Platform="UWP" Value="Assets\Button_Recipes_Pork.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </input:RadButton.Image>
+                    </input:RadButton>
+                </primitives:RadShadow>
+                <primitives:RadShadow Style="{StaticResource RoundedShadow}"
+                                      Margin="8, 0, 0, 0">
+                    <input:RadButton BackgroundColor="{AppThemeBinding Light=#56AF51, Dark=#66BB6A}"
+                                     Text="Beef"
+                                     Style="{StaticResource RoundedImageButton}">
+                        <input:RadButton.Image>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Button_Recipes_Beef.png" />
+                                    <On Platform="UWP" Value="Assets\Button_Recipes_Beef.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </input:RadButton.Image>
+                    </input:RadButton>
+                </primitives:RadShadow>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Margin="86, 0"
+                         HorizontalOptions="Center">
+                <primitives:RadShadow Style="{StaticResource RoundedBackgroundImageShadow}">
+                    <input:RadButton Text="Cakes"
+                                     Style="{StaticResource RoundedBackgroundImageButton}">
+                        <input:RadButton.BackgroundImage>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Button_Recipes_Cakes.png" />
+                                    <On Platform="UWP" Value="Assets\Button_Recipes_Cakes.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </input:RadButton.BackgroundImage>
+                    </input:RadButton>
+                </primitives:RadShadow>
+                <primitives:RadShadow Style="{StaticResource RoundedBackgroundImageShadow}"
+                                      Margin="8, 0, 0, 0">
+                    <input:RadButton Text="Fruits"
+                                     Style="{StaticResource RoundedBackgroundImageButton}">
+                        <input:RadButton.BackgroundImage>
+                            <OnPlatform x:TypeArguments="FileImageSource">
+                                <OnPlatform.Platforms>
+                                    <On Platform="iOS, Android" Value="Button_Recipes_Fruits.png" />
+                                    <On Platform="UWP" Value="Assets\Button_Recipes_Fruits.png" />
+                                </OnPlatform.Platforms>
+                            </OnPlatform>
+                        </input:RadButton.BackgroundImage>
+                    </input:RadButton>
+                </primitives:RadShadow>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

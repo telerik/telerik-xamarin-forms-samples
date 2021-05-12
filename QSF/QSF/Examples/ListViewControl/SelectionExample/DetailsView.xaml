@@ -4,8 +4,20 @@
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
-             x:Class="QSF.Examples.ListViewControl.SelectionExample.DetailsView"
-             BackgroundColor="White">
+             x:Class="QSF.Examples.ListViewControl.SelectionExample.DetailsView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="telerikInput:RadButton" x:Key="CommonButtonStyle">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+            </Style>
+            <Style TargetType="telerikInput:RadButton" BasedOn="{StaticResource CommonButtonStyle}" x:Key="IconsButtonStyle">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid Grid.ColumnSpacing="0"
           Grid.RowSpacing="0">
         <Grid Grid.ColumnSpacing="0"
@@ -23,33 +35,23 @@
             </Grid.RowDefinitions>
             <Grid Grid.ColumnSpacing="0"
                   Grid.RowSpacing="0"
-                  BackgroundColor="#5D4037"
+                  BackgroundColor="{AppThemeBinding Light=#DCDCDC, Dark=#1E1E1E}"
                   HorizontalOptions="FillAndExpand">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="72"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid HeightRequest="48"
-                      WidthRequest="48"
-                      Padding="16,0,0,0">
-                    <telerikInput:RadButton BackgroundColor="#5D4037"
-                                            BorderRadius="0"
+                      WidthRequest="48">
+                    <telerikInput:RadButton Style="{StaticResource CommonButtonStyle}"
+                                            Text="{StaticResource BackButtonIcon}"
+                                            TextColor="#0E88F2"
                                             Command="{Binding BackCommand}" 
                                             AutomationId="BackButton"/>
-                    <Image HorizontalOptions="Start"
-                           VerticalOptions="Center"
-                           InputTransparent="True">
-                        <Image.Source>
-                            <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="iOS,Android">Navigation_Back</On>
-                                <On Platform="UWP">Assets\Navigation_Back.png</On>
-                            </OnPlatform>
-                        </Image.Source>
-                    </Image>
                 </Grid>
                 <Grid Grid.ColumnSpacing="2"
                       Grid.RowSpacing="0"
-                      Padding="0,0,16,0"
+                      Padding="0,0,10,0"
                       Grid.Column="1"
                       HorizontalOptions="End"
                       VerticalOptions="Center">
@@ -59,76 +61,48 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.ColumnSpacing="0"
                           Grid.RowSpacing="0">
-                        <telerikInput:RadButton BackgroundColor="#5D4037"
-                                                HorizontalOptions="FillAndExpand"
-                                                VerticalOptions="FillAndExpand"
-                                                BorderRadius="0"
+                        <telerikInput:RadButton Style="{StaticResource IconsButtonStyle}"
+                                                Text="&#xE87E;"
+                                                TextColor="#FFAC3E"
                                                 Command="{Binding FavoriteCommand}"
                                                 AutomationId="TopFavoriteButton"/>
-                        <Image HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               InputTransparent="True">
-                            <Image.Source>
-                                <OnPlatform x:TypeArguments="ImageSource">
-                                    <On Platform="iOS,Android">ListView_Selection_Favorite</On>
-                                    <On Platform="UWP">Assets\ListView_Selection_Favorite.png</On>
-                                </OnPlatform>
-                            </Image.Source>
-                        </Image>
                     </Grid>
                     <Grid Grid.ColumnSpacing="0"
                           Grid.RowSpacing="0"
                           Grid.Column="1">
-                        <telerikInput:RadButton BackgroundColor="#5D4037"
-                                                HorizontalOptions="FillAndExpand"
-                                                VerticalOptions="FillAndExpand"
-                                                BorderRadius="0"
+                        <telerikInput:RadButton Style="{StaticResource IconsButtonStyle}"
+                                                Text="{StaticResource DeleteIcon}"
+                                                TextColor="#F85446"
                                                 Command="{Binding DeleteCommand}"
                                                 AutomationId="TopDeleteButton"/>
-                        <Image HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               InputTransparent="True">
-                            <Image.Source>
-                                <OnPlatform x:TypeArguments="ImageSource">
-                                    <On Platform="iOS,Android">ListView_Selection_Delete</On>
-                                    <On Platform="UWP">Assets\ListView_Selection_Delete.png</On>
-                                </OnPlatform>
-                            </Image.Source>
-                        </Image>
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="1">
-                <StackLayout StackLayout.Spacing="14"
-                             BackgroundColor="#E4D8D4">
-                    <StackLayout.Padding>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="iOS">40, 20, 20, 20</On>
-                            <On Platform="Android,UWP">16, 20, 16, 0</On>
-                        </OnPlatform>
-                    </StackLayout.Padding>
-                    <StackLayout Orientation="Horizontal">
-                        <Image HeightRequest="14"
-                               WidthRequest="14"
-                               IsVisible="{Binding SelectedItem.IsFavorite}">
-                            <Image.Source>
-                                <OnPlatform x:TypeArguments="ImageSource">
-                                    <On Platform="iOS,Android">ListView_Selection_Favorite1</On>
-                                    <On Platform="UWP">Assets\ListView_Selection_Favorite1.png</On>
-                                </OnPlatform>
-                            </Image.Source>
-                        </Image>
-                        <Label Text="{Binding SelectedItem.Title}"
-                               TextColor="#4D4745"
-                               FontSize="16"
-                               BackgroundColor="#E4D8D4"/>
-                    </StackLayout>
-                    <Label Text="{Binding SelectedItem.Content}"
-                           LineBreakMode="WordWrap"
-                           TextColor="#918986"
-                           FontSize="14"/>
+            <StackLayout Spacing="14" 
+                         Grid.Row="1"
+                         BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">20</On>
+                        <On Platform="Android,UWP">16, 20, 16, 0</On>
+                    </OnPlatform>
+                </StackLayout.Padding>
+                <StackLayout Orientation="Horizontal">
+                    <Label VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"
+                           FontSize="20"
+                           TextColor="#FFAC3E"
+                           IsVisible="{Binding SelectedItem.IsFavorite}"
+                           FontFamily="{StaticResource IconsFont}"
+                           Text="&#xE87E;"/>
+                    <Label Text="{Binding SelectedItem.Title}"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                           FontSize="Medium"/>
                 </StackLayout>
-            </Grid>
+                <Label Text="{Binding SelectedItem.Content}"
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                       LineBreakMode="WordWrap"/>
+            </StackLayout>
         </Grid>
     </Grid>
 </ContentPage>

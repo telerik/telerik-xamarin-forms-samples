@@ -1,134 +1,133 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:converters="clr-namespace:QSF.Converters"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
-             xmlns:local="clr-namespace:QSF.Examples.EntryControl.FirstLookExample"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="QSF.Examples.EntryControl.FirstLookExample.FirstLookView">
-    <ScrollView Orientation="Vertical" >
-        <Grid BackgroundColor="#26A6D1">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="telerikInput:RadEntry">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="WatermarkTextColor" Value="{AppThemeBinding Light=#8A000000, Dark=#8AFFFFFF}"/>
+                <Setter Property="HeightRequest">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS" Value="44"/>
+                        <On Platform="UWP" Value="-1"/>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="Padding">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android, UWP" Value="0, 10, 0, 10" />
+                        <On Platform="iOS" Value="10, 10, 0, 20" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <telerikInput:BorderStyle x:Key="EntryBorderStyle" 
+                                      BorderColor="{AppThemeBinding Light=#DFDFDF, Dark=#373737}">
+                <telerikInput:BorderStyle.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, UWP" Value="0"/>
+                        <On Platform="iOS" Value="10"/>
+                    </OnPlatform>
+                </telerikInput:BorderStyle.CornerRadius>
+                <telerikInput:BorderStyle.BorderThickness>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android, UWP" Value="0, 0, 0, 1"/>
+                        <On Platform="iOS" Value="1"/>
+                    </OnPlatform>
+                </telerikInput:BorderStyle.BorderThickness>
+            </telerikInput:BorderStyle>          
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView Orientation="Vertical">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackLayout Grid.Row="0" 
-                         BackgroundColor="{AppThemeBinding Light=#EFEFED, Dark=#121212}">
-                <Label Margin="0, 50, 0, 0" 
-                       Text="Subscribe To Our Newsletter." 
-                       FontSize="Title" 
-                       HorizontalTextAlignment="Center"
-                       TextColor="#D8403C" 
-                       HorizontalOptions="Center" />
-                <Label Margin="0, 0, 0, 50"
-                       Text="Sign up to receive our monthly newsletter."
-                       TextColor="{AppThemeBinding Light=#666868, Dark=Default}" 
-                       HorizontalOptions="Center" />
-            </StackLayout>
-            <StackLayout Grid.Row="1" 
-                         Margin="0, -20, 0, 0">
-                <Image HorizontalOptions="Center"
-                       Aspect="AspectFit"
-                       WidthRequest="130" 
-                       HeightRequest="130">
-                    <Image.Source>
-                        <OnPlatform x:TypeArguments="ImageSource">
-                            <On Platform="iOS,Android">Entry_Envelope.png</On>
-                            <On Platform="UWP">Assets\Entry_Envelope.png</On>
-                        </OnPlatform>
-                    </Image.Source>
-                </Image>
-            </StackLayout>
-            <StackLayout Grid.Row="1" Margin="0, 100, 0, 0">
+                         Orientation="Horizontal"
+                         Spacing="16"
+                         BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
+                <telerikPrimitives:RadBorder BackgroundColor="#FFBE69"
+                                             BorderColor="Transparent"
+                                             Margin="16, 25, 0, 25"
+                                             HeightRequest="40"
+                                             WidthRequest="40"
+                                             VerticalOptions="Center"
+                                             CornerRadius="25">
+                    <Label Text="{StaticResource AvatarIcon}" 
+                               FontSize="Large" 
+                               FontAttributes="None"
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center"
+                               VerticalTextAlignment="Center" 
+                               HorizontalTextAlignment="Center" 
+                               TextColor="#FFA726"
+                               FontFamily="{StaticResource IconsFont}"/>
+                </telerikPrimitives:RadBorder>
+                <StackLayout Margin="0, 25">
+                    <Label Text="Register" 
+                           FontSize="Title" 
+                           HorizontalTextAlignment="Start"
+                           TextColor="#0E88F2" 
+                           HorizontalOptions="Start" />
+                    <Label Text="Create an account"
+                           FontSize="Small"                           
+                           TextColor="{AppThemeBinding Light=#919191, Dark=Default}" 
+                           HorizontalOptions="Start" />
+                </StackLayout>
+            </StackLayout>         
+            <StackLayout Grid.Row="1">
                 <StackLayout Margin="20, 20, 20, 0">
-                    <Label Text="First Name:" 
-                           TextColor="White" />
-                    <telerikInput:RadEntry AutomationId="FirstNameEntry"
-                                           BackgroundColor="#26A6D1"
-                                           WatermarkText="Enter First Name"
-                                           TextColor="White">
-                        <telerikInput:RadEntry.HeightRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="Android, iOS" Value="40"/>
-                                <On Platform="UWP" Value="-1"/>
-                            </OnPlatform>
-                        </telerikInput:RadEntry.HeightRequest>
-                        <telerikInput:RadEntry.Padding>
-                            <OnPlatform x:TypeArguments="Thickness">
-                                <On Platform="Android, UWP" Value="10, 10, 0, 10" />
-                                <On Platform="iOS" Value="10, 10, 0, 20" />
-                            </OnPlatform>
-                        </telerikInput:RadEntry.Padding>
-                        <telerikInput:RadEntry.BorderStyle>
-                            <telerikInput:BorderStyle CornerRadius="0" 
-                                                      BorderColor="White"
-                                                      BorderThickness="1">
-                            </telerikInput:BorderStyle>
-                        </telerikInput:RadEntry.BorderStyle>
-                    </telerikInput:RadEntry>
+                    <Label Text="Name:"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    <telerikInput:RadEntry AutomationId="FirstNameEntry"                                         
+                                           WatermarkText="Enter name"
+                                           Style="{StaticResource EntryStyle}"                                          
+                                           BorderStyle="{StaticResource EntryBorderStyle}"/>
                 </StackLayout>
                 <StackLayout Margin="20, 20, 20, 0">
-                    <Label Text="Last Name:" 
-                           TextColor="White" />
-                    <telerikInput:RadEntry AutomationId="LastNameEntry" 
-                                           BackgroundColor="#26A6D1"
-                                           WatermarkText="Enter Last Name" 
-                                           TextColor="White">
-                        <telerikInput:RadEntry.HeightRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="Android, iOS" Value="40" />
-                                <On Platform="UWP" Value="-1" />
-                            </OnPlatform>
-                        </telerikInput:RadEntry.HeightRequest>
-                        <telerikInput:RadEntry.Padding>
-                            <OnPlatform x:TypeArguments="Thickness">
-                                <On Platform="Android, UWP" Value="10, 10, 0, 10" />
-                                <On Platform="iOS" Value="10, 10, 0, 20" />
-                            </OnPlatform>
-                        </telerikInput:RadEntry.Padding>
-                        <telerikInput:RadEntry.BorderStyle>
-                            <telerikInput:BorderStyle CornerRadius="0"
-                                                      BorderColor="White" 
-                                                      BorderThickness="1">
-                            </telerikInput:BorderStyle>
-                        </telerikInput:RadEntry.BorderStyle>
-                    </telerikInput:RadEntry>
+                    <Label Text="Username: (max 10 symbols)" 
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    <telerikInput:RadEntry AutomationId="UsernameEntry" 
+                                           WatermarkText="Enter Username" 
+                                           MaxLength="10"
+                                           Style="{StaticResource EntryStyle}"
+                                           BorderStyle="{StaticResource EntryBorderStyle}"/>               
                 </StackLayout>
                 <StackLayout Margin="20, 20, 20, 0">
-                    <Label Text="Email address:" TextColor="White" />
-                    <telerikInput:RadEntry AutomationId="EmailAddressEntry" 
-                                           BackgroundColor="#26A6D1"
+                    <Label Text="Email address:" 
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    <telerikInput:RadEntry AutomationId="EmailAddressEntry"                                            
                                            WatermarkText="Enter Email" 
-                                           TextColor="White" 
-                                           Keyboard="Email">
-                        <telerikInput:RadEntry.HeightRequest>
-                            <OnPlatform x:TypeArguments="x:Double">
-                                <On Platform="Android, iOS" Value="40" />
-                                <On Platform="UWP" Value="-1" />
-                            </OnPlatform>
-                        </telerikInput:RadEntry.HeightRequest>
-                        <telerikInput:RadEntry.Padding>
-                            <OnPlatform x:TypeArguments="Thickness">
-                                <On Platform="Android, UWP" Value="10, 10, 0, 10" />
-                                <On Platform="iOS" Value="10, 10, 0, 20" />
-                            </OnPlatform>
-                        </telerikInput:RadEntry.Padding>
-                        <telerikInput:RadEntry.BorderStyle>
-                            <telerikInput:BorderStyle CornerRadius="0"
-                                                      BorderColor="White" 
-                                                      BorderThickness="1">
-                            </telerikInput:BorderStyle>
-                        </telerikInput:RadEntry.BorderStyle>
-
-                    </telerikInput:RadEntry>
+                                           Style="{StaticResource EntryStyle}"
+                                           BorderStyle="{StaticResource EntryBorderStyle}"
+                                           Keyboard="Email"/>               
+                </StackLayout>
+                <StackLayout Margin="20, 20, 20, 0">
+                    <Label Text="Phone:" 
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    <telerikInput:RadEntry AutomationId="PhoneEntry"                                            
+                                           WatermarkText="Enter Phone" 
+                                           Style="{StaticResource EntryStyle}"
+                                           BorderStyle="{StaticResource EntryBorderStyle}"
+                                           Keyboard="Telephone"/>                   
+                </StackLayout>
+                <StackLayout Margin="20, 20, 20, 0">
+                    <Label Text="Password:" 
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    <telerikInput:RadEntry AutomationId="PasswordEntry"                                            
+                                           WatermarkText="Enter Password" 
+                                           Style="{StaticResource EntryStyle}"
+                                           BorderStyle="{StaticResource EntryBorderStyle}"
+                                           IsPassword="True"/>
                 </StackLayout>
                 <StackLayout Margin="20, 20, 20, 20">
-                    <telerikInput:RadButton Text="SUBSCRIBE"
-                                            BackgroundColor="#E2574C"
-                                            FontSize="20"
-                                            TextColor="{AppThemeBinding Light=White, Dark=Black}"
-                                            FontAttributes="Bold"
-                                            BorderThickness="2" 
-                                            BorderColor="#E2574C" />
+                    <telerikInput:RadButton Text="REGISTER"
+                                            BackgroundColor="#0E88F2"
+                                            FontSize="Small"
+                                            TextColor="White"/>
                 </StackLayout>
             </StackLayout>
         </Grid>

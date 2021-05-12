@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BadgeViewControl.IntegrationExample.ButtonsIntegrationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DeafultButtonStyle" TargetType="telerikInput:RadButton">
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="DeafultImageTextButtonStyle" TargetType="telerikInput:RadButton">
+                <Setter Property="HeightRequest" Value="34" />
+                <Setter Property="CornerRadius" Value="17" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness" Default="0">
+                            <On Platform="Android" Value="15, 0, 0, 0" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style BasedOn="{StaticResource DeafultImageTextButtonStyle}" x:Key="SecondImageTextButtonStyle" 
+                   TargetType="telerikInput:RadButton">
+                <Setter Property="Padding" Value="10, 0, 10, 0"/>
+            </Style>
+            <Style x:Key="DeafultImageButtonStyle" TargetType="telerikInput:RadButton">
+                <Setter Property="WidthRequest" Value="87" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="DotBadgeStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="BadgeType" Value="Dot" />
+                <Setter Property="Margin" Value="0, 40, 0, 0" />
+            </Style>
+            <Style x:Key="TextBadgeStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="Margin" Value="0, 40, 0, 0" />
+                <Setter Property="BadgeOffsetX" Value="-8" />
+            </Style>
+            <Style x:Key="DeafultImageButtonBadgeStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="BadgeTextMargin" Value="7, 0" />
+                <Setter Property="BadgeOffsetY" Value="-10"/>
+                <Setter Property="BadgeOffsetX" Value="-3"/>
+                <Setter Property="BadgeVerticalPosition" Value="End"/>
+                <Setter Property="BadgeFontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="Margin" Value="0, 40, 0, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <StackLayout>
+            <telerikPrimitives:RadBadgeView HorizontalOptions="Center"
+                                        Style="{StaticResource DotBadgeStyle}">
+                <telerikPrimitives:RadBadgeView.Content>
+                    <Button Text="Button"
+                        WidthRequest="92"
+                        CornerRadius="20" 
+                        Style="{StaticResource DeafultButtonStyle}" />
+                </telerikPrimitives:RadBadgeView.Content>
+            </telerikPrimitives:RadBadgeView>
+            <telerikPrimitives:RadBadgeView BadgeBackgroundColor="#FFAC3E"
+                                        BadgeHorizontalAlignment="Start"
+                                        BadgeVerticalAlignment="End"
+                                        HorizontalOptions="Center"
+                                        Style="{StaticResource DotBadgeStyle}">
+                <telerikPrimitives:RadBadgeView.Content>
+                    <Button Text="Button"
+                        WidthRequest="103"
+                        Style="{StaticResource DeafultButtonStyle}" />
+                </telerikPrimitives:RadBadgeView.Content>
+            </telerikPrimitives:RadBadgeView>
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center">
+                <telerikPrimitives:RadBadgeView Style="{StaticResource DotBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikInput:RadButton Text="Chicken"
+                                            BackgroundColor="{AppThemeBinding Light=#FFAC3E, Dark=#FFA726}"
+                                            WidthRequest="130"
+                                            Style="{StaticResource DeafultImageTextButtonStyle}">
+                            <telerikInput:RadButton.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Button_Recipes_Chicken.png" />
+                                        <On Platform="UWP" Value="Assets\Button_Recipes_Chicken.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </telerikInput:RadButton.Image>
+                        </telerikInput:RadButton>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+                <telerikPrimitives:RadBadgeView Style="{StaticResource DotBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikInput:RadButton Text="Fish"
+                                            BackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"
+                                            WidthRequest="98"
+                                            Style="{StaticResource DeafultImageTextButtonStyle}">
+                            <telerikInput:RadButton.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Button_Recipes_Fish.png" />
+                                        <On Platform="UWP" Value="Assets\Button_Recipes_Fish.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </telerikInput:RadButton.Image>
+                        </telerikInput:RadButton>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center">
+                <telerikPrimitives:RadBadgeView BadgeText="12"
+                                            BadgeBackgroundColor="{AppThemeBinding Light=#56AF51, Dark=#66BB6A}"
+                                            Style="{StaticResource TextBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikInput:RadButton Text="Pasta"
+                                            BackgroundColor="{AppThemeBinding Light=#FF6F00, Dark=#FF7043}"
+                                            Style="{StaticResource SecondImageTextButtonStyle}">
+                            <telerikInput:RadButton.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Button_Recipes_Pasta.png" />
+                                        <On Platform="UWP" Value="Assets\Button_Recipes_Pasta.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </telerikInput:RadButton.Image>
+                        </telerikInput:RadButton>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+                <telerikPrimitives:RadBadgeView BadgeText="23"
+                                            BadgeBackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"
+                                            Style="{StaticResource TextBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikInput:RadButton Text="Pork"
+                                            BackgroundColor="{AppThemeBinding Light=#F85446, Dark=#E53935}"
+                                            Style="{StaticResource SecondImageTextButtonStyle}">
+                            <telerikInput:RadButton.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Button_Recipes_Pork.png" />
+                                        <On Platform="UWP" Value="Assets\Button_Recipes_Pork.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </telerikInput:RadButton.Image>
+                        </telerikInput:RadButton>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+                <telerikPrimitives:RadBadgeView BadgeText="1"
+                                            BadgeBackgroundColor="{AppThemeBinding Light=#FF6F00, Dark=#FF7043}"
+                                            Style="{StaticResource TextBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikInput:RadButton Text="Beef"
+                                            BackgroundColor="{AppThemeBinding Light=#56AF51, Dark=#66BB6A}"
+                                            Style="{StaticResource SecondImageTextButtonStyle}">
+                            <telerikInput:RadButton.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Button_Recipes_Beef.png" />
+                                        <On Platform="UWP" Value="Assets\Button_Recipes_Beef.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </telerikInput:RadButton.Image>
+                        </telerikInput:RadButton>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center">
+                <telerikPrimitives:RadBadgeView BadgeText="&#xE87E; 39"
+                                            BadgeBackgroundColor="{AppThemeBinding Light=#F85446, Dark=#E53935}"
+                                            Style="{StaticResource DeafultImageButtonBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikInput:RadButton Text="Cakes"
+                                            Style="{StaticResource DeafultImageButtonStyle}">
+                            <telerikInput:RadButton.BackgroundImage>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Button_Recipes_Cakes.png" />
+                                        <On Platform="UWP" Value="Assets\Button_Recipes_Cakes.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </telerikInput:RadButton.BackgroundImage>
+                        </telerikInput:RadButton>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+                <telerikPrimitives:RadBadgeView BadgeText="New!"
+                                            BadgeBackgroundColor="{AppThemeBinding Light=#FF6F00, Dark=#FF7043}"
+                                            Style="{StaticResource DeafultImageButtonBadgeStyle}">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <telerikInput:RadButton Text="Fruits"
+                                            Style="{StaticResource DeafultImageButtonStyle}">
+                            <telerikInput:RadButton.BackgroundImage>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <OnPlatform.Platforms>
+                                        <On Platform="iOS, Android" Value="Button_Recipes_Fruits.png" />
+                                        <On Platform="UWP" Value="Assets\Button_Recipes_Fruits.png" />
+                                    </OnPlatform.Platforms>
+                                </OnPlatform>
+                            </telerikInput:RadButton.BackgroundImage>
+                        </telerikInput:RadButton>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

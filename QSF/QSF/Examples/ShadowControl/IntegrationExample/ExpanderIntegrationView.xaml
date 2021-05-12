@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    x:Class="QSF.Examples.ShadowControl.IntegrationExample.ExpanderIntegrationView"
+    BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PinkColor">#F85880</Color>
+            <Color x:Key="DarkOrangeColor">#F07D34</Color>
+            <Color x:Key="OrangeColor">#F7A546</Color>
+            <Style x:Key="ExpanderHeaderLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <Style x:Key="RoundBorderStyle" TargetType="primitives:RadBorder">
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="CornerRadius" Value="35" />
+                <Setter Property="Margin" Value="0, 0, 17, 0" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ExampleIconLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="40" />
+                <Setter Property="Margin" Value="-15, 0, 0, 0" />
+            </Style>
+            <Style x:Key="TransactionInfoLabelStyle" TargetType="Label" BasedOn="{StaticResource BodyLabelStyle}">
+                <Setter Property="TextColor" Value="#B0AFB1" />
+            </Style>
+            <Style x:Key="TransactionCostLabelStyle" TargetType="Label" BasedOn="{StaticResource HeaderLabelStyle}">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="SeparatorBorderStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="2" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#E7E7EA, Dark=#373737}" />
+                <Setter Property="Margin" Value="0, 10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <StackLayout Padding="16, 40, 16, 0">
+        <primitives:RadShadow OffsetY="3"
+                              ShadowOpacity="0.15">
+            <primitives:RadShadow.BlurRadius>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <OnPlatform.Platforms>
+                        <On Platform="iOS" Value="2.5" />
+                        <On Platform="Android" Value="4" />
+                        <On Platform="UWP" Value="6" />
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </primitives:RadShadow.BlurRadius>
+            <primitives:RadExpander BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}"
+                                    IsExpanded="True">
+                <primitives:RadExpander.Header>
+                    <primitives:ExpanderHeader HeightRequest="44">
+                        <Label Text="Transactions" Style="{StaticResource ExpanderHeaderLabelStyle}" />
+                    </primitives:ExpanderHeader>
+                </primitives:RadExpander.Header>
+                <primitives:RadExpander.Content>
+                    <StackLayout Margin="20">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource PinkColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource CarIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+                            <Label Text="Uber" Style="{StaticResource HeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 06, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+                            <Label Text="-$23" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource DarkOrangeColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource ShoppingBagIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+                            <Label Text="Shopping" Style="{StaticResource HeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 06, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+                            <Label Text="-$12" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <primitives:RadBorder Style="{StaticResource RoundBorderStyle}" BackgroundColor="{StaticResource OrangeColor}" Grid.RowSpan="2" />
+                            <Label Text="{StaticResource CoffeCupIcon}" Style="{StaticResource ExampleIconLabelStyle}" Grid.RowSpan="2"/>
+                            <Label Text="Dinner" Style="{StaticResource HeaderLabelStyle}" Grid.Column="1" />
+                            <Label Text="June 05, 2018" Style="{StaticResource TransactionInfoLabelStyle}" Grid.Column="1" Grid.Row="1" />
+                            <Label Text="-$120" Style="{StaticResource TransactionCostLabelStyle}" Grid.Column="2" Grid.RowSpan="2" />
+                        </Grid>
+                        <BoxView Style="{StaticResource SeparatorBorderStyle}" />
+                    </StackLayout>
+                </primitives:RadExpander.Content>
+            </primitives:RadExpander>
+        </primitives:RadShadow>
+
+    </StackLayout>
+</ContentView>

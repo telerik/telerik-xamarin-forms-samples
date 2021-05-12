@@ -45,6 +45,7 @@
                                      Command="{TemplateBinding Path=LeftButtonCommand}"
                                      IsVisible="{TemplateBinding Path=IsLeftButtonVisible}"
                                      IsEnabled="{TemplateBinding Path=IsLeftButtonEnabled}"
+                                     FontSize="{TemplateBinding Path=LeftButtonFontSize, Mode=TwoWay}"
                                      Style="{StaticResource Key=AppBarButtonStyle}"
                                      AutomationId="AppBarLeftButton"
                                      HorizontalOptions="Start">

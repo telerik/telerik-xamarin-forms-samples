@@ -5,6 +5,9 @@
              xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Examples.DataFormControl.ThemingExample.ThemingView"
              BackgroundColor="{AppThemeBinding Light=White, Dark=Orange}">
+    <ContentView.BindingContext>
+        <local:ThemingDataFormSource />
+    </ContentView.BindingContext>
     <ContentView.BackgroundColor>
         <AppThemeBinding Light="White">
             <AppThemeBinding.Dark>
@@ -16,9 +19,6 @@
             </AppThemeBinding.Dark>
         </AppThemeBinding>
     </ContentView.BackgroundColor>
-    <ContentView.BindingContext>
-        <local:ThemingExampleViewModel />
-    </ContentView.BindingContext>
 
     <ScrollView>
         <local:ThemingDataForm x:Name="dataForm"

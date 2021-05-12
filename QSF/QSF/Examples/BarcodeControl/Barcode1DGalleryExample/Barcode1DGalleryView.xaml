@@ -322,7 +322,71 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
+                <barcode:RadBarcode Value="ASCII characters">
+                    <barcode:RadBarcode.Symbology>
+                        <barcode:Code39Extended SizingMode="Stretch" ShowText="True" HorizontalTextAlignment="Center" />
+                    </barcode:RadBarcode.Symbology>
+                </barcode:RadBarcode>
+
+                <Grid Grid.Column="1" VerticalOptions="Start" RowSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Code39Extended" Grid.ColumnSpan="2" Style="{StaticResource BarcodeHeaderStyle}" />
+
+                    <Label Text="{StaticResource AUmlautIcon}" Grid.Row="1" Style="{StaticResource IconHeaderStyle}" />
+                    <Label Text="All 128 ASCII characters" Grid.Row="1" Grid.Column="1" Style="{StaticResource BarcodeBodyLabelStyle}" />
+
+                    <Label Text="{StaticResource RulerIcon}" Grid.Row="2" Style="{StaticResource IconHeaderStyle}" />
+                    <Label Text="Variable (no fixed lenght)" Grid.Row="2" Grid.Column="1" Style="{StaticResource BarcodeBodyLabelStyle}" />
+                </Grid>
+            </Grid>
+
+            <Grid Style="{StaticResource Container}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
                 <barcode:RadBarcode Value="0123456789">
+                    <barcode:RadBarcode.Symbology>
+                        <barcode:Code93 SizingMode="Stretch" ShowText="True" HorizontalTextAlignment="Center" />
+                    </barcode:RadBarcode.Symbology>
+                </barcode:RadBarcode>
+
+                <Grid Grid.Column="1" VerticalOptions="Start" RowSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Code93" Grid.ColumnSpan="2" Style="{StaticResource BarcodeHeaderStyle}" />
+
+                    <Label Text="{StaticResource AUmlautIcon}" Grid.Row="1" Style="{StaticResource IconHeaderStyle}" />
+                    <Label Text="Upper latin letters, numbers, some special chars" Grid.Row="1" Grid.Column="1" Style="{StaticResource BarcodeBodyLabelStyle}" />
+
+                    <Label Text="{StaticResource RulerIcon}" Grid.Row="2" Style="{StaticResource IconHeaderStyle}" />
+                    <Label Text="Variable (no fixed lenght)" Grid.Row="2" Grid.Column="1" Style="{StaticResource BarcodeBodyLabelStyle}" />
+                </Grid>
+            </Grid>
+
+            <Grid Style="{StaticResource Container}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <barcode:RadBarcode Value="ASCII characters">
                     <barcode:RadBarcode.Symbology>
                         <barcode:Code93Extended SizingMode="Stretch" ShowText="True" HorizontalTextAlignment="Center" />
                     </barcode:RadBarcode.Symbology>

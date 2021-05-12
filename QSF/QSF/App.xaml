@@ -59,7 +59,7 @@
             <x:String x:Key="BackButtonIcon">&#xE80E;</x:String>
             <x:String x:Key="InfoButtonIcon">&#xE815;</x:String>
             <x:String x:Key="ContextMenuButtonIcon">&#xE807;</x:String>
-            <x:String x:Key="BurgerButtonIcon">&#xF008;</x:String>
+            <x:String x:Key="BurgerButtonIcon">&#xE808;</x:String>
             <x:String x:Key="SearchButtonIcon">&#xE810;</x:String>
             <x:String x:Key="HyperlinkButtonIcon">&#xF08E;</x:String>
             <x:String x:Key="TickIcon">&#xE809;</x:String>
@@ -121,10 +121,15 @@
             <x:String x:Key="CropCircleIcon">&#xE86E;</x:String>
             <x:String x:Key="ExternalLinkIcon">&#xF08E;</x:String>
             <x:String x:Key="CheckIcon">&#xe876;</x:String>
+            <x:String x:Key="XIcon">&#xe877;</x:String>
+            <x:String x:Key="ClockIcon">&#xE878;</x:String>
             <x:String x:Key="OpenIcon">&#xe829;</x:String>
             <x:String x:Key="SaveIcon">&#xe87B;</x:String>
             <x:String x:Key="ShareIcon">&#xe87C;</x:String>
-
+            <x:String x:Key="PaintBucketIcon">&#xe880;</x:String>
+            <x:String x:Key="NotesIcon">&#xE870;</x:String>
+            <x:String x:Key="ReorderIcon">&#xE881;</x:String>
+            
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">telerikfontexamples</On>
                 <On Platform="Android">Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
@@ -224,6 +229,7 @@
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
                 <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextTransform" Value="None"/>
             </Style>
 
             <Style TargetType="Grid" ApplyToDerivedTypes="True">
@@ -278,33 +284,17 @@
                             <StackLayout Spacing="10" Padding="10" VerticalOptions="Center">
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Example information" FontSize="13"
                                                     IsVisible="{TemplateBinding Path=BindingContext.HasConfiguration}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToInfoCommand}" HorizontalOptions="Fill">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToInfoCommand}" HorizontalOptions="Fill"/>
 
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Change Theme" FontSize="13"
                                                     IsVisible="{TemplateBinding Path=BindingContext.CanChangeTheme}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToThemesCommand}" HorizontalOptions="Fill">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToThemesCommand}" HorizontalOptions="Fill"/>
 
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="View Code" IsVisible="{TemplateBinding Path=BindingContext.HasCode}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToCodeCommand}" HorizontalOptions="Fill" FontSize="13">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToCodeCommand}" HorizontalOptions="Fill" FontSize="13"/>
 
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Documentation" IsVisible="{TemplateBinding Path=BindingContext.HasDocumentation}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToDocumentationCommand}" HorizontalOptions="Fill" FontSize="13">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToDocumentationCommand}" HorizontalOptions="Fill" FontSize="13"/>
                             </StackLayout>
                         </Grid>
                     </primitives:RadSideDrawer.DrawerContent>

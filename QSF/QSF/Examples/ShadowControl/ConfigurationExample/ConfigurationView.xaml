@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    x:Class="QSF.Examples.ShadowControl.ConfigurationExample.ConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="HeaderLabelStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"/>
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+            <Style TargetType="Slider" x:Key="SliderStyle">
+                <Setter Property="ThumbColor" Value="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"/>
+                <Setter Property="MinimumTrackColor" Value="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"/>
+                <Setter Property="MaximumTrackColor" Value="{AppThemeBinding Light=#290E88F2, Dark=#2942A5F5}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid ColumnSpacing="0"
+          RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}">
+            <telerikPrimitives:RadShadow HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Color="{Binding Color}"
+                                         ShadowOpacity="{Binding ShadowOpacity}"
+                                         OffsetX="{Binding OffsetX}"
+                                         OffsetY="{Binding OffsetY}"
+                                         BlurRadius="{Binding BlurRadius}"
+                                         CornerRadius="{Binding CornerRadius}">
+                <telerikPrimitives:RadShadow.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color" Default="Default">
+                        <On Platform="UWP" Value="#F8F8F8"/>
+                    </OnPlatform>
+                </telerikPrimitives:RadShadow.BackgroundColor>
+                <telerikInput:RadButton Text="Button"
+                                        TextColor="White"
+                                        TextTransform="None"
+                                        BackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"
+                                        HeightRequest="40"
+                                        Padding="24, 0"
+                                        CornerRadius="{Binding CornerRadius}"/>
+            </telerikPrimitives:RadShadow>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <StackLayout Spacing="40"
+                         Margin="16, 18">
+                <Label Text="Shadow Color:"
+                       Style="{StaticResource HeaderLabelStyle}"/>
+                <telerikInput:RadComboBox SelectedItem="{Binding Color, Mode=TwoWay}"
+                                          IsClearButtonVisible="False">
+                    <telerikInput:RadComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Black</x:String>
+                            <x:String>Blue</x:String>
+                            <x:String>Yellow</x:String>
+                            <x:String>Pink</x:String>
+                            <x:String>Orange</x:String>
+                        </x:Array>
+                    </telerikInput:RadComboBox.ItemsSource>
+                    <telerikInput:RadComboBox.DropDownHeight>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">216</On>
+                            <On Platform="UWP">156</On>
+                            <On Platform="Android">225</On>
+                        </OnPlatform>
+                    </telerikInput:RadComboBox.DropDownHeight>
+                    <telerikInput:RadComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <telerikPrimitives:RadBorder BorderColor="{AppThemeBinding Light=#ECECEC, Dark=#373737}"
+                                                         BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
+                                <telerikPrimitives:RadBorder.BorderThickness>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="iOS, Android">0, 0, 0, 1</On>
+                                        <On Platform="UWP">0</On>
+                                    </OnPlatform>
+                                </telerikPrimitives:RadBorder.BorderThickness>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="iOS, Android">10, 12, 0, 13</On>
+                                            <On Platform="Android">8, 13, 0, 1</On>
+                                            <On Platform="UWP">10, 6, 0, 6</On>
+                                        </OnPlatform>
+                                    </StackLayout.Padding>
+                                    <telerikPrimitives:RadBorder BackgroundColor="{Binding .}"
+                                                                 HorizontalOptions="Center"
+                                                                 VerticalOptions="Center"
+                                                                 HeightRequest="14"
+                                                                 WidthRequest="14"
+                                                                 CornerRadius="7"
+                                                                 Margin="0, 0, 14, 0"/>
+                                    <Label Text="{Binding .}"
+                                           FontSize="14"
+                                           VerticalTextAlignment="Center"
+                                           VerticalOptions="Center"
+                                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                                </StackLayout>
+                            </telerikPrimitives:RadBorder>
+
+                        </DataTemplate>
+                    </telerikInput:RadComboBox.ItemTemplate>
+                    <telerikInput:RadComboBox.SelectedItemTemplate>
+                        <DataTemplate>
+                            <telerikPrimitives:RadBorder BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#686869}">
+                                <telerikPrimitives:RadBorder.BorderThickness>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="iOS, Android">0, 0, 0, 1</On>
+                                        <On Platform="UWP">0</On>
+                                    </OnPlatform>
+                                </telerikPrimitives:RadBorder.BorderThickness>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="iOS, Android">10, 12, 0, 13</On>
+                                            <On Platform="Android">8, 13, 0, 1</On>
+                                            <On Platform="UWP">10, 6, 0, 6</On>
+                                        </OnPlatform>
+                                    </StackLayout.Padding>
+                                    <telerikPrimitives:RadBorder VerticalOptions="Center"
+                                                                 HorizontalOptions="Center"
+                                                                 Margin="0, 0, 10, 0"
+                                                                 HeightRequest="18" 
+                                                                 WidthRequest="18"
+                                                                 CornerRadius="9"
+                                                                 BorderThickness="1"
+                                                                 BackgroundColor="Transparent"
+                                                                 BorderColor="{Binding .}">
+                                        <telerikPrimitives:RadBorder VerticalOptions="Center"
+                                                                     HorizontalOptions="Center"
+                                                                     HeightRequest="14"
+                                                                     WidthRequest="14"
+                                                                     CornerRadius="7"
+                                                                     BackgroundColor="{Binding .}"/>
+                                    </telerikPrimitives:RadBorder>
+                                    <Label Text="{Binding .}"
+                                           FontSize="14"
+                                           VerticalTextAlignment="Center"
+                                           VerticalOptions="Center"
+                                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                                </StackLayout>
+                            </telerikPrimitives:RadBorder>
+                        </DataTemplate>
+                    </telerikInput:RadComboBox.SelectedItemTemplate>
+                </telerikInput:RadComboBox>
+                <Label Text="Shadow Transparency:"
+                       Style="{StaticResource HeaderLabelStyle}"/>
+                <Slider Style="{StaticResource SliderStyle}"
+                        Minimum="0"
+                        Maximum="1"
+                        Value="{Binding ShadowOpacity, Mode=TwoWay}"/>
+                <Label Text="X offset:"
+                       Style="{StaticResource HeaderLabelStyle}"/>
+                <Slider Style="{StaticResource SliderStyle}"
+                        Value="{Binding OffsetX, Mode=TwoWay}"
+                        Minimum="-30"
+                        Maximum="30"/>
+                <Label Text="Y offset:"
+                       Style="{StaticResource HeaderLabelStyle}"/>
+                <Slider Style="{StaticResource SliderStyle}"
+                        Value="{Binding OffsetY, Mode=TwoWay}"
+                        Minimum="-30"
+                        Maximum="30"/>
+                <Label Text="Blur Radius:"
+                       Style="{StaticResource HeaderLabelStyle}"/>
+                <Slider Style="{StaticResource SliderStyle}"
+                        Value="{Binding BlurRadius, Mode=TwoWay}"
+                        Minimum="0"
+                        Maximum="20"/>
+                <Label Text="Corner Radius:"
+                       Style="{StaticResource HeaderLabelStyle}"/>
+                <Slider Style="{StaticResource SliderStyle}"
+                        Value="{Binding CornerRadius, Mode=TwoWay}"
+                        Minimum="0"
+                        Maximum="20"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentView>

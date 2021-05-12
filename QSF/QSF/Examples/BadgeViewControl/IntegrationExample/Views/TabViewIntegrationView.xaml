@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:integrationexample="clr-namespace:QSF.Examples.BadgeViewControl.IntegrationExample"
+             x:Class="QSF.Examples.BadgeViewControl.IntegrationExample.TabViewIntegrationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DefaultTabViewHeaderItem" TargetType="telerikPrimitives:TabViewHeaderItem">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=#F8F8F8}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=#4A4E52}" />
+                <Setter Property="WidthRequest" Value="100" />
+            </Style>
+            <Style x:Key="DefaultBadgeViewStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="100">
+                </Setter>
+            </Style>
+            <Style x:Key="ContentTitleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="ContentLabelStyle" TargetType="Label">
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.BindingContext>
+        <integrationexample:TabViewIntegrationViewModel />
+    </ContentView.BindingContext>
+    <telerikPrimitives:RadTabView Margin="0, 40, 0, 0">
+        <telerikPrimitives:RadTabView.Header>
+            <telerikPrimitives:TabViewHeader ItemSpacing="0"
+                                             BackgroundColor="#F8F8F8" />
+        </telerikPrimitives:RadTabView.Header>
+        <telerikPrimitives:RadTabView.Items>
+            <telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewHeaderItem Style="{StaticResource DefaultTabViewHeaderItem}">
+                        <telerikPrimitives:RadBadgeView BadgeText="1"
+                                                        Style="{StaticResource DefaultBadgeViewStyle}">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="Breakfast" HorizontalOptions="Center" />
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:TabViewHeaderItem>
+                </telerikPrimitives:TabViewItem.Header>
+                <telerikPrimitives:TabViewItem.Content>
+                    <StackLayout Margin="16, 24, 0, 0">
+                        <Label Text="Breakfast" Style="{StaticResource ContentTitleLabelStyle}"/>
+                        <Label Text="{Binding BreakfastText}"
+                               Style="{StaticResource ContentLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:TabViewItem.Content>
+            </telerikPrimitives:TabViewItem>
+            <telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewHeaderItem Style="{StaticResource DefaultTabViewHeaderItem}">
+                        <telerikPrimitives:RadBadgeView BadgeText="99+"
+                                                        Style="{StaticResource DefaultBadgeViewStyle}">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="Main" HorizontalOptions="Center"/>
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:TabViewHeaderItem>
+                </telerikPrimitives:TabViewItem.Header>
+                <telerikPrimitives:TabViewItem.Content>
+                    <StackLayout Margin="16, 24, 0, 0">
+                        <Label Text="Main" Style="{StaticResource ContentTitleLabelStyle}"/>
+                        <Label Text="{Binding MainText}"
+                               Style="{StaticResource ContentLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:TabViewItem.Content>
+            </telerikPrimitives:TabViewItem>
+            <telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem.Header>
+                    <telerikPrimitives:TabViewHeaderItem Style="{StaticResource DefaultTabViewHeaderItem}">
+                        <telerikPrimitives:RadBadgeView BadgeText="3" Style="{StaticResource DefaultBadgeViewStyle}" BadgeVisibility="Hidden">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Label Text="Drinks" HorizontalOptions="Center"/>
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                    </telerikPrimitives:TabViewHeaderItem>
+                </telerikPrimitives:TabViewItem.Header>
+                <telerikPrimitives:TabViewItem.Content>
+                    <StackLayout Margin="16, 24, 16, 0">
+                        <Label Text="Drinks" Style="{StaticResource ContentTitleLabelStyle}"/>
+                        <Label Text="{Binding DrinksText}"
+                               Style="{StaticResource ContentLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:TabViewItem.Content>
+            </telerikPrimitives:TabViewItem>
+        </telerikPrimitives:RadTabView.Items>
+    </telerikPrimitives:RadTabView>
+</ContentView>

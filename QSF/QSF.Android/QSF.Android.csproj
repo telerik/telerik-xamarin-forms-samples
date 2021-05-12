@@ -182,7 +182,6 @@
     <Compile Include="Effects\EditorRemoveBorderEffect.cs" />
     <Compile Include="Effects\SearchBarIconColorEffect.cs" />
     <Compile Include="Effects\ListViewSizeToContentEffect.cs" />
-    <Compile Include="Effects\NoAllCapsButtonEffect.cs" />
     <Compile Include="Effects\PickerEffect.cs" />
     <Compile Include="Effects\SideDrawerTouchTargetEffect.cs" />
     <Compile Include="Effects\SliderColorEffect.cs" />
@@ -220,10 +219,6 @@
     <AndroidResource Include="Resources\layout\Custom_Group_Layout.axml" />
     <AndroidResource Include="Resources\layout\Editor_Main_Layout_1.axml" />
     <AndroidResource Include="Resources\layout\Editor_Main_Layout_2.axml" />
-    <AndroidResource Include="Resources\drawable\Entry_Envelope.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Entry_Envelope.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Entry_Envelope.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Entry_Envelope.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_SalesPerson_1.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_SalesPerson_2.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_SalesPerson_3.png" />
@@ -824,14 +819,6 @@
     <AndroidResource Include="Resources\drawable\Sandwich2.png" />
     <AndroidResource Include="Resources\drawable\ListView_LinearLayout.png" />
     <AndroidResource Include="Resources\drawable\ListView_GridLayout.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Reorder_Done.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Reorder_Done.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Reorder_Done.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Reorder_Done.png" />
     <AndroidResource Include="Resources\drawable\ListView_Selection_Reorder.png" />
     <AndroidResource Include="Resources\drawable\ListView_Selection_Favorite.png" />
     <AndroidResource Include="Resources\drawable\ListView_Selection_Favorite1.png" />
@@ -1478,6 +1465,102 @@
       </Generator>
     </AndroidResource>
     <Compile Include="Services\ApplicationState\ApplicationStateService.cs" />
+    <AndroidResource Include="Resources\drawable\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter">
@@ -1514,7 +1597,7 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1269</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.1.41</Version>
@@ -1550,6 +1633,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\TelerikXamarin_Logo_DarkMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Person_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\Person_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\Person_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Person_9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

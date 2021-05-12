@@ -4,64 +4,45 @@
              xmlns:converters="clr-namespace:QSF.Converters"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="QSF.Examples.ListViewControl.ReorderExample.ReorderView">
     <ContentView.Resources>
         <ResourceDictionary>
             <converters:BoolToTextDecorationsConverter x:Key="TextDecorationsConverter" />
             <Color x:Key="MainBackgroundColorLight">White</Color>
-            <Color x:Key="MainBackgroundColorDark">Black</Color>
-            <Color x:Key="ItemBorderColorLight">White</Color>
-            <Color x:Key="ItemBorderColorDark">Black</Color>
+            <Color x:Key="MainBackgroundColorDark">#121212</Color>
+            <Color x:Key="ItemBorderColorLight">#DFDFDF</Color>
+            <Color x:Key="ItemBorderColorDark">#373737</Color>
         </ResourceDictionary>
     </ContentView.Resources>
     <Grid BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
         <Grid Grid.RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition>
-                    <RowDefinition.Height>
-                        <OnPlatform x:TypeArguments="GridLength">
-                            <On Platform="iOS">44</On>
-                            <On Platform="Android,UWP">56</On>
-                        </OnPlatform>
-                    </RowDefinition.Height>
-                </RowDefinition>
+                <RowDefinition Height="90"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid BackgroundColor="#F3C7B9">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="16"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label x:Name="exampleLabel"
-                       Grid.Column="1"
-                       HorizontalOptions="Start"
-                       VerticalOptions="Center"
-                       TextColor="#362F2D"
-                       AutomationId="exampleLabel">
-                    <Label.Text>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS">To Do List</On>
-                            <On Platform="Android,UWP">TO DO LIST</On>
-                        </OnPlatform>
-                    </Label.Text>
-                    <Label.FontSize>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="iOS,UWP">14</On>
-                            <On Platform="Android">16</On>
-                        </OnPlatform>
-                    </Label.FontSize>
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS">Helvetica-Bold</On>
-                            <On Platform="Android">sans-serif-medium</On>
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-            </Grid>
+            <StackLayout BackgroundColor="{AppThemeBinding Light=#f8f8f8, Dark=Black}"
+                         Spacing="10"
+                         Orientation="Horizontal">
+                <telerikPrimitives:RadBorder Margin="20,0,0,0"
+                                             VerticalOptions="Center"
+                                             CornerRadius="40"
+                                             BorderThickness="0">
+                    <Image Source="Border_Person_3.png" 
+                           WidthRequest="44"
+                           HeightRequest="44"/>
+                </telerikPrimitives:RadBorder>
+                <Label Text="Your To Do List:" 
+                           FontSize="Large"
+                           FontAttributes="None"
+                           Grid.Column="1" 
+                           TextColor="#0E88F2"
+                           VerticalOptions="Center"/>
+            </StackLayout>
             <telerikDataControls:RadListView x:Name="list"
                                              ItemsSource="{Binding Items}"
                                              Grid.Row="1"
-                                             SwipeOffset="80, 0"
+                                             SwipeOffset="56, 0"
                                              SwipeThreshold="10"
                                              IsItemSwipeEnabled="True"
                                              IsItemsReorderEnabled="True">
@@ -70,19 +51,19 @@
                                                           HorizontalItemSpacing="0"/>
                 </telerikDataControls:RadListView.LayoutDefinition>
                 <telerikDataControls:RadListView.ItemStyle>
-                    <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
+                    <telerikListView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                                                        BorderWidth="1"
                                                        BorderColor="{AppThemeBinding Light={StaticResource ItemBorderColorLight}, Dark={StaticResource ItemBorderColorDark}}"
                                                        BorderLocation="Bottom"/>
                 </telerikDataControls:RadListView.ItemStyle>
                 <telerikDataControls:RadListView.SelectedItemStyle>
-                    <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
+                    <telerikListView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                                                        BorderWidth="1"
                                                        BorderColor="{AppThemeBinding Light={StaticResource ItemBorderColorLight}, Dark={StaticResource ItemBorderColorDark}}"
                                                        BorderLocation="Bottom"/>
                 </telerikDataControls:RadListView.SelectedItemStyle>
                 <telerikDataControls:RadListView.PressedItemStyle>
-                    <telerikListView:ListViewItemStyle BackgroundColor="#88D4C4"
+                    <telerikListView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                                                        BorderWidth="1"
                                                        BorderColor="{AppThemeBinding Light={StaticResource ItemBorderColorLight}, Dark={StaticResource ItemBorderColorDark}}"
                                                        BorderLocation="Bottom"/>
@@ -92,22 +73,33 @@
                         <telerikListView:ListViewTemplateCell>
                             <telerikListView:ListViewTemplateCell.View>
                                 <Grid Padding="16">
-                                    <Label Text="{Binding Header}"
-                                           TextColor="#362F2D"
-                                           TextDecorations="{Binding IsDone, Converter={StaticResource TextDecorationsConverter}}">
-                                        <Label.FontSize>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS,UWP">14</On>
-                                                <On Platform="Android">16</On>
-                                            </OnPlatform>
-                                        </Label.FontSize>
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="iOS">Helvetica-Medium</On>
-                                                <On Platform="Android">sans-serif-light</On>
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="40"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{StaticResource NotesIcon}"                                            
+                                           FontAttributes="None"
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Center"
+                                           VerticalTextAlignment="Center" 
+                                           HorizontalTextAlignment="Center" 
+                                           TextColor="#0E88F2"
+                                           FontFamily="{StaticResource IconsFont}"/>                                   
+                                    <Label Grid.Column="1"
+                                           Text="{Binding Header}"
+                                           TextColor="{AppThemeBinding Light=#362F2D, Dark=White}"
+                                           TextDecorations="{Binding IsDone, Converter={StaticResource TextDecorationsConverter}}" />
+                                    <Label Grid.Column="2"
+                                           Text="{StaticResource ReorderIcon}" 
+                                           FontSize="Large" 
+                                           FontAttributes="None"
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Center"
+                                           VerticalTextAlignment="Center" 
+                                           HorizontalTextAlignment="Center" 
+                                           TextColor="#C7C7CC"
+                                           FontFamily="{StaticResource IconsFont}"/>
                                 </Grid>
                             </telerikListView:ListViewTemplateCell.View>
                         </telerikListView:ListViewTemplateCell>
@@ -117,51 +109,37 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="56"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="56"/>
                             </Grid.ColumnDefinitions>
                             <Grid>
-                                <Button BackgroundColor="#FFA200"
+                                <Button BackgroundColor="#FFAE01"
                                         BorderRadius="0"
                                         HorizontalOptions="FillAndExpand"
                                         VerticalOptions="FillAndExpand"
                                         Command="{Binding BindingContext.DoneCommand, Source={x:Reference list}}"
                                         CommandParameter="{Binding}"
-                                        Clicked="OnButtonClicked" 
+                                        Clicked="OnButtonClicked"
+                                        Text="{StaticResource CheckIcon}"
+                                        TextColor="#FFFFFF"
+                                        FontFamily="{StaticResource IconsFont}"
+                                        FontSize="Large"
                                         AutomationId="DoneButton"/>
-                                <Image Aspect="AspectFit"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       InputTransparent="True">
-                                    <Image.Source>
-                                        <OnPlatform x:TypeArguments="ImageSource">
-                                            <On Platform="iOS,Android">ListView_Reorder_Done</On>
-                                            <On Platform="UWP">Assets\ListView_Reorder_Done.png</On>
-                                        </OnPlatform>
-                                    </Image.Source>
-                                </Image>
                             </Grid>
                             <Grid Grid.Column="2">
-                                <Button BackgroundColor="#E5503A"
+                                <Button BackgroundColor="#FF7043"
                                         BorderRadius="0"
                                         HorizontalOptions="FillAndExpand"
                                         VerticalOptions="FillAndExpand"
                                         Command="{Binding BindingContext.DeleteCommand, Source={x:Reference list}}"
                                         CommandParameter="{Binding}"
                                         Clicked="OnButtonClicked"
+                                        Text="{StaticResource DeleteIcon}"
+                                        TextColor="#FFFFFF"
+                                        FontFamily="{StaticResource IconsFont}"
+                                        FontSize="Large"
                                         AutomationId="DeleteButton"/>
-                                <Image Aspect="AspectFit"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       InputTransparent="True">
-                                    <Image.Source>
-                                        <OnPlatform x:TypeArguments="ImageSource">
-                                            <On Platform="iOS,Android">ListView_Reorder_Delete</On>
-                                            <On Platform="UWP">Assets\ListView_Reorder_Delete.png</On>
-                                        </OnPlatform>
-                                    </Image.Source>
-                                </Image>
                             </Grid>
                         </Grid>
                     </DataTemplate>

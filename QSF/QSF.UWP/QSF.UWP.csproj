@@ -261,6 +261,10 @@
     <Content Include="Assets\Accordion_Customization_Vendor3.scale-150.png" />
     <Content Include="Assets\Accordion_Customization_Vendor3.scale-200.png" />
     <Content Include="Assets\Accordion_Customization_Vendor3.scale-400.png" />
+    <Content Include="Assets\American_Pancakes.scale-100.png" />
+    <Content Include="Assets\American_Pancakes.scale-150.png" />
+    <Content Include="Assets\American_Pancakes.scale-200.png" />
+    <Content Include="Assets\American_Pancakes.scale-400.png" />
     <Content Include="Assets\Arrows.scale-100.png" />
     <Content Include="Assets\Arrows.scale-125.png" />
     <Content Include="Assets\Arrows.scale-150.png" />
@@ -271,6 +275,14 @@
     <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-150.png" />
     <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-200.png" />
     <Content Include="Assets\BarCode_SpecialOffer_Salad.scale-400.png" />
+    <Content Include="Assets\Belgian_Chocolate.scale-100.png" />
+    <Content Include="Assets\Belgian_Chocolate.scale-150.png" />
+    <Content Include="Assets\Belgian_Chocolate.scale-200.png" />
+    <Content Include="Assets\Belgian_Chocolate.scale-400.png" />
+    <Content Include="Assets\Blueberry_Waffle.scale-100.png" />
+    <Content Include="Assets\Blueberry_Waffle.scale-150.png" />
+    <Content Include="Assets\Blueberry_Waffle.scale-200.png" />
+    <Content Include="Assets\Blueberry_Waffle.scale-400.png" />
     <Content Include="Assets\Border_Configuration_Avatar.scale-100.png" />
     <Content Include="Assets\Border_Configuration_Avatar.scale-125.png" />
     <Content Include="Assets\Border_Configuration_Avatar.scale-150.png" />
@@ -1053,11 +1065,6 @@
     <Content Include="Assets\Desserts1.png" />
     <Content Include="Assets\Desserts2.png" />
     <Content Include="Assets\Desserts3.png" />
-    <Content Include="Assets\Entry_Envelope.scale-100.png" />
-    <Content Include="Assets\Entry_Envelope.scale-125.png" />
-    <Content Include="Assets\Entry_Envelope.scale-150.png" />
-    <Content Include="Assets\Entry_Envelope.scale-200.png" />
-    <Content Include="Assets\Entry_Envelope.scale-400.png" />
     <Content Include="Assets\ERP_App_Logo.scale-100.png" />
     <Content Include="Assets\ERP_App_Logo.scale-125.png" />
     <Content Include="Assets\ERP_App_Logo.scale-150.png" />
@@ -1247,6 +1254,11 @@
     <Content Include="Assets\Personal_Information.scale-150.png" />
     <Content Include="Assets\Personal_Information.scale-200.png" />
     <Content Include="Assets\Personal_Information.scale-400.png" />
+    <Content Include="Assets\Person_9.scale-100.png" />
+    <Content Include="Assets\Person_9.scale-125.png" />
+    <Content Include="Assets\Person_9.scale-150.png" />
+    <Content Include="Assets\Person_9.scale-200.png" />
+    <Content Include="Assets\Person_9.scale-400.png" />
     <Content Include="Assets\Picker_Demo2_Header.scale-100.png" />
     <Content Include="Assets\Picker_Demo2_Header.scale-125.png" />
     <Content Include="Assets\Picker_Demo2_Header.scale-150.png" />
@@ -1310,6 +1322,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Effects\BorderEffect.cs" />
     <Compile Include="Effects\ButtonBorderEffect.cs" />
     <Compile Include="Effects\SideDrawerTouchTargetEffect.cs" />
     <Compile Include="Effects\StrikeThroughEffect.cs" />
@@ -1332,8 +1345,6 @@
   <ItemGroup>
     <Content Include="Assets\ListView_GridLayout.png" />
     <Content Include="Assets\ListView_LinearLayout.png" />
-    <Content Include="Assets\ListView_Reorder_Delete.png" />
-    <Content Include="Assets\ListView_Reorder_Done.png" />
     <Content Include="Assets\ListView_Selection_Delete.png" />
     <Content Include="Assets\ListView_Selection_Favorite.png" />
     <Content Include="Assets\ListView_Selection_Favorite1.png" />
@@ -1546,6 +1557,10 @@
     <Content Include="Assets\Time_Off.scale-150.png" />
     <Content Include="Assets\Time_Off.scale-200.png" />
     <Content Include="Assets\Time_Off.scale-400.png" />
+    <Content Include="Assets\Tiramisu.scale-100.png" />
+    <Content Include="Assets\Tiramisu.scale-150.png" />
+    <Content Include="Assets\Tiramisu.scale-200.png" />
+    <Content Include="Assets\Tiramisu.scale-400.png" />
     <Content Include="Assets\ToDo_App_Logo.scale-100.png" />
     <Content Include="Assets\ToDo_App_Logo.scale-125.png" />
     <Content Include="Assets\ToDo_App_Logo.scale-150.png" />
@@ -1728,7 +1743,7 @@
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1269</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.1.41</Version>
