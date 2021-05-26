@@ -29,28 +29,28 @@ namespace ErpApp
 
             if (attribute.Position == MasterDetailPosition.Root)
             {
-                if (page is MasterDetailPage masterDetailRoot)
+                if (page is FlyoutPage masterDetailRoot)
                 {
-                    if (masterDetailRoot.Master == null)
-                        masterDetailRoot.Master = CreateContentPage().Build(cp => cp.Title = !string.IsNullOrEmpty(attribute.Title) ? attribute.Title : nameof(MvxMasterDetailPage));
+                    if (masterDetailRoot.Flyout == null)
+                        masterDetailRoot.Flyout = CreateContentPage().Build(cp => cp.Title = !string.IsNullOrEmpty(attribute.Title) ? attribute.Title : nameof(MvxMasterDetailPage));
                     if (masterDetailRoot.Detail == null)
                         masterDetailRoot.Detail = CreateContentPage().Build(cp => cp.Title = !string.IsNullOrEmpty(attribute.Title) ? attribute.Title : nameof(MvxMasterDetailPage));
 
                     await PushOrReplacePage(FormsApplication.MainPage, page, attribute);
                 }
                 else
-                    throw new MvxException($"A root page should be of type {nameof(MasterDetailPage)}");
+                    throw new MvxException($"A root page should be of type {nameof(FlyoutPage)}");
             }
             else
             {
-                MasterDetailPage masterDetailHost = null;
+                FlyoutPage masterDetailHost = null;
                 if (attribute is MvxCustomMasterDetailPagePresentationAttribute attr && attr.MasterHostViewType != null)
                 {
-                    masterDetailHost = GetPageOfTypeByType(attr.MasterHostViewType) as MasterDetailPage;
+                    masterDetailHost = GetPageOfTypeByType(attr.MasterHostViewType) as FlyoutPage;
                 }
                 if (masterDetailHost == null)
                 {
-                    masterDetailHost = GetPageOfType<MasterDetailPage>();
+                    masterDetailHost = GetPageOfType<FlyoutPage>();
                 }
 
                 if (masterDetailHost == null)
@@ -63,7 +63,7 @@ namespace ErpApp
                         masterDetailHost.IconImageSource = attribute.Icon;
                     }
 
-                    masterDetailHost.Master = CreateContentPage().Build(cp => cp.Title = !string.IsNullOrWhiteSpace(attribute.Title) ? attribute.Title : nameof(MvxMasterDetailPage));
+                    masterDetailHost.Flyout = CreateContentPage().Build(cp => cp.Title = !string.IsNullOrWhiteSpace(attribute.Title) ? attribute.Title : nameof(MvxMasterDetailPage));
                     masterDetailHost.Detail = CreateContentPage();
 
                     var masterDetailRootAttribute = new MvxMasterDetailPagePresentationAttribute { Position = MasterDetailPosition.Root, WrapInNavigationPage = attribute.WrapInNavigationPage, NoHistory = attribute.NoHistory };
@@ -73,7 +73,7 @@ namespace ErpApp
 
                 if (attribute.Position == MasterDetailPosition.Master)
                 {
-                    await PushOrReplacePage(masterDetailHost.Master, page, attribute);
+                    await PushOrReplacePage(masterDetailHost.Flyout, page, attribute);
                 }
                 else
                 {
@@ -97,13 +97,13 @@ namespace ErpApp
                 else
                     return GetPageOfType<TPage>(navigationRootPage.CurrentPage);
             }
-            else if (rootPage is MasterDetailPage masterDetailRoot)
+            else if (rootPage is FlyoutPage masterDetailRoot)
             {
                 var detailHost = GetPageOfType<TPage>(masterDetailRoot.Detail);
                 if (detailHost is TPage)
                     return detailHost;
                 else
-                    return GetPageOfType<TPage>(masterDetailRoot.Master);
+                    return GetPageOfType<TPage>(masterDetailRoot.Flyout);
             }
             else if (rootPage is CarouselPage carouselPage)
             {
