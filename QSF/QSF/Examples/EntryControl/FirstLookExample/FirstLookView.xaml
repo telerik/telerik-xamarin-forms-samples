@@ -84,6 +84,7 @@
                            TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                     <telerikInput:RadEntry AutomationId="FirstNameEntry"                                         
                                            WatermarkText="Enter name"
+                                           Text="{Binding FirstName}"
                                            Style="{StaticResource EntryStyle}"                                          
                                            BorderStyle="{StaticResource EntryBorderStyle}"/>
                 </StackLayout>
@@ -92,6 +93,7 @@
                            TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                     <telerikInput:RadEntry AutomationId="UsernameEntry" 
                                            WatermarkText="Enter Username" 
+                                           Text="{Binding Username}"
                                            MaxLength="10"
                                            Style="{StaticResource EntryStyle}"
                                            BorderStyle="{StaticResource EntryBorderStyle}"/>               
@@ -101,6 +103,7 @@
                            TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                     <telerikInput:RadEntry AutomationId="EmailAddressEntry"                                            
                                            WatermarkText="Enter Email" 
+                                           Text="{Binding EmailAddress}"
                                            Style="{StaticResource EntryStyle}"
                                            BorderStyle="{StaticResource EntryBorderStyle}"
                                            Keyboard="Email"/>               
@@ -109,7 +112,8 @@
                     <Label Text="Phone:" 
                            TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                     <telerikInput:RadEntry AutomationId="PhoneEntry"                                            
-                                           WatermarkText="Enter Phone" 
+                                           WatermarkText="Enter Phone"
+                                           Text="{Binding Phone}"
                                            Style="{StaticResource EntryStyle}"
                                            BorderStyle="{StaticResource EntryBorderStyle}"
                                            Keyboard="Telephone"/>                   
@@ -119,6 +123,7 @@
                            TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                     <telerikInput:RadEntry AutomationId="PasswordEntry"                                            
                                            WatermarkText="Enter Password" 
+                                           Text="{Binding Password}"
                                            Style="{StaticResource EntryStyle}"
                                            BorderStyle="{StaticResource EntryBorderStyle}"
                                            IsPassword="True"/>
@@ -127,7 +132,8 @@
                     <telerikInput:RadButton Text="REGISTER"
                                             BackgroundColor="#0E88F2"
                                             FontSize="Small"
-                                            TextColor="White"/>
+                                            TextColor="White"
+                                            Command="{Binding RegisterCommand}"/>
                 </StackLayout>
             </StackLayout>
         </Grid>
