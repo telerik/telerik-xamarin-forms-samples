@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Microsoft.WindowsAzure.MobileServices;
 using Xamarin.Forms.Platform.Android;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace ArtGalleryCRM.Droid
 {
@@ -17,6 +18,16 @@ namespace ArtGalleryCRM.Droid
 		    TabLayoutResource = Resource.Layout.Tabbar;
 
             base.OnCreate(bundle);
+	    
+	    if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+                {
+                    Window.DecorView.SystemUiVisibility = 0;
+                    var statusBarHeightInfo = typeof(FormsAppCompatActivity).GetField("_statusBarHeight", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                    if (statusBarHeightInfo != null)
+                    {
+                        statusBarHeightInfo.SetValue(this, 50);
+                    }
+                }
             
 			// Initialize Azure Mobile Apps
 			CurrentPlatform.Init();
@@ -32,7 +43,7 @@ namespace ArtGalleryCRM.Droid
 
 			// Load the main application
 			LoadApplication(new ArtGalleryCRM.Forms.App());
-
+		App.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
 		    this.Window.AddFlags (WindowManagerFlags.Fullscreen);
 		}
 
