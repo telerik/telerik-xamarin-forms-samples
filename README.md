@@ -34,6 +34,17 @@ Please visit the following links to download the samples on your devices
 * [Telerik UI for Xamarin Samples Application on Google Play](https://play.google.com/store/apps/details?id=com.telerik.xamarin)
 * [Telerik UI for Xamarin Samples Application on Windows Store](https://www.microsoft.com/store/apps/9pld1kn2tcxs)
 
+<a href="https://itunes.apple.com/dm/app/telerik-ui-for-xamarin-)examples/id1083924868?mt=8">
+  <img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/NativeScript/appstore.png?sfvrsn=2e75b59_2" data-displaymode="Original" alt="appstore"></a>
+<a href="https://play.google.com/store/apps/details?id=com.telerik.xamarin&amp;hl=en">
+  <img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/NativeScript/google-play.png?sfvrsn=eb98369a_2" data-displaymode="Original" alt="google-play">
+</a>
+<a href="https://www.microsoft.com/en-us/store/p/telerik-ui-for-xamarin-examples/9pld1kn2tcxs"> 
+  <img width="150" height="43" src="https://www.telerik.com/sfimages/default-source/productsimages/ui-for-xamarin/microsoft-store-badge.png?Status=Temp&sfvrsn=2006dd07_3" alt="Microsoft-Store-Badge"/>
+</a>
+
+
+
 Telerik Tagit Demo Application
 -------
 The Telerik Tagit sample application is a Xamarin.Forms application targeting iOS, Android and UWP, which demonstrates how to turn the photo collection of a phone into a easy to search data base of photos. It utilized Telerik UI for Xamarin, as well as Microsoft Azure's Computer Vision API. 
