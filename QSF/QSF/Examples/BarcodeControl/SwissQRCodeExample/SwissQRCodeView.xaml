@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:barcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
+             xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BarcodeControl.SwissQRCodeExample.SwissQRCodeView">
+    <ContentView.Resources>
+        <Style TargetType="Label" x:Key="boldLabel">
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style TargetType="Label" x:Key="whiteLabel">
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <Style TargetType="Label" x:Key="whiteBoldLabel" BasedOn="{StaticResource whiteLabel}">
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style TargetType="Label" x:Key="gridLabelStyle">
+            <Setter Property="Text" Value="{Binding HeaderText}"/>
+            <Setter Property="WidthRequest" Value="{Binding Width}"/>
+            <Setter Property="Margin" Value="7, 14, 7, 14"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#4A4949, Dark=#FFFFFF}"/>
+            <Setter Property="LineBreakMode" Value="WordWrap"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="Label" x:Key="gridContentLabelStyle">
+            <Setter Property="Margin" Value="7, 10, 7, 10"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#4A4949, Dark=#FFFFFF}"/>
+            <Setter Property="LineBreakMode" Value="WordWrap"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>        
+        <dataGrid:DataGridColumnHeaderStyle x:Key="gridColumnHeaderStyle" IsOptionsButtonVisible="False"/>
+        <DataTemplate x:Key="gridHeaderContentTemplate">
+            <Label Style="{StaticResource gridLabelStyle}" />
+        </DataTemplate>
+        <DataTemplate x:Key="gridHeaderTotalContentTemplate">
+            <Label Style="{StaticResource gridLabelStyle}">
+                <Label.HorizontalTextAlignment>
+                    <OnPlatform x:TypeArguments="TextAlignment">
+                        <On Platform="Android, iOS" Value="Center"/>
+                        <On Platform="UWP" Value="End"/>
+                    </OnPlatform>
+                </Label.HorizontalTextAlignment>
+            </Label>
+        </DataTemplate>
+    </ContentView.Resources>
+    <ScrollView>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <primitives:RadBorder BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}">
+                <Label Text="{Binding UnstructuredMessage}" 
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                       FontSize="22" 
+                       HorizontalTextAlignment="Center" 
+                       Margin="0,13"/>
+            </primitives:RadBorder>
+            
+            <barcode:RadBarcode Grid.Row="1" 
+                                Margin="0,5,0,15"                                 
+                                WidthRequest="180"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center"
+                                Value="{Binding Path=Value}"
+                                IsValid="{Binding Path=IsValid}"
+                                ErrorMessage="{Binding Path=ErrorMessage}">
+                <barcode:RadBarcode.Symbology>
+                    <barcode:SwissQRCode />
+                </barcode:RadBarcode.Symbology>
+            </barcode:RadBarcode>
+            
+            <Grid Margin="16,0" Grid.Row="2" RowSpacing="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0">
+                    <Label Text="Account / Payable to:" Style="{StaticResource boldLabel}"/>
+                    <Label Text="{Binding IbanText}"/>
+                    <Label Text="{Binding CreditorName}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding CreditorStreet}"/>
+                        <Label Text="{Binding CreditorHouseNumber}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding CreditorZipCode}"/>
+                        <StackLayout Orientation="Horizontal" Spacing="0">
+                            <Label Text="{Binding CreditorCountry}"/>
+                            <Label Text="-"/>
+                            <Label Text="{Binding CreditorCity}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <BoxView Color="{AppThemeBinding Light=#000000, Dark=#373737}" Grid.Row="1"/>
+
+                <StackLayout Grid.Row="2">
+                    <Label Text="Payable by:" Style="{StaticResource boldLabel}"/>
+                    <Label Text="{Binding DebtorName}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding DebtorStreet}"/>
+                        <Label Text="{Binding DebtorHouseNumber}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding DebtorZipCode}"/>
+                        <StackLayout Orientation="Horizontal" Spacing="0">
+                            <Label Text="{Binding DebtorCountry}"/>
+                            <Label Text="-"/>
+                            <Label Text="{Binding DebtorCity}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <dataGrid:RadDataGrid ItemsSource="{Binding OrderItems}" 
+                                      AutoGenerateColumns="False" 
+                                      Grid.Row="3" 
+                                      SelectionMode="None"
+                                      GridLinesVisibility="Both">
+                    <dataGrid:RadDataGrid.Columns>
+                        <dataGrid:DataGridTextColumn HeaderText="Item No" 
+                                                     PropertyName="No" 
+                                                     HeaderStyle="{StaticResource gridColumnHeaderStyle}"
+                                                     HeaderContentTemplate="{StaticResource gridHeaderContentTemplate}">
+                            <dataGrid:DataGridTextColumn.Width>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS" Value="35"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.Width>
+                            <dataGrid:DataGridTextColumn.SizeMode>
+                                <OnPlatform x:TypeArguments="dataGrid:DataGridColumnSizeMode">
+                                    <On Platform="Android, iOS" Value="Fixed"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.SizeMode>
+                            <dataGrid:DataGridTextColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding No}" Style="{StaticResource gridContentLabelStyle}" />
+                                </DataTemplate>
+                            </dataGrid:DataGridTextColumn.CellContentTemplate>
+                        </dataGrid:DataGridTextColumn>
+                        <dataGrid:DataGridTextColumn HeaderText="Description" 
+                                                     PropertyName="Name"
+                                                     HeaderStyle="{StaticResource gridColumnHeaderStyle}"
+                                                     HeaderContentTemplate="{StaticResource gridHeaderContentTemplate}">
+                            <dataGrid:DataGridTextColumn.Width>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS" Value="120"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.Width>
+                            <dataGrid:DataGridTextColumn.SizeMode>
+                                <OnPlatform x:TypeArguments="dataGrid:DataGridColumnSizeMode">
+                                    <On Platform="Android, iOS" Value="Fixed"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.SizeMode>
+                            <dataGrid:DataGridTextColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Name}"
+                                           Style="{StaticResource gridContentLabelStyle}" 
+                                           HeightRequest="30"/>
+                                </DataTemplate>
+                            </dataGrid:DataGridTextColumn.CellContentTemplate>
+                        </dataGrid:DataGridTextColumn>
+                        <dataGrid:DataGridTextColumn HeaderText="Qty Type" 
+                                                     PropertyName="QuantityType" 
+                                                     HeaderStyle="{StaticResource gridColumnHeaderStyle}"
+                                                     HeaderContentTemplate="{StaticResource gridHeaderContentTemplate}">
+                            <dataGrid:DataGridTextColumn.Width>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS" Value="40"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.Width>
+                            <dataGrid:DataGridTextColumn.SizeMode>
+                                <OnPlatform x:TypeArguments="dataGrid:DataGridColumnSizeMode">
+                                    <On Platform="Android, iOS" Value="Fixed"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.SizeMode>
+                            <dataGrid:DataGridTextColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding QuantityType}" Style="{StaticResource gridContentLabelStyle}"/>
+                                </DataTemplate>
+                            </dataGrid:DataGridTextColumn.CellContentTemplate>
+                        </dataGrid:DataGridTextColumn>
+                        <dataGrid:DataGridTextColumn HeaderText="Qty" 
+                                                     PropertyName="Quantity"
+                                                     HeaderStyle="{StaticResource gridColumnHeaderStyle}"
+                                                     HeaderContentTemplate="{StaticResource gridHeaderContentTemplate}">
+                            <dataGrid:DataGridTextColumn.Width>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS" Value="35"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.Width>
+                            <dataGrid:DataGridTextColumn.SizeMode>
+                                <OnPlatform x:TypeArguments="dataGrid:DataGridColumnSizeMode">
+                                    <On Platform="Android, iOS" Value="Fixed"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.SizeMode>
+                            <dataGrid:DataGridTextColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Quantity}" Style="{StaticResource gridContentLabelStyle}"/>
+                                </DataTemplate>
+                            </dataGrid:DataGridTextColumn.CellContentTemplate>
+                        </dataGrid:DataGridTextColumn>
+                        <dataGrid:DataGridTextColumn HeaderText="Unit Price" 
+                                                     PropertyName="Price"
+                                                     HeaderStyle="{StaticResource gridColumnHeaderStyle}"
+                                                     HeaderContentTemplate="{StaticResource gridHeaderContentTemplate}">
+                            <dataGrid:DataGridTextColumn.Width>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS" Value="48"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.Width>
+                            <dataGrid:DataGridTextColumn.SizeMode>
+                                <OnPlatform x:TypeArguments="dataGrid:DataGridColumnSizeMode">
+                                    <On Platform="Android, iOS" Value="Fixed"/>
+                                </OnPlatform>
+                            </dataGrid:DataGridTextColumn.SizeMode>
+                            <dataGrid:DataGridTextColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Price, StringFormat='{0:0.00}'}" 
+                                           Style="{StaticResource gridContentLabelStyle}"/>
+                                </DataTemplate>
+                            </dataGrid:DataGridTextColumn.CellContentTemplate>
+                        </dataGrid:DataGridTextColumn>
+                        <dataGrid:DataGridTextColumn HeaderText="Total" 
+                                                     PropertyName="Total" 
+                                                     SizeMode="Stretch"
+                                                     HeaderStyle="{StaticResource gridColumnHeaderStyle}"
+                                                     HeaderContentTemplate="{StaticResource gridHeaderTotalContentTemplate}">
+                            <dataGrid:DataGridTextColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Total, StringFormat='{0:0.00}'}" 
+                                           Style="{StaticResource gridContentLabelStyle}">
+                                        <Label.HorizontalTextAlignment>
+                                            <OnPlatform x:TypeArguments="TextAlignment">
+                                                <On Platform="Android, iOS" Value="Center"/>
+                                                <On Platform="UWP" Value="End"/>
+                                            </OnPlatform>
+                                        </Label.HorizontalTextAlignment>
+                                    </Label>
+                                </DataTemplate>
+                            </dataGrid:DataGridTextColumn.CellContentTemplate>
+                        </dataGrid:DataGridTextColumn>
+                    </dataGrid:RadDataGrid.Columns>
+                </dataGrid:RadDataGrid>
+
+                <Grid BackgroundColor="{AppThemeBinding Light=#000000, Dark=#373737}" 
+                      Grid.Row="4"
+                      Padding="4,6"
+                      Margin="0,0,0,40">
+                    <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                        <Label Text="Currency: " Style="{StaticResource whiteLabel}"/>
+                        <Label Text="{Binding CodeCurrency}" Style="{StaticResource whiteBoldLabel}"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="End" Orientation="Horizontal">
+                        <Label Text="Total Amount: " Style="{StaticResource whiteLabel}"/>
+                        <Label Text="{Binding Total, StringFormat='{0:0.00}'}" Style="{StaticResource whiteBoldLabel}"/>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentView>

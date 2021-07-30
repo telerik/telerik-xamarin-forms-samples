@@ -1,10 +1,10 @@
-﻿using QSF.Services;
-using QSF.Services.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using QSF.Services;
+using QSF.Services.Configuration;
+using QSF.Services.DeviceInfo;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -12,8 +12,13 @@ namespace QSF.ViewModels
 {
     public class HomeViewModel : PageViewModelBase
     {
+        private static readonly string LightModeText = "Light Mode";
+        private static readonly string DarkModeText = "Dark Mode";
+
         private ControlViewModel selectedControl;
         private bool isSideDrawerOpen;
+        private string currentAppThemeModeText;
+        private bool isDarkModeSupported;
 
         public HomeViewModel()
         {
@@ -43,6 +48,16 @@ namespace QSF.ViewModels
             this.NavigateToPrivacyPolicyPageCommand = new Command(this.NavigateToPrivacyPolicyPage);
             this.NavigateToSampleAppsPageCommand = new Command(this.NavigateToSampleAppsPage);
             this.NavigateToSampleAppsText = configurationService.GetSampleAppsConfiguration().NavigateToSampleAppsText;
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                var deviceInfo = DependencyService.Get<IDeviceInfoService>();
+                this.IsDarkModeSupported = deviceInfo.OSVersion >= 13;
+            }
+            else
+            {
+                this.IsDarkModeSupported = Device.RuntimePlatform != Device.UWP;
+            }
         }
 
         public string SideDrawerHeaderIcon { get; }
@@ -90,6 +105,47 @@ namespace QSF.ViewModels
             }
         }
 
+        public string CurrentAppThemeModeText
+        {
+            get
+            {
+                return this.currentAppThemeModeText;
+            }
+            set
+            {
+                if (this.currentAppThemeModeText != value)
+                {
+                    this.currentAppThemeModeText = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsDarkModeSupported
+        {
+            get
+            {
+                return this.isDarkModeSupported;
+            }
+            set
+            {
+                if (this.isDarkModeSupported != value)
+                {
+                    this.isDarkModeSupported = value;
+
+                    if (this.isDarkModeSupported)
+                    {
+                        this.ChangeAppThemeModeCommand = new Command(this.ChangeAppThemeMode);
+
+                        Application.Current.RequestedThemeChanged += (sender, args) => this.UpdateAppThemeText();
+                        this.UpdateAppThemeText();
+                    }
+
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         public ICommand NavigateToAboutCommand { get; }
 
         public ICommand NavigateToSourceCommand { get; }
@@ -103,6 +159,8 @@ namespace QSF.ViewModels
         public ICommand NavigateToPrivacyPolicyPageCommand { get; }
 
         public ICommand NavigateToSampleAppsPageCommand { get; }
+
+        public ICommand ChangeAppThemeModeCommand { get; internal set; }
 
         public string NavigateToSampleAppsText { get; }
 
@@ -168,6 +226,14 @@ namespace QSF.ViewModels
             this.NavigationService.NavigateToAsync<SampleAppsViewModel>();
         }
 
+        private void ChangeAppThemeMode(object obj)
+        {
+            var theme = Application.Current.RequestedTheme != OSAppTheme.Dark
+                ? OSAppTheme.Dark
+                : OSAppTheme.Light;
+            Application.Current.UserAppTheme = theme;
+        }
+
         private void SlideViewTap(object obj)
         {
             ControlViewModel controlViewModel = obj as ControlViewModel;
@@ -193,6 +259,13 @@ namespace QSF.ViewModels
         private IEnumerable<ControlViewModel> ToViewModels(IEnumerable<Control> controls)
         {
             return controls.Select(p => new ControlViewModel(p));
+        }
+
+        private void UpdateAppThemeText()
+        {
+            this.CurrentAppThemeModeText = Application.Current.RequestedTheme != OSAppTheme.Dark
+                ? DarkModeText
+                : LightModeText;
         }
     }
 }

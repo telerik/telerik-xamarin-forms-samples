@@ -28,13 +28,13 @@
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label Text="File:" 
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                            FontSize="Small"
                            FontAttributes="Bold" 
                            />
                     
                     <Label Text="JohnGrisham.docx"
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                            FontSize="Small"
                            />
                 </StackLayout>
@@ -47,7 +47,7 @@
                        />
 
                 <Label Text="Export to:"
-                       TextColor="Black"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                        FontSize="Medium"
                        FontAttributes="Bold"
                        HorizontalOptions="Center"

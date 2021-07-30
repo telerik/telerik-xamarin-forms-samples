@@ -25,7 +25,7 @@
             </telerikCommon:RadPathGeometry>
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
         <StackLayout Margin="16, 0, 16, 0" Spacing="20">
             <telerikGauges:RadRadialGauge StartAngle="90" 
                                           SweepAngle="360"
@@ -54,10 +54,10 @@
                                                      EndThickness="8"
                                                      Offset="20"
                                                      Value="1" />
-                    <telerikGauges:GaugeNeedleIndicator Fill="{StaticResource DarkGray}" Value="0.2" />
+                    <telerikGauges:GaugeNeedleIndicator Fill="{AppThemeBinding Light={StaticResource DarkGray}, Dark=White}" Value="0.2" />
                 </telerikGauges:RadRadialGauge.Indicators>
             </telerikGauges:RadRadialGauge>
-            
+
             <telerikGauges:RadHorizontalGauge Margin="0, 0, 0, 16">
                 <telerikGauges:RadGaugeBase.Axis>
                     <telerikGauges:GaugeLinearAxis Minimum="0"
@@ -95,9 +95,9 @@
                                                    TickThickness="2"
                                                    TickLength="8"
                                                    LabelOffset="15"
-                                                   Stroke="{StaticResource DarkGray}"
+                                                   Stroke="{AppThemeBinding Light={StaticResource DarkGray}, Dark=White}"
                                                    StrokeThickness="2"
-                                                   TextColor="{StaticResource DarkGray}"
+                                                   TextColor="{AppThemeBinding Light={StaticResource DarkGray}, Dark=White}"
                                                    TickPosition="Start"
                                                    LabelPosition="Start" />
                 </telerikGauges:RadGaugeBase.Axis>
@@ -147,8 +147,8 @@
                                                    TickThickness="2"
                                                    TickLength="8"
                                                    LabelOffset="15"
-                                                   TextColor="{StaticResource DarkGray}"
-                                                   Stroke="{StaticResource DarkGray}"
+                                                   TextColor="{AppThemeBinding Light={StaticResource DarkGray}, Dark=White}"
+                                                   Stroke="{AppThemeBinding Light={StaticResource DarkGray}, Dark=White}"
                                                    TickPosition="Start"
                                                    LabelPosition="Start" />
                 </telerikGauges:RadGaugeBase.Axis>

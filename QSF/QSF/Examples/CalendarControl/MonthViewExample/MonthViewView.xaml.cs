@@ -21,6 +21,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
             double defaultFontSize = 0;
             Thickness defaultThickness = new Thickness(1);
 
+            var isThemeLight = Application.Current.UserAppTheme != OSAppTheme.Dark;
+
             switch (Device.RuntimePlatform)
             {
                 case Device.UWP:
@@ -53,11 +55,11 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
             {
                 return new CalendarCellStyle
                 {
-                    BackgroundColor = Color.FromHex("EEEEEE"),
+                    BackgroundColor = isThemeLight ? Color.FromHex("EEEEEE") : Color.FromHex("999999"),
                     BorderColor = Color.Transparent,
                     FontSize = dayNameFontSize,
                     FontAttributes = FontAttributes.Bold,
-                    TextColor = Color.FromHex("999999")
+                    TextColor = isThemeLight ? Color.FromHex("999999") : Color.FromHex("EEEEEE"),
                 };
             }
 
@@ -65,21 +67,20 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
             {
                 return new CalendarCellStyle
                 {
-                    BackgroundColor = Color.FromHex("E5E5E5"),
+                    BackgroundColor = isThemeLight ? Color.FromHex("E5E5E5") : Color.FromHex("A9A9A9"),
                     BorderColor = Color.Transparent,
                     FontSize = weekNumberFontSize,
-                    TextColor = Color.FromHex("A9A9A9")
+                    TextColor = isThemeLight ? Color.FromHex("A9A9A9") : Color.FromHex("E5E5E5"),
                 };
             }
 
             var defaultStyle = new CalendarCellStyle
             {
-                BackgroundColor = Color.FromHex("EEEEEE"),
+                BackgroundColor = isThemeLight ? Color.FromHex("EEEEEE") : Color.FromHex("333333"),
                 BorderColor = Color.FromHex("CCCCCC"),
                 BorderThickness = defaultThickness,
                 FontSize = defaultFontSize,
-
-                TextColor = Color.FromHex("333333")
+                TextColor = isThemeLight ? Color.FromHex("333333") : Color.FromHex("EEEEEE"),
             };
 
             var dayCell = cell as CalendarDayCell;
@@ -106,8 +107,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     }
                     else
                     {
-                        defaultStyle.TextColor = Color.FromHex("999999");
-                        defaultStyle.BackgroundColor = Color.FromHex("E5E5E5");
+                        defaultStyle.TextColor = isThemeLight ? Color.FromHex("999999") : Color.FromHex("E5E5E5");
+                        defaultStyle.BackgroundColor = isThemeLight ? Color.FromHex("E5E5E5") : Color.FromHex("999999");
                     }
                 }
 

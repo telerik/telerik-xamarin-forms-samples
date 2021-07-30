@@ -12,7 +12,9 @@ namespace QSF.Examples.PopupControl.ModalExample.Converters
 
             if (isSelected)
             {
-                return new Color(0.9, 0.9, 0.9);
+                return Application.Current.RequestedTheme == OSAppTheme.Dark
+                    ? Color.FromHex("#121212")
+                    : new Color(0.9, 0.9, 0.9);
             }
 
             return Color.Transparent;

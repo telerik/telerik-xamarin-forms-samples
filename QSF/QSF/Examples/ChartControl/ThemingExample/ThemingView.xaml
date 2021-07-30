@@ -25,7 +25,7 @@
                             <telerikChart:BarSeries CategoryBinding="Category" ValueBinding="Value" ItemsSource="{Binding ThirdSeriesData}" CombineMode="Cluster" DisplayName="Petrol"/>
                         </telerikChart:RadCartesianChart.Series>
                     </telerikChart:RadCartesianChart>
-                    <telerikChart:RadLegend LegendItemFontColor="Black" LegendProvider="{x:Reference chart}" Orientation="Horizontal" Margin="16, 16, 0, 16" />
+                    <telerikChart:RadLegend LegendItemFontColor="{AppThemeBinding Light=Black, Dark=White}" LegendProvider="{x:Reference chart}" Orientation="Horizontal" Margin="16, 16, 0, 16" />
                 </StackLayout>
             </DataTemplate>
             <DataTemplate x:Key="pieChart">
@@ -38,14 +38,14 @@
                             <telerikChart:PieSeries ValueBinding="Value" ItemsSource="{Binding SeriesData}" RadiusFactor="0.9" DisplayName="Value" LegendTitleBinding="Category" />
                         </telerikChart:RadPieChart.Series>
                     </telerikChart:RadPieChart>
-                    <telerikChart:RadLegend LegendItemFontColor="Black" LegendProvider="{x:Reference pie}" Orientation="Horizontal" Margin="16, 16, 0, 16" />
+                    <telerikChart:RadLegend LegendItemFontColor="{AppThemeBinding Light=Black, Dark=White}" LegendProvider="{x:Reference pie}" Orientation="Horizontal" Margin="16, 16, 0, 16" />
                 </StackLayout>
             </DataTemplate>
         </ResourceDictionary>
     </views:GalleryExampleViewBase.Resources>
     <views:GalleryExampleViewBase.HeaderContent>
         <Label Text="Expected Sales per Year"
-               TextColor="Black"
+               TextColor="{AppThemeBinding Light=Black, Dark=White}"
                FontSize="Medium"
                HorizontalOptions="Center"
                Margin="0, 36, 0, 36" />

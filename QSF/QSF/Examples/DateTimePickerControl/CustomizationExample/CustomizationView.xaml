@@ -17,7 +17,7 @@
             <Color x:Key="AccentColor">#B73562</Color>
             <Style x:Key="DefaultLabelStyle"
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="Margin" Value="0, 16, 0, 4" />
             </Style>
@@ -140,7 +140,7 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-        <StackLayout BackgroundColor="#F6FAFB" Margin="0, 20, 0, 0" VerticalOptions="EndAndExpand">
+        <StackLayout BackgroundColor="{AppThemeBinding Light=#F6FAFB, Dark=#121212}" Margin="0, 20, 0, 0" VerticalOptions="EndAndExpand">
             <telerikInput:RadButton Text="Find Car"
                                     BackgroundColor="Transparent"
                                     Margin="28, 13, 28, 13"

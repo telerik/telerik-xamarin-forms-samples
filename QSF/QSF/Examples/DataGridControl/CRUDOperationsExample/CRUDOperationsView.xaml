@@ -10,16 +10,20 @@
     <VisualElement.Resources>
         <local:Resources />
     </VisualElement.Resources>
-    
+
     <Grid Margin="16, 1, 16, 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.BackgroundColor>
-            <OnPlatform x:TypeArguments="Color">
-                <On Platform="Android">White</On>
-            </OnPlatform>
+            <AppThemeBinding Default="Default">
+                <AppThemeBinding.Light>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="Android">White</On>
+                    </OnPlatform>
+                </AppThemeBinding.Light>
+            </AppThemeBinding>
         </Grid.BackgroundColor>
         <StackLayout HorizontalOptions="End" Orientation="Horizontal" Spacing="0">
             <telerikInput:RadButton x:Name="addButton"
@@ -44,13 +48,13 @@
                                      SelectionStyle="{StaticResource DataGridSelectionStyle}"
                                      Grid.Row="1">
             <telerikDataGrid:RadDataGrid.Columns>
-                <telerikDataGrid:DataGridTextColumn PropertyName="OrderID" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" />
-                <telerikDataGrid:DataGridTextColumn PropertyName="CustomerID" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
-                <telerikDataGrid:DataGridTextColumn PropertyName="OrderDate" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" />
-                <telerikDataGrid:DataGridTextColumn PropertyName="ShippedDate" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
-                <telerikDataGrid:DataGridTextColumn PropertyName="ShipName" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" />
-                <telerikDataGrid:DataGridTextColumn PropertyName="ShipVia" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
-                <telerikDataGrid:DataGridTextColumn PropertyName="Freight" CellContentStyle="{StaticResource CrudDataGridTextCellStyle}" IsVisible="False" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="OrderID" CellContentStyle="{AppThemeBinding Light={StaticResource CrudDataGridTextCellStyleLight}, Dark={StaticResource CrudDataGridTextCellStyleDark}}" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="CustomerID" CellContentStyle="{AppThemeBinding Light={StaticResource CrudDataGridTextCellStyleLight}, Dark={StaticResource CrudDataGridTextCellStyleDark}}" IsVisible="False" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="OrderDate" CellContentStyle="{AppThemeBinding Light={StaticResource CrudDataGridTextCellStyleLight}, Dark={StaticResource CrudDataGridTextCellStyleDark}}" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShippedDate" CellContentStyle="{AppThemeBinding Light={StaticResource CrudDataGridTextCellStyleLight}, Dark={StaticResource CrudDataGridTextCellStyleDark}}" IsVisible="False" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShipName" CellContentStyle="{AppThemeBinding Light={StaticResource CrudDataGridTextCellStyleLight}, Dark={StaticResource CrudDataGridTextCellStyleDark}}" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShipVia" CellContentStyle="{AppThemeBinding Light={StaticResource CrudDataGridTextCellStyleLight}, Dark={StaticResource CrudDataGridTextCellStyleDark}}" IsVisible="False" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="Freight" CellContentStyle="{AppThemeBinding Light={StaticResource CrudDataGridTextCellStyleLight}, Dark={StaticResource CrudDataGridTextCellStyleDark}}}" IsVisible="False" />
             </telerikDataGrid:RadDataGrid.Columns>
         </telerikDataGrid:RadDataGrid>
     </Grid>

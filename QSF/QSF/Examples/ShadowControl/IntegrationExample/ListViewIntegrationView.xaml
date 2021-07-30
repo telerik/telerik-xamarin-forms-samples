@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+    xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    x:Class="QSF.Examples.ShadowControl.IntegrationExample.ListViewIntegrationView"
+    BackgroundColor="{AppThemeBinding Light=Default, Dark=#121212}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="ShadowOpacityLight">0.15</x:Double>
+            <x:Double x:Key="ShadowOpacityDark">0.30</x:Double>
+            <Style TargetType="telerikPrimitives:RadShadow">
+                <Setter Property="ShadowOpacity" Value="{AppThemeBinding Light={StaticResource ShadowOpacityLight}, Dark={StaticResource ShadowOpacityDark}}"/>
+                <Setter Property="OffsetY" Value="4"/>
+                <Setter Property="CornerRadius" Value="4"/>
+                <Setter Property="Color" Value="{AppThemeBinding Light=Default, Dark=#9D9D9D}"/>
+                <Setter Property="BlurRadius">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="2" />
+                            <On Platform="Android" Value="6" />
+                            <On Platform="UWP" Value="6" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid Margin="0, 40, 0, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="112"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <telerikDataControls:RadListView ItemsSource="{Binding Categories}"
+                                         SelectionMode="None">
+            <telerikDataControls:RadListView.ItemStyle>
+                <telerikListView:ListViewItemStyle BorderWidth="0"/>
+            </telerikDataControls:RadListView.ItemStyle>
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+                                <telerikPrimitives:RadShadow Margin="10,8">
+                                    <telerikPrimitives:RadBorder CornerRadius="4"
+                                                                 BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}">
+                                        <Label Text="{Binding Icon}"
+                                               FontFamily="{StaticResource IconsFont}"
+                                               TextColor="{Binding Color}"
+                                               FontSize="32"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"/>
+                                    </telerikPrimitives:RadBorder>
+                                </telerikPrimitives:RadShadow>
+                            </Grid>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+            <telerikDataControls:RadListView.LayoutDefinition>
+                <telerikListView:ListViewLinearLayout Orientation="Horizontal"
+                                                      ItemLength="112"/>
+            </telerikDataControls:RadListView.LayoutDefinition>
+        </telerikDataControls:RadListView>
+        <telerikDataControls:RadListView Grid.Row="1"
+                                         SelectionMode="None"
+                                         Margin="0, 15, 0, 0"
+                                         ItemsSource="{Binding Tasks}">
+            <telerikDataControls:RadListView.ItemStyle>
+                <telerikListView:ListViewItemStyle BorderWidth="0"/>
+            </telerikDataControls:RadListView.ItemStyle>
+            <telerikDataControls:RadListView.ItemTemplate>
+                <DataTemplate>
+                    <telerikListView:ListViewTemplateCell>
+                        <telerikListView:ListViewTemplateCell.View>
+                            <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+                                <telerikPrimitives:RadShadow Margin="15, 15, 15, 5" >
+                                    <telerikPrimitives:RadBorder CornerRadius="4"
+                                                                 BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <telerikPrimitives:RadBorder Margin="11, 10"
+                                                                         WidthRequest="42"
+                                                                         HeightRequest="42"
+                                                                         CornerRadius="21"
+                                                                         BackgroundColor="{Binding Color}">
+                                                <Label Text="{Binding Abbreviation}"
+                                                       TextColor="#FFFFFFDE"
+                                                       FontSize="18"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"/>
+                                            </telerikPrimitives:RadBorder>
+                                            <StackLayout Grid.Column="1"
+                                                         Spacing="4"
+                                                         VerticalOptions="Center">
+                                                <Label Text="{Binding Title}"
+                                                       TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"
+                                                       FontSize="15"/>
+                                                <Label Text="{Binding Subtitle}"
+                                                       MaxLines="1"
+                                                       LineBreakMode="TailTruncation"
+                                                       TextColor="{AppThemeBinding Light=#99000000, Dark=#FFFFFF}"
+                                                       FontSize="12"/>
+                                                <Label Text="{Binding Date}"
+                                                       TextColor="#C7C7CC"
+                                                       FontSize="10"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </telerikPrimitives:RadBorder>
+                                </telerikPrimitives:RadShadow>
+                            </Grid>
+                        </telerikListView:ListViewTemplateCell.View>
+                    </telerikListView:ListViewTemplateCell>
+                </DataTemplate>
+            </telerikDataControls:RadListView.ItemTemplate>
+            <telerikDataControls:RadListView.LayoutDefinition>
+                <telerikListView:ListViewLinearLayout Orientation="Vertical"
+                                                      ItemLength="86"/>
+            </telerikDataControls:RadListView.LayoutDefinition>
+        </telerikDataControls:RadListView>
+    </Grid>
+</ContentView>

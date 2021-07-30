@@ -8,10 +8,9 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource RegularFont}"/>
                 <Setter Property="FontSize" Value="Medium" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="Margin" Value="0,12"/>
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
             </Style>
@@ -25,74 +24,83 @@
             <Style x:Key="checkBoxLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontSize" Value="Small" />
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    
+
     <ContentView.Content>
         <ScrollView>
-            <Grid BackgroundColor="White">
+            <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="90"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="90"/>
                 </Grid.RowDefinitions>
-                
-                <StackLayout BackgroundColor="#1957B2"
+
+                <StackLayout BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}"
                              Spacing="10"
-                             Orientation="Horizontal"
-                             >
-                    <telerikPrimitives:RadBorder BackgroundColor="#113A77"
+                             Orientation="Horizontal">
+                    <telerikPrimitives:RadBorder BackgroundColor="Transparent"
+                                                 BorderColor="#686869"
                                                  Margin="20,0"
+                                                 BorderThickness="1"
                                                  HeightRequest="50"
                                                  WidthRequest="50"
                                                  VerticalOptions="Center"
                                                  CornerRadius="25" 
-                                                 views:ThemesBehavior.StyleClass="TelerikTheme"
-                                                 >
-                        <Label Text="{StaticResource LockerIcon}" 
-                               FontSize="Large" 
+                                                 views:ThemesBehavior.StyleClass="TelerikTheme">
+                        <Label Text="{StaticResource LockerIcon}"
+                               TextColor="#686869"
                                FontAttributes="None"
-                               VerticalOptions="Center" 
+                               FontSize="20"
+                               VerticalOptions="Center"
                                HorizontalOptions="Center"
-                               VerticalTextAlignment="Center" 
-                               HorizontalTextAlignment="Center" 
-                               TextColor="#cbd2f4"
-                               FontFamily="{StaticResource IconsFont}"
-                               />
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               FontFamily="{StaticResource IconsFont}"/>
                     </telerikPrimitives:RadBorder>
-                    <Label Text="Privacy Settings/demo/" 
+                    <Label Text="Privacy Settings /demo/" 
                            FontSize="Large"
+                           FontAttributes="None"
                            Grid.Column="1" 
-                           TextColor="#cbd2f4"
-                           VerticalOptions="Center"
-                           />
+                           TextColor="#0E88F2"
+                           VerticalOptions="Center"/>
                 </StackLayout>
 
                 <Grid Grid.Row="1" 
-                      Margin="20,35,20,20" 
-                      ColumnSpacing="20"
-                      RowSpacing="35"
-                      >
-
+                      Margin="20,25,20,20" 
+                      RowSpacing="20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="7*"/>
-                    </Grid.ColumnDefinitions>
 
-                    <Label Text="E-mail me when:" 
-                           Grid.RowSpan="2"
-                           />
-                    <Grid VerticalOptions="Start" Grid.Column="1">
+                    <Grid VerticalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <telerikPrimitives:RadCheckBox IsChecked="{Binding ReceiveEmailsChecked}"
+                                                       views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                        <Label Text="Receive E-mails when:"
+                               Grid.Column="1"
+                               FontAttributes="Bold"/>
+                    </Grid>
+                    
+                    <Grid VerticalOptions="Start" 
+                          Grid.Row="1" 
+                          Margin="20,0,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
@@ -100,19 +108,18 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        
+
                         <telerikPrimitives:RadCheckBox Grid.Column="0" 
-                                                       views:ThemesBehavior.StyleClass="TelerikTheme" 
-                                                       />
+                                                       IsChecked="{Binding SomeoneFollowsChecked}"
+                                                       views:ThemesBehavior.StyleClass="TelerikTheme"/>
                         <Label Grid.Column="1" 
                                Text="Someone follows me" 
-                                Style="{StaticResource checkBoxLabel}"
-                               />
+                                Style="{StaticResource checkBoxLabel}"/>
                     </Grid>
 
                     <Grid VerticalOptions="Start"
-                          Grid.Row="1"
-                          Grid.Column="1"
+                          Grid.Row="2"
+                          Margin="20,0,0,0"
                           >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
@@ -120,25 +127,33 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
-                        </Grid.ColumnDefinitions>   
-                        
-                        <telerikPrimitives:RadCheckBox Grid.Column="0"                                                      
-                                                       views:ThemesBehavior.StyleClass="TelerikTheme"
-                                                       />
+                        </Grid.ColumnDefinitions>
+
+                        <telerikPrimitives:RadCheckBox Grid.Column="0"              
+                                                       IsChecked="{Binding SomeoneSendsMessagesChecked}"
+                                                       views:ThemesBehavior.StyleClass="TelerikTheme"/>
                         <Label Grid.Column="1"
                                Text="Someone sends me a message"
-                               Style="{StaticResource checkBoxLabel}"
-                               />
+                               Style="{StaticResource checkBoxLabel}"/>
                     </Grid>
 
-                    <Label Text="Privacy:" 
-                           Grid.Row="2"
-                           Grid.RowSpan="2"
-                           />
+                    <Grid VerticalOptions="Start"
+                          Grid.Row="3" Margin="0, 20, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <telerikPrimitives:RadCheckBox IsChecked="{Binding PrivateProfileChecked}"
+                                                       views:ThemesBehavior.StyleClass="TelerikTheme"/>
+                        <Label Text="Private Profile:"
+                               Grid.Column="1"/>
+                    </Grid>
                     <Grid VerticalOptions="Start" 
-                          Grid.Row="2"
-                          Grid.Column="1"
-                          >
+                          Grid.Row="4"
+                          Margin="20,0,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
@@ -146,20 +161,18 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        
+
                         <telerikPrimitives:RadCheckBox Grid.Column="0" 
-                                                       views:ThemesBehavior.StyleClass="TelerikTheme" 
-                                                       />
+                                                       IsChecked="{Binding OnlyFriendsChecked}"
+                                                       views:ThemesBehavior.StyleClass="TelerikTheme"/>
                         <Label Grid.Column="1" 
-                               Text="Make my profile private"
-                               Style="{StaticResource checkBoxLabel}"
-                               />
+                               Text="Only friends can see my friends list"
+                               Style="{StaticResource checkBoxLabel}"/>
                     </Grid>
 
                     <Grid VerticalOptions="Start" 
-                          Grid.Row="3" 
-                          Grid.Column="1"
-                          >
+                          Grid.Row="5"
+                          Margin="20,0,0,0" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
@@ -167,41 +180,33 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        
-                        <telerikPrimitives:RadCheckBox Grid.Column="0"                                                    
-                                                       views:ThemesBehavior.StyleClass="TelerikTheme"
-                                                       />
+
+                        <telerikPrimitives:RadCheckBox Grid.Column="0"   
+                                                       IsChecked="{Binding OnlyShowToFollowersChecked}"
+                                                       views:ThemesBehavior.StyleClass="TelerikTheme"/>
                         <Label Grid.Column="1" 
-                               Text="Only show your posts to people who follows me"                                
-                               Style="{StaticResource checkBoxLabel}"
-                               />
+                               Text="Only show your posts to people who follow you"                                
+                               Style="{StaticResource checkBoxLabel}"/>
                     </Grid>
                 </Grid>
+                
                 <Grid Grid.Row="2">
-                    <BoxView HeightRequest="2" 
-                             Color="#E5E5E5"
-                             HorizontalOptions="FillAndExpand"
-                             VerticalOptions="Start"
-                             />
-                    <telerikInput:RadButton BackgroundColor="#1957B2" 
+                    <telerikInput:RadButton BackgroundColor="#0E88F2" 
                                             Text="Save Settings"
-                                            TextColor="#cbd2f4" 
+                                            TextColor="#FFFFFF" 
                                             FontSize="Small" 
-                                            Margin="0,0,20,0" 
-                                            VerticalOptions="Center"
-                                            WidthRequest="200" 
+                                            Margin="20,0,20,0" 
+                                            VerticalOptions="Center"                                          
                                             HeightRequest="40"
-                                            HorizontalOptions="End" 
+                                            HorizontalOptions="FillAndExpand" 
                                             FontFamily="{StaticResource RegularFont}" 
                                             Clicked="RadButton_Clicked" 
-                                            views:ThemesBehavior.StyleClass="TelerikTheme"
-                                            />
+                                            views:ThemesBehavior.StyleClass="TelerikTheme"/>
                 </Grid>
                 <RelativeLayout Grid.RowSpan="3" 
                                 InputTransparent="True" 
                                 x:Name="relLayout" 
-                                IsVisible="False"
-                                >
+                                IsVisible="False">
                     <RelativeLayout.Resources>
                         <ResourceDictionary>
                             <OnPlatform x:TypeArguments="x:Double" x:Key="XConstraint">
@@ -211,19 +216,18 @@
                         </ResourceDictionary>
                     </RelativeLayout.Resources>
 
-                    <telerikPrimitives:RadBorder CornerRadius="20" 
-                                                 BackgroundColor="#DDDDDD"
+                    <telerikPrimitives:RadBorder CornerRadius="20"
+                                                 BackgroundColor="LightGray"
                                                  RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant={StaticResource XConstraint}}" 
-                                                 RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.75}"
-                                                 >
+                                                 RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.75}">
                         <telerikPrimitives:RadBorder.WidthRequest>
                             <OnPlatform x:TypeArguments="x:Double">
                                 <On Platform="UWP" >400</On>
                                 <On Platform="Android, iOS">300</On>
                             </OnPlatform>
                         </telerikPrimitives:RadBorder.WidthRequest>
-                        
-                        <Label Text="Your Profile has been updated." HorizontalTextAlignment="Center"/>
+
+                        <Label Text="Your Profile has been updated." TextColor="Black" HorizontalTextAlignment="Center"/>
                     </telerikPrimitives:RadBorder>
                 </RelativeLayout>
             </Grid>

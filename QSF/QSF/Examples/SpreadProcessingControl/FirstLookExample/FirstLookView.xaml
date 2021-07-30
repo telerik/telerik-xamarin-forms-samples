@@ -23,7 +23,7 @@
                     </Image>
                 </primitives:RadBorder>
                 <Label Text="Format:"
-                       TextColor="#000000"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                        FontAttributes="Bold" 
                        HorizontalOptions="Center"
                        FontSize="Medium"

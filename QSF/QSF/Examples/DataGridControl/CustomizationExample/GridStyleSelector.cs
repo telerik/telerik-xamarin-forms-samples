@@ -5,20 +5,23 @@ namespace QSF.Examples.DataGridControl.CustomizationExample
 {
     public class GridStyleSelector : DataGridStyleSelector
     {
-        public DataGridStyle OuterGroupStyle { get; set; }
+        public DataGridStyle OuterGroupStyleLight { get; set; }
 
-        public DataGridStyle InnerGroupStyle { get; set; }
+        public DataGridStyle OuterGroupStyleDark { get; set; }
+
+        public DataGridStyle InnerGroupStyleLight { get; set; }
+
+        public DataGridStyle InnerGroupStyleDark { get; set; }
 
         public override DataGridStyle SelectStyle(object item, BindableObject container)
         {
+            var isThemeLight = Application.Current.UserAppTheme != OSAppTheme.Dark;
             if ((item as GroupHeaderContext).Level == 0)
             {
-                return this.OuterGroupStyle;
+                return isThemeLight ? this.OuterGroupStyleLight : this.OuterGroupStyleDark;
             }
-            else
-            {
-                return this.InnerGroupStyle;
-            }
+
+            return isThemeLight ? this.InnerGroupStyleLight : this.InnerGroupStyleDark;
         }
 
     }

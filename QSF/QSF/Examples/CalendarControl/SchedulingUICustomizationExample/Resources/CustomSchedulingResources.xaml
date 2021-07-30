@@ -86,7 +86,7 @@
         <Setter Property="BorderThickness" Value="0, 0, 0, 1"/>
         <Setter Property="WidthRequest" Value="140"/>
         <Setter Property="FocusedBorderColor" Value="White"/>
-        <Setter Property="BorderColor" Value="White"/>
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light=White, Dark=#373737}"/>
     </Style>
 
     <telerikInput:PickerPopupSelectorSettings x:Key="TimePickerPopupSelectorSettings" 
@@ -110,7 +110,7 @@
 
     <DataTemplate x:Key="LocationComboBoxSelectedItemTemplate">
         <telerikPrimitives:RadBorder Style="{StaticResource ComboBoxBorderStyle}"
-                                     BackgroundColor="#F8F8F8">
+                                     BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#686869}">
             <Label Text="{Binding FullName}"
                    Padding="2, 14, 14, 0"
                    FontSize="13"/>
@@ -212,7 +212,7 @@
                              Spacing="0">
 
                     <telerikPrimitives:RadBorder Margin="-16, -20, -16, 0" 
-                                                 BackgroundColor="#F8F8F8"
+                                                 BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}"
                                                  Padding="16, 20, 16, 0">
                         <StackLayout>
 
@@ -423,15 +423,17 @@
                             TextColor="{TemplateBinding EditorTextColor}"
                             AutoSize="TextChanges"
                             Margin="{OnPlatform iOS='0, 23, 0, 20', Default='0, 23, 0, 14'}"
+                            BackgroundColor="Transparent"
                             Placeholder="Event Description">
                         <Editor.Effects>
                             <telerikCommon:NoTextOffsetEffect />
+                            <telerikCommon:EditorClearFocusedBackgroundEffect />
                         </Editor.Effects>
                     </Editor>
                 </StackLayout>
             </ScrollView>
 
-            <telerikPrimitives:RadBorder BorderColor="#C8C7CC"
+            <telerikPrimitives:RadBorder BorderColor="{AppThemeBinding Light=#C8C7CC, Dark=#373737}"
                                          BorderThickness="0, 1, 0, 0" 
                                          Grid.Row="1">
                 <Grid ColumnSpacing="0">
@@ -451,7 +453,7 @@
     </ControlTemplate>
 
     <Style TargetType="telerikInput:AddAppointmentView">
-        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#121212}"/>
         <Setter Property="TitleFontSize" Value="22" />
         <Setter Property="EditorFontSize" Value="13" />
         <Setter Property="ButtonTextColor" Value="{Binding Appointment.Color}" />

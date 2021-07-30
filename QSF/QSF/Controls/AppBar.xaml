@@ -24,7 +24,7 @@
     </TemplatedView.Resources>
     <TemplatedView.ControlTemplate>
         <ControlTemplate>
-            <Grid BackgroundColor="{StaticResource Key=HeaderBackgroundsColor}">
+            <Grid BackgroundColor="{AppThemeBinding Light={StaticResource Key=HeaderBackgroundsColorLight}, Dark={StaticResource Key=HeaderBackgroundsColorDark}}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -45,6 +45,7 @@
                                      Command="{TemplateBinding Path=LeftButtonCommand}"
                                      IsVisible="{TemplateBinding Path=IsLeftButtonVisible}"
                                      IsEnabled="{TemplateBinding Path=IsLeftButtonEnabled}"
+                                     FontSize="{TemplateBinding Path=LeftButtonFontSize, Mode=TwoWay}"
                                      Style="{StaticResource Key=AppBarButtonStyle}"
                                      AutomationId="AppBarLeftButton"
                                      HorizontalOptions="Start">
@@ -93,7 +94,7 @@
                         </input:RadButton.Effects>
                     </input:RadButton>
                 </Grid>
-                
+
                 <BoxView Color="Black" HeightRequest="1" HorizontalOptions="Fill" Grid.Row="2" />
             </Grid>
         </ControlTemplate>

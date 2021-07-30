@@ -26,10 +26,21 @@ namespace QSF.Examples.CalendarControl.AgendaViewCustomizationExample
             }
             else if (Device.RuntimePlatform == Device.Android)
             {
-                this.appColors.Add(Color.FromHex("4DFF9F55"));
-                this.appColors.Add(Color.FromHex("4DABEBF5"));
-                this.appColors.Add(Color.FromHex("4D007AFF"));
-                this.appColors.Add(Color.FromHex("4DA2BDF8"));
+                var theme = Application.Current.UserAppTheme;
+                if (theme != OSAppTheme.Dark)
+                {
+                    this.appColors.Add(Color.FromHex("4DFF9F55"));
+                    this.appColors.Add(Color.FromHex("4DABEBF5"));
+                    this.appColors.Add(Color.FromHex("4D007AFF"));
+                    this.appColors.Add(Color.FromHex("4DA2BDF8"));
+                }
+                else
+                {
+                    this.appColors.Add(Color.FromHex("B3FF9F55"));
+                    this.appColors.Add(Color.FromHex("B3ABEBF5"));
+                    this.appColors.Add(Color.FromHex("B3007AFF"));
+                    this.appColors.Add(Color.FromHex("B3A2BDF8"));
+                }
             }
 
             this.Appointments = this.GenerateAppointments();

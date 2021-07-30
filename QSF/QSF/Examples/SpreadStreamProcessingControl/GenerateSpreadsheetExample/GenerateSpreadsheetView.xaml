@@ -5,7 +5,7 @@
              xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:local="clr-namespace:QSF.Examples.SpreadStreamProcessingControl.GenerateSpreadsheetExample"
              x:Class="QSF.Examples.SpreadStreamProcessingControl.GenerateSpreadsheetExample.GenerateSpreadsheetView">
-    <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
+    <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="{AppThemeBinding Dark=Default, Light=White}">
         <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -30,11 +30,11 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="16, 0">
-                                        <Label Text="{Binding CourseName}" FontSize="16" TextColor="Black" />
-                                        <Label Text="{Binding University}" FontSize="13" TextColor="Black" FontFamily="{StaticResource Key=RegularFont}" />
+                                        <Label Text="{Binding CourseName}" FontSize="16" TextColor="{AppThemeBinding Dark=Default, Light=Black}" />
+                                        <Label Text="{Binding University}" FontSize="13" TextColor="{AppThemeBinding Dark=Default, Light=Black}" FontFamily="{StaticResource Key=RegularFont}" />
                                     </StackLayout>
 
-                                    <Label Text="{Binding Path=Progress, StringFormat='{0} %'}" FontSize="16" TextColor="Black" Grid.Column="1"
+                                    <Label Text="{Binding Path=Progress, StringFormat='{0} %'}" FontSize="16" TextColor="{AppThemeBinding Dark=Default, Light=Black}" Grid.Column="1"
                                            VerticalOptions="Center" Margin="16, 0" FontFamily="{StaticResource Key=RegularFont}" />
                                 </Grid>
                             </listView:ListViewTemplateCell.View>

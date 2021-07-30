@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Telerik.XamarinForms.Input;
 using Telerik.XamarinForms.Primitives;
 using Xamarin.Forms;
@@ -21,6 +22,9 @@ namespace QSF.Controls
 
         public static readonly BindableProperty LeftButtonCommandProperty =
             BindableProperty.Create(nameof(LeftButtonCommand), typeof(ICommand), typeof(AppBar), null);
+
+        public static readonly BindableProperty LeftButtonFontSizeProperty =
+            BindableProperty.Create(nameof(LeftButtonFontSize), typeof(double), typeof(AppBar), defaultValue: Device.GetNamedSize(NamedSize.Medium, typeof(Label)));
 
         public static readonly BindableProperty IsLeftButtonVisibleProperty =
             BindableProperty.Create(nameof(IsLeftButtonVisible), typeof(bool), typeof(AppBar), true);
@@ -98,6 +102,13 @@ namespace QSF.Controls
         {
             get { return (ICommand)this.GetValue(LeftButtonCommandProperty); }
             set { this.SetValue(LeftButtonCommandProperty, value); }
+        }
+
+        [Xamarin.Forms.TypeConverter(typeof(FontSizeConverter))]
+        public double LeftButtonFontSize
+        {
+            get { return (double)this.GetValue(LeftButtonFontSizeProperty); }
+            set { this.SetValue(LeftButtonFontSizeProperty, value); }
         }
 
         public bool IsLeftButtonVisible

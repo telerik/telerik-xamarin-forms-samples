@@ -6,7 +6,7 @@
              xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              x:Class="QSF.Views.ThemesView">
-    <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -32,13 +32,13 @@
                 <telerikListView:ListViewGridLayout HorizontalItemSpacing="10" VerticalItemSpacing="10" ItemLength="50" />
             </telerikDataControls:RadListView.LayoutDefinition>
             <telerikDataControls:RadListView.ItemStyle>
-                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{StaticResource Key=DarkBackgroundColor}" />
+                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}" />
             </telerikDataControls:RadListView.ItemStyle>
             <telerikDataControls:RadListView.PressedItemStyle>
-                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{StaticResource Key=DarkBackgroundColor}" />
+                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}" />
             </telerikDataControls:RadListView.PressedItemStyle>
             <telerikDataControls:RadListView.SelectedItemStyle>
-                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{StaticResource Key=DarkBackgroundColor}" />
+                <listView:ListViewItemStyle BorderWidth="0" BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}" />
             </telerikDataControls:RadListView.SelectedItemStyle>
             <telerikDataControls:RadListView.ItemTemplate>
                 <DataTemplate>
@@ -60,7 +60,7 @@
                                 
                                 <BoxView Color="{Binding Path=Color3}" WidthRequest="25" HeightRequest="25" VerticalOptions="Center" Grid.Column="2" />
                                 
-                                <Label Text="{Binding Path=Name}" Margin="6, 0, 0, 0" VerticalOptions="Center" TextColor="{StaticResource TextColor}" Grid.Column="3" />
+                                <Label Text="{Binding Path=Name}" Margin="6, 0, 0, 0" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" Grid.Column="3" />
                             </Grid>
                         </telerikListView:ListViewTemplateCell.View>
                     </telerikListView:ListViewTemplateCell>

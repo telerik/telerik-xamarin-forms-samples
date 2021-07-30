@@ -15,6 +15,8 @@ namespace QSF.Droid.Services.DeviceInfo
             }
         }
 
+        public double OSVersion => (double)global::Android.OS.Build.VERSION.SdkInt;
+
         private Android.Util.DisplayMetrics Metrics
         {
             get

@@ -8,7 +8,7 @@
     <views:GalleryExampleViewBase.Resources>
         <ResourceDictionary MergedWith="views:GalleryResources">
             <DataTemplate x:Key="line">
-                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                <telerikChart:RadCartesianChart BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" views:ThemesBehavior.StyleClass="TelerikTheme">
                     <telerikChart:RadCartesianChart.ChartBehaviors>
                         <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
                     </telerikChart:RadCartesianChart.ChartBehaviors>
@@ -27,7 +27,7 @@
                 </telerikChart:RadCartesianChart>
             </DataTemplate>
             <DataTemplate x:Key="spline">
-                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                <telerikChart:RadCartesianChart BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" views:ThemesBehavior.StyleClass="TelerikTheme">
                     <telerikChart:RadCartesianChart.ChartBehaviors>
                         <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
                     </telerikChart:RadCartesianChart.ChartBehaviors>
@@ -46,7 +46,7 @@
                 </telerikChart:RadCartesianChart>
             </DataTemplate>
             <DataTemplate x:Key="stacked-line">
-                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                <telerikChart:RadCartesianChart BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" views:ThemesBehavior.StyleClass="TelerikTheme">
                     <telerikChart:RadCartesianChart.ChartBehaviors>
                         <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
                     </telerikChart:RadCartesianChart.ChartBehaviors>
@@ -66,7 +66,7 @@
                 </telerikChart:RadCartesianChart>
             </DataTemplate>
             <DataTemplate x:Key="stacked-spline">
-                <telerikChart:RadCartesianChart PaletteName="Light" SelectionPaletteName="LightSelected" BackgroundColor="White" views:ThemesBehavior.StyleClass="TelerikTheme">
+                <telerikChart:RadCartesianChart BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" views:ThemesBehavior.StyleClass="TelerikTheme">
                     <telerikChart:RadCartesianChart.ChartBehaviors>
                         <telerikChart:ChartSelectionBehavior DataPointSelectionMode="None" SeriesSelectionMode="Single" />
                     </telerikChart:RadCartesianChart.ChartBehaviors>

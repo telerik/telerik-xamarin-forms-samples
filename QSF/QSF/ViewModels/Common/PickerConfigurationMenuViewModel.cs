@@ -1,5 +1,4 @@
-﻿using QSF.ViewModels;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels.Common
@@ -10,9 +9,13 @@ namespace QSF.ViewModels.Common
         private static readonly ColorViewModel OrangeColor = new ColorViewModel("Orange", "#FF6F00");
         private static readonly ColorViewModel YellowColor = new ColorViewModel("Yellow", "#FFAC3E");
         private static readonly ColorViewModel LightGrayColor = new ColorViewModel("Light Gray", "#F8F8F8");
+        private static readonly ColorViewModel MediumLightGrayColor = new ColorViewModel("Medium Light Gray", "#919191");
         private static readonly ColorViewModel WhiteColor = new ColorViewModel("White", "#FFFFFF");
         private static readonly ColorViewModel DarkGrayColor = new ColorViewModel("Dark Gray", "#757575");
+        private static readonly ColorViewModel MediumDarkGrayColor = new ColorViewModel("Medium Dark Gray", "#373737");
         private static readonly ColorViewModel BlackColor = new ColorViewModel("Black", "#000000");
+        private static readonly ColorViewModel SelectionDarkColor = new ColorViewModel("Gray", "#686869");
+        private static readonly ColorViewModel DarkColor = new ColorViewModel("Dark", "#661E1E1E");
 
         private bool isHeaderVisible = true;
         private ColorViewModel popupHeaderBackgroundColor;
@@ -32,6 +35,7 @@ namespace QSF.ViewModels.Common
 
         public PickerConfigurationMenuViewModel()
         {
+            var isLightMode = Application.Current.RequestedTheme != OSAppTheme.Dark;
             this.PopupHeaderBackgroundColors = new ObservableCollection<ColorViewModel> { BlueColor, OrangeColor, YellowColor, LightGrayColor };
             this.PopupHeaderBackgroundColor = BlueColor;
 
@@ -50,12 +54,6 @@ namespace QSF.ViewModels.Common
             this.SelectedItemFontSizes = new ObservableCollection<int> { 16, 18, 20 };
             this.SelectedItemFontSize = this.SelectedItemFontSizes[0];
 
-            this.SelectedItemBackgroundColors = new ObservableCollection<ColorViewModel> { WhiteColor, LightGrayColor };
-            this.SelectedItemBackgroundColor = LightGrayColor;
-
-            this.SpinnerItemFontColors = new ObservableCollection<ColorViewModel> { DarkGrayColor, BlackColor };
-            this.SpinnerItemFontColor = DarkGrayColor;
-
             this.ItemFontAttributes = new ObservableCollection<FontAttributes> { FontAttributes.Bold, FontAttributes.Italic, FontAttributes.None };
             this.SelectedItemFontAttribute = this.ItemFontAttributes[0];
             this.SpinnerItemFontAttribute = this.ItemFontAttributes[1];
@@ -63,14 +61,40 @@ namespace QSF.ViewModels.Common
             this.SpinnerItemFontSizes = new ObservableCollection<int> { 12, 14, 16 };
             this.SpinnerItemFontSize = this.SpinnerItemFontSizes[0];
 
-            this.SpinnerItemBackgroundColors = new ObservableCollection<ColorViewModel> { WhiteColor, LightGrayColor };
-            this.SpinnerItemBackgroundColor = WhiteColor;
+            if (isLightMode)
+            {
+                this.SpinnerItemFontColors = new ObservableCollection<ColorViewModel> { DarkGrayColor, BlackColor };
+                this.SpinnerItemFontColor = DarkGrayColor;
 
-            this.ConfirmationButtonBackgroundColors = new ObservableCollection<ColorViewModel> { LightGrayColor, WhiteColor };
-            this.ConfirmationButtonBackgroundColor = LightGrayColor;
+                this.SpinnerItemBackgroundColors = new ObservableCollection<ColorViewModel> { WhiteColor, LightGrayColor };
+                this.SpinnerItemBackgroundColor = WhiteColor;
 
-            this.CancellationButtonBackgroundColors = new ObservableCollection<ColorViewModel> { LightGrayColor, WhiteColor };
-            this.CancellationButtonBackgroundColor = LightGrayColor;
+                this.ConfirmationButtonBackgroundColors = new ObservableCollection<ColorViewModel> { LightGrayColor, WhiteColor };
+                this.ConfirmationButtonBackgroundColor = LightGrayColor;
+
+                this.CancellationButtonBackgroundColors = new ObservableCollection<ColorViewModel> { LightGrayColor, WhiteColor };
+                this.CancellationButtonBackgroundColor = LightGrayColor;
+
+                this.SelectedItemBackgroundColors = new ObservableCollection<ColorViewModel> { WhiteColor, LightGrayColor };
+                this.SelectedItemBackgroundColor = LightGrayColor;
+            }
+            else
+            {
+                this.SpinnerItemFontColors = new ObservableCollection<ColorViewModel> { MediumLightGrayColor, BlackColor };
+                this.SpinnerItemFontColor = MediumLightGrayColor;
+
+                this.SpinnerItemBackgroundColors = new ObservableCollection<ColorViewModel> { DarkColor, LightGrayColor };
+                this.SpinnerItemBackgroundColor = DarkColor;
+
+                this.ConfirmationButtonBackgroundColors = new ObservableCollection<ColorViewModel> { MediumDarkGrayColor, SelectionDarkColor };
+                this.ConfirmationButtonBackgroundColor = MediumDarkGrayColor;
+
+                this.CancellationButtonBackgroundColors = new ObservableCollection<ColorViewModel> { MediumDarkGrayColor, SelectionDarkColor };
+                this.CancellationButtonBackgroundColor = MediumDarkGrayColor;
+
+                this.SelectedItemBackgroundColors = new ObservableCollection<ColorViewModel> { MediumDarkGrayColor, SelectionDarkColor };
+                this.SelectedItemBackgroundColor = MediumDarkGrayColor;
+            }
         }
 
         public ObservableCollection<string> ConfirmationButtonTexts { get; }

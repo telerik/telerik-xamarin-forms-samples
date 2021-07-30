@@ -16,7 +16,7 @@
         <telerikInput:RadCalendar Grid.Row="0"
                                   views:ThemesBehavior.StyleClass="TelerikTheme"
                                   ViewMode="MultiDay"
-                                  BackgroundColor="White"
+                                  BackgroundColor="{AppThemeBinding Light=White, Dark=Default}"
                                   AppointmentsSource="{Binding Appointments}">
             <telerikInput:RadCalendar.Commands>
                 <telerikCalendar:CalendarUserCommand Id="AppointmentTap"
@@ -24,7 +24,7 @@
                 <telerikCalendar:CalendarUserCommand Id="TimeSlotTap"
                                                      Command="{Binding TimeSlotTappedCommand}" />
             </telerikInput:RadCalendar.Commands>
-             <telerikInput:RadCalendar.MultiDayViewSettings>
+            <telerikInput:RadCalendar.MultiDayViewSettings>
                 <telerikInput:MultiDayViewSettings VisibleDays="{Binding VisibleDays}"
                                                    DayStartTime="{Binding DayStartTime}"
                                                    DayEndTime="{Binding DayEndTime}"
@@ -35,7 +35,7 @@
         </telerikInput:RadCalendar>
         <telerikPrimitives:RadBorder Grid.Row="1"
                                      BorderThickness="0,1,0,0"
-                                     BorderColor="#CCCCCC" />
+                                     BorderColor="{AppThemeBinding Light=#CCCCCC, Dark=#686869}" />
         <telerikDataControls:NonVirtualizedItemsControl Grid.Row="1"
                                                         SelectionMode="None"
                                                         Orientation="Horizontal"

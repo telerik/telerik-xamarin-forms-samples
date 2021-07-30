@@ -27,18 +27,28 @@ namespace QSF.Examples.CalendarControl.SchedulingExample
             this.Modes.Add(new ViewMode(char.ConvertFromUtf32(0xe864), Telerik.XamarinForms.Input.CalendarViewMode.Month));
             this.Modes.Add(new ViewMode(char.ConvertFromUtf32(0xe865), Telerik.XamarinForms.Input.CalendarViewMode.Year));
 
-            if (Device.RuntimePlatform == Device.Android)
+            if (Application.Current.UserAppTheme != OSAppTheme.Dark)
             {
-                this.appColors.Add("FirstColor", new Tuple<Color, Color>(Color.FromHex("#FFF1F0"), Color.FromHex("#FFF1F0")));
-                this.appColors.Add("SecondColor", new Tuple<Color, Color>(Color.FromHex("#EAF8FF"), Color.FromHex("#EAF8FF")));
-                this.appColors.Add("ThirdColor", new Tuple<Color, Color>(Color.FromHex("#F0FDFF"), Color.FromHex("#F0FDFF")));
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    this.appColors.Add("FirstColor", new Tuple<Color, Color>(Color.FromHex("#FFF1F0"), Color.FromHex("#FFF1F0")));
+                    this.appColors.Add("SecondColor", new Tuple<Color, Color>(Color.FromHex("#EAF8FF"), Color.FromHex("#EAF8FF")));
+                    this.appColors.Add("ThirdColor", new Tuple<Color, Color>(Color.FromHex("#F0FDFF"), Color.FromHex("#F0FDFF")));
+                }
+                else if (Device.RuntimePlatform == Device.iOS)
+                {
+                    this.appColors.Add("FirstColor", new Tuple<Color, Color>(Color.FromHex("#FF6F00"), Color.FromHex("#FFF4F4")));
+                    this.appColors.Add("SecondColor", new Tuple<Color, Color>(Color.FromHex("#30BCFF"), Color.FromHex("#EAF8FF")));
+                    this.appColors.Add("ThirdColor", new Tuple<Color, Color>(Color.FromHex("#8EE7F4"), Color.FromHex("#F0FDFF")));
+                }
             }
-            else if (Device.RuntimePlatform == Device.iOS)
+            else
             {
-                this.appColors.Add("FirstColor", new Tuple<Color, Color>(Color.FromHex("#FF6F00"), Color.FromHex("#FFF4F4")));
-                this.appColors.Add("SecondColor", new Tuple<Color, Color>(Color.FromHex("#30BCFF"), Color.FromHex("#EAF8FF")));
-                this.appColors.Add("ThirdColor", new Tuple<Color, Color>(Color.FromHex("#8EE7F4"), Color.FromHex("#F0FDFF")));
+                this.appColors.Add("FirstColor", new Tuple<Color, Color>(Color.FromHex("#FF6F00"), Color.FromHex("#FF6F00")));
+                this.appColors.Add("SecondColor", new Tuple<Color, Color>(Color.FromHex("#30BCFF"), Color.FromHex("#30BCFF")));
+                this.appColors.Add("ThirdColor", new Tuple<Color, Color>(Color.FromHex("#8EE7F4"), Color.FromHex("#8EE7F4")));
             }
+
 
             this.Appointments = this.CreateAppointments();
 
@@ -99,9 +109,6 @@ namespace QSF.Examples.CalendarControl.SchedulingExample
                 {
                     if (value == null)
                     {
-                        var oldSelectedItem = this.selectedMode;
-                        this.selectedMode = value;
-                        this.SelectedMode = oldSelectedItem;
                         return;
                     }
 
@@ -331,7 +338,7 @@ namespace QSF.Examples.CalendarControl.SchedulingExample
             if (Device.RuntimePlatform == Device.Android && this.selectedMode.CalendarMode == Telerik.XamarinForms.Input.CalendarViewMode.Week)
             {
                 this.IsAddAppointmentButtonVisible = false;
-            } 
+            }
             else
             {
                 this.IsAddAppointmentButtonVisible = true;

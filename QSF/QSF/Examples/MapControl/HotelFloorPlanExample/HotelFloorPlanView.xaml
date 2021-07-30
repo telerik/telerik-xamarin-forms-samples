@@ -12,9 +12,15 @@
                                     TextColor="White"
                                     FontSize="9"
                                     FontFamily="Arial"/>
+            <Color x:Key="HeaderTitleTextColorLight">#4B4C4C</Color>
+            <Color x:Key="HeaderTitleTextColorDark">#FFFFFF</Color>
+            <Color x:Key="FooterTitleTextColorLight">#4B4C4C</Color>
+            <Color x:Key="FooterTitleTextColorDark">#FFFFFF</Color>
+            <Color x:Key="FooterDetailTextColorLight">#8E8E93</Color>
+            <Color x:Key="FooterDetailTextColorDark">#99FFFFFF</Color>
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid>
+    <Grid BackgroundColor="{AppThemeBinding Light=Default, Dark=#121212}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -23,7 +29,7 @@
         <Label Text="Floor Plan"
                FontSize="19"
                Margin="24, 18, 0, 18"
-               TextColor="#4B4C4C"/>
+               TextColor="{AppThemeBinding Light={StaticResource HeaderTitleTextColorLight}, Dark={StaticResource HeaderTitleTextColorDark}}" />
         <map:RadMap x:Name="map"
                     Grid.Row="1">
             <map:RadMap.MinZoomLevel>
@@ -116,7 +122,7 @@
                 <Label Text="Legend:"
                        FontSize="14"
                        Margin="0, 0, 0, 16"
-                       TextColor="#4B4C4C"/>
+                       TextColor="{AppThemeBinding Light={StaticResource FooterTitleTextColorLight}, Dark={StaticResource FooterTitleTextColorDark}}" />
                 <dataControls:RadListView ItemsSource="{Binding RoomStates}" 
                                           SelectionMode="None">
                     <dataControls:RadListView.ItemTemplate>
@@ -130,7 +136,7 @@
                                                  VerticalOptions="CenterAndExpand"
                                                  Margin="0, 0, 8, 0"/>
                                         <Label Text="{Binding State}" 
-                                               TextColor="#8E8E93"
+                                               TextColor="{AppThemeBinding Light={StaticResource FooterDetailTextColorLight}, Dark={StaticResource FooterDetailTextColorDark}}"
                                                VerticalTextAlignment="Center"
                                                FontSize="12"/>
                                     </StackLayout>

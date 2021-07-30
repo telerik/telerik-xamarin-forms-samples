@@ -60,7 +60,7 @@
                     </telerikGauges:GaugeBarIndicator>
                     <telerikGauges:GaugeRangeBarIndicator From="80"
                                                           To="120"
-                                                          Fill="{StaticResource black}"
+                                                          Fill="{AppThemeBinding Light={StaticResource black}, Dark=White}"
                                                           Offset="0"
                                                           FromThickness="1"
                                                           ToThickness="1"
@@ -69,7 +69,7 @@
                                                        Position="Start"
                                                        Offset="3"
                                                        Shape="{StaticResource tickGeometry}"
-                                                       Stroke="{StaticResource black}"
+                                                       Stroke="{AppThemeBinding Light={StaticResource black}, Dark=White}"
                                                        StrokeThickness="1"
                                                        Size="6"
                                                        AnimationSettings="{StaticResource disabledAnimations}" />
@@ -77,7 +77,7 @@
                                                        Position="Start"
                                                        Offset="3"
                                                        Shape="{StaticResource tickGeometry}"
-                                                       Stroke="{StaticResource black}"
+                                                       Stroke="{AppThemeBinding Light={StaticResource black}, Dark=White}"
                                                        StrokeThickness="1"
                                                        Size="6"
                                                        AnimationSettings="{StaticResource disabledAnimations}" />
@@ -85,13 +85,13 @@
                                                       Text="80"
                                                       Position="Start"
                                                       Offset="10"
-                                                      TextColor="{StaticResource black}"
+                                                      TextColor="{AppThemeBinding Light={StaticResource black}, Dark=White}"
                                                       AnimationSettings="{StaticResource disabledAnimations}" />
                     <telerikGauges:GaugeTextIndicator Value="120"
                                                       Text="120"
                                                       Position="Start"
                                                       Offset="10"
-                                                      TextColor="{StaticResource black}"
+                                                      TextColor="{AppThemeBinding Light={StaticResource black}, Dark=White}"
                                                       AnimationSettings="{StaticResource disabledAnimations}" />
                 </telerikGauges:RadGaugeBase.Indicators>
             </telerikGauges:RadHorizontalGauge>

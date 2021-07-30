@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.EntryControl.ConfigurationExample.ConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="CommonLabelStyle">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+
+            <Style TargetType="Label" BasedOn="{StaticResource CommonLabelStyle}" x:Key="SwitchLabelStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label" BasedOn="{StaticResource CommonLabelStyle}" x:Key="InfoLabelStyle">
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="Margin" Value="0,18,0,3"/>
+            </Style>
+
+            <Style TargetType="Picker" x:Key="PickerStyle">
+                <Setter Property="Margin" Value="0,6,0,6"/>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="EntryStyle">
+                <Setter Property="Margin" Value="0,6,0,6"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}" >
+            <telerikInput:RadEntry x:Name="entry"
+                                   MaxLength="{Binding Source={x:Reference maxLengthNumeric}, Path=Value}"
+                                   Keyboard="{Binding SelectedKeyboard}"
+                                   FontSize="{Binding SelectedFontSize}"
+                                   TextColor="{Binding SelectedTextColor}"
+                                   WatermarkText="Enter Text"
+                                   Margin="16"/>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <StackLayout Margin="16,0,24,0">
+                <Grid Margin="0,18,0,19">
+                    <Label Text="isPassword:" Style="{StaticResource SwitchLabelStyle}"/>
+                    <Switch IsToggled="{Binding Source={x:Reference entry}, Path=IsPassword, Mode=TwoWay}"
+                            HorizontalOptions="End" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid Margin="0,18,0,19">
+                    <Label Text="isReadonly:" Style="{StaticResource SwitchLabelStyle}"/>
+                    <Switch IsToggled="{Binding Source={x:Reference entry}, Path=IsReadOnly, Mode=TwoWay}"
+                            HorizontalOptions="End" VerticalOptions="Center"/>
+                </Grid>
+
+                <Label Text="MaxLength (symbols):" Style="{StaticResource InfoLabelStyle}"/>
+                <telerikInput:RadNumericInput x:Name="maxLengthNumeric"                                          
+                                              IsReadOnly="True"
+                                              Value="5"
+                                              Minimum="0"
+                                              HorizontalOptions="FillAndExpand"
+                                              Margin="0,6,0,6"/>
+
+                <Label Text="Text:" Style="{StaticResource InfoLabelStyle}"/>
+                <Entry Style="{StaticResource EntryStyle}"
+                                    Placeholder="EnterText"
+                                    Text="{Binding Source={x:Reference entry}, Path=Text, Mode=TwoWay}"/>
+
+                <Label Text="Keyboard:" Style="{StaticResource InfoLabelStyle}"/>
+                <Picker x:Name="keyboardPicker" 
+                        Style="{StaticResource PickerStyle}"
+                        SelectedItem="{Binding SelectedKeyboardString}" 
+                        ItemsSource="{Binding Keyboards}" />
+
+                <Label Text="WaterMarkText:" Style="{StaticResource InfoLabelStyle}"/>
+                <Entry Placeholder="Enter WaterMarkText"
+                                       Style="{StaticResource EntryStyle}"
+                                       Text="{Binding Source={x:Reference entry}, Path=WatermarkText, Mode=TwoWay}"/>
+
+                <Label Text="Text Color:" Style="{StaticResource InfoLabelStyle}"/>
+                <Picker x:Name="textColorPicker" 
+                        Style="{StaticResource PickerStyle}"
+                        SelectedItem="{Binding SelectedColorString}" 
+                        ItemsSource="{Binding TextColors}" />
+
+                <Label Text="Font Size:" Style="{StaticResource InfoLabelStyle}"/>
+                <Picker x:Name="fontSizePicker"
+                        Style="{StaticResource PickerStyle}"
+                        SelectedItem="{Binding SelectedNamedSize}" 
+                        ItemsSource="{Binding FontSizes}"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentView>

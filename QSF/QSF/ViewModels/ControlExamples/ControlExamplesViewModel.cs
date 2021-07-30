@@ -1,9 +1,9 @@
-﻿using QSF.Services;
-using QSF.Services.Configuration;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using QSF.Services;
+using QSF.Services.Configuration;
 using Telerik.XamarinForms.DataControls.ListView;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -89,6 +89,16 @@ namespace QSF.ViewModels
             this.GroupHeaderTapCommand = new Command<GroupHeaderContext>(this.OnGroupHeaderTap);
         }
 
+        internal override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                this.CanChangeTheme = this.control.IsThemable && Xamarin.Forms.Application.Current.RequestedTheme != OSAppTheme.Dark;
+            }
+        }
+
         private void OnGroupHeaderTap(GroupHeaderContext context)
         {
             if (this.CanCollapseGroups)
@@ -105,7 +115,7 @@ namespace QSF.ViewModels
             this.control = controlsService.GetControlByName(controlName);
 
             this.Title = this.control.DisplayName;
-            this.CanChangeTheme = this.control.IsThemable;
+            this.CanChangeTheme = this.control.IsThemable && Application.Current.RequestedTheme != OSAppTheme.Dark;
 
             this.Examples = new ObservableCollection<ExampleInfoViewModel>(this.control.Examples.Select(p => new ExampleInfoViewModel(p)));
             this.CanCollapseGroups = this.Examples.Select(example => example.GroupName).Distinct().Count() > 1;

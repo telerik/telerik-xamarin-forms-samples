@@ -21,6 +21,8 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
             var recurrencePattern = new RecurrencePattern(new int[] { }, RecurrenceDays.WeekDays, RecurrenceFrequency.Daily, 1, null, null) { MaxOccurrences = 37 };
             var dailyRecurrenceRule = new RecurrenceRule(recurrencePattern);
 
+            var backgroundColor = Application.Current.RequestedTheme != OSAppTheme.Dark ? Color.White : Color.FromHex("#686869");
+
             this.OpenDrawerCommand = new Command(this.OnOpenDrawerCommandExecute);
             this.Events = new ObservableCollection<EventData>()
             {
@@ -35,25 +37,25 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     DateTime.Today.AddDays(-7).AddHours(11),
                     "Tokyo Deall call",
                     Color.FromHex("FFA200"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddDays(-7).AddHours(16) ,
                     DateTime.Today.AddDays(-7).AddHours(17).AddMinutes(30),
                     "Dinner with the Morgans",
                     Color.FromHex("59B6B8"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddDays(-4).AddHours(15),
                     DateTime.Today.AddDays(-4).AddHours(16).AddMinutes(30),
                     "Theater evening",
                     Color.FromHex("59B6B8"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddDays(-3).AddHours(9),
                     DateTime.Today.AddDays(-3).AddHours(10),
                     "Conference call with HQ2",
                     Color.FromHex("FFA200"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddDays(-2),
                     DateTime.Today.AddDays(-2).AddSeconds(1),
@@ -74,38 +76,38 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     DateTime.Today.AddHours(10),
                     "Job Interview",
                     Color.FromHex("FFA200"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddHours(10),
                     DateTime.Today.AddHours(11),
                     "Tokyo deal call",
                     Color.FromHex("FFA200"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddHours(14),
                     DateTime.Today.AddHours(15).AddMinutes(30),
                     "Yachting",
                     Color.FromHex("59B6B8"),
-                    Color.White,
+                    backgroundColor,
                     true),
                 new EventData(
                     DateTime.Today.AddHours(16),
                     DateTime.Today.AddHours(17).AddMinutes(30),
                     "Dinner with the Morgans",
                     Color.FromHex("59B6B8"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddHours(18),
                     DateTime.Today.AddHours(19).AddMinutes(30),
                     "Fitness",
                     Color.FromHex("C9353E"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddHours(20),
                     DateTime.Today.AddHours(22),
                     "Watch a movie",
                     Color.FromHex("C42FBA"),
-                    Color.White,
+                    backgroundColor,
                     true),
                 //Tomorrow
                 new EventData(
@@ -113,55 +115,55 @@ namespace QSF.Examples.CalendarControl.MonthViewExample
                     DateTime.Today.AddHours(22),
                     "Date with Candice",
                     Color.FromHex("C42FBA"),
-                    Color.White),
+                    backgroundColor),
                 //Day after tomorrow
                 new EventData(
                     DateTime.Today.AddDays(2).AddHours(18),
                     DateTime.Today.AddDays(2).AddHours(19).AddMinutes(30),
                     "Watch your favourite show",
                     Color.FromHex("59B6B8"),
-                    Color.White,
+                    backgroundColor,
                     true),
                 new EventData(
                     DateTime.Today.AddDays(2).AddHours(19),
                     DateTime.Today.AddDays(2).AddHours(20).AddMinutes(30),
                     "Football",
                     Color.FromHex("C9353E"),
-                    Color.White),
+                    backgroundColor),
                 //Two days after tomorrow
                 new EventData(
                     DateTime.Today.AddDays(3).AddHours(10),
                     DateTime.Today.AddDays(3).AddHours(11),
                     "Coordination meeting",
                     Color.FromHex("FFA200"),
-                    Color.White),
+                    backgroundColor),
                 new EventData(
                     DateTime.Today.AddDays(3).AddHours(15),
                     DateTime.Today.AddDays(3).AddHours(16).AddMinutes(30),
                     "Theater evening",
                     Color.FromHex("59B6B8"),
-                    Color.White,
+                    backgroundColor,
                     true),
                 new EventData(
                      DateTime.Today.AddDays(3).AddHours(18),
                      DateTime.Today.AddDays(3).AddHours(19).AddMinutes(30),
                     "Table tennis",
                     Color.FromHex("C9353E"),
-                    Color.White),
+                    backgroundColor),
                 //Three days after tomorrow
                 new EventData(
                     DateTime.Today.AddDays(4).AddHours(9),
                     DateTime.Today.AddDays(4).AddHours(10),
                     "Conference call with HQ2",
                     Color.FromHex("FFA200"),
-                    Color.White),
+                    backgroundColor),
                 //Four days after tomorrow
                 new EventData(
                     DateTime.Today.AddDays(5).AddHours(21),
                     DateTime.Today.AddDays(5).AddHours(23),
                     "Birthday party",
                     Color.FromHex("C42FBA"),
-                    Color.White),
+                    backgroundColor),
             };
 
             this.SelectionModes = new List<SelectionModeItem>();

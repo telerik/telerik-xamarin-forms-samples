@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0"
               Padding="10,0"
-              BackgroundColor="#F2F2F2">
+              BackgroundColor="{AppThemeBinding Dark=Default, Light=#F2F2F2}">
             <telerikInput:RadButton WidthRequest="40"
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center"
@@ -29,7 +29,7 @@
                    VerticalOptions="Center"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="#494949"
+                   TextColor="{AppThemeBinding Dark=Default, Light=#494949}"
                    Text="{Binding Folder.Name}" />
         </Grid>
         <BoxView Grid.Row="0"
@@ -38,7 +38,7 @@
                  BackgroundColor="#D9D9D9" />
         <telerikDataControls:RadListView Grid.Row="1"
                                          SelectionMode="None"
-                                         BackgroundColor="White"
+                                         BackgroundColor="{AppThemeBinding Dark=Default, Light=White}"
                                          ItemsSource="{Binding Folder.Emails}">
             <telerikDataControls:RadListView.LayoutDefinition>
                 <telerikListView:ListViewLinearLayout ItemLength="100" />
@@ -52,7 +52,8 @@
                 <DataTemplate>
                     <telerikListView:ListViewTemplateCell>
                         <telerikListView:ListViewTemplateCell.View>
-                            <Grid Padding="20,10"
+                            <Grid Padding="20,0"
+                                  VerticalOptions="Center"
                                   RowSpacing="5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -62,7 +63,7 @@
                                 <Label Grid.Row="0"
                                        FontSize="20"
                                        FontAttributes="Bold"
-                                       TextColor="Black"
+                                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                                        Text="{Binding Sender}" />
                                 <Label Grid.Row="0"
                                        HorizontalOptions="End"
@@ -72,7 +73,7 @@
                                        Text="{Binding Received, StringFormat='{}{0:g}'}" />
                                 <Label Grid.Row="1"
                                        FontSize="14"
-                                       TextColor="Black"
+                                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                                        Text="{Binding Subject}" />
                                 <Label Grid.Row="2"
                                        FontSize="14"

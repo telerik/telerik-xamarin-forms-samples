@@ -6,7 +6,7 @@
 
         public string AppStoreId { get; set; }
 
-        public string Icon { get; set; }
+        public Icon Icon { get; set; }
 
         public string Description { get; set; }
     }

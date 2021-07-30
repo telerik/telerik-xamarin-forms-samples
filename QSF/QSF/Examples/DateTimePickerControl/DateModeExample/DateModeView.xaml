@@ -17,7 +17,7 @@
                    TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
@@ -49,7 +49,7 @@
                                                 Date="{Binding SelectedDate}"
                                                 DefaultHighlightedDate="{Static sys:DateTime.Now}"
                                                 HeightRequest="44"
-                                                BackgroundColor="#F7F7F7"
+                                                BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#373737}"
                                                 BorderThickness="0, 0, 0, 1"
                                                 BorderColor="#0E88F2"
                                                 SpinnerFormat="MMM d yyyy"
@@ -63,12 +63,12 @@
                     </telerikInput:RadDateTimePicker.PlaceholderLabelStyle>
                     <telerikInput:RadDateTimePicker.TabStripStyle>
                         <Style TargetType="telerikPrimitives:TabViewHeader">
-                            <Setter Property="BackgroundColor" Value="#F8F8F8" />
+                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=#373737}" />
                         </Style>
                     </telerikInput:RadDateTimePicker.TabStripStyle>
                     <telerikInput:RadDateTimePicker.TabStripItemStyle>
                         <Style TargetType="telerikInput:DateTimeSelectorTabStripItem">
-                            <Setter Property="SelectedColor" Value="Black" />
+                            <Setter Property="SelectedColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
                             <Setter Property="BorderThickness" Value="0" />
                         </Style>
                     </telerikInput:RadDateTimePicker.TabStripItemStyle>
@@ -84,6 +84,11 @@
                                     <Setter Property="TextColor" Value="{StaticResource AccentTextButtonColor}" />
                                 </Style>
                             </telerikInput:PickerPopupSelectorSettings.CancelButtonStyle>
+                            <telerikInput:PickerPopupSelectorSettings.PopupViewStyle>
+                                <Style TargetType="telerikInput:PickerPopupContentView">
+                                    <Setter Property="HeightRequest" Value="360"/>
+                                </Style>
+                            </telerikInput:PickerPopupSelectorSettings.PopupViewStyle>
                         </telerikInput:PickerPopupSelectorSettings>
                     </telerikInput:RadDateTimePicker.SelectorSettings>
                 </telerikInput:RadDateTimePicker>
@@ -121,7 +126,7 @@
             </StackLayout>
         </ScrollView>
         <StackLayout Grid.Row="1"
-                     BackgroundColor="#F7F7F7">
+                     BackgroundColor="{AppThemeBinding Dark=#121212, Light=#F7F7F7}">
             <telerikInput:RadButton Text="Show Sessions" 
                                     CornerRadius="20" 
                                     Padding="10,5,10,5"

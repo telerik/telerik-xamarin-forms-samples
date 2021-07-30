@@ -13,7 +13,7 @@
         <ResourceDictionary>
             <Style x:Key="DefaultSubtitleLabelStyle" 
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
@@ -53,7 +53,7 @@
                     <RowDefinition Height="60" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <StackLayout BackgroundColor="#EFEFF4">
+                <StackLayout BackgroundColor="{AppThemeBinding Dark=Black, Light=#EFEFF4}">
                     <Image VerticalOptions="End"
                            HorizontalOptions="End">
                         <Image.Source>
@@ -77,7 +77,7 @@
                                                 Placeholder="Select Date"
                                                 PlaceholderLabelStyle="{StaticResource DefaultPlaceholderLabelStyle}"
                                                 DefaultHighlightedDate="{Static sys:DateTime.Now}"
-                                                BackgroundColor="#F7F7F7"
+                                                BackgroundColor="{AppThemeBinding Dark=Transparent, Light=#F7F7F7}"
                                                 BorderColor="#007AFF"
                                                 BorderThickness="0, 0, 0, 1"
                                                 SpinnerFormat="MMMM dd yyyy"
@@ -94,7 +94,7 @@
                                                 views:ThemesBehavior.StyleClass="TelerikTheme"
                                                 PlaceholderLabelStyle="{StaticResource DefaultPlaceholderLabelStyle}"
                                                 DefaultHighlightedTime="{Binding Source={x:Reference datePicker}, Path=DefaultHighlightedDate.TimeOfDay}"
-                                                BackgroundColor="#F7F7F7"
+                                                BackgroundColor="{AppThemeBinding Dark=Transparent, Light=#F7F7F7}"
                                                 BorderColor="#007AFF"
                                                 BorderThickness="0, 0, 0, 1"
                                                 Time="{Binding SelectedTime}"
@@ -182,7 +182,7 @@
             </Grid>
         </ScrollView>
         <StackLayout Grid.Row="1"
-                     BackgroundColor="#F7F7F7" 
+                     BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}" 
                      HeightRequest="65">
             <telerikInput:RadButton Text="Make an Order" 
                                     CornerRadius="20" 

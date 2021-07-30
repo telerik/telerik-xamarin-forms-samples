@@ -9,14 +9,15 @@
         <ResourceDictionary>
             <Style x:Key="ComboBoxTitleStyle" TargetType="Label">
                 <Setter Property="Padding" Value="20, 24, 0, 8"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
-            <Color x:Key="ComboBoxBackgroundColor">#F8F8F8</Color>
+            <Color x:Key="ComboBoxBackgroundColorLight">#F8F8F8</Color>
+            <Color x:Key="ComboBoxBackgroundColorDark">#121212</Color>
             <Style x:Key="ComboBoxStyle" TargetType="telerikInput:RadComboBox">
                 <Setter Property="CornerRadius" Value="12, 12, 0, 0"/>
-                <Setter Property="DropDownBackgroundColor" Value="#F8F8F8"/>
+                <Setter Property="DropDownBackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=#121212}"/>
                 <Setter Property="DropDownBorderThickness" Value="0, 0, 0, 1"/>
                 <Setter Property="DropDownBorderColor" Value="#D9D9D9"/>
                 <Setter Property="BorderColor" Value="#D9D9D9"/>
@@ -41,7 +42,7 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <StackLayout>
-        <telerikPrimitives:RadBorder BackgroundColor="#F8F8F8">
+        <telerikPrimitives:RadBorder BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
             <StackLayout HorizontalOptions="Center"
                          VerticalOptions="Center"
                          Margin="0, 16">
@@ -59,7 +60,7 @@
                        HorizontalTextAlignment="Center"/>
                 <Label Text="Product available offline only"
                        FontSize="14"
-                       TextColor="#919191"
+                       TextColor="{AppThemeBinding Light=#919191, Dark=Default}"
                        HorizontalTextAlignment="Center"/>
             </StackLayout>
         </telerikPrimitives:RadBorder>
@@ -67,7 +68,7 @@
                Style="{StaticResource ComboBoxTitleStyle}"/>
         <telerikInput:RadComboBox ItemsSource="{Binding Colors}"
                                   SelectedIndex="{Binding SelectedColorIndex, Mode=TwoWay}"
-                                  BackgroundColor="{StaticResource ComboBoxBackgroundColor}"
+                                  BackgroundColor="{AppThemeBinding Light={StaticResource ComboBoxBackgroundColorLight}, Dark={StaticResource ComboBoxBackgroundColorDark}}"
                                   Style="{StaticResource ComboBoxStyle}"
                                   ClearButtonStyle="{StaticResource ComboBoxButtonStyle}"
                                   DropDownButtonStyle="{StaticResource ComboBoxDropDownButtonStyle}"
@@ -83,7 +84,7 @@
                 <DataTemplate>
                     <StackLayout Padding="16, 15, 0, 15"
                                  Orientation="Horizontal"
-                                 BackgroundColor="#F8F8F8">
+                                 BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
                         <telerikPrimitives:RadBorder BackgroundColor="{Binding .}"
                                                      HorizontalOptions="Center"
                                                      VerticalOptions="Center"
@@ -95,7 +96,7 @@
                                FontSize="14"
                                VerticalTextAlignment="Center"
                                VerticalOptions="Center"
-                               TextColor="Black"/>
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                     </StackLayout>
                 </DataTemplate>
             </telerikInput:RadComboBox.ItemTemplate>
@@ -103,7 +104,7 @@
                 <DataTemplate>
                     <StackLayout Padding="16, 15, 0, 15"
                                  Orientation="Horizontal"
-                                 BackgroundColor="#E5E5E5">
+                                 BackgroundColor="{AppThemeBinding Light=#E5E5E5, Dark=#373737}">
                         <telerikPrimitives:RadBorder VerticalOptions="Center"
                                                      HorizontalOptions="Center"
                                                      Margin="0, 0, 10, 0"
@@ -124,7 +125,7 @@
                                FontSize="14"
                                VerticalTextAlignment="Center"
                                VerticalOptions="Center"
-                               TextColor="Black"/>
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                     </StackLayout>
                 </DataTemplate>
             </telerikInput:RadComboBox.SelectedItemTemplate>
@@ -133,7 +134,7 @@
                Style="{StaticResource ComboBoxTitleStyle}"/>
         <telerikInput:RadComboBox ItemsSource="{Binding Sizes}"
                                   SelectedIndex="{Binding SelectedSizeIndex, Mode=TwoWay}"
-                                  BackgroundColor="{StaticResource ComboBoxBackgroundColor}"
+                                  BackgroundColor="{AppThemeBinding Light={StaticResource ComboBoxBackgroundColorLight}, Dark={StaticResource ComboBoxBackgroundColorDark}}"
                                   Style="{StaticResource ComboBoxStyle}"
                                   ClearButtonStyle="{StaticResource ComboBoxButtonStyle}"
                                   DropDownButtonStyle="{StaticResource ComboBoxDropDownButtonStyle}"
@@ -150,8 +151,8 @@
                     <Label Text="{Binding .}"
                            Padding="8, 15, 0, 15"
                            FontSize="14"
-                           TextColor="Black"
-                           BackgroundColor="#F8F8F8"/>
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                           BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}"/>
                 </DataTemplate>
             </telerikInput:RadComboBox.ItemTemplate>
             <telerikInput:RadComboBox.SelectedItemTemplate>
@@ -159,8 +160,8 @@
                     <Label Text="{Binding .}"
                            Padding="8, 15, 0, 15"
                            FontSize="14"
-                           BackgroundColor="#E5E5E5"
-                           TextColor="Black"/>
+                           BackgroundColor="{AppThemeBinding Light=#E5E5E5, Dark=#373737}"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                 </DataTemplate>
             </telerikInput:RadComboBox.SelectedItemTemplate>
         </telerikInput:RadComboBox>
@@ -170,7 +171,7 @@
                                   ItemsSource="{Binding Stores}"
                                   SelectedItems="{Binding SelectedStores}"
                                   SelectedIndex="{Binding SelectedStoreIndex, Mode=TwoWay}"
-                                  BackgroundColor="{StaticResource ComboBoxBackgroundColor}"
+                                  BackgroundColor="{AppThemeBinding Light={StaticResource ComboBoxBackgroundColorLight}, Dark={StaticResource ComboBoxBackgroundColorDark}}"
                                   Style="{StaticResource ComboBoxStyle}"
                                   ClearButtonStyle="{StaticResource ComboBoxButtonStyle}"
                                   DropDownButtonStyle="{StaticResource ComboBoxDropDownButtonStyle}"
@@ -192,7 +193,7 @@
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal"
                                  Padding="11, 20, 0, 20"
-                                 BackgroundColor="#DADADA">
+                                 BackgroundColor="{AppThemeBinding Light=#DADADA, Dark=#686869}">
                         <telerikPrimitives:RadCheckBox IsChecked="{Binding SelectAllChecked}"
                                                        Margin="0, 0, 6, 0"
                                                        CheckedColor="#0E88F2"
@@ -200,7 +201,7 @@
                                                        InputTransparent="True"
                                                        VerticalOptions="Center"/>
                         <Label Text="Select All Stores"
-                               TextColor="Black"
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                FontAttributes="Bold"
                                VerticalTextAlignment="Center"/>
                         <StackLayout.GestureRecognizers>
@@ -213,7 +214,7 @@
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal"
                                  Padding="11, 8, 0, 8"
-                                 BackgroundColor="#F8F8F8">
+                                 BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
                         <telerikPrimitives:RadCheckBox Margin="0, 0, 6, 0"
                                                        CheckedColor="#0E88F2"
                                                        IndeterminateColor="#0E88F2"
@@ -223,18 +224,18 @@
                         <StackLayout Spacing="0">
                             <telerikPrimitives:RadHighlightLabel UnformattedText="{Binding City}"
                                                                  HighlightText="{Binding Source={x:Reference StoresCombo}, Path=SearchText, Mode=OneWay}"
-                                                                 TextColor="Black"
+                                                                 TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                                                  HighlightTextColor="{Binding Source={x:Reference StoresCombo}, Path=HighlightTextColor}"
                                                                  FontAttributes="Bold"
                                                                  FontSize="16"/>
                             <Label Text="{Binding Street}"
-                                   TextColor="#8A000000"
+                                   TextColor="{AppThemeBinding Light=#8A000000, Dark=Default}"
                                    FontSize="14"/>
                             <Label Text="{Binding Code}"
-                                   TextColor="#8A000000"
+                                   TextColor="{AppThemeBinding Light=#8A000000, Dark=Default}"
                                    FontSize="14"/>
                             <Label Text="{Binding WorkHours}"
-                                   TextColor="#8A000000"
+                                   TextColor="{AppThemeBinding Light=#8A000000, Dark=Default}"
                                    FontSize="12"/>
                         </StackLayout>
                     </StackLayout>
@@ -244,7 +245,7 @@
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal"
                                  Padding="11, 8, 0, 8"
-                                 BackgroundColor="#E5E5E5">
+                                 BackgroundColor="{AppThemeBinding Light=#E5E5E5, Dark=#373737}">
                         <telerikPrimitives:RadCheckBox Margin="0, 0, 6, 0"
                                                        IsChecked="True"
                                                        CheckedColor="#0E88F2"
@@ -254,18 +255,18 @@
                         <StackLayout Spacing="0">
                             <telerikPrimitives:RadHighlightLabel UnformattedText="{Binding City}"
                                                                  HighlightText="{Binding Source={x:Reference StoresCombo}, Path=SearchText}"
-                                                                 TextColor="Black"
+                                                                 TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                                                  HighlightTextColor="{Binding Source={x:Reference StoresCombo}, Path=HighlightTextColor}"
                                                                  FontAttributes="Bold"
                                                                  FontSize="16"/>
                             <Label Text="{Binding Street}"
-                                   TextColor="#8A000000"
+                                   TextColor="{AppThemeBinding Light=#8A000000, Dark=Default}"
                                    FontSize="14"/>
                             <Label Text="{Binding Code}"
-                                   TextColor="#8A000000"
+                                   TextColor="{AppThemeBinding Light=#8A000000, Dark=Default}"
                                    FontSize="14"/>
                             <Label Text="{Binding WorkHours}"
-                                   TextColor="#8A000000"
+                                   TextColor="{AppThemeBinding Light=#8A000000, Dark=Default}"
                                    FontSize="12"/>
                         </StackLayout>
                     </StackLayout>
@@ -273,7 +274,7 @@
             </telerikInput:RadComboBox.SelectedItemTemplate>
             <telerikInput:RadComboBox.TokenTemplate>
                 <DataTemplate>
-                    <telerikPrimitives:RadBorder BackgroundColor="#D8EBFF"
+                    <telerikPrimitives:RadBorder BackgroundColor="{AppThemeBinding Light=#D8EBFF, Dark=#2196F3}"
                                                  Margin="1"
                                                  BorderThickness="0"
                                                  VerticalOptions="Center">
@@ -296,7 +297,7 @@
                                    FontFamily="{Static telerikCommon:TelerikFont.FontFamily}"
                                    Text="{Static telerikCommon:TelerikFont.IconCancel2}"
                                    VerticalOptions="Center"
-                                   TextColor="#FF8E8E93">
+                                   TextColor="{AppThemeBinding Light=#FF8E8E93, Dark=#D8EBFF}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={x:Reference StoresCombo}, Path=BindingContext.RemoveTokenCommand}"
                                                           CommandParameter="{Binding .}"/>
@@ -318,14 +319,14 @@
                             <Label VerticalOptions="Center"
                                    Text="{Binding Street}"
                                    FontSize="14"
-                                   TextColor="#007AFF"/>
+                                   TextColor="{AppThemeBinding Light=#007AFF, Dark=#D8EBFF}"/>
                         </telerikCommon:RadDockLayout>
                     </telerikPrimitives:RadBorder>
                 </DataTemplate>
             </telerikInput:RadComboBox.TokenTemplate>
             <telerikInput:RadComboBox.ShowMoreTemplate>
                 <DataTemplate>
-                    <telerikPrimitives:RadBorder BackgroundColor="#D8EBFF"
+                    <telerikPrimitives:RadBorder BackgroundColor="{AppThemeBinding Light=#D8EBFF, Dark=#2196F3}"
                                                  Margin="1"
                                                  BorderThickness="0">
                         <telerikPrimitives:RadBorder.Padding>
@@ -344,7 +345,7 @@
                         </telerikPrimitives:RadBorder.CornerRadius>
                         <Label VerticalOptions="Center"
                                FontSize="14"
-                               TextColor="#007AFF"
+                               TextColor="{AppThemeBinding Light=#007AFF, Dark=#D8EBFF}"
                                Text="{Binding ., StringFormat='+{0}'}"/>
                     </telerikPrimitives:RadBorder>
                 </DataTemplate>

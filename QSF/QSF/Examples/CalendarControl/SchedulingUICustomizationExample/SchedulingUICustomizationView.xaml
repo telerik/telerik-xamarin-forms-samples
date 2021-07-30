@@ -38,10 +38,22 @@
                                    FontAttributes="None"
                                    FontSize="Small"/>
 
-                            <Label Text="{Binding Location.Number}" 
-                                   TextColor="{OnPlatform Default='#50000000', Android='#CCFFFFFF'}" 
+                            <Label Text="{Binding Location.Number}"
                                    FontSize="Small"
-                                   FontAttributes="Italic"/>
+                                   FontAttributes="Italic">
+                                <Label.TextColor>
+                                    <AppThemeBinding>
+                                        <AppThemeBinding.Light>
+                                            <OnPlatform x:TypeArguments="Color" Default="#50000000">
+                                                <On Platform="Android">#CCFFFFFF</On>
+                                            </OnPlatform>
+                                        </AppThemeBinding.Light>
+                                        <AppThemeBinding.Dark>
+                                            <Color>#CCFFFFFF</Color>
+                                        </AppThemeBinding.Dark>
+                                    </AppThemeBinding>
+                                </Label.TextColor>
+                            </Label>
                         </StackLayout>
                         <primitives:RadBorder Grid.Column="1"
                                               WidthRequest="32" 
@@ -82,7 +94,7 @@
         </input:RadCalendar>
 
         <Grid Grid.Row="1"
-              BackgroundColor="#F7F7F7"
+              BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#373737}"
               Padding="44, 0, 27, 0">
 
             <StackLayout Orientation="Horizontal"

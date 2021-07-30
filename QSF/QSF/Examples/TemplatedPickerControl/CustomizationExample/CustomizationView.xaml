@@ -13,12 +13,11 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Color x:Key="AccentColor">#B73562</Color>
-            <Color x:Key="SecondaryBackgroundColor">#F6FAFB</Color>
             <Style x:Key="ItemStyle" TargetType="{x:Type dataControls:SpinnerItemView}">
                 <Setter Property="TextColor" Value="#C7CACA" />
             </Style>
             <Style x:Key="SelectedItemStyle" TargetType="{x:Type dataControls:SpinnerItemView}">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>
             <Style x:Key="PickerHeaderLabelStyle" TargetType="Label">
@@ -50,7 +49,7 @@
             </Style>
             <Style x:Key="DefaultDisplayLabelStyle" TargetType="Label">
                 <Setter Property="VerticalTextAlignment" Value="End"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}"/>
                 <Setter Property="HeightRequest" Value="44"/>
             </Style>
             <Style Class="NumericInputStyleClass" TargetType="{x:Type telerikNumericInput:NumericInputButton}">
@@ -74,7 +73,7 @@
                     </Setter.Value>
                 </Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
@@ -125,14 +124,14 @@
                 <Setter Property="HeightRequest" Value="44" />
             </Style>
             <Style x:Key="DefaultLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="Margin" Value="0, 39, 0, 0" />
             </Style>
             <Style x:Key="DefaultRadBorderStyle" TargetType="telerikPrimitives:RadBorder">
                 <Setter Property="HeightRequest" Value="44" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="BorderColor" Value="#D9D9D9" />
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=#D9D9D9, Dark=#373737}" />
                 <Setter Property="BorderThickness" Value="0, 1" />
             </Style>
             <Style TargetType="telerikPrimitives:RadBorder">
@@ -308,7 +307,7 @@
                         </telerikInput:RadTemplatedPicker>
                     </StackLayout >
                 </Grid>
-                <Grid Grid.Row="3" BackgroundColor="{StaticResource SecondaryBackgroundColor}">
+                <Grid Grid.Row="3" BackgroundColor="{AppThemeBinding Dark=Black, Light=#F6FAFB}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
@@ -341,7 +340,7 @@
                 </Grid>
             </Grid>
         </ScrollView>
-        <Grid BackgroundColor="{StaticResource SecondaryBackgroundColor}" Padding="0,8">
+        <Grid BackgroundColor="{AppThemeBinding Dark=Black, Light=#F6FAFB}" Padding="0,8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

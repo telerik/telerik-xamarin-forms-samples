@@ -1,5 +1,6 @@
 ﻿using Android.Graphics;
 using Android.Graphics.Drawables;
+using Com.Telerik.Android.Common;
 using Com.Telerik.Widget.Dataform.Visualization;
 using Telerik.XamarinForms.Common;
 using Telerik.XamarinForms.Input.DataForm;
@@ -23,7 +24,15 @@ namespace QSF.Droid.Renderers.DataForm
                 var layout = this.renderer.GetGroupLayoutDefinition(groupName);
                 var group = new EditorGroup(this.Context, groupName, Resource.Layout.Custom_Group_Layout);
                 group.LayoutManager = TypeMappings.CreateInstance(layout, this.Context) as DataFormLayoutManager;
-                group.RootLayout().Background = new ColorDrawable(Color.White);
+
+                if (DarkThemeHelper.IsDarkThemeApplied(this.Context))
+                {
+                    group.RootLayout().Background = new ColorDrawable(Color.Transparent);
+                }
+                else
+                {
+                    group.RootLayout().Background = new ColorDrawable(Color.White);
+                }
 
                 return group;
             }

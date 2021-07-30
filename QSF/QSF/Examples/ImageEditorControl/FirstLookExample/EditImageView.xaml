@@ -11,9 +11,9 @@
             <Style TargetType="{x:Type telerikImageEditor:ImageEditorToolbarItem}"
                    ApplyToDerivedTypes="True">
                 <Setter Property="TextColor"
-                        Value="#007AFF" />
+                        Value="{AppThemeBinding Light=#007AFF, Dark=White}" />
                 <Setter Property="SelectedBackgroundColor"
-                        Value="#007AFF" />
+                        Value="{AppThemeBinding Light=#007AFF, Dark=#686869}" />
             </Style>
             <Style TargetType="{x:Type Slider}">
                 <Setter Property="effects:SliderColorEffect.SliderColor"
@@ -35,7 +35,7 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid BackgroundColor="#4A4E52">
+        <Grid BackgroundColor="{AppThemeBinding Light=#4A4E52, Dark=#373737}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
@@ -74,12 +74,12 @@
         <telerikImageEditor:RadImageEditor x:Name="imageEditor"
                                            Grid.Row="1"
                                            Padding="4"
-                                           BackgroundColor="#C9C9C9"
+                                           BackgroundColor="{AppThemeBinding Light=#C9C9C9, Dark=#121212}"
                                            Source="{Binding Image}"
                                            AutomationId="imageEditor"/>
         <telerikImageEditor:RadImageEditorToolbar Grid.Row="2"
                                                   Padding="4"
-                                                  BackgroundColor="#F7F7F7"
+                                                  BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#1E1E1E}"
                                                   ImageEditor="{x:Reference imageEditor}"
                                                   AutomationId="imageEditorToolbar"/>
     </Grid>

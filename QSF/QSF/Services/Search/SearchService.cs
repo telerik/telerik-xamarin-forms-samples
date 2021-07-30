@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace QSF.Services
@@ -13,32 +14,59 @@ namespace QSF.Services
 
             var lowerText = text.ToLowerInvariant();
 
-            foreach (var control in allControls)
+            var strings = lowerText.Split(';');
+
+            if (strings.Length > 1)
             {
-                var nameIndex = control.DisplayName.ToLowerInvariant().IndexOf(lowerText);
-                if (nameIndex >= 0)
+                var controlLowerText = strings[0].Trim();
+                var exampleLowerText = strings[1].Trim();
+                if (exampleLowerText.EndsWith("#"))
                 {
-                    yield return new SearchResult(SearchResultType.Control, control.Name, control.DisplayName, null, null, nameIndex, nameIndex + text.Length);
+                    exampleLowerText = exampleLowerText.Substring(0, exampleLowerText.Length - 1);
                 }
 
-                var descriptionIndex = control.FullDescription.ToLowerInvariant().IndexOf(lowerText);
-                if (descriptionIndex >= 0)
+                var control = allControls.FirstOrDefault(c => c.DisplayName.ToLower() == controlLowerText
+                                                            || c.Name.ToLower() == controlLowerText
+                                                            || c.DescriptionHeader.ToLower() == controlLowerText);
+                if (control != null)
                 {
-                    yield return new SearchResult(SearchResultType.ControlDescription, control.Name, control.DisplayName, null, null, descriptionIndex, descriptionIndex + text.Length);
-                }
-
-                foreach (var example in control.Examples)
-                {
-                    var exampleNameIndex = example.DisplayName.ToLowerInvariant().IndexOf(lowerText);
-                    if (exampleNameIndex >= 0)
+                    var example = control.Examples.FirstOrDefault(e => e.DisplayName.ToLower() == exampleLowerText 
+                                                            || e.Description.ToLower() == exampleLowerText);
+                    if (example != null)
                     {
-                        yield return new SearchResult(SearchResultType.Example, control.Name, control.DisplayName, example.Name, example.DisplayName, exampleNameIndex, exampleNameIndex + text.Length);
+                        yield return new SearchResult(SearchResultType.Example, control.Name, control.DisplayName, example.Name, example.DisplayName, 0, exampleLowerText.Length);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var control in allControls)
+                {
+                    var nameIndex = control.DisplayName.ToLowerInvariant().IndexOf(lowerText);
+                    if (nameIndex >= 0)
+                    {
+                        yield return new SearchResult(SearchResultType.Control, control.Name, control.DisplayName, null, null, nameIndex, nameIndex + text.Length);
                     }
 
-                    var exampleDescrioptionIndex = example.Description.ToLowerInvariant().IndexOf(lowerText);
-                    if (exampleDescrioptionIndex >= 0)
+                    var descriptionIndex = control.FullDescription.ToLowerInvariant().IndexOf(lowerText);
+                    if (descriptionIndex >= 0)
                     {
-                        yield return new SearchResult(SearchResultType.ExampleDescription, control.Name, control.DisplayName, example.Name, example.DisplayName, exampleDescrioptionIndex, exampleDescrioptionIndex + text.Length);
+                        yield return new SearchResult(SearchResultType.ControlDescription, control.Name, control.DisplayName, null, null, descriptionIndex, descriptionIndex + text.Length);
+                    }
+
+                    foreach (var example in control.Examples)
+                    {
+                        var exampleNameIndex = example.DisplayName.ToLowerInvariant().IndexOf(lowerText);
+                        if (exampleNameIndex >= 0)
+                        {
+                            yield return new SearchResult(SearchResultType.Example, control.Name, control.DisplayName, example.Name, example.DisplayName, exampleNameIndex, exampleNameIndex + text.Length);
+                        }
+
+                        var exampleDescrioptionIndex = example.Description.ToLowerInvariant().IndexOf(lowerText);
+                        if (exampleDescrioptionIndex >= 0)
+                        {
+                            yield return new SearchResult(SearchResultType.ExampleDescription, control.Name, control.DisplayName, example.Name, example.DisplayName, exampleDescrioptionIndex, exampleDescrioptionIndex + text.Length);
+                        }
                     }
                 }
             }

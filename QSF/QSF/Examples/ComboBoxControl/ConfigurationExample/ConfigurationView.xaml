@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <Style x:Key="CommonLabelStyle" TargetType="Label">
                 <Setter Property="Padding" Value="20, 8, 0, 0"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
@@ -31,7 +31,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackLayout>
-            <telerikPrimitives:RadBorder BackgroundColor="#F8F8F8">
+            <telerikPrimitives:RadBorder BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
                 <StackLayout Margin="0, 16">
                     <Label Text="Configuration"
                            FontSize="22"
@@ -57,9 +57,9 @@
                                               SearchTextPath="{Binding SearchTextPath}"
                                               SearchMode="{Binding SearchMode}"
                                               SelectionMode="{Binding SelectionMode}"
-                                              BackgroundColor="White"
+                                              BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
                                               DropDownBorderThickness="1"
-                                              DropDownBorderColor="#FFD9D9D9"
+                                              DropDownBorderColor="{AppThemeBinding Light=#FFD9D9D9, Dark=#373737}"
                                               Margin="16, 0, 16, 0"/>
                 </StackLayout>
             </telerikPrimitives:RadBorder>

@@ -11,7 +11,7 @@
     </VisualElement.Resources>
 
     <Grid>
-        <Grid BackgroundColor="White">
+        <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="3*" />
@@ -20,11 +20,11 @@
 
             <StackLayout Margin="0, 4, 0, 4">
                 <Label Text="Activity"
-                       TextColor="{StaticResource indicatorTextColor}"
+                       TextColor="{AppThemeBinding Light={StaticResource indicatorTextColor}, Dark={StaticResource indicatorTextColorDark}}"
                        HorizontalTextAlignment="Center"
                        FontSize="26" />
                 <Label Text="Jan 12 - Jan 18"
-                       TextColor="{StaticResource indicatorTextColor}"
+                       TextColor="{AppThemeBinding Light={StaticResource indicatorTextColor}, Dark={StaticResource indicatorTextColorDark}}"
                        HorizontalTextAlignment="Center"
                        FontSize="18"
                        FontAttributes="Bold"  />
@@ -58,7 +58,7 @@
                     </telerikGauges:GaugeBarIndicator>
                     <telerikGauges:GaugeTextIndicator Value="0"
                                                       Text="MOVE"
-                                                      TextColor="{StaticResource indicatorTextColor}"
+                                                      TextColor="{AppThemeBinding Light={StaticResource indicatorTextColor}, Dark={StaticResource indicatorTextColorDark}}"
                                                       HorizontalTextPlacement="Left"
                                                       VerticalTextPlacement="Center"
                                                       TextMargin="4"
@@ -82,7 +82,7 @@
                     </telerikGauges:GaugeBarIndicator>
                     <telerikGauges:GaugeTextIndicator Value="0"
                                                       Text="EXERCISE"
-                                                      TextColor="{StaticResource indicatorTextColor}"
+                                                      TextColor="{AppThemeBinding Light={StaticResource indicatorTextColor}, Dark={StaticResource indicatorTextColorDark}}"
                                                       HorizontalTextPlacement="Left"
                                                       VerticalTextPlacement="Center"
                                                       TextMargin="4"
@@ -106,7 +106,7 @@
                     </telerikGauges:GaugeBarIndicator>
                     <telerikGauges:GaugeTextIndicator Value="0"
                                                       Text="STAND"
-                                                      TextColor="{StaticResource indicatorTextColor}"
+                                                      TextColor="{AppThemeBinding Light={StaticResource indicatorTextColor}, Dark={StaticResource indicatorTextColorDark}}"
                                                       HorizontalTextPlacement="Left"
                                                       VerticalTextPlacement="Center"
                                                       TextMargin="4"

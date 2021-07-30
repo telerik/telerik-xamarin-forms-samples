@@ -32,25 +32,34 @@
                 <ResourceDictionary MergedWith="telerikRichTextEditor:TelerikThemeStyles"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <Color x:Key="HeaderBackgroundsColor">#4A4E52</Color>
-            <Color x:Key="DarkBackgroundColor">#F5F6F7</Color>
-            <Color x:Key="ErrorBackgroundColor">#FEF8F8</Color>
-            <Color x:Key="LightBackgroundColor">White</Color>
-            <Color x:Key="AccentColor">#2548D8</Color>
-            <Color x:Key="TextColor">#4A4E52</Color>
+            <Color x:Key="HeaderBackgroundsColorDark">#373737</Color>
+            <Color x:Key="HeaderBackgroundsColorLight">#4A4E52</Color>
+            <Color x:Key="DarkBackgroundColorDark">#121212</Color>
+            <Color x:Key="DarkBackgroundColorLight">#F5F6F7</Color>
+            <Color x:Key="ErrorBackgroundColorDark">#373737</Color>
+            <Color x:Key="ErrorBackgroundColorLight">#FEF8F8</Color>
+            <Color x:Key="LightBackgroundColorDark">#1E1E1E</Color>
+            <Color x:Key="LightBackgroundColorLight">White</Color>
+            <Color x:Key="AccentColorDark">#2196F3</Color>
+            <Color x:Key="AccentColorLight">#2548D8</Color>
+            <Color x:Key="TextColorDark">White</Color>
+            <Color x:Key="TextColorLight">#4A4E52</Color>
             <Color x:Key="ErrorColor">#DC3D4D</Color>
             <Color x:Key="SubHeaderTextColor">#BFBFBF</Color>
             <Color x:Key="CTPTextColor">#979797</Color>
             <Color x:Key="LightTextColor">White</Color>
-            <Color x:Key="GalleryHeaderUnderlineColor">#E0E9FC</Color>
-            <Color x:Key="SampleAppTitleColor">#202223</Color>
+            <Color x:Key="GalleryHeaderUnderlineColorDark">White</Color>
+            <Color x:Key="GalleryHeaderUnderlineColorLight">#E0E9FC</Color>
+            <Color x:Key="SampleAppTitleColorDark">White</Color>
+            <Color x:Key="SampleAppTitleColorLight">#202223</Color>
             <Color x:Key="ExternalLinkIconColor">#B4B4B5</Color>
-            <Color x:Key="HyperlinkTextColor">#2296F3</Color>
+            <Color x:Key="HyperlinkTextColorDark">#2196F3</Color>
+            <Color x:Key="HyperlinkTextColorLight">#2296F3</Color>
 
             <x:String x:Key="BackButtonIcon">&#xE80E;</x:String>
             <x:String x:Key="InfoButtonIcon">&#xE815;</x:String>
             <x:String x:Key="ContextMenuButtonIcon">&#xE807;</x:String>
-            <x:String x:Key="BurgerButtonIcon">&#xF008;</x:String>
+            <x:String x:Key="BurgerButtonIcon">&#xE808;</x:String>
             <x:String x:Key="SearchButtonIcon">&#xE810;</x:String>
             <x:String x:Key="HyperlinkButtonIcon">&#xF08E;</x:String>
             <x:String x:Key="TickIcon">&#xE809;</x:String>
@@ -112,14 +121,25 @@
             <x:String x:Key="CropCircleIcon">&#xE86E;</x:String>
             <x:String x:Key="ExternalLinkIcon">&#xF08E;</x:String>
             <x:String x:Key="CheckIcon">&#xe876;</x:String>
+            <x:String x:Key="XIcon">&#xe877;</x:String>
+            <x:String x:Key="ClockIcon">&#xE878;</x:String>
             <x:String x:Key="OpenIcon">&#xe829;</x:String>
             <x:String x:Key="SaveIcon">&#xe87B;</x:String>
             <x:String x:Key="ShareIcon">&#xe87C;</x:String>
-
+            <x:String x:Key="PaintBucketIcon">&#xe880;</x:String>
+            <x:String x:Key="NotesIcon">&#xE870;</x:String>
+            <x:String x:Key="ReorderIcon">&#xE881;</x:String>
+            
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">telerikfontexamples</On>
                 <On Platform="Android">Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
                 <On Platform="UWP">/Assets/Fonts/telerikfontexamples.ttf#telerikfontexamples</On>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="TelerikQSFIconFont">
+                <On Platform="iOS">telerikqsficonsfont</On>
+                <On Platform="Android">Fonts/telerikqsficonsfont.ttf#telerikqsficonsfont</On>
+                <On Platform="UWP">/Assets/Fonts/telerikqsficonsfont.ttf#telerikqsficonsfont</On>
             </OnPlatform>
 
             <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
@@ -143,11 +163,12 @@
             <converters:ConditionalValueConverterParameter x:Key="ConfigurationAndInfoIconsParameter"
                                                            FalseValue="{StaticResource Key=InfoButtonIcon}"
                                                            TrueValue="{StaticResource Key=GearIcon}" />
+            <converters:ColorAlphaConverter x:Key="ColorAlphaConverter" Alpha="0.1"/>
 
             <Style TargetType="Label" x:Key="IconLabelStyle">
                 <Setter Property="FontSize" Value="18" />
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="0, 12, 0, 0" />
             </Style>
 
@@ -158,7 +179,7 @@
             <Style TargetType="Label" x:Key="HeaderLabelStyle">
                 <Setter Property="FontSize" Value="18" />
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="0, 10, 0, 0" />
             </Style>
 
@@ -172,24 +193,24 @@
             <Style TargetType="Label" x:Key="BodyLabelStyle">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
             </Style>
 
             <Style TargetType="Label" x:Key="ControlExampleNameLabelStyle">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="0, 10" />
             </Style>
 
             <Style TargetType="Label" x:Key="SampleAppTitleStyle">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
-                <Setter Property="TextColor" Value="{StaticResource SampleAppTitleColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource SampleAppTitleColorLight}, Dark={StaticResource SampleAppTitleColorDark}}" />
             </Style>
 
             <Style TargetType="Label" x:Key="TagLabelStyle">
-                <Setter Property="TextColor" Value="{StaticResource AccentColor}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}"/>
                 <Setter Property="FontFamily" Value="{StaticResource Key=RegularFont}"/>
                 <Setter Property="FontSize" Value="10"/>
             </Style>
@@ -197,7 +218,7 @@
             <Style TargetType="Label" x:Key="HyperlinkIconLabelStyle">
                 <Setter Property="Text" Value="{StaticResource HyperlinkButtonIcon}" />
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="4, 0, 0, 0" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
@@ -206,8 +227,9 @@
                 <Setter Property="Padding" Value="4"/>
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextTransform" Value="None"/>
             </Style>
 
             <Style TargetType="Grid" ApplyToDerivedTypes="True">
@@ -225,9 +247,9 @@
                 <Setter Property="SelectedIndicatorFontFamily" Value="{StaticResource IconsFont}" />
                 <Setter Property="IndicatorFontFamily" Value="{StaticResource IconsFont}" />
                 <Setter Property="IndicatorsSpacing" Value="5" />
-                <Setter Property="IndicatorColor" Value="{StaticResource DarkBackgroundColor}" />
+                <Setter Property="IndicatorColor" Value="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark=#686869}" />
                 <Setter Property="IndicatorFontSize" Value="{StaticResource SlideViewIndicatorsFontSize}" />
-                <Setter Property="SelectedIndicatorColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}" />
                 <Setter Property="SelectedIndicatorFontSize" Value="{StaticResource SlideViewIndicatorsFontSize}" />
             </Style>
 
@@ -258,37 +280,21 @@
                         </Grid>
                     </primitives:RadSideDrawer.MainContent>
                     <primitives:RadSideDrawer.DrawerContent>
-                        <Grid BackgroundColor="#FFFFFF">
+                        <Grid BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource DarkBackgroundColorDark}}">
                             <StackLayout Spacing="10" Padding="10" VerticalOptions="Center">
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Example information" FontSize="13"
                                                     IsVisible="{TemplateBinding Path=BindingContext.HasConfiguration}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToInfoCommand}" HorizontalOptions="Fill">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToInfoCommand}" HorizontalOptions="Fill"/>
 
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Change Theme" FontSize="13"
                                                     IsVisible="{TemplateBinding Path=BindingContext.CanChangeTheme}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToThemesCommand}" HorizontalOptions="Fill">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToThemesCommand}" HorizontalOptions="Fill"/>
 
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="View Code" IsVisible="{TemplateBinding Path=BindingContext.HasCode}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToCodeCommand}" HorizontalOptions="Fill" FontSize="13">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToCodeCommand}" HorizontalOptions="Fill" FontSize="13"/>
 
                                 <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Documentation" IsVisible="{TemplateBinding Path=BindingContext.HasDocumentation}"
-                                                    Command="{TemplateBinding Path=BindingContext.NavigateToDocumentationCommand}" HorizontalOptions="Fill" FontSize="13">
-                                    <telerikInput:RadButton.Effects>
-                                        <effects:NoAllCapsButtonEffect />
-                                    </telerikInput:RadButton.Effects>
-                                </telerikInput:RadButton>
+                                                    Command="{TemplateBinding Path=BindingContext.NavigateToDocumentationCommand}" HorizontalOptions="Fill" FontSize="13"/>
                             </StackLayout>
                         </Grid>
                     </primitives:RadSideDrawer.DrawerContent>

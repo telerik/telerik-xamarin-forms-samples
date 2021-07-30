@@ -50,240 +50,306 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="VerticalButtonStyle" TargetType="{x:Type telerikInput:RadButton}">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TextTransform" Value="Lowercase"/>
+                <Setter Property="ContentLayout" Value="Top,10" />
+                <Setter Property="VerticalContentAlignment" Value="Start"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="CornerRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Default="30">
+                            <On Platform="UWP" Value="25" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" Default="40">
+                            <On Platform="UWP" Value="50" />
+                            <On Platform="iOS" Value="60" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" Default="120">
+                            <On Platform="iOS" Value="140" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" Default="14">
+                            <On Platform="iOS" Value="12" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    <StackLayout Padding="20" Spacing="10" BackgroundColor="White">
-        <Label Style="{StaticResource TitleTextStyle}" Text="Choose a category that represents what you want to see:" />
-        <layouts:WrapLayout>
-            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Cakes"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Cakes" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Cakes.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Cakes.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Fruits"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Fruits" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Fruits.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Fruits.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Cocktails"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Cocktails" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Cocktails.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Cocktails.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Bread"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Bread" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Bread.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Bread.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Brownies"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Brownies" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Brownies.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Brownies.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Pizza"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Pizza" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Pizza.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Pizza.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" Text="Sandwiches"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Sandwiches" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Sandwiches.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Sandwiches.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Dips"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Dips" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Dips.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Dips.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Desserts"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Desserts" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Desserts.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Desserts.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Pancakes"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Pancakes" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Pancakes.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Pancakes.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Soups"
-                                    Command="{Binding SelectByCategoryCommand}" CommandParameter="Soups" Padding="0">
-                <telerikInput:RadButton.BackgroundImage>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Soups.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Soups.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.BackgroundImage>
-            </telerikInput:RadButton>
-        </layouts:WrapLayout>
-        <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Category, StringFormat='Selected category: {0}'}" />
-        <Label Style="{StaticResource TitleTextStyle}" Text="Select recipes by popularity:" />
-        <layouts:WrapLayout>
-            <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#C02C22" Text="Hottest Recipes"
-                                    Command="{Binding SelectByPopularityCommand}" CommandParameter="Hottest Recipes">
-                <telerikInput:RadButton.WidthRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS" Value="120" />
-                            <On Platform="UWP, Android" Value="160" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.WidthRequest>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#EC9E46" Text="Fastest to Cook"
-                                    Command="{Binding SelectByPopularityCommand}" CommandParameter="Fastest to Cook">
-                <telerikInput:RadButton.WidthRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS" Value="120" />
-                            <On Platform="UWP, Android" Value="140" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.WidthRequest>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#AFCA5C" Text="Chef's Best"
-                                    Command="{Binding SelectByPopularityCommand}" CommandParameter="Chef's Best">
-                <telerikInput:RadButton.WidthRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS" Value="100" />
-                            <On Platform="UWP, Android" Value="120" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.WidthRequest>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#775088" Text="Highest Rated by Users"
-                                    Command="{Binding SelectByPopularityCommand}" CommandParameter="Highest Rated by Users">
-                <telerikInput:RadButton.WidthRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS" Value="160" />
-                            <On Platform="UWP, Android" Value="200" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.WidthRequest>
-            </telerikInput:RadButton>
-        </layouts:WrapLayout>
-        <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Popularity, StringFormat='Selected recipes: {0}'}" />
-        <Label Style="{StaticResource TitleTextStyle}" Text="Select recipes by ingredient:" />
-        <layouts:WrapLayout>
-            <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#C02C22" Text="Chicken"
-                                    Command="{Binding SelectByIngredientCommand}" CommandParameter="Chicken">
-                <telerikInput:RadButton.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Chicken.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Chicken.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.Image>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#3D609B" Text="Fish"
-                                    Command="{Binding SelectByIngredientCommand}" CommandParameter="Fish">
-                <telerikInput:RadButton.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Fish.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Fish.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.Image>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#DA6729" Text="Pasta"
-                                    Command="{Binding SelectByIngredientCommand}" CommandParameter="Pasta">
-                <telerikInput:RadButton.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Pasta.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Pasta.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.Image>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#D73B43" Text="Pork"
-                                    Command="{Binding SelectByIngredientCommand}" CommandParameter="Pork">
-                <telerikInput:RadButton.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Pork.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Pork.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.Image>
-            </telerikInput:RadButton>
-            <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#849C31" Text="Beef"
-                                    Command="{Binding SelectByIngredientCommand}" CommandParameter="Beef">
-                <telerikInput:RadButton.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource">
-                        <OnPlatform.Platforms>
-                            <On Platform="iOS, Android" Value="Button_Recipes_Beef.png" />
-                            <On Platform="UWP" Value="Assets\Button_Recipes_Beef.png" />
-                        </OnPlatform.Platforms>
-                    </OnPlatform>
-                </telerikInput:RadButton.Image>
-            </telerikInput:RadButton>
-        </layouts:WrapLayout>
-        <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Ingredient, StringFormat='Selected ingredient: {0}'}" />
-    </StackLayout>
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10" BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
+            <Label Style="{StaticResource TitleTextStyle}" Text="Choose one or more categories that represents what you want to see:" />
+            <layouts:WrapLayout>
+                <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Cakes"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Cakes" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Cakes.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Cakes.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Fruits"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Fruits" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Fruits.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Fruits.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Cocktails"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Cocktails" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Cocktails.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Cocktails.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Bread"
+                                     Command="{Binding SelectByCategoryCommand}" CommandParameter="Bread" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Bread.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Bread.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Brownies"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Brownies" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Brownies.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Brownies.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Pizza"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Pizza" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Pizza.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Pizza.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" Text="Sandwiches"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Sandwiches" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Sandwiches.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Sandwiches.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Dips"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Dips" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Dips.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Dips.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Desserts"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Desserts" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Desserts.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Desserts.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" Text="Pancakes"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Pancakes" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Pancakes.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Pancakes.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="60" Style="{StaticResource RoundButtonStyle}" Text="Soups"
+                                        Command="{Binding SelectByCategoryCommand}" CommandParameter="Soups" Padding="0">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Soups.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Soups.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+            </layouts:WrapLayout>
+            <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Category, StringFormat='Selected category: {0}'}" />
+            <Label Style="{StaticResource TitleTextStyle}" Text="Select recipes by popularity:" />
+            <layouts:WrapLayout>
+                <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#C02C22" Text="Hottest Recipes"
+                                        Command="{Binding SelectByPopularityCommand}" CommandParameter="Hottest Recipes">
+                    <telerikInput:RadButton.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="120" />
+                                <On Platform="UWP, Android" Value="160" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.WidthRequest>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#EC9E46" Text="Fastest to Cook"
+                                        Command="{Binding SelectByPopularityCommand}" CommandParameter="Fastest to Cook">
+                    <telerikInput:RadButton.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="120" />
+                                <On Platform="UWP, Android" Value="140" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.WidthRequest>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#AFCA5C" Text="Chef's Best"
+                                        Command="{Binding SelectByPopularityCommand}" CommandParameter="Chef's Best">
+                    <telerikInput:RadButton.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="100" />
+                                <On Platform="UWP, Android" Value="120" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.WidthRequest>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton Style="{StaticResource FlatButtonStyle}" BorderColor="#775088" Text="Highest Rated by Users"
+                                        Command="{Binding SelectByPopularityCommand}" CommandParameter="Highest Rated by Users">
+                    <telerikInput:RadButton.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="160" />
+                                <On Platform="UWP, Android" Value="200" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.WidthRequest>
+                </telerikInput:RadButton>
+            </layouts:WrapLayout>
+            <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Popularity, StringFormat='Selected recipes: {0}'}" />
+            <Label Style="{StaticResource TitleTextStyle}" Text="or select recipes by ingredient:" />
+            <layouts:WrapLayout>
+                <telerikInput:RadButton WidthRequest="100" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#C02C22" Text="Chicken"
+                                        Command="{Binding SelectByIngredientCommand}" CommandParameter="Chicken">
+                    <telerikInput:RadButton.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Chicken.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Chicken.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.Image>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#3D609B" Text="Fish"
+                                        Command="{Binding SelectByIngredientCommand}" CommandParameter="Fish">
+                    <telerikInput:RadButton.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Fish.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Fish.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.Image>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#DA6729" Text="Pasta"
+                                        Command="{Binding SelectByIngredientCommand}" CommandParameter="Pasta">
+                    <telerikInput:RadButton.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Pasta.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Pasta.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.Image>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#D73B43" Text="Pork"
+                                        Command="{Binding SelectByIngredientCommand}" CommandParameter="Pork">
+                    <telerikInput:RadButton.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Pork.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Pork.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.Image>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton WidthRequest="80" Style="{StaticResource RoundButtonStyle}" BackgroundColor="#849C31" Text="Beef"
+                                        Command="{Binding SelectByIngredientCommand}" CommandParameter="Beef">
+                    <telerikInput:RadButton.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Beef.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Beef.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.Image>
+                </telerikInput:RadButton>
+            </layouts:WrapLayout>
+            <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Ingredient, StringFormat='Selected ingredient: {0}'}" />
+            <Label Style="{StaticResource TitleTextStyle}" Text="or select by time:" />
+            <layouts:WrapLayout Spacing="20">
+                <telerikInput:RadButton Style="{StaticResource VerticalButtonStyle}" BackgroundColor="#849C31" 
+                                        Text="45 min" Padding="2,10,2,0"
+                                        Command="{Binding SelectByTimeCommand}" CommandParameter="45 min">
+                    <telerikInput:RadButton.ImageSource>
+                        <FontImageSource FontFamily="{StaticResource IconsFont}" Glyph="{StaticResource ClockIcon}" 
+                                         Color="White" Size="Medium"/>
+                    </telerikInput:RadButton.ImageSource>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton Style="{StaticResource VerticalButtonStyle}" BackgroundColor="#DA6729" 
+                                        Text="60 min" Padding="2,30,2,0"
+                                        Command="{Binding SelectByTimeCommand}" CommandParameter="60 min">
+                    <telerikInput:RadButton.ImageSource>
+                        <FontImageSource FontFamily="{StaticResource IconsFont}" Glyph="{StaticResource ClockIcon}" 
+                                         Color="White" Size="Medium"/>
+                    </telerikInput:RadButton.ImageSource>
+                </telerikInput:RadButton>
+                <telerikInput:RadButton Style="{StaticResource VerticalButtonStyle}" BackgroundColor="#C02C22" 
+                                        Text="90 min" Padding="2,50,2,10"
+                                        Command="{Binding SelectByTimeCommand}" CommandParameter="90 min">
+                    <telerikInput:RadButton.ImageSource>
+                        <FontImageSource FontFamily="{StaticResource IconsFont}" Glyph="{StaticResource ClockIcon}"
+                                         Color="White" Size="Medium"/>
+                    </telerikInput:RadButton.ImageSource>
+                </telerikInput:RadButton>
+            </layouts:WrapLayout>
+            <Label Style="{StaticResource InfoTextStyle}" Text="{Binding Time, StringFormat='Selected time: {0}'}" />
+        </StackLayout>
+    </ScrollView>
 </ContentView>

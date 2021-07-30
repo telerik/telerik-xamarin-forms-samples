@@ -35,14 +35,22 @@
                                                HorizontalTextAlignment="End"
                                                Padding="0, 15, 10, 8"/>
                 </local:AgendaViewStyleSelector.TodayStyle>
-                <local:AgendaViewStyleSelector.AppointmentItemStyle>
+                <local:AgendaViewStyleSelector.AppointmentItemStyleLight>
                     <input:AgendaAppointmentItemStyle TitleTextColor="Black"
                                                       TitleFontSize="14"
                                                       DaysDurationTextColor="#919191"
                                                       DaysDurationFontSize="13"
                                                       TimeDurationTextColor="#39404D"
                                                       TimeDurationFontSize="11"/>
-                </local:AgendaViewStyleSelector.AppointmentItemStyle>
+                </local:AgendaViewStyleSelector.AppointmentItemStyleLight>
+                <local:AgendaViewStyleSelector.AppointmentItemStyleDark>
+                    <input:AgendaAppointmentItemStyle TitleTextColor="White"
+                                                      TitleFontSize="14"
+                                                      DaysDurationTextColor="#99FFFFFF"
+                                                      DaysDurationFontSize="13"
+                                                      TimeDurationTextColor="#99FFFFFF"
+                                                      TimeDurationFontSize="11"/>
+                </local:AgendaViewStyleSelector.AppointmentItemStyleDark>
             </local:AgendaViewStyleSelector>
         </ResourceDictionary>
     </ContentView.Resources>

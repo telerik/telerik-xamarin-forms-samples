@@ -53,7 +53,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid>
-                <telerikRichTextEditor:RadRichTextEditor x:Name="richTextEditor" Source="{Binding Source}" IsReadOnly="{Binding IsReadonly}"/>
+                <telerikRichTextEditor:RadRichTextEditor x:Name="richTextEditor" Source="{Binding Source}" 
+                                                         IsReadOnly="{Binding IsReadonly}"
+                                                         AutoGenerateContextMenu="False">
+                    <telerikRichTextEditor:RadRichTextEditor.ContextMenuItems>
+                        <telerikRichTextEditor:OpenHyperlinkContextMenuItem />
+                        <telerikRichTextEditor:CutContextMenuItem />
+                        <telerikRichTextEditor:CopyContextMenuItem />
+                        <telerikRichTextEditor:BoldContextMenuItem />
+                        <telerikRichTextEditor:ItalicContextMenuItem/>
+                    </telerikRichTextEditor:RadRichTextEditor.ContextMenuItems>
+                </telerikRichTextEditor:RadRichTextEditor>
                 <Button Text="{Binding ToggleReadonlyText}"
                                 FontFamily="{StaticResource IconsFont}"
                                 TextColor="White"

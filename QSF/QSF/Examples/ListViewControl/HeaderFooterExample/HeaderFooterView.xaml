@@ -6,6 +6,20 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="QSF.Examples.ListViewControl.HeaderFooterExample.HeaderFooterView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="HeaderBackgroundColorLight">#F7F7F7</Color>
+            <Color x:Key="HeaderBackgroundColorDark">Black</Color>
+            <Color x:Key="ItemTitleTextColorLight">Black</Color>
+            <Color x:Key="ItemTitleTextColorDark">White</Color>
+            <Color x:Key="ItemDetailTextColorLight">#8E8E93</Color>
+            <Color x:Key="ItemDetailTextColorDark">#99FFFFFF</Color>
+            <Color x:Key="PriceTextColorLight">Black</Color>
+            <Color x:Key="PriceTextColorDark">#99FFFFFF</Color>
+            <Color x:Key="FooterBackgroundColorLight">#F7F7F7</Color>
+            <Color x:Key="FooterBackgroundColorDark">Black</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
     <telerikDataControls:RadListView x:Name="listView"
                                      ItemsSource="{Binding Items}"
                                      SelectionMode="None"
@@ -15,7 +29,7 @@
                 <Grid Padding="10,0"
                       ColumnSpacing="10"
                       HeightRequest="60"
-                      BackgroundColor="#F7F7F7">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource HeaderBackgroundColorLight}, Dark={StaticResource HeaderBackgroundColorDark}}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40" />
                         <ColumnDefinition />
@@ -49,7 +63,7 @@
             <DataTemplate>
                 <Grid Padding="10,0"
                       HeightRequest="60"
-                      BackgroundColor="#F7F7F7">
+                      BackgroundColor="{AppThemeBinding Light={StaticResource FooterBackgroundColorLight}, Dark={StaticResource FooterBackgroundColorDark}}">
                     <telerikInput:RadButton WidthRequest="240"
                                             HeightRequest="40"
                                             CornerRadius="20"
@@ -125,15 +139,15 @@
                                      Spacing="0"
                                      VerticalOptions="Center">
                             <Label Text="{Binding Name}"
-                                   TextColor="Black"
+                                   TextColor="{AppThemeBinding Light={StaticResource ItemTitleTextColorLight}, Dark={StaticResource ItemTitleTextColorDark}}"
                                    FontSize="18" />
                             <Label Text="{Binding Company}"
-                                   TextColor="#8E8E93"
+                                   TextColor="{AppThemeBinding Light={StaticResource ItemDetailTextColorLight}, Dark={StaticResource ItemDetailTextColorDark}}"
                                    FontSize="14" />
                         </StackLayout>
                         <Label Grid.Column="3"
                                Text="{Binding Amount, StringFormat='${0}'}"
-                               TextColor="Black"
+                               TextColor="{AppThemeBinding Light={StaticResource PriceTextColorLight}, Dark={StaticResource PriceTextColorDark}}"
                                HorizontalOptions="End"
                                VerticalOptions="Center"
                                FontSize="14" />

@@ -19,7 +19,7 @@
                                              BorderThickness="2" 
                                              CornerRadius="18" 
                                              Margin="5"
-                                             BackgroundColor="White">
+                                             BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
                     <StackLayout Orientation="Horizontal"
                                  Padding="8, 5">
                         <Label Text="{Binding Icon}"
@@ -86,16 +86,16 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="#17A2ED" 
+        <StackLayout BackgroundColor="{AppThemeBinding Light=#17A2ED, Dark=#2196F3}" 
                      Padding="16, 23, 16, 20">
             <Label Text="IT jobs"
                    FontAttributes="Bold" 
-                   TextColor="White" 
+                   TextColor="{AppThemeBinding Dark=Black, Light=White}" 
                    FontSize="24" 
                    HorizontalTextAlignment="Start"/>
             <telerikInput:RadAutoCompleteView x:Name="autoCompleteViewCustomizationExample" 
                                               Watermark="Search by Job Title" 
-                                              BackgroundColor="White" 
+                                              BackgroundColor="{AppThemeBinding Light=White, Dark=Black}" 
                                               DisplayMode="Tokens"
                                               FontSize="13"
                                               SuggestionViewHeight="185"
@@ -105,25 +105,25 @@
                                               SuggestionItemTemplate="{StaticResource JobsCategorySuggestionItemTemplate}"
                                               ShowMoreTemplate="{StaticResource JobsCategoryShowMoreTemplate}"
                                               TokenTemplate="{StaticResource JobsCategoryTokenTemplate}"
-                                              WatermarkTextColor="#6A6A6A"/>
+                                              WatermarkTextColor="{AppThemeBinding Light=#6A6A6A, Dark=Default}"/>
         </StackLayout>
         <Label Text="Jobs you may be interested in" 
                Margin="16, 10, 16, 10" Grid.Row="1"
                FontSize="19" 
-               TextColor="#4B4C4C" 
+               TextColor="{AppThemeBinding Light=#4B4C4C, Dark=White}" 
                FontAttributes="Bold"/>
         <telerikDataControls:RadListView ItemsSource="{Binding JobPositions}" 
                                          Margin="16, 0, 16, 0" 
                                          Grid.Row="2"
                                          SelectionMode="None"
-                                         BackgroundColor="White">
+                                         BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
             <telerikDataControls:RadListView.ItemTemplate>
                 <DataTemplate>
                     <telerikListView:ListViewTemplateCell>
                         <telerikListView:ListViewTemplateCell.View>
                             <StackLayout>
-                                <Label Text="{Binding Title}" FontSize="16" TextColor="#4B4C4C" Margin="0, 5, 0, 0" />
-                                <Label Text="{Binding Description}" FontSize="14" TextColor="#707070" Margin="0, 0, 0, 5"/>
+                                <Label Text="{Binding Title}" FontSize="16" TextColor="{AppThemeBinding Light=#4B4C4C, Dark=White}" Margin="0, 5, 0, 0" />
+                                <Label Text="{Binding Description}" FontSize="14" TextColor="{AppThemeBinding Light=#707070, Dark=Default}" Margin="0, 0, 0, 5"/>
                             </StackLayout>
                         </telerikListView:ListViewTemplateCell.View>
                     </telerikListView:ListViewTemplateCell>

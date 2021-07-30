@@ -2,17 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
                     x:Class="QSF.Examples.GaugeControl.ActivityDashboardExample.Resources">
-  <Color x:Key="moveColor">#FF1FC4FF</Color>
-  <Color x:Key="moveColorSemiTransparent">#331FC4FF</Color>
-  <Color x:Key="moveColorLight">#FF5AEFF0</Color>
-  <Color x:Key="exerciseColor">#FF87D407</Color>
-  <Color x:Key="exerciseColorSemiTransparent">#3387D407</Color>
-  <Color x:Key="exerciseColorLight">#FFDDF500</Color>
-  <Color x:Key="standColor">#FFFDA200</Color>
-  <Color x:Key="standColorSemiTransparent">#33FDA200</Color>
-  <Color x:Key="standColorLight">#FFFACD00</Color>
-  <Color x:Key="indicatorTextColor">#FF3C3C3C</Color>
-  <Color x:Key="chartForeground">White</Color>
-  <Color x:Key="chartForegroundSemiTransparent">#88FFFFFF</Color>
-  <telerikCommon:AnimationSettings x:Key="disabledAnimation" Enabled="False" />
+    <Color x:Key="moveColor">#FF1FC4FF</Color>
+    <Color x:Key="moveColorSemiTransparent">#331FC4FF</Color>
+    <Color x:Key="moveColorLight">#FF5AEFF0</Color>
+    <Color x:Key="exerciseColor">#FF87D407</Color>
+    <Color x:Key="exerciseColorSemiTransparent">#3387D407</Color>
+    <Color x:Key="exerciseColorLight">#FFDDF500</Color>
+    <Color x:Key="standColor">#FFFDA200</Color>
+    <Color x:Key="standColorSemiTransparent">#33FDA200</Color>
+    <Color x:Key="standColorLight">#FFFACD00</Color>
+    <Color x:Key="indicatorTextColor">#FF3C3C3C</Color>
+    <Color x:Key="indicatorTextColorDark">White</Color>
+    <Color x:Key="chartForeground">White</Color>
+    <Color x:Key="chartForegroundDark">Black</Color>
+    <Color x:Key="chartForegroundSemiTransparent">#88FFFFFF</Color>
+    <Color x:Key="chartForegroundSemiTransparentDark">#88686869</Color>
+    <telerikCommon:AnimationSettings x:Key="disabledAnimation" Enabled="False" />
 </ResourceDictionary>

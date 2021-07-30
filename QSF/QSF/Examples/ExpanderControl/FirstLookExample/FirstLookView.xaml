@@ -53,7 +53,7 @@
 
             <Style x:Key="SeparatorBorderStyle" TargetType="BoxView">
                 <Setter Property="HeightRequest" Value="2" />
-                <Setter Property="BackgroundColor" Value="#E7E7EA" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#E7E7EA, Dark=#373737}" />
                 <Setter Property="Margin" Value="0, 10" />
             </Style>
 

@@ -15,7 +15,7 @@
             <converters:DebugConverter x:Key="DebugConverter" />
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="White">
+    <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0" BackgroundColor="{AppThemeBinding Dark=Default, Light=White}">
         <Grid Grid.ColumnSpacing="0" Grid.RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -43,8 +43,8 @@
                                     <Image Source="{Binding FileExtension, Converter={StaticResource Key=FileExtensionToIconConverter}}" Aspect="AspectFit" Margin="16" VerticalOptions="Center"/>
 
                                     <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="1">
-                                        <Label Text="{Binding FileName}" FontSize="16" TextColor="Black" />
-                                        <Label Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" FontSize="13" TextColor="Black" FontFamily="{StaticResource Key=RegularFont}" />
+                                        <Label Text="{Binding FileName}" FontSize="16" TextColor="{AppThemeBinding Dark=#666666, Light=Black}" />
+                                        <Label Text="{Binding FileSize, Converter={StaticResource FileSizeConverter}}" FontSize="13" TextColor="{AppThemeBinding Dark=#666666, Light=Black}" FontFamily="{StaticResource Key=RegularFont}" />
                                     </StackLayout>
 
                                     <Image IsVisible="{Binding Path=IsSelected}" Aspect="AspectFit" Grid.Column="2"
@@ -56,8 +56,7 @@
                                             </OnPlatform>
                                         </Image.Source>
                                     </Image>
-                                    <Image IsVisible="{Binding Path=IsSelected, Converter={StaticResource InvertedBooleanConverter}}" Aspect="AspectFit" Grid.Column="2"
-                                           VerticalOptions="Center" HorizontalOptions="End" Margin="16" HeightRequest="20">
+                                    <Image IsVisible="{Binding Path=IsSelected, Converter={StaticResource InvertedBooleanConverter}}" Aspect="AspectFit" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" Margin="16" HeightRequest="20">
                                         <Image.Source>
                                             <OnPlatform x:TypeArguments="ImageSource">
                                                 <On Platform="iOS, Android">unselected_item.png</On>

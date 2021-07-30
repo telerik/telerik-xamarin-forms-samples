@@ -1,4 +1,5 @@
 ﻿using Android.Widget;
+using Com.Telerik.Android.Common;
 using Com.Telerik.Widget.Dataform.Visualization;
 using Com.Telerik.Widget.Dataform.Visualization.Core;
 using Com.Telerik.Widget.Dataform.Visualization.Editors;
@@ -20,7 +21,7 @@ namespace QSF.Droid.Renderers
 
         protected override DataFormLayoutManager GetLayoutManager()
         {
-            return new CustomGroupLayoutManager(this,this.Context);
+            return new CustomGroupLayoutManager(this, this.Context);
         }
 
         protected override EntityPropertyEditor GetCustomEditorForProperty(RadDataForm form, Com.Telerik.Widget.Dataform.Engine.IEntityProperty nativeProperty, Telerik.XamarinForms.Input.DataForm.IEntityProperty property)
@@ -73,7 +74,15 @@ namespace QSF.Droid.Renderers
                     var label = ((numberEditor.EditorView as RadNumberPicker).LabelView() as TextView);
                     numberEditor.EditorView.RootView.LayoutParameters.Height = (int)this.Context.ToPixels(44);
                     numberEditor.EditorView.LayoutParameters.Height = (int)this.Context.ToPixels(44);
-                    label.SetTextColor(Android.Graphics.Color.Black);
+                    if (DarkThemeHelper.IsDarkThemeApplied(this.Context))
+                    {
+                        label.SetTextColor(Android.Graphics.Color.White);
+                    }
+                    else
+                    {
+                        label.SetTextColor(Android.Graphics.Color.Black);
+                    }
+
                     return numberEditor;
 
                 case nameof(Reservation.ReservationDate):
