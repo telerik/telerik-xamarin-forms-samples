@@ -65,6 +65,7 @@
             <Style TargetType="telerikInput:RadButton" x:Key="SideDrawerButtonStyle">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
             </Style>
 
             <Style x:Key="circleButon" TargetType="telerikInput:RadButton">

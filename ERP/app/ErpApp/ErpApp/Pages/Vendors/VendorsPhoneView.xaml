@@ -13,26 +13,19 @@
         <telerikPrimitives:RadPopup x:Name="popup"
                                     IsModal="false"
                                     OutsideBackgroundColor="#6F000000"
-                                    Placement="Right"
-                                    VerticalOffset="10">
-            <telerikPrimitives:RadBorder CornerRadius="2" 
-                                         BackgroundColor="White">
-                <Grid Padding="20">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="40" />
-                    </Grid.RowDefinitions>
-                    <StackLayout Grid.Row="0" Orientation="Horizontal">
-                        <Label Text="View:" VerticalOptions="Center" TextColor="Gray"/>
-                        <Button Margin="15,0,0,0" TextColor="Black"
-                                FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-list}"
-                                Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Linear}" />
-                        <Button Margin="10,0,0,0" TextColor="Black"
-                                FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-large}"
-                                Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Grid}" />
-                    </StackLayout>
-                </Grid>
+                                    Placement="Right">
+             <telerikPrimitives:RadBorder CornerRadius="2"
+                                          WidthRequest="210"
+                                          BackgroundColor="White">
+                <StackLayout Padding="20, 0, 20, 0" Orientation="Horizontal">
+                    <Label Text="View:" VerticalOptions="Center" TextColor="Gray"/>
+                    <Button Margin="15,0,0,0" TextColor="Black" BackgroundColor="Transparent" WidthRequest="40"
+                            FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-list}"
+                            Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Linear}" />
+                    <Button Margin="10,0,0,0" TextColor="Black" BackgroundColor="Transparent" WidthRequest="40"
+                            FontFamily="{StaticResource IconsFont}" FontSize="16" Text="{StaticResource icon-th-large}"
+                            Command="{Binding ToggleLayoutModeCommand}" CommandParameter="{x:Static app:LayoutMode.Grid}" />
+                </StackLayout>
             </telerikPrimitives:RadBorder>
         </telerikPrimitives:RadPopup>
     </telerikPrimitives:RadPopup.Popup>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TemplatedView xmlns="http://xamarin.com/schemas/2014/forms" 
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:xf="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
                xmlns:converters="clr-namespace:TodoApp.Converters"
                xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
                x:Class="TodoApp.Controls.AppBar">
@@ -18,7 +19,7 @@
                 <On Platform="iOS">Black</On>
             </OnPlatform>
 
-            <OnPlatform x:Key="GridLayoutBounds" x:TypeArguments="Rectangle">
+            <OnPlatform x:Key="GridLayoutBounds" x:TypeArguments="xf:Rectangle">
                 <On Platform="Android">0, 0, 1, 56</On>
                 <On Platform="UWP">0, 0, 1, 48</On>
                 <On Platform="iOS">0, 0, 1, 44</On>

@@ -1,17 +1,17 @@
-﻿using System;
+﻿using FFImageLoading.Forms;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using tagit.Controls;
+using tagit.UWP.Renderers;
+using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
-using tagit.Controls;
-using tagit.UWP.Renderers;
-using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
-using System.Threading.Tasks;
-using Windows.Storage.Streams;
-using FFImageLoading.Forms;
+using XF = Xamarin.Forms;
 
 [assembly: ExportRenderer(typeof(CircleImage), typeof(CircleImageRenderer))]
 namespace tagit.UWP.Renderers
@@ -75,11 +75,11 @@ namespace tagit.UWP.Renderers
 
                     BitmapImage bitmapImage = null;
 
-                    if (Element.Source is UriImageSource)
+                    if (Element.Source is XF.UriImageSource)
                     {
-                        bitmapImage = new BitmapImage(((UriImageSource) Element.Source).Uri);
+                        bitmapImage = new BitmapImage(((XF.UriImageSource) Element.Source).Uri);
                     }
-                    else if (Element.Source is StreamImageSource)
+                    else if (Element.Source is XF.StreamImageSource)
                     {
                         var imageBytes =
                             ((Element as tagit.Controls.CircleImage)?.BindingContext as tagit.Models.ImageInformation)?.File;

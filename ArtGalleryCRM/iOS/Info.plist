@@ -67,5 +67,7 @@
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

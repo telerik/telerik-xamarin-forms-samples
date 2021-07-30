@@ -61,23 +61,40 @@
     <telerikPrimitives:RadPopup.Popup>
         <telerikPrimitives:RadPopup x:Name="popup"
                                     IsModal="false"
-                                    Placement="Right" VerticalOffset="10"
+                                    Placement="Right"
                                     OutsideBackgroundColor="#6F000000">
             <telerikPrimitives:RadBorder CornerRadius="2" WidthRequest="110"
                                          BackgroundColor="White">
-                <telerikPrimitives:RadBorder.HeightRequest>
+                  <telerikPrimitives:RadBorder.HeightRequest>
                     <OnPlatform x:TypeArguments="x:Double" Default="110">
                         <On Platform="iOS" Value="130" />
                     </OnPlatform>
                 </telerikPrimitives:RadBorder.HeightRequest>
-                <StackLayout Padding="20" HorizontalOptions="Center" VerticalOptions="Center">
-                    <StackLayout.Spacing>
-                        <OnPlatform x:TypeArguments="x:Double" Default="18">
-                            <On Platform="iOS" Value="0" />
-                        </OnPlatform>
-                    </StackLayout.Spacing>
-                    <Button Text="&#xE813; Edit" FontFamily="{StaticResource IconsFont}" TextColor="Orange" Command="{Binding BeginEditCommand, Mode=OneWay}" HorizontalOptions="Start" />
-                    <Button Text="&#xE809; Delete" FontFamily="{StaticResource IconsFont}" TextColor="#f33d4c" Clicked="Button_Clicked" Command="{Binding DeleteCommand, Mode=OneWay}" HorizontalOptions="Start" />
+                <StackLayout Padding="20, 0, 20, 0"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Spacing="0">
+                    <Button Text="&#xE813; Edit"
+                            FontFamily="{StaticResource IconsFont}"
+                            FontSize="12"
+                            Padding="0"
+                            TextColor="Orange"
+                            Command="{Binding BeginEditCommand, Mode=OneWay}"
+                            HorizontalOptions="Start"
+                            TextTransform="None"
+                            BackgroundColor="Transparent"
+                            HeightRequest="40"/>
+                    <Button Text="&#xE809; Delete"
+                            FontFamily="{StaticResource IconsFont}"
+                            FontSize="12"
+                            Padding="0"
+                            TextColor="#f33d4c"
+                            Command="{Binding DeleteCommand, Mode=OneWay}"
+                            Clicked="Button_Clicked"
+                            HorizontalOptions="Start"
+                            TextTransform="None"
+                            BackgroundColor="Transparent"
+                            HeightRequest="40"/>
                 </StackLayout>
             </telerikPrimitives:RadBorder>
         </telerikPrimitives:RadPopup>

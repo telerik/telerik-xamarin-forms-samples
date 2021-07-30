@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using AndroidX.AppCompat.App;
 
 namespace TodoApp.Droid
 {
@@ -14,6 +15,8 @@ namespace TodoApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+            AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             global::Xamarin.Essentials.Platform.Init(this, bundle);

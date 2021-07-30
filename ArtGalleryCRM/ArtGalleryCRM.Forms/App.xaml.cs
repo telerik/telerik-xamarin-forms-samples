@@ -13,7 +13,7 @@ namespace ArtGalleryCRM.Forms
     {
         public static MobileServiceClient MobileService { get; set; }
 
-        internal static MasterDetailPage RootPage { get; set; }
+        internal static FlyoutPage RootPage { get; set; }
 
         public App()
         {
@@ -29,28 +29,14 @@ namespace ArtGalleryCRM.Forms
             DependencyService.Register<AzureProductDataStore>();
             DependencyService.Register<AzureOrderDataStore>();
 
-            if (Device.RuntimePlatform == "Android")
+            MobileService = new MobileServiceClient(ServiceConstants.AzureMobileAppUrl, new HttpClientHandler())
             {
-                MobileService = new MobileServiceClient(ServiceConstants.AzureMobileAppUrl, new HttpClientHandler())
+                SerializerSettings = new MobileServiceJsonSerializerSettings
                 {
-                    SerializerSettings = new MobileServiceJsonSerializerSettings
-                    {
-                        CamelCasePropertyNames = true
-                    }
-                };
-            }
-            else
-            {
-                MobileService = new MobileServiceClient(ServiceConstants.AzureMobileAppUrl)
-                {
-                    SerializerSettings = new MobileServiceJsonSerializerSettings
-                    {
-                        CamelCasePropertyNames = true
-                    }
-                };
-            }
-            
-            
+                    CamelCasePropertyNames = true
+                }
+            };
+
             RootPage = new RootPage();
 
             Current.MainPage = RootPage;

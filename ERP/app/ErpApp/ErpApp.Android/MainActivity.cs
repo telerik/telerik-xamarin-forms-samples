@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-
+using AndroidX.AppCompat.App;
 using MvvmCross.Forms.Platforms.Android.Core;
 using MvvmCross.Forms.Platforms.Android.Views;
 using MvvmCross.Forms.Presenters;
@@ -17,6 +17,12 @@ namespace ErpApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+            // The UserAppTheme should be set as well because for some unknown reason the Forms controls do not respect the ModeNightNo.
+            // It could be connected with the MVVMCross, because everything is working as expected in other applications.
+            Xamarin.Forms.Application.Current.UserAppTheme = Xamarin.Forms.OSAppTheme.Light;
+            AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
+
             Xamarin.Essentials.Platform.Init(this, bundle);
         }
 

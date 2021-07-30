@@ -49,5 +49,7 @@
 	<string>Tagit App needs Camera Access to allow users to take new picture and tag it afterwards.</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Tagit App needs Calendar Access</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

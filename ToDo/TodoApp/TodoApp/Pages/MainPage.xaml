@@ -303,8 +303,7 @@
             <Grid BackgroundColor="#FFFFFF">
                 <StackLayout Spacing="10" Padding="10" VerticalOptions="Center">
                     <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}"
-                                            Command="{Binding ToggleListViewLayoutCommand}"
-                                            HorizontalOptions="Fill">
+                                            Command="{Binding ToggleListViewLayoutCommand}">
                         <telerikInput:RadButton.Triggers>
                             <DataTrigger TargetType="telerikInput:RadButton"
                                          Binding="{Binding CurrentListViewLayout, Mode=OneWay}"
@@ -320,8 +319,7 @@
                     </telerikInput:RadButton>
 
                     <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Edit Categories"
-                                            Command="{Binding ToggleEditCategoryCommand}"
-                                            HorizontalOptions="Fill">
+                                            Command="{Binding ToggleEditCategoryCommand}">
                         <telerikInput:RadButton.Triggers>
                             <DataTrigger TargetType="telerikInput:RadButton"
                                          Binding="{Binding CategoryEdit}"
@@ -332,8 +330,7 @@
                     </telerikInput:RadButton>
 
                     <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Filter by Date"
-                                            Command="{Binding SelectDateFilterCommand}"
-                                            HorizontalOptions="Fill">
+                                            Command="{Binding SelectDateFilterCommand}">
                         <telerikInput:RadButton.Triggers>
                             <DataTrigger TargetType="telerikInput:RadButton"
                                          Binding="{Binding DateFilteringApplied, Mode=OneWay}"
@@ -344,8 +341,7 @@
                     </telerikInput:RadButton>
 
                     <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="Show Completed Tasks"
-                                            Command="{Binding ToggleShowCompletedTasksCommand}"
-                                            HorizontalOptions="Fill">
+                                            Command="{Binding ToggleShowCompletedTasksCommand}">
                         <telerikInput:RadButton.Triggers>
                             <DataTrigger TargetType="telerikInput:RadButton"
                                          Binding="{Binding ShowCompletedTasks}"
@@ -356,8 +352,7 @@
                     </telerikInput:RadButton>
 
                     <telerikInput:RadButton Style="{StaticResource Key=SideDrawerButtonStyle}" Text="About"
-                                            Command="{Binding ShowAboutPageCommand}"
-                                            HorizontalOptions="Fill"/>
+                                            Command="{Binding ShowAboutPageCommand}"/>
                 </StackLayout>
             </Grid>
         </primitives:RadSideDrawer.DrawerContent>
