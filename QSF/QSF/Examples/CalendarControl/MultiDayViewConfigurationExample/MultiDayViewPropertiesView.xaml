@@ -49,7 +49,7 @@
         </ScrollView>
         <telerikPrimitives:RadBorder Grid.Row="1"
                                      BorderColor="{StaticResource ErrorColor}"
-                                     BackgroundColor="{StaticResource ErrorBackgroundColor}"
+                                     BackgroundColor="{AppThemeBinding Light={StaticResource ErrorBackgroundColorLight}, Dark={StaticResource ErrorBackgroundColorDark}}"
                                      IsVisible="{Binding HasValidationErrors}">
             <Grid Padding="10"
                   ColumnSpacing="10">

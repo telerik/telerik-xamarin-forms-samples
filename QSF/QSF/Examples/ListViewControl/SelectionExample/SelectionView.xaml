@@ -6,7 +6,52 @@
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.ListViewControl.SelectionExample.SelectionView">
-    <Grid Grid.ColumnSpacing="0"
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ItemBackgroundColorLight">#F8F8F8</Color>
+            <Color x:Key="ItemBackgroundColorDark">#373737</Color>
+            <Color x:Key="MainBackgroundColorLight">#DCDCDC</Color>
+            <Color x:Key="MainBackgroundColorDark">#1E1E1E</Color>
+
+            <Style TargetType="telerikInput:RadButton" x:Key="HeaderButtonStyle">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
+            <Style x:Key="ListViewItemStyle" TargetType="telerikListView:ListViewItemStyle" >
+                <Setter Property="BackgroundColor" Value="#DCDCDC"/>
+                <Setter Property="BorderLocation" Value="All"/>
+                <Setter Property="BorderWidth" Value="1"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="CommonGroupHeaderLabelStyle">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+            
+            <Style TargetType="Label" BasedOn="{StaticResource CommonGroupHeaderLabelStyle}" x:Key="GroupExpandCollapsedLabelStyle">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontAttributes" Value="None"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+            </Style>
+            
+            <Style TargetType="telerikInput:RadButton" x:Key="SwipeButtonStyle">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid Grid.ColumnSpacing="0" BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
           Grid.RowSpacing="0">
         <Grid Grid.ColumnSpacing="0"
               Grid.RowSpacing="0"
@@ -18,29 +63,30 @@
             </Grid.RowDefinitions>
             <Grid Grid.ColumnSpacing="0"
                   Grid.RowSpacing="0"
-                  BackgroundColor="#FFF2ED">
+                  BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="0"/>
                     <ColumnDefinition Width="48"/>
                     <ColumnDefinition Width="8"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <Grid.Triggers>
                     <DataTrigger TargetType="{x:Type Grid}"
                                  Binding="{Binding ViewMode}"
                                  Value="Edit">
                         <Setter Property="BackgroundColor"
-                                Value="#5D4037" />
+                                Value="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"/>
                     </DataTrigger>
                 </Grid.Triggers>
                 <Label Grid.Column="1"
                        Grid.ColumnSpan="4"
-                       Text="Reading List"
-                       FontSize="18"
-                       TextColor="#5D5653"
-                       HorizontalOptions="Start"
+                       Text="READING LIST"
+                       TextTransform="Uppercase"
+                       FontSize="20"
+                       TextColor="#0E88F2"
+                       HorizontalOptions="Center"
                        VerticalOptions="Center"
                        IsVisible="{Binding IsReadMode}">
                     <Label.FontFamily>
@@ -53,32 +99,26 @@
                 <Grid Grid.ColumnSpacing="0"
                       Grid.RowSpacing="0"
                       Grid.Column="1"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                       HorizontalOptions="FillAndExpand"
                       IsVisible="{Binding IsEditMode}"
                       VerticalOptions="FillAndExpand">
-                    <telerikInput:RadButton BackgroundColor="#5D4037"
-                                            BorderRadius="0"
+                    <telerikInput:RadButton BackgroundColor="Transparent"
                                             Command="{Binding BackCommand}"
+                                            FontFamily="{StaticResource IconsFont}"
+                                            Text="{StaticResource BackButtonIcon}"
+                                            TextColor="#0E88F2"
+                                            FontSize="20"
                                             AutomationId="BackButton"/>
-                    <Image HorizontalOptions="Start"
-                           VerticalOptions="Center"
-                           Aspect="AspectFit"
-                           InputTransparent="True">
-                        <Image.Source>
-                            <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="iOS,Android">Navigation_Back</On>
-                                <On Platform="UWP">Assets\Navigation_Back.png</On>
-                            </OnPlatform>
-                        </Image.Source>
-                    </Image>
                 </Grid>
                 <Label Grid.Column="3"
-                       FontSize="18"
-                       TextColor="White"
+                       FontSize="20"
+                       TextColor="#0E88F2"
                        HorizontalOptions="Start"
+                       TextTransform="Uppercase"
                        VerticalOptions="Center"
                        IsVisible="{Binding IsEditMode}"
-                       Text="{Binding SelectedItems.Count, Source={x:Reference list}, StringFormat='Selected {0}'}">
+                       Text="{Binding SelectedItems.Count, Source={x:Reference list}, StringFormat='SELECTED ({0})'}">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS">Helvetica-medium</On>
@@ -87,43 +127,24 @@
                     </Label.FontFamily>
                 </Label>
                 <Grid Grid.ColumnSpacing="0"
-                      BackgroundColor="#FFF2ED"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                       Grid.RowSpacing="0"
                       Grid.Column="4"
                       HorizontalOptions="End"
                       VerticalOptions="Center"
                       IsVisible="{Binding IsReadMode}">
-                    <telerikInput:RadButton BorderRadius="0"
-                                            HorizontalOptions="FillAndExpand"
-                                            VerticalOptions="FillAndExpand"
-                                            BackgroundColor="Transparent"
+                    <telerikInput:RadButton Style="{StaticResource HeaderButtonStyle}"
                                             Command="{Binding EditCommand}"
-                                            AutomationId="editButton">
-                        <telerikInput:RadButton.Text>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS">Edit</On>
-                                <On Platform="Android,UWP">EDIT</On>
-                            </OnPlatform>
-                        </telerikInput:RadButton.Text>
-                    </telerikInput:RadButton>
-                    <Label FontSize="14"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           TextColor="#5D5653"
-                           InputTransparent="True">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS">Helvetica-bold</On>
-                                <On Platform="Android">sans-serif-medium</On>
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
+                                            Text="{StaticResource EditIcon}"
+                                            TextColor="#0E88F2"
+                                            AutomationId="editButton"/>
                 </Grid>
                 <Grid Grid.ColumnSpacing="0"
                       Grid.RowSpacing="0"
                       Grid.Column="4"
                       HorizontalOptions="End"
                       VerticalOptions="Center"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                       IsVisible="{Binding IsEditMode}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="48"/>
@@ -131,44 +152,23 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.ColumnSpacing="0"
                           Grid.RowSpacing="0">
-                        <telerikInput:RadButton BackgroundColor="#5D4037"
-                                                HorizontalOptions="FillAndExpand"
-                                                VerticalOptions="FillAndExpand"
-                                                BorderRadius="0"
+                        <telerikInput:RadButton Style="{StaticResource HeaderButtonStyle}"
+                                                Text="&#xE87E;"
+                                                TextColor="#FFAC3E"
                                                 Command="{Binding FavoriteManyCommand}"
                                                 CommandParameter="{Binding SelectedItems, Source={x:Reference list}}"
                                                 AutomationId="FavoriteManyButton"/>
-                        <Image HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               InputTransparent="True">
-                            <Image.Source>
-                                <OnPlatform x:TypeArguments="ImageSource">
-                                    <On Platform="iOS,Android">ListView_Selection_Favorite</On>
-                                    <On Platform="UWP">Assets\ListView_Selection_Favorite.png</On>
-                                </OnPlatform>
-                            </Image.Source>
-                        </Image>
                     </Grid>
                     <Grid Grid.ColumnSpacing="0"
                           Grid.RowSpacing="0"
+                          BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                           Grid.Column="1">
-                        <telerikInput:RadButton BackgroundColor="#5D4037"
-                                                HorizontalOptions="FillAndExpand"
-                                                VerticalOptions="FillAndExpand"
-                                                BorderRadius="0"
+                        <telerikInput:RadButton Style="{StaticResource HeaderButtonStyle}"
+                                                Text="{StaticResource DeleteIcon}"
+                                                TextColor="#F85446"
                                                 Command="{Binding DeleteManyCommand}"
                                                 CommandParameter="{Binding SelectedItems, Source={x:Reference list}}"
                                                 AutomationId="DeleteManyButton"/>
-                        <Image HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               InputTransparent="True">
-                            <Image.Source>
-                                <OnPlatform x:TypeArguments="ImageSource">
-                                    <On Platform="iOS,Android">ListView_Selection_Delete</On>
-                                    <On Platform="UWP">Assets\ListView_Selection_Delete.png</On>
-                                </OnPlatform>
-                            </Image.Source>
-                        </Image>
                     </Grid>
                 </Grid>
             </Grid>
@@ -182,22 +182,19 @@
                                                  InputTransparent="{Binding IsEditMode}"
                                                  AutomationId="navigationListView">
                     <telerikDataControls:RadListView.ItemStyle>
-                        <telerikListView:ListViewItemStyle BackgroundColor="#5D4037"
-                                                           BorderWidth="0"
-                                                           BorderLocation="Bottom"
-                                                           BorderColor="#FFB144"/>
+                        <telerikListView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource ItemBackgroundColorLight}, Dark={StaticResource ItemBackgroundColorDark}}"/>
                     </telerikDataControls:RadListView.ItemStyle>
                     <telerikDataControls:RadListView.SelectedItemStyle>
-                        <telerikListView:ListViewItemStyle BackgroundColor="#5D4037"
-                                                           BorderWidth="3"
+                        <telerikListView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource ItemBackgroundColorLight}, Dark={StaticResource ItemBackgroundColorDark}}"
                                                            BorderLocation="Bottom"
-                                                           BorderColor="#FF8E56"/>
+                                                           BorderWidth="6"
+                                                           BorderColor="#0E88F2"/>
                     </telerikDataControls:RadListView.SelectedItemStyle>
                     <telerikDataControls:RadListView.PressedItemStyle>
-                        <telerikListView:ListViewItemStyle BackgroundColor="#5D4037"
-                                                           BorderWidth="3"
+                        <telerikListView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource ItemBackgroundColorLight}, Dark={StaticResource ItemBackgroundColorDark}}"
                                                            BorderLocation="Bottom"
-                                                           BorderColor="#FF8E56"/>
+                                                           BorderWidth="6"
+                                                           BorderColor="#0E88F2"/>
                     </telerikDataControls:RadListView.PressedItemStyle>
                     <telerikDataControls:RadListView.LayoutDefinition>
                         <telerikListView:ListViewGridLayout HorizontalItemSpacing="0"
@@ -209,32 +206,33 @@
                             <telerikListView:ListViewTemplateCell>
                                 <telerikListView:ListViewTemplateCell.View>
                                     <Grid HorizontalOptions="Center"
-                                          VerticalOptions="FillAndExpand"
-                                          BackgroundColor="Transparent"
-                                          Padding="0, 15, 0, 14">
+                                          VerticalOptions="Center"
+                                          BackgroundColor="Transparent">
                                         <Label Text="{Binding}"
-                                               TextColor="White"
+                                               TextColor="#0E88F2"
                                                FontSize="14"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="FillAndExpand"/>
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="Center"/>
                                     </Grid>
                                 </telerikListView:ListViewTemplateCell.View>
                             </telerikListView:ListViewTemplateCell>
                         </DataTemplate>
                     </telerikDataControls:RadListView.ItemTemplate>
                 </telerikDataControls:RadListView>
-                <BoxView BackgroundColor="#5D403778"
+                <BoxView BackgroundColor="{AppThemeBinding Light=#80FFFFFF, Dark=#80000000}"
                          IsVisible="{Binding IsEditMode}" />
             </Grid>
             <telerikDataControls:RadListView x:Name="list"
                                              Grid.Row="2"
                                              SwipeOffset="80, 0"
                                              SwipeThreshold="10"
-                                             BackgroundColor="White"
+                                             BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
                                              SelectionMode="None"
                                              IsItemSwipeEnabled="{Binding IsReadMode}"
                                              ItemsSource="{Binding Items}"
                                              ItemTapped="OnItemTapped"
+                                             SelectedItemStyle="{StaticResource ListViewItemStyle}"
+                                             PressedItemStyle="{StaticResource ListViewItemStyle}"
                                              AutomationId="listView">
                 <telerikDataControls:RadListView.Triggers>
                     <DataTrigger TargetType="{x:Type telerikDataControls:RadListView}"
@@ -244,10 +242,7 @@
                                 Value="Multiple" />
                         <Setter Property="SelectedItemStyle">
                             <Setter.Value>
-                                <telerikListView:ListViewItemStyle BackgroundColor="#C2B0A9"
-                                                                   BorderWidth="1"
-                                                                   BorderLocation="All"
-                                                                   BorderColor="#D2C7C3" />
+                                <telerikListView:ListViewItemStyle BackgroundColor="{AppThemeBinding Light={StaticResource ItemBackgroundColorLight}, Dark=#686869}"/>
                             </Setter.Value>
                         </Setter>
                     </DataTrigger>
@@ -260,23 +255,11 @@
                                                              SortOrder="Ascending" />
                 </telerikDataControls:RadListView.GroupDescriptors>
                 <telerikDataControls:RadListView.ItemStyle>
-                    <telerikListView:ListViewItemStyle BackgroundColor="#E4D8D4"
+                    <telerikListView:ListViewItemStyle BorderLocation="Bottom"
                                                        BorderWidth="1"
-                                                       BorderLocation="All"
-                                                       BorderColor="#D2C7C3" />
+                                                       BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
+                                                       BorderColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark=Transparent}"/>
                 </telerikDataControls:RadListView.ItemStyle>
-                <telerikDataControls:RadListView.SelectedItemStyle>
-                    <telerikListView:ListViewItemStyle BackgroundColor="#E4D8D4"
-                                                       BorderWidth="1"
-                                                       BorderLocation="All"
-                                                       BorderColor="#D2C7C3" />
-                </telerikDataControls:RadListView.SelectedItemStyle>
-                <telerikDataControls:RadListView.PressedItemStyle>
-                    <telerikListView:ListViewItemStyle BackgroundColor="#C2B0A9"
-                                                       BorderWidth="1"
-                                                       BorderLocation="All"
-                                                       BorderColor="#D2C7C3" />
-                </telerikDataControls:RadListView.PressedItemStyle>
                 <telerikDataControls:RadListView.LayoutDefinition>
                     <telerikListView:ListViewLinearLayout HorizontalItemSpacing="0"
                                                           GroupHeaderLength="35">
@@ -293,8 +276,7 @@
                     <DataTemplate>
                         <telerikListView:ListViewTemplateCell>
                             <telerikListView:ListViewTemplateCell.View>
-                                <StackLayout StackLayout.Spacing="14"
-                                             BackgroundColor="Transparent">
+                                <StackLayout Spacing="14">
                                     <StackLayout.Padding>
                                         <OnPlatform x:TypeArguments="Thickness">
                                             <On Platform="iOS">16, 20, 20, 20</On>
@@ -303,29 +285,20 @@
                                         </OnPlatform>
                                     </StackLayout.Padding>
                                     <StackLayout Orientation="Horizontal">
-                                        <StackLayout.HeightRequest>
-                                            <OnPlatform x:TypeArguments="x:Double">
-                                                <On Platform="iOS">14</On>
-                                                <On Platform="Android,UWP">20</On>
-                                            </OnPlatform>
-                                        </StackLayout.HeightRequest>
-                                        <Image HeightRequest="14"
-                                               WidthRequest="14"
-                                               IsVisible="{Binding IsFavorite}">
-                                            <Image.Source>
-                                                <OnPlatform x:TypeArguments="ImageSource">
-                                                    <On Platform="iOS,Android">ListView_Selection_Favorite1</On>
-                                                    <On Platform="UWP">Assets\ListView_Selection_Favorite1.png</On>
-                                                </OnPlatform>
-                                            </Image.Source>
-                                        </Image>
+                                        <Label FontSize="20"
+                                               TextColor="#FFAC3E"
+                                               IsVisible="{Binding IsFavorite}"
+                                               FontFamily="{StaticResource IconsFont}"
+                                               Text="&#xE87E;"
+                                               VerticalOptions="Center"/>
                                         <Label Text="{Binding Title}"
-                                               TextColor="#4D4745"
+                                               TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                               FontAttributes="Bold"
                                                FontSize="16"/>
                                     </StackLayout>
                                     <Label Text="{Binding Content}"
                                            LineBreakMode="WordWrap"
-                                           TextColor="#918986"
+                                           TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                            FontSize="14"/>
                                 </StackLayout>
                             </telerikListView:ListViewTemplateCell.View>
@@ -336,35 +309,23 @@
                     <DataTemplate>
                         <Grid Grid.ColumnSpacing="4"
                               Grid.RowSpacing="0"
-                              BackgroundColor="#E4D8D4"
+                              BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource ItemBackgroundColorDark}}"
                               Padding="16,0,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="16" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0"
+                                   Style="{StaticResource GroupExpandCollapsedLabelStyle}"
                                    Text="{StaticResource ExpandedIcon}"
-                                   FontFamily="{StaticResource IconsFont}"
-                                   FontSize="14"
-                                   TextColor="#A4928D"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
                                    IsVisible="{Binding IsExpanded}" />
                             <Label Grid.Column="0"
+                                   Style="{StaticResource GroupExpandCollapsedLabelStyle}"
                                    Text="{StaticResource CollapsedIcon}"
-                                   FontFamily="{StaticResource IconsFont}"
-                                   FontSize="14"
-                                   TextColor="#A4928D"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center"
                                    IsVisible="{Binding IsExpanded, Converter={StaticResource InvertedBooleanConverter}}" />
                             <Label Grid.Column="1"
-                                   Text="{Binding Key}"
-                                   FontAttributes="Bold"
-                                   FontSize="14"
-                                   TextColor="#A4928D"
-                                   HorizontalOptions="Start"
-                                   VerticalOptions="Center"/>
+                                   Style="{StaticResource CommonGroupHeaderLabelStyle}"
+                                   Text="{Binding Key}"/>
                         </Grid>
                     </DataTemplate>
                 </telerikDataControls:RadListView.GroupHeaderTemplate>
@@ -381,54 +342,28 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.ColumnSpacing="0"
                                   Grid.RowSpacing="0"
-                                  BackgroundColor="#F3AF40"
+                                  BackgroundColor="#FFAC3E"
                                   Padding="0"
                                   Margin="0">
-                                <telerikInput:RadButton BorderRadius="0"
-                                                        HorizontalOptions="FillAndExpand"
-                                                        VerticalOptions="FillAndExpand"
-                                                        BackgroundColor="Transparent"
+                                <telerikInput:RadButton Style="{StaticResource SwipeButtonStyle}"
+                                                        Text="&#xE87E;"
                                                         Command="{Binding BindingContext.FavoriteItemCommand, Source={x:Reference list}}"
                                                         CommandParameter="{Binding}"
                                                         Clicked="OnButtonClicked"
                                                         AutomationId="FavoriteButton"/>
-                                <Image Aspect="AspectFit"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"
-                                       InputTransparent="True">
-                                    <Image.Source>
-                                        <OnPlatform x:TypeArguments="ImageSource">
-                                            <On Platform="iOS,Android">ListView_Selection_Favorite</On>
-                                            <On Platform="UWP">Assets\ListView_Selection_Favorite.png</On>
-                                        </OnPlatform>
-                                    </Image.Source>
-                                </Image>
                             </Grid>
                             <Grid Grid.Column="2"
-                                  BackgroundColor="#FF1744"
+                                  BackgroundColor="#F85446"
                                   Grid.ColumnSpacing="0"
                                   Grid.RowSpacing="0"
                                   Padding="0"
                                   Margin="0">
-                                <telerikInput:RadButton BorderRadius="0"
-                                                        HorizontalOptions="FillAndExpand"
-                                                        VerticalOptions="FillAndExpand"
-                                                        BackgroundColor="Transparent"
+                                <telerikInput:RadButton Style="{StaticResource SwipeButtonStyle}"
+                                                        Text="{StaticResource DeleteIcon}"
                                                         Command="{Binding BindingContext.DeleteItemCommand, Source={x:Reference list}}"
                                                         CommandParameter="{Binding}"
                                                         Clicked="OnButtonClicked"
                                                         AutomationId="DeleteButton"/>
-                                <Image InputTransparent="True"
-                                       Aspect="AspectFit"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center">
-                                    <Image.Source>
-                                        <OnPlatform x:TypeArguments="ImageSource">
-                                            <On Platform="iOS,Android">ListView_Selection_Delete</On>
-                                            <On Platform="UWP">Assets\ListView_Selection_Delete.png</On>
-                                        </OnPlatform>
-                                    </Image.Source>
-                                </Image>
                             </Grid>
                         </Grid>
                     </DataTemplate>

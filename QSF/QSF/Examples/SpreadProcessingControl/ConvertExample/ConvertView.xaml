@@ -26,15 +26,15 @@
                 <Label HorizontalTextAlignment="Center">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="File: " TextColor="#000000" FontAttributes="Bold" />
-                            <Span Text="SpreadProcessingDocument1.xlsx" TextColor="#000000" />
+                            <Span Text="File: " TextColor="{AppThemeBinding Dark=Default, Light=Black}" FontAttributes="Bold" />
+                            <Span Text="SpreadProcessingDocument1.xlsx" TextColor="{AppThemeBinding Dark=Default, Light=Black}" />
                             <Span Text="{x:Static system:Environment.NewLine}" />
                             <Span Text="6KB" TextColor="#919191" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
                 <Label Text="Format:"
-                       TextColor="#000000"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                        FontAttributes="Bold" 
                        HorizontalOptions="Center"
                        FontSize="Medium"

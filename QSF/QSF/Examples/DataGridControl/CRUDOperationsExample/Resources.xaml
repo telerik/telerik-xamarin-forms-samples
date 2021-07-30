@@ -7,22 +7,25 @@
     <Color x:Key="CrudColor">#009688</Color>
     <Style x:Key="CrudButtonStyle1" TargetType="telerikInput:RadButton">
         <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
-        <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}" />
         <Setter Property="TextColor" Value="{StaticResource CrudColor}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="WidthRequest" Value="48" />
         <Setter Property="HeightRequest" Value="48" />
     </Style>
     <Style x:Key="CrudButtonStyle2" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}" />
         <Setter Property="TextColor" Value="{StaticResource CrudColor}" />
         <Setter Property="BorderWidth" Value="0" />
         <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
     </Style>
-    <telerikDataGrid:DataGridTextCellStyle x:Key="CrudDataGridTextCellStyle" 
+    <telerikDataGrid:DataGridTextCellStyle x:Key="CrudDataGridTextCellStyleLight" 
                                            FontFamily="{StaticResource RegularFont}"
                                            FontSize="14"
                                            SelectedTextColor="{StaticResource CrudColor}" />
+    <telerikDataGrid:DataGridTextCellStyle x:Key="CrudDataGridTextCellStyleDark" 
+                                           FontFamily="{StaticResource RegularFont}"
+                                           FontSize="14" />
     <telerikDataGrid:DataGridBorderStyle x:Key="DataGridSelectionStyle"
                                          BorderColor="{StaticResource CrudColor}" />
 

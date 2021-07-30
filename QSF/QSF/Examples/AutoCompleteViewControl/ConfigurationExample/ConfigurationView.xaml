@@ -7,7 +7,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="CommonLabelStyle">
-                <Setter Property="TextColor" Value="#4B4C4C"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#4B4C4C, Dark=Default}"/>
                 <Setter Property="HorizontalTextAlignment" Value="Start"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Margin" Value="0, 5"/>
@@ -23,16 +23,17 @@
                 <Setter Property="HorizontalOptions" Value="Start"/>
                 <Setter Property="Margin" Value="0, 5"/>
             </Style>
-            <Color x:Key="MainBackgroundColor">White</Color>
+            <Color x:Key="MainBackgroundColorLight">White</Color>
+            <Color x:Key="MainBackgroundColorDark">Black</Color>
         </ResourceDictionary>
     </ContentView.Resources>
 
     <StackLayout>
-        <StackLayout BackgroundColor="#17A2ED" 
+        <StackLayout BackgroundColor="{AppThemeBinding Light=#17A2ED, Dark=#2196F3}" 
                      Padding="16, 0, 16, 0">
             <Label Text="Cities" 
                    Margin="0, 23, 0, 0"
-                   TextColor="{StaticResource MainBackgroundColor}"
+                   TextColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                    FontAttributes="Bold"
                    FontSize="24"
                    HorizontalTextAlignment="Start"/>
@@ -48,12 +49,12 @@
                                               IsClearButtonVisible="{Binding IsClearButtonVisible}"
                                               Margin="0, 14, 0, 21"
                                               SuggestionViewHeight="180"
-                                              BackgroundColor="{StaticResource MainBackgroundColor}"
+                                              BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
                                               VerticalOptions="StartAndExpand" 
                                               FontSize="16"
                                               WatermarkTextColor="#8E8E93"/>
         </StackLayout>
-        <ScrollView BackgroundColor="{StaticResource MainBackgroundColor}">
+        <ScrollView BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
             <StackLayout Margin="16, 10, 16, 10">
                 <Label Text="CompletionMode" Style="{StaticResource CommonLabelStyle}"/>
                 <Picker AutomationId="CompletionModePicker" Style="{StaticResource CommonPickerStyle}"

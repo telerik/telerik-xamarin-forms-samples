@@ -5,6 +5,8 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using QSF.Services.BackdoorService;
+using System;
+using QSF.Services;
 
 namespace QSF.iOS
 {
@@ -52,6 +54,8 @@ namespace QSF.iOS
 #if __TESTS__
             Xamarin.Calabash.Start();
 #endif
+            Xamarin.Forms.Application.Current.RequestedThemeChanged += this.OnRequestedThemeChanged;
+
             return base.FinishedLaunching(app, options);
         }
 
@@ -99,5 +103,40 @@ namespace QSF.iOS
             }
         }
 #endif
+
+        private void OnRequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        {
+            if (UIApplication.SharedApplication.ApplicationState == UIApplicationState.Background)
+            {
+                return;
+            }
+
+            var theme = Xamarin.Forms.Application.Current.UserAppTheme;
+            if (theme == OSAppTheme.Unspecified)
+            {
+                this.Window.OverrideUserInterfaceStyle = UIUserInterfaceStyle.Unspecified;
+            }
+            else
+            {
+                this.Window.OverrideUserInterfaceStyle = theme == OSAppTheme.Dark ? UIUserInterfaceStyle.Dark : UIUserInterfaceStyle.Light;
+            }
+
+            if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark)
+            {
+                this.SetControlsDefaultTheme();
+            }
+        }
+
+        private void SetControlsDefaultTheme()
+        {
+            var themesService = DependencyService.Get<IThemesService>();
+            var defaultTheme = themesService.GetThemes().First();
+            var currentTheme = themesService.CurrentTheme;
+
+            if (currentTheme != defaultTheme)
+            {
+                themesService.SetTheme(defaultTheme);
+            }
+        }
     }
 }

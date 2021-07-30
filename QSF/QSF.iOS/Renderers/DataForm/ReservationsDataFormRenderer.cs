@@ -92,7 +92,7 @@ namespace QSF.iOS.Renderers.DataForm
                     var stepperLabel = (editor as TKDataFormStepperEditor).ValueLabel;
                     var labelDef = editor.GridLayout.DefinitionForView(stepperLabel);
                     labelDef.ContentOffset = new UIOffset(-15, 0);
-                    stepperLabel.TextColor = UIColor.Black;
+                    stepperLabel.TextColor = SelectDynamicColor(UIColor.Black, UIColor.White);
                     break;
 
                 case nameof(Reservation.HolderPhoneNumber):
@@ -101,20 +101,20 @@ namespace QSF.iOS.Renderers.DataForm
 
                 case nameof(Reservation.ReservationDate):
                     editor.Property.Image = new UIImage("DataForm_Date.png");
-                    (editor as TKDataFormInlineEditor).EditorValueLabel.TextColor = UIColor.Black;
+                    (editor as TKDataFormInlineEditor).EditorValueLabel.TextColor = SelectDynamicColor(UIColor.Black, UIColor.White);
                     break;
 
                 case nameof(Reservation.ReservationTime):
                     property.Metadata.Position = 0;
                     editor.Property.Image = new UIImage("DataForm_Time.png");
-                    (editor as TKDataFormInlineEditor).EditorValueLabel.TextColor = UIColor.Black;
+                    (editor as TKDataFormInlineEditor).EditorValueLabel.TextColor = SelectDynamicColor(UIColor.Black, UIColor.White);
                     break;
 
                 case nameof(Reservation.TableSection):
                     editor.Property.Image = new UIImage("DataForm_Section.png");
                     var sectionPickerEditor = editor as TKDataFormPickerViewEditor;
                     var sectionValueLabel = sectionPickerEditor.EditorValueLabel;
-                    sectionValueLabel.TextColor = UIColor.Black;
+                    sectionValueLabel.TextColor = SelectDynamicColor(UIColor.Black, UIColor.White);
                     sectionValueLabel.TextAlignment = UITextAlignment.Right;
                     sectionValueLabel.TextInsets = new UIEdgeInsets(0, 0, 0, 15);
                     break;
@@ -123,7 +123,7 @@ namespace QSF.iOS.Renderers.DataForm
                     editor.Property.Image = new UIImage("DataForm_Table_Number.png");
                     var pickerEditor = editor as TKDataFormPickerViewEditor;
                     var valueLabel = pickerEditor.EditorValueLabel;
-                    valueLabel.TextColor = UIColor.Black;
+                    valueLabel.TextColor = SelectDynamicColor(UIColor.Black, UIColor.White); ;
                     valueLabel.TextAlignment = UITextAlignment.Right;
                     valueLabel.TextInsets = new UIEdgeInsets(0, 0, 0, 15);
                     break;
@@ -140,6 +140,22 @@ namespace QSF.iOS.Renderers.DataForm
         protected override TKDataFormDelegate GetDataFormDelegate(TKDataForm form)
         {
             return new DFDelegate(this);
+        }
+
+        private static UIColor SelectDynamicColor(UIColor color, UIColor darkColor)
+        {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+            {
+                return UIColor.FromDynamicProvider((traitCollection) =>
+                {
+                    return traitCollection.UserInterfaceStyle == UIUserInterfaceStyle.Dark
+                    ? darkColor
+                    : color;
+                });
+            }
+
+            return color;
+
         }
     }
 }

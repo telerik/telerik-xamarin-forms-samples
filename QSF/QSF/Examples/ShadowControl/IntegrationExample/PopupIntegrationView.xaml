@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    x:Class="QSF.Examples.ShadowControl.IntegrationExample.PopupIntegrationView"
+    BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="telerikPrimitives:RadShadow">
+                <Setter Property="OffsetY" Value="4"/>
+                <Setter Property="ShadowOpacity" Value="0.17"/>
+                <Setter Property="BlurRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="2" />
+                                <On Platform="Android" Value="6" />
+                                <On Platform="UWP" Value="6" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <telerikPrimitives:RadPopup.Popup>
+            <telerikPrimitives:RadPopup x:Name="popup"
+                                        IsModal="True"
+                                        Placement="Center"
+                                        OutsideBackgroundColor="#997E8183">
+                <telerikPrimitives:RadShadow CornerRadius="8">
+                    <telerikPrimitives:RadBorder CornerRadius="8"
+                                                 BorderThickness="0"
+                                                 BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#373737}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.ColumnSpan="2"
+                                       Style="{StaticResource HeaderLabelStyle}"
+                                       Text="Telerik UI for Xamarin"
+                                       VerticalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       FontSize="16"
+                                       Margin="68, 25" />
+                                <Button Grid.Column="1"
+                                        WidthRequest="35"
+                                        HeightRequest="35"
+                                        Text="{StaticResource CrossIcon}"
+                                        FontFamily="{StaticResource IconsFont}"
+                                        VerticalOptions="Start"
+                                        Margin="0"
+                                        BackgroundColor="Transparent"
+                                        Clicked="ClosePopupButtonClicked"/>
+                            </Grid>
+                            <StackLayout Grid.Row="1"
+                                         BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                                         Margin="0, 35"
+                                         Orientation="Horizontal"
+                                         VerticalOptions="CenterAndExpand"
+                                         HorizontalOptions="CenterAndExpand">
+                                <Label Text="by"
+                                       Style="{StaticResource BodyLabelStyle}"
+                                       Grid.Column="1"
+                                       VerticalOptions="End" />
+                                <Image Grid.Column="2"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       Margin="4, 0">
+                                    <Image.Source>
+                                        <OnPlatform x:TypeArguments="ImageSource">
+                                            <On Platform="iOS, Android" Value="Logo.png" />
+                                            <On Platform="UWP" Value="Assets/Logo.png" />
+                                        </OnPlatform>
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="Progress" Style="{StaticResource BodyLabelStyle}"
+                                       Grid.Column="3"
+                                       VerticalOptions="End"/>
+                            </StackLayout>
+                        </Grid>
+                    </telerikPrimitives:RadBorder>
+                </telerikPrimitives:RadShadow>
+            </telerikPrimitives:RadPopup>
+        </telerikPrimitives:RadPopup.Popup>
+        <telerikPrimitives:RadShadow WidthRequest="90"
+                                     HeightRequest="40"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Start"
+                                     Margin="0, 40, 0, 0"
+                                     CornerRadius="20">
+            <telerikInput:RadButton Text="Popup"
+                                    TextTransform="None"
+                                    TextColor="White"
+                                    CornerRadius="20"
+                                    BackgroundColor="{AppThemeBinding Light=#0E88F2, Dark=#42A5F5}"
+                                    Clicked="OpenPopupButtonClicked"/>
+        </telerikPrimitives:RadShadow>
+    </Grid>
+
+</ContentView>

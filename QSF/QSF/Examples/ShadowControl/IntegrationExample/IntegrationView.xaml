@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:example="clr-namespace:QSF.Examples.ShadowControl.IntegrationExample"
+    x:Class="QSF.Examples.ShadowControl.IntegrationExample.IntegrationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <example:ListViewIntegrationViewModel x:Key="ListViewIntegrationViewModel"/>
+            <Style TargetType="primitives:TabViewHeaderItem">
+                <Setter Property="WidthRequest" Value="90" />
+                <Setter Property="HeightRequest" Value="54" />
+                <Setter Property="Padding" Value="0, 5, 0, 0" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <primitives:RadTabView IsContentSwipingEnabled="False">
+        <primitives:RadTabView.Header>
+            <primitives:TabViewHeader BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#1E1E1E}"
+                                      IsScrollable="true"
+                                      ItemSpacing="26"/>
+        </primitives:RadTabView.Header>
+        <primitives:RadTabView.Items>
+            <primitives:TabViewItem HeaderText="Buttons">
+                <primitives:TabViewItem.Content>
+                    <example:ButtonsIntegrationView/>
+                </primitives:TabViewItem.Content>
+            </primitives:TabViewItem>
+            <primitives:TabViewItem HeaderText="Inputs">
+                <primitives:TabViewItem.Content>
+                    <example:InputsIntegrationView/>
+                </primitives:TabViewItem.Content>
+            </primitives:TabViewItem>
+            <primitives:TabViewItem HeaderText="ListView">
+                <primitives:TabViewItem.Content>
+                    <example:ListViewIntegrationView BindingContext="{StaticResource ListViewIntegrationViewModel}"/>
+                </primitives:TabViewItem.Content>
+            </primitives:TabViewItem>
+            <primitives:TabViewItem HeaderText="Expander">
+                <primitives:TabViewItem.Content>
+                    <example:ExpanderIntegrationView/>
+                </primitives:TabViewItem.Content>
+            </primitives:TabViewItem>
+            <primitives:TabViewItem HeaderText="Border">
+                <primitives:TabViewItem.Content>
+                    <example:BorderIntegrationView/>
+                </primitives:TabViewItem.Content>
+            </primitives:TabViewItem>
+            <primitives:TabViewItem HeaderText="Popup">
+                <primitives:TabViewItem.Content>
+                    <example:PopupIntegrationView/>
+                </primitives:TabViewItem.Content>
+            </primitives:TabViewItem>
+        </primitives:RadTabView.Items>
+    </primitives:RadTabView>
+</ContentView>

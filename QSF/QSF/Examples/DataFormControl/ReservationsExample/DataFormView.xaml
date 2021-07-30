@@ -5,8 +5,18 @@
              xmlns:local="clr-namespace:QSF.Examples.DataFormControl.ReservationsExample"
              x:Class="QSF.Examples.DataFormControl.ReservationsExample.DataFormView">
     <Grid Grid.ColumnSpacing="0"
-          Grid.RowSpacing="0"
-          BackgroundColor="White">
+          Grid.RowSpacing="0">
+        <Grid.BackgroundColor>
+            <AppThemeBinding Light="White">
+                <AppThemeBinding.Dark>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS">Black</On>
+                        <On Platform="Android">Default</On>
+                        <On Platform="UWP">Default</On>
+                    </OnPlatform>
+                </AppThemeBinding.Dark>
+            </AppThemeBinding>
+        </Grid.BackgroundColor>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -105,10 +115,10 @@
             </Grid>
             <!-- form -->
             <local:ReservationsDataForm x:Name="dataForm"
-                                      Source="{Binding FormSource}"
-                                      Grid.Row="1"
-                                      CommitMode="Manual"
-                                      ValidationMode="Immediate">
+                                        Source="{Binding FormSource}"
+                                        Grid.Row="1"
+                                        CommitMode="Manual"
+                                        ValidationMode="Immediate">
                 <telerikInput:RadDataForm.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS">15, 0, 8, 0</On>

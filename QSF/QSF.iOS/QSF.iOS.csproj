@@ -145,6 +145,7 @@
     <Compile Include="Services\FileViewer\FileViewerService.cs" />
     <Compile Include="Services\Toast\ToastMessageService.cs" />
     <Compile Include="Services\XmlDocumentReader\XPathXmlReaderService.cs" />
+    <Compile Include="Services\ApplicatonState\ApplicationStateService.cs" />
     <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
@@ -168,18 +169,6 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard">
       <SubType>Designer</SubType>
     </InterfaceDefinition>
-    <BundleResource Include="Resources\Entry_FirstLook.png" />
-    <BundleResource Include="Resources\Entry_FirstLook%401,5x.png" />
-    <BundleResource Include="Resources\Entry_FirstLook%402x.png" />
-    <BundleResource Include="Resources\Entry_FirstLook%403x.png" />
-    <BundleResource Include="Resources\Entry_Envelope.png" />
-    <BundleResource Include="Resources\Entry_Envelope%401,5x.png" />
-    <BundleResource Include="Resources\Entry_Envelope%402x.png" />
-    <BundleResource Include="Resources\Entry_Envelope%403x.png" />
-    <BundleResource Include="Resources\NumericInput_FirstLook.png" />
-    <BundleResource Include="Resources\NumericInput_FirstLook%401,5x.png" />
-    <BundleResource Include="Resources\NumericInput_FirstLook%402x.png" />
-    <BundleResource Include="Resources\NumericInput_FirstLook%403x.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_1.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_1%401,5x.png" />
     <BundleResource Include="Resources\DataGrid_SalesPerson_1%402x.png" />
@@ -232,35 +221,11 @@
     <BundleResource Include="Resources\Border_User%401,5x.png" />
     <BundleResource Include="Resources\Border_User%402x.png" />
     <BundleResource Include="Resources\Border_User%403x.png" />
-    <BundleResource Include="Resources\Border_FirstLook.png" />
-    <BundleResource Include="Resources\Border_FirstLook%401,5x.png" />
-    <BundleResource Include="Resources\Border_FirstLook%402x.png" />
-    <BundleResource Include="Resources\Border_FirstLook%403x.png" />
-    <BundleResource Include="Resources\CheckBox_FirstLook.png" />
-    <BundleResource Include="Resources\CheckBox_FirstLook%401,5x.png" />
-    <BundleResource Include="Resources\CheckBox_FirstLook%402x.png" />
-    <BundleResource Include="Resources\CheckBox_FirstLook%403x.png" />
     <Compile Include="Effects\DatePickerRemoveBorderEffect.cs" />
     <Compile Include="Effects\TimePickerRemoveBorderEffect.cs" />
-    <BundleResource Include="Resources\Scheduler_Appointments.png" />
-    <BundleResource Include="Resources\Scheduler_Appointments%401,5x.png" />
-    <BundleResource Include="Resources\Scheduler_Appointments%402x.png" />
-    <BundleResource Include="Resources\Scheduler_Appointments%403x.png" />
     <BundleResource Include="Resources\Fonts\telerikfontexamples.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
-    <BundleResource Include="Resources\Calendar_AgendaView_Configuration.png" />
-    <BundleResource Include="Resources\Calendar_AgendaView_Configuration%401,5x.png" />
-    <BundleResource Include="Resources\Calendar_AgendaView_Configuration%402x.png" />
-    <BundleResource Include="Resources\Calendar_AgendaView_Configuration%403x.png" />
-    <BundleResource Include="Resources\Calendar_AgendaView_Customization.png" />
-    <BundleResource Include="Resources\Calendar_AgendaView_Customization%401,5x.png" />
-    <BundleResource Include="Resources\Calendar_AgendaView_Customization%402x.png" />
-    <BundleResource Include="Resources\Calendar_AgendaView_Customization%403x.png" />
-    <BundleResource Include="Resources\ComboBox_FirstLook.png" />
-    <BundleResource Include="Resources\ComboBox_FirstLook%401,5x.png" />
-    <BundleResource Include="Resources\ComboBox_FirstLook%402x.png" />
-    <BundleResource Include="Resources\ComboBox_FirstLook%403x.png" />
     <BundleResource Include="Resources\ComboBox_FirstLook_HeaderImage.png" />
     <BundleResource Include="Resources\ComboBox_FirstLook_HeaderImage%401,5x.png" />
     <BundleResource Include="Resources\ComboBox_FirstLook_HeaderImage%402x.png" />
@@ -269,22 +234,29 @@
     <BundleResource Include="Resources\ComboBox_Customization_HeaderImage%401,5x.png" />
     <BundleResource Include="Resources\ComboBox_Customization_HeaderImage%402x.png" />
     <BundleResource Include="Resources\ComboBox_Customization_HeaderImage%403x.png" />
-    <BundleResource Include="Resources\ComboBox_Customization.png" />
-    <BundleResource Include="Resources\ComboBox_Customization%401,5x.png" />
-    <BundleResource Include="Resources\ComboBox_Customization%402x.png" />
-    <BundleResource Include="Resources\ComboBox_Customization%403x.png" />
-    <BundleResource Include="Resources\ComboBox_Configuration.png" />
-    <BundleResource Include="Resources\ComboBox_Configuration%401,5x.png" />
-    <BundleResource Include="Resources\ComboBox_Configuration%402x.png" />
-    <BundleResource Include="Resources\ComboBox_Configuration%403x.png" />
     <BundleResource Include="Resources\ComboBox_Configuration_HeaderImage.png" />
     <BundleResource Include="Resources\ComboBox_Configuration_HeaderImage%401,5x.png" />
     <BundleResource Include="Resources\ComboBox_Configuration_HeaderImage%402x.png" />
     <BundleResource Include="Resources\ComboBox_Configuration_HeaderImage%403x.png" />
-    <BundleResource Include="Resources\Scheduler_Customization.png" />
-    <BundleResource Include="Resources\Scheduler_Customization%401,5x.png" />
-    <BundleResource Include="Resources\Scheduler_Customization%402x.png" />
-    <BundleResource Include="Resources\Scheduler_Customization%403x.png" />
+    <BundleResource Include="Resources\Fonts\telerikqsficonsfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\American_Pancakes.png" />
+    <BundleResource Include="Resources\American_Pancakes%401,5x.png" />
+    <BundleResource Include="Resources\American_Pancakes%402x.png" />
+    <BundleResource Include="Resources\American_Pancakes%403x.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate%401,5x.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate%402x.png" />
+    <BundleResource Include="Resources\Belgian_Chocolate%403x.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle%401,5x.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle%402x.png" />
+    <BundleResource Include="Resources\Blueberry_Waffle%403x.png" />
+    <BundleResource Include="Resources\Tiramisu.png" />
+    <BundleResource Include="Resources\Tiramisu%401,5x.png" />
+    <BundleResource Include="Resources\Tiramisu%402x.png" />
+    <BundleResource Include="Resources\Tiramisu%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK-1.0" />
@@ -429,150 +401,30 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iOS_Logo_76x76-200.png">
       <Visible>false</Visible>
     </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Custom_Indicator.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Custom_Indicator%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Custom_Indicator%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Custom_Indicator%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Gallery.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Gallery%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Gallery%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Gallery%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Appointments.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Appointments%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Appointments%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Appointments%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Day_View.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Day_View%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Day_View%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Day_View%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Area.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Area%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Area%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Area%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Bar_Series.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Bar_Series%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Bar_Series%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Bar_Series%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Line_Series.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Line_Series%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Line_Series%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Line_Series%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Pie.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Pie%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Pie%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Pie%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Scattered.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Scattered%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Scattered%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Scattered%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Theming%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash%402x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash%403x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Splash.imageset\Splash-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Chart_Theming_Bar1_Header_Active.png" />
@@ -623,54 +475,6 @@
     <BundleResource Include="Resources\Chart_Theming_Pie_Header_Inactive%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Reservations.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Reservations%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Reservations%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Reservations%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -684,66 +488,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Activity_Dashboard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Activity_Dashboard%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Activity_Dashboard%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Activity_Dashboard%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Layouts.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Layouts%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Layouts%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Layouts%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Selection.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Selection%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Selection%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Selection%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Theming%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Logo.png" />
@@ -770,102 +514,6 @@
     <BundleResource Include="Resources\Logo_SD%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Path_Figures.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Path_Figures%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Path_Figures%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Path_Figures%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Rating_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Rating_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Rating_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Rating_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Segmented_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Segmented_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Segmented_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Segmented_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Recipes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Recipes%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Recipes%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Recipes%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Settings%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Settings%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SideDrawer_Settings%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_SlidingImages.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_SlidingImages%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_SlidingImages%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_SlidingImages%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SlideView_Theming%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Splash_1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -876,30 +524,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Splash_1%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_RestaurantMenu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_RestaurantMenu%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_RestaurantMenu%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_RestaurantMenu%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_Theming.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_Theming%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_Theming%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TabView_Theming%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\tyre.png" />
@@ -1047,33 +671,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\DataGrid_FirstLook_person04.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Horizontal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Horizontal%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Horizontal%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Radial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Radial%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Radial%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Vertical.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Vertical%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Gauge_Gallery_Vertical%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\DataForm_Date.png" />
@@ -1329,18 +926,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\BusyIndicator_Theming_Gallery8_Header_Inactive%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Button%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Button%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Button%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Button_Theming.png" />
@@ -2453,36 +2038,6 @@
     <BundleResource Include="Resources\ListView_LinearLayout.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Done.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Done%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Delete%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Delete%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_Reorder_Done%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ListView_Selection_Delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2519,18 +2074,6 @@
     <BundleResource Include="Resources\ListView_Selection_Reorder%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\MaskedInput_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Rating_Restaurant.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -2538,24 +2081,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Rating_Restaurant%403x.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Rating_RestaurantReview%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Rating_RestaurantReview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Rating_RestaurantReview%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Segmented_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Segmented_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Segmented_FirstLook%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Segmented_Dinner.png" />
@@ -2784,48 +2309,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\selected_item%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Zip_Library%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Zip_Library.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Zip_Library%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadStreamProcessing.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadStreamProcessing%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadStreamProcessing%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_LoadOnDemand.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_LoadOnDemand%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_LoadOnDemand%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_LoadOnDemand%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Gauge_HorizontalGauge1_Active.png" />
@@ -3128,18 +2611,6 @@
     <BundleResource Include="Resources\KeyFeature_5%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_CustomBusyContent.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_CustomBusyContent%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_CustomBusyContent%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BusyIndicator_CustomBusyContent%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\BusyIndicator_Theming_Gallery10_Header_Active.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3188,30 +2659,6 @@
     <BundleResource Include="Resources\BusyIndicator_Theming_Gallery9_Header_Inactive%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\BarCode_BoardingPass.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_BoardingPass%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_BoardingPass%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_BoardingPass%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_SpecialOffer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_SpecialOffer%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_SpecialOffer%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_SpecialOffer%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\BarCode_SpecialOffer_Salad.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3227,43 +2674,7 @@
     <BundleResource Include="Resources\VacationBot.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Insurance%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Insurance%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Insurance.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Insurance%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Vacation%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Vacation%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Vacation%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_Vacation.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\InsuranceBot.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_FirstLook%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TreeView_FirstLook_User.png" />
@@ -3279,54 +2690,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\HealthCareBot.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_HealthCare%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_HealthCare%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_HealthCare.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ChatBot_HealthCare%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_1D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_1D%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_1D%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_1D%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_PDF417.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_PDF417%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_PDF417%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_PDF417%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_QRCode%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_QRCode.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_QRCode%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\BarCode_QRCode%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TreeView_Customization_Flag_Argentina.png" />
@@ -3485,18 +2848,6 @@
     <BundleResource Include="Resources\TreeView_Customization_Flag_USA%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TreeView_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\TelerikSendMessage%403x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3533,30 +2884,6 @@
     <BundleResource Include="Resources\Border_Configuration_Avatar%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Border_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Border_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Border_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Border_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Expander_Customization_Img1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3579,30 +2906,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Expander_Customization_Img2%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Customization%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Accordion_Customization_Vendor1.png" />
@@ -3641,18 +2944,6 @@
     <BundleResource Include="Resources\Accordion_Customization_Vendor3%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Accordion_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Expander_FirstLook_Img1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3675,66 +2966,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Expander_FirstLook_Img2%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Accordion_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Expander_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chat_Chatroom%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chat_Chatroom%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chat_Chatroom%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chat_Chatroom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Resources.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Resources%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Resources%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Scheduler_Resources%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Scheduler_Person_1.png" />
@@ -3773,54 +3004,6 @@
     <BundleResource Include="Resources\TreeView_Drive%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TreeView_LoadOnDemand.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_LoadOnDemand%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_LoadOnDemand%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\TreeView_LoadOnDemand%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_RemoteSearch.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_RemoteSearch%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_RemoteSearch%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_RemoteSearch%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_CRUD.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_CRUD%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_CRUD%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataGrid_CRUD%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Chart_Donut1_Header_Active.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3843,18 +3026,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Chart_Donut1_Header_Inactive%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Chart_Financial1_Header_Active.png" />
@@ -3929,66 +3100,6 @@
     <BundleResource Include="Resources\Chart_Financial3_Header_Inactive%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial_Indicators.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial_Indicators%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial_Indicators%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Financial_Indicators%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Globalization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Globalization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Globalization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DataForm_Globalization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Null.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Null%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Null%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Chart_Null%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_ContextMenu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_ContextMenu%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_ContextMenu%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_ContextMenu%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Modal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Modal%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Modal%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Modal%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\selected_item.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4007,42 +3118,6 @@
     <BundleResource Include="Resources\unselected_item%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DockPanel_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DockPanel_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DockPanel_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DockPanel_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_HeaderFooter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_HeaderFooter%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_HeaderFooter%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ListView_HeaderFooter%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ListView_Person.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4053,102 +3128,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ListView_Person%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Popup_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AutoCompleteView_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_HotelFloorPlan%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_HotelFloorPlan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_HotelFloorPlan%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Map_HotelFloorPlan%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfProcessing_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfProcessing_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfProcessing_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfProcessing_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_AllViews%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_AllViews.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_AllViews%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_AllViews%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\PdfProcessing_FirstLook_Screen.png" />
@@ -4175,18 +3154,6 @@
     <BundleResource Include="Resources\TelerikXamarin_Logo%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_Export.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_Export%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_Export%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_Export%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\WordsProcessing_Export_Example.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4211,66 +3178,6 @@
     <BundleResource Include="Resources\WordsProcessing_FirstLook%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FirstLook_Example.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FirstLook_Example%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FirstLook_Example%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FirstLook_Example%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FindReplace.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FindReplace%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FindReplace%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\WordsProcessing_FindReplace%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_CustomToolbar%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_CustomToolbar%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_CustomToolbar%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ImageEditor_CustomToolbar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_SpecialSlots.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_SpecialSlots%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_SpecialSlots%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_SpecialSlots%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\coffee.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4281,30 +3188,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\coffee%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_app_template.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_app_template%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_app_template%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Calendar_app_template%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_LargeFile.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_LargeFile%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_LargeFile%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PdfViewer_LargeFile%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Picker_Demo1_Header.png" />
@@ -4331,30 +3214,6 @@
     <BundleResource Include="Resources\SpreadProcessing_FirstLook_GenerateCue.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_Convert.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_Convert%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_Convert%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_Convert%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Picker_Demo2_Header.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4365,18 +3224,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Picker_Demo2_Header%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FindReplace.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FindReplace%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FindReplace%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\SpreadProcessing_FindReplace%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\SpreadProcessing_Convert_Cue.png" />
@@ -4403,30 +3250,6 @@
     <BundleResource Include="Resources\Picker_Demo4_Header%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Picker_Demo5_Header.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4439,18 +3262,6 @@
     <BundleResource Include="Resources\Picker_Demo5_Header%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Picker_Demo3_Header.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4461,30 +3272,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Picker_Demo3_Header%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\hanger.png" />
@@ -4535,42 +3322,6 @@
     <BundleResource Include="Resources\music%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\graphic%403x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4581,18 +3332,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\graphic%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_FirstLook%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\DatePicker_HeaderImage.png" />
@@ -4643,18 +3382,6 @@
     <BundleResource Include="Resources\Time_Off%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_FirstLook%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Carpet_Cleaning.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4701,18 +3428,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TimePicker_HeaderImage%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_FirstLook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_FirstLook%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_FirstLook%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_FirstLook%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TimeSpanPicker_HeaderImage.png" />
@@ -4787,18 +3502,6 @@
     <BundleResource Include="Resources\Ticket_4%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Customization%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\TimeSpan_HeaderImage_Customization.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4809,18 +3512,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\TimeSpan_HeaderImage_Customization%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Date.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Date%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Date%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Date%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\DateTimePicker_Date.png" />
@@ -4835,18 +3526,6 @@
     <BundleResource Include="Resources\DateTimePicker_Date%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Time.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Time%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Time%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTimePicker_Time%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\DateTimePicker_Time.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4857,78 +3536,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\DateTimePicker_Time%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimePicker_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DatePicker_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TimeSpan_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_ListPicker_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_TemplatedPicker_Configuration%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTime_Configuration.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTime_Configuration%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTime_Configuration%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Picker_DateTime_Configuration%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ToDo_App_Logo%401,5x.png" />
@@ -5061,7 +3668,10 @@
       <Version>2.1.41</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.TestCloud.Agent">
-      <Version>0.21.9</Version>
+      <Version>0.22.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -5077,40 +3687,28 @@
     <BundleResource Include="Resources\Config_Text%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_FirstLook%403x.png" />
+    <BundleResource Include="Resources\TelerikXamarin_Logo_DarkMode%401,5x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_FirstLook.png" />
+    <BundleResource Include="Resources\TelerikXamarin_Logo_DarkMode%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_FirstLook%401,5x.png" />
+    <BundleResource Include="Resources\TelerikXamarin_Logo_DarkMode%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_FirstLook%402x.png" />
+    <BundleResource Include="Resources\TelerikXamarin_Logo_DarkMode.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_Customization%403x.png" />
+    <BundleResource Include="Resources\Person_9.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_Customization.png" />
+    <BundleResource Include="Resources\Person_9%401,5x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_Customization%401,5x.png" />
+    <BundleResource Include="Resources\Person_9%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_Customization%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_ImportExport.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_ImportExport%401,5x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_ImportExport%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\RichTextEditor_ImportExport%403x.png" />
+    <BundleResource Include="Resources\Person_9%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

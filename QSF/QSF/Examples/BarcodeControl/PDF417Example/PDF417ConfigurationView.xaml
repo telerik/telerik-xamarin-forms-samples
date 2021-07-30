@@ -9,7 +9,7 @@
             <Style TargetType="Label" x:Key="LabelStyle" BasedOn="{StaticResource BodyLabelStyle}">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
-                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}" />
                 <Setter Property="Margin" Value="0, 10, 0, 0" />
             </Style>
         </ResourceDictionary>

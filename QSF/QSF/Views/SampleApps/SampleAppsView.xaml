@@ -6,7 +6,7 @@
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
-             xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:views="clr-namespace:QSF.Views"
              x:Class="QSF.Views.SampleAppsView">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -16,40 +16,10 @@
                 <On Platform="iOS" Value="12, 0" />
                 <On Platform="UWP" Value="10, 0" />
             </OnPlatform>
-            <OnPlatform x:Key="OpenInStoreText" x:TypeArguments="x:String">
-                <On Platform="Android" Value="Get it on Google Store" />
-                <On Platform="iOS" Value="Download on the App Store" />
-                <On Platform="UWP" Value="Download from Microsoft Store" />
-            </OnPlatform>
             <DataTemplate x:Key="SampleAppTemplate">
                 <telerikListView:ListViewTemplateCell>
                     <telerikListView:ListViewTemplateCell.View>
-                        <Grid BackgroundColor="{StaticResource Key=LightBackgroundColor}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <ffImageLoading:CachedImage Source="{Binding Icon, Converter={StaticResource ImageSourceConverter}}" 
-                                                        WidthRequest="130"
-                                                        HeightRequest="130"
-                                                        VerticalOptions="Start"
-                                                        Margin="15" />
-                            <StackLayout Grid.Column="1"
-                                         Margin="0, 15, 5, 15">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Title}"
-                                           Style="{StaticResource SampleAppTitleStyle}" />
-                                    <Label FontFamily="{StaticResource IconsFont}" 
-                                           Text="{StaticResource ExternalLinkIcon}"
-                                           TextColor="{StaticResource ExternalLinkIconColor}" />
-                                </StackLayout>
-                                <Label Text="{Binding Description}"
-                                        Style="{StaticResource BodyLabelStyle}" />
-                                <Label Text="{StaticResource OpenInStoreText}"
-                                        TextColor="{StaticResource HyperlinkTextColor}"
-                                        Style="{StaticResource BodyLabelStyle}" />
-                            </StackLayout>
-                        </Grid>
+                        <views:SampleAppsItemView/>
                     </telerikListView:ListViewTemplateCell.View>
                 </telerikListView:ListViewTemplateCell>
             </DataTemplate>
@@ -57,7 +27,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -74,7 +44,7 @@
         <Label Text="{Binding DescriptionHeader}"
                Grid.Row="1"
                Style="{StaticResource HeaderLabelStyle}"
-               Margin="{StaticResource HeaderLabelMargin}" />        
+               Margin="{StaticResource HeaderLabelMargin}" />
         <telerikDataControls:RadListView x:Name="sampleAppsListView"
                                          ItemTemplate="{StaticResource SampleAppTemplate}"
                                          ItemsSource="{Binding SampleApps}"

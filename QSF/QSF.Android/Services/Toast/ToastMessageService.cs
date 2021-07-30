@@ -12,23 +12,26 @@ namespace QSF.Droid.Services.Toast
 {
     public class ToastMessageService : IToastMessageService
     {
-        private const string DefaultBackgroundColor = "#1d1d1e";
+        private const string DefaultBackgroundColorLight = "#1d1d1e";
+        private const string DefaultBackgroundColorDark = "#373737";
 
         public void LongAlert(string message)
         {
             var toast = Android.Widget.Toast.MakeText(Android.App.Application.Context, message, ToastLength.Long);
 
+            var backgroundColor = Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark
+                ? DefaultBackgroundColorDark
+                : DefaultBackgroundColorLight;
             if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Q)
             {
-                toast.View.Background.SetColorFilter(new BlendModeColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), BlendMode.SrcIn));
+                toast.View.Background.SetColorFilter(new BlendModeColorFilter(Color.FromHex(backgroundColor).ToAndroid(), BlendMode.SrcIn));
             }
             else
             {
 #pragma warning disable CS0618 // Type or member is obsolete
-                toast.View.Background.SetColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
+                toast.View.Background.SetColorFilter(Color.FromHex(backgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
 #pragma warning restore CS0618 // Type or member is obsolete
             }
-
 
             var textView = toast.View.FindViewById<TextView>(Android.Resource.Id.Message);
             textView.SetTextColor(Color.White.ToAndroid());
@@ -45,14 +48,17 @@ namespace QSF.Droid.Services.Toast
         {
             var toast = Android.Widget.Toast.MakeText(Android.App.Application.Context, message, ToastLength.Short);
 
+            var backgroundColor = Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark
+              ? DefaultBackgroundColorDark
+              : DefaultBackgroundColorLight;
             if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Q)
             {
-                toast.View.Background.SetColorFilter(new BlendModeColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), BlendMode.SrcIn));
+                toast.View.Background.SetColorFilter(new BlendModeColorFilter(Color.FromHex(backgroundColor).ToAndroid(), BlendMode.SrcIn));
             }
             else
             {
 #pragma warning disable CS0618 // Type or member is obsolete
-                toast.View.Background.SetColorFilter(Color.FromHex(DefaultBackgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
+                toast.View.Background.SetColorFilter(Color.FromHex(backgroundColor).ToAndroid(), Android.Graphics.PorterDuff.Mode.SrcIn);
 #pragma warning restore CS0618 // Type or member is obsolete
             }
 

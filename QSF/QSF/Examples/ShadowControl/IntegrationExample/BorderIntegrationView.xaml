@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    x:Class="QSF.Examples.ShadowControl.IntegrationExample.BorderIntegrationView"
+    BackgroundColor="{AppThemeBinding Light=Default, Dark=#121212}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="telerikPrimitives:RadShadow">
+                <Setter Property="ShadowOpacity" Value="0.15"/>
+                <Setter Property="OffsetY">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="3" />
+                            <On Platform="Android" Value="5" />
+                            <On Platform="UWP" Value="2" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="BlurRadius">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="2" />
+                            <On Platform="Android" Value="6" />
+                            <On Platform="UWP" Value="6" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <telerikPrimitives:RadShadow HorizontalOptions="Center"
+                                         WidthRequest="104"
+                                         HeightRequest="104"
+                                         Margin="0, 40"
+                                         CornerRadius="50">
+                <telerikPrimitives:RadBorder CornerRadius="52"
+                                             BorderColor="{AppThemeBinding Light=#DFDFDF, Dark=#1E1E1E}"
+                                             BorderThickness="8">
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS">Border_User</On>
+                                <On Platform="Android">Border_User.png</On>
+                                <On Platform="UWP">Assets/Border_User.png</On>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </telerikPrimitives:RadBorder>
+            </telerikPrimitives:RadShadow>
+            <Grid Grid.Row="1" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Text="Melanie Powers, MBA"
+                       FontSize="16"
+                       Margin="0, 0, 0, 5"
+                       TextColor="{AppThemeBinding Light=#FFAC3E, Dark=#FFA726}"/>
+                <telerikPrimitives:RadShadow Grid.Row="1"
+                                             HorizontalOptions="Start"
+                                             Margin="0, 0, 6, 0"
+                                             WidthRequest="40"
+                                             HeightRequest="40"
+                                             CornerRadius="19"
+                                             VerticalOptions="Start">
+                    <telerikPrimitives:RadBorder CornerRadius="20"
+                                                 BorderColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                                                 BorderThickness="3">
+                        <Image WidthRequest="40"
+                               HeightRequest="40">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource">
+                                    <On Platform="iOS">Border_Person_1</On>
+                                    <On Platform="Android">Border_Person_1.png</On>
+                                    <On Platform="UWP">Assets/Border_Person_1.png</On>
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                    </telerikPrimitives:RadBorder>
+                </telerikPrimitives:RadShadow>
+                <telerikPrimitives:RadShadow Grid.Row="1"
+                                             Margin="45, 0, 16, 0"
+                                             CornerRadius="16"
+                                             OffsetY="2.5"
+                                             HorizontalOptions="Start">
+                    <telerikPrimitives:RadShadow.BlurRadius>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS" Value="1" />
+                                <On Platform="Android" Value="4" />
+                                <On Platform="UWP" Value="2.5" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikPrimitives:RadShadow.BlurRadius>
+                    <telerikPrimitives:RadBorder CornerRadius="16"
+                                                 BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}">
+                        <Label Text="Dayana is a great and reliable developer! She is very responsive to her tasks, delivers in scope, and provides timely execution. She is professional…"
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                               FontSize="14"
+                               LineHeight="1.5"
+                               HorizontalOptions="End"
+                               Margin="10"
+                               LineBreakMode="WordWrap"/>
+                    </telerikPrimitives:RadBorder>
+                </telerikPrimitives:RadShadow>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentView>

@@ -5,9 +5,11 @@
              xmlns:telerikControls="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
              x:Class="QSF.Examples.RatingControl.ThemingExample.ThemingView"
-             BackgroundColor="White">
-    <ContentPage.Resources>
+             BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
+    <ContentView.Resources>
         <ResourceDictionary>
+            <Color x:Key="DefaultTextColorLight">#97979C</Color>
+            <Color x:Key="DefaultTextColorDark">#99FFFFFF</Color>
             <OnPlatform x:Key="rowHeightRequest"
                         x:TypeArguments="x:Double">
                 <On Platform="iOS,Android">20</On>
@@ -24,7 +26,7 @@
                 <On Platform="Android">Center</On>
             </OnPlatform>
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </ContentView.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -37,25 +39,25 @@
                    HorizontalOptions="End"
                    Text="Tap a Star to Rate"
                    VerticalOptions="Center"
-                   TextColor="#97979C"
+                   TextColor="{AppThemeBinding Light={StaticResource DefaultTextColorLight}, Dark={StaticResource DefaultTextColorDark}}"
                    HeightRequest="{StaticResource rowHeightRequest}"/>
             <Label FontSize="{StaticResource fontSize}"
                    HorizontalOptions="End"
                    Text="Tap a Circle to Rate"
                    VerticalOptions="Center"
                    HeightRequest="{StaticResource rowHeightRequest}"
-                   TextColor="#97979C" />
+                   TextColor="{AppThemeBinding Light={StaticResource DefaultTextColorLight}, Dark={StaticResource DefaultTextColorDark}}" />
             <Label FontSize="{StaticResource fontSize}"
                    HorizontalOptions="End"
                    Text="Tap a Diamond to Rate"
                    VerticalOptions="Center"
-                   TextColor="#97979C"
+                   TextColor="{AppThemeBinding Light={StaticResource DefaultTextColorLight}, Dark={StaticResource DefaultTextColorDark}}"
                    HeightRequest="{StaticResource rowHeightRequest}"/>
             <Label FontSize="{StaticResource fontSize}"
                    HorizontalOptions="End"
                    Text="Tap a Heart to Rate"
                    VerticalOptions="Center"
-                   TextColor="#97979C"
+                   TextColor="{AppThemeBinding Light={StaticResource DefaultTextColorLight}, Dark={StaticResource DefaultTextColorDark}}"
                    HeightRequest="{StaticResource rowHeightRequest}"/>
         </StackLayout>
         <StackLayout Spacing="10"

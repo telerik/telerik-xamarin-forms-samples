@@ -1,6 +1,6 @@
-﻿using QSF.iOS.Effects;
-using System;
+﻿using System;
 using System.ComponentModel;
+using QSF.iOS.Effects;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -30,15 +30,21 @@ namespace QSF.iOS.Effects
             view.TintColor = Color.Transparent.ToUIColor();
             view.SetBackgroundImage(new UIImage(), UIBarPosition.Any, UIBarMetrics.Default);
 
-            foreach (var subview in view.Subviews)
+            var textField = GetSubViewOfType<UITextField>(view);
+            if (textField != null)
             {
-                foreach (var subview1 in subview.Subviews)
+                if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
                 {
-                    var textField = subview1 as UITextField;
-                    if (textField != null)
+                    textField.BackgroundColor = UIColor.FromDynamicProvider((traitCollection) =>
                     {
-                        textField.BackgroundColor = ((Color)App.Current.Resources["DarkBackgroundColor"]).ToUIColor();
-                    }
+                        return traitCollection.UserInterfaceStyle == UIUserInterfaceStyle.Dark
+                        ? ((Color)App.Current.Resources["LightBackgroundColorDark"]).ToUIColor()
+                        : ((Color)App.Current.Resources["DarkBackgroundColorLight"]).ToUIColor();
+                    });
+                }
+                else
+                {
+                    textField.BackgroundColor = ((Color)App.Current.Resources["DarkBackgroundColorLight"]).ToUIColor();
                 }
             }
         }
@@ -62,6 +68,29 @@ namespace QSF.iOS.Effects
             {
                 Console.WriteLine("Cannot set property on attached control. Error: ", ex.Message);
             }
+        }
+
+        private static T GetSubViewOfType<T>(UIView view) where T : class
+        {
+            if (view != null)
+            {
+                foreach (var subView in view.Subviews)
+                {
+                    var child = subView as T;
+                    if (child != null)
+                    {
+                        return child;
+                    }
+
+                    child = GetSubViewOfType<T>(subView);
+                    if (child != null)
+                    {
+                        return child;
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

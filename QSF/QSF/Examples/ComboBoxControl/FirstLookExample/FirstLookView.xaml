@@ -9,7 +9,7 @@
         <ResourceDictionary>
             <Style x:Key="ComboBoxTitleStyle" TargetType="Label">
                 <Setter Property="Padding" Value="20, 24, 0, 8"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <ScrollView>
             <StackLayout>
-                <telerikPrimitives:RadBorder BackgroundColor="#F8F8F8">
+                <telerikPrimitives:RadBorder BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
                     <StackLayout HorizontalOptions="Center"
                                  VerticalOptions="Center"
                                  Margin="0, 16">
@@ -78,7 +78,7 @@
             </StackLayout>
         </ScrollView>
         <telerikPrimitives:RadBorder Grid.Row="1"
-                                     BackgroundColor="#F8F8F8">
+                                     BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
             <telerikInput:RadButton Command="{Binding SearchJobButtonCommand}"
                                     Text="Find Jobs"
                                     HorizontalOptions="Center"

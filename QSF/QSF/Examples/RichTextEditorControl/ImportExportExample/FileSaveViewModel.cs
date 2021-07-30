@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using QSF.Services;
 using QSF.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace QSF.Examples.RichTextEditorControl.ImportExportExample
@@ -170,6 +171,7 @@ namespace QSF.Examples.RichTextEditorControl.ImportExportExample
 
             if (await this.SaveDocumentAsync(filePath))
             {
+                await Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(filePath) });
                 await this.NavigateBackAsync();
             }
         }

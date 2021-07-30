@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:telerikNumericInput="clr-namespace:Telerik.XamarinForms.Input.NumericInput;assembly=Telerik.XamarinForms.Input"
+    x:Class="QSF.Examples.ShadowControl.IntegrationExample.InputsIntegrationView"
+    BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="WatermarkTextColor">#8A000000</Color>
+            <Color x:Key="WatermarkTextColorDark">#99FFFFFF</Color>
+            <GridLength x:Key="ButtonWidth">44</GridLength>
+            <Style x:Key="ControlHeaderLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Margin" Value="0, 12, 0, 10"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=Default}"/>
+            </Style>
+            <Style x:Key="PlaceholderLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource WatermarkTextColor}, Dark={StaticResource WatermarkTextColorDark}}" />
+            </Style>
+            <Style x:Key="SelectionHighlightStyle" 
+                   TargetType="primitives:RadBorder">
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=LightGray, Dark=#373737}" />
+                <Setter Property="CornerRadius" Value="2" />
+            </Style>
+            <Style x:Key="HeaderLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black}" />
+                <Setter Property="FontSize" Value="21" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="HeaderStyle"
+                   TargetType="input:PickerPopupHeaderView">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=#373737}" />
+                <Setter Property="HeightRequest" Value="64" />
+            </Style>
+            <Style TargetType="primitives:RadShadow">
+                <Setter Property="BlurRadius">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <OnPlatform.Platforms>
+                            <On Platform="iOS" Value="2" />
+                            <On Platform="Android" Value="6" />
+                            <On Platform="UWP" Value="6" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="ShadowOpacity" Value="0.1"/>
+                <Setter Property="OffsetY" Value="3"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <StackLayout Padding="16">
+            <Label Text="Entry:"
+                   Style="{StaticResource ControlHeaderLabelStyle}"/>
+            <primitives:RadShadow HeightRequest="44">
+                <input:RadEntry WatermarkText="Enter value"
+                                BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
+                                WatermarkTextColor="{AppThemeBinding Light={StaticResource WatermarkTextColor}, Dark={StaticResource WatermarkTextColorDark}}"/>
+            </primitives:RadShadow>
+            <Label Text="Masked Input:"
+                   Style="{StaticResource ControlHeaderLabelStyle}"/>
+            <primitives:RadShadow HeightRequest="44">
+                <primitives:RadShadow.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double" >
+                        <OnPlatform.Platforms>
+                            <On Platform="Android" Value="44" />
+                            <On Platform="iOS" Value="33" />
+                        </OnPlatform.Platforms>
+                    </OnPlatform>
+                </primitives:RadShadow.HeightRequest>
+                <input:RadMaskedInput WatermarkText="Phone Number"
+                                      WatermarkTextColor="{AppThemeBinding Light={StaticResource WatermarkTextColor}, Dark={StaticResource WatermarkTextColorDark}}"
+                                      BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
+                                      Keyboard="Numeric"
+                                      Mask="(000) 00000 - 00000"/>
+            </primitives:RadShadow>
+            <Label Text="Numeric Input:"
+                   Style="{StaticResource ControlHeaderLabelStyle}"/>
+            <input:RadNumericInput>
+                <input:RadNumericInput.ControlTemplate>
+                    <ControlTemplate>
+                        <Grid ColumnSpacing="8"
+                              HeightRequest="44">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                                <ColumnDefinition Width="{StaticResource ButtonWidth}"/>
+                            </Grid.ColumnDefinitions>
+                            <primitives:RadShadow>
+                                <telerikNumericInput:NumericInputEntry AutomationId="NumericEntry"
+                                                                       x:Name="PART_Entry"
+                                                                       BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
+                                                                       Text="{TemplateBinding Value, Mode=OneWay}"
+                                                                       InputTransparent="{TemplateBinding IsReadOnly}"/>
+                            </primitives:RadShadow>
+                            <primitives:RadShadow Grid.Column="1"
+                                                  CornerRadius="2"
+                                                  ShadowOpacity="0.15">
+                                <primitives:RadShadow.OffsetY>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.Platforms>
+                                            <On Platform="iOS" Value="3" />
+                                            <On Platform="Android" Value="5" />
+                                            <On Platform="UWP" Value="2.5" />
+                                        </OnPlatform.Platforms>
+                                    </OnPlatform>
+                                </primitives:RadShadow.OffsetY>
+                                <telerikNumericInput:NumericInputButton AutomationId="NumericDecreaseButton"
+                                                                        CornerRadius="2"
+                                                                        FontSize="24"
+                                                                        BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#5A595D}"
+                                                                        Command="{TemplateBinding DecreaseCommand}"
+                                                                        TextColor="{AppThemeBinding Light=Default, Dark=White}"
+                                                                        Text="-" />
+                            </primitives:RadShadow>
+                            <primitives:RadShadow Grid.Column="2"
+                                                  CornerRadius="2"
+                                                  ShadowOpacity="0.15">
+                                <primitives:RadShadow.OffsetY>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.Platforms>
+                                            <On Platform="iOS" Value="3" />
+                                            <On Platform="Android" Value="5" />
+                                            <On Platform="UWP" Value="2.5" />
+                                        </OnPlatform.Platforms>
+                                    </OnPlatform>
+                                </primitives:RadShadow.OffsetY>
+                                <telerikNumericInput:NumericInputButton AutomationId="NumericIncreaseButton"
+                                                                        CornerRadius="2"
+                                                                        FontSize="24"
+                                                                        BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#5A595D}"
+                                                                        Command="{TemplateBinding IncreaseCommand}"
+                                                                        TextColor="{AppThemeBinding Light=Default, Dark=White}"
+                                                                        Text="+"/>
+                            </primitives:RadShadow>
+                        </Grid>
+                    </ControlTemplate>
+                </input:RadNumericInput.ControlTemplate>
+            </input:RadNumericInput>
+            <Label Text="Combo Box:"
+                   Style="{StaticResource ControlHeaderLabelStyle}"/>
+            <primitives:RadShadow HeightRequest="44">
+                <input:RadComboBox Placeholder="Choose Value"
+                                   PlaceholderColor="{AppThemeBinding Light={StaticResource WatermarkTextColor}, Dark={StaticResource WatermarkTextColorDark}}"
+                                   BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
+                    <input:RadComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Fig</x:String>
+                            <x:String>Cherry</x:String>
+                            <x:String>Blackberry</x:String>
+                            <x:String>Banana</x:String>
+                            <x:String>Apple</x:String>
+                        </x:Array>
+                    </input:RadComboBox.ItemsSource>
+                </input:RadComboBox>
+            </primitives:RadShadow>
+            <Label Text="List Picker:"
+                   Style="{StaticResource ControlHeaderLabelStyle}"/>
+            <primitives:RadShadow HeightRequest="44">
+                <input:RadListPicker x:Name="genrePicker"
+                                     BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}"
+                                     Placeholder="Select Item"
+                                     SelectionHighlightStyle="{StaticResource SelectionHighlightStyle}"
+                                     PlaceholderLabelStyle="{StaticResource PlaceholderLabelStyle}">
+                    <input:RadListPicker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Punk rock</x:String>
+                            <x:String>Pop Rock</x:String>
+                            <x:String>Alternative Rock</x:String>
+                            <x:String>Progressive House</x:String>
+                            <x:String>Jazz</x:String>
+                        </x:Array>
+                    </input:RadListPicker.ItemsSource>
+                    <input:RadListPicker.SelectorSettings>
+                        <input:PickerPopupSelectorSettings HeaderLabelText="Genre"
+                                                           HeaderStyle="{StaticResource HeaderStyle}"
+                                                           HeaderLabelStyle="{StaticResource HeaderLabelStyle}"/>
+                    </input:RadListPicker.SelectorSettings>
+                </input:RadListPicker>
+            </primitives:RadShadow>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentView>

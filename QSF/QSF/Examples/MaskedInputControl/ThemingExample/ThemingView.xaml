@@ -5,24 +5,34 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikMaskedInput="clr-namespace:Telerik.XamarinForms.Input.MaskedInput;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.MaskedInputControl.ThemingExample.ThemingView">
-    <Grid BackgroundColor="White">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainBackgroundColorLight">White</Color>
+            <Color x:Key="MainBackgroundColorDark">Black</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}">
         <StackLayout Margin="16, 16, 16, 0">
             <Label Text="Phone Number" FontSize="Medium"/>
             <telerikInput:RadMaskedInput WatermarkText="(657) 12345 - 12345"
                                          Mask="(000) 00000 - 00000"
+                                         Keyboard="Numeric"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
             <Label Text="E-mail" FontSize="Medium" />
             <telerikInput:RadMaskedInput WatermarkText="john@doe.com"
                                          MaskType="Regex"
+                                         Keyboard="Email"
                                          Mask="{x:Static telerikMaskedInput:MaskExtensions.Email}"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
             <Label Text="Zip Code" FontSize="Medium"/>
             <telerikInput:RadMaskedInput WatermarkText="34252 - 222"
                                          Mask="00000 - 000"
+                                         Keyboard="Numeric"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
             <Label Text="Social Security Number" FontSize="Medium"/>
             <telerikInput:RadMaskedInput WatermarkText="1234 - 12 - 1234"
                                          Mask="0000 - 00 - 0000"
+                                         Keyboard="Numeric"
                                          views:ThemesBehavior.StyleClass="TelerikTheme"/>
         </StackLayout>
     </Grid>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.BadgeViewControl.CustomizationExample.CustomizationView"
+             BackgroundColor="{AppThemeBinding Light=White,Dark=Black}">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DefaultBorderStyle" TargetType="telerikPrimitives:RadBorder">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=#373737}" />
+                <Setter Property="HeightRequest" Value="34" />
+                <Setter Property="CornerRadius" Value="0, 17, 17, 17" />
+                <Setter Property="Padding" Value="10, 0, 0, 0" />
+            </Style>
+            <Style x:Key="DefaultBadgeStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="BadgeVerticalPosition" Value="End" />
+                <Setter Property="BadgeHorizontalAlignment" Value="End" />
+                <Setter Property="BadgeOffsetX" Value="-10" />
+                <Setter Property="BadgeBackgroundColor" Value="#42A5F5" />
+                <Setter Property="BadgeFontFamily" Value="{StaticResource IconsFont}" />
+                <Setter Property="Padding" Value="16, 0" />
+                <Setter Property="MinimumHeightRequest" Value="24" />
+            </Style>
+            <Style x:Key="DefaultLabelStyle" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="Padding" Value="0, 0, 50, 0" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <StackLayout Spacing="32">
+        <telerikPrimitives:RadBadgeView Margin="0, 63, 0, 0"
+                                        BadgeText="!"
+                                        BadgeBackgroundColor="#F85446"
+                                        Style="{StaticResource DefaultBadgeStyle}">
+            <telerikPrimitives:RadBadgeView.Content>
+                <telerikPrimitives:RadBorder Style="{StaticResource DefaultBorderStyle}">
+                    <Label Text="My opinion is…." 
+                           Style="{StaticResource DefaultLabelStyle}" />
+                </telerikPrimitives:RadBorder>
+            </telerikPrimitives:RadBadgeView.Content>
+        </telerikPrimitives:RadBadgeView>
+        <telerikPrimitives:RadBadgeView BadgeText="&#xE87E; 39"
+                                        Style="{StaticResource DefaultBadgeStyle}">
+            <telerikPrimitives:RadBadgeView.Content>
+                <telerikPrimitives:RadBorder Style="{StaticResource DefaultBorderStyle}">
+                    <Label Text="Our success as a business rests on the back of the foundation" 
+                           Style="{StaticResource DefaultLabelStyle}" />
+                </telerikPrimitives:RadBorder>
+            </telerikPrimitives:RadBadgeView.Content>
+        </telerikPrimitives:RadBadgeView>
+        <telerikPrimitives:RadBadgeView BadgeText="&#xE87F; 24"
+                                        BadgeMinimumWidth="50"
+                                        BadgeMinimumHeight="22"
+                                        BadgeCornerRadius="11"
+                                        Style="{StaticResource DefaultBadgeStyle}">
+            <telerikPrimitives:RadBadgeView.Content>
+                <telerikPrimitives:RadBorder Style="{StaticResource DefaultBorderStyle}">
+                    <Label Text="Our success as a business rests on the back of the foundation" 
+                           Style="{StaticResource DefaultLabelStyle}" />
+                </telerikPrimitives:RadBorder>
+            </telerikPrimitives:RadBadgeView.Content>
+        </telerikPrimitives:RadBadgeView>
+        <telerikPrimitives:RadBorder BorderThickness="0, 2"
+                                     BorderColor="{AppThemeBinding Light=#DFDFDF, Dark=#373737}"
+                                     HeightRequest="63"
+                                     Margin="0, 40, 0, 0"
+                                     Padding="16, 7">
+            <StackLayout Orientation="Horizontal">
+                <telerikPrimitives:RadBadgeView WidthRequest="55"
+                                                HeightRequest="55"
+                                                BadgeType="Away"
+                                                BadgeBorderThickness="2"
+                                                BadgeBorderColor="{AppThemeBinding Light=White, Dark=Black}"
+                                                BadgeVerticalPosition="End"
+                                                BadgeHorizontalAlignment="End"
+                                                BadgeVerticalAlignment="End">
+                    <telerikPrimitives:RadBadgeView.Content>
+                        <Image>
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="FileImageSource">
+                                    <On Platform="Android, iOS" Value="DataGrid_SalesPerson_4.png" />
+                                    <On Platform="UWP" Value="Assets\DataGrid_SalesPerson_4.png" />
+                                </OnPlatform>
+                            </Image.Source>
+                        </Image>
+                    </telerikPrimitives:RadBadgeView.Content>
+                </telerikPrimitives:RadBadgeView>
+                <StackLayout Margin="12, 0, 0, 0"
+                             VerticalOptions="Center">
+                    <Label Text="Bree Conner"
+                           FontSize="Small"
+                           FontAttributes="Bold" />
+                    <Label Text="ok" 
+                           FontSize="Micro"
+                           TextColor="{AppThemeBinding Light=#99000000, Dark=#99FFFFFF}" />
+                </StackLayout>
+                <telerikPrimitives:Badge Text="999+"
+                                         BackgroundColor="#56AF51"
+                                         WidthRequest="40"
+                                         HeightRequest="24"
+                                         HorizontalOptions="EndAndExpand"
+                                         VerticalOptions="Center"
+                                         CornerRadius="2">
+                    <telerikPrimitives:Badge.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double" Default="12">
+                            <On Platform="UWP, iOS" Value="11" />
+                        </OnPlatform>
+                    </telerikPrimitives:Badge.FontSize>
+                </telerikPrimitives:Badge>
+            </StackLayout>
+        </telerikPrimitives:RadBorder>
+        <telerikPrimitives:RadBadgeView BadgeText="New!"
+                                        BadgeFontSize="11"
+                                        BadgeTextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                        BadgeBackgroundColor="#FFAC3E"
+                                        HorizontalOptions="Center"
+                                        BadgeHorizontalAlignment="End"
+                                        Margin="0, 40, 0, 0">
+            <telerikPrimitives:RadBadgeView.Content>
+                <telerikInput:RadButton Text="Fruits"
+                                        CornerRadius="20"
+                                        HeightRequest="40"
+                                        WidthRequest="87"
+                                        TextColor="White">
+                    <telerikInput:RadButton.BackgroundImage>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <OnPlatform.Platforms>
+                                <On Platform="iOS, Android" Value="Button_Recipes_Fruits.png" />
+                                <On Platform="UWP" Value="Assets\Button_Recipes_Fruits.png" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </telerikInput:RadButton.BackgroundImage>
+                </telerikInput:RadButton>
+            </telerikPrimitives:RadBadgeView.Content>
+        </telerikPrimitives:RadBadgeView>
+    </StackLayout>
+</ContentView>

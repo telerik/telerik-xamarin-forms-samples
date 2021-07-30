@@ -79,6 +79,7 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
         {
             var date = DateTime.Today;
             string appointmentDetail = "Details for the event come here - for example place, participants and add.information ...";
+            var isLightMode = Application.Current.UserAppTheme != OSAppTheme.Dark;
 
             this.Appointments.Add(new IconAppointment
             {
@@ -87,8 +88,8 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddHours(12),
                 EndDate = date.AddHours(12).AddMinutes(59),
                 Color = Color.FromHex("#C1D8FF"),
-                TitleTextColor = Color.Black,
-                DetailTextColor = Color.FromHex("#5B5D5F"),
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
+                DetailTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.Default : Color.FromHex("#5B5D5F"),
                 IconSource = char.ConvertFromUtf32(0xe86f)
             });
 
@@ -99,8 +100,8 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddHours(13),
                 EndDate = date.AddHours(13).AddMinutes(59),
                 Color = Color.FromHex("#FFF1F9"),
-                TitleTextColor = Color.Black,
-                DetailTextColor = Color.FromHex("#5B5D5F")
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
+                DetailTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.Default : Color.FromHex("#5B5D5F"),
             });
 
             this.Appointments.Add(new IconAppointment
@@ -110,8 +111,12 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddHours(14),
                 EndDate = date.AddHours(14).AddMinutes(59),
                 Color = Color.FromHex("#3268C3"),
-                TitleTextColor = Device.RuntimePlatform == Device.iOS ? Color.Black : Color.White,
-                DetailTextColor = Device.RuntimePlatform == Device.iOS ? Color.Black : Color.White,
+                TitleTextColor = Device.RuntimePlatform == Device.iOS ?
+                isLightMode ? Color.Black : Color.White
+                : Color.White,
+                DetailTextColor = Device.RuntimePlatform == Device.iOS ?
+                isLightMode ? Color.Black : Color.White
+                : Color.White,
                 IconSource = char.ConvertFromUtf32(0xe870)
             });
 
@@ -122,7 +127,7 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddHours(15),
                 EndDate = date.AddHours(15).AddMinutes(59),
                 Color = Color.FromHex("#EDFDE3"),
-                TitleTextColor = Color.Black,
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
                 IsRightAlign = false,
                 Source = ConvertImagePathForPlatform("DataGrid_SalesPerson_1.png")
             });
@@ -134,7 +139,7 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddHours(16),
                 EndDate = date.AddHours(16).AddMinutes(59),
                 Color = Color.FromHex("#FDE2AC"),
-                TitleTextColor = Color.Black,
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
                 Source = ConvertImagePathForPlatform("coffee.png"),
                 IsRightAlign = true
             });
@@ -145,7 +150,9 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddHours(17),
                 EndDate = date.AddHours(17).AddMinutes(30),
                 Color = Color.FromHex("#154391"),
-                TitleTextColor = Device.RuntimePlatform == Device.iOS ? Color.Black : Color.White
+                TitleTextColor = Device.RuntimePlatform == Device.iOS
+                ? isLightMode ? Color.Black : Color.White
+                : Color.White
             });
 
             this.Appointments.Add(new IconAppointment
@@ -155,8 +162,8 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddDays(1).AddHours(14),
                 EndDate = date.AddDays(1).AddHours(14).AddMinutes(59),
                 Color = Color.FromHex("#D9DFFF"),
-                TitleTextColor = Color.Black,
-                DetailTextColor = Color.FromHex("#5B5D5F"),
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
+                DetailTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.Default : Color.FromHex("#5B5D5F"),
                 IconSource = char.ConvertFromUtf32(0xe871)
             });
 
@@ -167,8 +174,8 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddDays(1).AddHours(15),
                 EndDate = date.AddDays(1).AddHours(15).AddMinutes(59),
                 Color = Color.FromHex("#C1D8FF"),
-                TitleTextColor = Color.Black,
-                DetailTextColor = Color.FromHex("#5B5D5F")
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
+                DetailTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.Default : Color.FromHex("#1E1E1E"),
             });
 
             this.Appointments.Add(new TextColorAppointment
@@ -177,7 +184,7 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddDays(2).AddHours(13),
                 EndDate = date.AddDays(2).AddHours(13).AddMinutes(59),
                 Color = Color.FromHex("#EDFDE3"),
-                TitleTextColor = Color.Black
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
             });
 
             this.Appointments.Add(new TextColorAppointment
@@ -186,7 +193,7 @@ namespace QSF.Examples.CalendarControl.AppointmentTemplateExample
                 StartDate = date.AddDays(2).AddHours(16),
                 EndDate = date.AddDays(2).AddHours(16).AddMinutes(59),
                 Color = Color.FromHex("#FFF1F9"),
-                TitleTextColor = Color.Black
+                TitleTextColor = !isLightMode && Device.RuntimePlatform == Device.iOS ? Color.White : Color.Black,
             });
         }
     }

@@ -24,7 +24,7 @@
                 </primitives:RadBorder>
 
                 <Label Text="Format:"
-                       TextColor="#000000"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                        FontAttributes="Bold" 
                        HorizontalOptions="Center"
                        FontSize="Medium"
@@ -82,7 +82,7 @@
                                                 CheckedColor="#A1BF3D"
                                                 />
                         <Label Text="Include Header" 
-                               TextColor="#000000"
+                               TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                                FontSize="Small" 
                                VerticalTextAlignment="Center"
                                />
@@ -94,7 +94,7 @@
                                                 CheckedColor="#A1BF3D"
                                                 />
                         <Label Text="Include Footer" 
-                               TextColor="#000000"
+                               TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                                FontSize="Small"
                                VerticalTextAlignment="Center"
                                />

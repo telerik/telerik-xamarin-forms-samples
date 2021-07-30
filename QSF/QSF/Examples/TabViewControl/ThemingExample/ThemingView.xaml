@@ -19,7 +19,7 @@
             </DataTemplate>
         </ResourceDictionary>
     </ContentView.Resources>
-    <Grid BackgroundColor="#FFF8F8F8">
+    <Grid BackgroundColor="{AppThemeBinding Dark=Default, Light=#FFF8F8F8}">
         <telerikPrimitives:RadTabView views:ThemesBehavior.StyleClass="TelerikTheme">
             <telerikPrimitives:RadTabView.Items>
                 <telerikPrimitives:TabViewItem HeaderText="FRANCE" >

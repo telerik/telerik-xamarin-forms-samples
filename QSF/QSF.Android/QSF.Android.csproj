@@ -182,7 +182,6 @@
     <Compile Include="Effects\EditorRemoveBorderEffect.cs" />
     <Compile Include="Effects\SearchBarIconColorEffect.cs" />
     <Compile Include="Effects\ListViewSizeToContentEffect.cs" />
-    <Compile Include="Effects\NoAllCapsButtonEffect.cs" />
     <Compile Include="Effects\PickerEffect.cs" />
     <Compile Include="Effects\SideDrawerTouchTargetEffect.cs" />
     <Compile Include="Effects\SliderColorEffect.cs" />
@@ -220,18 +219,6 @@
     <AndroidResource Include="Resources\layout\Custom_Group_Layout.axml" />
     <AndroidResource Include="Resources\layout\Editor_Main_Layout_1.axml" />
     <AndroidResource Include="Resources\layout\Editor_Main_Layout_2.axml" />
-    <AndroidResource Include="Resources\drawable\Entry_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Entry_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Entry_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Entry_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\Entry_Envelope.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Entry_Envelope.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Entry_Envelope.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Entry_Envelope.png" />
-    <AndroidResource Include="Resources\drawable\NumericInput_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\NumericInput_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\NumericInput_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\NumericInput_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_SalesPerson_1.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_SalesPerson_2.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_SalesPerson_3.png" />
@@ -284,26 +271,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Border_Person_3.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Border_Person_4.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Border_User.png" />
-    <AndroidResource Include="Resources\drawable\Border_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Border_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Border_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Border_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\CheckBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\CheckBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\CheckBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\CheckBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\Scheduler_Appointments.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Scheduler_Appointments.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Scheduler_Appointments.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Scheduler_Appointments.png" />
-    <AndroidResource Include="Resources\drawable\Calendar_AgendaView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_AgendaView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_AgendaView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_AgendaView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Calendar_AgendaView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_AgendaView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_AgendaView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_AgendaView_Customization.png" />
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </None>
@@ -314,155 +281,31 @@
     </ProjectReference>
     <AndroidResource Include="Resources\drawable\tyre.png" />
     <AndroidResource Include="Resources\drawable\Button_Recipes_Bread.png" />
-    <AndroidResource Include="Resources\drawable\BusyIndicator_Custom_Indicator.png" />
-    <AndroidResource Include="Resources\drawable\BusyIndicator_Gallery.png" />
-    <AndroidResource Include="Resources\drawable\BusyIndicator_Theming.png" />
-    <AndroidResource Include="Resources\drawable\Calendar_Appointments.png" />
-    <AndroidResource Include="Resources\drawable\Calendar_Day_View.png" />
-    <AndroidResource Include="Resources\drawable\Calendar_Theming.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Area.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Bar_Series.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Line_Series.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Pie.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Scattered.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Theming.png" />
     <AndroidResource Include="Resources\drawable\Chart_Theming_Bar1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable\Chart_Theming_Bar1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable\Chart_Theming_Pie_Header_Active.png" />
     <AndroidResource Include="Resources\drawable\Chart_Theming_Pie_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable\DataForm_Reservations.png" />
-    <AndroidResource Include="Resources\drawable\DataGrid_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\DataForm_Theming.png" />
-    <AndroidResource Include="Resources\drawable\DataGrid_Theming.png" />
-    <AndroidResource Include="Resources\drawable\Gauge_Activity_Dashboard.png" />
-    <AndroidResource Include="Resources\drawable\Gauge_Customization.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Layouts.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Selection.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Theming.png" />
     <AndroidResource Include="Resources\drawable\Logo.png" />
     <AndroidResource Include="Resources\drawable\Logo_SD.png" />
-    <AndroidResource Include="Resources\drawable\MaskedInput_Theming.png" />
-    <AndroidResource Include="Resources\drawable\Path_Figures.png" />
-    <AndroidResource Include="Resources\drawable\Rating_Theming.png" />
-    <AndroidResource Include="Resources\drawable\Segmented_Theming.png" />
-    <AndroidResource Include="Resources\drawable\SideDrawer_Recipes.png" />
-    <AndroidResource Include="Resources\drawable\SideDrawer_Settings.png" />
-    <AndroidResource Include="Resources\drawable\SlideView_SlidingImages.png" />
-    <AndroidResource Include="Resources\drawable\SlideView_Theming.png" />
-    <AndroidResource Include="Resources\drawable\TabView_RestaurantMenu.png" />
-    <AndroidResource Include="Resources\drawable\TabView_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BusyIndicator_Custom_Indicator.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BusyIndicator_Gallery.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BusyIndicator_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_Appointments.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_Day_View.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Area.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Bar_Series.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Line_Series.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Pie.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Scattered.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Theming.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Chart_Theming_Bar1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Chart_Theming_Bar1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Chart_Theming_Pie_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Chart_Theming_Pie_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataForm_Reservations.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataGrid_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataForm_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataGrid_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Gauge_Activity_Dashboard.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Gauge_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Layouts.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Selection.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Theming.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Logo.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Logo_SD.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\MaskedInput_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Path_Figures.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Rating_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Segmented_Theming.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SideDrawer_Recipes.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SideDrawer_Settings.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SlideView_SlidingImages.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SlideView_Theming.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Splash_1.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\TabView_RestaurantMenu.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\TabView_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BusyIndicator_Custom_Indicator.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BusyIndicator_Gallery.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BusyIndicator_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_Appointments.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_Day_View.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Area.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Bar_Series.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Line_Series.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Pie.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Scattered.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Theming.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Chart_Theming_Bar1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Chart_Theming_Bar1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Chart_Theming_Pie_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Chart_Theming_Pie_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataForm_Reservations.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataGrid_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataForm_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataGrid_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Gauge_Activity_Dashboard.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Gauge_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Layouts.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Selection.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Theming.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Logo.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Logo_SD.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\MaskedInput_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Path_Figures.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Rating_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Segmented_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SideDrawer_Recipes.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SideDrawer_Settings.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SlideView_SlidingImages.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SlideView_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\TabView_RestaurantMenu.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\TabView_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Custom_Indicator.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Gallery.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_Appointments.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_Day_View.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Area.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Bar_Series.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Line_Series.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Pie.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Scattered.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Theming.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Theming_Bar1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Theming_Bar1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Theming_Pie_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Theming_Pie_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataForm_Reservations.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataGrid_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataForm_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataGrid_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Gauge_Activity_Dashboard.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Gauge_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Layouts.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Selection.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Theming.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Logo.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Logo_SD.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\MaskedInput_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Path_Figures.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Rating_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Segmented_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SideDrawer_Recipes.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SideDrawer_Settings.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SlideView_SlidingImages.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SlideView_Theming.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\TabView_RestaurantMenu.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\TabView_Theming.png" />
     <AndroidResource Include="Resources\drawable\Button_Recipes_Brownies.png" />
     <AndroidResource Include="Resources\drawable\Button_Recipes_Cakes.png" />
     <AndroidResource Include="Resources\drawable\Button_Recipes_Cocktails.png" />
@@ -513,18 +356,6 @@
     <AndroidResource Include="Resources\drawable\DataGrid_FirstLook_person02.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_FirstLook_person03.png" />
     <AndroidResource Include="Resources\drawable\DataGrid_FirstLook_person04.png" />
-    <AndroidResource Include="Resources\drawable\Gauge_Gallery_Vertical.png" />
-    <AndroidResource Include="Resources\drawable\Gauge_Gallery_Horizontal.png" />
-    <AndroidResource Include="Resources\drawable\Gauge_Gallery_Radial.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Gauge_Gallery_Vertical.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Gauge_Gallery_Horizontal.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Gauge_Gallery_Radial.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Gauge_Gallery_Vertical.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Gauge_Gallery_Horizontal.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Gauge_Gallery_Radial.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Gauge_Gallery_Vertical.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Gauge_Gallery_Horizontal.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Gauge_Gallery_Radial.png" />
     <AndroidResource Include="Resources\drawable\DataForm_Date.png" />
     <AndroidResource Include="Resources\drawable\DataForm_Guest_Name.png" />
     <AndroidResource Include="Resources\drawable\DataForm_Guest_Number.png" />
@@ -570,7 +401,6 @@
     <AndroidResource Include="Resources\drawable\BusyIndicator_Theming_Gallery7_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable\BusyIndicator_Theming_Gallery8_Header_Active.png" />
     <AndroidResource Include="Resources\drawable\BusyIndicator_Theming_Gallery8_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable\Button.png" />
     <AndroidResource Include="Resources\drawable\Button_Theming.png" />
     <AndroidResource Include="Resources\drawable\Chart_Area1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable\Chart_Area1_Header_Inactive.png" />
@@ -674,7 +504,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\BusyIndicator_Theming_Gallery7_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-hdpi\BusyIndicator_Theming_Gallery8_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-hdpi\BusyIndicator_Theming_Gallery8_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Button.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Button_Theming.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Chart_Area1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Chart_Area1_Header_Inactive.png" />
@@ -778,7 +607,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\BusyIndicator_Theming_Gallery7_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\BusyIndicator_Theming_Gallery8_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\BusyIndicator_Theming_Gallery8_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Button.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Button_Theming.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Chart_Area1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Chart_Area1_Header_Inactive.png" />
@@ -882,7 +710,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Theming_Gallery7_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Theming_Gallery8_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Theming_Gallery8_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Button.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Button_Theming.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Area1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Area1_Header_Inactive.png" />
@@ -992,18 +819,6 @@
     <AndroidResource Include="Resources\drawable\Sandwich2.png" />
     <AndroidResource Include="Resources\drawable\ListView_LinearLayout.png" />
     <AndroidResource Include="Resources\drawable\ListView_GridLayout.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Reorder.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Reorder.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Reorder.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Reorder.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Reorder_Done.png" />
-    <AndroidResource Include="Resources\drawable\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Reorder_Done.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_Reorder_Done.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Reorder_Delete.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Reorder_Done.png" />
     <AndroidResource Include="Resources\drawable\ListView_Selection_Reorder.png" />
     <AndroidResource Include="Resources\drawable\ListView_Selection_Favorite.png" />
     <AndroidResource Include="Resources\drawable\ListView_Selection_Favorite1.png" />
@@ -1016,24 +831,11 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Selection_Reorder.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Selection_Favorite.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Selection_Favorite1.png" />
-    <AndroidResource Include="Resources\drawable\MaskedInput_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\MaskedInput_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\MaskedInput_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\MaskedInput_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\Rating_Restaurant.jpg" />
-    <AndroidResource Include="Resources\drawable\Rating_RestaurantReview.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Rating_Restaurant.jpg" />
-    <AndroidResource Include="Resources\drawable-hdpi\Rating_RestaurantReview.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Rating_Restaurant.jpg" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Rating_RestaurantReview.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Rating_RestaurantReview.png" />
-    <AndroidResource Include="Resources\drawable\Segmented_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Segmented_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Segmented_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Segmented_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\Segmented_Dinner.png" />
     <AndroidResource Include="Resources\drawable\Segmented_Dinner_Small.png" />
-    <AndroidResource Include="Resources\drawable\Segmented_Drinks.png" />
     <AndroidResource Include="Resources\drawable\Segmented_Drinks_Small.png" />
     <AndroidResource Include="Resources\drawable\Segmented_Snacks.png" />
     <AndroidResource Include="Resources\drawable\Segmented_Snacks_Small.png" />
@@ -1128,29 +930,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\selected_item.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\selected_item.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\selected_item.png" />
-    <AndroidResource Include="Resources\drawable\Zip_Library.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Zip_Library.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Zip_Library.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Zip_Library.png" />
-    <AndroidResource Include="Resources\drawable\SpreadStreamProcessing.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SpreadStreamProcessing.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SpreadStreamProcessing.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SpreadStreamProcessing.png" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\DataGrid_Customization.png" />
-    <AndroidResource Include="Resources\drawable\DataGrid_LoadOnDemand.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataGrid_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataGrid_LoadOnDemand.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataGrid_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataGrid_LoadOnDemand.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataGrid_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataGrid_LoadOnDemand.png" />
-    <AndroidResource Include="Resources\mipmap-hdpi\splash.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\splash.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\splash.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\splash.png" />
     <AndroidResource Include="Resources\drawable\Gauge_HorizontalGauge1_Active.png" />
     <AndroidResource Include="Resources\drawable\Gauge_HorizontalGauge1_Inactive.png" />
     <AndroidResource Include="Resources\drawable\Gauge_HorizontalGauge2_Active.png" />
@@ -1251,10 +1033,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\KeyFeature_3.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\KeyFeature_4.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\KeyFeature_5.png" />
-    <AndroidResource Include="Resources\drawable\BusyIndicator_CustomBusyContent.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BusyIndicator_CustomBusyContent.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BusyIndicator_CustomBusyContent.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_CustomBusyContent.png" />
     <AndroidResource Include="Resources\drawable\BusyIndicator_Theming_Gallery10_Header_Active.png" />
     <AndroidResource Include="Resources\drawable\BusyIndicator_Theming_Gallery10_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable\BusyIndicator_Theming_Gallery9_Header_Active.png" />
@@ -1271,53 +1049,17 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Theming_Gallery10_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Theming_Gallery9_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\BusyIndicator_Theming_Gallery9_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable\BarCode_BoardingPass.png" />
-    <AndroidResource Include="Resources\drawable\BarCode_SpecialOffer.png" />
     <AndroidResource Include="Resources\drawable\BarCode_SpecialOffer_Salad.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BarCode_BoardingPass.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BarCode_SpecialOffer.png" />
     <AndroidResource Include="Resources\drawable-hdpi\BarCode_SpecialOffer_Salad.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BarCode_BoardingPass.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BarCode_SpecialOffer.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\BarCode_SpecialOffer_Salad.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BarCode_BoardingPass.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BarCode_SpecialOffer.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\BarCode_SpecialOffer_Salad.png" />
     <AndroidResource Include="Resources\drawable\VacationBot.png" />
-    <AndroidResource Include="Resources\drawable\ChatBot_Vacation.png" />
-    <AndroidResource Include="Resources\drawable\ChatBot_Insurance.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ChatBot_Vacation.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ChatBot_Insurance.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ChatBot_Vacation.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ChatBot_Insurance.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ChatBot_Vacation.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ChatBot_Insurance.png" />
     <AndroidResource Include="Resources\drawable\InsuranceBot.png" />
-    <AndroidResource Include="Resources\drawable\TreeView_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\TreeView_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\TreeView_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\TreeView_FirstLook_User.png" />
     <AndroidResource Include="Resources\drawable-hdpi\TreeView_FirstLook_User.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\TreeView_FirstLook_User.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_FirstLook_User.png" />
     <AndroidResource Include="Resources\drawable\HealthCareBot.png" />
-    <AndroidResource Include="Resources\drawable\ChatBot_HealthCare.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ChatBot_HealthCare.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ChatBot_HealthCare.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ChatBot_HealthCare.png" />
-    <AndroidResource Include="Resources\drawable\BarCode_1D.png" />
-    <AndroidResource Include="Resources\drawable\BarCode_PDF417.png" />
-    <AndroidResource Include="Resources\drawable\BarCode_QRCode.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BarCode_1D.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BarCode_PDF417.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\BarCode_QRCode.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BarCode_1D.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BarCode_PDF417.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\BarCode_QRCode.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BarCode_1D.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BarCode_PDF417.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\BarCode_QRCode.png" />
     <AndroidResource Include="Resources\drawable\TreeView_Customization_Flag_Argentina.png" />
     <AndroidResource Include="Resources\drawable\TreeView_Customization_Flag_Belgium.png" />
     <AndroidResource Include="Resources\drawable\TreeView_Customization_Flag_Brazil.png" />
@@ -1370,82 +1112,37 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_Customization_Flag_Netherlands.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_Customization_Flag_Spain.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_Customization_Flag_USA.png" />
-    <AndroidResource Include="Resources\drawable\TreeView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\TreeView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\TreeView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_Customization.png" />
     <AndroidResource Include="Resources\drawable\Border_Configuration_Avatar.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Border_Configuration_Avatar.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Border_Configuration_Avatar.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Border_Configuration_Avatar.png" />
-    <AndroidResource Include="Resources\drawable\Border_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Border_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Border_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Border_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Expander_Customization.png" />
     <AndroidResource Include="Resources\drawable\Expander_Customization_Img1.png" />
     <AndroidResource Include="Resources\drawable\Expander_Customization_Img2.png" />
-    <AndroidResource Include="Resources\drawable\Expander_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Expander_Customization.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Expander_Customization_Img1.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Expander_Customization_Img2.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Expander_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Expander_Customization.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Expander_Customization_Img1.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Expander_FirstLook.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Expander_Customization_Img2.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Expander_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Expander_Customization_Img1.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Expander_Customization_Img2.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Expander_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\Accordion_Customization.png" />
     <AndroidResource Include="Resources\drawable\Accordion_Customization_Vendor1.png" />
     <AndroidResource Include="Resources\drawable\Accordion_Customization_Vendor2.png" />
     <AndroidResource Include="Resources\drawable\Accordion_Customization_Vendor3.png" />
-    <AndroidResource Include="Resources\drawable\Accordion_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\Expander_FirstLook_Img1.png" />
     <AndroidResource Include="Resources\drawable\Expander_FirstLook_Img2.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Accordion_Customization.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Accordion_Customization_Vendor1.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Accordion_Customization_Vendor2.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Accordion_Customization_Vendor3.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Accordion_FirstLook.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Expander_FirstLook_Img1.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Expander_FirstLook_Img2.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Accordion_Customization.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Accordion_Customization_Vendor1.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Accordion_Customization_Vendor2.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Accordion_Customization_Vendor3.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Accordion_FirstLook.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Expander_FirstLook_Img1.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Expander_FirstLook_Img2.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Accordion_Customization.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Accordion_Customization_Vendor1.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Accordion_Customization_Vendor2.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Accordion_Customization_Vendor3.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Accordion_FirstLook.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Expander_FirstLook_Img1.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Expander_FirstLook_Img2.png" />
-    <AndroidResource Include="Resources\drawable\Accordion_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Expander_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Accordion_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Expander_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Accordion_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Expander_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Accordion_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Expander_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Chat_Chatroom.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chat_Chatroom.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chat_Chatroom.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chat_Chatroom.png" />
-    <AndroidResource Include="Resources\drawable\Scheduler_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Scheduler_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Scheduler_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Scheduler_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Scheduler_Resources.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Scheduler_Resources.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Scheduler_Resources.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Scheduler_Resources.png" />
     <AndroidResource Include="Resources\drawable\Scheduler_Person_1.png" />
     <AndroidResource Include="Resources\drawable\Scheduler_Person_2.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Scheduler_Person_1.png" />
@@ -1455,25 +1152,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Scheduler_Person_1.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Scheduler_Person_2.png" />
     <AndroidResource Include="Resources\drawable\TreeView_Drive.png" />
-    <AndroidResource Include="Resources\drawable\TreeView_LoadOnDemand.png" />
     <AndroidResource Include="Resources\drawable-hdpi\TreeView_Drive.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\TreeView_LoadOnDemand.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\TreeView_Drive.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\TreeView_LoadOnDemand.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_Drive.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\TreeView_LoadOnDemand.png" />
-    <AndroidResource Include="Resources\drawable\AutoCompleteView_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\AutoCompleteView_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\AutoCompleteView_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\AutoCompleteView_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\AutoCompleteView_RemoteSearch.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\AutoCompleteView_RemoteSearch.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\AutoCompleteView_RemoteSearch.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\AutoCompleteView_RemoteSearch.png" />
-    <AndroidResource Include="Resources\drawable\DataGrid_CRUD.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataGrid_CRUD.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataGrid_CRUD.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataGrid_CRUD.png" />
     <AndroidResource Include="Resources\drawable\Chart_Donut1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable\Chart_Donut1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Chart_Donut1_Header_Active.png" />
@@ -1482,10 +1163,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Chart_Donut1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Donut1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Donut1_Header_Active.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Financial.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Financial.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Financial.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Financial.png" />
     <AndroidResource Include="Resources\drawable\Chart_Financial1_Header_Active.png" />
     <AndroidResource Include="Resources\drawable\Chart_Financial1_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable\Chart_Financial2_Header_Active.png" />
@@ -1510,10 +1187,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Financial2_Header_Inactive.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Financial3_Header_Active.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Financial3_Header_Inactive.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Financial_Indicators.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Financial_Indicators.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Financial_Indicators.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Financial_Indicators.png" />
     <AndroidResource Include="Resources\drawable\launcher.png" />
     <AndroidResource Include="Resources\drawable-hdpi\launcher.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\launcher.png" />
@@ -1530,90 +1203,14 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\DataForm_Globalization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DataForm_Globalization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DataForm_Globalization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DataForm_Globalization.png" />
-    <AndroidResource Include="Resources\drawable\Chart_Null.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Chart_Null.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Chart_Null.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Chart_Null.png" />
-    <AndroidResource Include="Resources\drawable\Popup_ContextMenu.png" />
-    <AndroidResource Include="Resources\drawable\Popup_Modal.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Popup_ContextMenu.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Popup_Modal.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Popup_ContextMenu.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Popup_Modal.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Popup_ContextMenu.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Popup_Modal.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\unselected_item.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\unselected_item.png" />
     <AndroidResource Include="Resources\drawable-hdpi\unselected_item.png" />
     <AndroidResource Include="Resources\drawable\unselected_item.png" />
-    <AndroidResource Include="Resources\drawable\AutoCompleteView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\AutoCompleteView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\AutoCompleteView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\AutoCompleteView_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\DockPanel_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\DockPanel_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\DockPanel_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\DockPanel_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\ListView_HeaderFooter.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ListView_HeaderFooter.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ListView_HeaderFooter.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ListView_HeaderFooter.png" />
     <AndroidResource Include="Resources\drawable\ListView_Person.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ListView_Person.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ListView_Person.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ListView_Person.png" />
-    <AndroidResource Include="Resources\drawable\Popup_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Popup_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Popup_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Popup_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\PdfViewer_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\PdfViewer_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\PdfViewer_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\PdfViewer_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\AutoCompleteView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\AutoCompleteView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\AutoCompleteView_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\AutoCompleteView_Customization.png" />
-    <AndroidResource Include="Resources\drawable\ImageEditor_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ImageEditor_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ImageEditor_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ImageEditor_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\Map_FirstLook.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\Map_FirstLook.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\Map_FirstLook.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\Map_FirstLook.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Map_HotelFloorPlan.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\Map_HotelFloorPlan.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\Map_HotelFloorPlan.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\Map_HotelFloorPlan.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\PdfProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\PdfProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\PdfProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\PdfProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\Calendar_AllViews.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_AllViews.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_AllViews.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_AllViews.png" />
     <AndroidResource Include="Resources\drawable\PdfProcessing_FirstLook_Screen.png" />
     <AndroidResource Include="Resources\drawable-hdpi\PdfProcessing_FirstLook_Screen.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\PdfProcessing_FirstLook_Screen.png" />
@@ -1631,10 +1228,6 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\TelerikLogoSmall.png" />
-    <AndroidResource Include="Resources\drawable\WordsProcessing_Export.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\WordsProcessing_Export.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\WordsProcessing_Export.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\WordsProcessing_Export.png" />
     <AndroidResource Include="Resources\drawable\WordsProcessing_Export_Example.png" />
     <AndroidResource Include="Resources\drawable-hdpi\WordsProcessing_Export_Example.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\WordsProcessing_Export_Example.png" />
@@ -1643,63 +1236,19 @@
     <AndroidResource Include="Resources\drawable-hdpi\WordsProcessing_FirstLook.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\WordsProcessing_FirstLook.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\WordsProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\WordsProcessing_FirstLook_Example.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\WordsProcessing_FirstLook_Example.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\WordsProcessing_FirstLook_Example.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\WordsProcessing_FirstLook_Example.png" />
-    <AndroidResource Include="Resources\drawable\WordsProcessing_FindReplace.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\WordsProcessing_FindReplace.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\WordsProcessing_FindReplace.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\WordsProcessing_FindReplace.png" />
-    <AndroidResource Include="Resources\drawable\ImageEditor_CustomToolbar.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ImageEditor_CustomToolbar.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ImageEditor_CustomToolbar.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ImageEditor_CustomToolbar.png" />
     <AndroidResource Include="Resources\xml\file_paths.xml" />
-    <AndroidResource Include="Resources\drawable\PdfViewer_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\PdfViewer_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\PdfViewer_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\PdfViewer_Customization.png" />
-    <AndroidResource Include="Resources\drawable\Calendar_SpecialSlots.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_SpecialSlots.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_SpecialSlots.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_SpecialSlots.png">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\Calendar_app_template.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Calendar_app_template.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Calendar_app_template.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Calendar_app_template.png" />
     <AndroidResource Include="Resources\drawable\coffee.png" />
     <AndroidResource Include="Resources\drawable-hdpi\coffee.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\coffee.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\coffee.png" />
-    <AndroidResource Include="Resources\drawable\PdfViewer_LargeFile.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\PdfViewer_LargeFile.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\PdfViewer_LargeFile.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\PdfViewer_LargeFile.png" />
     <AndroidResource Include="Resources\drawable\Picker_Demo1_Header.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Picker_Demo1_Header.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Picker_Demo1_Header.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Picker_Demo1_Header.png" />
-    <AndroidResource Include="Resources\drawable\SpreadProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SpreadProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SpreadProcessing_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SpreadProcessing_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\SpreadProcessing_FirstLook_GenerateCue.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\SpreadProcessing_FirstLook_GenerateCue.png" />
     <AndroidResource Include="Resources\drawable-hdpi\SpreadProcessing_FirstLook_GenerateCue.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\SpreadProcessing_FirstLook_GenerateCue.png" />
-    <AndroidResource Include="Resources\drawable\SpreadProcessing_Convert.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SpreadProcessing_Convert.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SpreadProcessing_Convert.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SpreadProcessing_Convert.png" />
     <AndroidResource Include="Resources\drawable\Picker_Demo2_Header.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Picker_Demo2_Header.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Picker_Demo2_Header.png" />
@@ -1708,10 +1257,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\Picker_Demo3_Header.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Picker_Demo3_Header.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Picker_Demo3_Header.png" />
-    <AndroidResource Include="Resources\drawable\SpreadProcessing_FindReplace.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\SpreadProcessing_FindReplace.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\SpreadProcessing_FindReplace.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\SpreadProcessing_FindReplace.png" />
     <AndroidResource Include="Resources\drawable\SpreadProcessing_Convert_Cue.png" />
     <AndroidResource Include="Resources\drawable-hdpi\SpreadProcessing_Convert_Cue.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\SpreadProcessing_Convert_Cue.png" />
@@ -1720,30 +1265,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\Picker_Demo4_Header.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Picker_Demo4_Header.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Picker_Demo4_Header.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TimePicker.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TimePicker.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TimePicker.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TimePicker.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TemplatedPicker.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TemplatedPicker.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TemplatedPicker.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TemplatedPicker.png" />
     <AndroidResource Include="Resources\drawable\Picker_Demo5_Header.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Picker_Demo5_Header.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Picker_Demo5_Header.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Picker_Demo5_Header.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DatePicker.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DatePicker.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DatePicker.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DatePicker.png" />
-    <AndroidResource Include="Resources\drawable\Picker_ListPicker.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_ListPicker.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_ListPicker.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_ListPicker.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DateTimePicker.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DateTimePicker.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DateTimePicker.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DateTimePicker.png" />
     <AndroidResource Include="Resources\drawable\t_shirt.png" />
     <AndroidResource Include="Resources\drawable-hdpi\t_shirt.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\t_shirt.png" />
@@ -1760,26 +1285,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\music.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\music.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\music.png" />
-    <AndroidResource Include="Resources\drawable\Picker_ListPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_ListPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_ListPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_ListPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TemplatedPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TemplatedPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TemplatedPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TemplatedPicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DateTimePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DateTimePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DateTimePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DateTimePicker_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\graphic.png" />
     <AndroidResource Include="Resources\drawable-hdpi\graphic.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\graphic.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\graphic.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DatePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DatePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DatePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DatePicker_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\DatePicker_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-hdpi\DatePicker_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\DatePicker_HeaderImage.png" />
@@ -1796,10 +1305,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\Time_Off.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Time_Off.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Time_Off.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TimePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TimePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TimePicker_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TimePicker_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\Carpet_Cleaning.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Carpet_Cleaning.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Carpet_Cleaning.png" />
@@ -1816,10 +1321,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\TimePicker_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\TimePicker_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\TimePicker_HeaderImage.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TimeSpan_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TimeSpan_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TimeSpan_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TimeSpan_FirstLook.png" />
     <AndroidResource Include="Resources\drawable\TimeSpanPicker_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-hdpi\TimeSpanPicker_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\TimeSpanPicker_HeaderImage.png" />
@@ -1844,53 +1345,17 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Ticket_2.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Ticket_3.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Ticket_4.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TimeSpan_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TimeSpan_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TimeSpan_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TimeSpan_Customization.png" />
     <AndroidResource Include="Resources\drawable\TimeSpan_HeaderImage_Customization.png" />
     <AndroidResource Include="Resources\drawable-hdpi\TimeSpan_HeaderImage_Customization.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\TimeSpan_HeaderImage_Customization.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\TimeSpan_HeaderImage_Customization.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DateTimePicker_Date.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DateTimePicker_Date.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DateTimePicker_Date.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DateTimePicker_Date.png" />
     <AndroidResource Include="Resources\drawable\DateTimePicker_Date.png" />
     <AndroidResource Include="Resources\drawable-hdpi\DateTimePicker_Date.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\DateTimePicker_Date.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\DateTimePicker_Date.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DateTimePicker_Time.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DateTimePicker_Time.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DateTimePicker_Time.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DateTimePicker_Time.png" />
     <AndroidResource Include="Resources\drawable-hdpi\DateTimePicker_Time.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\DateTimePicker_Time.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\DateTimePicker_Time.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TimePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TimePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TimePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TimePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DatePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DatePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DatePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DatePicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TimeSpan_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TimeSpan_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TimeSpan_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TimeSpan_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Picker_ListPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_ListPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_ListPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_ListPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Picker_TemplatedPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_TemplatedPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_TemplatedPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_TemplatedPicker_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\Picker_DateTime_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Picker_DateTime_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Picker_DateTime_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Picker_DateTime_Configuration.png" />
     <AndroidResource Include="Resources\drawable\ToDo_App_Logo.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ToDo_App_Logo.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ToDo_App_Logo.png" />
@@ -1927,30 +1392,175 @@
     <AndroidResource Include="Resources\drawable-hdpi\ComboBox_FirstLook_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ComboBox_FirstLook_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ComboBox_FirstLook_HeaderImage.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ComboBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ComboBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ComboBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\ComboBox_FirstLook.png" />
-    <AndroidResource Include="Resources\drawable\ComboBox_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ComboBox_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ComboBox_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ComboBox_Customization.png" />
     <AndroidResource Include="Resources\drawable\ComboBox_Customization_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ComboBox_Customization_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ComboBox_Customization_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ComboBox_Customization_HeaderImage.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ComboBox_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ComboBox_Configuration.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ComboBox_Configuration.png" />
-    <AndroidResource Include="Resources\drawable\ComboBox_Configuration.png" />
     <AndroidResource Include="Resources\drawable\ComboBox_Configuration_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ComboBox_Configuration_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ComboBox_Configuration_HeaderImage.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ComboBox_Configuration_HeaderImage.png" />
-    <AndroidResource Include="Resources\drawable\Scheduler_Customization.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\Scheduler_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Scheduler_Customization.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\Scheduler_Customization.png" />
+    <AndroidAsset Include="Assets\Fonts\telerikqsficonsfont.ttf" />
+    <AndroidResource Include="Resources\values-night\Colors.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\splash_screen_dark.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values-night\styles.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-hdpi\Splash_Light.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xhdpi\Splash_Light.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Splash_Light.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-mdpi\Splash_Light.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-mdpi\Splash_Dark.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-hdpi\Splash_Dark.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xhdpi\Splash_Dark.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Splash_Dark.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <Compile Include="Services\ApplicationState\ApplicationStateService.cs" />
+    <AndroidResource Include="Resources\drawable\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\American_Pancakes.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Belgian_Chocolate.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Blueberry_Waffle.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\Tiramisu.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter">
@@ -1992,9 +1602,13 @@
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.1.41</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="QSF\Droid\" />
+    <Folder Include="Resources\values-night\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Config_Text.png" />
@@ -2009,40 +1623,28 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Config_Text.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\RichTextEditor_FirstLook.png" />
+    <AndroidResource Include="Resources\drawable\TelerikXamarin_Logo_DarkMode.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\RichTextEditor_FirstLook.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\TelerikXamarin_Logo_DarkMode.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\RichTextEditor_FirstLook.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\TelerikXamarin_Logo_DarkMode.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\RichTextEditor_FirstLook.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\TelerikXamarin_Logo_DarkMode.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\RichTextEditor_Customization.png" />
+    <AndroidResource Include="Resources\drawable\Person_9.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\RichTextEditor_Customization.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Person_9.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\RichTextEditor_Customization.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Person_9.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\RichTextEditor_Customization.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\RichTextEditor_ImportExport.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\RichTextEditor_ImportExport.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\RichTextEditor_ImportExport.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\RichTextEditor_ImportExport.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Person_9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -2050,4 +1652,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
   </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties TriggeredFromHotReload="False" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

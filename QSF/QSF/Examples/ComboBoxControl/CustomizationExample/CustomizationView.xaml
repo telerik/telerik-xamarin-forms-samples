@@ -26,7 +26,7 @@
         </OnPlatform>
 
         <telerikPrimitives:RadBorder Grid.Row="1"
-                                     BackgroundColor="#F8F8F8">
+                                     BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#121212}">
             <telerikInput:RadButton Command="{Binding SearcAvailabilityhButtonCommand}"
                                     Text="Show Availability"
                                     HorizontalOptions="Center"

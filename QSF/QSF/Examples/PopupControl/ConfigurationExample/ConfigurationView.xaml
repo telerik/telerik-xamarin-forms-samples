@@ -8,7 +8,11 @@
         <ResourceDictionary>
 
             <DataTemplate x:Key="PopupContentTemplate">
-                <primitives:RadBorder CornerRadius="8" BackgroundColor="#F7F7F7" BorderColor="#C6C6C6" BorderThickness="1" WidthRequest="130">
+                <primitives:RadBorder CornerRadius="8" 
+                                      BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#121212}" 
+                                      BorderColor="{AppThemeBinding Light=#C6C6C6, Dark=#121212}" 
+                                      BorderThickness="1" 
+                                      WidthRequest="130">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -19,7 +23,9 @@
                         <Label Style="{StaticResource HeaderLabelStyle}" Text="Telerik UI" VerticalOptions="Center" HorizontalOptions="Center" Margin="2" FontSize="16" />
                         <Label Style="{StaticResource HeaderLabelStyle}" Text="for Xamarin" VerticalOptions="Center" HorizontalOptions="Center" Margin="2" FontSize="16"  Grid.Row="1" />
 
-                        <Grid Grid.Row="2" BackgroundColor="White" Padding="4, 4, 4, 4">
+                        <Grid Grid.Row="2" 
+                              BackgroundColor="{AppThemeBinding Light=White,Dark=Black}" 
+                              Padding="4, 4, 4, 4">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -95,7 +101,7 @@
                 Text="Show Popup"
                 Command="{Binding Path=ShowPopupCommand}"
                 x:Name="button"
-                BackgroundColor="#F3FDEC"
+                BackgroundColor="{AppThemeBinding Light=#F3FDEC, Dark=#121212}"
                 TextColor="#4FC400"
                 WidthRequest="130">
             <primitives:RadPopup.Popup>

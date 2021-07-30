@@ -9,6 +9,7 @@ namespace QSF.Examples.ButtonControl.RecipesExample
         private string category;
         private string popularity;
         private string ingredient;
+        private string time;
 
         public string Category
         {
@@ -58,19 +59,38 @@ namespace QSF.Examples.ButtonControl.RecipesExample
             }
         }
 
+        public string Time
+        {
+            get
+            {
+                return this.time;
+            }
+            set
+            {
+                if (this.time != value)
+                {
+                    this.time = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
         public ICommand SelectByCategoryCommand { get; private set; }
         public ICommand SelectByPopularityCommand { get; private set; }
         public ICommand SelectByIngredientCommand { get; private set; }
+        public ICommand SelectByTimeCommand { get; private set; }
 
         public RecipesViewModel()
         {
             this.Category = "<none>";
             this.Popularity = "<none>";
             this.Ingredient = "<none>";
+            this.Time = "<none>";
 
             this.SelectByCategoryCommand = new Command<string>(category => this.Category = category);
             this.SelectByPopularityCommand = new Command<string>(popularity => this.Popularity = popularity);
             this.SelectByIngredientCommand = new Command<string>(ingredient => this.Ingredient = ingredient);
+            this.SelectByTimeCommand = new Command<string>(time => this.Time = time);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace QSF.Examples.BarcodeControl.QRCodeExample
         {
             InitializeComponent();
 
-            this.tabView.Header.BackgroundColor = (Color)App.Current.Resources["AccentColor"];
+            this.tabView.Header.SetAppThemeColor(TabViewHeader.BackgroundColorProperty, (Color)App.Current.Resources["AccentColorLight"], (Color)App.Current.Resources["AccentColorDark"]);
 
             this.tabView.PropertyChanged += this.TabView_PropertyChanged;
         }

@@ -54,7 +54,7 @@
 
             <Style x:Key="UserStatisticsCountLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="32" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
 
@@ -92,7 +92,7 @@
 
             <Style x:Key="UserStatisticsSeparatorStyle" TargetType="BoxView">
                 <Setter Property="Margin" Value="0, 15, 0, 15" />
-                <Setter Property="BackgroundColor" Value="#e6edf4" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#e6edf4, Dark=#373737}" />
             </Style>
 
             <Style x:Key="CommentAvatarImageStyle" TargetType="Image">
@@ -115,7 +115,7 @@
                 <Setter Property="Margin" Value="45, 0, 16, 0" />
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="CornerRadius" Value="0, 16, 16, 16" />
-                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#1E1E1E}" />
             </Style>
 
             <Style x:Key="CommentTextLabelStyle" TargetType="Label">
@@ -200,8 +200,8 @@
                 </Grid>
             </Grid>
 
-            <StackLayout Grid.Row="2" BackgroundColor="#e9e6e4">
-               <Grid BackgroundColor="#e9e6e4" Padding="10">
+            <StackLayout Grid.Row="2" BackgroundColor="{AppThemeBinding Light=#e9e6e4, Dark=#121212}">
+               <Grid BackgroundColor="{AppThemeBinding Light=#e9e6e4, Dark=#121212}" Padding="10">
                    <Grid.RowDefinitions>
                        <RowDefinition Height="Auto" />
                        <RowDefinition Height="*" />
@@ -216,7 +216,7 @@
                    </telerikPrimitives:RadBorder>
                </Grid>
 
-                <Grid BackgroundColor="#e9e6e4" Padding="10">
+                <Grid BackgroundColor="{AppThemeBinding Light=#e9e6e4, Dark=#121212}" Padding="10">
                    <Grid.RowDefinitions>
                        <RowDefinition Height="Auto" />
                        <RowDefinition Height="*" />
@@ -231,7 +231,7 @@
                    </telerikPrimitives:RadBorder>
                </Grid>
 
-                <Grid BackgroundColor="#e9e6e4" Padding="10">
+                <Grid BackgroundColor="{AppThemeBinding Light=#e9e6e4, Dark=#121212}" Padding="10">
                    <Grid.RowDefinitions>
                        <RowDefinition Height="Auto" />
                        <RowDefinition Height="*" />
@@ -246,7 +246,7 @@
                    </telerikPrimitives:RadBorder>
                </Grid>
 
-                <Grid BackgroundColor="#e9e6e4" Padding="10">
+                <Grid BackgroundColor="{AppThemeBinding Light=#e9e6e4, Dark=#121212}" Padding="10">
                    <Grid.RowDefinitions>
                        <RowDefinition Height="Auto" />
                        <RowDefinition Height="*" />

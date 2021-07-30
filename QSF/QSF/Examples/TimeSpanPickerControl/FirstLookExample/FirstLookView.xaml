@@ -14,7 +14,7 @@
             <converters:ImageSourceConverter x:Key="ImageSourceConverter" />
             <Style x:Key="DefaultSubtitleLabelStyle" 
                    TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
@@ -43,7 +43,7 @@
             <Style x:Key="DefaultTitleLabelStyle"
                    TargetType="Label">
                 <Setter Property="FontSize" Value="Title" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=Gray, Light=Black}" />
                 <Setter Property="Margin" Value="0, 24, 0, 0" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
@@ -82,7 +82,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout BackgroundColor="#EFEFF4">
+            <StackLayout BackgroundColor="{AppThemeBinding Dark=Black, Light=#EFEFF4}">
                 <Image VerticalOptions="End"
                        HorizontalOptions="End">
                     <Image.Source>
@@ -102,7 +102,7 @@
                    Margin="0, 0, 0, 24" />
             <Label Text="Specify Max Flight Duration:"
                    Style="{StaticResource DefaultSubtitleLabelStyle}" />
-            <telerikInput:RadTimeSpanPicker BackgroundColor="#F7F7F7"
+                <telerikInput:RadTimeSpanPicker BackgroundColor="{AppThemeBinding Dark=Transparent, Light=#F7F7F7}"
                                             views:ThemesBehavior.StyleClass="TelerikTheme"
                                             BorderColor="#007AFF"
                                             BorderThickness="0, 0, 0, 1"
@@ -153,7 +153,7 @@
             </telerikInput:RadTimeSpanPicker>
             </StackLayout>
             <Grid Grid.Row="2"
-                  BackgroundColor="#F7F7F7"
+                  BackgroundColor="{AppThemeBinding Dark=Black, Light=#F7F7F7}"
                   Margin="0, 18, 0, 0"
                   IsVisible="{Binding IsFlightInfoVisible}">
                 <Grid.RowDefinitions>
@@ -234,12 +234,12 @@
                          Margin="22, 18, 22, 0"
                          IsVisible="{Binding IsFlightEmptyVisible}">
                 <Label Text="No flights found."
-                       TextColor="Black"
+                       TextColor="{AppThemeBinding Dark=White, Light=Black}"
                        FontAttributes="Bold" />
             </StackLayout>
         </Grid>
         <StackLayout Grid.Row="1" 
-                     BackgroundColor="#F6FAFB"
+                     BackgroundColor="{AppThemeBinding Dark=Black, Light=#F6FAFB}"
                      Orientation="Horizontal">
             <telerikInput:RadButton Text="Show Flights" 
                                     CornerRadius="20" 

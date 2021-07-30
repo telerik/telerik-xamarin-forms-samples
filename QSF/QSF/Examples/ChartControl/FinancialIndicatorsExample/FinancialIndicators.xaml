@@ -27,9 +27,7 @@
 
             <telerikChart:RadCartesianChart x:Name="trendlinesChart"
                                             Grid.Row="1"
-                                            PaletteName="Light"
-                                            SelectionPaletteName="LightSelected" 
-                                            BackgroundColor="White" 
+                                            BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" 
                                             views:ThemesBehavior.StyleClass="TelerikTheme">
                 <telerikChart:RadCartesianChart.ChartBehaviors>
                     <telerikChart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True" />
@@ -60,7 +58,7 @@
                                              ItemsSource="{Binding SeriesData}"/>
                 </telerikChart:RadCartesianChart.Series>
             </telerikChart:RadCartesianChart>
-        
+
             <StackLayout Orientation="Horizontal" Grid.Row="2">
                 <Label Text="Choose Indicator: "
                        FontSize="Small"
@@ -73,12 +71,10 @@
                         SelectedIndexChanged="OnIndicatorPickerSelectedIndexChanged"
                         HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-        
-            <telerikChart:RadCartesianChart PaletteName="Light"
-                                            Grid.Row="3"
+
+            <telerikChart:RadCartesianChart Grid.Row="3"
                                             x:Name="indicatorsChart"
-                                            SelectionPaletteName="LightSelected" 
-                                            BackgroundColor="White" 
+                                            BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" 
                                             views:ThemesBehavior.StyleClass="TelerikTheme">
                 <telerikChart:RadCartesianChart.ChartBehaviors>
                     <telerikChart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True" />

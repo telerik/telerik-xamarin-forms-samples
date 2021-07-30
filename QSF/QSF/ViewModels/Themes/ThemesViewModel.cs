@@ -1,7 +1,7 @@
-﻿using QSF.Services;
-using QSF.Services.Configuration;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
+using QSF.Services;
+using QSF.Services.Configuration;
 using Xamarin.Forms;
 
 namespace QSF.ViewModels

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.BadgeViewControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="SecondaryTextColorLight">#99000000</Color>
+            <Color x:Key="SecondaryTextColorDark">#99FFFFFF</Color>
+            <Color x:Key="HighLightedColorLight">#0E88F2</Color>
+            <Color x:Key="HighLightedColorDark">#42A5F5</Color>
+            <Color x:Key="MenuItemBackgroundColorLight">#F8F8F8</Color>
+            <Color x:Key="MenuItemBackgroundColorDark">#373737</Color>
+            <Color x:Key="DisabledTextColorLight">#9D9CA1</Color>
+            <Color x:Key="DisabledTextColorDark">#8E8E8E</Color>
+            <Color x:Key="DisabledBadgeBackground">#FFBABA</Color>
+            <Style x:Key="DefaultTabItemStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="DefaultTabItemIconStyle" TargetType="Label" 
+                   BasedOn="{StaticResource DefaultTabItemStyle}">
+                <Setter Property="FontSize" Value="Title" />
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}" />
+            </Style>
+            <Style x:Key="DefaultTabItemLabelStyle" TargetType="Label" 
+                   BasedOn="{StaticResource DefaultTabItemStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+            </Style>
+            <Style x:Key="DefaultBadgeViewStyle" TargetType="telerikPrimitives:RadBadgeView">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BadgeVerticalAlignment" Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <telerikDataControls:NonVirtualizedItemsControl ItemsSource="{Binding Users}"
+                                         SelectionMode="None"
+                                         VerticalOptions="StartAndExpand">
+            <telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="16, 8">
+                        <telerikPrimitives:RadBadgeView BadgeType="{Binding ActivityStatus}"
+                                                        BadgeTextColor="{AppThemeBinding Light=White, Dark=Black}"
+                                                        BadgeVerticalPosition="End"
+                                                        BadgeHorizontalAlignment="End"
+                                                        BadgeVerticalAlignment="End"
+                                                        Margin="0, 0, 16, 0">
+                            <telerikPrimitives:RadBadgeView.Content>
+                                <Image Source="{Binding ImageSourcePath, Converter={StaticResource ImageSourceConverter}}" 
+                                       WidthRequest="46"
+                                       HeightRequest="46" />
+                            </telerikPrimitives:RadBadgeView.Content>
+                        </telerikPrimitives:RadBadgeView>
+                        <StackLayout Spacing="2"
+                                     VerticalOptions="Center">
+                            <Label Text="{Binding Name}" 
+                                   FontAttributes="{Binding MessageFontAttributes}"
+                                   VerticalTextAlignment="End" />
+                            <Label Text="{Binding LastMessageReceived}"
+                                   TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColorLight}, Dark={StaticResource SecondaryTextColorDark}}"
+                                   FontSize="Micro"
+                                   FontAttributes="{Binding MessageFontAttributes}" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand">
+                            <Label Text="{Binding LastMessageReceivedDate}"
+                                   TextColor="{Binding LastMessageReceivedDateColor}"
+                                   FontSize="Small"
+                                   VerticalOptions="CenterAndExpand" />
+                            <telerikPrimitives:Badge BackgroundColor="{AppThemeBinding Light={StaticResource HighLightedColorLight}, Dark={StaticResource HighLightedColorDark}}"
+                                                     Text="{Binding UnreadMessagesText}"
+                                                     HorizontalOptions="End"
+                                                     IsVisible="{Binding IsVisibleUnreadMessages}" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </telerikDataControls:NonVirtualizedItemsControl.ItemTemplate>
+        </telerikDataControls:NonVirtualizedItemsControl>
+        <Grid Grid.Row="1"
+              VerticalOptions="EndAndExpand"
+              BackgroundColor="{AppThemeBinding Light={StaticResource MenuItemBackgroundColorLight}, Dark={StaticResource MenuItemBackgroundColorDark}}"
+              Padding="0, 7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <telerikPrimitives:RadBadgeView BadgeText="12"
+                                            BadgeBackgroundColor="{StaticResource DisabledBadgeBackground}"
+                                            Style="{StaticResource DefaultBadgeViewStyle}">
+                <telerikPrimitives:RadBadgeView.Content>
+                    <StackLayout>
+                        <Label Text="&#xE904;" TextColor="{AppThemeBinding Light={StaticResource DisabledTextColorLight}, Dark={StaticResource DisabledTextColorDark}}"
+                               Style="{StaticResource DefaultTabItemIconStyle}" />
+                        <Label Text="Calls" TextColor="{AppThemeBinding Light={StaticResource DisabledTextColorLight}, Dark={StaticResource DisabledTextColorDark}}"
+                               Style="{StaticResource DefaultTabItemLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:RadBadgeView.Content>
+            </telerikPrimitives:RadBadgeView>
+            <telerikPrimitives:RadBadgeView BadgeText="2" Grid.Column="1"
+                                                Style="{StaticResource DefaultBadgeViewStyle}">
+                <telerikPrimitives:RadBadgeView.BadgeOffsetX>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android" Value="-2" />
+                        <On Platform="iOS" Value="-3" />
+                        <On Platform="UWP" Value="-6" />
+                    </OnPlatform>
+                </telerikPrimitives:RadBadgeView.BadgeOffsetX>
+                <telerikPrimitives:RadBadgeView.Content>
+                    <StackLayout>
+                        <Label Text="&#xE903;"
+                               TextColor="{AppThemeBinding Light={StaticResource HighLightedColorLight}, Dark={StaticResource HighLightedColorDark}}"
+                               Style="{StaticResource DefaultTabItemIconStyle}" />
+                        <Label Text="Chats"
+                       TextColor="{AppThemeBinding Light={StaticResource HighLightedColorLight}, Dark={StaticResource HighLightedColorDark}}"
+                       Style="{StaticResource DefaultTabItemLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:RadBadgeView.Content>
+            </telerikPrimitives:RadBadgeView>
+
+            <StackLayout Grid.Column="2">
+                <Label Text="&#xE864;" TextColor="{AppThemeBinding Light={StaticResource DisabledTextColorLight}, Dark={StaticResource DisabledTextColorDark}}"
+                       Style="{StaticResource DefaultTabItemIconStyle}" />
+                <Label Text="Calendar" TextColor="{AppThemeBinding Light={StaticResource DisabledTextColorLight}, Dark={StaticResource DisabledTextColorDark}}"
+                       Style="{StaticResource DefaultTabItemLabelStyle}" />
+            </StackLayout>
+            <telerikPrimitives:RadBadgeView BadgeType="Dot" Grid.Column="3"
+                                            BadgeBackgroundColor="{StaticResource DisabledBadgeBackground}"
+                                            Style="{StaticResource DefaultBadgeViewStyle}"
+                                            BadgeVerticalAlignment="Start">
+                <telerikPrimitives:RadBadgeView.BadgeOffsetX>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android" Value="-5" />
+                        <On Platform="iOS" Value="-7" />
+                        <On Platform="UWP" Value="-12" />
+                    </OnPlatform>
+                </telerikPrimitives:RadBadgeView.BadgeOffsetX>
+                <telerikPrimitives:RadBadgeView.Content>
+                    <StackLayout>
+                        <Label Text="&#xE901;" TextColor="{AppThemeBinding Light={StaticResource DisabledTextColorLight}, Dark={StaticResource DisabledTextColorDark}}"
+                               Style="{StaticResource DefaultTabItemIconStyle}" />
+                        <Label Text="Activity" TextColor="{AppThemeBinding Light={StaticResource DisabledTextColorLight}, Dark={StaticResource DisabledTextColorDark}}"
+                               Style="{StaticResource DefaultTabItemLabelStyle}" />
+                    </StackLayout>
+                </telerikPrimitives:RadBadgeView.Content>
+            </telerikPrimitives:RadBadgeView>
+        </Grid>
+    </Grid>
+</ContentView>

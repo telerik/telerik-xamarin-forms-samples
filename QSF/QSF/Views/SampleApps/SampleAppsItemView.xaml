@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="QSF.Views.SampleAppsItemView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="OpenInStoreText" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Get it on Google Store" />
+                <On Platform="iOS" Value="Download on the App Store" />
+                <On Platform="UWP" Value="Download from Microsoft Store" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid x:Name="grid"
+          BackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ffImageLoading:CachedImage Source="{Binding Icon.Text, Converter={StaticResource ImageSourceConverter}}" 
+                                    BackgroundColor="{Binding Icon.ThemeColor, Converter={StaticResource ColorAlphaConverter}}"
+                                    WidthRequest="130"
+                                    HeightRequest="130"
+                                    VerticalOptions="Start"
+                                    Margin="15" />
+        <StackLayout Grid.Column="1"
+                     Margin="0, 15, 5, 15">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Title}"
+                       Style="{StaticResource SampleAppTitleStyle}" />
+                <Label FontFamily="{StaticResource IconsFont}"
+                       Text="{StaticResource ExternalLinkIcon}"
+                       TextColor="{StaticResource ExternalLinkIconColor}" />
+            </StackLayout>
+            <Label Text="{Binding Description}"
+                   Style="{StaticResource BodyLabelStyle}" />
+            <Label Text="{StaticResource OpenInStoreText}"
+                   TextColor="{AppThemeBinding Light={StaticResource HyperlinkTextColorLight}, Dark={StaticResource HyperlinkTextColorDark}}"
+                   Style="{StaticResource BodyLabelStyle}" />
+        </StackLayout>
+    </Grid>
+</ContentView>

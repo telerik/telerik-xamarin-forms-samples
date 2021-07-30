@@ -7,6 +7,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using XF = Xamarin.Forms;
 
 namespace QSF.UWP
 {
@@ -85,6 +86,20 @@ namespace QSF.UWP
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            XF.Application.Current.RequestedThemeChanged += this.OnRequestedThemeChanged;
+        }
+
+        private void OnRequestedThemeChanged(object sender, XF.AppThemeChangedEventArgs e)
+        {
+            var theme = e.RequestedTheme;
+            if (theme == XF.OSAppTheme.Unspecified)
+            {
+                ((FrameworkElement)Window.Current.Content).RequestedTheme = ElementTheme.Default;
+                return;
+            }
+
+            ((FrameworkElement)Window.Current.Content).RequestedTheme = theme == XF.OSAppTheme.Dark ? ElementTheme.Dark : ElementTheme.Light;
         }
 
         /// <summary>

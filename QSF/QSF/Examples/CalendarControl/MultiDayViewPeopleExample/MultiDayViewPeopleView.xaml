@@ -17,7 +17,7 @@
                                   views:ThemesBehavior.StyleClass="TelerikTheme"
                                   Grid.Row="0"
                                   ViewMode="MultiDay"
-                                  BackgroundColor="White"
+                                  BackgroundColor="{AppThemeBinding Light=White, Dark=Default}"
                                   AppointmentsSource="{Binding Appointments}">
             <telerikInput:RadCalendar.Commands>
                 <telerikCalendar:CalendarUserCommand Id="AppointmentTap"
@@ -30,7 +30,7 @@
         </telerikInput:RadCalendar>
         <telerikPrimitives:RadBorder Grid.Row="1"
                                      BorderThickness="0,1,0,0"
-                                     BorderColor="#CCCCCC" />
+                                     BorderColor="{AppThemeBinding Light=#CCCCCC, Dark=#686869}" />
         <telerikDataControls:NonVirtualizedItemsControl Grid.Row="1"
                                                         SelectionMode="None"
                                                         Orientation="Horizontal"

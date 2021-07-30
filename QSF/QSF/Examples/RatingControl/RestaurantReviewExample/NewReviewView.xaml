@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerikControls="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.RatingControl.RestaurantReviewExample.NewReviewView">
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
         <Grid Margin="16">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -18,7 +18,7 @@
                     <Label FontSize="20"
                            HorizontalOptions="Start"
                            Text="Food"
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"
                            VerticalOptions="Center" />
                     <StackLayout HorizontalOptions="EndAndExpand">
                         <telerikControls:RadShapeRating HorizontalOptions="Center"
@@ -45,7 +45,7 @@
                     <Label FontSize="20"
                            HorizontalOptions="Start"
                            Text="Ambience"
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"
                            VerticalOptions="Center" />
                     <StackLayout HorizontalOptions="EndAndExpand">
                         <telerikControls:RadShapeRating HorizontalOptions="Center"
@@ -70,7 +70,7 @@
                     <Label FontSize="20"
                            HorizontalOptions="Start"
                            Text="Service"
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}"
                            VerticalOptions="Center" />
                     <StackLayout HorizontalOptions="EndAndExpand">
                         <telerikControls:RadShapeRating HorizontalOptions="Center"
@@ -83,7 +83,7 @@
                         <Label FontSize="10"
                                HorizontalOptions="Center"
                                Text="Tap a Star to Rate"
-                               TextColor="#97979C" />
+                               TextColor="{AppThemeBinding Light=#97979C, Dark=#99FFFFFF}" />
                     </StackLayout>
                 </StackLayout>
                 <BoxView HeightRequest="1"
@@ -92,15 +92,15 @@
             </StackLayout>
             <StackLayout Grid.Row="3">
                 <Entry Placeholder="Title"
-                       PlaceholderColor="#97979C"
-                       TextColor="Black"
+                       PlaceholderColor="{AppThemeBinding Light=#97979C, Dark=#99FFFFFF}"
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
                        Text="{Binding Title}" />
                 <BoxView HeightRequest="1"
                          HorizontalOptions="FillAndExpand"
                          Color="#D6D5D9" />
             </StackLayout>
             <Editor Grid.Row="4"
-                    TextColor="Black"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
                     Text="{Binding Review}" />
             <Grid Grid.Row="5">
                 <Label BackgroundColor="Transparent"

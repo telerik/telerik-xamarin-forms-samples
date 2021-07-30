@@ -21,7 +21,7 @@
                                          BorderColor="#DBDBDB">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Label Text="To:" 
-                           TextColor="Black" 
+                           TextColor="{AppThemeBinding Dark=Default, Light=Black}" 
                            VerticalTextAlignment="Center"
                            FontSize="Medium" />
                         <telerikInput:RadAutoCompleteView x:Name="recipientsAutoComplete"
@@ -49,7 +49,7 @@
                                          BorderColor="#DBDBDB">
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Subject:" 
-                           TextColor="Black" 
+                           TextColor="{AppThemeBinding Dark=Default, Light=Black}" 
                            VerticalTextAlignment="Center"
                            FontSize="Medium" />
                         <telerikInput:RadEntry HorizontalOptions="FillAndExpand" Text="RE: Pick your holiday">

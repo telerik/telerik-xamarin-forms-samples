@@ -24,11 +24,18 @@
             <Style x:Key="BorderStyle" TargetType="telerikPrimitives:RadBorder">
                 <Setter Property="BackgroundColor" Value="{Binding Author, Converter={StaticResource BackgroundColorConverter}}" />
             </Style>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
             <Style TargetType="telerikConversationalUI:IncomingTextMessageView" ApplyToDerivedTypes="True">
                 <Setter Property="BorderStyle" Value="{StaticResource BorderStyle}" />
+                <Setter Property="LabelStyle" Value="{StaticResource LabelStyle}" />
             </Style>
             <Style TargetType="telerikConversationalUI:OutgoingTextMessageView" ApplyToDerivedTypes="True">
                 <Setter Property="BorderStyle" Value="{StaticResource BorderStyle}" />
+                <Setter Property="LabelStyle" Value="{StaticResource LabelStyle}" />
             </Style>
         </ResourceDictionary>
     </VisualElement.Resources>
@@ -43,11 +50,11 @@
                                      ItemConverter="{StaticResource ChatroomMessageConverter}"
                                      ItemsSource="{Binding Items}"
                                      SendMessageCommand="{Binding SendMessageCommand}"
-                                     BackgroundColor="#FFE8EEEA">
+                                     BackgroundColor="{AppThemeBinding Light=#FFE8EEEA, Dark=#FF121212}">
         <telerikConversationalUI:RadChat.TypingIndicator>
             <telerikConversationalUI:TypingIndicator ItemConverter="{StaticResource ChatroomParticipantConverter}" 
                                                      ItemsSource="{Binding TypingParticipants}"
-                                                     DotsColor="#FF415844" />
+                                                     DotsColor="{AppThemeBinding Light=#FF415844, Dark=#FFA2A2A2}" />
         </telerikConversationalUI:RadChat.TypingIndicator>
     </telerikConversationalUI:RadChat>
 </ContentView>

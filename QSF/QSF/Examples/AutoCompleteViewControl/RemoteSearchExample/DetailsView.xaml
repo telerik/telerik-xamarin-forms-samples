@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="QSF.Examples.AutoCompleteViewControl.RemoteSearchExample.DetailsView">
-    <Grid BackgroundColor="White" Margin="16, 20, 16, 0">
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=Default}" Margin="16, 20, 16, 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,18 +22,18 @@
             </telerikPrimitives:RadBorder>
             <StackLayout>
                 <Label Text="{Binding SelectedMovie.Title}"
-                       TextColor="#4B4C4C" 
+                       TextColor="{AppThemeBinding Light=#4B4C4C, Dark=Default}" 
                        FontAttributes="Bold"
                        FontSize="20"/>
                 <Label Text="{Binding SelectedMovie.Actors}"
-                       TextColor="#707070"
+                       TextColor="{AppThemeBinding Light=#707070, Dark=Default}"
                        FontSize="18"/>
             </StackLayout>
         </StackLayout>
         <Label Grid.Row="1" 
                Margin="5, 10, 0, 0"
                Text="{Binding SelectedMovie.Description}" 
-               TextColor="#4B4C4C"
+               TextColor="{AppThemeBinding Light=#4B4C4C, Dark=Default}"
                FontSize="16"/>
     </Grid>
 </ContentView>

@@ -1,8 +1,8 @@
 ﻿using System;
+using Android.Graphics.Drawables;
 using QSF.Droid.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using Android.Graphics.Drawables;
 
 [assembly: ResolutionGroupName("TelerikQSF")]
 [assembly: ExportEffect(typeof(BorderEffect), nameof(BorderEffect))]
@@ -15,9 +15,13 @@ namespace QSF.Droid.Effects
             try
             {
                 var border = new GradientDrawable();
-                var darkBackgroundColor = ((Color)App.Current.Resources["DarkBackgroundColor"]).ToAndroid();
+                var isDarkThemeApplied = Application.Current.RequestedTheme == OSAppTheme.Dark;
+                var darkBackgroundColor = isDarkThemeApplied
+                    ? ((Color)App.Current.Resources["DarkBackgroundColorDark"]).ToAndroid()
+                    : ((Color)App.Current.Resources["DarkBackgroundColorLight"]).ToAndroid();
                 border.SetStroke((int)this.Control.Context.ToPixels(5), Color.Transparent.ToAndroid());
                 border.SetCornerRadius(this.Control.Context.ToPixels((float)5));
+
                 border.SetColor(darkBackgroundColor);
                 this.Control.Background = border;
 

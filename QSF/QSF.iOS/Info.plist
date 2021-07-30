@@ -27,6 +27,7 @@
 		<string>Fonts/SF-Pro-Text-MediumItalic.otf</string>
 		<string>Fonts/SF-Pro-Text-Regular.otf</string>
 		<string>Fonts/SF-Pro-Text-RegularItalic.otf</string>
+		<string>Fonts/telerikqsficonsfont.ttf</string>
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
@@ -61,7 +62,7 @@
 	<key>CustomProperty</key>
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 </dict>

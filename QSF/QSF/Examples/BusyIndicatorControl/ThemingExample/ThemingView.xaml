@@ -4,7 +4,7 @@
                        xmlns:views="clr-namespace:QSF.Views"
                        xmlns:controls="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
                        x:Class="QSF.Examples.BusyIndicatorControl.ThemingExample.ThemingView">
-    <Grid Margin="16,0" BackgroundColor="White">
+    <Grid Margin="16,0" BackgroundColor="{AppThemeBinding Light=White, Dark=Default}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>

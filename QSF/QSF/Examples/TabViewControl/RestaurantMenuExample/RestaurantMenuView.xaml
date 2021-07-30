@@ -9,8 +9,7 @@
         <ResourceDictionary MergedWith="local:Resources" />
     </ContentView.Resources>
     <Grid>
-        <telerikPrimitives:RadTabView BackgroundColor="{StaticResource lightGray}"
-                                      HeaderPosition="Bottom">
+        <telerikPrimitives:RadTabView HeaderPosition="Bottom" IsContentSwipingEnabled="False">
             <telerikPrimitives:RadTabView.Items>
                 <telerikPrimitives:TabViewItem BindingContext="{Binding Explore}"
                                                IsSelected="{Binding IsSelected, Mode=OneWayToSource}">
@@ -19,7 +18,7 @@
                                                              ControlTemplate="{StaticResource iconControlTemplate}" />
                     </telerikPrimitives:TabViewItem.Header>
                     <telerikPrimitives:TabViewItem.Content>
-                        <Grid BackgroundColor="White">
+                        <Grid BackgroundColor="{AppThemeBinding Dark=Default, Light=White}">
                             <local:RestaurantExploreTabView Margin="0, 15, 0, 0" />
                             <BoxView HeightRequest="1"
                                      VerticalOptions="End"
@@ -34,7 +33,7 @@
                                                              ControlTemplate="{StaticResource iconControlTemplate}" />
                     </telerikPrimitives:TabViewItem.Header>
                     <telerikPrimitives:TabViewItem.Content>
-                        <Grid BackgroundColor="White">
+                        <Grid BackgroundColor="{AppThemeBinding Dark=Default, Light=White}">
                             <local:RestaurantExploreItemsView BindingContext="{Binding Items}" />
                             <BoxView HeightRequest="1"
                                      VerticalOptions="End"
@@ -49,7 +48,7 @@
                                                              ControlTemplate="{StaticResource iconControlTemplate}" />
                     </telerikPrimitives:TabViewItem.Header>
                     <telerikPrimitives:TabViewItem.Content>
-                        <Grid BackgroundColor="White">
+                        <Grid BackgroundColor="{AppThemeBinding Dark=Default, Light=White}">
                             <local:RestaurantExploreItemsView BindingContext="{Binding Items}" />
                             <BoxView HeightRequest="1"
                                      VerticalOptions="End"

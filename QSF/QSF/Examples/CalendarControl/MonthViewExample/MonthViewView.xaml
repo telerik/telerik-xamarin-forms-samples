@@ -37,7 +37,7 @@
                               DrawerTransitionType="SlideInOnTop"
                               IsOpen="{Binding IsDrawerOpen, Mode=TwoWay}">
         <primitives:RadSideDrawer.MainContent>
-            <Grid BackgroundColor="#F7F7F7">
+            <Grid BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=Default}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5*" />
                     <RowDefinition Height="3*" />
@@ -65,7 +65,7 @@
                         <DataTemplate>
                             <Grid Padding="16, 12, 0, 3">
                                 <Label Text="{Binding Key, StringFormat='{}{0:dddd, MMMM d}'}"
-                               TextColor="Black"
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                HorizontalOptions="Start"
                                VerticalOptions="Center"
                                FontFamily="{StaticResource RegularFont}">
@@ -111,18 +111,18 @@
 
                                             <Grid BackgroundColor="{Binding LeadBorderColor}" />
                                             <Grid Grid.Column="1"
-                        BackgroundColor="{Binding ItemBackgroundColor}"
-                        Padding="8,12,12,12">
+                                                  BackgroundColor="{Binding ItemBackgroundColor}"
+                                                  Padding="8,12,12,12">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />
                                                     <ColumnDefinition Width="Auto" />
                                                 </Grid.ColumnDefinitions>
 
                                                 <Label Text="{Binding Title}"
-                           TextColor="Black"
-                           HorizontalOptions="Start"
-                           VerticalOptions="Center"
-                           FontFamily="{StaticResource MediumFont}">
+                                                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                                       HorizontalOptions="Start"
+                                                       VerticalOptions="Center"
+                                                       FontFamily="{StaticResource MediumFont}">
                                                     <Label.FontSize>
                                                         <OnPlatform x:TypeArguments="x:Double">
                                                             <On Platform="Android, UWP">12</On>
@@ -132,18 +132,18 @@
                                                 </Label>
 
                                                 <Label IsVisible="{Binding IsAllDay}"
-                           Text="{Binding AllDayString}"
-                           TextColor="Black"
-                           Grid.Column="1"
-                           HorizontalOptions="Start"
-                           VerticalOptions="Center" />
+                                                       Text="{Binding AllDayString}"
+                                                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                                                       Grid.Column="1"
+                                                       HorizontalOptions="Start"
+                                                       VerticalOptions="Center" />
 
                                                 <StackLayout Grid.Column="1"
-                                 IsVisible="{Binding IsAllDay, Converter={StaticResource invertedBooleanConverter}}"
-                                 StackLayout.Spacing="0"
-                                 VerticalOptions="Center">
-                                                    <Label Text="{Binding StartTimeString}" TextColor="#737373" HorizontalOptions="End"
-                             FontFamily="{StaticResource MediumFont}">
+                                                             IsVisible="{Binding IsAllDay, Converter={StaticResource invertedBooleanConverter}}"
+                                                             StackLayout.Spacing="0"
+                                                             VerticalOptions="Center">
+                                                    <Label Text="{Binding StartTimeString}" TextColor="{AppThemeBinding Light=#737373, Dark=Default}" HorizontalOptions="End"
+                                                           FontFamily="{StaticResource MediumFont}">
                                                         <Label.FontSize>
                                                             <OnPlatform x:TypeArguments="x:Double">
                                                                 <On Platform="Android">10</On>
@@ -151,8 +151,8 @@
                                                             </OnPlatform>
                                                         </Label.FontSize>
                                                     </Label>
-                                                    <Label Text="{Binding EndTimeString}" TextColor="#737373" HorizontalOptions="End"
-                             FontFamily="{StaticResource MediumFont}">
+                                                    <Label Text="{Binding EndTimeString}" TextColor="{AppThemeBinding Light=#737373, Dark=Default}" HorizontalOptions="End"
+                                                           FontFamily="{StaticResource MediumFont}">
                                                         <Label.FontSize>
                                                             <OnPlatform x:TypeArguments="x:Double">
                                                                 <On Platform="Android">10</On>
@@ -189,7 +189,7 @@
             </Grid>
         </primitives:RadSideDrawer.MainContent>
         <primitives:RadSideDrawer.DrawerContent>
-            <StackLayout BackgroundColor="#EEEEEE">
+            <StackLayout BackgroundColor="{AppThemeBinding Light=#EEEEEE, Dark=#121212}">
                 <primitives:RadBorder HeightRequest="121" 
                                       BackgroundColor="#3FA9AC">
                     <Label Text="Calendar Selection Modes"
@@ -227,11 +227,11 @@
                         <DataTemplate>
                             <StackLayout Style="{StaticResource NonVirtualizedPanelStyle}">
                                 <Label Text="{Binding Text}"
-                                       TextColor="Black"
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                        Style="{StaticResource IconLabelStyle}"/>
 
                                 <Label Text="{Binding CalendarSelectionMode}"
-                                       TextColor="Black"
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                        Style="{StaticResource TextLabelStyle}">
                                 </Label>
                             </StackLayout>

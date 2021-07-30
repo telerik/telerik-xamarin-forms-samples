@@ -22,7 +22,7 @@ namespace QSF.Examples.DateTimePickerControl.DateModeExample
             this.Text.Spans.Add(new Span()
             {
                 Text = this.name,
-                TextColor = Color.Black
+                TextColor = Application.Current.UserAppTheme == OSAppTheme.Light ? Color.Black : Color.White,
             });
             this.IndicatorColor = indicatorColor;
         }

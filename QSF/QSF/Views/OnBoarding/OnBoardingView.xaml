@@ -10,7 +10,7 @@
     <ContentView.BindingContext>
         <viewModels:OnBoardingViewModel />
     </ContentView.BindingContext>
-    <Grid BackgroundColor="{StaticResource Key=LightBackgroundColor}">
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -22,7 +22,7 @@
                          IsMiddleButtonVisible="False"
                          IsLeftButtonVisible="False"
                          IsRightButtonVisible="False" />
-        
+
         <Grid Margin="50, 35, 50, 50" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -36,7 +36,7 @@
                 <telerikPrimitives:RadSlideView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Label Text="{Binding Path=Title}" Margin="0, 0, 0, 30" HorizontalOptions="Center" TextColor="{StaticResource Key=TextColor}"
+                            <Label Text="{Binding Path=Title}" Margin="0, 0, 0, 30" HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource TextColorLight}, Dark={StaticResource TextColorDark}}"
                                    HorizontalTextAlignment="Center" FontFamily="{StaticResource Key=MediumFont}" FontSize="20"/>
 
                             <ffimageloading:CachedImage IsVisible="{Binding Path=HasIcon}" Source="{Binding Path=Icon, Converter={StaticResource Key=ImageSourceConverter}}" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" />
@@ -49,7 +49,9 @@
             </telerikPrimitives:RadSlideView>
 
             <telerikInput:RadButton Text="Get Started" Grid.Row="3" HeightRequest="50" Margin="20, 0" BorderRadius="25"
-                                    BackgroundColor="{StaticResource Key=AccentColor}" TextColor="{StaticResource Key=LightTextColor}" Clicked="OnCloseClicked"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource AccentColorLight}, Dark={StaticResource AccentColorDark}}"
+                                    TextColor="{AppThemeBinding Light=White, Dark=#121212}"
+                                    Clicked="OnCloseClicked"
                                     AutomationId="GettingStartedButton"/>
         </Grid>
     </Grid>

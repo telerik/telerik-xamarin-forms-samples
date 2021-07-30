@@ -2,13 +2,11 @@
 <views:ExamplesViewBase xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:QSF.Views"
-             xmlns:controls="clr-namespace:QSF.Controls"
              xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikCommands="clr-namespace:Telerik.XamarinForms.DataControls.ListView.Commands;assembly=Telerik.XamarinForms.DataControls"
-             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Name="page"
-             BackgroundColor="{StaticResource Key=DarkBackgroundColor}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}"
              x:Class="QSF.Views.ControlExamplesView">
 
     <telerikDataControls:RadListView x:Name="examplesList" ItemsSource="{Binding Path=Examples}" SelectedItem="{Binding Path=SelectedExample, Mode=TwoWay}"
@@ -108,17 +106,7 @@
             <DataTemplate>
                 <telerikListView:ListViewTemplateCell>
                     <telerikListView:ListViewTemplateCell.View>
-                        <StackLayout BackgroundColor="{StaticResource Key=LightBackgroundColor}" Padding="10, 10, 10, 10">
-                            <Grid BackgroundColor="{StaticResource Key=DarkBackgroundColor}" HeightRequest="160">
-                                <ffimageloading:CachedImage Source="{Binding Path=Image, Converter={StaticResource ImageSourceConverter}}" Aspect="AspectFit"
-                                       WidthRequest="160" HeightRequest="160" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            </Grid>
-
-                            <Label Text="{Binding Path=Name}" Style="{StaticResource Key=ControlExampleNameLabelStyle}" Margin="0, 5, 0, 0"/>
-
-                            <Label Text="NEW" IsVisible="{Binding Path=IsNew}" Style="{StaticResource TagLabelStyle}"/>
-                            <Label Text="UPDATED" IsVisible="{Binding Path=IsUpdated}" Style="{StaticResource TagLabelStyle}"/>
-                        </StackLayout>
+                        <views:ControlExamplesItemView/>
                     </telerikListView:ListViewTemplateCell.View>
                 </telerikListView:ListViewTemplateCell>
             </DataTemplate>

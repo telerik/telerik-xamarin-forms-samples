@@ -25,7 +25,7 @@
             </Style>
 
             <Style x:Key="checkBoxLabel" TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=Default, Light=Black}" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
             </Style>
             
@@ -33,7 +33,7 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Margin" Value="0, 0, 0, 15" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=Default, Light=Black}" />
                 <Setter Property="FontSize" Value="Small" />
             </Style>
  
@@ -61,7 +61,7 @@
     <ContentView.Content>
         <ScrollView>
             <StackLayout>
-                <Grid BackgroundColor="#F0F0F0" 
+                <Grid BackgroundColor="{AppThemeBinding Dark=Black, Light=#F0F0F0}" 
                       HeightRequest="135"
                       Margin="0, 0, 0, 15"
                       >
@@ -78,7 +78,7 @@
                         <Label Text="File:"
                                FontAttributes="Bold" 
                                FontSize="Small" 
-                               TextColor="Black"
+                               TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                                />
                         <Label Text="SampleDocument.docx" FontSize="Small"/>
                     </StackLayout>

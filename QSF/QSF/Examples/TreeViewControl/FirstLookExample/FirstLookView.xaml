@@ -20,7 +20,7 @@
         <Grid Grid.Row="0"
               Padding="20,0"
               ColumnSpacing="10"
-              BackgroundColor="#F2F2F2">
+              BackgroundColor="{AppThemeBinding Dark=Default, Light=#F2F2F2}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
@@ -33,7 +33,7 @@
                          VerticalOptions="Center">
                 <Label FontSize="20"
                        FontAttributes="Bold"
-                       TextColor="#494949"
+                       TextColor="{AppThemeBinding Dark=Default, Light=#494949}"
                        Text="{Binding Account.Name}" />
                 <Label FontSize="14"
                        TextColor="#AAAAAA"
@@ -69,7 +69,7 @@
                             <Label Grid.Column="1"
                                    VerticalOptions="Center"
                                    FontSize="14"
-                                   TextColor="Black"
+                                   TextColor="{AppThemeBinding Dark=Default, Light=Black}"
                                    Text="{Binding Item.Name}" />
                             <telerikInput:RadButton Grid.Column="2"
                                                     BorderWidth="0"

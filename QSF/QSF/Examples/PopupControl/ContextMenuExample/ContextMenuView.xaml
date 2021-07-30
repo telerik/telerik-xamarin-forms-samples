@@ -261,7 +261,13 @@
                     </OnPlatform>
                 </Image.Source>
             </Image>
-            <Label Text="My Drive" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+            <Label Text="My Drive" 
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                   FontSize="20"
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Center" 
+                   VerticalOptions="Center"
+                   VerticalTextAlignment="Center" />
         </StackLayout>
         <telerikDataControls:RadTreeView Grid.Row="1" ItemsSource="{Binding Source}">
             <telerikDataControls:RadTreeView.Commands>

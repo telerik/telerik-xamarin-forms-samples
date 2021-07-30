@@ -4,7 +4,7 @@
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.RichTextEditorControl.ImportExportExample.FileSaveView">
-    <Grid BackgroundColor="White">
+    <Grid BackgroundColor="{AppThemeBinding Light=White, Dark=#121212}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
@@ -13,7 +13,7 @@
                      Spacing="24">
             <Label Text="Save As"
                    FontSize="18"
-                   TextColor="Black" />
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
             <Grid ColumnSpacing="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -41,8 +41,8 @@
         <telerikPrimitives:RadBusyIndicator IsVisible="{Binding IsBusy}"
                                             IsBusy="{Binding IsBusy}" />
         <telerikPrimitives:RadBorder Grid.Row="1"
-                                     BackgroundColor="WhiteSmoke"
-                                     BorderColor="LightGray"
+                                     BackgroundColor="{AppThemeBinding Light=WhiteSmoke, Dark=#373737}"
+                                     BorderColor="{AppThemeBinding Light=LightGray,Dark=#686869}"
                                      BorderThickness="0, 1, 0, 0">
             <Grid ColumnSpacing="8">
                 <Grid.ColumnDefinitions>

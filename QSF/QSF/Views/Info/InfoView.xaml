@@ -4,12 +4,12 @@
              xmlns:controls="clr-namespace:QSF.Controls"
              xmlns:converters="clr-namespace:QSF.Converters"
              x:Class="QSF.Views.InfoView"
-             BackgroundColor="{StaticResource Key=DarkBackgroundColor}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="TextColor">#4A4E52</Color>
-            <Color x:Key="DarkBackgroundColor">#F5F6F7</Color>
-            <Color x:Key="LightBackgroundColor">White</Color>
+            <Color x:Key="TextColorLight">#4A4E52</Color>
+            <Color x:Key="DarkBackgroundColorLight">#F5F6F7</Color>
+            <Color x:Key="LightBackgroundColorLight">White</Color>
             <converters:EnumToStringConverter x:Key="enumToStringConverter" />
             <converters:NullToBoolConverter x:Key="NullToBoolConverter"/>
             <converters:InvertedNullToBoolConverter x:Key="InvertedNullToBoolConverter"/>
@@ -29,7 +29,7 @@
                          LeftButtonCommand="{Binding Path=AppBarLeftButtonCommand}"
                          IsMiddleButtonVisible="False"
                          IsRightButtonVisible="False"/>
-        
+
         <ScrollView Grid.Row="1">
             <Grid RowSpacing="10" Padding="12, 0">
                 <Grid.RowDefinitions>
@@ -38,14 +38,14 @@
                 </Grid.RowDefinitions>
                 <Label Text="{Binding Path=Header}" Style="{StaticResource Key=HeaderLabelStyle}" AutomationId="HeaderLabel"/>
 
-                <Grid Grid.Row="1" Padding="32, 16" BackgroundColor="{StaticResource LightBackgroundColor}">
+                <Grid Grid.Row="1" Padding="32, 16" BackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Image Margin="-24, 24, 0, 24" Source="{Binding LogoImage, Converter={StaticResource ImageSourceConverter}}" HorizontalOptions="StartAndExpand" VerticalOptions="Start" IsVisible="{Binding LogoImage, Converter={StaticResource NullToBoolConverter}}"/>
                     <StackLayout Grid.Row="1" IsVisible="{Binding HyperlinkText, Converter={StaticResource NullToBoolConverter}}">
-                        <Label Style="{StaticResource Key=BodyLabelStyle}" Text="{Binding Path=HyperlinkText}" TextColor="{StaticResource HyperlinkTextColor}" HorizontalOptions="Start">
+                        <Label Style="{StaticResource Key=BodyLabelStyle}" Text="{Binding Path=HyperlinkText}" TextColor="{AppThemeBinding Light={StaticResource HyperlinkTextColorLight}, Dark={StaticResource HyperlinkTextColorDark}}" HorizontalOptions="Start">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding LinkTapped}" CommandParameter="https://www.telerik.com/xamarin-ui"/>
                             </Label.GestureRecognizers>

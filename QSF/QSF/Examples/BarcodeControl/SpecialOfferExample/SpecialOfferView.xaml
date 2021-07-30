@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:barcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
              xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
-             BackgroundColor="{StaticResource DarkBackgroundColor}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColorLight}, Dark={StaticResource DarkBackgroundColorDark}}"
              x:Class="QSF.Examples.BarcodeControl.SpecialOfferExample.SpecialOfferView">
     <ContentView.Resources>
         <ResourceDictionary>
@@ -57,7 +57,7 @@
                 <On Platform="UWP">20, 0</On>
             </OnPlatform>
         </ScrollView.Margin>
-        <primitives:RadBorder Margin="20" BackgroundColor="{StaticResource LightBackgroundColor}" CornerRadius="6">
+        <primitives:RadBorder Margin="20" BackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColorLight}, Dark={StaticResource LightBackgroundColorDark}}" CornerRadius="6">
             <Grid Grid.Row="2" Padding="20, 0" BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*" />

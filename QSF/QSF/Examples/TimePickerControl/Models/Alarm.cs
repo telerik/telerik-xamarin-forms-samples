@@ -18,7 +18,7 @@ namespace QSF.Examples.TimePickerControl.Models
             this.name = "Alarm";
             this.isEnabled = false;
             this.isCustomized = false;
-            this.pickerTextColor = Color.Black;
+            this.pickerTextColor = Application.Current.UserAppTheme == OSAppTheme.Light ? Color.Black : Color.Gray;
             this.nameTextColor = Color.FromHex("#6A6A6A");
             this.AccentColor = Color.FromHex("#B73562");
             this.SwitchColor = Color.FromHex("#66008265");
@@ -150,7 +150,7 @@ namespace QSF.Examples.TimePickerControl.Models
             }
             else
             {
-                this.PickerTextColor = Color.Black;
+                this.PickerTextColor = Application.Current.UserAppTheme == OSAppTheme.Light ? Color.Black : Color.Gray;
                 this.NameTextColor = Color.FromHex("#6A6A6A");
             }
         }

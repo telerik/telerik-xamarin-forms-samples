@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using QSF.Examples.TemplatedPickerControl.Models;
 using QSF.Services.Toast;
 using Telerik.XamarinForms.Common;
@@ -557,8 +558,8 @@ namespace QSF.Examples.TemplatedPickerControl.CustomizationExample
 
         private void OnExecuteDestinationCancelCommand()
         {
-            this.HighlightedDestinationCity = this.DestinationCity;
-            this.HighlightedDestinationCountry = this.DestinationCountry;
+            this.HighlightedDestinationCountry = this.DestinationCountry ?? this.Countries.FirstOrDefault();
+            this.HighlightedDestinationCity = this.DestinationCity ?? this.HighlightedDestinationCountry?.Cities.FirstOrDefault();
         }
 
         private void OnExecuteDestinationAcceptCommand()
@@ -569,8 +570,8 @@ namespace QSF.Examples.TemplatedPickerControl.CustomizationExample
 
         private void OnExecuteOriginCancelCommand()
         {
-            this.HighlightedFromCity = this.FromCity;
-            this.HighlightedFromCountry = this.FromCountry;
+            this.HighlightedFromCountry = this.FromCountry ?? this.Countries.FirstOrDefault();
+            this.HighlightedFromCity = this.FromCity ?? this.HighlightedFromCountry?.Cities.FirstOrDefault();
         }
 
         private void OnExecuteOriginAcceptCommand()
