@@ -93,7 +93,7 @@ To download the finished application, use the following links.
 * [Telerik To-Do on Windows Store](https://www.microsoft.com/store/apps/9NS4DBCSDZH6)
 
 ## How to build the solutions
-In order to build the solutions you will need an active trial of [Telerik UI for Xamarin](https://www.telerik.com/xamarin-ui). Once you get it, simply open the solution and add the Telerik Nuget server as described in [this article](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server). 
+In order to build the solutions you will need to install Telerik UI for Xamarin - you can get a [free trial here](https://www.telerik.com/xamarin-ui) or if you have a license, [download it from your Telerik account](https://www.telerik.com/account/my-downloads). After instalation, simply open the solution and add the Telerik Nuget server as described in [this article](https://docs.telerik.com/devtools/xamarin/installation-and-deployment/telerik-nuget-server). The add the Telerik.UI.for.Xamarin nuget package (or Telerik.UI.for.Xamarin.Trial when using trial version) to each of the projects and run the desired one. 
 
 If you already have dev version of Telerik UI for Xamarin, you can change the referenced trial nuget package to the dev one. Simply Uninstall **Telerik.UI.For.Xamarin.Trial** and install **Telerik.UI.For.Xamarin** from the Telerik Nuget Server. 
 
