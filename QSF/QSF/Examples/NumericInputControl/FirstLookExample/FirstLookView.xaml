@@ -254,7 +254,7 @@
                     <Label Text="Activity (sports per week):" 
                            TextColor="{AppThemeBinding Light={StaticResource SubTitleTextColorLight}, Dark={StaticResource SubTitleTextColorDark}}" />
 
-                    <telerikInput:RadNumericInput AutomationId="ActivityNumeric" Margin="0, 10, 0, 0" Minimum="0" Maximum="7" IsReadOnly="True" Value="{Binding Activity, Mode=TwoWay}">
+                    <telerikInput:RadNumericInput AutomationId="ActivityNumeric" Margin="0, 10, 0, 0" Minimum="0" Maximum="10" IsReadOnly="True" Value="{Binding Activity, Mode=TwoWay}">
                         <telerikInput:RadNumericInput.ControlTemplate>
                             <ControlTemplate>
 
