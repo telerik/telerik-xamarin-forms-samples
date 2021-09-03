@@ -92,8 +92,9 @@ namespace tagit.ViewModels
 
                     Application.Current.Resources.MergedDictionaries.Add(this.theme);
 
-                    Application.Current.Resources["AppTextColor"] =
-                        (Color) Application.Current.Resources["AppLightColor"];
+                    Application.Current.Resources["AppTextColor"] = isDarkEnabled
+                            ? (Color)Application.Current.Resources["AppLightColor"]
+                            : (Color)Application.Current.Resources["AppDarkColor"];
 
                     App.ViewModel.Upload.UploadImageSource = isDarkEnabled
                         ? ImageSource.FromResource(UiConstants.UploadImageDarkFileName)
