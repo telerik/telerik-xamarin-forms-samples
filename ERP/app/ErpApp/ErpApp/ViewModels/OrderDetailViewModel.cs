@@ -291,7 +291,7 @@ namespace ErpApp.ViewModels
             await this.erpService.RemoveOrderAsync(this.Order);
             if (Device.Idiom == TargetIdiom.Phone)
             {
-                await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxPopPresentationHint(typeof(OrderListViewModel)));
+                await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxRemovePresentationHint(typeof(OrderDetailViewModel)));
             }
         }
 

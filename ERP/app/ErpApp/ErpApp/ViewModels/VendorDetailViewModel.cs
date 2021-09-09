@@ -165,7 +165,7 @@ namespace ErpApp.ViewModels
             await this.erpService.RemoveVendorAsync(this.targetVendor);
             if (Device.Idiom == TargetIdiom.Phone)
             {
-                await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxPopPresentationHint(typeof(VendorsViewModel)));
+                await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxRemovePresentationHint(typeof(VendorDetailViewModel)));
             }
         }
 

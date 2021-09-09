@@ -183,7 +183,7 @@ namespace ErpApp.ViewModels
             await this.erpService.RemoveProductAsync(this.targetProduct);
             if (Device.Idiom == TargetIdiom.Phone)
             {
-                await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxPopPresentationHint(typeof(ProductsViewModel)));
+                await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxRemovePresentationHint(typeof(ProductDetailViewModel)));
             }
         }
 
