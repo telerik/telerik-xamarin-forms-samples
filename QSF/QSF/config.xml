@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R2 2021</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R3 2021</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png ; TelerikXamarin_Logo_DarkMode.png</QSFAboutImageName>
@@ -184,8 +184,8 @@
       <ShortDescription>Badges can be used for an additional marker for any element.</ShortDescription>
       <FullDescription>Telerik BadgeView for Xamarin allows you to display badges in your application. To decorate avatars, navigation menus, or other components in the application when the visual notification is needed.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/badgeview/badgeview-overview</DocumentationURL>
-      <Featured>1100</Featured>
-      <IsNew>true</IsNew>
+      <Featured>1400</Featured>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -193,7 +193,7 @@
       <Examples>
         <Example>
           <Name>FirstLook</Name>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <Icon>
             <Text>&#xe851;</Text>
             <LightColor>#42A5F5</LightColor>
@@ -206,7 +206,7 @@
         </Example>
         <Example>
           <Name>Integration</Name>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <Icon>
             <Text>&#xe854;</Text>
             <LightColor>#56AF51</LightColor>
@@ -219,7 +219,7 @@
         </Example>
         <Example>
           <Name>Customization</Name>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <Icon>
             <Text>&#xe814;</Text>
             <LightColor>#F85446</LightColor>
@@ -232,7 +232,7 @@
         </Example>
         <Example>
           <Name>Configuration</Name>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <Icon>
             <Text>&#xe812;</Text>
             <LightColor>#FFAC3E</LightColor>
@@ -257,6 +257,7 @@
       <FullDescription>Telerik RadBarcode for Xamarin is a control used for creating and showing barcodes. You can generate and visualize barcodes in a machine-readable format via the RadBarcode control by providing numeric or character data.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/barcode/barcode-overview</DocumentationURL>
       <IsNew>false</IsNew>
+      <Featured>1300</Featured>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>true</IsUpdated>
@@ -320,7 +321,7 @@
             <LightColor>#42A5F5</LightColor>
             <DarkColor>#42A5F5</DarkColor>
           </Icon>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <DescriptionHeader>1D Barcode Gallery</DescriptionHeader>
           <Description>This example demonstrates all the linear (1D) barcodes the RadBarcode could generate including the most popular ones such as EAN13, EAN8, UPC-A, UPC-E and Code39.</Description>
           <IsScenario>false</IsScenario>
@@ -337,8 +338,22 @@
           <DescriptionHeader>Swiss QR Code</DescriptionHeader>
           <Description>With RadBarcode you could generate a SwissQRCode, which contains all the information needed for an automatic and efficient payment.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BarcodeControl/SwissQRCodeExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>DataMatrix</Name>
+          <DisplayName>DataMatrix Barcode</DisplayName>
+          <Icon>
+            <Text>&#xe856;</Text>
+            <LightColor>#F85446</LightColor>
+            <DarkColor>#FF7043</DarkColor>
+          </Icon>
+          <DescriptionHeader>DataMatrix Barcode</DescriptionHeader>
+          <Description>Data Matrix barcode is a two-dimensional type of code used widely in industry for marking small parts and items due to its high data density and reliability.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/BarcodeControl/DataMatrixExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -468,7 +483,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -481,7 +496,7 @@
           <DescriptionHeader>Recipes</DescriptionHeader>
           <Description>An example demonstrating the Button.</Description>
           <IsScenario>false</IsScenario>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ButtonControl/RecipesExample</CodeURL>
         </Example>
       </Examples>
@@ -498,11 +513,11 @@
       <ShortDescription>Helps you easily implement various calendar and scheduling scenarios in your app.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Calendar allows you to easily implement various calendar scenarios in your apps built with Xamarin or Xamarin.Forms. The control capitalizes on all the innate benefits of the native UI but exposes all objects and properties in C#, allowing for no-compromise customization and flexibility. It supports various view modes (year, month, week and more), selection, appointments, styling customizations.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/calendar/calendar-overview</DocumentationURL>
-      <Featured>1500</Featured>
+      <Featured>1200</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
           <Name>Scheduling</Name>
@@ -541,6 +556,7 @@
             <LightColor>#FFAC3E</LightColor>
             <DarkColor>#FFA726</DarkColor>
           </Icon>
+          <IsUpdated>true</IsUpdated>
           <DescriptionHeader>Day View</DescriptionHeader>
           <Description>Day view mode of RadCalendar with all day area, configurable time ruler and API allowing you to schedule appointments and achieve your scheduling functionality.</Description>
           <IsScenario>false</IsScenario>
@@ -814,7 +830,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -919,19 +935,6 @@
           <Description>This example demonstrates a possible implementation of the RadChat control for a travel agency by integrating it with the Microsoft Bot Framework via Azure Bot Service.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/TravelAssistanceExample</CodeURL>
-        </Example>
-        <Example>
-          <Name>InsuranceAssistance</Name>
-          <DisplayName>Insurance Assistance</DisplayName>
-          <Icon>
-            <Text>&#xe813;</Text>
-            <LightColor>#F85446</LightColor>
-            <DarkColor>#FF7043</DarkColor>
-          </Icon>
-          <DescriptionHeader>Insurance Assistance</DescriptionHeader>
-          <Description>This example demonstrates a possible implementation of the RadChat control for a car insurance company by integrating it with Google’s DialogFlow framework.</Description>
-          <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/InsuranceAssistanceExample</CodeURL>
         </Example>
         <Example>
           <Name>HealthCareAssistance</Name>
@@ -1119,7 +1122,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1147,7 +1150,7 @@
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
           <IsThemable>false</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DatePickerControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
@@ -1303,7 +1306,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1316,7 +1319,7 @@
           <Description>Demonstrates how you could utilize the key features of RadEntry such as watermark support and border styling to achieve slick design across all platforms.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/EntryControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
@@ -1596,7 +1599,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>Selection</Name>
@@ -1609,7 +1612,7 @@
           <Description>The ListView selection feature allows the end-user to select one or multiple items. The items can also be swiped left or right which reveals actionable buttons which the end-user can tap to execute some tasks.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListViewControl/SelectionExample</CodeURL>
         </Example>
         <Example>
@@ -1636,7 +1639,7 @@
           <Description>Demonstrates how the end-user can reorder items by a drag and drop operation.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListViewControl/ReorderExample</CodeURL>
         </Example>
         <Example>
@@ -1867,7 +1870,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1891,7 +1894,7 @@
           <DescriptionHeader>Customization</DescriptionHeader>
           <Description>This example demonstrates how the look &amp; feel of the PdfViewer selection and toolbar can be easily customized by changing their color, alignment and items position.</Description>
           <IsThemable>false</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ListPickerControl/CustomizationExample</CodeURL>
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
@@ -2024,7 +2027,7 @@
       <ShortDescription>WYSIWYG control that can display and edit HTML content.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin RadRichTextEditor is a WYSIWYG control that can display and edit HTML content.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/richtexteditor/richtexteditor-overview</DocumentationURL>
-      <Featured>1300</Featured>
+      <Featured>1100</Featured>
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
@@ -2042,6 +2045,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <IsNew>false</IsNew>
+          <IsUpdated>true</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RichTextEditorControl/FirstLookExample</CodeURL>
         </Example>
         <Example>
@@ -2057,6 +2061,7 @@
           <IsScenario>false</IsScenario>
           <IsThemable>true</IsThemable>
           <IsNew>false</IsNew>
+          <IsUpdated>true</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RichTextEditorControl/ImportExportExample</CodeURL>
         </Example>
         <Example>
@@ -2070,9 +2075,24 @@
           <Description>This example demonstrates how to customize RadRichTextEditor, RadRichTextEditor's context menu and RadRichTextEditorToolbar. It showcases how to create custom RichTextEditorToolbarItems and setup the RadRichTextEditorToolbar in a different way than the default one. Furthermore, the example demonstrates how to style RadRichTextEditor toolbar using custom styles.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RichTextEditorControl/CustomizationExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>CustomImagePicker</Name>
+          <Icon>
+            <Text>&#xe855;</Text>
+            <LightColor>#56AF51</LightColor>
+            <DarkColor>#66BB6A</DarkColor>
+          </Icon>
+          <DescriptionHeader>Custom Image Picker</DescriptionHeader>
+          <Description>This example demonstrates the ability to add images using the ImagePickerToolbarItem. It showcases how to insert emojies to the html document.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsUpdated>false</IsUpdated>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/RichTextEditorControl/CustomImagePickerExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -2130,8 +2150,8 @@
       <ShortDescription>Creates highly customizable shadow effect around any UI you have.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin Shadow component gives you the option to put highly customizable shadow effect around any UI you have. With the help of RadShadow you can elevate some elements and thus achieve modern look &amp; feel for your app.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/shadow/shadow-overview</DocumentationURL>
-      <Featured>1200</Featured>
-      <IsNew>true</IsNew>
+      <Featured>1500</Featured>
+      <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -2144,7 +2164,7 @@
             <LightColor>#42A5F5</LightColor>
             <DarkColor>#42A5F5</DarkColor>
           </Icon>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <DescriptionHeader>First Look</DescriptionHeader>
           <Description>An example that demonstrates how to add a shadow around a list of items.</Description>
           <IsScenario>false</IsScenario>
@@ -2157,7 +2177,7 @@
             <LightColor>#56AF51</LightColor>
             <DarkColor>#66BB6A</DarkColor>
           </Icon>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <DescriptionHeader>Integration</DescriptionHeader>
           <Description>An example that demonstrates how to add a shadow around any Telerik UI for Xamarin control.</Description>
           <IsScenario>false</IsScenario>
@@ -2170,7 +2190,7 @@
             <LightColor>#FFAC3E</LightColor>
             <DarkColor>#FFA726</DarkColor>
           </Icon>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the Shadow provides.</Description>
           <IsScenario>false</IsScenario>

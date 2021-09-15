@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:barcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
+             xmlns:datamatrixexample="clr-namespace:QSF.Examples.BarcodeControl.DataMatrixExample"
+             x:DataType="datamatrixexample:DataMatrixViewModel"
+             x:Class="QSF.Examples.BarcodeControl.DataMatrixExample.DataMatrixView">
+
+    <ScrollView>
+        <Grid RowSpacing="0" RowDefinitions="Auto,220,*">
+            <primitives:RadBorder BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}">
+                <Label Text="Ultra Precision Syringe - 50 cc" 
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                       FontSize="22" 
+                       HorizontalTextAlignment="Center" 
+                       Margin="0,13"/>
+            </primitives:RadBorder>
+
+            <Grid BackgroundColor="White" 
+                  Grid.Row="1" 
+                  HorizontalOptions="Center" 
+                  VerticalOptions="Center">
+                <barcode:RadBarcode Margin="15"                                   
+                                    WidthRequest="180"
+                                    Value="{Binding Value}">
+                    <barcode:RadBarcode.Symbology>
+                        <barcode:DataMatrix />
+                    </barcode:RadBarcode.Symbology>
+                </barcode:RadBarcode>
+            </Grid>
+
+            <Grid Margin="16" Grid.Row="2" RowSpacing="15" RowDefinitions="Auto,1,Auto,Auto">
+                <StackLayout>
+                    <Label Text="{Binding GTN}"/>
+                    <Label Text="{Binding ProdDate}"/>
+                    <Label Text="{Binding SerialN}"/>
+                    <Label Text="{Binding Batch}"/>
+                </StackLayout>
+
+                <BoxView Color="{AppThemeBinding Light=#202223, Dark=#373737}" Grid.Row="1"/>
+
+                <StackLayout Grid.Row="2">
+                    <Label Text="Manufacturer:" FontAttributes="Bold"/>
+                    <Label Text="{Binding Manufacturer}"/>
+                    <Label Text="{Binding Address}"/>
+                    <Label Text="{Binding City}"/>
+                    <Label Text="{Binding PhoneNumber}"/>
+                    <Label Text="{Binding WebSite}"/>
+                </StackLayout>
+                
+                <StackLayout Grid.Row="3">
+                    <Label Text="This volume repeater syringe accurately delivers a preselected dose ranging from 1 to 5 ml. Chrome and metal construction."/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentView>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QSF.Examples.RichTextEditorControl.ImportExportExample.ImportExportView"
              xmlns:views="clr-namespace:QSF.Views"
+             xmlns:behaviors="clr-namespace:QSF.Behaviors"
              xmlns:example="clr-namespace:QSF.Examples.RichTextEditorControl"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor">
@@ -70,7 +71,11 @@
         </telerikRichTextEditor:RadRichTextEditorToolbar>
         <telerikRichTextEditor:RadRichTextEditor x:Name="richTextEditor"
                                                  Grid.Row="1"
-                                                 Source="{Binding HtmlText}" />
+                                                 Source="{Binding HtmlText}">
+            <telerikRichTextEditor:RadRichTextEditor.Behaviors>
+                <behaviors:PickImageBehavior />
+            </telerikRichTextEditor:RadRichTextEditor.Behaviors>
+        </telerikRichTextEditor:RadRichTextEditor>
         <telerikPrimitives:RadBusyIndicator Grid.Row="1"
                                             IsVisible="{Binding IsBusy}"
                                             IsBusy="{Binding IsBusy}" />

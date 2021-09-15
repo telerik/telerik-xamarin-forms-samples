@@ -43,6 +43,19 @@
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\JohnGrisham.docx" />
     <None Remove="Resources\banner.jpg" />
     <None Remove="Resources\ImageEditor\ProfilePicture\ProfilePicture.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_a_smile.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_b_love.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_c_loughing.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_d_wink.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_e_smile2.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_f_cool.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_g_sad.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_h_dissapointment.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_i_neutral.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_j_amazed.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_k_confused.png" />
+    <None Remove="Resources\RichTextEditor\Emojis\emoji_l_tongue_out.png" />
+    <None Remove="Resources\RichTextEditor\pick-image-demo.html" />
     <None Remove="Resources\RichTextEditor\RichTextEditor_Overview.docx" />
     <None Remove="Resources\RichTextEditor\RichTextEditor_Overview.html" />
     <None Remove="Resources\RichTextEditor\RichTextEditor_Overview.rtf" />
@@ -73,6 +86,19 @@
     <EmbeddedResource Include="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_j_amazed.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_k_confused.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_f_cool.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_h_dissapointment.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_c_loughing.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_b_love.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_i_neutral.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_g_sad.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_a_smile.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_e_smile2.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_l_tongue_out.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_d_wink.png" />
+    <EmbeddedResource Include="Resources\RichTextEditor\pick-image-demo.html" />
     <EmbeddedResource Include="Resources\RichTextEditor\RichTextEditorOverview.html" />
     <EmbeddedResource Include="Resources\RichTextEditor\PickYourHoliday.html" />
     <EmbeddedResource Include="Examples\SpreadProcessingControl\ConvertExample\SpreadProcessingDocument1.xlsx" />
@@ -374,9 +400,6 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Examples\ConversationalUIControl\HealthCareAssistanceExample\HealthCareAssistanceView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-    <None Update="Examples\ConversationalUIControl\InsuranceAssistanceExample\InsuranceAssistanceView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Examples\ConversationalUIControl\TravelAssistanceExample\TravelAssistanceView.xaml">

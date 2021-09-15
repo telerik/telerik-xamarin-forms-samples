@@ -129,6 +129,7 @@
             <x:String x:Key="PaintBucketIcon">&#xe880;</x:String>
             <x:String x:Key="NotesIcon">&#xE870;</x:String>
             <x:String x:Key="ReorderIcon">&#xE881;</x:String>
+            <x:String x:Key="EmojiIcon">&#xe900;</x:String>
             
             <OnPlatform x:TypeArguments="x:String" x:Key="IconsFont">
                 <On Platform="iOS">telerikfontexamples</On>

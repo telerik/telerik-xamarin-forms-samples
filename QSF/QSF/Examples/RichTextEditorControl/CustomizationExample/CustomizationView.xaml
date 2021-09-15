@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:QSF.Behaviors"
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:dataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
              xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor"
@@ -53,9 +54,13 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid>
-                <telerikRichTextEditor:RadRichTextEditor x:Name="richTextEditor" Source="{Binding Source}" 
+                <telerikRichTextEditor:RadRichTextEditor x:Name="richTextEditor"
+                                                         Source="{Binding Source}" 
                                                          IsReadOnly="{Binding IsReadonly}"
                                                          AutoGenerateContextMenu="False">
+                    <telerikRichTextEditor:RadRichTextEditor.Behaviors>
+                        <behaviors:PickImageBehavior />
+                    </telerikRichTextEditor:RadRichTextEditor.Behaviors>
                     <telerikRichTextEditor:RadRichTextEditor.ContextMenuItems>
                         <telerikRichTextEditor:OpenHyperlinkContextMenuItem />
                         <telerikRichTextEditor:CutContextMenuItem />

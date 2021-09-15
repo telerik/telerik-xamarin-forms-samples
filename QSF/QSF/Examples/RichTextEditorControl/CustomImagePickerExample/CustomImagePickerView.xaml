@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:behaviors="clr-namespace:QSF.Behaviors"
-             xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor"
-             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
-             mc:Ignorable="d"
-             x:Class="QSF.Examples.RichTextEditorControl.FirstLookExample.FirstLookView">
-    <ContentView.Content>
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikRichTextEditor="clr-namespace:Telerik.XamarinForms.RichTextEditor;assembly=Telerik.XamarinForms.RichTextEditor"
+             x:Class="QSF.Examples.RichTextEditorControl.CustomImagePickerExample.CustomImagePickerView">
+  <ContentView.Content>
         <StackLayout>
             <Grid Margin="16, 24, 16, 0"
                   VerticalOptions="FillAndExpand">
@@ -19,12 +15,12 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <telerikPrimitives:RadBorder BorderThickness="0, 0, 0, 1"
-                                         BorderColor="#DBDBDB">
+                                             BorderColor="#DBDBDB">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Label Text="To:" 
-                           TextColor="{AppThemeBinding Dark=Default, Light=Black}" 
-                           VerticalTextAlignment="Center"
-                           FontSize="Medium" />
+                               TextColor="{AppThemeBinding Dark=Default, Light=Black}" 
+                               VerticalTextAlignment="Center"
+                               FontSize="Medium" />
                         <telerikInput:RadAutoCompleteView x:Name="recipientsAutoComplete"
                                                           ItemsSource="{Binding RecipientsItemSource}"
                                                           CompletionMode="Contains"
@@ -50,10 +46,10 @@
                                          BorderColor="#DBDBDB">
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Subject:" 
-                           TextColor="{AppThemeBinding Dark=Default, Light=Black}" 
-                           VerticalTextAlignment="Center"
-                           FontSize="Medium" />
-                        <telerikInput:RadEntry HorizontalOptions="FillAndExpand" Text="RE: Pick your holiday">
+                               TextColor="{AppThemeBinding Dark=Default, Light=Black}" 
+                               VerticalTextAlignment="Center"
+                               FontSize="Medium" />
+                        <telerikInput:RadEntry HorizontalOptions="FillAndExpand" Text="RE: Feedback - All Team Building">
                             <telerikInput:RadEntry.BorderStyle>
                                 <telerikInput:BorderStyle BorderThickness="0" />
                             </telerikInput:RadEntry.BorderStyle>
@@ -62,14 +58,20 @@
                 </telerikPrimitives:RadBorder>
                 <telerikRichTextEditor:RadRichTextEditor Grid.Row="2"
                                                          x:Name="richTextEditor" 
-                                                         Source="{Binding Source}">
-                    <telerikRichTextEditor:RadRichTextEditor.Behaviors>
-                        <behaviors:PickImageBehavior />
-                    </telerikRichTextEditor:RadRichTextEditor.Behaviors>
-                </telerikRichTextEditor:RadRichTextEditor>
+                                                         Source="{Binding Source}"/>
             </Grid>
             <telerikRichTextEditor:RadRichTextEditorToolbar x:Name="richTextToolbar" 
-                                                            RichTextEditor="{x:Reference richTextEditor}" />
+                                                            AutoGenerateItems="False"
+                                                            RichTextEditor="{x:Reference richTextEditor}">
+                <telerikRichTextEditor:ImagePickerToolbarItem ItemsSource="{Binding EmojiSource}" 
+                                                              Text="{StaticResource EmojiIcon}" 
+                                                              FontFamily="{StaticResource IconsFont}"/>
+                <telerikRichTextEditor:FontFamilyToolbarItem />
+                <telerikRichTextEditor:FontSizeToolbarItem />
+                <telerikRichTextEditor:BoldToolbarItem />
+                <telerikRichTextEditor:ItalicToolbarItem/>
+                <telerikRichTextEditor:UnderlineToolbarItem />
+            </telerikRichTextEditor:RadRichTextEditorToolbar>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
