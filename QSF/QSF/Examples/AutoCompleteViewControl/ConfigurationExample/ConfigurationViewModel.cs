@@ -12,6 +12,7 @@ namespace QSF.Examples.AutoCompleteViewControl.ConfigurationExample
         private SuggestionsDisplayMode displayMode;
         private CompletionMode completionMode;
         private SuggestMode suggestMode;
+        private PopupPosition suggestionViewPosition;
         private double? thresholdValue;
         private string watermarkText = "Search City Names";
         private string formatterPropertyName;
@@ -119,6 +120,21 @@ namespace QSF.Examples.AutoCompleteViewControl.ConfigurationExample
                 if (this.suggestMode != value)
                 {
                     this.suggestMode = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+        public PopupPosition SuggestionViewPosition
+        {
+            get
+            {
+                return this.suggestionViewPosition;
+            }
+            set
+            {
+                if (this.suggestionViewPosition != value)
+                {
+                    this.suggestionViewPosition = value;
                     this.OnPropertyChanged();
                 }
             }
