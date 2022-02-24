@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.SpreadProcessingControl.ConditionalFormattingExample.ConditionalFormattingView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="mainConditionLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style x:Key="additioLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 0, 0, 18" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=#FFFFFF, Light=#919191}" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+
+            <Style TargetType="Picker" x:Key="CommonPickerStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=#FFFFFF, Light=#000000}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="CommonEntryStyle">
+                <Setter Property="Keyboard" Value="Numeric"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+            
+            <Style TargetType="telerikInput:RadButton">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="WidthRequest" Value="160" />
+                <Setter Property="TextTransform" Value="None"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="CornerRadius" Value="22"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto" 
+                  RowSpacing="24"
+                  Margin="0,24,0,0"
+                  Padding="62,10,62,0">
+                <StackLayout>
+                    <Label Text="&#34;Client&#34; column rule:" 
+                           Style="{StaticResource mainConditionLabelStyle}"/>
+                    <Label Text="Highlight clients that are" 
+                           Style="{StaticResource additioLabelStyle}"/>
+                    <Picker ItemsSource="{Binding ClientsRules}" 
+                            SelectedItem="{Binding SelectedClientsRule, Mode=TwoWay}"
+                            Style="{StaticResource CommonPickerStyle}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Label Text="&#34;Shipping&#34; column rule:" 
+                       Style="{StaticResource mainConditionLabelStyle}"/>
+                    <Label Text="Highlight shipment type" 
+                           Style="{StaticResource additioLabelStyle}"/>
+                    <Picker ItemsSource="{Binding ShippingTerms}" 
+                            SelectedItem="{Binding SelectedShippingTerm, Mode=TwoWay}" 
+                            Style="{StaticResource CommonPickerStyle}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2">
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="*,*"
+                          ColumnSpacing="9">
+                        <Label Text="&#34;Discount&#34; column rule:" 
+                               Style="{StaticResource mainConditionLabelStyle}" 
+                               Grid.ColumnSpan="2"/>
+                        <Label Text="Highlight discount range" 
+                               Grid.Row="1" 
+                               Style="{StaticResource additioLabelStyle}" 
+                               Grid.ColumnSpan="2"/>
+                        <Picker Grid.Row="2" Grid.Column="0" 
+                                Style="{StaticResource CommonPickerStyle}"
+                                ItemsSource="{Binding DiscountComparisonOperators}"
+                                SelectedItem="{Binding SelectedDiscountComparison, Mode=TwoWay}"/>
+                        <Entry Grid.Row="2"
+                               Grid.Column="1" 
+                               Text="{Binding DiscountThreshold}"
+                               Style="{StaticResource CommonEntryStyle}"/>
+                    </Grid>
+                </StackLayout>
+                <StackLayout Grid.Row="3">
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="*,*" 
+                          ColumnSpacing="9">
+                        <Label Text="&#34;TOTAL PRICE&#34; column rule:" 
+                               Style="{StaticResource mainConditionLabelStyle}" 
+                               Grid.ColumnSpan="2"/>
+                        <Label Text="Highlight prices that are in" Grid.Row="1" 
+                               Style="{StaticResource additioLabelStyle}" 
+                               Grid.ColumnSpan="2"/>
+                        <Picker Grid.Row="2" Grid.Column="0" 
+                                Style="{StaticResource CommonPickerStyle}"
+                                ItemsSource="{Binding PriceFilters}"
+                                SelectedItem="{Binding SelectedPriceFilter, Mode=TwoWay}"/>
+                        <Entry Grid.Row="2" 
+                               Grid.Column="1" 
+                               Style="{StaticResource CommonEntryStyle}"
+                               Text="{Binding PriceRank}"/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+        <telerikInput:RadButton BackgroundColor="#A1BF3D" 
+                                Grid.Row="1" 
+                                Text="View Document"
+                                TextColor="White"
+                                Margin="0,0,0,7"
+                                Command="{Binding ViewFormattedDocumentCommand}" 
+                                VerticalOptions="End" />
+    </Grid>
+</ContentView>

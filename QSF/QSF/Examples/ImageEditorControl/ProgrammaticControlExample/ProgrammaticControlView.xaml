@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikImageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikImageEditorCommands="clr-namespace:Telerik.XamarinForms.ImageEditor.Commands;assembly=Telerik.XamarinForms.ImageEditor"
+             x:Class="QSF.Examples.ImageEditorControl.ProgrammaticControlExample.ProgrammaticControlView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="CommonLabelStyle">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#707070, Dark=#FFFFFF}"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="telerikInput:RadButton" x:Key="CommandsButtonStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F7F7F7, Dark=#373737}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#727272, Dark=#FFFFFF}"/>
+                <Setter Property="HeightRequest" Value="44"/>
+                <Setter Property="WidthRequest" Value="44"/>
+                <Setter Property="CornerRadius" Value="21"/>
+                <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
+            </Style>
+            <Style TargetType="telerikInput:RadButton" x:Key="CropInteractButtons">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#FFFFFF, Dark=#000000}"/>
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=#727272, Dark=#FFFFFF}"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#707070, Dark=#FFFFFF}"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextTransform" Value="None"/>
+                <Setter Property="CornerRadius" Value="16"/>
+                <Setter Property="WidthRequest" Value="102"/>
+                <Setter Property="HeightRequest" Value="36"/>
+                <Setter Property="Padding" Value="10,5"/>
+            </Style>
+            <Style TargetType="Slider" x:Key="SliderStyle">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=Default}"/>
+                <Setter Property="WidthRequest" Value="160"/>
+                <Setter Property="HeightRequest" Value="30"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid RowDefinitions="Auto,Auto" BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#000000}">
+        <telerikImageEditor:RadImageEditor x:Name="imageEditor" Padding="15,0,15,0" Source="{Binding Image}">
+            <telerikImageEditor:RadImageEditor.HeightRequest>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>300</OnIdiom.Phone>
+                    <OnIdiom.Tablet>500</OnIdiom.Tablet>
+                    <OnIdiom.Desktop>500</OnIdiom.Desktop>
+                </OnIdiom>
+            </telerikImageEditor:RadImageEditor.HeightRequest>
+        </telerikImageEditor:RadImageEditor>
+        <ScrollView Grid.Row="1" VerticalOptions="End" Margin="0,30,0,13">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="End">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,10" Spacing="24">
+                    <telerikInput:RadButton Text="Cancel Crop" Command="{Binding CancelInteractiveCommand, Source={x:Reference imageEditor}}" Style="{StaticResource CropInteractButtons}"/>
+                    <telerikInput:RadButton Text="Apply Crop" Command="{Binding ApplyInteractiveCommand, Source={x:Reference imageEditor}}" Style="{StaticResource CropInteractButtons}"/>
+                </StackLayout>
+                <BoxView Grid.Row="1" HeightRequest="2" BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#373737}" Margin="0,10.5,0,9.5"/>
+                <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="Center" Spacing="24" Padding="15,0,15,0">
+                    <StackLayout>
+                        <telerikInput:RadButton Text="{StaticResource CropIcon}" Command="{Binding CropInteractiveCommand, Source={x:Reference imageEditor}}" Style="{StaticResource CommandsButtonStyle}"/>
+                        <Label Text="Crop" Style="{StaticResource CommonLabelStyle}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <telerikInput:RadButton Text="{StaticResource FlipVerticalIcon}" Command="{Binding FlipHorizontalCommand, Source={x:Reference imageEditor}}" Style="{StaticResource CommandsButtonStyle}"/>
+                        <Label Text="Flip" Style="{StaticResource CommonLabelStyle}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <telerikInput:RadButton Text="{StaticResource FlipHorizontalIcon}" Command="{Binding FlipVerticalCommand, Source={x:Reference imageEditor}}" Style="{StaticResource CommandsButtonStyle}"/>
+                        <Label Text="Flip" Style="{StaticResource CommonLabelStyle}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <telerikInput:RadButton Text="{StaticResource RotateLeftIcon}" Command="{Binding RotateLeftCommand, Source={x:Reference imageEditor}}" Style="{StaticResource CommandsButtonStyle}" />
+                        <Label Text="Rotate" Style="{StaticResource CommonLabelStyle}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <telerikInput:RadButton Text="{StaticResource RotateRightIcon}" Command="{Binding RotateRightCommand, Source={x:Reference imageEditor}}" Style="{StaticResource CommandsButtonStyle}"/>
+                        <Label Text="Rotate" Style="{StaticResource CommonLabelStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <BoxView Grid.Row="3" HeightRequest="2" BackgroundColor="{AppThemeBinding Light=#F7F7F7, Dark=#373737}" Margin="0,8,0,12"/>
+                <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20" Padding="15,0,15,0">
+                    <StackLayout>
+                        <Slider x:Name="brightnessSlider" Minimum="-0.4" Maximum="0.4" Value="0" Style="{StaticResource SliderStyle}" ValueChanged="BrightnessValueChanged"/>
+                        <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Center">
+                            <Label Text="{StaticResource BrightnessIcon}" Style="{StaticResource CommonLabelStyle}"/>
+                            <Label Text="Brightness" Style="{StaticResource CommonLabelStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <Slider x:Name="hueSlider" Minimum="-0.5" Maximum="0.5" Value="0" Style="{StaticResource SliderStyle}" ValueChanged="HueValueChanged"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Label Text="{StaticResource HueIcon}" Style="{StaticResource CommonLabelStyle}"/>
+                            <Label Text="Hue" Style="{StaticResource CommonLabelStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentView>

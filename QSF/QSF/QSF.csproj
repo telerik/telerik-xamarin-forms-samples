@@ -36,6 +36,7 @@
     <None Remove="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
     <None Remove="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <None Remove="Examples\RichTextEditorControl\FirstLookExample\RichTextEditorFirstLook.html" />
+    <None Remove="Examples\SpreadProcessingControl\ConditionalFormattingExample\SpreadProcessingDocument2.xlsx" />
     <None Remove="Examples\SpreadProcessingControl\ConvertExample\SpreadProcessingDocument1.xlsx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\DocToBeProcessed.docx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\JohnGrisham.docx" />
@@ -86,6 +87,7 @@
     <EmbeddedResource Include="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <EmbeddedResource Include="Examples\SpreadProcessingControl\ConditionalFormattingExample\SpreadProcessingDocument2.xlsx" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_j_amazed.png" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_k_confused.png" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_f_cool.png" />
