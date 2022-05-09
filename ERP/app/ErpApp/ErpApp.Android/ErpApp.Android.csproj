@@ -107,10 +107,10 @@
       <Version>6.4.2</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp">
-      <Version>1.68.0</Version>
+      <Version>2.80.3</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
-      <Version>1.68.0</Version>
+      <Version>2.80.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Migration">
       <Version>1.0.6.1</Version>
