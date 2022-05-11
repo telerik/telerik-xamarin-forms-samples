@@ -33,7 +33,6 @@
     <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.shp" />
     <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
     <None Remove="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
-    <None Remove="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
     <None Remove="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <None Remove="Examples\RichTextEditorControl\FirstLookExample\RichTextEditorFirstLook.html" />
     <None Remove="Examples\SpreadProcessingControl\ConditionalFormattingExample\SpreadProcessingDocument2.xlsx" />
@@ -86,7 +85,7 @@
     <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
     <EmbeddedResource Include="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
-    <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <EmbeddedResource Include="Examples\PdfViewerControl\pdfviewer-firstlook.pdf" />
     <EmbeddedResource Include="Examples\SpreadProcessingControl\ConditionalFormattingExample\SpreadProcessingDocument2.xlsx" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_j_amazed.png" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_k_confused.png" />
@@ -147,13 +146,14 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
-    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
   </ItemGroup>
   <PropertyGroup>
@@ -674,6 +674,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\ListPickerControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\PdfViewerControl\SaveSharePdfExample\SaveSharePdfView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\RichTextEditorControl\ImportExportExample\FileOpenView.xaml">

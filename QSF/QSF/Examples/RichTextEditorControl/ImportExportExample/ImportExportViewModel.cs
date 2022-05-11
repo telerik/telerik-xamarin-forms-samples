@@ -181,9 +181,9 @@ namespace QSF.Examples.RichTextEditorControl.ImportExportExample
         {
             var filePickerService = DependencyService.Get<IFilePickerService>();
 
-            using (var filePickerEntry = await filePickerService.PickFileAsync())
+            var fileResult = await filePickerService.PickFileAsync();
             {
-                if (filePickerEntry == null)
+                if (fileResult == null)
                 {
                     return false;
                 }
@@ -194,10 +194,10 @@ namespace QSF.Examples.RichTextEditorControl.ImportExportExample
 
                 try
                 {
-                    var fileName = filePickerEntry.FileName;
+                    var fileName = fileResult.FileName;
                     var documentType = documentService.GetDocumentType(fileName);
 
-                    using (var fileStream = filePickerEntry.OpenFile())
+                    using (var fileStream = await fileResult.OpenReadAsync())
                     {
                         this.HtmlText = await documentService.OpenDocumentAsync(fileStream, documentType);
                     }

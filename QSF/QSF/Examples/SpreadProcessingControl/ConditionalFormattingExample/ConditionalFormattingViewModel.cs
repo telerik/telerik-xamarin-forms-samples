@@ -277,7 +277,7 @@ namespace QSF.Examples.SpreadProcessingControl.ConditionalFormattingExample
             totalPriceRule.Formatting.ForeColor = foreColor;
             totalPriceRule.Formatting.Fill = new PatternFill(PatternType.Solid, fillColor, fillColor);
 
-            sheet.Cells[3, 4, 48, 4].AddConditionalFormatting(new Telerik.Windows.Documents.Spreadsheet.Model.ConditionalFormatting(totalPriceRule));
+            sheet.Cells[3, 4, 48, 4].AddConditionalFormatting(new ConditionalFormatting(totalPriceRule));
         }
 
         private void AddDiscountRule(Worksheet sheet)
@@ -305,7 +305,7 @@ namespace QSF.Examples.SpreadProcessingControl.ConditionalFormattingExample
             discountRule.Formatting.ForeColor = foreColor;
             discountRule.Formatting.Fill = new PatternFill(PatternType.Solid, fillColor, fillColor);
 
-            sheet.Cells[3, 5, 48, 5].AddConditionalFormatting(new Telerik.Windows.Documents.Spreadsheet.Model.ConditionalFormatting(discountRule));
+            sheet.Cells[3, 5, 48, 5].AddConditionalFormatting(new ConditionalFormatting(discountRule));
         }
 
         private void AddClientsRule(Worksheet sheet)
@@ -324,7 +324,7 @@ namespace QSF.Examples.SpreadProcessingControl.ConditionalFormattingExample
             ThemableColor color = new ThemableColor(ThemeColorType.Accent4, 0.6);
             clientsFormatting.Formatting.Fill = new PatternFill(PatternType.Solid, color, color);
 
-            sheet.Cells[3, 1, 48, 1].AddConditionalFormatting(new Telerik.Windows.Documents.Spreadsheet.Model.ConditionalFormatting(clientsFormatting));
+            sheet.Cells[3, 1, 48, 1].AddConditionalFormatting(new ConditionalFormatting(clientsFormatting));
         }
     }
 

@@ -3664,9 +3664,6 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2083</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Plugin.FilePicker">
-      <Version>2.1.41</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.TestCloud.Agent">
       <Version>0.22.2</Version>
     </PackageReference>
@@ -3709,6 +3706,27 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Person_9%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WordsProcessing_MailMergeThumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WordsProcessing_MailMergePreviewPage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WordsProcessing_MailMergePreviewPage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PdfProcessing_NotEmbeddingFonts%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PdfProcessing_NotEmbeddingFonts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PdfProcessing_NotEmbeddingFonts%401,5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PdfProcessing_NotEmbeddingFonts%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

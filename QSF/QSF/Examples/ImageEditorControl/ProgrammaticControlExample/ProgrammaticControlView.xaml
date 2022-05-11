@@ -17,15 +17,13 @@
             </Style>
             <Style TargetType="telerikInput:RadButton" x:Key="CommandsButtonStyle">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F7F7F7, Dark=#373737}"/>
-                <Setter Property="TextColor" Value="{AppThemeBinding Light=#727272, Dark=#FFFFFF}"/>
                 <Setter Property="HeightRequest" Value="44"/>
                 <Setter Property="WidthRequest" Value="44"/>
                 <Setter Property="CornerRadius" Value="21"/>
                 <Setter Property="FontFamily" Value="{StaticResource IconsFont}"/>
             </Style>
             <Style TargetType="telerikInput:RadButton" x:Key="CropInteractButtons">
-                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#FFFFFF, Dark=#000000}"/>
-                <Setter Property="BorderColor" Value="{AppThemeBinding Light=#727272, Dark=#FFFFFF}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#FFFFFF, Dark=#373737}"/>
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="TextColor" Value="{AppThemeBinding Light=#707070, Dark=#FFFFFF}"/>
                 <Setter Property="FontSize" Value="12"/>
@@ -34,6 +32,14 @@
                 <Setter Property="WidthRequest" Value="102"/>
                 <Setter Property="HeightRequest" Value="36"/>
                 <Setter Property="Padding" Value="10,5"/>
+                <Style.Triggers>
+                    <Trigger TargetType="telerikInput:RadButton" Property="IsEnabled" Value="True">
+                        <Setter Property="BorderColor" Value="{AppThemeBinding Light=#727272, Dark=#FFFFFF}"/>
+                    </Trigger>
+                    <Trigger TargetType="telerikInput:RadButton" Property="IsEnabled" Value="False">
+                        <Setter Property="BorderColor" Value="{AppThemeBinding Light=#80727272, Dark=#80727272}"/>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
             <Style TargetType="Slider" x:Key="SliderStyle">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=Default}"/>

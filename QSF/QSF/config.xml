@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R1 2022 SP</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R2 2022</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png ; TelerikXamarin_Logo_DarkMode.png</QSFAboutImageName>
@@ -119,8 +119,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <Featured>1200</Featured>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -154,7 +153,7 @@
             <LightColor>#FFAC3E</LightColor>
             <DarkColor>#FFA726</DarkColor>
           </Icon>
-          <IsUpdated>true</IsUpdated>
+          <IsUpdated>false</IsUpdated>
           <DescriptionHeader>Configuration</DescriptionHeader>
           <Description>This example presents various configuration options that the AutoCompleteView control provides.</Description>
           <IsScenario>false</IsScenario>
@@ -1038,7 +1037,7 @@
       <Featured>1500</Featured>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1075,7 +1074,7 @@
           <Description>Demonstrates how you could customize the visual appearance of the DataGrid control through various Style and StyleSelector properties such as RowBackgroundStyle, AlternateRowBackgroundStyle, SelectionStyle, GroupHeaderStyleSelector, etc.</Description>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
-          <IsUpdated>false</IsUpdated>
+          <IsUpdated>true</IsUpdated>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/CustomizationExample</CodeURL>
         </Example>
         <Example>
@@ -1104,6 +1103,19 @@
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/CRUDOperationsExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>VariousDataSources</Name>
+          <Icon>
+            <Text>&#xe817;</Text>
+            <LightColor>#42A5F5</LightColor>
+            <DarkColor>#42A5F5</DarkColor>
+          </Icon>
+          <DescriptionHeader>Various Data Sources</DescriptionHeader>
+          <Description>Demonstrates how you can easily populate DataGrid from collection or from a DataTable.</Description>
+          <IsNew>true</IsNew>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/VariousDataSourcesExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1490,7 +1502,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -1528,7 +1540,7 @@
           </Icon>
           <DescriptionHeader>Programmatic Control</DescriptionHeader>
           <Description>Programmatically edit images using the built-in commands of the ImageEditor control without the usage of the Toolbar.</Description>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <IsScenario>false</IsScenario>
           <IsThemable>false</IsThemable>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ImageEditorControl/ProgrammaticControlExample</CodeURL>
@@ -1850,7 +1862,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -1865,9 +1877,22 @@
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/FirstLookExample</CodeURL>
         </Example>
+        <Example>
+          <Name>NotEmbeddingFonts</Name>
+          <Icon>
+            <Text>&#xe835;</Text>
+            <LightColor>#F85446</LightColor>
+            <DarkColor>#FF7043</DarkColor>
+          </Icon>
+          <DescriptionHeader>Export Without Embedding Fonts</DescriptionHeader>
+          <Description>Telerik RadPdfProcessing provides easy to use API which allows choosing whether the font files to be embedded when exporting PDF documents. This example shows the initial size of an imported document and the reduced one after removing the fonts and saving it. Disclaimer: Removing the fonts from the document makes it dependent on the operational system to provide the needed fonts. If they are not installed, the document won't be successfully opened.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/NotEmbeddingFontsExample</CodeURL>
+        </Example>
       </Examples>
     </Control>
-    <Control>
+    <Control> 
       <Name>PdfViewer</Name>
       <Icon>
         <Text>&#xe826;</Text>
@@ -1882,7 +1907,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1925,6 +1950,19 @@
           <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/LargeFileExample</CodeURL>
         </Example>
+		  <Example>
+			  <Name>SaveSharePdf</Name>
+			  <Icon>
+				  <Text>&#xe826;</Text>
+				  <LightColor>#42A5F5</LightColor>
+				  <DarkColor>#42A5F5</DarkColor>
+			  </Icon>
+			  <DescriptionHeader>Save and Share Pdf</DescriptionHeader>
+			  <Description>A demonstration of how to save and share pdf files from the PdfViewer Toolbar.</Description>
+			  <IsScenario>false</IsScenario>
+			  <IsNew>true</IsNew>
+			  <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfViewerControl/SaveSharePdfExample</CodeURL>
+		  </Example>
       </Examples>
     </Control>
     <Control>
@@ -1985,6 +2023,54 @@
         </Example>
       </Examples>
     </Control>
+	<Control>
+		<Name>ProgressBar</Name>
+		<Icon>
+			<Text>&#xe858;</Text>
+			<LightColor>#56AF51</LightColor>
+			<DarkColor>#66BB6A</DarkColor>
+		</Icon>
+		<DisplayName>ProgressBar</DisplayName>
+		<DescriptionHeader>ProgressBar</DescriptionHeader>
+		<ShortDescription>Displays progress information to the users during a long-running operation.</ShortDescription>
+		<FullDescription>Telerik UI for Xamarin ProgressBar displays progress information to the users during a long-running operation. With the ProgressBar you can track the progress of various tasks.</FullDescription>
+		<DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/progressbar/overview</DocumentationURL>
+		<IsNew>true</IsNew>
+		<Featured>1100</Featured>
+		<IsCTP>false</IsCTP>
+		<IsBeta>false</IsBeta>
+		<IsUpdated>false</IsUpdated>
+		<Examples>
+      <Example>
+        <Name>FirstLook</Name>
+        <Icon>
+          <Text>&#xe858;</Text>
+          <LightColor>#56AF51</LightColor>
+          <DarkColor>#66BB6A</DarkColor>
+        </Icon>
+        <DescriptionHeader>First Look</DescriptionHeader>
+        <Description>This example demonstrates how you can use ProgressBar control to show some progress.</Description>
+        <IsScenario>false</IsScenario>
+        <IsNew>true</IsNew>
+        <IsThemable>false</IsThemable>
+        <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ProgressBarControl/FirstLookExample</CodeURL>
+      </Example>
+			<Example>
+				<Name>Configuration</Name>
+				<Icon>
+					<Text>&#xe812;</Text>
+					<LightColor>#FFAC3E</LightColor>
+					<DarkColor>#FFA726</DarkColor>
+				</Icon>
+				<DescriptionHeader>Configuration</DescriptionHeader>
+				<Description>This example presents various configuration options that the ProgressBar control provides.</Description>
+				<IsScenario>false</IsScenario>
+				<IsNew>true</IsNew>
+				<IsThemable>false</IsThemable>
+				<CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ProgressBarControl/ConfigurationExample</CodeURL>
+			</Example>
+		</Examples>
+	</Control>
     <Control>
       <Name>Rating</Name>
       <Icon>
@@ -2266,8 +2352,8 @@
       <ShortDescription>Capture and save signatures with SignaturePad.</ShortDescription>
       <FullDescription>Telerik UI for Xamarin SignaturePad control gives you the option to capture a signature in your desktop and mobile applications, and fully customize signature's stroke and color. In addition, you can easily save the signature to Png or Jpeg image format using the flexible Saving API of the control.</FullDescription>
       <DocumentationURL>https://docs.telerik.com/devtools/xamarin/controls/signaturepad/overview</DocumentationURL>
-      <IsNew>true</IsNew>
-      <Featured>1100</Featured>
+      <IsNew>false</IsNew>
+      <Featured>1200</Featured>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
       <IsUpdated>false</IsUpdated>
@@ -2408,7 +2494,7 @@
             <LightColor>#42A5F5</LightColor>
             <DarkColor>#42A5F5</DarkColor>
           </Icon>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <DescriptionHeader>Conditional Formatting</DescriptionHeader>
           <Description>Telerik SpreadProcessing supports conditional visual formatting based on the underlying data of the worksheet. It allows you to create new rules, or modify existing ones. The current example demostrates how to add conditional formatting elements programatically, while showcasing some of the rule options.</Description>
           <IsScenario>false</IsScenario>
@@ -2421,12 +2507,25 @@
             <LightColor>#42A5F5</LightColor>
             <DarkColor>#42A5F5</DarkColor>
           </Icon>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <DescriptionHeader>Add Notes</DescriptionHeader>
           <Description>Telerik SpreadProcessing allows you to insert a Note related to a cell on a specific document position. The example demonstrates how you can add notes with custom Author and Text while generating a document, and then view the document.
           </Description>
           <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SpreadProcessingControl/ConditionalFormattingExample</CodeURL>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SpreadProcessingControl/AddNotesExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>AddComments</Name>
+          <Icon>
+            <Text>&#xe82d;</Text>
+            <LightColor>#42A5F5</LightColor>
+            <DarkColor>#42A5F5</DarkColor>
+          </Icon>
+          <IsNew>true</IsNew>
+          <DescriptionHeader>Add Comments</DescriptionHeader>
+          <Description>Telerik SpreadProcessing allows you to insert a Comment related to a cell. The example demonstrates how you can add comments with custom Author and Text while generating a document, and then view the document.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/SpreadProcessingControl/AddCommentsExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -2782,7 +2881,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -2824,6 +2923,19 @@
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/FindAndReplaceExample</CodeURL>
           <IsNew>false</IsNew>
+        </Example>
+        <Example>
+          <Name>MailMerge</Name>
+          <Icon>
+            <Text>&#xe833;</Text>
+            <LightColor>#42A5F5</LightColor>
+            <DarkColor>#42A5F5</DarkColor>
+          </Icon>
+          <DescriptionHeader>Mail Merge</DescriptionHeader>
+          <Description>This example illustrates Mail Merge functionality in Telerik WordsProcessing for Xamarin. As of R1 2022 we now support nested mail merge. You can export the merged document to any of the supported formats. On the first tab you can see the Mail Merge Template, and on the tabs to the right you can see the preview of the merged document.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/MailMergeExample</CodeURL>
+          <IsNew>true</IsNew>
         </Example>
       </Examples>
     </Control>

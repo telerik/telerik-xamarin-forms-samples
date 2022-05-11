@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.PdfProcessingControl.NotEmbeddingFontsExample.NotEmbeddingFontsView">
+    <ScrollView>
+        <StackLayout Margin="0, 0, 0, 16">
+            <primitives:RadBorder Margin="0, 43, 0, 36"
+                                  BorderColor="#CCCCCC"
+                                  BorderThickness="1"
+                                  HorizontalOptions="Center">
+                <Image VerticalOptions="FillAndExpand">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS,Android">PdfProcessing_NotEmbeddingFonts.png</On>
+                            <On Platform="UWP">Assets\PdfProcessing_NotEmbeddingFonts.png</On>
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+            </primitives:RadBorder>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Initial Document Size:"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                       FontSize="Small"/>
+                <Label Text="{Binding LoadedFileSize, StringFormat='{0:N0}'}"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                       FontSize="Small"
+                       FontAttributes="Bold" />
+                <Label Text="KB"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                       FontSize="Small"
+                       FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Exported Document Size:"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                       FontSize="Small"/>
+                <Label Text="{Binding ExportedFileSize, StringFormat='{0:N0}'}"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                       FontSize="Small"
+                       FontAttributes="Bold"/>
+                <Label Text="KB"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                       FontSize="Small"
+                       FontAttributes="Bold"/>
+            </StackLayout>
+
+            <input:RadButton BackgroundColor="#A1BF3D" 
+                             Text="Export"
+                             TextColor="White"
+                             FontSize="Medium"
+                             FontAttributes="Bold"
+                             Command="{Binding ExportCommand}" 
+                             HeightRequest="44"
+                             WidthRequest="160"
+                             VerticalOptions="EndAndExpand"
+                             HorizontalOptions="Center"
+                             Margin="0, 0, 0, 10">
+                <input:RadButton.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Int32">
+                        <On Platform="Android, iOS">22</On>
+                    </OnPlatform>
+                </input:RadButton.CornerRadius>
+            </input:RadButton>
+        </StackLayout>
+    </ScrollView>
+</ContentView>
