@@ -114,7 +114,7 @@ namespace ErpApp.ViewModels
 
         private async Task OnCancel()
         {
-            await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxPopPresentationHint(this.senderType));
+            await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxRemovePresentationHint(typeof(SearchResultsViewModel)));
         }
 
         private async Task OnSelect(object item)
