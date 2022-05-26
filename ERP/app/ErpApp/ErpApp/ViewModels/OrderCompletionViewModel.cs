@@ -49,13 +49,13 @@ namespace ErpApp.ViewModels
         private async Task OnCancel()
         {
             await this.navigationService.Close(this, new SigningResult(false));
-            await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxPopPresentationHint(typeof(OrderScheduleViewModel)));
+            await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxRemovePresentationHint(typeof(OrderCompletionViewModel)));
         }
 
         private async Task OnDone()
         {
             await this.navigationService.Close(this, new SigningResult(true));
-            await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxPopPresentationHint(typeof(OrderScheduleViewModel)));
+            await this.navigationService.ChangePresentation(new MvvmCross.Presenters.Hints.MvxRemovePresentationHint(typeof(OrderCompletionViewModel)));
         }
 
         public class SigningResult
