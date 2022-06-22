@@ -249,6 +249,7 @@
                     <telerikInput:RadDatePicker Grid.Row="5"
                                                 Date="{Binding CheckInDate, Mode=TwoWay}"
                                                 Placeholder="Select Date"
+                                                IsLooping="{Binding BindingContext.IsLooping, Source={x:Reference pageContent}}"
                                                 Style="{StaticResource DefaultDatePickerStyle}"
                                                 PlaceholderLabelStyle="{StaticResource DefaultPlaceHolderLabelStyle}"
                                                 SpinnerStyle="{StaticResource DefaultSpinnerStyle}">
@@ -271,6 +272,7 @@
                                                 Grid.Column="2"
                                                 Date="{Binding CheckOutDate, Mode=TwoWay}"
                                                 Placeholder="Select Date"
+                                                IsLooping="{Binding BindingContext.IsLooping, Source={x:Reference pageContent}}"
                                                 Style="{StaticResource DefaultDatePickerStyle}"
                                                 PlaceholderLabelStyle="{StaticResource DefaultPlaceHolderLabelStyle}"
                                                 SpinnerStyle="{StaticResource DefaultSpinnerStyle}">

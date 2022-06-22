@@ -14,6 +14,7 @@ namespace QSF.Examples.DatePickerControl.ConfigurationExample
         private DateTime? checkOutDate;
         private PickerConfigurationMenuViewModel datePickerConfigurationViewModel;
         private bool isHeaderVisible;
+        private bool isLooping;
         private Color popupHeaderBackgroundColor;
         private Color popupHeaderFontColor;
         private string confirmationButtonText;
@@ -36,6 +37,8 @@ namespace QSF.Examples.DatePickerControl.ConfigurationExample
             this.CheckInDate = null;
             this.CheckOutDate = null;
             this.datePickerConfigurationViewModel = new PickerConfigurationMenuViewModel();
+            this.datePickerConfigurationViewModel.IsLooping = false;
+            this.datePickerConfigurationViewModel.IsLoopingPickerVisible = true;
         }
 
         public DateTime? CheckInDate
@@ -112,6 +115,22 @@ namespace QSF.Examples.DatePickerControl.ConfigurationExample
                 if (this.isHeaderVisible != value)
                 {
                     this.isHeaderVisible = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsLooping
+        {
+            get
+            {
+                return this.isLooping;
+            }
+            set
+            {
+                if (this.isLooping != value)
+                {
+                    this.isLooping = value;
                     this.OnPropertyChanged();
                 }
             }
@@ -382,6 +401,7 @@ namespace QSF.Examples.DatePickerControl.ConfigurationExample
             base.OnAppearing();
 
             this.IsHeaderVisible = this.datePickerConfigurationViewModel.IsHeaderVisible;
+            this.IsLooping = this.datePickerConfigurationViewModel.IsLooping;
             this.PopupHeaderBackgroundColor = this.datePickerConfigurationViewModel.PopupHeaderBackgroundColor.Color;
             this.PopupHeaderFontColor = this.datePickerConfigurationViewModel.PopupHeaderFontColor.Color;
             this.ConfirmationButtonText = this.datePickerConfigurationViewModel.ConfirmationButtonText;

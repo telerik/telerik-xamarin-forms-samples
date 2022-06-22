@@ -18,6 +18,8 @@ namespace QSF.ViewModels.Common
         private static readonly ColorViewModel DarkColor = new ColorViewModel("Dark", "#661E1E1E");
 
         private bool isHeaderVisible = true;
+        private bool isLooping = true;
+        private bool isLoopingPickerVisible = false;
         private ColorViewModel popupHeaderBackgroundColor;
         private ColorViewModel popupHeaderFontColor;
         private string confirmationButtonText;
@@ -118,6 +120,22 @@ namespace QSF.ViewModels.Common
                 if (this.isHeaderVisible != value)
                 {
                     this.isHeaderVisible = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsLooping
+        {
+            get
+            {
+                return this.isLooping;
+            }
+            set
+            {
+                if (this.isLooping != value)
+                {
+                    this.isLooping = value;
                     this.OnPropertyChanged();
                 }
             }
@@ -356,6 +374,22 @@ namespace QSF.ViewModels.Common
                 if (this.cancellationButtonBackgroundColor != value)
                 {
                     this.cancellationButtonBackgroundColor = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsLoopingPickerVisible
+        {
+            get
+            {
+                return this.isLoopingPickerVisible;
+            }
+            set
+            {
+                if (this.isLoopingPickerVisible != value)
+                {
+                    this.isLoopingPickerVisible = value;
                     this.OnPropertyChanged();
                 }
             }

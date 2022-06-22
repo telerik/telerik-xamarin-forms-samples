@@ -47,6 +47,19 @@
                     </x:Array>
                 </telerikInput:RadListPicker.ItemsSource>
             </telerikInput:RadListPicker>
+            <Label Text="Is Looping Enabled:"
+                   Style="{StaticResource DefaultLabelStyle}"
+                   IsVisible="{Binding IsLoopingPickerVisible}"/>
+            <telerikInput:RadListPicker SelectedItem="{Binding IsLooping}"
+                                        Style="{StaticResource DefaultListPickerStyle}"
+                                        IsVisible="{Binding IsLoopingPickerVisible}">
+                <telerikInput:RadListPicker.ItemsSource>
+                    <x:Array Type="{x:Type x:Boolean}">
+                        <x:Boolean>True</x:Boolean>
+                        <x:Boolean>False</x:Boolean>
+                    </x:Array>
+                </telerikInput:RadListPicker.ItemsSource>
+            </telerikInput:RadListPicker>
             <Label Text="Popup Header Background Color:"
                    Style="{StaticResource DefaultLabelStyle}" />
             <telerikInput:RadListPicker ItemsSource="{Binding PopupHeaderBackgroundColors}"

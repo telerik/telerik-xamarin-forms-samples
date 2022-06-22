@@ -15,6 +15,7 @@ namespace QSF.Examples.DateTimePickerControl.ConfigurationExample
         private DateTime? pickUpDate;
         private PickerConfigurationMenuViewModel dateTimePickerConfigurationViewModel;
         private bool isHeaderVisible;
+        private bool isLooping;
         private Color popupHeaderBackgroundColor;
         private Color popupHeaderFontColor;
         private string confirmationButtonText;
@@ -34,6 +35,8 @@ namespace QSF.Examples.DateTimePickerControl.ConfigurationExample
         {
             this.dateTimePickerConfigurationViewModel = new PickerConfigurationMenuViewModel();
             this.dateTimePickerConfigurationViewModel.IsHeaderVisible = false;
+            this.dateTimePickerConfigurationViewModel.IsLooping = false;
+            this.dateTimePickerConfigurationViewModel.IsLoopingPickerVisible = true;
             this.SelectDateCommand = new Command(this.SelectDate, this.CanExecuteSelectDate);
         }
 
@@ -106,6 +109,22 @@ namespace QSF.Examples.DateTimePickerControl.ConfigurationExample
                 if (this.isHeaderVisible != value)
                 {
                     this.isHeaderVisible = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsLooping
+        {
+            get
+            {
+                return this.isLooping;
+            }
+            set
+            {
+                if (this.isLooping != value)
+                {
+                    this.isLooping = value;
                     this.OnPropertyChanged();
                 }
             }
@@ -340,6 +359,7 @@ namespace QSF.Examples.DateTimePickerControl.ConfigurationExample
             base.OnAppearing();
 
             this.IsHeaderVisible = this.dateTimePickerConfigurationViewModel.IsHeaderVisible;
+            this.IsLooping = this.dateTimePickerConfigurationViewModel.IsLooping;
             this.PopupHeaderBackgroundColor = this.dateTimePickerConfigurationViewModel.PopupHeaderBackgroundColor.Color;
             this.PopupHeaderFontColor = this.dateTimePickerConfigurationViewModel.PopupHeaderFontColor.Color;
             this.ConfirmationButtonText = this.dateTimePickerConfigurationViewModel.ConfirmationButtonText;
