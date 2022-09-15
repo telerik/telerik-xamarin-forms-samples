@@ -41,6 +41,7 @@
     <None Remove="Examples\WordsProcessingControl\ExportExample\JohnGrisham.docx" />
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\DocToBeProcessed.docx" />
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\JohnGrisham.docx" />
+    <None Remove="Examples\WordsProcessingControl\NumberingFieldsExample\SampleDocument.docx" />
     <None Remove="Resources\banner.jpg" />
     <None Remove="Resources\ImageEditor\ProfilePicture\ProfilePicture.png" />
     <None Remove="Resources\RichTextEditor\Emojis\emoji_a_smile.png" />
@@ -87,6 +88,7 @@
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\pdfviewer-firstlook.pdf" />
     <EmbeddedResource Include="Examples\SpreadProcessingControl\ConditionalFormattingExample\SpreadProcessingDocument2.xlsx" />
+    <EmbeddedResource Include="Examples\WordsProcessingControl\NumberingFieldsExample\SampleDocument.docx" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_j_amazed.png" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_k_confused.png" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_f_cool.png" />
@@ -236,6 +238,9 @@
     </Compile>
     <Compile Update="Examples\CalendarControl\SchedulingUICustomizationExample\Resources\CustomSchedulingResources.xaml.cs">
       <DependentUpon>CustomSchedulingResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\DataGridControl\AggregatesExample\AggregatesView.xaml.cs">
+      <DependentUpon>AggregatesView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Examples\DateTimePickerControl\CustomizationExample\CustomizationView.xaml.cs">
       <DependentUpon>CustomizationView.xaml</DependentUpon>

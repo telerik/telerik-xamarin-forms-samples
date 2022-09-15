@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:common="clr-namespace:Telerik.XamarinForms.Common.Data;assembly=Telerik.XamarinForms.Common"
+             x:Class="QSF.Examples.DataGridControl.AggregatesExample.AggregatesView">
+    <ContentView.Resources>
+        <telerikDataGrid:DataGridGroupFooterStyle x:Key="GroupFooterStyle" BorderThickness="0, 1" />
+        <telerikDataGrid:DataGridGroupHeaderStyle x:Key="GroupHeaderStyle"
+                                          TextFontAttributes="{OnIdiom Default=None, Phone=Bold}" 
+                                          BorderThickness="1, 0, 1, 1" 
+                                          BorderColor="#DFDFDF"/>
+        <telerikDataGrid:DataGridColumnFooterStyle x:Key="ColumnFooterStyle" 
+                                          BackgroundColor="#DFDFDF" 
+                                          BorderThickness="0" />
+    </ContentView.Resources>
+
+    <Grid>
+        <telerikDataGrid:RadDataGrid ItemsSource="{Binding Orders}"
+                                     GroupFooterStyle="{StaticResource GroupFooterStyle}"
+                                     GroupHeaderStyle="{StaticResource GroupHeaderStyle}"
+                                     AutoGenerateColumns="False"
+                                     SelectionUnit="Row"
+                                     SelectionMode="Multiple"
+                                     ShowGroupHeaderAggregates="{OnIdiom Default=False, Phone=True}"
+                                     ShowGroupFooters="True"
+                                     ShowColumnFooters="True"
+                                     GridLinesVisibility="{OnIdiom Default=None, Phone=Both}">
+            <telerikDataGrid:RadDataGrid.GroupDescriptors>
+                <common:PropertyGroupDescriptor PropertyName="ShipCountry" />
+            </telerikDataGrid:RadDataGrid.GroupDescriptors>
+            <telerikDataGrid:RadDataGrid.Columns>
+                <telerikDataGrid:DataGridNumericalColumn PropertyName="OrderID" 
+                                                 HeaderText="Order ID" 
+                                                 FooterStyle="{StaticResource ColumnFooterStyle}">
+                    <telerikDataGrid:DataGridNumericalColumn.AggregateDescriptors>
+                        <common:PropertyAggregateDescriptor PropertyName="OrderID"
+                                                             Function="Count"
+                                                             Caption="Orders:"/>
+                    </telerikDataGrid:DataGridNumericalColumn.AggregateDescriptors>
+                </telerikDataGrid:DataGridNumericalColumn>
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShipCity"
+                                            HeaderText="Ship City"
+                                            FooterStyle="{StaticResource ColumnFooterStyle}" />
+                <telerikDataGrid:DataGridNumericalColumn PropertyName="Freight"
+                                                 HeaderText="Freight"
+                                                 CellContentFormat="${0:N2}"
+                                                 FooterStyle="{StaticResource ColumnFooterStyle}">
+                    <telerikDataGrid:DataGridNumericalColumn.AggregateDescriptors>
+                        <common:PropertyAggregateDescriptor PropertyName="Freight"
+                                                             Function="Sum"
+                                                             Caption="Total:"
+                                                             Format="$0.00" />
+                    </telerikDataGrid:DataGridNumericalColumn.AggregateDescriptors>
+                </telerikDataGrid:DataGridNumericalColumn>
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShipName"
+                                            HeaderText="Ship Name"
+                                            FooterStyle="{StaticResource ColumnFooterStyle}" />
+                <telerikDataGrid:DataGridTextColumn PropertyName="ShipCountry"
+                                            HeaderText="Ship Country"
+                                            FooterStyle="{StaticResource ColumnFooterStyle}" />
+            </telerikDataGrid:RadDataGrid.Columns>
+        </telerikDataGrid:RadDataGrid>
+    </Grid>
+</ContentView>

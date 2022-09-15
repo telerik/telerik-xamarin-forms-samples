@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.WordsProcessingControl.NumberingFieldsExample.NumberingFieldsView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="primitives:RadBorder" x:Key="ExampleBorderStyle">
+                <Setter Property="BorderColor" Value="#D6D4D4"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Margin" Value="0,5,0,5"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="ExampleLabelStyle">
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="Margin" Value="3"/>
+            </Style>
+
+            <Color x:Key="ButtonColor">#B73562</Color>
+            <Style TargetType="input:RadButton" x:Key="ExampleButtonStyle">
+                <Setter Property="FontSize" Value="{OnPlatform Android='13', Default='14'}"/>
+                <Setter Property="HeightRequest" Value="36" />
+                <Setter Property="Padding" Value="18,0" />
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="TextColor" Value="{StaticResource ButtonColor}" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="BorderColor" Value="{StaticResource ButtonColor}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonGroups">
+                            <VisualState x:Name="Normal" >
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor" Value="{StaticResource ButtonColor}" />
+                                    <Setter Property="TextColor" Value="{StaticResource ButtonColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused" />
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor" Value="{StaticResource ButtonColor}" />
+                                    <Setter Property="TextColor" Value="{StaticResource ButtonColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled" >
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor" Value="{StaticResource ButtonColor}" />
+                                    <Setter Property="TextColor" Value="{StaticResource ButtonColor}" />
+                                    <Setter Property="Opacity" Value="0.38" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+            <Grid BackgroundColor="#F0F0F0" 
+                  RowDefinitions="*,*"
+                  Padding="16"
+                  Margin="0, 0, 0, 15">
+                <input:RadButton Grid.Row="1" 
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="{OnPlatform UWP='Center'}"
+                                   HorizontalOptions="{OnPlatform UWP='Center'}"
+                                   Text="Load Document"
+                                   Command="{Binding LoadSampleCommand}" 
+                                   Style="{StaticResource ExampleButtonStyle}" />
+                <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="End" 
+                                 Spacing="10"
+                                 Margin="0, 0, 0, 21">
+                    <Label Text="File: " />
+                    <Label Text="{Binding FileName}" />
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Padding="13,0,13,0" Orientation="Vertical">
+                <StackLayout Margin="6" Spacing="4" Orientation="Vertical">
+                    <Label Text="{OnPlatform 
+                                   Android='Insert footer and bookmarks fields',
+                                   iOS='Insert footer and bookmarks fields',
+                                   UWP='Insert a predefined set of fields in footer in the following format:'}"
+                            FontAttributes="Bold"/>
+                    <primitives:RadBorder Style="{StaticResource ExampleBorderStyle}" 
+                            IsVisible="{OnPlatform 
+                                         Android='false',
+                                         iOS='false',
+                                         UWP='true'}">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Page {PAGE \* Ordinal} of {NUMPAGES}"
+                                   Style="{StaticResource ExampleLabelStyle}"/>
+                            <Label Text="(in section {SECTION \* CardText} with total pages in the section - {SECTIONPAGES \* CardText})"
+                                   Style="{StaticResource ExampleLabelStyle}"/>
+                        </StackLayout>
+                    </primitives:RadBorder>
+                    <Label Text="Insert PageRefField for every Level 1 Heading in the following format:"
+                           FontAttributes="Bold"
+                           IsVisible="{OnPlatform 
+                                        Android='false',
+                                        iOS='false',
+                                        UWP='true'}"/>
+                    <primitives:RadBorder Style="{StaticResource ExampleBorderStyle}"
+                            IsVisible="{OnPlatform 
+                                         Android='false',
+                                         iOS='false',
+                                         UWP='true'}">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="&lt;&lt;Heading &gt;&gt; {PAGEREF heading1}"
+                                   Style="{StaticResource ExampleLabelStyle}"/>
+                        </StackLayout>
+                    </primitives:RadBorder>
+                    <StackLayout Margin="0,0,0,10" Spacing="8" Orientation="Horizontal">
+                        <input:RadButton Text="Insert Fields" Padding="8,4"
+                                         Style="{StaticResource ExampleButtonStyle}"
+                                         Command="{Binding InsertNumberingFieldsCommand}">
+                        </input:RadButton>
+                        <input:RadButton Text="Update Fields" Padding="8,4"
+                                         Style="{StaticResource ExampleButtonStyle}"
+                                         Command="{Binding UpdateNumberingFieldsCommand}" />
+                    </StackLayout>
+                    <Label Text="First page footer content preview:" 
+                           FontAttributes="Bold"/>
+                    <primitives:RadBorder Style="{StaticResource ExampleBorderStyle}" >
+                        <Label Text="{Binding FooterPreview, Mode=TwoWay}"
+                               Style="{StaticResource ExampleLabelStyle}"/>
+                    </primitives:RadBorder>
+                    <Label Text="Bookmarks preview:" 
+                           FontAttributes="Bold"/>
+                    <primitives:RadBorder Style="{StaticResource ExampleBorderStyle}" >
+                        <Label Text="{Binding BookmarksPreview, Mode=TwoWay}"
+                               Style="{StaticResource ExampleLabelStyle}"/>
+                    </primitives:RadBorder>
+                </StackLayout>
+
+                <StackLayout Spacing="10" Orientation="Horizontal">
+                    <Label Text="Export to: " 
+                           VerticalTextAlignment="Center" 
+                           FontAttributes="Bold"/>
+                    <input:RadComboBox Margin="2" 
+                                         x:Name="exportCombox" 
+                                         ItemsSource="{Binding ExportFormats, Mode=OneTime}"
+                                         SelectedItem="{Binding SelectedExportFormat, Mode=OneWayToSource}"
+                                         WidthRequest ="160"/>
+                    <input:RadButton Margin="2"
+                                       Text="Export" 
+                                       Style="{StaticResource ExampleButtonStyle}"
+                                       Command="{Binding ExportCommand}" 
+                                       IsEnabled="{Binding IsDocumentLoaded}" 
+                                       WidthRequest="100"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentView>
