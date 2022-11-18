@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives" 
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikProgressBar="clr-namespace:Telerik.XamarinForms.Primitives.ProgressBar;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:converters="clr-namespace:QSF.Converters"
+             xmlns:example="clr-namespace:QSF.Examples.ProgressBarControl.ConfigurationExample" 
+             x:DataType="example:ConfigurationViewModel"
+             x:Class="QSF.Examples.ProgressBarControl.ConfigurationExample.ConfigurationView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="commonLabelStyle">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Margin" Value="0,16,0,0"/>
+            </Style>
+            <converters:NameToEasingConverter x:Key="NameToEasingConverter" />
+            <converters:DoubleRoundConverter x:Key="DoubleRoundConverter" />
+            <example:ColorToBrushConverter x:Key="ColorToBrushCoverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid RowDefinitions="100,*" 
+          ColumnSpacing="0"
+          RowSpacing="0">
+        <Grid BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#373737}" 
+              Padding="16,0,16,0">
+            <telerikPrimitives:RadLinearProgressBar x:Name="progressBar" 
+                                                    Minimum="0"
+                                                    Maximum="180" 
+                                                    Value="40"
+                                                    HeightRequest="20"
+                                                    ProgressAnimationEasing="{Binding AnimationEasing}"
+                                                    ProgressFill="{Binding ProgressColor, Converter={StaticResource ColorToBrushCoverter}}"
+                                                    TrackFill="{Binding TrackColor, Converter={StaticResource ColorToBrushCoverter}}"
+                                                    TextColor="{Binding TextColor}"
+                                                    FontSize="14"
+                                                    VerticalOptions="Center"
+                                                    CustomText="{Binding Text, Source={x:Reference entryCustomText}}"
+                                                    ValueDisplayMode="{Binding ValueDisplayMode}"/>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="16,24,16,38" 
+                         Spacing="20">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Indeterminate:" 
+                           FontSize="16" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"/>
+                    <Switch HorizontalOptions="{OnPlatform Default='EndAndExpand', UWP='Start'}"
+                            VerticalOptions="Center"
+                            IsToggled="{Binding IsIndeterminate, Source={x:Reference progressBar}}"/>
+                </StackLayout>
+
+                <Label Text="Track color:" 
+                       Style="{StaticResource commonLabelStyle}"/>
+                <telerikInput:RadComboBox ItemsSource="{Binding TrackProgressColors}" 
+                                          SelectedItem="{Binding TrackColor, Mode=TwoWay}"
+                                          IsClearButtonVisible="False"/>
+
+                <Label Text="Progress color:" 
+                       Style="{StaticResource commonLabelStyle}"/>
+                <telerikInput:RadComboBox ItemsSource="{Binding TrackProgressColors}" 
+                                          SelectedItem="{Binding ProgressColor, Mode=TwoWay}"
+                                          IsClearButtonVisible="False"/>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Value, Source={x:Reference progressBar}}" 
+                           VerticalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           FontSize="20"/>
+                    <Stepper x:Name="stepper"
+                             VerticalOptions="Center"
+                             Minimum="0" 
+                             Maximum="180" 
+                             Increment="20" 
+                             Value="{Binding Value, Source={x:Reference progressBar}}"/>
+                </StackLayout>
+
+                <Label Text="Animation easing:" 
+                       Style="{StaticResource commonLabelStyle}"/>
+                <telerikInput:RadComboBox SelectedItem="{Binding AnimationEasing, Mode=TwoWay, Converter={StaticResource NameToEasingConverter}}"
+                                          IsClearButtonVisible="False">
+                    <telerikInput:RadComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Linear</x:String>
+                            <x:String>SinOut</x:String>
+                            <x:String>SinIn</x:String>
+                            <x:String>SinInOut</x:String>
+                            <x:String>CubicIn</x:String>
+                            <x:String>CubicOut</x:String>
+                            <x:String>CubicInOut</x:String>
+                            <x:String>BounceOut</x:String>
+                            <x:String>BounceIn</x:String>
+                            <x:String>SpringIn</x:String>
+                            <x:String>SpringOut</x:String>
+                        </x:Array>
+                    </telerikInput:RadComboBox.ItemsSource>
+                </telerikInput:RadComboBox>
+
+                <Label Text="ValueDisplayMode:"
+                       Style="{StaticResource commonLabelStyle}"/>
+                <telerikInput:RadComboBox SelectedItem="{Binding ValueDisplayMode, Mode=TwoWay}" 
+                                          IsClearButtonVisible="False" 
+                                          DropDownHeight="{OnPlatform UWP='130'}">
+                    <telerikInput:RadComboBox.ItemsSource>
+                        <x:Array Type="{x:Type telerikProgressBar:ValueDisplayMode}">
+                            <telerikProgressBar:ValueDisplayMode>Percent</telerikProgressBar:ValueDisplayMode>
+                            <telerikProgressBar:ValueDisplayMode>Value</telerikProgressBar:ValueDisplayMode>
+                            <telerikProgressBar:ValueDisplayMode>Text</telerikProgressBar:ValueDisplayMode>
+                            <telerikProgressBar:ValueDisplayMode>None</telerikProgressBar:ValueDisplayMode>
+                        </x:Array>
+                    </telerikInput:RadComboBox.ItemsSource>
+                </telerikInput:RadComboBox>
+
+                <StackLayout IsVisible="{Binding IsVisible}">
+                    <Label Text="Custom text:"
+                           Style="{StaticResource commonLabelStyle}"/>
+                    <Entry x:Name="entryCustomText"/>
+                </StackLayout>
+
+                <Label Text="Text color:"
+                       Style="{StaticResource commonLabelStyle}"/>
+                <telerikInput:RadComboBox SelectedItem="{Binding TextColor, Mode=TwoWay}"
+                                          IsClearButtonVisible="False">
+                    <telerikInput:RadComboBox.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Black</x:String>
+                            <x:String>Blue</x:String>
+                            <x:String>Green</x:String>
+                            <x:String>Yellow</x:String>
+                            <x:String>Red</x:String>
+                            <x:String>Orange</x:String>
+                        </x:Array>
+                    </telerikInput:RadComboBox.ItemsSource>
+                </telerikInput:RadComboBox>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentView>

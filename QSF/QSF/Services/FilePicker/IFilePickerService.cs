@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace QSF.Services
 {
     public interface IFilePickerService
     {
-        Task<IFilePickerEntry> PickFileAsync();
+        Task<FileResult> PickFileAsync();
     }
 }

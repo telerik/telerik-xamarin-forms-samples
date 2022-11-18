@@ -33,14 +33,15 @@
     <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_Rooms.shp" />
     <None Remove="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
     <None Remove="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
-    <None Remove="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
     <None Remove="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <None Remove="Examples\RichTextEditorControl\FirstLookExample\RichTextEditorFirstLook.html" />
+    <None Remove="Examples\SpreadProcessingControl\ConditionalFormattingExample\SpreadProcessingDocument2.xlsx" />
     <None Remove="Examples\SpreadProcessingControl\ConvertExample\SpreadProcessingDocument1.xlsx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\DocToBeProcessed.docx" />
     <None Remove="Examples\WordsProcessingControl\ExportExample\JohnGrisham.docx" />
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\DocToBeProcessed.docx" />
     <None Remove="Examples\WordsProcessingControl\FindAndReplaceExample\JohnGrisham.docx" />
+    <None Remove="Examples\WordsProcessingControl\NumberingFieldsExample\SampleDocument.docx" />
     <None Remove="Resources\banner.jpg" />
     <None Remove="Resources\ImageEditor\ProfilePicture\ProfilePicture.png" />
     <None Remove="Resources\RichTextEditor\Emojis\emoji_a_smile.png" />
@@ -85,7 +86,9 @@
     <EmbeddedResource Include="Examples\MapControl\HotelFloorPlanExample\Data\Hotel_ServiceRooms.shp" />
     <EmbeddedResource Include="Examples\PdfViewerControl\LargeFileExample\pdfviewer-large-file.pdf" />
     <EmbeddedResource Include="Examples\PdfViewerControl\CustomizationExample\pdfviewer-Customization.pdf" />
-    <EmbeddedResource Include="Examples\PdfViewerControl\FirstLookExample\pdfviewer-firstlook.pdf" />
+    <EmbeddedResource Include="Examples\PdfViewerControl\pdfviewer-firstlook.pdf" />
+    <EmbeddedResource Include="Examples\SpreadProcessingControl\ConditionalFormattingExample\SpreadProcessingDocument2.xlsx" />
+    <EmbeddedResource Include="Examples\WordsProcessingControl\NumberingFieldsExample\SampleDocument.docx" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_j_amazed.png" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_k_confused.png" />
     <EmbeddedResource Include="Resources\RichTextEditor\Emojis\emoji_f_cool.png" />
@@ -145,13 +148,14 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.6.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
-    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
   </ItemGroup>
   <PropertyGroup>
@@ -234,6 +238,9 @@
     </Compile>
     <Compile Update="Examples\CalendarControl\SchedulingUICustomizationExample\Resources\CustomSchedulingResources.xaml.cs">
       <DependentUpon>CustomSchedulingResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\DataGridControl\AggregatesExample\AggregatesView.xaml.cs">
+      <DependentUpon>AggregatesView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Examples\DateTimePickerControl\CustomizationExample\CustomizationView.xaml.cs">
       <DependentUpon>CustomizationView.xaml</DependentUpon>
@@ -672,6 +679,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\ListPickerControl\FirstLookExample\FirstLookView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Examples\PdfViewerControl\SaveSharePdfExample\SaveSharePdfView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Examples\RichTextEditorControl\ImportExportExample\FileOpenView.xaml">

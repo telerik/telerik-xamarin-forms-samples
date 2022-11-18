@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    x:Class="QSF.Examples.SignaturePadControl.ConfigurationExample.ConfigurationView">
+
+    <ContentView.Resources>
+        <DataTemplate x:Key="colorItemTemplate">
+            <Grid WidthRequest="50">
+                <telerikPrimitives:RadBorder HorizontalOptions="Center" 
+                                             VerticalOptions="Center" 
+                                             BackgroundColor="{Binding .}"
+                                             WidthRequest="24"
+                                             HeightRequest="24"
+                                             CornerRadius="12"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="selectedColorItemTemplate">
+            <Grid WidthRequest="50">
+                <telerikPrimitives:RadBorder HorizontalOptions="Center" 
+                                             VerticalOptions="Center" 
+                                             BackgroundColor="Transparent"
+                                             WidthRequest="32"
+                                             HeightRequest="32"
+                                             CornerRadius="16"
+                                             BorderColor="{Binding .}"
+                                             BorderThickness="1"/>
+
+                <telerikPrimitives:RadBorder HorizontalOptions="Center" 
+                                             VerticalOptions="Center" 
+                                             BackgroundColor="{Binding .}"
+                                             WidthRequest="24"
+                                             HeightRequest="24"
+                                             CornerRadius="12"/>
+            </Grid>
+        </DataTemplate>
+        <Style TargetType="Grid" x:Key="selectedColorItemStyle">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+
+        <Style TargetType="StackLayout" x:Key="SliderStack">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F8F8F8, Dark=Default}"/>
+            <Setter Property="HeightRequest" Value="30"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Sign To Complete" FontSize="21" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,12,0,0" />
+
+        <Grid Grid.Row="1" BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=Default}" Margin="16">
+            <Grid.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double" Default="200">
+                    <On Platform="UWP" Value="300"/>
+                </OnPlatform>
+            </Grid.HeightRequest>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Draw your signature below" FontSize="12" Margin="19,12,0,0"/>
+            <Grid Grid.Row="1" Margin="19,8,19,16">
+
+                <telerikInput:RadSignaturePad x:Name="signaturePad"
+                                              BackgroundColor="#F8F8F8"
+                                              StrokeColor="{Binding SelectedStrokeColor}"
+                                              StrokeThickness="{Binding StrokeThickness}"
+                                              BorderColor="{Binding SelectedBorderColor}"
+                                              BorderThickness="{Binding BorderThickness}" 
+                                              StrokeStarted="signaturePad_StrokeStarted"
+                                              Cleared="signaturePad_Cleared"/>
+                <Button x:Name="clearButton" 
+                        Text="&#xe877;" 
+                        IsVisible="False"
+                        TextColor="#5F5F5F"
+                        FontFamily="{StaticResource IconsFont}"
+                        Margin="0,5,5,0"
+                        WidthRequest="44"
+                        HeightRequest="44"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="End" 
+                        VerticalOptions="Start" 
+                        FontSize="20"
+                        Command="{Binding Source={x:Reference signaturePad}, Path=ClearCommand}"/>
+
+            </Grid>
+        </Grid>
+
+        <ScrollView Grid.Row="2" Margin="25,0,32,25">
+            <StackLayout Spacing="12">
+                <Label Text="Signature color:"/>
+                <telerikDataControls:NonVirtualizedItemsControl Grid.Row="1"
+                                             ItemsSource="{Binding StrokeColors}"
+                                             SelectedItem="{Binding SelectedStrokeColor, Mode=TwoWay}"
+                                             Orientation="Horizontal"
+                                             HorizontalOptions="StartAndExpand"
+                                             ItemTemplate="{StaticResource colorItemTemplate}"
+                                             SelectedItemTemplate="{StaticResource selectedColorItemTemplate}"
+                                             SelectedItemStyle="{StaticResource selectedColorItemStyle}"/>
+                <Label Text="Signature stroke:" Grid.Row="2"/>
+
+                <StackLayout Style="{StaticResource SliderStack}">
+                    <Label Text="0" VerticalOptions="Center" FontSize="12"/>
+                    <Slider HorizontalOptions="FillAndExpand" 
+                        x:Name="strokeThicknessSlider" 
+                        Minimum="0" 
+                        Maximum="6"
+                        Value="{Binding StrokeThickness, Mode=TwoWay}"/>
+                    <Label Text="6" FontSize="12" VerticalOptions="Center" />
+                </StackLayout>
+
+                <Label Text="Border color:" Grid.Row="4"/>
+                <telerikDataControls:NonVirtualizedItemsControl Grid.Row="5"
+                                             ItemsSource="{Binding BorderColors}"
+                                             SelectedItem="{Binding SelectedBorderColor, Mode=TwoWay}"
+                                             Orientation="Horizontal"
+                                             HorizontalOptions="StartAndExpand"
+                                             ItemTemplate="{StaticResource colorItemTemplate}"
+                                             SelectedItemTemplate="{StaticResource selectedColorItemTemplate}"
+                                             SelectedItemStyle="{StaticResource selectedColorItemStyle}"/>
+
+                <Label Text="Border thickness:" Grid.Row="6"/>
+
+                <StackLayout Style="{StaticResource SliderStack}">
+                    <Label Text="0" VerticalOptions="Center" FontSize="12"/>
+                    <Slider x:Name="borderThicknessSlider"
+                        HorizontalOptions="FillAndExpand"  
+                        Minimum="0" Maximum="3"
+                        Value="{Binding BorderThickness.Left}"
+                        ValueChanged="BorderThicknessSliderValueChanged"/>
+                    <Label Text="3" FontSize="12" VerticalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentView>

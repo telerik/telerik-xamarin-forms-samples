@@ -103,8 +103,8 @@
                 <telerikRichTextEditor:OutdentToolbarItem />
                 <telerikRichTextEditor:TextFormattingToolbarItem />
                 <telerikRichTextEditor:ClearFormattingToolbarItem />
-                <telerikRichTextEditor:UndоToolbarItem />
-                <telerikRichTextEditor:RedоToolbarItem />
+                <telerikRichTextEditor:UndoToolbarItem />
+                <telerikRichTextEditor:RedoToolbarItem />
                 <telerikRichTextEditor:RichTextEditorToolbarItem IsOverflowItem="true" Text="{Binding MoreTextFormattingText}" Description="More Text Formatting">
                     <telerikRichTextEditor:RichTextEditorToolbarItem.Items>
                         <telerikRichTextEditor:BoldToolbarItem HorizontalOptions="Start"/>

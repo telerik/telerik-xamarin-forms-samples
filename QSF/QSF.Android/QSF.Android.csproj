@@ -1578,12 +1578,6 @@
     <PackageReference Include="Plugin.Permissions">
       <Version>6.0.1</Version>
     </PackageReference>
-    <PackageReference Include="SkiaSharp">
-      <Version>2.80.3</Version>
-    </PackageReference>
-    <PackageReference Include="SkiaSharp.Views">
-      <Version>2.80.3</Version>
-    </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>2.80.3</Version>
     </PackageReference>
@@ -1598,9 +1592,6 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2083</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Plugin.FilePicker">
-      <Version>2.1.41</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
       <Version>2.4.11.982</Version>
@@ -1645,6 +1636,27 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\Person_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\WordsProcessing_MailMergePreviewPage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\WordsProcessing_MailMergePreviewPage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\WordsProcessing_MailMergeThumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\PdfProcessing_NotEmbeddingFonts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\PdfProcessing_NotEmbeddingFonts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\PdfProcessing_NotEmbeddingFonts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\PdfProcessing_NotEmbeddingFonts.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

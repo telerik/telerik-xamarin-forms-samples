@@ -119,6 +119,13 @@
             <x:String x:Key="CropOriginalIcon">&#xE86C;</x:String>
             <x:String x:Key="CropSquareIcon">&#xE86D;</x:String>
             <x:String x:Key="CropCircleIcon">&#xE86E;</x:String>
+            <x:String x:Key="CropIcon">&#xE906;</x:String>
+            <x:String x:Key="HueIcon">&#xE907;</x:String>
+            <x:String x:Key="BrightnessIcon">&#xE901;</x:String>
+            <x:String x:Key="FlipHorizontalIcon">&#xE903;</x:String>
+            <x:String x:Key="FlipVerticalIcon">&#xE902;</x:String>
+            <x:String x:Key="RotateLeftIcon">&#xE905;</x:String>
+            <x:String x:Key="RotateRightIcon">&#xE904;</x:String>
             <x:String x:Key="ExternalLinkIcon">&#xF08E;</x:String>
             <x:String x:Key="CheckIcon">&#xe876;</x:String>
             <x:String x:Key="XIcon">&#xe877;</x:String>

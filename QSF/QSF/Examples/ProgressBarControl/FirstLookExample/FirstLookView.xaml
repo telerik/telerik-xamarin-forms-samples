@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="QSF.Examples.ProgressBarControl.FirstLookExample.FirstLookView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainBackgroundColorLight">White</Color>
+            <Color x:Key="MainBackgroundColorDark">#121212</Color>
+            <OnPlatform x:Key="ButtonAccentColorLight" x:TypeArguments="Color">
+                <On Platform="iOS">#007AFF</On>
+                <On Platform="Android">#019688</On>
+                <On Platform="UWP">#429CE3</On>
+            </OnPlatform>
+            <OnPlatform x:Key="ButtonAccentColorDark" x:TypeArguments="Color">
+                <On Platform="iOS">#42A5F5</On>
+                <On Platform="Android">#26A69A</On>
+                <On Platform="UWP">#429CE3</On>
+            </OnPlatform>
+            <Style TargetType="telerikInput:RadButton" x:Key="PlaceOrderButtonStyle">
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource ButtonAccentColorLight}, Dark={StaticResource ButtonAccentColorDark}}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource ButtonAccentColorLight}, Dark={StaticResource ButtonAccentColorDark}}"/>
+                <Setter Property="Margin" Value="0, 24, 0, 0"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="240"/>
+                <Setter Property="Padding" Value="24, 10"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="1"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="0.5"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource MainBackgroundColorLight}, Dark={StaticResource MainBackgroundColorDark}}"
+          RowDefinitions="Auto, Auto">
+        <StackLayout BackgroundColor="{AppThemeBinding Light=#F8F8F8, Dark=#1E1E1E}"
+                     Spacing="28"
+                     Padding="0, 50, 0, 0">
+            <Label Text="Your Order"
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                   FontSize="20"
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Center" 
+                   VerticalOptions="Center"
+                   VerticalTextAlignment="Center"/>
+            <ffimageloading:CachedImage WidthRequest="200"
+                                        Source="{Binding OrderImage, Converter={StaticResource ImageSourceConverter}}"
+                                        Aspect="AspectFit"/>  
+            <Label Text="{Binding StatusText, Mode=TwoWay}"
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                   HorizontalTextAlignment="Center"/>
+            <telerikPrimitives:RadLinearProgressBar Minimum="0"
+                                                    Maximum="100"   
+                                                    TrackFill="{AppThemeBinding Light=#DFDFDF, Dark=#373737}"
+                                                    Value="{Binding OrderProgress, Mode=TwoWay}"
+                                                    ProgressAnimationDuration="{Binding AnimationDuration, Mode=TwoWay}"
+                                                    ValueDisplayMode="Percent"
+                                                    Margin="16, 0, 16, 16"/>
+        </StackLayout>
+        <telerikInput:RadButton Grid.Row="1"
+                                Text="{Binding PlaceOrderButtonText, Mode=TwoWay}"  
+                                Style="{StaticResource PlaceOrderButtonStyle}"   
+                                Command="{Binding PlaceOrderCommand}"/>
+    </Grid>
+</ContentView>

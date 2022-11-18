@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:input="clr-namespace:Telerik.XamarinForms.Input.AutoComplete;assembly=Telerik.XamarinForms.Input"
+             xmlns:inputAutoCompleteView="clr-namespace:Telerik.XamarinForms.Input.AutoCompleteView;assembly=Telerik.XamarinForms.Input"
              x:Class="QSF.Examples.AutoCompleteViewControl.ConfigurationExample.ConfigurationView">
     <ContentView.Resources>
         <ResourceDictionary>
@@ -46,6 +47,7 @@
                                               SearchThreshold="{Binding ThresholdValue}"
                                               Watermark="{Binding WatermarkText}"
                                               ShowSuggestionView="{Binding ShowSuggestionView}"
+                                              SuggestionViewPosition="{Binding SuggestionViewPosition}"
                                               IsClearButtonVisible="{Binding IsClearButtonVisible}"
                                               Margin="0, 14, 0, 21"
                                               SuggestionViewHeight="180"
@@ -89,8 +91,7 @@
                 </Picker>
                 
                 <Label Text="DisplayTextFormatter" Style="{StaticResource CommonLabelStyle}"/>
-                <Picker AutomationId="DisplayTextFormatterPicker" Style="{StaticResource CommonPickerStyle}"
-                        SelectedItem="{Binding FormatterPropertyName}">
+                <Picker AutomationId="DisplayTextFormatterPicker" Style="{StaticResource CommonPickerStyle}" SelectedItem="{Binding FormatterPropertyName}">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Name</x:String>
@@ -109,7 +110,18 @@
                 
                 <Label Text="ShowSuggestionView" Style="{StaticResource CommonLabelStyle}"/>
                 <Switch AutomationId="ShowSuggestionViewSwitch" Style="{StaticResource CommonSwitchStyle}" IsToggled="{Binding ShowSuggestionView}"/>
-                
+
+                <Label Text="SuggestionViewPosition" Style="{StaticResource CommonLabelStyle}"/>
+                <Picker AutomationId="SuggestionViewPositionPicker" Style="{StaticResource CommonPickerStyle}" SelectedItem="{Binding SuggestionViewPosition}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type inputAutoCompleteView:PopupPosition}">
+                            <inputAutoCompleteView:PopupPosition>Auto</inputAutoCompleteView:PopupPosition>
+                            <inputAutoCompleteView:PopupPosition>Top</inputAutoCompleteView:PopupPosition>
+                            <inputAutoCompleteView:PopupPosition>Bottom</inputAutoCompleteView:PopupPosition>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
                 <Label Text="IsClearButtonVisible" Style="{StaticResource CommonLabelStyle}"/>
                 <Switch AutomationId="IsClearButtonVisibleSwitch" Style="{StaticResource CommonSwitchStyle}" IsToggled="{Binding IsClearButtonVisible}"/>
             </StackLayout>
