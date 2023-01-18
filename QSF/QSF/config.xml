@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R3 2022</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R1 2023</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png ; TelerikXamarin_Logo_DarkMode.png</QSFAboutImageName>
@@ -1038,7 +1038,7 @@
       <Featured>1500</Featured>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1056,7 +1056,6 @@
           <Name>Aggregates</Name>
           <Page>AggregatesView</Page>
           <DisplayName>Aggregates</DisplayName>
-          <IsNew>true</IsNew>
           <Icon>
             <Text>&#xe817;</Text>
             <LightColor>#42A5F5</LightColor>
@@ -1877,7 +1876,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -1904,6 +1903,20 @@
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/NotEmbeddingFontsExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>PermissionsAndEncryption</Name>
+          <DisplayName>Permissions &amp; Encryption</DisplayName>
+          <Icon>
+            <Text>&#xe825;</Text>
+            <LightColor>#42A5F5</LightColor>
+            <DarkColor>#42A5F5</DarkColor>
+          </Icon>
+          <DescriptionHeader>Permissions &amp; Encryption</DescriptionHeader>
+          <Description>Telerik PdfProcessing provides easy to use API which allows setting different permissions and encryption when exporting encrypted PDF documents. This example demonstrates the different settings available that could be applied to the exported document. The password will be required when trying to change the already set document permissions. The currently supported encryption algorithms when exporting encrypted documents are RC4 and AES-256.</Description>
+          <IsScenario>false</IsScenario>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/PermissionsAndEncryptionExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -2950,7 +2963,7 @@
           <DescriptionHeader>Numbering Fields</DescriptionHeader>
           <Description>This example illustrates the Numbering Fields functionality in RadWordsProcessing.</Description>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/NumberingFieldsExample</CodeURL>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
         </Example>
         <Example>
           <Name>MailMerge</Name>
@@ -2964,6 +2977,20 @@
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/MailMergeExample</CodeURL>
           <IsNew>false</IsNew>
+        </Example>
+        <Example>
+          <Name>TableOfContents</Name>
+          <DisplayName>Table of Contents</DisplayName>
+          <Icon>
+            <Text>&#xe833;</Text>
+            <LightColor>#F85446</LightColor>
+            <DarkColor>#FF7043</DarkColor>
+          </Icon>
+          <DescriptionHeader>Table of Contents</DescriptionHeader>
+          <Description>With RadWordsProcessing you can insert a Table of Contents (TOC) and/or a Table of Authorities (TOA) fields in your Docx, Rtf or PDF document. The TOC can collect entries from heading styles, other specified styles, outline levels, captions, or entries specified by TC (Table of Contents Entry) fields. The TOA collects entries marked by TA (Table of Authorities Entry) fields.</Description>
+          <IsScenario>false</IsScenario>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/TableOfContentsExample</CodeURL>
+          <IsNew>true</IsNew>
         </Example>
       </Examples>
     </Control>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.PdfProcessingControl.PermissionsAndEncryptionExample.PermissionsAndEncryptionView">
+    <ContentView.Resources>
+        <Style TargetType="Grid" x:Key="disabledStateGrid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal" />
+                            <VisualState Name="PointerOver" />
+                            <VisualState Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="primitives:RadBorder">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="BorderColor" Value="#DFDFDF" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="{OnIdiom Phone='10, 5, 15, 5', Desktop=10}" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+        </Style>
+        <Style TargetType="input:RadComboBox">
+            <Setter Property="IsEnabled" Value="{Binding IsEditingRestricted}" />
+            <Setter Property="FontSize" Value="{OnPlatform UWP=18, Default=Small}"/>
+            <Setter Property="Margin" Value="15,0,0,0"/>
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Label FontSize="{OnPlatform UWP=18, Default=Small}" Text="{Binding}" Margin="15,0,0,0"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SelectedItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Label FontSize="{OnPlatform UWP=18, Default=Small}" Text="{Binding}" Margin="15,0,0,0"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="StackLayout">
+            <Setter Property="Spacing" Value="5" />
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal" />
+                            <VisualState Name="PointerOver" />
+                            <VisualState Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LabelTitleStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Margin" Value="0, 10, 0, 5" />
+        </Style>
+        <Style TargetType="primitives:RadCheckBox">
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Margin" Value="{OnPlatform Android='-3, 0, 0, 0', Default=0}" />
+            <Setter Property="CheckedColor" Value="#A1BF3D"/>
+            <Setter Property="UncheckedColor" Value="#CCCCCC"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <Setter.Value>
+                    <VisualStateGroupList>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="Normal" />
+                            <VisualState Name="PointerOver" />
+                            <VisualState Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="input:RadEntry" x:Key="entryPasswordStyle">
+            <Setter Property="VerticalOptions" Value="Start"/>
+            <Setter Property="VerticalTextAlignment" Value="Start"/>
+            <Setter Property="FontSize" Value="{OnPlatform UWP=18, Default=Small}" />
+            <Setter Property="BorderStyle">
+                <input:BorderStyle BorderThickness="0, 0, 0, 1" BorderColor="#919191"/>
+            </Setter>
+        </Style>
+    </ContentView.Resources>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto, Auto, Auto">
+            <primitives:RadBorder>
+                <StackLayout>
+                    <Label Text="Permissions"
+                       Style="{StaticResource LabelTitleStyle}" />
+                    <StackLayout Spacing="15">
+                        <Grid ColumnDefinitions="Auto, *"
+                          ColumnSpacing="5">
+                            <primitives:RadCheckBox IsChecked="{Binding IsEditingRestricted, Mode=TwoWay}" />
+                            <Label Grid.Column="1"
+                                   Text="Restrict editing and printing of the document. A password will be required in order to change these permission settings." />
+                        </Grid>
+                        <StackLayout Spacing="15"
+                                     IsEnabled="{Binding IsEditingRestricted}">
+                            <Grid RowDefinitions="Auto, Auto"
+                              ColumnDefinitions="Auto, *"
+                              RowSpacing="5"
+                              ColumnSpacing="5" >
+                                <Label Text="Printing Allowed:" />
+                                <input:RadComboBox Grid.Column="1"
+                                               ItemsSource="{Binding PrintingPermissionTypes}"
+                                               SelectedItem="{Binding PrintingPermissionTypeSelection, Mode=TwoWay}"/>
+                                <Label Grid.Row="1" Text="Changes Allowed:" />
+                                <input:RadComboBox Grid.Row="1" 
+                                               Grid.Column="1"
+                                               ItemsSource="{Binding ChangingPermissionTypes}"
+                                               SelectedItem="{Binding ChangingPermissionTypeSelection, Mode=TwoWay}" />
+                            </Grid>
+                            <Grid RowDefinitions="Auto, Auto"
+                              ColumnDefinitions="Auto, *"
+                              RowSpacing="5"
+                              ColumnSpacing="5">
+                                <primitives:RadCheckBox IsChecked="{Binding IsCopyingRestricted, Mode=TwoWay}" />
+                                <Label Grid.Column="1" 
+                                   Text="Enable copying of text, images, and other content" />
+                                <primitives:RadCheckBox Grid.Row="1" 
+                                                    IsEnabled="{Binding IsCopyingRestricted, Converter={StaticResource InvertedBooleanConverter}}"
+                                                    IsChecked="{Binding IsAccessibilityCopyingRestricted, Mode=TwoWay}" />
+                                <Label Grid.Row="1" 
+                                   Grid.Column="1" 
+                                   Text="Enable text access for screen reading devices" />
+                            </Grid>
+                            <Grid ColumnDefinitions="Auto, *" 
+                              ColumnSpacing="10"
+                              Margin="0, 5, 0, 20">
+                                <Label Text="Set Permissions Password:" 
+                                   HorizontalOptions="Start" />
+                                <input:RadEntry x:Name="entryPassword" 
+                                            Style="{StaticResource entryPasswordStyle}"
+                                            Grid.Column="1"
+                                            Text="{Binding Password, Mode=TwoWay}"
+                                            IsEnabled="{Binding IsEditingRestricted, Mode=TwoWay}"
+                                            HorizontalOptions="{OnIdiom Phone=Fill, Desktop=Start}"
+                                            FontAttributes="None"
+                                            IsPassword="True"
+                                            WatermarkText="Enter a password" />
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </primitives:RadBorder>
+            <primitives:RadBorder Grid.Row="1">
+                <StackLayout>
+                    <Label Text="Encryption Type" 
+                           Style="{StaticResource LabelTitleStyle}" />
+                    <Grid ColumnDefinitions="Auto, *"
+                          ColumnSpacing="10"
+                          Margin="0, 5, 0, 16">
+                        <Label Text="Compatibility:" />
+                        <input:RadComboBox Grid.Column="1" 
+                                           IsEnabled="True"
+                                           ItemsSource="{Binding EncryptionTypes}"
+                                           SelectedItem="{Binding EncryptionTypeSelection}" />
+                    </Grid>
+                </StackLayout>
+            </primitives:RadBorder>
+            <input:RadButton Text="Export"
+                             Padding="20,0"
+                             HorizontalOptions="Center"
+                             BackgroundColor="#A1BF3D" 
+                             TextColor="White"
+                             Grid.Row="2"
+                             FontSize="{OnPlatform UWP=24, Default=18}"
+                             Command="{Binding ExportCommand}"/>
+        </Grid>
+    </ScrollView>
+</ContentView>

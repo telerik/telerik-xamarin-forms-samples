@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Progress Software Corporation")]
 [assembly: AssemblyProduct("QSF")]
-[assembly: AssemblyCopyright("Copyright © 2014-2022 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2014-2023 Progress Software Corporation and/or one of its subsidiaries or affiliates. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
