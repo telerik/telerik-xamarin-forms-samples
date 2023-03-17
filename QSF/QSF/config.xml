@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R1 2023</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R1 2023 SP</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png ; TelerikXamarin_Logo_DarkMode.png</QSFAboutImageName>
@@ -1902,6 +1902,7 @@
           <Description>Telerik RadPdfProcessing provides easy to use API which allows choosing whether the font files to be embedded when exporting PDF documents. This example shows the initial size of an imported document and the reduced one after removing the fonts and saving it. Disclaimer: Removing the fonts from the document makes it dependent on the operational system to provide the needed fonts. If they are not installed, the document won't be successfully opened.</Description>
           <IsScenario>false</IsScenario>
           <IsNew>false</IsNew>
+          <ExcludeFrom>UWP</ExcludeFrom>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/NotEmbeddingFontsExample</CodeURL>
         </Example>
         <Example>
@@ -1916,6 +1917,7 @@
           <Description>Telerik PdfProcessing provides easy to use API which allows setting different permissions and encryption when exporting encrypted PDF documents. This example demonstrates the different settings available that could be applied to the exported document. The password will be required when trying to change the already set document permissions. The currently supported encryption algorithms when exporting encrypted documents are RC4 and AES-256.</Description>
           <IsScenario>false</IsScenario>
           <IsNew>true</IsNew>
+          <ExcludeFrom>UWP</ExcludeFrom>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/PermissionsAndEncryptionExample</CodeURL>
         </Example>
       </Examples>
