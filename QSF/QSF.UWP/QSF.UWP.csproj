@@ -1248,6 +1248,7 @@
     <Content Include="Assets\music.scale-200.png" />
     <Content Include="Assets\music.scale-400.png" />
     <Content Include="Assets\Navigation_Back.png" />
+    <Content Include="Assets\nodata.png" />
     <Content Include="Assets\PdfProcessing_FirstLook_Screen.scale-100.png" />
     <Content Include="Assets\PdfProcessing_NotEmbeddingFonts.scale-100.png" />
     <Content Include="Assets\PdfProcessing_NotEmbeddingFonts.scale-125.png" />
