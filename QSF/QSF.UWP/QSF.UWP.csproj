@@ -1249,6 +1249,11 @@
     <Content Include="Assets\music.scale-400.png" />
     <Content Include="Assets\Navigation_Back.png" />
     <Content Include="Assets\PdfProcessing_FirstLook_Screen.scale-100.png" />
+    <Content Include="Assets\PdfProcessing_NotEmbeddingFonts.scale-100.png" />
+    <Content Include="Assets\PdfProcessing_NotEmbeddingFonts.scale-125.png" />
+    <Content Include="Assets\PdfProcessing_NotEmbeddingFonts.scale-150.png" />
+    <Content Include="Assets\PdfProcessing_NotEmbeddingFonts.scale-200.png" />
+    <Content Include="Assets\PdfProcessing_NotEmbeddingFonts.scale-400.png" />
     <Content Include="Assets\Personal_Information.scale-100.png" />
     <Content Include="Assets\Personal_Information.scale-125.png" />
     <Content Include="Assets\Personal_Information.scale-150.png" />
@@ -1668,6 +1673,21 @@
     <Content Include="Assets\WordsProcessing_FirstLook.scale-150.png" />
     <Content Include="Assets\WordsProcessing_FirstLook.scale-200.png" />
     <Content Include="Assets\WordsProcessing_FirstLook.scale-400.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage1.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage1.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage1.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage1.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage1.scale-400.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage2.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage2.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage2.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage2.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_MailMergePreviewPage2.scale-400.png" />
+    <Content Include="Assets\WordsProcessing_MailMergeThumbnail.scale-100.png" />
+    <Content Include="Assets\WordsProcessing_MailMergeThumbnail.scale-125.png" />
+    <Content Include="Assets\WordsProcessing_MailMergeThumbnail.scale-150.png" />
+    <Content Include="Assets\WordsProcessing_MailMergeThumbnail.scale-200.png" />
+    <Content Include="Assets\WordsProcessing_MailMergeThumbnail.scale-400.png" />
     <Content Include="Assets\xlsx_file.scale-100.png" />
     <Content Include="Assets\xlsx_file.scale-200.png" />
     <Content Include="Assets\xlsx_file.scale-400.png" />
@@ -1718,9 +1738,6 @@
     <PackageReference Include="Plugin.Permissions">
       <Version>6.0.1</Version>
     </PackageReference>
-    <PackageReference Include="SkiaSharp">
-      <Version>2.80.3</Version>
-    </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>2.80.3</Version>
     </PackageReference>
@@ -1744,9 +1761,6 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2083</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Plugin.FilePicker">
-      <Version>2.1.41</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

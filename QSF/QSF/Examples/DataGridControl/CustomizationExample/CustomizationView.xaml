@@ -77,6 +77,7 @@
                                  AutoGenerateColumns="false"
                                  DataOperationIndicationMode="Universal"
                                  GroupHeaderStyleSelector="{StaticResource StyleSelector}"
+                                 RowHeight="50"
                                  GridLinesColor="{AppThemeBinding Light=#DDE0E3, Dark=#686869}"
                                  GridLinesVisibility="Both">
         <telerikDataGrid:RadDataGrid.AlternateRowBackgroundStyle>
@@ -122,7 +123,7 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal" InputTransparent="True">
                             <Image Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}"
-                                           Margin="10, 10, 10, 10"    
+                                           Margin="10, 5, 10, 5"    
                                            VerticalOptions="Center"
                                            Aspect="AspectFit"
                                            WidthRequest="40" 

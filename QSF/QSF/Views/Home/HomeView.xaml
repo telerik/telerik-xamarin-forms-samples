@@ -270,14 +270,17 @@
                                Text="{Binding CurrentAppThemeModeText, Mode=TwoWay}"
                                Style="{StaticResource RoundButtonTextStyle}"
                                IsVisible="{Binding IsDarkModeSupported}"
+                               AutomationId="ThemeModeLabel"
                                Margin="18, 0, 0, 0"/>
                         <telerikInput:RadButton Grid.Column="1"
                                                 Command="{Binding NavigateToSampleAppsPageCommand}"
-                                                Style="{StaticResource SampleAppsRoundButtonStyle}" />
+                                                Style="{StaticResource SampleAppsRoundButtonStyle}" 
+                                                AutomationId="SampleAppsButton"/>
                         <Label Grid.Column="1"
                                Text="{Binding NavigateToSampleAppsText}"
                                TextColor="{AppThemeBinding Light=White, Dark=#121212}"
-                               Style="{StaticResource RoundButtonTextStyle}"/>
+                               Style="{StaticResource RoundButtonTextStyle}"
+                               AutomationId="SampleAppsLabel"/>
                     </Grid>
                 </Grid>
             </telerikPrimitives:RadSideDrawer.MainContent>

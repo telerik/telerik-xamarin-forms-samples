@@ -83,7 +83,7 @@ The Telerik To-Do application is a showcase app demonstrating real-world usage o
 The app scenario is about organizing notes, ideas, thoughts without losing focus.
 
 - Create notes.
-- Organize notes into categories.
+- Organize notes into categories. 
 - View your notes in card and linear view.
 - Search notes.
 

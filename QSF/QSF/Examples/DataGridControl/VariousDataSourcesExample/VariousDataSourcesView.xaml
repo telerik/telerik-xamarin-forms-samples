@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikDataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.DataGridControl.VariousDataSourcesExample.VariousDataSourcesView">
+    <Grid RowDefinitions="Auto, *">
+        <Grid RowDefinitions="Auto" ColumnDefinitions="*, Auto, Auto" BackgroundColor="#0E88F2">
+            <Label Grid.Column="1" Text="Choose DataSource type:" VerticalOptions="Center" TextColor="#FFFFFF">
+                <Label.Margin>
+                    <OnPlatform  x:TypeArguments="Thickness">
+                        <On Platform="iOS, UWP">0</On>
+                        <On Platform="Android">0, 0, 0, 4</On>
+                    </OnPlatform>
+                </Label.Margin>
+            </Label>
+            <telerikInput:RadComboBox Grid.Column="2"                                     
+                                      SelectedItem="{Binding DatasourceType, Mode=TwoWay}"
+                                      FontSize="{OnPlatform Android=Small, iOS=Default, UWP=14}"
+                                      BackgroundColor="#FFFFFF" 
+                                      TextColor="#000000"                                                                            
+                                      WidthRequest="140"
+                                      Margin="9"
+                                      IsClearButtonVisible="False"
+                                      DropDownHeight="100">
+                <telerikInput:RadComboBox.DropDownButtonStyle>
+                    <Style TargetType="Button">
+                        <Setter Property="TextColor" Value="#5E5E5E" />
+                    </Style>
+                </telerikInput:RadComboBox.DropDownButtonStyle>
+                <telerikInput:RadComboBox.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Data Table</x:String>
+                        <x:String>Collection</x:String>
+                    </x:Array>
+                </telerikInput:RadComboBox.ItemsSource>
+            </telerikInput:RadComboBox>     
+        </Grid>
+        <telerikDataGrid:RadDataGrid x:Name="dataGrid"
+                                    Grid.Row="1"
+                                    RowHeight="46"
+                                    ItemsSource="{Binding Items}"
+                                    AutoGenerateColumns="false">
+            <telerikDataGrid:RadDataGrid.Columns>              
+                <telerikDataGrid:DataGridTextColumn PropertyName="FullName" HeaderText="Sales Person">
+                    <telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                        <AppThemeBinding>
+                            <AppThemeBinding.Light>
+                                <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10" />
+                            </AppThemeBinding.Light>
+                            <AppThemeBinding.Dark>
+                                <telerikDataGrid:DataGridTextCellStyle TextColor="Default" TextMargin="10, 10, 7, 10"  />
+                            </AppThemeBinding.Dark>
+                        </AppThemeBinding>
+                    </telerikDataGrid:DataGridTextColumn.CellContentStyle>               
+                </telerikDataGrid:DataGridTextColumn>
+                <telerikDataGrid:DataGridNumericalColumn PropertyName="Sales" HeaderText="Sales ($)" CellContentFormat="$ {0}">
+                    <telerikDataGrid:DataGridTextColumn.CellContentStyle>
+                        <AppThemeBinding>
+                            <AppThemeBinding.Light>
+                                <telerikDataGrid:DataGridTextCellStyle TextColor="#656565" TextMargin="10, 10, 7, 10"  />
+                            </AppThemeBinding.Light>
+                            <AppThemeBinding.Dark>
+                                <telerikDataGrid:DataGridTextCellStyle TextColor="Default" TextMargin="10, 10, 7, 10" />
+                            </AppThemeBinding.Dark>
+                        </AppThemeBinding>
+                    </telerikDataGrid:DataGridTextColumn.CellContentStyle>                    
+                </telerikDataGrid:DataGridNumericalColumn>
+            </telerikDataGrid:RadDataGrid.Columns>
+        </telerikDataGrid:RadDataGrid>
+    </Grid>
+</ContentView>

@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             mc:Ignorable="d"
+             x:Class="QSF.Examples.WordsProcessingControl.TableOfContentsExample.TableOfContentsView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="input:RadEntry" x:Key="entryStyle">
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="WidthRequest">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android, iOS">270</On>
+                        <On Platform="UWP">300</On>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="BorderStyle">
+                    <input:BorderStyle BorderThickness="0, 0, 0, 1" BorderColor="#919191"/>
+                </Setter>
+            </Style>
+
+            <Style x:Key="checkBoxLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=Default, Light=Black}" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="boldLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="0, 10, 0, 24" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=Default, Light=Black}" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+
+            <Style TargetType="telerikPrimitives:RadCheckBox">
+                <Setter Property="UncheckedColor" Value="#CCCCCC" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="CheckedColor" Value="#A1BF3D" />
+                <Setter Property="Margin" Value="10, 0, 0, 0" />
+            </Style>
+
+            <Style TargetType="input:RadButton">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="CornerRadius">
+                    <OnPlatform x:TypeArguments="x:Int32">
+                        <On Platform="Android, iOS">22</On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
+            <Style TargetType="telerikPrimitives:TabViewHeaderItem">
+                <Setter Property="SelectedColor" Value="{AppThemeBinding Dark=#A1BF3D, Light=#637626}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+            <Grid BackgroundColor="{AppThemeBinding Dark=Black, Light=#F0F0F0}" 
+                      HeightRequest="135"
+                      Margin="0, 0, 0, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="End"
+                                 Margin="0, 0, 0, 21"                                 >
+                    <Label Text="File:"
+                               FontAttributes="Bold" 
+                               FontSize="Small" 
+                               TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                               />
+                    <Label Text="{Binding FileName}" FontSize="Small"/>
+                </StackLayout>
+
+                <input:RadButton Grid.Row="1" 
+                                     BackgroundColor="Transparent"
+                                     Text="Load Document" 
+                                     TextColor="#A1BF3D"
+                                     Command="{Binding LoadSampleCommand}" 
+                                     BorderColor="#A1BF3D"
+                                     BorderWidth="2"
+                                     />
+            </Grid>
+
+            <telerikPrimitives:RadTabView Margin="13,0,13,0">
+                <telerikPrimitives:RadTabView.Header>
+                    <telerikPrimitives:TabViewHeader BackgroundColor="{AppThemeBinding Dark=#373737, Light=#80E0E0E0}"/>
+                </telerikPrimitives:RadTabView.Header>
+                <telerikPrimitives:RadTabView.Items>
+                    <telerikPrimitives:TabViewItem HeaderText="Table of Contents">
+                        <telerikPrimitives:TabViewItem.Content>
+                            <StackLayout Orientation="Vertical" 
+                             Margin="10, 0, 10, 0">
+
+                                <Label Style="{StaticResource boldLabel}" Text="Insert a Table of Contents by selecting one or more of the following properties:"/>
+
+                                <Grid ColumnDefinitions="2*,*" Margin="0, 0, 0, 24">
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <telerikPrimitives:RadCheckBox UncheckedColor="#CCCCCC"
+                                                       CheckedColor="#A1BF3D"
+                                                       IsChecked="{Binding IncludeHeadings}"
+                                                       HorizontalOptions="Center"/>
+                                        <Label Text="Include Headings" Style="{StaticResource checkBoxLabel}"/>
+                                    </StackLayout>
+
+                                    <input:RadEntry Grid.Column="1" Text="{Binding HeadingLevel}" Style="{StaticResource entryStyle}"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="2*,*" Margin="0, 0, 0, 24">
+                                    <StackLayout Orientation="Horizontal">
+                                        <telerikPrimitives:RadCheckBox UncheckedColor="#CCCCCC"
+                                                       CheckedColor="#A1BF3D"
+                                                       IsChecked="{Binding IncludeTcFields}"
+                                                       HorizontalOptions="Center" />
+                                        <Label Text="Include TC Fields" Style="{StaticResource checkBoxLabel}"/>
+                                    </StackLayout>
+                                    <input:RadEntry Grid.Column="1" Text="{Binding TcLevel}" Style="{StaticResource entryStyle}"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="2*,*" Margin="0, 0, 0, 35">
+                                    <StackLayout Orientation="Horizontal">
+                                        <telerikPrimitives:RadCheckBox UncheckedColor="#CCCCCC"
+                                                       CheckedColor="#A1BF3D"
+                                                       IsChecked="{Binding IncludeCaptions}"
+                                                       HorizontalOptions="Center"/>
+                                        <Label Text="Include Captions" Style="{StaticResource checkBoxLabel}"/>
+                                    </StackLayout>
+                                    <input:RadEntry Grid.Column="1" Text="{Binding Caption}" Style="{StaticResource entryStyle}"/>
+                                </Grid>
+
+                                <input:RadButton Margin="0, 0, 0, 24"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#A1BF3D"
+                                    BorderColor="#A1BF3D"
+                                    BorderWidth="2"
+                                    Text="Insert TOC" 
+                                    Command="{Binding InsertAndUpdateTocFieldsCommand}" 
+                                    VerticalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                    <telerikPrimitives:TabViewItem HeaderText="Table of Authorities">
+                        <telerikPrimitives:TabViewItem.Content>
+                            <StackLayout Orientation="Vertical" 
+                             Margin="10, 0, 10, 0">
+                                <StackLayout.HorizontalOptions>
+                                    <OnPlatform x:TypeArguments="LayoutOptions">
+                                        <On Platform="UWP">Center</On>
+                                    </OnPlatform>
+                                </StackLayout.HorizontalOptions>
+
+                                <Label Style="{StaticResource boldLabel}" Text="Insert a Table of Authorities by selecting one or more of the following properties:"/>
+
+                                <Grid ColumnDefinitions="2*,*" Margin="10, 0, 0, 24">
+                                    <Label Text="TA Field level:" Style="{StaticResource checkBoxLabel}"/>
+                                    <input:RadEntry Grid.Column="1" Text="{Binding CategoryLevel}" Style="{StaticResource entryStyle}"/>
+                                </Grid>
+
+                                <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 35">
+                                    <telerikPrimitives:RadCheckBox UncheckedColor="#CCCCCC"
+                                                       CheckedColor="#A1BF3D"
+                                                       IsChecked="{Binding IncludeCategoryHeader}"
+                                                       HorizontalOptions="Center"/>
+                                    <Label Text="Include Category Header" Style="{StaticResource checkBoxLabel}"/>
+                                </StackLayout>
+
+                                <input:RadButton Margin="0, 0, 0, 24"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#A1BF3D"
+                                    BorderColor="#A1BF3D"
+                                    BorderWidth="2"
+                                    Text="Insert TOA" 
+                                    Command="{Binding InsertAndUpdateToaFieldsCommand}" 
+                                    VerticalOptions="EndAndExpand"/>
+
+                            </StackLayout>
+                        </telerikPrimitives:TabViewItem.Content>
+                    </telerikPrimitives:TabViewItem>
+                </telerikPrimitives:RadTabView.Items>
+            </telerikPrimitives:RadTabView>
+
+            <StackLayout Margin="13,0,13,30" Spacing="10" Orientation="Horizontal">
+                <Label Text="Export to: " 
+                           VerticalTextAlignment="Center" 
+                           FontAttributes="Bold"/>
+                <input:RadComboBox Margin="2" 
+                                   x:Name="exportCombox" 
+                                   FontSize="Small"
+                                   ItemsSource="{Binding ExportFormats, Mode=OneTime}"
+                                   SelectedItem="{Binding SelectedExportFormat, Mode=OneWayToSource}"
+                                   WidthRequest ="160"/>
+                <input:RadButton Margin="2"
+                                 BackgroundColor="#A1BF3D" 
+                                 Text="Export" 
+                                 TextColor="White"
+                                 Command="{Binding ExportCommand}" 
+                                 WidthRequest="100"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

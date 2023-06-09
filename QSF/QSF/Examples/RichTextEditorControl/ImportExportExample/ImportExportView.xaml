@@ -41,8 +41,8 @@
                     </DataTemplate>
                 </telerikRichTextEditor:PickerToolbarItem.ItemTemplate>
             </telerikRichTextEditor:PickerToolbarItem>
-            <telerikRichTextEditor:UndоToolbarItem HorizontalOptions="Center" />
-            <telerikRichTextEditor:RedоToolbarItem HorizontalOptions="Center" />
+            <telerikRichTextEditor:UndoToolbarItem HorizontalOptions="Center" />
+            <telerikRichTextEditor:RedoToolbarItem HorizontalOptions="Center" />
             <telerikRichTextEditor:RichTextEditorToolbarItem FontFamily="{StaticResource IconsFont}"
                                                              Text="{StaticResource ShareIcon}"
                                                              Command="{Binding ShareCommand}" 

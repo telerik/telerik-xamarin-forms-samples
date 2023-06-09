@@ -129,6 +129,7 @@
                                                     MaximumDate="{Binding EndDate}"
                                                     Date="{Binding PickUpDate, Mode=TwoWay}"
                                                     Style="{StaticResource DefaultDateTimePickerStyle}"
+                                                    IsLooping="{Binding BindingContext.IsLooping, Source={x:Reference pageContent}}"
                                                     TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}"
                                                     TabStripStyle="{StaticResource TabViewHeaderStyle}"
                                                     SpinnerStyle="{StaticResource DefaultSpinnerStyle}">
@@ -148,6 +149,7 @@
                                                     MaximumDate="{Binding EndDate}"
                                                     Date="{Binding DropOffDate, Mode=TwoWay}"
                                                     Style="{StaticResource DefaultDateTimePickerStyle}"
+                                                    IsLooping="{Binding BindingContext.IsLooping, Source={x:Reference pageContent}}"
                                                     TabStripItemStyle="{StaticResource DefaultTabStripItemStyle}"
                                                     TabStripStyle="{StaticResource TabViewHeaderStyle}"
                                                     SpinnerStyle="{StaticResource DefaultSpinnerStyle}">

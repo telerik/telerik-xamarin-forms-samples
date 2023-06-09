@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikPdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="QSF.Examples.PdfViewerControl.SaveSharePdfExample.SaveSharePdfView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="LightColor">#007AFF</Color>
+            <Color x:Key="DarkColor">#0A84FF</Color>
+            <Style TargetType="telerikPrimitives:RadBusyIndicator">
+                <Setter Property="AnimationContentColor" Value="{AppThemeBinding Light={StaticResource LightColor}, Dark={StaticResource DarkColor}}" />
+            </Style>
+            <Style TargetType="telerikPrimitives:ToolbarItem" ApplyToDerivedTypes="True">
+                <Setter Property="FontSize" Value="{OnPlatform Android='18', Default='20'}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightColor}, Dark={StaticResource DarkColor}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <telerikPdfViewer:RadPdfViewer x:Name="pdfViewer"
+                                       Document="{Binding Document, Mode=OneWayToSource}" />
+        <telerikPdfViewer:RadPdfViewerToolbar PdfViewer="{Binding Source={x:Reference pdfViewer}}"
+                                              Grid.Row="1">
+            <telerikPdfViewer:NavigateToPreviousPageToolbarItem/>
+            <telerikPdfViewer:NavigateToNextPageToolbarItem/>
+            <telerikPdfViewer:PdfViewerToolbarItemBase FontFamily="{StaticResource IconsFont}"
+                                                       Text="{StaticResource ShareIcon}" 
+                                                       Command="{Binding ShareDocumentCommand}" />
+            <telerikPdfViewer:PdfViewerToolbarItemBase FontFamily="{StaticResource IconsFont}"
+                                                       Text="{StaticResource SaveIcon}"
+                                                       Command="{Binding SaveDocumentCommand}" />
+        </telerikPdfViewer:RadPdfViewerToolbar>
+    </Grid>
+</ContentView>

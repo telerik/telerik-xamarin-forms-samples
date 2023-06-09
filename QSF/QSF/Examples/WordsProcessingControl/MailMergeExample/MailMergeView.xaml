@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:local="clr-namespace:QSF.Effects"
+             x:Class="QSF.Examples.WordsProcessingControl.MailMergeExample.MailMergeView">
+    <ContentView.Resources>
+        <ResourceDictionary>       
+            <Style TargetType="telerikPrimitives:TabViewHeaderItem">
+                <Setter Property="SelectedColor" Value="{AppThemeBinding Dark=#A1BF3D, Light=#637626}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid RowDefinitions="*, Auto" RowSpacing="30">
+        <telerikPrimitives:RadTabView>
+            <telerikPrimitives:RadTabView.Header>
+                <telerikPrimitives:TabViewHeader BackgroundColor="{AppThemeBinding Dark=#373737, Light=#80E0E0E0}" />
+            </telerikPrimitives:RadTabView.Header>
+            <telerikPrimitives:RadTabView.Items>
+                <telerikPrimitives:TabViewItem HeaderText="Email Template">
+                    <telerikPrimitives:TabViewItem.Content>
+                        <StackLayout Margin="10">
+                            <Image>
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS,Android">WordsProcessing_MailMergeThumbnail</On>
+                                        <On Platform="UWP">Assets\WordsProcessing_MailMergeThumbnail.png</On>
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                        </StackLayout>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem HeaderText="Preview Page 1">
+                    <telerikPrimitives:TabViewItem.Content>
+                        <StackLayout Margin="10">
+                            <Image>
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS,Android">WordsProcessing_MailMergePreviewPage1</On>
+                                        <On Platform="UWP">Assets\WordsProcessing_MailMergePreviewPage1.png</On>
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                        </StackLayout>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+                <telerikPrimitives:TabViewItem HeaderText="Preview Page 2">
+                    <telerikPrimitives:TabViewItem.Content>
+                        <StackLayout Margin="10">
+                            <Image>
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="iOS,Android">WordsProcessing_MailMergePreviewPage2</On>
+                                        <On Platform="UWP">Assets\WordsProcessing_MailMergePreviewPage2.png</On>
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                        </StackLayout>
+                    </telerikPrimitives:TabViewItem.Content>
+                </telerikPrimitives:TabViewItem>
+            </telerikPrimitives:RadTabView.Items>
+        </telerikPrimitives:RadTabView>
+        <StackLayout Margin="0, 0, 0, 16"
+                     Grid.Row="1">
+            <Label Text="Export to:"
+                       TextColor="{AppThemeBinding Dark=Default, Light=Black}"
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center"
+                       FontSize="Medium"
+                       Margin="0, 0, 0, 8" />
+            <Grid HeightRequest="44" 
+                      Margin="37, 0, 37, 50"
+                      HorizontalOptions="CenterAndExpand"
+                      WidthRequest="300">
+                <Label Text="&#xE80D;" 
+                           FontFamily="{StaticResource IconsFont}" 
+                           TextColor="#919191"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Center"
+                           Margin="0, 0, 10, 0">
+                    <Label.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="UWP">false</On>
+                            <On Platform="Android, iOS">true</On>
+                        </OnPlatform>
+                    </Label.IsVisible>
+                </Label>
+                <BoxView Color="#CCCCCC" 
+                             WidthRequest="300"
+                             HeightRequest="1"
+                             VerticalOptions="End" 
+                             HorizontalOptions="CenterAndExpand">
+                    <BoxView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="Android, UWP">false</On>
+                            <On Platform="iOS">true</On>
+                        </OnPlatform>
+                    </BoxView.IsVisible>
+                </BoxView>
+                <Picker HorizontalOptions="CenterAndExpand"
+                        WidthRequest="300"
+                        TextColor="#919191"
+                        FontSize="Small"
+                        ItemsSource="{Binding ExportFormats}"
+                        SelectedItem="{Binding SelectedExportFormat, Mode=TwoWay}">
+                    <Picker.Effects>
+                        <local:PickerEffect/>
+                    </Picker.Effects>
+                </Picker>
+            </Grid>
+            <telerikInput:RadButton BackgroundColor="#A1BF3D" 
+                                     Text="Mail Merge" 
+                                     TextColor="#FFFFFF"
+                                     FontSize="Small"
+                                     FontAttributes="Bold"
+                                     Command="{Binding Path=MailMergeCommand}" 
+                                     HeightRequest="44"
+                                     WidthRequest="160"                                                              
+                                     VerticalOptions="EndAndExpand"
+                                     HorizontalOptions="Center"
+                                     Margin="0, 0, 0, 10">
+                <telerikInput:RadButton.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Int32">
+                        <On Platform="Android, iOS">22</On>
+                        <On Platform="UWP">0</On>
+                    </OnPlatform>
+                </telerikInput:RadButton.CornerRadius>
+            </telerikInput:RadButton>
+        </StackLayout>
+    </Grid>
+</ContentView>

@@ -1,21 +1,24 @@
-﻿using System.Threading.Tasks;
-using Plugin.FilePicker;
+﻿using System;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace QSF.Services
 {
     public class FilePickerService : IFilePickerService
     {
-        public async Task<IFilePickerEntry> PickFileAsync()
+        public async Task<FileResult> PickFileAsync()
         {
-            var filePicker = CrossFilePicker.Current;
-            var fileData = await filePicker.PickFile();
-
-            if (fileData == null)
+            FileResult result;
+            try
             {
-                return null;
+                result = await FilePicker.PickAsync(PickOptions.Default);
+            }
+            catch (Exception ex)
+            {
+                result = null;
             }
 
-            return new FilePickerEntry(fileData);
+            return result;
         }
     }
 }
