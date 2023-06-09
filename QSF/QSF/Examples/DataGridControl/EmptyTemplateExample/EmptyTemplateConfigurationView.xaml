@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="QSF.Examples.DataGridControl.EmptyTemplateExample.EmptyTemplateConfigurationView">
+    <StackLayout>
+        <Label Text="Items Source:" />
+        <StackLayout Orientation="Horizontal">
+            <telerikPrimitives:RadCheckBox IsChecked="{Binding UseNullSource}" />
+            <Label Text="Null" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <telerikPrimitives:RadCheckBox IsChecked="{Binding UseEmptyCollectionSource}" />
+            <Label Text="Empty collection" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <telerikPrimitives:RadCheckBox IsChecked="{Binding UseNonEmptyCollectionSource}" />
+            <Label Text="Non-empty collection" />
+        </StackLayout>
+        <StackLayout>
+            <Label Text="Empty Content Display Mode:" />
+            <telerikInput:RadComboBox ItemsSource="{Binding EmptyContentDisplayModes}"
+                                      SelectedItem="{Binding EmptyContentDisplayMode, Mode=TwoWay}">
+                <telerikInput:RadComboBox.DropDownHeight>
+                    <OnPlatform x:TypeArguments="x:Double" Default="72">
+                        <On Platform="Android" Value="64"/>
+                    </OnPlatform>
+                </telerikInput:RadComboBox.DropDownHeight>
+            </telerikInput:RadComboBox>
+        </StackLayout>
+    </StackLayout>
+</ContentView>

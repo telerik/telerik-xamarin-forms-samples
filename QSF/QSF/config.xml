@@ -3,7 +3,7 @@
   <HomePageTitle>Xamarin</HomePageTitle>
   <HomePageTitleIcon>Logo.png</HomePageTitleIcon>
   <SideDrawerHeaderTitle>Telerik UI for Xamarin</SideDrawerHeaderTitle>
-  <SideDrawerSubHeaderTitle>R1 2023 SP</SideDrawerSubHeaderTitle>
+  <SideDrawerSubHeaderTitle>R2 2023</SideDrawerSubHeaderTitle>
   <SideDrawerHeaderIcon>Logo_SD.png</SideDrawerHeaderIcon>
   <QSFAboutHeader>Overview</QSFAboutHeader>
   <QSFAboutImageName>TelerikXamarin_Logo.png ; TelerikXamarin_Logo_DarkMode.png</QSFAboutImageName>
@@ -936,19 +936,6 @@
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/TravelAssistanceExample</CodeURL>
         </Example>
         <Example>
-          <Name>HealthCareAssistance</Name>
-          <DisplayName>Healthcare Assistance</DisplayName>
-          <Icon>
-            <Text>&#xe813;</Text>
-            <LightColor>#FFAC3E</LightColor>
-            <DarkColor>#FFA726</DarkColor>
-          </Icon>
-          <DescriptionHeader>Healthcare Assistance</DescriptionHeader>
-          <Description>This example demonstrates a possible implementation of the RadChat control for a health insurance company by integrating it with the Microsoft Bot Framework via Azure Bot Service.</Description>
-          <IsScenario>false</IsScenario>
-          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/ConversationalUIControl/HealthCareAssistanceExample</CodeURL>
-        </Example>
-        <Example>
           <Name>ChatRoom</Name>
           <DisplayName>Chat Room</DisplayName>
           <Icon>
@@ -1038,7 +1025,7 @@
       <Featured>1500</Featured>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>false</IsUpdated>
+      <IsUpdated>true</IsUpdated>
       <Examples>
         <Example>
           <Name>FirstLook</Name>
@@ -1128,6 +1115,20 @@
           <IsNew>false</IsNew>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/VariousDataSourcesExample</CodeURL>
+        </Example>
+        <Example>
+          <Name>EmptyTemplate</Name>
+          <Icon>
+            <Text>&#xe817;</Text>
+            <LightColor>#42A5F5</LightColor>
+            <DarkColor>#42A5F5</DarkColor>
+          </Icon>
+          <DescriptionHeader>Empty Template</DescriptionHeader>
+          <Description>Demonstrates the ability of the DataGrid to specify and show a custom template when the ItemsSource is null or an empty collection is provided.</Description>
+          <IsScenario>false</IsScenario>
+          <IsThemable>false</IsThemable>
+          <IsNew>true</IsNew>
+          <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/DataGridControl/EmptyTemplateExample</CodeURL>
         </Example>
       </Examples>
     </Control>
@@ -1876,7 +1877,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -1916,7 +1917,7 @@
           <DescriptionHeader>Permissions &amp; Encryption</DescriptionHeader>
           <Description>Telerik PdfProcessing provides easy to use API which allows setting different permissions and encryption when exporting encrypted PDF documents. This example demonstrates the different settings available that could be applied to the exported document. The password will be required when trying to change the already set document permissions. The currently supported encryption algorithms when exporting encrypted documents are RC4 and AES-256.</Description>
           <IsScenario>false</IsScenario>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
           <ExcludeFrom>UWP</ExcludeFrom>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/PdfProcessingControl/PermissionsAndEncryptionExample</CodeURL>
         </Example>
@@ -2911,7 +2912,7 @@
       <IsNew>false</IsNew>
       <IsCTP>false</IsCTP>
       <IsBeta>false</IsBeta>
-      <IsUpdated>true</IsUpdated>
+      <IsUpdated>false</IsUpdated>
       <IsThemable>false</IsThemable>
       <Examples>
         <Example>
@@ -2992,7 +2993,7 @@
           <Description>With RadWordsProcessing you can insert a Table of Contents (TOC) and/or a Table of Authorities (TOA) fields in your Docx, Rtf or PDF document. The TOC can collect entries from heading styles, other specified styles, outline levels, captions, or entries specified by TC (Table of Contents Entry) fields. The TOA collects entries marked by TA (Table of Authorities Entry) fields.</Description>
           <IsScenario>false</IsScenario>
           <CodeURL>https://github.com/telerik/telerik-xamarin-forms-samples/tree/master/QSF/QSF/Examples/WordsProcessingControl/TableOfContentsExample</CodeURL>
-          <IsNew>true</IsNew>
+          <IsNew>false</IsNew>
         </Example>
       </Examples>
     </Control>
