@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>QSF</AssemblyName>
@@ -246,6 +246,12 @@
     <Compile Update="Examples\DataGridControl\AggregatesExample\AggregatesView.xaml.cs">
       <DependentUpon>AggregatesView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Examples\DataGridControl\EmptyTemplateExample\EmptyTemplateView.xaml.cs">
+      <DependentUpon>EmptyTemplateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\DataGridControl\EmptyTemplateExample\EmptyTemplateConfigurationView.xaml.cs">
+      <DependentUpon>EmptyTemplateConfigurationView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Examples\DateTimePickerControl\CustomizationExample\CustomizationView.xaml.cs">
       <DependentUpon>CustomizationView.xaml</DependentUpon>
     </Compile>
@@ -411,9 +417,6 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Examples\ConversationalUIControl\ChatRoomExample\ChatRoomView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-    <None Update="Examples\ConversationalUIControl\HealthCareAssistanceExample\HealthCareAssistanceView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Examples\ConversationalUIControl\TravelAssistanceExample\TravelAssistanceView.xaml">

@@ -1599,7 +1599,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="QSF\Droid\" />
-    <Folder Include="Resources\values-night\" />
+	<Folder Include="Resources\values-night\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Config_Text.png" />
@@ -1657,6 +1657,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\PdfProcessing_NotEmbeddingFonts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\nodata.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
