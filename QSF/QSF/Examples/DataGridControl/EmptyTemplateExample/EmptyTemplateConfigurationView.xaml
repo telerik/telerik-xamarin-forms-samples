@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
@@ -23,8 +23,8 @@
             <telerikInput:RadComboBox ItemsSource="{Binding EmptyContentDisplayModes}"
                                       SelectedItem="{Binding EmptyContentDisplayMode, Mode=TwoWay}">
                 <telerikInput:RadComboBox.DropDownHeight>
-                    <OnPlatform x:TypeArguments="x:Double" Default="72">
-                        <On Platform="Android" Value="64"/>
+                    <OnPlatform x:TypeArguments="x:Double" Default="96">
+                        <On Platform="UWP" Value="64" />
                     </OnPlatform>
                 </telerikInput:RadComboBox.DropDownHeight>
             </telerikInput:RadComboBox>
