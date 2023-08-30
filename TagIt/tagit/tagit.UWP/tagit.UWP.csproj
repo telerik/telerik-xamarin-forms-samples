@@ -47,7 +47,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>4de650aeaec72aab5e83fbd3dd50c9caa2731243</PackageCertificateThumbprint>
     <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
@@ -72,7 +72,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>4de650aeaec72aab5e83fbd3dd50c9caa2731243</PackageCertificateThumbprint>
     <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -97,7 +97,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <PackageCertificateThumbprint>558F56D528A304EFF1BEF3EFC90E507FEE0B3A39</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>4de650aeaec72aab5e83fbd3dd50c9caa2731243</PackageCertificateThumbprint>
     <Use64BitCompiler>true</Use64BitCompiler>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppStore|ARM'">
