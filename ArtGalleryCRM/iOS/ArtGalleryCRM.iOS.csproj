@@ -103,7 +103,7 @@
       <Version>1.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
-    <PackageReference Include="SkiaSharp" Version="2.80.3" />
+    <PackageReference Include="SkiaSharp" Version="2.88.6" />
     <PackageReference Include="SkiaSharp.Views " Version="2.80.3" />
     <PackageReference Include="SkiaSharp.Views.Forms " Version="2.80.3" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
