@@ -85,7 +85,10 @@ namespace tagit.Droid.Services
 
             var images = new List<LocalFileInformation>();
 
-            if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.LollipopMr1 && !await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
+            if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.LollipopMr1 &&
+                Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Tiramisu &&
+                !await tagit.Droid.Permissions.PermissionsHelper.RequestStorageAccess())
+
             {
                 tcs.SetResult(images);
 
