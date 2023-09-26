@@ -12,7 +12,7 @@
 
         // External training lab APIs for tagging and saving images locally
         public static string TaggingServiceUrl = "http://tagit-webapi.azurewebsites.net/api/tagit";
-        public static string SampleImagesUrl = "https://tagitappstorage.blob.core.windows.net/tagit-sample-images/";
+        public static string SampleImagesUrl = "https://xamarintagitstorage.blob.core.windows.net/tagit-sample-images/";
 
         // THIS NUMBER IS THE COMPUTER VISION UPPER LIMIT
         public static ulong ImageSizeLimit = 4194304;
